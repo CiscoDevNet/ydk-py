@@ -179,32 +179,32 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
     .. attribute:: csbradiusstatstable
     
     	This table has the reporting statistics of various RADIUS messages for RADIUS servers with which the client (SBC) shares a secret. Each entry in this table is identified by a  value of csbRadiusStatsEntIndex. The other indices of this table are csbCallStatsInstanceIndex defined in  csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
-    	**type**\:  :py:class:`Csbradiusstatstable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.Csbradiusstatstable>`
+    	**type**\:  :py:class:`CsbRadiusStatsTable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.CsbRadiusStatsTable>`
     
     .. attribute:: csbrfbillrealmstatstable
     
     	This table describes the Rf billing statistics information which monitors the messages sent per\-realm by Rf billing  manager(SBC). SBC sends Rf billing data using Diameter as a transport protocol. Rf billing uses only ACR and ACA Diameter messages for the transport of billing data. The Accounting\-Record\-Type AVP on the ACR message labels the type  of the accounting request. The following types are used by Rf billing. 1.   For session\-based charging, the types Start (session begins), Interim (session is modified) and Stop (session ends) are used. 2.   For event\-based charging, the type Event is used when a chargeable event occurs outside the scope of a session.  Each row of this table is identified by a value of csbRfBillRealmStatsIndex and csbRfBillRealmStatsRealmName. The other indices of this table are csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable and  csbCallStatsServiceIndex defined in csbCallStatsTable
-    	**type**\:  :py:class:`Csbrfbillrealmstatstable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.Csbrfbillrealmstatstable>`
+    	**type**\:  :py:class:`CsbRfBillRealmStatsTable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.CsbRfBillRealmStatsTable>`
     
     .. attribute:: csbsipmthdcurrentstatstable
     
     	This table reports count of SIP request and various SIP responses  for each SIP method on a SIP adjacency in a given interval. Each entry in this table represents a SIP method, its incoming and outgoing count, individual incoming and outgoing  count of various SIP responses for this method on a SIP adjacency in a given interval. To understand the meaning of  interval please refer <Periodic Statistics> section in  description of ciscoSbcStatsMIB.   This table is indexed on csbSIPMthdCurrentStatsAdjName, csbSIPMthdCurrentStatsMethod and  csbSIPMthdCurrentStatsInterval. The other indices of this table are csbCallStatsInstanceIndex defined in  csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
-    	**type**\:  :py:class:`Csbsipmthdcurrentstatstable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdcurrentstatstable>`
+    	**type**\:  :py:class:`CsbSIPMthdCurrentStatsTable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdCurrentStatsTable>`
     
     .. attribute:: csbsipmthdhistorystatstable
     
     	This table provide historical count of SIP request and various SIP responses for each SIP method on a SIP adjacency in various interval length defined by the csbSIPMthdHistoryStatsInterval object. Each entry in this table represents a SIP method, its incoming and outgoing count, individual incoming and outgoing  count of various SIP responses for this method on a SIP adjacency in a given interval. The possible values of interval will be previous 5 minutes, previous 15 minutes, previous 1 hour and previous day. To understand the meaning of interval please refer <Periodic Statistics> description of ciscoSbcStatsMIB. This table is indexed on csbSIPMthdHistoryStatsAdjName, csbSIPMthdHistoryStatsMethod and  csbSIPMthdHistoryStatsInterval. The other indices of this table are csbCallStatsInstanceIndex defined in  csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
-    	**type**\:  :py:class:`Csbsipmthdhistorystatstable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdhistorystatstable>`
+    	**type**\:  :py:class:`CsbSIPMthdHistoryStatsTable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdHistoryStatsTable>`
     
     .. attribute:: csbsipmthdrccurrentstatstable
     
     	This table reports SIP method request and response code statistics for each method and response code combination on given SIP adjacency in a given interval. To understand the  meaning of interval please refer <Periodic Statistics> section in description of ciscoSbcStatsMIB. An exact lookup will return a row only  if \- 1) detailed response code statistics are turned on in SBC 2) response code  messages sent or received is non zero for     given SIP adjacency, method and interval. Also an inexact lookup will only return rows for messages with non\-zero counts, to protect the user from large numbers of rows  for response codes which have not been received or sent
-    	**type**\:  :py:class:`Csbsipmthdrccurrentstatstable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdrccurrentstatstable>`
+    	**type**\:  :py:class:`CsbSIPMthdRCCurrentStatsTable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCCurrentStatsTable>`
     
     .. attribute:: csbsipmthdrchistorystatstable
     
     	This table reports historical data for SIP method request and response code statistics for each method and response code  combination in a given past interval. The possible values of  interval will be previous 5 minutes, previous 15 minutes,  previous 1 hour and previous day. To understand the  meaning of interval please refer <Periodic Statistics> section in description of ciscoSbcStatsMIB. An exact lookup will return a row only  if \- 1) detailed response code statistics are turned on in SBC 2) response code  messages sent or received is non zero for     given SIP adjacency, method and interval. Also an inexact lookup will only return rows for messages with non\-zero counts, to protect the user from large numbers of rows for response codes which have not been received or sent
-    	**type**\:  :py:class:`Csbsipmthdrchistorystatstable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdrchistorystatstable>`
+    	**type**\:  :py:class:`CsbSIPMthdRCHistoryStatsTable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCHistoryStatsTable>`
     
     
 
@@ -222,43 +222,39 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("csbRadiusStatsTable", ("csbradiusstatstable", CISCOSESSBORDERCTRLRSTATSMIB.Csbradiusstatstable)), ("csbRfBillRealmStatsTable", ("csbrfbillrealmstatstable", CISCOSESSBORDERCTRLRSTATSMIB.Csbrfbillrealmstatstable)), ("csbSIPMthdCurrentStatsTable", ("csbsipmthdcurrentstatstable", CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdcurrentstatstable)), ("csbSIPMthdHistoryStatsTable", ("csbsipmthdhistorystatstable", CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdhistorystatstable)), ("csbSIPMthdRCCurrentStatsTable", ("csbsipmthdrccurrentstatstable", CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdrccurrentstatstable)), ("csbSIPMthdRCHistoryStatsTable", ("csbsipmthdrchistorystatstable", CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdrchistorystatstable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("csbRadiusStatsTable", ("csbradiusstatstable", CISCOSESSBORDERCTRLRSTATSMIB.CsbRadiusStatsTable)), ("csbRfBillRealmStatsTable", ("csbrfbillrealmstatstable", CISCOSESSBORDERCTRLRSTATSMIB.CsbRfBillRealmStatsTable)), ("csbSIPMthdCurrentStatsTable", ("csbsipmthdcurrentstatstable", CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdCurrentStatsTable)), ("csbSIPMthdHistoryStatsTable", ("csbsipmthdhistorystatstable", CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdHistoryStatsTable)), ("csbSIPMthdRCCurrentStatsTable", ("csbsipmthdrccurrentstatstable", CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCCurrentStatsTable)), ("csbSIPMthdRCHistoryStatsTable", ("csbsipmthdrchistorystatstable", CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCHistoryStatsTable))])
         self._leafs = OrderedDict()
 
-        self.csbradiusstatstable = CISCOSESSBORDERCTRLRSTATSMIB.Csbradiusstatstable()
+        self.csbradiusstatstable = CISCOSESSBORDERCTRLRSTATSMIB.CsbRadiusStatsTable()
         self.csbradiusstatstable.parent = self
         self._children_name_map["csbradiusstatstable"] = "csbRadiusStatsTable"
-        self._children_yang_names.add("csbRadiusStatsTable")
 
-        self.csbrfbillrealmstatstable = CISCOSESSBORDERCTRLRSTATSMIB.Csbrfbillrealmstatstable()
+        self.csbrfbillrealmstatstable = CISCOSESSBORDERCTRLRSTATSMIB.CsbRfBillRealmStatsTable()
         self.csbrfbillrealmstatstable.parent = self
         self._children_name_map["csbrfbillrealmstatstable"] = "csbRfBillRealmStatsTable"
-        self._children_yang_names.add("csbRfBillRealmStatsTable")
 
-        self.csbsipmthdcurrentstatstable = CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdcurrentstatstable()
+        self.csbsipmthdcurrentstatstable = CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdCurrentStatsTable()
         self.csbsipmthdcurrentstatstable.parent = self
         self._children_name_map["csbsipmthdcurrentstatstable"] = "csbSIPMthdCurrentStatsTable"
-        self._children_yang_names.add("csbSIPMthdCurrentStatsTable")
 
-        self.csbsipmthdhistorystatstable = CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdhistorystatstable()
+        self.csbsipmthdhistorystatstable = CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdHistoryStatsTable()
         self.csbsipmthdhistorystatstable.parent = self
         self._children_name_map["csbsipmthdhistorystatstable"] = "csbSIPMthdHistoryStatsTable"
-        self._children_yang_names.add("csbSIPMthdHistoryStatsTable")
 
-        self.csbsipmthdrccurrentstatstable = CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdrccurrentstatstable()
+        self.csbsipmthdrccurrentstatstable = CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCCurrentStatsTable()
         self.csbsipmthdrccurrentstatstable.parent = self
         self._children_name_map["csbsipmthdrccurrentstatstable"] = "csbSIPMthdRCCurrentStatsTable"
-        self._children_yang_names.add("csbSIPMthdRCCurrentStatsTable")
 
-        self.csbsipmthdrchistorystatstable = CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdrchistorystatstable()
+        self.csbsipmthdrchistorystatstable = CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCHistoryStatsTable()
         self.csbsipmthdrchistorystatstable.parent = self
         self._children_name_map["csbsipmthdrchistorystatstable"] = "csbSIPMthdRCHistoryStatsTable"
-        self._children_yang_names.add("csbSIPMthdRCHistoryStatsTable")
         self._segment_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB, [], name, value)
 
-    class Csbradiusstatstable(Entity):
+
+    class CsbRadiusStatsTable(Entity):
         """
         This table has the reporting statistics of various RADIUS
         messages for RADIUS servers with which the client (SBC) shares a
@@ -271,7 +267,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
         .. attribute:: csbradiusstatsentry
         
         	A conceptual row in the csbRadiusStatsTable. There is an entry in this table for each RADIUS server, as identified by a  value of csbRadiusStatsEntIndex. The other indices of this  table are csbCallStatsInstanceIndex defined in  csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
-        	**type**\: list of  		 :py:class:`Csbradiusstatsentry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.Csbradiusstatstable.Csbradiusstatsentry>`
+        	**type**\: list of  		 :py:class:`CsbRadiusStatsEntry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.CsbRadiusStatsTable.CsbRadiusStatsEntry>`
         
         
 
@@ -281,15 +277,14 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
         _revision = '2010-09-15'
 
         def __init__(self):
-            super(CISCOSESSBORDERCTRLRSTATSMIB.Csbradiusstatstable, self).__init__()
+            super(CISCOSESSBORDERCTRLRSTATSMIB.CsbRadiusStatsTable, self).__init__()
 
             self.yang_name = "csbRadiusStatsTable"
             self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("csbRadiusStatsEntry", ("csbradiusstatsentry", CISCOSESSBORDERCTRLRSTATSMIB.Csbradiusstatstable.Csbradiusstatsentry))])
+            self._child_classes = OrderedDict([("csbRadiusStatsEntry", ("csbradiusstatsentry", CISCOSESSBORDERCTRLRSTATSMIB.CsbRadiusStatsTable.CsbRadiusStatsEntry))])
             self._leafs = OrderedDict()
 
             self.csbradiusstatsentry = YList(self)
@@ -297,10 +292,10 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.Csbradiusstatstable, [], name, value)
+            self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbRadiusStatsTable, [], name, value)
 
 
-        class Csbradiusstatsentry(Entity):
+        class CsbRadiusStatsEntry(Entity):
             """
             A conceptual row in the csbRadiusStatsTable. There is an
             entry in this table for each RADIUS server, as identified by a 
@@ -316,7 +311,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable.Csbcallstatsinstanceentry>`
+            	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsInstanceTable.CsbCallStatsInstanceEntry>`
             
             .. attribute:: csbcallstatsserviceindex  (key)
             
@@ -325,7 +320,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable.Csbcallstatsentry>`
+            	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsTable.CsbCallStatsEntry>`
             
             .. attribute:: csbradiusstatsentindex  (key)
             
@@ -481,15 +476,14 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             _revision = '2010-09-15'
 
             def __init__(self):
-                super(CISCOSESSBORDERCTRLRSTATSMIB.Csbradiusstatstable.Csbradiusstatsentry, self).__init__()
+                super(CISCOSESSBORDERCTRLRSTATSMIB.CsbRadiusStatsTable.CsbRadiusStatsEntry, self).__init__()
 
                 self.yang_name = "csbRadiusStatsEntry"
                 self.yang_parent_name = "csbRadiusStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['csbcallstatsinstanceindex','csbcallstatsserviceindex','csbradiusstatsentindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('csbcallstatsinstanceindex', YLeaf(YType.str, 'csbCallStatsInstanceIndex')),
                     ('csbcallstatsserviceindex', YLeaf(YType.str, 'csbCallStatsServiceIndex')),
@@ -536,10 +530,10 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbRadiusStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.Csbradiusstatstable.Csbradiusstatsentry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbradiusstatsentindex', 'csbradiusstatsclientname', 'csbradiusstatsclienttype', 'csbradiusstatssrvrname', 'csbradiusstatsacsreqs', 'csbradiusstatsacsrtrns', 'csbradiusstatsacsaccpts', 'csbradiusstatsacsrejects', 'csbradiusstatsacschalls', 'csbradiusstatsactreqs', 'csbradiusstatsactretrans', 'csbradiusstatsactrsps', 'csbradiusstatsmalformedrsps', 'csbradiusstatsbadauths', 'csbradiusstatspending', 'csbradiusstatstimeouts', 'csbradiusstatsunknowntype', 'csbradiusstatsdropped'], name, value)
+                self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbRadiusStatsTable.CsbRadiusStatsEntry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbradiusstatsentindex', 'csbradiusstatsclientname', 'csbradiusstatsclienttype', 'csbradiusstatssrvrname', 'csbradiusstatsacsreqs', 'csbradiusstatsacsrtrns', 'csbradiusstatsacsaccpts', 'csbradiusstatsacsrejects', 'csbradiusstatsacschalls', 'csbradiusstatsactreqs', 'csbradiusstatsactretrans', 'csbradiusstatsactrsps', 'csbradiusstatsmalformedrsps', 'csbradiusstatsbadauths', 'csbradiusstatspending', 'csbradiusstatstimeouts', 'csbradiusstatsunknowntype', 'csbradiusstatsdropped'], name, value)
 
 
-    class Csbrfbillrealmstatstable(Entity):
+    class CsbRfBillRealmStatsTable(Entity):
         """
         This table describes the Rf billing statistics information
         which monitors the messages sent per\-realm by Rf billing 
@@ -564,7 +558,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
         .. attribute:: csbrfbillrealmstatsentry
         
         	A conceptual row in the csbRfBillRealmStatsTable. There is an entry in this table for each realm, as identified by a  value of csbRfBillRealmStatsIndex and  csbRfBillRealmStatsRealmName. The other indices of this table are csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
-        	**type**\: list of  		 :py:class:`Csbrfbillrealmstatsentry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.Csbrfbillrealmstatstable.Csbrfbillrealmstatsentry>`
+        	**type**\: list of  		 :py:class:`CsbRfBillRealmStatsEntry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.CsbRfBillRealmStatsTable.CsbRfBillRealmStatsEntry>`
         
         
 
@@ -574,15 +568,14 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
         _revision = '2010-09-15'
 
         def __init__(self):
-            super(CISCOSESSBORDERCTRLRSTATSMIB.Csbrfbillrealmstatstable, self).__init__()
+            super(CISCOSESSBORDERCTRLRSTATSMIB.CsbRfBillRealmStatsTable, self).__init__()
 
             self.yang_name = "csbRfBillRealmStatsTable"
             self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("csbRfBillRealmStatsEntry", ("csbrfbillrealmstatsentry", CISCOSESSBORDERCTRLRSTATSMIB.Csbrfbillrealmstatstable.Csbrfbillrealmstatsentry))])
+            self._child_classes = OrderedDict([("csbRfBillRealmStatsEntry", ("csbrfbillrealmstatsentry", CISCOSESSBORDERCTRLRSTATSMIB.CsbRfBillRealmStatsTable.CsbRfBillRealmStatsEntry))])
             self._leafs = OrderedDict()
 
             self.csbrfbillrealmstatsentry = YList(self)
@@ -590,10 +583,10 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.Csbrfbillrealmstatstable, [], name, value)
+            self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbRfBillRealmStatsTable, [], name, value)
 
 
-        class Csbrfbillrealmstatsentry(Entity):
+        class CsbRfBillRealmStatsEntry(Entity):
             """
             A conceptual row in the csbRfBillRealmStatsTable. There
             is an entry in this table for each realm, as identified by a 
@@ -610,7 +603,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable.Csbcallstatsinstanceentry>`
+            	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsInstanceTable.CsbCallStatsInstanceEntry>`
             
             .. attribute:: csbcallstatsserviceindex  (key)
             
@@ -619,7 +612,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable.Csbcallstatsentry>`
+            	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsTable.CsbCallStatsEntry>`
             
             .. attribute:: csbrfbillrealmstatsindex  (key)
             
@@ -749,15 +742,14 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             _revision = '2010-09-15'
 
             def __init__(self):
-                super(CISCOSESSBORDERCTRLRSTATSMIB.Csbrfbillrealmstatstable.Csbrfbillrealmstatsentry, self).__init__()
+                super(CISCOSESSBORDERCTRLRSTATSMIB.CsbRfBillRealmStatsTable.CsbRfBillRealmStatsEntry, self).__init__()
 
                 self.yang_name = "csbRfBillRealmStatsEntry"
                 self.yang_parent_name = "csbRfBillRealmStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['csbcallstatsinstanceindex','csbcallstatsserviceindex','csbrfbillrealmstatsindex','csbrfbillrealmstatsrealmname']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('csbcallstatsinstanceindex', YLeaf(YType.str, 'csbCallStatsInstanceIndex')),
                     ('csbcallstatsserviceindex', YLeaf(YType.str, 'csbCallStatsServiceIndex')),
@@ -796,10 +788,10 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbRfBillRealmStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.Csbrfbillrealmstatstable.Csbrfbillrealmstatsentry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbrfbillrealmstatsindex', 'csbrfbillrealmstatsrealmname', 'csbrfbillrealmstatstotalstartacrs', 'csbrfbillrealmstatstotalinterimacrs', 'csbrfbillrealmstatstotalstopacrs', 'csbrfbillrealmstatstotaleventacrs', 'csbrfbillrealmstatssuccstartacrs', 'csbrfbillrealmstatssuccinterimacrs', 'csbrfbillrealmstatssuccstopacrs', 'csbrfbillrealmstatssucceventacrs', 'csbrfbillrealmstatsfailstartacrs', 'csbrfbillrealmstatsfailinterimacrs', 'csbrfbillrealmstatsfailstopacrs', 'csbrfbillrealmstatsfaileventacrs'], name, value)
+                self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbRfBillRealmStatsTable.CsbRfBillRealmStatsEntry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbrfbillrealmstatsindex', 'csbrfbillrealmstatsrealmname', 'csbrfbillrealmstatstotalstartacrs', 'csbrfbillrealmstatstotalinterimacrs', 'csbrfbillrealmstatstotalstopacrs', 'csbrfbillrealmstatstotaleventacrs', 'csbrfbillrealmstatssuccstartacrs', 'csbrfbillrealmstatssuccinterimacrs', 'csbrfbillrealmstatssuccstopacrs', 'csbrfbillrealmstatssucceventacrs', 'csbrfbillrealmstatsfailstartacrs', 'csbrfbillrealmstatsfailinterimacrs', 'csbrfbillrealmstatsfailstopacrs', 'csbrfbillrealmstatsfaileventacrs'], name, value)
 
 
-    class Csbsipmthdcurrentstatstable(Entity):
+    class CsbSIPMthdCurrentStatsTable(Entity):
         """
         This table reports count of SIP request and various SIP
         responses  for each SIP method on a SIP adjacency in a given
@@ -819,7 +811,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
         .. attribute:: csbsipmthdcurrentstatsentry
         
         	A conceptual row in the csbSIPMthdCurrentStatsTable. Each row describes a SIP method and various responses count for this method on a given SIP adjacency and given interval. This table is indexed on csbSIPMthdCurrentStatsAdjName, csbSIPMthdCurrentStatsMethod and  csbSIPMthdCurrentStatsInterval. The other indices of this table are csbCallStatsInstanceIndex defined in  csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
-        	**type**\: list of  		 :py:class:`Csbsipmthdcurrentstatsentry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdcurrentstatstable.Csbsipmthdcurrentstatsentry>`
+        	**type**\: list of  		 :py:class:`CsbSIPMthdCurrentStatsEntry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdCurrentStatsTable.CsbSIPMthdCurrentStatsEntry>`
         
         
 
@@ -829,15 +821,14 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
         _revision = '2010-09-15'
 
         def __init__(self):
-            super(CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdcurrentstatstable, self).__init__()
+            super(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdCurrentStatsTable, self).__init__()
 
             self.yang_name = "csbSIPMthdCurrentStatsTable"
             self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("csbSIPMthdCurrentStatsEntry", ("csbsipmthdcurrentstatsentry", CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdcurrentstatstable.Csbsipmthdcurrentstatsentry))])
+            self._child_classes = OrderedDict([("csbSIPMthdCurrentStatsEntry", ("csbsipmthdcurrentstatsentry", CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdCurrentStatsTable.CsbSIPMthdCurrentStatsEntry))])
             self._leafs = OrderedDict()
 
             self.csbsipmthdcurrentstatsentry = YList(self)
@@ -845,10 +836,10 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdcurrentstatstable, [], name, value)
+            self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdCurrentStatsTable, [], name, value)
 
 
-        class Csbsipmthdcurrentstatsentry(Entity):
+        class CsbSIPMthdCurrentStatsEntry(Entity):
             """
             A conceptual row in the csbSIPMthdCurrentStatsTable. Each row
             describes a SIP method and various responses count for this
@@ -867,7 +858,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable.Csbcallstatsinstanceentry>`
+            	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsInstanceTable.CsbCallStatsInstanceEntry>`
             
             .. attribute:: csbcallstatsserviceindex  (key)
             
@@ -876,7 +867,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable.Csbcallstatsentry>`
+            	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsTable.CsbCallStatsEntry>`
             
             .. attribute:: csbsipmthdcurrentstatsadjname  (key)
             
@@ -1032,15 +1023,14 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             _revision = '2010-09-15'
 
             def __init__(self):
-                super(CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdcurrentstatstable.Csbsipmthdcurrentstatsentry, self).__init__()
+                super(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdCurrentStatsTable.CsbSIPMthdCurrentStatsEntry, self).__init__()
 
                 self.yang_name = "csbSIPMthdCurrentStatsEntry"
                 self.yang_parent_name = "csbSIPMthdCurrentStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['csbcallstatsinstanceindex','csbcallstatsserviceindex','csbsipmthdcurrentstatsadjname','csbsipmthdcurrentstatsmethod','csbsipmthdcurrentstatsinterval']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('csbcallstatsinstanceindex', YLeaf(YType.str, 'csbCallStatsInstanceIndex')),
                     ('csbcallstatsserviceindex', YLeaf(YType.str, 'csbCallStatsServiceIndex')),
@@ -1087,10 +1077,10 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbSIPMthdCurrentStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdcurrentstatstable.Csbsipmthdcurrentstatsentry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbsipmthdcurrentstatsadjname', 'csbsipmthdcurrentstatsmethod', 'csbsipmthdcurrentstatsinterval', 'csbsipmthdcurrentstatsmethodname', 'csbsipmthdcurrentstatsreqin', 'csbsipmthdcurrentstatsreqout', 'csbsipmthdcurrentstatsresp1xxin', 'csbsipmthdcurrentstatsresp1xxout', 'csbsipmthdcurrentstatsresp2xxin', 'csbsipmthdcurrentstatsresp2xxout', 'csbsipmthdcurrentstatsresp3xxin', 'csbsipmthdcurrentstatsresp3xxout', 'csbsipmthdcurrentstatsresp4xxin', 'csbsipmthdcurrentstatsresp4xxout', 'csbsipmthdcurrentstatsresp5xxin', 'csbsipmthdcurrentstatsresp5xxout', 'csbsipmthdcurrentstatsresp6xxin', 'csbsipmthdcurrentstatsresp6xxout'], name, value)
+                self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdCurrentStatsTable.CsbSIPMthdCurrentStatsEntry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbsipmthdcurrentstatsadjname', 'csbsipmthdcurrentstatsmethod', 'csbsipmthdcurrentstatsinterval', 'csbsipmthdcurrentstatsmethodname', 'csbsipmthdcurrentstatsreqin', 'csbsipmthdcurrentstatsreqout', 'csbsipmthdcurrentstatsresp1xxin', 'csbsipmthdcurrentstatsresp1xxout', 'csbsipmthdcurrentstatsresp2xxin', 'csbsipmthdcurrentstatsresp2xxout', 'csbsipmthdcurrentstatsresp3xxin', 'csbsipmthdcurrentstatsresp3xxout', 'csbsipmthdcurrentstatsresp4xxin', 'csbsipmthdcurrentstatsresp4xxout', 'csbsipmthdcurrentstatsresp5xxin', 'csbsipmthdcurrentstatsresp5xxout', 'csbsipmthdcurrentstatsresp6xxin', 'csbsipmthdcurrentstatsresp6xxout'], name, value)
 
 
-    class Csbsipmthdhistorystatstable(Entity):
+    class CsbSIPMthdHistoryStatsTable(Entity):
         """
         This table provide historical count of SIP request and various
         SIP responses for each SIP method on a SIP adjacency in various
@@ -1112,7 +1102,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
         .. attribute:: csbsipmthdhistorystatsentry
         
         	A conceptual row in the csbSIPMthdHistoryStatsTable. The entries in this table are updated as interval completes in the csbSIPMthdCurrentStatsTable table and the data is  moved from that table to this one. This table is indexed on csbSIPMthdHistoryStatsAdjName, csbSIPMthdHistoryStatsMethod and csbSIPMthdHistoryStatsInterval. The other indices of this  table are csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
-        	**type**\: list of  		 :py:class:`Csbsipmthdhistorystatsentry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdhistorystatstable.Csbsipmthdhistorystatsentry>`
+        	**type**\: list of  		 :py:class:`CsbSIPMthdHistoryStatsEntry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdHistoryStatsTable.CsbSIPMthdHistoryStatsEntry>`
         
         
 
@@ -1122,15 +1112,14 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
         _revision = '2010-09-15'
 
         def __init__(self):
-            super(CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdhistorystatstable, self).__init__()
+            super(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdHistoryStatsTable, self).__init__()
 
             self.yang_name = "csbSIPMthdHistoryStatsTable"
             self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("csbSIPMthdHistoryStatsEntry", ("csbsipmthdhistorystatsentry", CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdhistorystatstable.Csbsipmthdhistorystatsentry))])
+            self._child_classes = OrderedDict([("csbSIPMthdHistoryStatsEntry", ("csbsipmthdhistorystatsentry", CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdHistoryStatsTable.CsbSIPMthdHistoryStatsEntry))])
             self._leafs = OrderedDict()
 
             self.csbsipmthdhistorystatsentry = YList(self)
@@ -1138,10 +1127,10 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdhistorystatstable, [], name, value)
+            self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdHistoryStatsTable, [], name, value)
 
 
-        class Csbsipmthdhistorystatsentry(Entity):
+        class CsbSIPMthdHistoryStatsEntry(Entity):
             """
             A conceptual row in the csbSIPMthdHistoryStatsTable. The
             entries in this table are updated as interval completes in
@@ -1161,7 +1150,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable.Csbcallstatsinstanceentry>`
+            	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsInstanceTable.CsbCallStatsInstanceEntry>`
             
             .. attribute:: csbcallstatsserviceindex  (key)
             
@@ -1170,7 +1159,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable.Csbcallstatsentry>`
+            	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsTable.CsbCallStatsEntry>`
             
             .. attribute:: csbsipmthdhistorystatsadjname  (key)
             
@@ -1326,15 +1315,14 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             _revision = '2010-09-15'
 
             def __init__(self):
-                super(CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdhistorystatstable.Csbsipmthdhistorystatsentry, self).__init__()
+                super(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdHistoryStatsTable.CsbSIPMthdHistoryStatsEntry, self).__init__()
 
                 self.yang_name = "csbSIPMthdHistoryStatsEntry"
                 self.yang_parent_name = "csbSIPMthdHistoryStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['csbcallstatsinstanceindex','csbcallstatsserviceindex','csbsipmthdhistorystatsadjname','csbsipmthdhistorystatsmethod','csbsipmthdhistorystatsinterval']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('csbcallstatsinstanceindex', YLeaf(YType.str, 'csbCallStatsInstanceIndex')),
                     ('csbcallstatsserviceindex', YLeaf(YType.str, 'csbCallStatsServiceIndex')),
@@ -1381,10 +1369,10 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbSIPMthdHistoryStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdhistorystatstable.Csbsipmthdhistorystatsentry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbsipmthdhistorystatsadjname', 'csbsipmthdhistorystatsmethod', 'csbsipmthdhistorystatsinterval', 'csbsipmthdhistorystatsmethodname', 'csbsipmthdhistorystatsreqin', 'csbsipmthdhistorystatsreqout', 'csbsipmthdhistorystatsresp1xxin', 'csbsipmthdhistorystatsresp1xxout', 'csbsipmthdhistorystatsresp2xxin', 'csbsipmthdhistorystatsresp2xxout', 'csbsipmthdhistorystatsresp3xxin', 'csbsipmthdhistorystatsresp3xxout', 'csbsipmthdhistorystatsresp4xxin', 'csbsipmthdhistorystatsresp4xxout', 'csbsipmthdhistorystatsresp5xxin', 'csbsipmthdhistorystatsresp5xxout', 'csbsipmthdhistorystatsresp6xxin', 'csbsipmthdhistorystatsresp6xxout'], name, value)
+                self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdHistoryStatsTable.CsbSIPMthdHistoryStatsEntry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbsipmthdhistorystatsadjname', 'csbsipmthdhistorystatsmethod', 'csbsipmthdhistorystatsinterval', 'csbsipmthdhistorystatsmethodname', 'csbsipmthdhistorystatsreqin', 'csbsipmthdhistorystatsreqout', 'csbsipmthdhistorystatsresp1xxin', 'csbsipmthdhistorystatsresp1xxout', 'csbsipmthdhistorystatsresp2xxin', 'csbsipmthdhistorystatsresp2xxout', 'csbsipmthdhistorystatsresp3xxin', 'csbsipmthdhistorystatsresp3xxout', 'csbsipmthdhistorystatsresp4xxin', 'csbsipmthdhistorystatsresp4xxout', 'csbsipmthdhistorystatsresp5xxin', 'csbsipmthdhistorystatsresp5xxout', 'csbsipmthdhistorystatsresp6xxin', 'csbsipmthdhistorystatsresp6xxout'], name, value)
 
 
-    class Csbsipmthdrccurrentstatstable(Entity):
+    class CsbSIPMthdRCCurrentStatsTable(Entity):
         """
         This table reports SIP method request and response code
         statistics for each method and response code combination on
@@ -1402,7 +1390,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
         .. attribute:: csbsipmthdrccurrentstatsentry
         
         	A conceptual row in the csbSIPMthdRCCurrentStatsTable. Each entry in this table represents a method and response code combination. Each entry in this table is identified by a value of csbSIPMthdRCCurrentStatsAdjName, csbSIPMthdRCCurrentStatsMethod, csbSIPMthdRCCurrentStatsRespCode and csbSIPMthdRCCurrentStatsInterval. The other indices of this table are csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
-        	**type**\: list of  		 :py:class:`Csbsipmthdrccurrentstatsentry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdrccurrentstatstable.Csbsipmthdrccurrentstatsentry>`
+        	**type**\: list of  		 :py:class:`CsbSIPMthdRCCurrentStatsEntry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCCurrentStatsTable.CsbSIPMthdRCCurrentStatsEntry>`
         
         
 
@@ -1412,15 +1400,14 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
         _revision = '2010-09-15'
 
         def __init__(self):
-            super(CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdrccurrentstatstable, self).__init__()
+            super(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCCurrentStatsTable, self).__init__()
 
             self.yang_name = "csbSIPMthdRCCurrentStatsTable"
             self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("csbSIPMthdRCCurrentStatsEntry", ("csbsipmthdrccurrentstatsentry", CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdrccurrentstatstable.Csbsipmthdrccurrentstatsentry))])
+            self._child_classes = OrderedDict([("csbSIPMthdRCCurrentStatsEntry", ("csbsipmthdrccurrentstatsentry", CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCCurrentStatsTable.CsbSIPMthdRCCurrentStatsEntry))])
             self._leafs = OrderedDict()
 
             self.csbsipmthdrccurrentstatsentry = YList(self)
@@ -1428,10 +1415,10 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdrccurrentstatstable, [], name, value)
+            self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCCurrentStatsTable, [], name, value)
 
 
-        class Csbsipmthdrccurrentstatsentry(Entity):
+        class CsbSIPMthdRCCurrentStatsEntry(Entity):
             """
             A conceptual row in the csbSIPMthdRCCurrentStatsTable. Each
             entry in this table represents a method and response code
@@ -1451,7 +1438,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable.Csbcallstatsinstanceentry>`
+            	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsInstanceTable.CsbCallStatsInstanceEntry>`
             
             .. attribute:: csbcallstatsserviceindex  (key)
             
@@ -1460,7 +1447,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable.Csbcallstatsentry>`
+            	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsTable.CsbCallStatsEntry>`
             
             .. attribute:: csbsipmthdrccurrentstatsadjname  (key)
             
@@ -1515,15 +1502,14 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             _revision = '2010-09-15'
 
             def __init__(self):
-                super(CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdrccurrentstatstable.Csbsipmthdrccurrentstatsentry, self).__init__()
+                super(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCCurrentStatsTable.CsbSIPMthdRCCurrentStatsEntry, self).__init__()
 
                 self.yang_name = "csbSIPMthdRCCurrentStatsEntry"
                 self.yang_parent_name = "csbSIPMthdRCCurrentStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['csbcallstatsinstanceindex','csbcallstatsserviceindex','csbsipmthdrccurrentstatsadjname','csbsipmthdrccurrentstatsmethod','csbsipmthdrccurrentstatsrespcode','csbsipmthdrccurrentstatsinterval']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('csbcallstatsinstanceindex', YLeaf(YType.str, 'csbCallStatsInstanceIndex')),
                     ('csbcallstatsserviceindex', YLeaf(YType.str, 'csbCallStatsServiceIndex')),
@@ -1548,10 +1534,10 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbSIPMthdRCCurrentStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdrccurrentstatstable.Csbsipmthdrccurrentstatsentry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbsipmthdrccurrentstatsadjname', 'csbsipmthdrccurrentstatsmethod', 'csbsipmthdrccurrentstatsrespcode', 'csbsipmthdrccurrentstatsinterval', 'csbsipmthdrccurrentstatsmethodname', 'csbsipmthdrccurrentstatsrespin', 'csbsipmthdrccurrentstatsrespout'], name, value)
+                self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCCurrentStatsTable.CsbSIPMthdRCCurrentStatsEntry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbsipmthdrccurrentstatsadjname', 'csbsipmthdrccurrentstatsmethod', 'csbsipmthdrccurrentstatsrespcode', 'csbsipmthdrccurrentstatsinterval', 'csbsipmthdrccurrentstatsmethodname', 'csbsipmthdrccurrentstatsrespin', 'csbsipmthdrccurrentstatsrespout'], name, value)
 
 
-    class Csbsipmthdrchistorystatstable(Entity):
+    class CsbSIPMthdRCHistoryStatsTable(Entity):
         """
         This table reports historical data for SIP method request and
         response code statistics for each method and response code 
@@ -1571,7 +1557,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
         .. attribute:: csbsipmthdrchistorystatsentry
         
         	A conceptual row in the csbSIPMthdRCHistoryStatsTable. The entries in this table are updated as interval completes in the csbSIPMthdRCCurrentStatsTable table and the data is  moved from that table to this one. Each entry in this table  is identified by a value of csbSIPMthdRCHistoryStatsAdjName,  csbSIPMthdRCHistoryStatsMethod, csbSIPMthdRCHistoryStatsRespCode and csbSIPMthdRCHistoryStatsInterval. The other indices of this table are csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
-        	**type**\: list of  		 :py:class:`Csbsipmthdrchistorystatsentry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdrchistorystatstable.Csbsipmthdrchistorystatsentry>`
+        	**type**\: list of  		 :py:class:`CsbSIPMthdRCHistoryStatsEntry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCHistoryStatsTable.CsbSIPMthdRCHistoryStatsEntry>`
         
         
 
@@ -1581,15 +1567,14 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
         _revision = '2010-09-15'
 
         def __init__(self):
-            super(CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdrchistorystatstable, self).__init__()
+            super(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCHistoryStatsTable, self).__init__()
 
             self.yang_name = "csbSIPMthdRCHistoryStatsTable"
             self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("csbSIPMthdRCHistoryStatsEntry", ("csbsipmthdrchistorystatsentry", CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdrchistorystatstable.Csbsipmthdrchistorystatsentry))])
+            self._child_classes = OrderedDict([("csbSIPMthdRCHistoryStatsEntry", ("csbsipmthdrchistorystatsentry", CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCHistoryStatsTable.CsbSIPMthdRCHistoryStatsEntry))])
             self._leafs = OrderedDict()
 
             self.csbsipmthdrchistorystatsentry = YList(self)
@@ -1597,10 +1582,10 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdrchistorystatstable, [], name, value)
+            self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCHistoryStatsTable, [], name, value)
 
 
-        class Csbsipmthdrchistorystatsentry(Entity):
+        class CsbSIPMthdRCHistoryStatsEntry(Entity):
             """
             A conceptual row in the csbSIPMthdRCHistoryStatsTable. The
             entries in this table are updated as interval completes in
@@ -1621,7 +1606,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable.Csbcallstatsinstanceentry>`
+            	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsInstanceTable.CsbCallStatsInstanceEntry>`
             
             .. attribute:: csbcallstatsserviceindex  (key)
             
@@ -1630,7 +1615,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable.Csbcallstatsentry>`
+            	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsTable.CsbCallStatsEntry>`
             
             .. attribute:: csbsipmthdrchistorystatsadjname  (key)
             
@@ -1685,15 +1670,14 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             _revision = '2010-09-15'
 
             def __init__(self):
-                super(CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdrchistorystatstable.Csbsipmthdrchistorystatsentry, self).__init__()
+                super(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCHistoryStatsTable.CsbSIPMthdRCHistoryStatsEntry, self).__init__()
 
                 self.yang_name = "csbSIPMthdRCHistoryStatsEntry"
                 self.yang_parent_name = "csbSIPMthdRCHistoryStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['csbcallstatsinstanceindex','csbcallstatsserviceindex','csbsipmthdrchistorystatsadjname','csbsipmthdrchistorystatsmethod','csbsipmthdrchistorystatsrespcode','csbsipmthdrchistorystatsinterval']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('csbcallstatsinstanceindex', YLeaf(YType.str, 'csbCallStatsInstanceIndex')),
                     ('csbcallstatsserviceindex', YLeaf(YType.str, 'csbCallStatsServiceIndex')),
@@ -1718,7 +1702,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbSIPMthdRCHistoryStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.Csbsipmthdrchistorystatstable.Csbsipmthdrchistorystatsentry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbsipmthdrchistorystatsadjname', 'csbsipmthdrchistorystatsmethod', 'csbsipmthdrchistorystatsrespcode', 'csbsipmthdrchistorystatsinterval', 'csbsipmthdrchistorystatsmethodname', 'csbsipmthdrchistorystatsrespin', 'csbsipmthdrchistorystatsrespout'], name, value)
+                self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCHistoryStatsTable.CsbSIPMthdRCHistoryStatsEntry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbsipmthdrchistorystatsadjname', 'csbsipmthdrchistorystatsmethod', 'csbsipmthdrchistorystatsrespcode', 'csbsipmthdrchistorystatsinterval', 'csbsipmthdrchistorystatsmethodname', 'csbsipmthdrchistorystatsrespin', 'csbsipmthdrchistorystatsrespout'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOSESSBORDERCTRLRSTATSMIB()

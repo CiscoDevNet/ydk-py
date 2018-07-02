@@ -51,20 +51,20 @@ class ProcessMandatory(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", ProcessMandatory.Nodes)), ("all", ("all", ProcessMandatory.All))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", ProcessMandatory.Nodes)), ("all", ("all", ProcessMandatory.All))])
         self._leafs = OrderedDict()
 
         self.nodes = ProcessMandatory.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
 
         self.all = ProcessMandatory.All()
         self.all.parent = self
         self._children_name_map["all"] = "all"
-        self._children_yang_names.add("all")
         self._segment_path = lambda: "Cisco-IOS-XR-sysmgr-cfg:process-mandatory"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(ProcessMandatory, [], name, value)
 
 
     class Nodes(Entity):
@@ -91,8 +91,7 @@ class ProcessMandatory(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", ProcessMandatory.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", ProcessMandatory.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -134,8 +133,7 @@ class ProcessMandatory(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("processes", ("processes", ProcessMandatory.Nodes.Node.Processes))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("processes", ("processes", ProcessMandatory.Nodes.Node.Processes))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -144,7 +142,6 @@ class ProcessMandatory(Entity):
                 self.processes = ProcessMandatory.Nodes.Node.Processes()
                 self.processes.parent = self
                 self._children_name_map["processes"] = "processes"
-                self._children_yang_names.add("processes")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysmgr-cfg:process-mandatory/nodes/%s" % self._segment_path()
 
@@ -176,8 +173,7 @@ class ProcessMandatory(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("process", ("process", ProcessMandatory.Nodes.Node.Processes.Process))])
+                    self._child_classes = OrderedDict([("process", ("process", ProcessMandatory.Nodes.Node.Processes.Process))])
                     self._leafs = OrderedDict()
 
                     self.process = YList(self)
@@ -213,8 +209,7 @@ class ProcessMandatory(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['process_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('process_name', YLeaf(YType.str, 'process-name')),
                         ])
@@ -249,16 +244,17 @@ class ProcessMandatory(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("processes", ("processes", ProcessMandatory.All.Processes))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("processes", ("processes", ProcessMandatory.All.Processes))])
             self._leafs = OrderedDict()
 
             self.processes = ProcessMandatory.All.Processes()
             self.processes.parent = self
             self._children_name_map["processes"] = "processes"
-            self._children_yang_names.add("processes")
             self._segment_path = lambda: "all"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysmgr-cfg:process-mandatory/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(ProcessMandatory.All, [], name, value)
 
 
         class Processes(Entity):
@@ -285,8 +281,7 @@ class ProcessMandatory(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("process", ("process", ProcessMandatory.All.Processes.Process))])
+                self._child_classes = OrderedDict([("process", ("process", ProcessMandatory.All.Processes.Process))])
                 self._leafs = OrderedDict()
 
                 self.process = YList(self)
@@ -323,8 +318,7 @@ class ProcessMandatory(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['process_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('process_name', YLeaf(YType.str, 'process-name')),
                     ])
@@ -381,8 +375,7 @@ class ProcessSingleCrash(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self.is_presence_container = True
         self._leafs = OrderedDict([
             ('crashes', YLeaf(YType.uint32, 'crashes')),

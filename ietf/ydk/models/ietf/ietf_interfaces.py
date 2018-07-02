@@ -67,8 +67,7 @@ class Interfaces(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("interface", ("interface", Interfaces.Interface))])
+        self._child_classes = OrderedDict([("interface", ("interface", Interfaces.Interface))])
         self._leafs = OrderedDict()
 
         self.interface = YList(self)
@@ -122,11 +121,6 @@ class Interfaces(Entity):
         	Controls whether linkUp/linkDown SNMP notifications should be generated for this interface.  If this node is not configured, the value 'enabled' is operationally used by the server for interfaces that do not operate on top of any other interface (i.e., there are no 'lower\-layer\-if' entries), and 'disabled' otherwise
         	**type**\:  :py:class:`LinkUpDownTrapEnable <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.LinkUpDownTrapEnable>`
         
-        .. attribute:: diffserv_target_entry
-        
-        	policy target for inbound or outbound direction
-        	**type**\: list of  		 :py:class:`DiffservTargetEntry <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.DiffservTargetEntry>`
-        
         .. attribute:: ipv4
         
         	Parameters for the IPv4 address family
@@ -140,6 +134,11 @@ class Interfaces(Entity):
         	**type**\:  :py:class:`Ipv6 <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.Ipv6>`
         
         	**presence node**\: True
+        
+        .. attribute:: diffserv_target_entry
+        
+        	policy target for inbound or outbound direction
+        	**type**\: list of  		 :py:class:`DiffservTargetEntry <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.DiffservTargetEntry>`
         
         
 
@@ -156,8 +155,7 @@ class Interfaces(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['name']
-            self._child_container_classes = OrderedDict([("ietf-ip:ipv4", ("ipv4", Interfaces.Interface.Ipv4)), ("ietf-ip:ipv6", ("ipv6", Interfaces.Interface.Ipv6))])
-            self._child_list_classes = OrderedDict([("ietf-diffserv-target:diffserv-target-entry", ("diffserv_target_entry", Interfaces.Interface.DiffservTargetEntry))])
+            self._child_classes = OrderedDict([("ietf-ip:ipv4", ("ipv4", Interfaces.Interface.Ipv4)), ("ietf-ip:ipv6", ("ipv6", Interfaces.Interface.Ipv6)), ("ietf-diffserv-target:diffserv-target-entry", ("diffserv_target_entry", Interfaces.Interface.DiffservTargetEntry))])
             self._leafs = OrderedDict([
                 ('name', YLeaf(YType.str, 'name')),
                 ('description', YLeaf(YType.str, 'description')),
@@ -173,18 +171,16 @@ class Interfaces(Entity):
 
             self.ipv4 = None
             self._children_name_map["ipv4"] = "ietf-ip:ipv4"
-            self._children_yang_names.add("ietf-ip:ipv4")
 
             self.ipv6 = None
             self._children_name_map["ipv6"] = "ietf-ip:ipv6"
-            self._children_yang_names.add("ietf-ip:ipv6")
 
             self.diffserv_target_entry = YList(self)
             self._segment_path = lambda: "interface" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "ietf-interfaces:interfaces/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Interfaces.Interface, ['name', 'description', 'type', 'enabled', 'link_up_down_trap_enable'], name, value)
+            self._perform_setattr(Interfaces.Interface, [u'name', u'description', u'type', u'enabled', u'link_up_down_trap_enable'], name, value)
 
         class LinkUpDownTrapEnable(Enum):
             """
@@ -212,49 +208,6 @@ class Interfaces(Entity):
 
             disabled = Enum.YLeaf(2, "disabled")
 
-
-
-        class DiffservTargetEntry(Entity):
-            """
-            policy target for inbound or outbound direction
-            
-            .. attribute:: direction  (key)
-            
-            	Direction fo the traffic flow either inbound or outbound
-            	**type**\:  :py:class:`Direction <ydk.models.ietf.ietf_diffserv_target.Direction>`
-            
-            .. attribute:: policy_name  (key)
-            
-            	Policy entry name
-            	**type**\: str
-            
-            
-
-            """
-
-            _prefix = 'target'
-            _revision = '2015-04-07'
-
-            def __init__(self):
-                super(Interfaces.Interface.DiffservTargetEntry, self).__init__()
-
-                self.yang_name = "diffserv-target-entry"
-                self.yang_parent_name = "interface"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self.ylist_key_names = ['direction','policy_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('direction', YLeaf(YType.identityref, 'direction')),
-                    ('policy_name', YLeaf(YType.str, 'policy-name')),
-                ])
-                self.direction = None
-                self.policy_name = None
-                self._segment_path = lambda: "ietf-diffserv-target:diffserv-target-entry" + "[direction='" + str(self.direction) + "']" + "[policy-name='" + str(self.policy_name) + "']"
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.Interface.DiffservTargetEntry, ['direction', 'policy_name'], name, value)
 
 
         class Ipv4(Entity):
@@ -311,8 +264,7 @@ class Interfaces(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("address", ("address", Interfaces.Interface.Ipv4.Address)), ("neighbor", ("neighbor", Interfaces.Interface.Ipv4.Neighbor))])
+                self._child_classes = OrderedDict([("address", ("address", Interfaces.Interface.Ipv4.Address)), ("neighbor", ("neighbor", Interfaces.Interface.Ipv4.Neighbor))])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
                     ('enabled', YLeaf(YType.boolean, 'enabled')),
@@ -328,7 +280,7 @@ class Interfaces(Entity):
                 self._segment_path = lambda: "ietf-ip:ipv4"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.Interface.Ipv4, ['enabled', 'forwarding', 'mtu'], name, value)
+                self._perform_setattr(Interfaces.Interface.Ipv4, [u'enabled', u'forwarding', u'mtu'], name, value)
 
 
             class Address(Entity):
@@ -371,8 +323,7 @@ class Interfaces(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['ip']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ip', YLeaf(YType.str, 'ip')),
                         ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
@@ -384,7 +335,7 @@ class Interfaces(Entity):
                     self._segment_path = lambda: "address" + "[ip='" + str(self.ip) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.Ipv4.Address, ['ip', 'prefix_length', 'netmask'], name, value)
+                    self._perform_setattr(Interfaces.Interface.Ipv4.Address, [u'ip', u'prefix_length', u'netmask'], name, value)
 
 
             class Neighbor(Entity):
@@ -425,8 +376,7 @@ class Interfaces(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['ip']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ip', YLeaf(YType.str, 'ip')),
                         ('link_layer_address', YLeaf(YType.str, 'link-layer-address')),
@@ -436,7 +386,7 @@ class Interfaces(Entity):
                     self._segment_path = lambda: "neighbor" + "[ip='" + str(self.ip) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.Ipv4.Neighbor, ['ip', 'link_layer_address'], name, value)
+                    self._perform_setattr(Interfaces.Interface.Ipv4.Neighbor, [u'ip', u'link_layer_address'], name, value)
 
 
         class Ipv6(Entity):
@@ -512,8 +462,7 @@ class Interfaces(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("autoconf", ("autoconf", Interfaces.Interface.Ipv6.Autoconf)), ("ietf-ipv6-unicast-routing:ipv6-router-advertisements", ("ipv6_router_advertisements", Interfaces.Interface.Ipv6.Ipv6RouterAdvertisements))])
-                self._child_list_classes = OrderedDict([("address", ("address", Interfaces.Interface.Ipv6.Address)), ("neighbor", ("neighbor", Interfaces.Interface.Ipv6.Neighbor))])
+                self._child_classes = OrderedDict([("address", ("address", Interfaces.Interface.Ipv6.Address)), ("neighbor", ("neighbor", Interfaces.Interface.Ipv6.Neighbor)), ("autoconf", ("autoconf", Interfaces.Interface.Ipv6.Autoconf)), ("ietf-ipv6-unicast-routing:ipv6-router-advertisements", ("ipv6_router_advertisements", Interfaces.Interface.Ipv6.Ipv6RouterAdvertisements))])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
                     ('enabled', YLeaf(YType.boolean, 'enabled')),
@@ -529,19 +478,17 @@ class Interfaces(Entity):
                 self.autoconf = Interfaces.Interface.Ipv6.Autoconf()
                 self.autoconf.parent = self
                 self._children_name_map["autoconf"] = "autoconf"
-                self._children_yang_names.add("autoconf")
 
                 self.ipv6_router_advertisements = Interfaces.Interface.Ipv6.Ipv6RouterAdvertisements()
                 self.ipv6_router_advertisements.parent = self
                 self._children_name_map["ipv6_router_advertisements"] = "ietf-ipv6-unicast-routing:ipv6-router-advertisements"
-                self._children_yang_names.add("ietf-ipv6-unicast-routing:ipv6-router-advertisements")
 
                 self.address = YList(self)
                 self.neighbor = YList(self)
                 self._segment_path = lambda: "ietf-ip:ipv6"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.Interface.Ipv6, ['enabled', 'forwarding', 'mtu', 'dup_addr_detect_transmits'], name, value)
+                self._perform_setattr(Interfaces.Interface.Ipv6, [u'enabled', u'forwarding', u'mtu', u'dup_addr_detect_transmits'], name, value)
 
 
             class Address(Entity):
@@ -579,8 +526,7 @@ class Interfaces(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['ip']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ip', YLeaf(YType.str, 'ip')),
                         ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
@@ -590,7 +536,7 @@ class Interfaces(Entity):
                     self._segment_path = lambda: "address" + "[ip='" + str(self.ip) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.Ipv6.Address, ['ip', 'prefix_length'], name, value)
+                    self._perform_setattr(Interfaces.Interface.Ipv6.Address, [u'ip', u'prefix_length'], name, value)
 
 
             class Neighbor(Entity):
@@ -631,8 +577,7 @@ class Interfaces(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['ip']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ip', YLeaf(YType.str, 'ip')),
                         ('link_layer_address', YLeaf(YType.str, 'link-layer-address')),
@@ -642,7 +587,7 @@ class Interfaces(Entity):
                     self._segment_path = lambda: "neighbor" + "[ip='" + str(self.ip) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.Ipv6.Neighbor, ['ip', 'link_layer_address'], name, value)
+                    self._perform_setattr(Interfaces.Interface.Ipv6.Neighbor, [u'ip', u'link_layer_address'], name, value)
 
 
             class Autoconf(Entity):
@@ -701,8 +646,7 @@ class Interfaces(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('create_global_addresses', YLeaf(YType.boolean, 'create-global-addresses')),
                         ('create_temporary_addresses', YLeaf(YType.boolean, 'create-temporary-addresses')),
@@ -716,7 +660,7 @@ class Interfaces(Entity):
                     self._segment_path = lambda: "autoconf"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.Ipv6.Autoconf, ['create_global_addresses', 'create_temporary_addresses', 'temporary_valid_lifetime', 'temporary_preferred_lifetime'], name, value)
+                    self._perform_setattr(Interfaces.Interface.Ipv6.Autoconf, [u'create_global_addresses', u'create_temporary_addresses', u'temporary_valid_lifetime', u'temporary_preferred_lifetime'], name, value)
 
 
             class Ipv6RouterAdvertisements(Entity):
@@ -831,8 +775,7 @@ class Interfaces(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("prefix-list", ("prefix_list", Interfaces.Interface.Ipv6.Ipv6RouterAdvertisements.PrefixList))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("prefix-list", ("prefix_list", Interfaces.Interface.Ipv6.Ipv6RouterAdvertisements.PrefixList))])
                     self._leafs = OrderedDict([
                         ('send_advertisements', YLeaf(YType.boolean, 'send-advertisements')),
                         ('max_rtr_adv_interval', YLeaf(YType.uint16, 'max-rtr-adv-interval')),
@@ -859,7 +802,6 @@ class Interfaces(Entity):
                     self.prefix_list = Interfaces.Interface.Ipv6.Ipv6RouterAdvertisements.PrefixList()
                     self.prefix_list.parent = self
                     self._children_name_map["prefix_list"] = "prefix-list"
-                    self._children_yang_names.add("prefix-list")
                     self._segment_path = lambda: "ietf-ipv6-unicast-routing:ipv6-router-advertisements"
 
                 def __setattr__(self, name, value):
@@ -899,8 +841,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("prefix", ("prefix", Interfaces.Interface.Ipv6.Ipv6RouterAdvertisements.PrefixList.Prefix))])
+                        self._child_classes = OrderedDict([("prefix", ("prefix", Interfaces.Interface.Ipv6.Ipv6RouterAdvertisements.PrefixList.Prefix))])
                         self._leafs = OrderedDict()
 
                         self.prefix = YList(self)
@@ -977,8 +918,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['prefix_spec']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('prefix_spec', YLeaf(YType.str, 'prefix-spec')),
                                 ('no_advertise', YLeaf(YType.empty, 'no-advertise')),
@@ -997,6 +937,48 @@ class Interfaces(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.Ipv6.Ipv6RouterAdvertisements.PrefixList.Prefix, ['prefix_spec', 'no_advertise', 'valid_lifetime', 'on_link_flag', 'preferred_lifetime', 'autonomous_flag'], name, value)
+
+
+        class DiffservTargetEntry(Entity):
+            """
+            policy target for inbound or outbound direction
+            
+            .. attribute:: direction  (key)
+            
+            	Direction fo the traffic flow either inbound or outbound
+            	**type**\:  :py:class:`Direction <ydk.models.ietf.ietf_diffserv_target.Direction>`
+            
+            .. attribute:: policy_name  (key)
+            
+            	Policy entry name
+            	**type**\: str
+            
+            
+
+            """
+
+            _prefix = 'target'
+            _revision = '2015-04-07'
+
+            def __init__(self):
+                super(Interfaces.Interface.DiffservTargetEntry, self).__init__()
+
+                self.yang_name = "diffserv-target-entry"
+                self.yang_parent_name = "interface"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = ['direction','policy_name']
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('direction', YLeaf(YType.identityref, 'direction')),
+                    ('policy_name', YLeaf(YType.str, 'policy-name')),
+                ])
+                self.direction = None
+                self.policy_name = None
+                self._segment_path = lambda: "ietf-diffserv-target:diffserv-target-entry" + "[direction='" + str(self.direction) + "']" + "[policy-name='" + str(self.policy_name) + "']"
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Interfaces.Interface.DiffservTargetEntry, ['direction', 'policy_name'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Interfaces()
@@ -1027,8 +1009,7 @@ class InterfacesState(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("interface", ("interface", InterfacesState.Interface))])
+        self._child_classes = OrderedDict([("interface", ("interface", InterfacesState.Interface))])
         self._leafs = OrderedDict()
 
         self.interface = YList(self)
@@ -1123,10 +1104,10 @@ class InterfacesState(Entity):
         	A collection of interface\-related statistics objects
         	**type**\:  :py:class:`Statistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Statistics>`
         
-        .. attribute:: diffserv_target_entry
+        .. attribute:: routing_instance
         
-        	policy target for inbound or outbound direction
-        	**type**\: list of  		 :py:class:`DiffservTargetEntry <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry>`
+        	The name of the routing instance to which the interface is assigned
+        	**type**\: str
         
         .. attribute:: ipv4
         
@@ -1142,10 +1123,10 @@ class InterfacesState(Entity):
         
         	**presence node**\: True
         
-        .. attribute:: routing_instance
+        .. attribute:: diffserv_target_entry
         
-        	The name of the routing instance to which the interface is assigned
-        	**type**\: str
+        	policy target for inbound or outbound direction
+        	**type**\: list of  		 :py:class:`DiffservTargetEntry <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry>`
         
         
 
@@ -1162,8 +1143,7 @@ class InterfacesState(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['name']
-            self._child_container_classes = OrderedDict([("statistics", ("statistics", InterfacesState.Interface.Statistics)), ("ietf-ip:ipv4", ("ipv4", InterfacesState.Interface.Ipv4)), ("ietf-ip:ipv6", ("ipv6", InterfacesState.Interface.Ipv6))])
-            self._child_list_classes = OrderedDict([("ietf-diffserv-target:diffserv-target-entry", ("diffserv_target_entry", InterfacesState.Interface.DiffservTargetEntry))])
+            self._child_classes = OrderedDict([("statistics", ("statistics", InterfacesState.Interface.Statistics)), ("ietf-ip:ipv4", ("ipv4", InterfacesState.Interface.Ipv4)), ("ietf-ip:ipv6", ("ipv6", InterfacesState.Interface.Ipv6)), ("ietf-diffserv-target:diffserv-target-entry", ("diffserv_target_entry", InterfacesState.Interface.DiffservTargetEntry))])
             self._leafs = OrderedDict([
                 ('name', YLeaf(YType.str, 'name')),
                 ('type', YLeaf(YType.identityref, 'type')),
@@ -1192,22 +1172,19 @@ class InterfacesState(Entity):
             self.statistics = InterfacesState.Interface.Statistics()
             self.statistics.parent = self
             self._children_name_map["statistics"] = "statistics"
-            self._children_yang_names.add("statistics")
 
             self.ipv4 = None
             self._children_name_map["ipv4"] = "ietf-ip:ipv4"
-            self._children_yang_names.add("ietf-ip:ipv4")
 
             self.ipv6 = None
             self._children_name_map["ipv6"] = "ietf-ip:ipv6"
-            self._children_yang_names.add("ietf-ip:ipv6")
 
             self.diffserv_target_entry = YList(self)
             self._segment_path = lambda: "interface" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "ietf-interfaces:interfaces-state/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(InterfacesState.Interface, ['name', 'type', 'admin_status', 'oper_status', 'last_change', 'if_index', 'phys_address', 'higher_layer_if', 'lower_layer_if', 'speed', 'routing_instance'], name, value)
+            self._perform_setattr(InterfacesState.Interface, [u'name', u'type', u'admin_status', u'oper_status', u'last_change', u'if_index', u'phys_address', u'higher_layer_if', u'lower_layer_if', u'speed', u'routing_instance'], name, value)
 
         class AdminStatus(Enum):
             """
@@ -1427,8 +1404,7 @@ class InterfacesState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('discontinuity_time', YLeaf(YType.str, 'discontinuity-time')),
                     ('in_octets', YLeaf(YType.uint64, 'in-octets')),
@@ -1466,403 +1442,7 @@ class InterfacesState(Entity):
                 self._segment_path = lambda: "statistics"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(InterfacesState.Interface.Statistics, ['discontinuity_time', 'in_octets', 'in_unicast_pkts', 'in_broadcast_pkts', 'in_multicast_pkts', 'in_discards', 'in_errors', 'in_unknown_protos', 'out_octets', 'out_unicast_pkts', 'out_broadcast_pkts', 'out_multicast_pkts', 'out_discards', 'out_errors', 'in_pkts', 'out_pkts'], name, value)
-
-
-        class DiffservTargetEntry(Entity):
-            """
-            policy target for inbound or outbound direction
-            
-            .. attribute:: direction  (key)
-            
-            	Direction fo the traffic flow either inbound or outbound
-            	**type**\:  :py:class:`Direction <ydk.models.ietf.ietf_diffserv_target.Direction>`
-            
-            .. attribute:: policy_name  (key)
-            
-            	Policy entry name
-            	**type**\: str
-            
-            .. attribute:: diffserv_target_classifier_statistics
-            
-            	Statistics for each Classifier Entry in a Policy
-            	**type**\: list of  		 :py:class:`DiffservTargetClassifierStatistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics>`
-            
-            
-
-            """
-
-            _prefix = 'target'
-            _revision = '2015-04-07'
-
-            def __init__(self):
-                super(InterfacesState.Interface.DiffservTargetEntry, self).__init__()
-
-                self.yang_name = "diffserv-target-entry"
-                self.yang_parent_name = "interface"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self.ylist_key_names = ['direction','policy_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("diffserv-target-classifier-statistics", ("diffserv_target_classifier_statistics", InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics))])
-                self._leafs = OrderedDict([
-                    ('direction', YLeaf(YType.identityref, 'direction')),
-                    ('policy_name', YLeaf(YType.str, 'policy-name')),
-                ])
-                self.direction = None
-                self.policy_name = None
-
-                self.diffserv_target_classifier_statistics = YList(self)
-                self._segment_path = lambda: "ietf-diffserv-target:diffserv-target-entry" + "[direction='" + str(self.direction) + "']" + "[policy-name='" + str(self.policy_name) + "']"
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(InterfacesState.Interface.DiffservTargetEntry, ['direction', 'policy_name'], name, value)
-
-
-            class DiffservTargetClassifierStatistics(Entity):
-                """
-                Statistics for each Classifier Entry in a Policy
-                
-                .. attribute:: classifier_entry_name  (key)
-                
-                	Classifier Entry Name
-                	**type**\: str
-                
-                .. attribute:: parent_path  (key)
-                
-                	Path of the Classifier Entry in a hierarchial policy 
-                	**type**\: str
-                
-                .. attribute:: classifier_entry_statistics
-                
-                	 This group defines the classifier filter statistics of  each classifier entry         
-                	**type**\:  :py:class:`ClassifierEntryStatistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics>`
-                
-                .. attribute:: meter_statistics
-                
-                	Meter statistics
-                	**type**\: list of  		 :py:class:`MeterStatistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics>`
-                
-                .. attribute:: queuing_statistics
-                
-                	queue related statistics 
-                	**type**\:  :py:class:`QueuingStatistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics>`
-                
-                
-
-                """
-
-                _prefix = 'target'
-                _revision = '2015-04-07'
-
-                def __init__(self):
-                    super(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics, self).__init__()
-
-                    self.yang_name = "diffserv-target-classifier-statistics"
-                    self.yang_parent_name = "diffserv-target-entry"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = ['classifier_entry_name','parent_path']
-                    self._child_container_classes = OrderedDict([("classifier-entry-statistics", ("classifier_entry_statistics", InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics)), ("queuing-statistics", ("queuing_statistics", InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics))])
-                    self._child_list_classes = OrderedDict([("meter-statistics", ("meter_statistics", InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics))])
-                    self._leafs = OrderedDict([
-                        ('classifier_entry_name', YLeaf(YType.str, 'classifier-entry-name')),
-                        ('parent_path', YLeaf(YType.str, 'parent-path')),
-                    ])
-                    self.classifier_entry_name = None
-                    self.parent_path = None
-
-                    self.classifier_entry_statistics = InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics()
-                    self.classifier_entry_statistics.parent = self
-                    self._children_name_map["classifier_entry_statistics"] = "classifier-entry-statistics"
-                    self._children_yang_names.add("classifier-entry-statistics")
-
-                    self.queuing_statistics = InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics()
-                    self.queuing_statistics.parent = self
-                    self._children_name_map["queuing_statistics"] = "queuing-statistics"
-                    self._children_yang_names.add("queuing-statistics")
-
-                    self.meter_statistics = YList(self)
-                    self._segment_path = lambda: "diffserv-target-classifier-statistics" + "[classifier-entry-name='" + str(self.classifier_entry_name) + "']" + "[parent-path='" + str(self.parent_path) + "']"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics, ['classifier_entry_name', 'parent_path'], name, value)
-
-
-                class ClassifierEntryStatistics(Entity):
-                    """
-                    
-                    This group defines the classifier filter statistics of 
-                    each classifier entry
-                           
-                    
-                    
-                    .. attribute:: classified_pkts
-                    
-                    	 Number of total packets which filtered  to the classifier\-entry
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: classified_bytes
-                    
-                    	 Number of total bytes which filtered   to the classifier\-entry
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: classified_rate
-                    
-                    	 Rate of average data flow through the   classifier\-entry
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    	**units**\: bits-per-second
-                    
-                    
-
-                    """
-
-                    _prefix = 'target'
-                    _revision = '2015-04-07'
-
-                    def __init__(self):
-                        super(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics, self).__init__()
-
-                        self.yang_name = "classifier-entry-statistics"
-                        self.yang_parent_name = "diffserv-target-classifier-statistics"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('classified_pkts', YLeaf(YType.uint64, 'classified-pkts')),
-                            ('classified_bytes', YLeaf(YType.uint64, 'classified-bytes')),
-                            ('classified_rate', YLeaf(YType.uint64, 'classified-rate')),
-                        ])
-                        self.classified_pkts = None
-                        self.classified_bytes = None
-                        self.classified_rate = None
-                        self._segment_path = lambda: "classifier-entry-statistics"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics, ['classified_pkts', 'classified_bytes', 'classified_rate'], name, value)
-
-
-                class MeterStatistics(Entity):
-                    """
-                    Meter statistics
-                    
-                    .. attribute:: meter_id  (key)
-                    
-                    	Meter Identifier
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: meter_succeed_pkts
-                    
-                    	Number of packets which succeed the meter
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: meter_succeed_bytes
-                    
-                    	Bytes of packets which succeed the meter
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: meter_failed_pkts
-                    
-                    	Number of packets which failed the meter
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: meter_failed_bytes
-                    
-                    	Bytes of packets which failed the meter
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    
-
-                    """
-
-                    _prefix = 'target'
-                    _revision = '2015-04-07'
-
-                    def __init__(self):
-                        super(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics, self).__init__()
-
-                        self.yang_name = "meter-statistics"
-                        self.yang_parent_name = "diffserv-target-classifier-statistics"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = ['meter_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('meter_id', YLeaf(YType.uint16, 'meter-id')),
-                            ('meter_succeed_pkts', YLeaf(YType.uint64, 'meter-succeed-pkts')),
-                            ('meter_succeed_bytes', YLeaf(YType.uint64, 'meter-succeed-bytes')),
-                            ('meter_failed_pkts', YLeaf(YType.uint64, 'meter-failed-pkts')),
-                            ('meter_failed_bytes', YLeaf(YType.uint64, 'meter-failed-bytes')),
-                        ])
-                        self.meter_id = None
-                        self.meter_succeed_pkts = None
-                        self.meter_succeed_bytes = None
-                        self.meter_failed_pkts = None
-                        self.meter_failed_bytes = None
-                        self._segment_path = lambda: "meter-statistics" + "[meter-id='" + str(self.meter_id) + "']"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics, ['meter_id', 'meter_succeed_pkts', 'meter_succeed_bytes', 'meter_failed_pkts', 'meter_failed_bytes'], name, value)
-
-
-                class QueuingStatistics(Entity):
-                    """
-                    queue related statistics 
-                    
-                    .. attribute:: output_pkts
-                    
-                    	Number of packets transmitted from queue 
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: output_bytes
-                    
-                    	Number of bytes transmitted from queue 
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: queue_size_pkts
-                    
-                    	Number of packets currently buffered 
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: queue_size_bytes
-                    
-                    	Number of bytes currently buffered 
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: drop_pkts
-                    
-                    	Total number of packets dropped 
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: drop_bytes
-                    
-                    	Total number of bytes dropped 
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: wred_stats
-                    
-                    	Container for WRED statistics
-                    	**type**\:  :py:class:`WredStats <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'target'
-                    _revision = '2015-04-07'
-
-                    def __init__(self):
-                        super(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics, self).__init__()
-
-                        self.yang_name = "queuing-statistics"
-                        self.yang_parent_name = "diffserv-target-classifier-statistics"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("wred-stats", ("wred_stats", InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats))])
-                        self._child_list_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('output_pkts', YLeaf(YType.uint64, 'output-pkts')),
-                            ('output_bytes', YLeaf(YType.uint64, 'output-bytes')),
-                            ('queue_size_pkts', YLeaf(YType.uint64, 'queue-size-pkts')),
-                            ('queue_size_bytes', YLeaf(YType.uint64, 'queue-size-bytes')),
-                            ('drop_pkts', YLeaf(YType.uint64, 'drop-pkts')),
-                            ('drop_bytes', YLeaf(YType.uint64, 'drop-bytes')),
-                        ])
-                        self.output_pkts = None
-                        self.output_bytes = None
-                        self.queue_size_pkts = None
-                        self.queue_size_bytes = None
-                        self.drop_pkts = None
-                        self.drop_bytes = None
-
-                        self.wred_stats = InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats()
-                        self.wred_stats.parent = self
-                        self._children_name_map["wred_stats"] = "wred-stats"
-                        self._children_yang_names.add("wred-stats")
-                        self._segment_path = lambda: "queuing-statistics"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics, ['output_pkts', 'output_bytes', 'queue_size_pkts', 'queue_size_bytes', 'drop_pkts', 'drop_bytes'], name, value)
-
-
-                    class WredStats(Entity):
-                        """
-                        Container for WRED statistics
-                        
-                        .. attribute:: early_drop_pkts
-                        
-                        	Early drop packets 
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: early_drop_bytes
-                        
-                        	Early drop bytes 
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        
-
-                        """
-
-                        _prefix = 'target'
-                        _revision = '2015-04-07'
-
-                        def __init__(self):
-                            super(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats, self).__init__()
-
-                            self.yang_name = "wred-stats"
-                            self.yang_parent_name = "queuing-statistics"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('early_drop_pkts', YLeaf(YType.uint64, 'early-drop-pkts')),
-                                ('early_drop_bytes', YLeaf(YType.uint64, 'early-drop-bytes')),
-                            ])
-                            self.early_drop_pkts = None
-                            self.early_drop_bytes = None
-                            self._segment_path = lambda: "wred-stats"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats, ['early_drop_pkts', 'early_drop_bytes'], name, value)
+                self._perform_setattr(InterfacesState.Interface.Statistics, [u'discontinuity_time', u'in_octets', u'in_unicast_pkts', u'in_broadcast_pkts', u'in_multicast_pkts', u'in_discards', u'in_errors', u'in_unknown_protos', u'out_octets', u'out_unicast_pkts', u'out_broadcast_pkts', u'out_multicast_pkts', u'out_discards', u'out_errors', 'in_pkts', 'out_pkts'], name, value)
 
 
         class Ipv4(Entity):
@@ -1910,8 +1490,7 @@ class InterfacesState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("address", ("address", InterfacesState.Interface.Ipv4.Address)), ("neighbor", ("neighbor", InterfacesState.Interface.Ipv4.Neighbor))])
+                self._child_classes = OrderedDict([("address", ("address", InterfacesState.Interface.Ipv4.Address)), ("neighbor", ("neighbor", InterfacesState.Interface.Ipv4.Neighbor))])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
                     ('forwarding', YLeaf(YType.boolean, 'forwarding')),
@@ -1925,7 +1504,7 @@ class InterfacesState(Entity):
                 self._segment_path = lambda: "ietf-ip:ipv4"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(InterfacesState.Interface.Ipv4, ['forwarding', 'mtu'], name, value)
+                self._perform_setattr(InterfacesState.Interface.Ipv4, [u'forwarding', u'mtu'], name, value)
 
 
             class Address(Entity):
@@ -1973,8 +1552,7 @@ class InterfacesState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['ip']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ip', YLeaf(YType.str, 'ip')),
                         ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
@@ -1988,7 +1566,7 @@ class InterfacesState(Entity):
                     self._segment_path = lambda: "address" + "[ip='" + str(self.ip) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(InterfacesState.Interface.Ipv4.Address, ['ip', 'prefix_length', 'netmask', 'origin'], name, value)
+                    self._perform_setattr(InterfacesState.Interface.Ipv4.Address, [u'ip', u'prefix_length', u'netmask', u'origin'], name, value)
 
 
             class Neighbor(Entity):
@@ -2031,8 +1609,7 @@ class InterfacesState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['ip']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ip', YLeaf(YType.str, 'ip')),
                         ('link_layer_address', YLeaf(YType.str, 'link-layer-address')),
@@ -2044,7 +1621,7 @@ class InterfacesState(Entity):
                     self._segment_path = lambda: "neighbor" + "[ip='" + str(self.ip) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(InterfacesState.Interface.Ipv4.Neighbor, ['ip', 'link_layer_address', 'origin'], name, value)
+                    self._perform_setattr(InterfacesState.Interface.Ipv4.Neighbor, [u'ip', u'link_layer_address', u'origin'], name, value)
 
 
         class Ipv6(Entity):
@@ -2094,8 +1671,7 @@ class InterfacesState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("address", ("address", InterfacesState.Interface.Ipv6.Address)), ("neighbor", ("neighbor", InterfacesState.Interface.Ipv6.Neighbor))])
+                self._child_classes = OrderedDict([("address", ("address", InterfacesState.Interface.Ipv6.Address)), ("neighbor", ("neighbor", InterfacesState.Interface.Ipv6.Neighbor))])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
                     ('forwarding', YLeaf(YType.boolean, 'forwarding')),
@@ -2109,7 +1685,7 @@ class InterfacesState(Entity):
                 self._segment_path = lambda: "ietf-ip:ipv6"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(InterfacesState.Interface.Ipv6, ['forwarding', 'mtu'], name, value)
+                self._perform_setattr(InterfacesState.Interface.Ipv6, [u'forwarding', u'mtu'], name, value)
 
 
             class Address(Entity):
@@ -2157,8 +1733,7 @@ class InterfacesState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['ip']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ip', YLeaf(YType.str, 'ip')),
                         ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
@@ -2172,7 +1747,7 @@ class InterfacesState(Entity):
                     self._segment_path = lambda: "address" + "[ip='" + str(self.ip) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(InterfacesState.Interface.Ipv6.Address, ['ip', 'prefix_length', 'origin', 'status'], name, value)
+                    self._perform_setattr(InterfacesState.Interface.Ipv6.Address, [u'ip', u'prefix_length', u'origin', u'status'], name, value)
 
                 class Status(Enum):
                     """
@@ -2312,8 +1887,7 @@ class InterfacesState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['ip']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ip', YLeaf(YType.str, 'ip')),
                         ('link_layer_address', YLeaf(YType.str, 'link-layer-address')),
@@ -2329,7 +1903,7 @@ class InterfacesState(Entity):
                     self._segment_path = lambda: "neighbor" + "[ip='" + str(self.ip) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(InterfacesState.Interface.Ipv6.Neighbor, ['ip', 'link_layer_address', 'origin', 'is_router', 'state'], name, value)
+                    self._perform_setattr(InterfacesState.Interface.Ipv6.Neighbor, [u'ip', u'link_layer_address', u'origin', u'is_router', u'state'], name, value)
 
                 class State(Enum):
                     """
@@ -2395,6 +1969,393 @@ class InterfacesState(Entity):
 
                     probe = Enum.YLeaf(4, "probe")
 
+
+
+        class DiffservTargetEntry(Entity):
+            """
+            policy target for inbound or outbound direction
+            
+            .. attribute:: direction  (key)
+            
+            	Direction fo the traffic flow either inbound or outbound
+            	**type**\:  :py:class:`Direction <ydk.models.ietf.ietf_diffserv_target.Direction>`
+            
+            .. attribute:: policy_name  (key)
+            
+            	Policy entry name
+            	**type**\: str
+            
+            .. attribute:: diffserv_target_classifier_statistics
+            
+            	Statistics for each Classifier Entry in a Policy
+            	**type**\: list of  		 :py:class:`DiffservTargetClassifierStatistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics>`
+            
+            
+
+            """
+
+            _prefix = 'target'
+            _revision = '2015-04-07'
+
+            def __init__(self):
+                super(InterfacesState.Interface.DiffservTargetEntry, self).__init__()
+
+                self.yang_name = "diffserv-target-entry"
+                self.yang_parent_name = "interface"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = ['direction','policy_name']
+                self._child_classes = OrderedDict([("diffserv-target-classifier-statistics", ("diffserv_target_classifier_statistics", InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics))])
+                self._leafs = OrderedDict([
+                    ('direction', YLeaf(YType.identityref, 'direction')),
+                    ('policy_name', YLeaf(YType.str, 'policy-name')),
+                ])
+                self.direction = None
+                self.policy_name = None
+
+                self.diffserv_target_classifier_statistics = YList(self)
+                self._segment_path = lambda: "ietf-diffserv-target:diffserv-target-entry" + "[direction='" + str(self.direction) + "']" + "[policy-name='" + str(self.policy_name) + "']"
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(InterfacesState.Interface.DiffservTargetEntry, ['direction', 'policy_name'], name, value)
+
+
+            class DiffservTargetClassifierStatistics(Entity):
+                """
+                Statistics for each Classifier Entry in a Policy
+                
+                .. attribute:: classifier_entry_name  (key)
+                
+                	Classifier Entry Name
+                	**type**\: str
+                
+                .. attribute:: parent_path  (key)
+                
+                	Path of the Classifier Entry in a hierarchial policy 
+                	**type**\: str
+                
+                .. attribute:: classifier_entry_statistics
+                
+                	 This group defines the classifier filter statistics of  each classifier entry         
+                	**type**\:  :py:class:`ClassifierEntryStatistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics>`
+                
+                .. attribute:: meter_statistics
+                
+                	Meter statistics
+                	**type**\: list of  		 :py:class:`MeterStatistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics>`
+                
+                .. attribute:: queuing_statistics
+                
+                	queue related statistics 
+                	**type**\:  :py:class:`QueuingStatistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics>`
+                
+                
+
+                """
+
+                _prefix = 'target'
+                _revision = '2015-04-07'
+
+                def __init__(self):
+                    super(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics, self).__init__()
+
+                    self.yang_name = "diffserv-target-classifier-statistics"
+                    self.yang_parent_name = "diffserv-target-entry"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = ['classifier_entry_name','parent_path']
+                    self._child_classes = OrderedDict([("classifier-entry-statistics", ("classifier_entry_statistics", InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics)), ("meter-statistics", ("meter_statistics", InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics)), ("queuing-statistics", ("queuing_statistics", InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics))])
+                    self._leafs = OrderedDict([
+                        ('classifier_entry_name', YLeaf(YType.str, 'classifier-entry-name')),
+                        ('parent_path', YLeaf(YType.str, 'parent-path')),
+                    ])
+                    self.classifier_entry_name = None
+                    self.parent_path = None
+
+                    self.classifier_entry_statistics = InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics()
+                    self.classifier_entry_statistics.parent = self
+                    self._children_name_map["classifier_entry_statistics"] = "classifier-entry-statistics"
+
+                    self.queuing_statistics = InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics()
+                    self.queuing_statistics.parent = self
+                    self._children_name_map["queuing_statistics"] = "queuing-statistics"
+
+                    self.meter_statistics = YList(self)
+                    self._segment_path = lambda: "diffserv-target-classifier-statistics" + "[classifier-entry-name='" + str(self.classifier_entry_name) + "']" + "[parent-path='" + str(self.parent_path) + "']"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics, ['classifier_entry_name', 'parent_path'], name, value)
+
+
+                class ClassifierEntryStatistics(Entity):
+                    """
+                    
+                    This group defines the classifier filter statistics of 
+                    each classifier entry
+                           
+                    
+                    
+                    .. attribute:: classified_pkts
+                    
+                    	 Number of total packets which filtered  to the classifier\-entry
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: classified_bytes
+                    
+                    	 Number of total bytes which filtered   to the classifier\-entry
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: classified_rate
+                    
+                    	 Rate of average data flow through the   classifier\-entry
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bits-per-second
+                    
+                    
+
+                    """
+
+                    _prefix = 'target'
+                    _revision = '2015-04-07'
+
+                    def __init__(self):
+                        super(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics, self).__init__()
+
+                        self.yang_name = "classifier-entry-statistics"
+                        self.yang_parent_name = "diffserv-target-classifier-statistics"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('classified_pkts', YLeaf(YType.uint64, 'classified-pkts')),
+                            ('classified_bytes', YLeaf(YType.uint64, 'classified-bytes')),
+                            ('classified_rate', YLeaf(YType.uint64, 'classified-rate')),
+                        ])
+                        self.classified_pkts = None
+                        self.classified_bytes = None
+                        self.classified_rate = None
+                        self._segment_path = lambda: "classifier-entry-statistics"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics, ['classified_pkts', 'classified_bytes', 'classified_rate'], name, value)
+
+
+                class MeterStatistics(Entity):
+                    """
+                    Meter statistics
+                    
+                    .. attribute:: meter_id  (key)
+                    
+                    	Meter Identifier
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: meter_succeed_pkts
+                    
+                    	Number of packets which succeed the meter
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: meter_succeed_bytes
+                    
+                    	Bytes of packets which succeed the meter
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: meter_failed_pkts
+                    
+                    	Number of packets which failed the meter
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: meter_failed_bytes
+                    
+                    	Bytes of packets which failed the meter
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    
+
+                    """
+
+                    _prefix = 'target'
+                    _revision = '2015-04-07'
+
+                    def __init__(self):
+                        super(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics, self).__init__()
+
+                        self.yang_name = "meter-statistics"
+                        self.yang_parent_name = "diffserv-target-classifier-statistics"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = ['meter_id']
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('meter_id', YLeaf(YType.uint16, 'meter-id')),
+                            ('meter_succeed_pkts', YLeaf(YType.uint64, 'meter-succeed-pkts')),
+                            ('meter_succeed_bytes', YLeaf(YType.uint64, 'meter-succeed-bytes')),
+                            ('meter_failed_pkts', YLeaf(YType.uint64, 'meter-failed-pkts')),
+                            ('meter_failed_bytes', YLeaf(YType.uint64, 'meter-failed-bytes')),
+                        ])
+                        self.meter_id = None
+                        self.meter_succeed_pkts = None
+                        self.meter_succeed_bytes = None
+                        self.meter_failed_pkts = None
+                        self.meter_failed_bytes = None
+                        self._segment_path = lambda: "meter-statistics" + "[meter-id='" + str(self.meter_id) + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics, ['meter_id', 'meter_succeed_pkts', 'meter_succeed_bytes', 'meter_failed_pkts', 'meter_failed_bytes'], name, value)
+
+
+                class QueuingStatistics(Entity):
+                    """
+                    queue related statistics 
+                    
+                    .. attribute:: output_pkts
+                    
+                    	Number of packets transmitted from queue 
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: output_bytes
+                    
+                    	Number of bytes transmitted from queue 
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: queue_size_pkts
+                    
+                    	Number of packets currently buffered 
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: queue_size_bytes
+                    
+                    	Number of bytes currently buffered 
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: drop_pkts
+                    
+                    	Total number of packets dropped 
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: drop_bytes
+                    
+                    	Total number of bytes dropped 
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: wred_stats
+                    
+                    	Container for WRED statistics
+                    	**type**\:  :py:class:`WredStats <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'target'
+                    _revision = '2015-04-07'
+
+                    def __init__(self):
+                        super(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics, self).__init__()
+
+                        self.yang_name = "queuing-statistics"
+                        self.yang_parent_name = "diffserv-target-classifier-statistics"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("wred-stats", ("wred_stats", InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats))])
+                        self._leafs = OrderedDict([
+                            ('output_pkts', YLeaf(YType.uint64, 'output-pkts')),
+                            ('output_bytes', YLeaf(YType.uint64, 'output-bytes')),
+                            ('queue_size_pkts', YLeaf(YType.uint64, 'queue-size-pkts')),
+                            ('queue_size_bytes', YLeaf(YType.uint64, 'queue-size-bytes')),
+                            ('drop_pkts', YLeaf(YType.uint64, 'drop-pkts')),
+                            ('drop_bytes', YLeaf(YType.uint64, 'drop-bytes')),
+                        ])
+                        self.output_pkts = None
+                        self.output_bytes = None
+                        self.queue_size_pkts = None
+                        self.queue_size_bytes = None
+                        self.drop_pkts = None
+                        self.drop_bytes = None
+
+                        self.wred_stats = InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats()
+                        self.wred_stats.parent = self
+                        self._children_name_map["wred_stats"] = "wred-stats"
+                        self._segment_path = lambda: "queuing-statistics"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics, ['output_pkts', 'output_bytes', 'queue_size_pkts', 'queue_size_bytes', 'drop_pkts', 'drop_bytes'], name, value)
+
+
+                    class WredStats(Entity):
+                        """
+                        Container for WRED statistics
+                        
+                        .. attribute:: early_drop_pkts
+                        
+                        	Early drop packets 
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: early_drop_bytes
+                        
+                        	Early drop bytes 
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        
+
+                        """
+
+                        _prefix = 'target'
+                        _revision = '2015-04-07'
+
+                        def __init__(self):
+                            super(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats, self).__init__()
+
+                            self.yang_name = "wred-stats"
+                            self.yang_parent_name = "queuing-statistics"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('early_drop_pkts', YLeaf(YType.uint64, 'early-drop-pkts')),
+                                ('early_drop_bytes', YLeaf(YType.uint64, 'early-drop-bytes')),
+                            ])
+                            self.early_drop_pkts = None
+                            self.early_drop_bytes = None
+                            self._segment_path = lambda: "wred-stats"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats, ['early_drop_pkts', 'early_drop_bytes'], name, value)
 
     def clone_ptr(self):
         self._top_entity = InterfacesState()

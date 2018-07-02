@@ -20,6 +20,27 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+class XtcAddressFamily(Enum):
+    """
+    XtcAddressFamily (Enum Class)
+
+    Xtc address family
+
+    .. data:: ipv4 = 1
+
+    	IPv4 address family
+
+    .. data:: ipv6 = 2
+
+    	IPv6 address family
+
+    """
+
+    ipv4 = Enum.YLeaf(1, "ipv4")
+
+    ipv6 = Enum.YLeaf(2, "ipv6")
+
+
 class XtcAfId(Enum):
     """
     XtcAfId (Enum Class)
@@ -336,20 +357,20 @@ class Pcc(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("plsps", ("plsps", Pcc.Plsps)), ("peers", ("peers", Pcc.Peers))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("plsps", ("plsps", Pcc.Plsps)), ("peers", ("peers", Pcc.Peers))])
         self._leafs = OrderedDict()
 
         self.plsps = Pcc.Plsps()
         self.plsps.parent = self
         self._children_name_map["plsps"] = "plsps"
-        self._children_yang_names.add("plsps")
 
         self.peers = Pcc.Peers()
         self.peers.parent = self
         self._children_name_map["peers"] = "peers"
-        self._children_yang_names.add("peers")
         self._segment_path = lambda: "Cisco-IOS-XR-infra-xtc-agent-oper:pcc"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Pcc, [], name, value)
 
 
     class Plsps(Entity):
@@ -376,8 +397,7 @@ class Pcc(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("plsp", ("plsp", Pcc.Plsps.Plsp))])
+            self._child_classes = OrderedDict([("plsp", ("plsp", Pcc.Plsps.Plsp))])
             self._leafs = OrderedDict()
 
             self.plsp = YList(self)
@@ -397,7 +417,7 @@ class Pcc(Entity):
             	PLSP ID
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: stats
             
@@ -455,10 +475,9 @@ class Pcc(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['plsp_id']
-                self._child_container_classes = OrderedDict([("stats", ("stats", Pcc.Plsps.Plsp.Stats))])
-                self._child_list_classes = OrderedDict([("event-history", ("event_history", Pcc.Plsps.Plsp.EventHistory)), ("path", ("path", Pcc.Plsps.Plsp.Path))])
+                self._child_classes = OrderedDict([("stats", ("stats", Pcc.Plsps.Plsp.Stats)), ("event-history", ("event_history", Pcc.Plsps.Plsp.EventHistory)), ("path", ("path", Pcc.Plsps.Plsp.Path))])
                 self._leafs = OrderedDict([
-                    ('plsp_id', YLeaf(YType.int32, 'plsp-id')),
+                    ('plsp_id', YLeaf(YType.uint32, 'plsp-id')),
                     ('plsp_id_xr', YLeaf(YType.uint32, 'plsp-id-xr')),
                     ('sym_path_name', YLeaf(YType.str, 'sym-path-name')),
                     ('refcnt', YLeaf(YType.int64, 'refcnt')),
@@ -473,7 +492,6 @@ class Pcc(Entity):
                 self.stats = Pcc.Plsps.Plsp.Stats()
                 self.stats.parent = self
                 self._children_name_map["stats"] = "stats"
-                self._children_yang_names.add("stats")
 
                 self.event_history = YList(self)
                 self.path = YList(self)
@@ -552,8 +570,7 @@ class Pcc(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('paths_created', YLeaf(YType.uint64, 'paths-created')),
                         ('paths_destroyed', YLeaf(YType.uint64, 'paths-destroyed')),
@@ -607,8 +624,7 @@ class Pcc(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ts', YLeaf(YType.uint64, 'ts')),
                         ('desc', YLeaf(YType.str, 'desc')),
@@ -804,8 +820,7 @@ class Pcc(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("stats", ("stats", Pcc.Plsps.Plsp.Path.Stats))])
-                    self._child_list_classes = OrderedDict([("ero-hop", ("ero_hop", Pcc.Plsps.Plsp.Path.EroHop)), ("rro-hop", ("rro_hop", Pcc.Plsps.Plsp.Path.RroHop))])
+                    self._child_classes = OrderedDict([("stats", ("stats", Pcc.Plsps.Plsp.Path.Stats)), ("ero-hop", ("ero_hop", Pcc.Plsps.Plsp.Path.EroHop)), ("rro-hop", ("rro_hop", Pcc.Plsps.Plsp.Path.RroHop))])
                     self._leafs = OrderedDict([
                         ('used_bw', YLeaf(YType.int64, 'used-bw')),
                         ('requested_bw', YLeaf(YType.int64, 'requested-bw')),
@@ -858,7 +873,6 @@ class Pcc(Entity):
                     self.stats = Pcc.Plsps.Plsp.Path.Stats()
                     self.stats.parent = self
                     self._children_name_map["stats"] = "stats"
-                    self._children_yang_names.add("stats")
 
                     self.ero_hop = YList(self)
                     self.rro_hop = YList(self)
@@ -908,8 +922,7 @@ class Pcc(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('reports_requested', YLeaf(YType.uint64, 'reports-requested')),
                             ('reports_sent', YLeaf(YType.uint64, 'reports-sent')),
@@ -953,8 +966,7 @@ class Pcc(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("data", ("data", Pcc.Plsps.Plsp.Path.EroHop.Data))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("data", ("data", Pcc.Plsps.Plsp.Path.EroHop.Data))])
                         self._leafs = OrderedDict([
                             ('loose', YLeaf(YType.boolean, 'loose')),
                         ])
@@ -963,7 +975,6 @@ class Pcc(Entity):
                         self.data = Pcc.Plsps.Plsp.Path.EroHop.Data()
                         self.data.parent = self
                         self._children_name_map["data"] = "data"
-                        self._children_yang_names.add("data")
                         self._segment_path = lambda: "ero-hop"
 
                     def __setattr__(self, name, value):
@@ -1006,8 +1017,7 @@ class Pcc(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("ipv4", ("ipv4", Pcc.Plsps.Plsp.Path.EroHop.Data.Ipv4)), ("sr-v4", ("sr_v4", Pcc.Plsps.Plsp.Path.EroHop.Data.SrV4))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("ipv4", ("ipv4", Pcc.Plsps.Plsp.Path.EroHop.Data.Ipv4)), ("sr-v4", ("sr_v4", Pcc.Plsps.Plsp.Path.EroHop.Data.SrV4))])
                             self._leafs = OrderedDict([
                                 ('hop_type', YLeaf(YType.uint8, 'hop-type')),
                             ])
@@ -1016,12 +1026,10 @@ class Pcc(Entity):
                             self.ipv4 = Pcc.Plsps.Plsp.Path.EroHop.Data.Ipv4()
                             self.ipv4.parent = self
                             self._children_name_map["ipv4"] = "ipv4"
-                            self._children_yang_names.add("ipv4")
 
                             self.sr_v4 = Pcc.Plsps.Plsp.Path.EroHop.Data.SrV4()
                             self.sr_v4.parent = self
                             self._children_name_map["sr_v4"] = "sr-v4"
-                            self._children_yang_names.add("sr-v4")
                             self._segment_path = lambda: "data"
 
                         def __setattr__(self, name, value):
@@ -1061,8 +1069,7 @@ class Pcc(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('v4_addr', YLeaf(YType.uint32, 'v4-addr')),
                                     ('prefix_len', YLeaf(YType.uint8, 'prefix-len')),
@@ -1127,8 +1134,7 @@ class Pcc(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('type', YLeaf(YType.uint8, 'type')),
                                     ('cflag', YLeaf(YType.boolean, 'cflag')),
@@ -1176,8 +1182,7 @@ class Pcc(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("data", ("data", Pcc.Plsps.Plsp.Path.RroHop.Data))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("data", ("data", Pcc.Plsps.Plsp.Path.RroHop.Data))])
                         self._leafs = OrderedDict([
                             ('loose', YLeaf(YType.boolean, 'loose')),
                         ])
@@ -1186,7 +1191,6 @@ class Pcc(Entity):
                         self.data = Pcc.Plsps.Plsp.Path.RroHop.Data()
                         self.data.parent = self
                         self._children_name_map["data"] = "data"
-                        self._children_yang_names.add("data")
                         self._segment_path = lambda: "rro-hop"
 
                     def __setattr__(self, name, value):
@@ -1229,8 +1233,7 @@ class Pcc(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("ipv4", ("ipv4", Pcc.Plsps.Plsp.Path.RroHop.Data.Ipv4)), ("sr-v4", ("sr_v4", Pcc.Plsps.Plsp.Path.RroHop.Data.SrV4))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("ipv4", ("ipv4", Pcc.Plsps.Plsp.Path.RroHop.Data.Ipv4)), ("sr-v4", ("sr_v4", Pcc.Plsps.Plsp.Path.RroHop.Data.SrV4))])
                             self._leafs = OrderedDict([
                                 ('hop_type', YLeaf(YType.uint8, 'hop-type')),
                             ])
@@ -1239,12 +1242,10 @@ class Pcc(Entity):
                             self.ipv4 = Pcc.Plsps.Plsp.Path.RroHop.Data.Ipv4()
                             self.ipv4.parent = self
                             self._children_name_map["ipv4"] = "ipv4"
-                            self._children_yang_names.add("ipv4")
 
                             self.sr_v4 = Pcc.Plsps.Plsp.Path.RroHop.Data.SrV4()
                             self.sr_v4.parent = self
                             self._children_name_map["sr_v4"] = "sr-v4"
-                            self._children_yang_names.add("sr-v4")
                             self._segment_path = lambda: "data"
 
                         def __setattr__(self, name, value):
@@ -1284,8 +1285,7 @@ class Pcc(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('v4_addr', YLeaf(YType.uint32, 'v4-addr')),
                                     ('prefix_len', YLeaf(YType.uint8, 'prefix-len')),
@@ -1350,8 +1350,7 @@ class Pcc(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('type', YLeaf(YType.uint8, 'type')),
                                     ('cflag', YLeaf(YType.boolean, 'cflag')),
@@ -1394,8 +1393,7 @@ class Pcc(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("peer", ("peer", Pcc.Peers.Peer))])
+            self._child_classes = OrderedDict([("peer", ("peer", Pcc.Peers.Peer))])
             self._leafs = OrderedDict()
 
             self.peer = YList(self)
@@ -1581,6 +1579,16 @@ class Pcc(Entity):
             	is segment routing remote
             	**type**\: bool
             
+            .. attribute:: is_initiate_local
+            
+            	local initiate capability
+            	**type**\: bool
+            
+            .. attribute:: is_initiate_remote
+            
+            	remote initiate capability
+            	**type**\: bool
+            
             .. attribute:: is_best_pce
             
             	is this the best PCE to delegate to
@@ -1615,8 +1623,7 @@ class Pcc(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['peer_addr']
-                self._child_container_classes = OrderedDict([("socket-info", ("socket_info", Pcc.Peers.Peer.SocketInfo)), ("stats", ("stats", Pcc.Peers.Peer.Stats))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("socket-info", ("socket_info", Pcc.Peers.Peer.SocketInfo)), ("stats", ("stats", Pcc.Peers.Peer.Stats))])
                 self._leafs = OrderedDict([
                     ('peer_addr', YLeaf(YType.str, 'peer-addr')),
                     ('handle', YLeaf(YType.uint32, 'handle')),
@@ -1643,6 +1650,8 @@ class Pcc(Entity):
                     ('is_stateful_u_flag_remote', YLeaf(YType.boolean, 'is-stateful-u-flag-remote')),
                     ('is_segment_routing_local', YLeaf(YType.boolean, 'is-segment-routing-local')),
                     ('is_segment_routing_remote', YLeaf(YType.boolean, 'is-segment-routing-remote')),
+                    ('is_initiate_local', YLeaf(YType.boolean, 'is-initiate-local')),
+                    ('is_initiate_remote', YLeaf(YType.boolean, 'is-initiate-remote')),
                     ('is_best_pce', YLeaf(YType.boolean, 'is-best-pce')),
                     ('sr_msd_local', YLeaf(YType.uint8, 'sr-msd-local')),
                     ('sr_msd_remote', YLeaf(YType.uint8, 'sr-msd-remote')),
@@ -1672,6 +1681,8 @@ class Pcc(Entity):
                 self.is_stateful_u_flag_remote = None
                 self.is_segment_routing_local = None
                 self.is_segment_routing_remote = None
+                self.is_initiate_local = None
+                self.is_initiate_remote = None
                 self.is_best_pce = None
                 self.sr_msd_local = None
                 self.sr_msd_remote = None
@@ -1679,17 +1690,15 @@ class Pcc(Entity):
                 self.socket_info = Pcc.Peers.Peer.SocketInfo()
                 self.socket_info.parent = self
                 self._children_name_map["socket_info"] = "socket-info"
-                self._children_yang_names.add("socket-info")
 
                 self.stats = Pcc.Peers.Peer.Stats()
                 self.stats.parent = self
                 self._children_name_map["stats"] = "stats"
-                self._children_yang_names.add("stats")
                 self._segment_path = lambda: "peer" + "[peer-addr='" + str(self.peer_addr) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-agent-oper:pcc/peers/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Pcc.Peers.Peer, ['peer_addr', 'handle', 'state_str', 'local_ok', 'remote_ok', 'open_retry', 'ref_cnt', 'rx_state_str', 'holddown_counter', 'pcep_up_ts', 'precedence', 'ka_interval_local', 'ka_interval_remote', 'dead_interval_local', 'dead_interval_remote', 'pcep_session_id_local', 'pcep_session_id_remote', 'pcep_server_ipv4_addr', 'pcep_client_ipv4_addr', 'is_stateful_local', 'is_stateful_remote', 'is_stateful_u_flag_local', 'is_stateful_u_flag_remote', 'is_segment_routing_local', 'is_segment_routing_remote', 'is_best_pce', 'sr_msd_local', 'sr_msd_remote'], name, value)
+                self._perform_setattr(Pcc.Peers.Peer, ['peer_addr', 'handle', 'state_str', 'local_ok', 'remote_ok', 'open_retry', 'ref_cnt', 'rx_state_str', 'holddown_counter', 'pcep_up_ts', 'precedence', 'ka_interval_local', 'ka_interval_remote', 'dead_interval_local', 'dead_interval_remote', 'pcep_session_id_local', 'pcep_session_id_remote', 'pcep_server_ipv4_addr', 'pcep_client_ipv4_addr', 'is_stateful_local', 'is_stateful_remote', 'is_stateful_u_flag_local', 'is_stateful_u_flag_remote', 'is_segment_routing_local', 'is_segment_routing_remote', 'is_initiate_local', 'is_initiate_remote', 'is_best_pce', 'sr_msd_local', 'sr_msd_remote'], name, value)
 
 
             class SocketInfo(Entity):
@@ -1757,8 +1766,7 @@ class Pcc(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('fd', YLeaf(YType.int64, 'fd')),
                         ('wnotify', YLeaf(YType.boolean, 'wnotify')),
@@ -2173,8 +2181,7 @@ class Pcc(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ka_msg_rx', YLeaf(YType.uint64, 'ka-msg-rx')),
                         ('ka_msg_fail_rx', YLeaf(YType.uint64, 'ka-msg-fail-rx')),
@@ -2311,6 +2318,11 @@ class Xtc(Entity):
     	Forwarding information
     	**type**\:  :py:class:`Forwarding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Forwarding>`
     
+    .. attribute:: controller
+    
+    	Controller information
+    	**type**\:  :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller>`
+    
     .. attribute:: topology_summary
     
     	Node summary database
@@ -2342,40 +2354,40 @@ class Xtc(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("policies", ("policies", Xtc.Policies)), ("on-demand-colors", ("on_demand_colors", Xtc.OnDemandColors)), ("forwarding", ("forwarding", Xtc.Forwarding)), ("topology-summary", ("topology_summary", Xtc.TopologySummary)), ("topology-nodes", ("topology_nodes", Xtc.TopologyNodes)), ("prefix-infos", ("prefix_infos", Xtc.PrefixInfos))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("policies", ("policies", Xtc.Policies)), ("on-demand-colors", ("on_demand_colors", Xtc.OnDemandColors)), ("forwarding", ("forwarding", Xtc.Forwarding)), ("controller", ("controller", Xtc.Controller)), ("topology-summary", ("topology_summary", Xtc.TopologySummary)), ("topology-nodes", ("topology_nodes", Xtc.TopologyNodes)), ("prefix-infos", ("prefix_infos", Xtc.PrefixInfos))])
         self._leafs = OrderedDict()
 
         self.policies = Xtc.Policies()
         self.policies.parent = self
         self._children_name_map["policies"] = "policies"
-        self._children_yang_names.add("policies")
 
         self.on_demand_colors = Xtc.OnDemandColors()
         self.on_demand_colors.parent = self
         self._children_name_map["on_demand_colors"] = "on-demand-colors"
-        self._children_yang_names.add("on-demand-colors")
 
         self.forwarding = Xtc.Forwarding()
         self.forwarding.parent = self
         self._children_name_map["forwarding"] = "forwarding"
-        self._children_yang_names.add("forwarding")
+
+        self.controller = Xtc.Controller()
+        self.controller.parent = self
+        self._children_name_map["controller"] = "controller"
 
         self.topology_summary = Xtc.TopologySummary()
         self.topology_summary.parent = self
         self._children_name_map["topology_summary"] = "topology-summary"
-        self._children_yang_names.add("topology-summary")
 
         self.topology_nodes = Xtc.TopologyNodes()
         self.topology_nodes.parent = self
         self._children_name_map["topology_nodes"] = "topology-nodes"
-        self._children_yang_names.add("topology-nodes")
 
         self.prefix_infos = Xtc.PrefixInfos()
         self.prefix_infos.parent = self
         self._children_name_map["prefix_infos"] = "prefix-infos"
-        self._children_yang_names.add("prefix-infos")
         self._segment_path = lambda: "Cisco-IOS-XR-infra-xtc-agent-oper:xtc"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Xtc, [], name, value)
 
 
     class Policies(Entity):
@@ -2402,8 +2414,7 @@ class Xtc(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("policy", ("policy", Xtc.Policies.Policy))])
+            self._child_classes = OrderedDict([("policy", ("policy", Xtc.Policies.Policy))])
             self._leafs = OrderedDict()
 
             self.policy = YList(self)
@@ -2423,7 +2434,7 @@ class Xtc(Entity):
             	Policy ID
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: destination_address
             
@@ -2576,10 +2587,9 @@ class Xtc(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['id']
-                self._child_container_classes = OrderedDict([("destination-address", ("destination_address", Xtc.Policies.Policy.DestinationAddress)), ("binding-sid", ("binding_sid", Xtc.Policies.Policy.BindingSid)), ("auto-policy-info", ("auto_policy_info", Xtc.Policies.Policy.AutoPolicyInfo))])
-                self._child_list_classes = OrderedDict([("paths", ("paths", Xtc.Policies.Policy.Paths))])
+                self._child_classes = OrderedDict([("destination-address", ("destination_address", Xtc.Policies.Policy.DestinationAddress)), ("binding-sid", ("binding_sid", Xtc.Policies.Policy.BindingSid)), ("auto-policy-info", ("auto_policy_info", Xtc.Policies.Policy.AutoPolicyInfo)), ("paths", ("paths", Xtc.Policies.Policy.Paths))])
                 self._leafs = OrderedDict([
-                    ('id', YLeaf(YType.int32, 'id')),
+                    ('id', YLeaf(YType.uint32, 'id')),
                     ('policy_name', YLeaf(YType.str, 'policy-name')),
                     ('administrative_up', YLeaf(YType.uint32, 'administrative-up')),
                     ('operational_up', YLeaf(YType.uint32, 'operational-up')),
@@ -2618,17 +2628,14 @@ class Xtc(Entity):
                 self.destination_address = Xtc.Policies.Policy.DestinationAddress()
                 self.destination_address.parent = self
                 self._children_name_map["destination_address"] = "destination-address"
-                self._children_yang_names.add("destination-address")
 
                 self.binding_sid = Xtc.Policies.Policy.BindingSid()
                 self.binding_sid.parent = self
                 self._children_name_map["binding_sid"] = "binding-sid"
-                self._children_yang_names.add("binding-sid")
 
                 self.auto_policy_info = Xtc.Policies.Policy.AutoPolicyInfo()
                 self.auto_policy_info.parent = self
                 self._children_name_map["auto_policy_info"] = "auto-policy-info"
-                self._children_yang_names.add("auto-policy-info")
 
                 self.paths = YList(self)
                 self._segment_path = lambda: "policy" + "[id='" + str(self.id) + "']"
@@ -2676,8 +2683,7 @@ class Xtc(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('af_name', YLeaf(YType.enumeration, 'af-name')),
                         ('ipv4', YLeaf(YType.str, 'ipv4')),
@@ -2741,8 +2747,7 @@ class Xtc(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("value", ("value", Xtc.Policies.Policy.BindingSid.Value))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("value", ("value", Xtc.Policies.Policy.BindingSid.Value))])
                     self._leafs = OrderedDict([
                         ('bsid_mode', YLeaf(YType.enumeration, 'bsid-mode')),
                         ('error', YLeaf(YType.enumeration, 'error')),
@@ -2759,7 +2764,6 @@ class Xtc(Entity):
                     self.value = Xtc.Policies.Policy.BindingSid.Value()
                     self.value.parent = self
                     self._children_name_map["value"] = "value"
-                    self._children_yang_names.add("value")
                     self._segment_path = lambda: "binding-sid"
 
                 def __setattr__(self, name, value):
@@ -2804,8 +2808,7 @@ class Xtc(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
                             ('label', YLeaf(YType.uint32, 'label')),
@@ -2863,8 +2866,7 @@ class Xtc(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('creator_name', YLeaf(YType.str, 'creator-name')),
                         ('distinguisher', YLeaf(YType.uint32, 'distinguisher')),
@@ -2975,8 +2977,7 @@ class Xtc(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("sr-path-constraints", ("sr_path_constraints", Xtc.Policies.Policy.Paths.SrPathConstraints))])
-                    self._child_list_classes = OrderedDict([("hops", ("hops", Xtc.Policies.Policy.Paths.Hops))])
+                    self._child_classes = OrderedDict([("sr-path-constraints", ("sr_path_constraints", Xtc.Policies.Policy.Paths.SrPathConstraints)), ("hops", ("hops", Xtc.Policies.Policy.Paths.Hops))])
                     self._leafs = OrderedDict([
                         ('index', YLeaf(YType.uint32, 'index')),
                         ('type', YLeaf(YType.enumeration, 'type')),
@@ -3005,7 +3006,6 @@ class Xtc(Entity):
                     self.sr_path_constraints = Xtc.Policies.Policy.Paths.SrPathConstraints()
                     self.sr_path_constraints.parent = self
                     self._children_name_map["sr_path_constraints"] = "sr-path-constraints"
-                    self._children_yang_names.add("sr-path-constraints")
 
                     self.hops = YList(self)
                     self._segment_path = lambda: "paths"
@@ -3043,14 +3043,12 @@ class Xtc(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("path-metrics", ("path_metrics", Xtc.Policies.Policy.Paths.SrPathConstraints.PathMetrics))])
-                        self._child_list_classes = OrderedDict([("affinity-constraint", ("affinity_constraint", Xtc.Policies.Policy.Paths.SrPathConstraints.AffinityConstraint))])
+                        self._child_classes = OrderedDict([("path-metrics", ("path_metrics", Xtc.Policies.Policy.Paths.SrPathConstraints.PathMetrics)), ("affinity-constraint", ("affinity_constraint", Xtc.Policies.Policy.Paths.SrPathConstraints.AffinityConstraint))])
                         self._leafs = OrderedDict()
 
                         self.path_metrics = Xtc.Policies.Policy.Paths.SrPathConstraints.PathMetrics()
                         self.path_metrics.parent = self
                         self._children_name_map["path_metrics"] = "path-metrics"
-                        self._children_yang_names.add("path-metrics")
 
                         self.affinity_constraint = YList(self)
                         self._segment_path = lambda: "sr-path-constraints"
@@ -3120,8 +3118,7 @@ class Xtc(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('margin_relative', YLeaf(YType.uint8, 'margin-relative')),
                                 ('margin_absolute', YLeaf(YType.uint8, 'margin-absolute')),
@@ -3180,8 +3177,7 @@ class Xtc(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("color", ("color", Xtc.Policies.Policy.Paths.SrPathConstraints.AffinityConstraint.Color))])
+                            self._child_classes = OrderedDict([("color", ("color", Xtc.Policies.Policy.Paths.SrPathConstraints.AffinityConstraint.Color))])
                             self._leafs = OrderedDict([
                                 ('type', YLeaf(YType.uint8, 'type')),
                                 ('value', YLeaf(YType.uint32, 'value')),
@@ -3220,8 +3216,7 @@ class Xtc(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('color', YLeaf(YType.str, 'color')),
                                 ])
@@ -3271,8 +3266,7 @@ class Xtc(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("sid", ("sid", Xtc.Policies.Policy.Paths.Hops.Sid)), ("local-address", ("local_address", Xtc.Policies.Policy.Paths.Hops.LocalAddress)), ("remote-address", ("remote_address", Xtc.Policies.Policy.Paths.Hops.RemoteAddress))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("sid", ("sid", Xtc.Policies.Policy.Paths.Hops.Sid)), ("local-address", ("local_address", Xtc.Policies.Policy.Paths.Hops.LocalAddress)), ("remote-address", ("remote_address", Xtc.Policies.Policy.Paths.Hops.RemoteAddress))])
                         self._leafs = OrderedDict([
                             ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
                         ])
@@ -3281,17 +3275,14 @@ class Xtc(Entity):
                         self.sid = Xtc.Policies.Policy.Paths.Hops.Sid()
                         self.sid.parent = self
                         self._children_name_map["sid"] = "sid"
-                        self._children_yang_names.add("sid")
 
                         self.local_address = Xtc.Policies.Policy.Paths.Hops.LocalAddress()
                         self.local_address.parent = self
                         self._children_name_map["local_address"] = "local-address"
-                        self._children_yang_names.add("local-address")
 
                         self.remote_address = Xtc.Policies.Policy.Paths.Hops.RemoteAddress()
                         self.remote_address.parent = self
                         self._children_name_map["remote_address"] = "remote-address"
-                        self._children_yang_names.add("remote-address")
                         self._segment_path = lambda: "hops"
 
                     def __setattr__(self, name, value):
@@ -3336,8 +3327,7 @@ class Xtc(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
                                 ('label', YLeaf(YType.uint32, 'label')),
@@ -3390,8 +3380,7 @@ class Xtc(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                 ('ipv4', YLeaf(YType.str, 'ipv4')),
@@ -3444,8 +3433,7 @@ class Xtc(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                 ('ipv4', YLeaf(YType.str, 'ipv4')),
@@ -3484,8 +3472,7 @@ class Xtc(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("on-demand-color", ("on_demand_color", Xtc.OnDemandColors.OnDemandColor))])
+            self._child_classes = OrderedDict([("on-demand-color", ("on_demand_color", Xtc.OnDemandColors.OnDemandColor))])
             self._leafs = OrderedDict()
 
             self.on_demand_color = YList(self)
@@ -3505,7 +3492,7 @@ class Xtc(Entity):
             	Color
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: disjoint_path_info
             
@@ -3534,10 +3521,9 @@ class Xtc(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['color']
-                self._child_container_classes = OrderedDict([("disjoint-path-info", ("disjoint_path_info", Xtc.OnDemandColors.OnDemandColor.DisjointPathInfo))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("disjoint-path-info", ("disjoint_path_info", Xtc.OnDemandColors.OnDemandColor.DisjointPathInfo))])
                 self._leafs = OrderedDict([
-                    ('color', YLeaf(YType.int32, 'color')),
+                    ('color', YLeaf(YType.uint32, 'color')),
                     ('color_xr', YLeaf(YType.uint32, 'color-xr')),
                 ])
                 self.color = None
@@ -3546,7 +3532,6 @@ class Xtc(Entity):
                 self.disjoint_path_info = Xtc.OnDemandColors.OnDemandColor.DisjointPathInfo()
                 self.disjoint_path_info.parent = self
                 self._children_name_map["disjoint_path_info"] = "disjoint-path-info"
-                self._children_yang_names.add("disjoint-path-info")
                 self._segment_path = lambda: "on-demand-color" + "[color='" + str(self.color) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/on-demand-colors/%s" % self._segment_path()
 
@@ -3592,8 +3577,7 @@ class Xtc(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('disjointness_type', YLeaf(YType.enumeration, 'disjointness-type')),
                         ('group_id', YLeaf(YType.uint32, 'group-id')),
@@ -3632,16 +3616,17 @@ class Xtc(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("policy-forwardings", ("policy_forwardings", Xtc.Forwarding.PolicyForwardings))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("policy-forwardings", ("policy_forwardings", Xtc.Forwarding.PolicyForwardings))])
             self._leafs = OrderedDict()
 
             self.policy_forwardings = Xtc.Forwarding.PolicyForwardings()
             self.policy_forwardings.parent = self
             self._children_name_map["policy_forwardings"] = "policy-forwardings"
-            self._children_yang_names.add("policy-forwardings")
             self._segment_path = lambda: "forwarding"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Xtc.Forwarding, [], name, value)
 
 
         class PolicyForwardings(Entity):
@@ -3668,8 +3653,7 @@ class Xtc(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("policy-forwarding", ("policy_forwarding", Xtc.Forwarding.PolicyForwardings.PolicyForwarding))])
+                self._child_classes = OrderedDict([("policy-forwarding", ("policy_forwarding", Xtc.Forwarding.PolicyForwardings.PolicyForwarding))])
                 self._leafs = OrderedDict()
 
                 self.policy_forwarding = YList(self)
@@ -3749,8 +3733,7 @@ class Xtc(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("paths", ("paths", Xtc.Forwarding.PolicyForwardings.PolicyForwarding.Paths))])
+                    self._child_classes = OrderedDict([("paths", ("paths", Xtc.Forwarding.PolicyForwardings.PolicyForwarding.Paths))])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                         ('policy_name', YLeaf(YType.str, 'policy-name')),
@@ -3880,8 +3863,7 @@ class Xtc(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('outgoing_interface', YLeaf(YType.str, 'outgoing-interface')),
                             ('next_hop_ipv4', YLeaf(YType.str, 'next-hop-ipv4')),
@@ -3914,6 +3896,863 @@ class Xtc(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Xtc.Forwarding.PolicyForwardings.PolicyForwarding.Paths, ['outgoing_interface', 'next_hop_ipv4', 'next_hop_table_id', 'is_protected', 'is_pure_bkup', 'load_metric', 'path_id', 'bkup_path_id', 'segment_list_name', 'are_stats_valid', 'forwarding_stats_pkts', 'forwarding_stats_bytes', 'label_stack'], name, value)
+
+
+    class Controller(Entity):
+        """
+        Controller information
+        
+        .. attribute:: policy_requests
+        
+        	Table containing policy requests
+        	**type**\:  :py:class:`PolicyRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests>`
+        
+        
+
+        """
+
+        _prefix = 'infra-xtc-agent-oper'
+        _revision = '2017-09-11'
+
+        def __init__(self):
+            super(Xtc.Controller, self).__init__()
+
+            self.yang_name = "controller"
+            self.yang_parent_name = "xtc"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("policy-requests", ("policy_requests", Xtc.Controller.PolicyRequests))])
+            self._leafs = OrderedDict()
+
+            self.policy_requests = Xtc.Controller.PolicyRequests()
+            self.policy_requests.parent = self
+            self._children_name_map["policy_requests"] = "policy-requests"
+            self._segment_path = lambda: "controller"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Xtc.Controller, [], name, value)
+
+
+        class PolicyRequests(Entity):
+            """
+            Table containing policy requests
+            
+            .. attribute:: policy_request
+            
+            	Policy request information
+            	**type**\: list of  		 :py:class:`PolicyRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest>`
+            
+            
+
+            """
+
+            _prefix = 'infra-xtc-agent-oper'
+            _revision = '2017-09-11'
+
+            def __init__(self):
+                super(Xtc.Controller.PolicyRequests, self).__init__()
+
+                self.yang_name = "policy-requests"
+                self.yang_parent_name = "controller"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("policy-request", ("policy_request", Xtc.Controller.PolicyRequests.PolicyRequest))])
+                self._leafs = OrderedDict()
+
+                self.policy_request = YList(self)
+                self._segment_path = lambda: "policy-requests"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Xtc.Controller.PolicyRequests, [], name, value)
+
+
+            class PolicyRequest(Entity):
+                """
+                Policy request information
+                
+                .. attribute:: source_address  (key)
+                
+                	Source Address
+                	**type**\: union of the below types:
+                
+                		**type**\: str
+                
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                		**type**\: str
+                
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                .. attribute:: end_point_type  (key)
+                
+                	Endpoint Address Type
+                	**type**\:  :py:class:`XtcAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcAddressFamily>`
+                
+                .. attribute:: end_point_address  (key)
+                
+                	Endpoint Address
+                	**type**\: union of the below types:
+                
+                		**type**\: str
+                
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                		**type**\: str
+                
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                .. attribute:: color  (key)
+                
+                	Color
+                	**type**\: int
+                
+                	**range:** 1..4294967295
+                
+                .. attribute:: route_distinguisher  (key)
+                
+                	Route Distinguisher
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: end_point
+                
+                	End point
+                	**type**\:  :py:class:`EndPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.EndPoint>`
+                
+                .. attribute:: source_address_xr
+                
+                	Source address
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                .. attribute:: binding_sid
+                
+                	Binding SID
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: preference
+                
+                	Preference
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: color_xr
+                
+                	Color
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: route_distinguisher_xr
+                
+                	Route distinguisher
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: creation_time
+                
+                	Creation time of the request in seconds
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: second
+                
+                .. attribute:: last_updated_time
+                
+                	Last updated time of the request in seconds
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: second
+                
+                .. attribute:: paths
+                
+                	Path options
+                	**type**\: list of  		 :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths>`
+                
+                
+
+                """
+
+                _prefix = 'infra-xtc-agent-oper'
+                _revision = '2017-09-11'
+
+                def __init__(self):
+                    super(Xtc.Controller.PolicyRequests.PolicyRequest, self).__init__()
+
+                    self.yang_name = "policy-request"
+                    self.yang_parent_name = "policy-requests"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['source_address','end_point_type','end_point_address','color','route_distinguisher']
+                    self._child_classes = OrderedDict([("end-point", ("end_point", Xtc.Controller.PolicyRequests.PolicyRequest.EndPoint)), ("paths", ("paths", Xtc.Controller.PolicyRequests.PolicyRequest.Paths))])
+                    self._leafs = OrderedDict([
+                        ('source_address', YLeaf(YType.str, 'source-address')),
+                        ('end_point_type', YLeaf(YType.enumeration, 'end-point-type')),
+                        ('end_point_address', YLeaf(YType.str, 'end-point-address')),
+                        ('color', YLeaf(YType.uint32, 'color')),
+                        ('route_distinguisher', YLeaf(YType.uint32, 'route-distinguisher')),
+                        ('source_address_xr', YLeaf(YType.str, 'source-address-xr')),
+                        ('binding_sid', YLeaf(YType.uint32, 'binding-sid')),
+                        ('preference', YLeaf(YType.uint32, 'preference')),
+                        ('color_xr', YLeaf(YType.uint32, 'color-xr')),
+                        ('route_distinguisher_xr', YLeaf(YType.uint32, 'route-distinguisher-xr')),
+                        ('creation_time', YLeaf(YType.uint32, 'creation-time')),
+                        ('last_updated_time', YLeaf(YType.uint32, 'last-updated-time')),
+                    ])
+                    self.source_address = None
+                    self.end_point_type = None
+                    self.end_point_address = None
+                    self.color = None
+                    self.route_distinguisher = None
+                    self.source_address_xr = None
+                    self.binding_sid = None
+                    self.preference = None
+                    self.color_xr = None
+                    self.route_distinguisher_xr = None
+                    self.creation_time = None
+                    self.last_updated_time = None
+
+                    self.end_point = Xtc.Controller.PolicyRequests.PolicyRequest.EndPoint()
+                    self.end_point.parent = self
+                    self._children_name_map["end_point"] = "end-point"
+
+                    self.paths = YList(self)
+                    self._segment_path = lambda: "policy-request" + "[source-address='" + str(self.source_address) + "']" + "[end-point-type='" + str(self.end_point_type) + "']" + "[end-point-address='" + str(self.end_point_address) + "']" + "[color='" + str(self.color) + "']" + "[route-distinguisher='" + str(self.route_distinguisher) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/controller/policy-requests/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest, ['source_address', 'end_point_type', 'end_point_address', 'color', 'route_distinguisher', 'source_address_xr', 'binding_sid', 'preference', 'color_xr', 'route_distinguisher_xr', 'creation_time', 'last_updated_time'], name, value)
+
+
+                class EndPoint(Entity):
+                    """
+                    End point
+                    
+                    .. attribute:: af_name
+                    
+                    	AFName
+                    	**type**\:  :py:class:`XtcAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcAfId>`
+                    
+                    .. attribute:: ipv4
+                    
+                    	IPv4 address type
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: ipv6
+                    
+                    	IPv6 address type
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-xtc-agent-oper'
+                    _revision = '2017-09-11'
+
+                    def __init__(self):
+                        super(Xtc.Controller.PolicyRequests.PolicyRequest.EndPoint, self).__init__()
+
+                        self.yang_name = "end-point"
+                        self.yang_parent_name = "policy-request"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                            ('ipv4', YLeaf(YType.str, 'ipv4')),
+                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                        ])
+                        self.af_name = None
+                        self.ipv4 = None
+                        self.ipv6 = None
+                        self._segment_path = lambda: "end-point"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.EndPoint, ['af_name', 'ipv4', 'ipv6'], name, value)
+
+
+                class Paths(Entity):
+                    """
+                    Path options
+                    
+                    .. attribute:: sr_path_constraints
+                    
+                    	SR path constraints
+                    	**type**\:  :py:class:`SrPathConstraints <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints>`
+                    
+                    .. attribute:: index
+                    
+                    	Index number
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: type
+                    
+                    	Path option type
+                    	**type**\:  :py:class:`XtcPolicyPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcPolicyPath>`
+                    
+                    .. attribute:: name
+                    
+                    	Explicit path option name
+                    	**type**\: str
+                    
+                    .. attribute:: active
+                    
+                    	Whether the path is active (used)
+                    	**type**\: bool
+                    
+                    .. attribute:: weight
+                    
+                    	Configured weight of the path\-option
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: metric_type
+                    
+                    	Configured path metric type
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: metric_value
+                    
+                    	Path metric value
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: is_valid
+                    
+                    	True if path is valid
+                    	**type**\: bool
+                    
+                    .. attribute:: pce_based_path
+                    
+                    	True if the path is to be computed by PCE
+                    	**type**\: bool
+                    
+                    .. attribute:: pce_address
+                    
+                    	Address of the PCE computed the path
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: error
+                    
+                    	Error (for display only)
+                    	**type**\: str
+                    
+                    .. attribute:: hops
+                    
+                    	SR hop list
+                    	**type**\: list of  		 :py:class:`Hops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-xtc-agent-oper'
+                    _revision = '2017-09-11'
+
+                    def __init__(self):
+                        super(Xtc.Controller.PolicyRequests.PolicyRequest.Paths, self).__init__()
+
+                        self.yang_name = "paths"
+                        self.yang_parent_name = "policy-request"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("sr-path-constraints", ("sr_path_constraints", Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints)), ("hops", ("hops", Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops))])
+                        self._leafs = OrderedDict([
+                            ('index', YLeaf(YType.uint32, 'index')),
+                            ('type', YLeaf(YType.enumeration, 'type')),
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('active', YLeaf(YType.boolean, 'active')),
+                            ('weight', YLeaf(YType.uint32, 'weight')),
+                            ('metric_type', YLeaf(YType.uint8, 'metric-type')),
+                            ('metric_value', YLeaf(YType.uint32, 'metric-value')),
+                            ('is_valid', YLeaf(YType.boolean, 'is-valid')),
+                            ('pce_based_path', YLeaf(YType.boolean, 'pce-based-path')),
+                            ('pce_address', YLeaf(YType.str, 'pce-address')),
+                            ('error', YLeaf(YType.str, 'error')),
+                        ])
+                        self.index = None
+                        self.type = None
+                        self.name = None
+                        self.active = None
+                        self.weight = None
+                        self.metric_type = None
+                        self.metric_value = None
+                        self.is_valid = None
+                        self.pce_based_path = None
+                        self.pce_address = None
+                        self.error = None
+
+                        self.sr_path_constraints = Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints()
+                        self.sr_path_constraints.parent = self
+                        self._children_name_map["sr_path_constraints"] = "sr-path-constraints"
+
+                        self.hops = YList(self)
+                        self._segment_path = lambda: "paths"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.Paths, ['index', 'type', 'name', 'active', 'weight', 'metric_type', 'metric_value', 'is_valid', 'pce_based_path', 'pce_address', 'error'], name, value)
+
+
+                    class SrPathConstraints(Entity):
+                        """
+                        SR path constraints
+                        
+                        .. attribute:: path_metrics
+                        
+                        	Path metrics
+                        	**type**\:  :py:class:`PathMetrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.PathMetrics>`
+                        
+                        .. attribute:: affinity_constraint
+                        
+                        	Affinity constraints list
+                        	**type**\: list of  		 :py:class:`AffinityConstraint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.AffinityConstraint>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-xtc-agent-oper'
+                        _revision = '2017-09-11'
+
+                        def __init__(self):
+                            super(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints, self).__init__()
+
+                            self.yang_name = "sr-path-constraints"
+                            self.yang_parent_name = "paths"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("path-metrics", ("path_metrics", Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.PathMetrics)), ("affinity-constraint", ("affinity_constraint", Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.AffinityConstraint))])
+                            self._leafs = OrderedDict()
+
+                            self.path_metrics = Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.PathMetrics()
+                            self.path_metrics.parent = self
+                            self._children_name_map["path_metrics"] = "path-metrics"
+
+                            self.affinity_constraint = YList(self)
+                            self._segment_path = lambda: "sr-path-constraints"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints, [], name, value)
+
+
+                        class PathMetrics(Entity):
+                            """
+                            Path metrics
+                            
+                            .. attribute:: margin_relative
+                            
+                            	Margin Relative
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: margin_absolute
+                            
+                            	Margin Absolute
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: maximum_segments
+                            
+                            	Maximum number of segments
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: accumulative_te_metric
+                            
+                            	Accumulative TE metric
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: accumulative_igp_metric
+                            
+                            	Accumulative IGP metric
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: accumulative_delay
+                            
+                            	Accumulative delay
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-xtc-agent-oper'
+                            _revision = '2017-09-11'
+
+                            def __init__(self):
+                                super(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.PathMetrics, self).__init__()
+
+                                self.yang_name = "path-metrics"
+                                self.yang_parent_name = "sr-path-constraints"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('margin_relative', YLeaf(YType.uint8, 'margin-relative')),
+                                    ('margin_absolute', YLeaf(YType.uint8, 'margin-absolute')),
+                                    ('maximum_segments', YLeaf(YType.uint16, 'maximum-segments')),
+                                    ('accumulative_te_metric', YLeaf(YType.uint32, 'accumulative-te-metric')),
+                                    ('accumulative_igp_metric', YLeaf(YType.uint32, 'accumulative-igp-metric')),
+                                    ('accumulative_delay', YLeaf(YType.uint32, 'accumulative-delay')),
+                                ])
+                                self.margin_relative = None
+                                self.margin_absolute = None
+                                self.maximum_segments = None
+                                self.accumulative_te_metric = None
+                                self.accumulative_igp_metric = None
+                                self.accumulative_delay = None
+                                self._segment_path = lambda: "path-metrics"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.PathMetrics, ['margin_relative', 'margin_absolute', 'maximum_segments', 'accumulative_te_metric', 'accumulative_igp_metric', 'accumulative_delay'], name, value)
+
+
+                        class AffinityConstraint(Entity):
+                            """
+                            Affinity constraints list
+                            
+                            .. attribute:: type
+                            
+                            	Affinity type
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: value
+                            
+                            	Affinity value
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: color
+                            
+                            	Colors
+                            	**type**\: list of  		 :py:class:`Color <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.AffinityConstraint.Color>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-xtc-agent-oper'
+                            _revision = '2017-09-11'
+
+                            def __init__(self):
+                                super(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.AffinityConstraint, self).__init__()
+
+                                self.yang_name = "affinity-constraint"
+                                self.yang_parent_name = "sr-path-constraints"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("color", ("color", Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.AffinityConstraint.Color))])
+                                self._leafs = OrderedDict([
+                                    ('type', YLeaf(YType.uint8, 'type')),
+                                    ('value', YLeaf(YType.uint32, 'value')),
+                                ])
+                                self.type = None
+                                self.value = None
+
+                                self.color = YList(self)
+                                self._segment_path = lambda: "affinity-constraint"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.AffinityConstraint, ['type', 'value'], name, value)
+
+
+                            class Color(Entity):
+                                """
+                                Colors
+                                
+                                .. attribute:: color
+                                
+                                	An affinity color
+                                	**type**\: str
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-agent-oper'
+                                _revision = '2017-09-11'
+
+                                def __init__(self):
+                                    super(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.AffinityConstraint.Color, self).__init__()
+
+                                    self.yang_name = "color"
+                                    self.yang_parent_name = "affinity-constraint"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('color', YLeaf(YType.str, 'color')),
+                                    ])
+                                    self.color = None
+                                    self._segment_path = lambda: "color"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.AffinityConstraint.Color, ['color'], name, value)
+
+
+                    class Hops(Entity):
+                        """
+                        SR hop list
+                        
+                        .. attribute:: sid
+                        
+                        	SID value
+                        	**type**\:  :py:class:`Sid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.Sid>`
+                        
+                        .. attribute:: local_address
+                        
+                        	Local address
+                        	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.LocalAddress>`
+                        
+                        .. attribute:: remote_address
+                        
+                        	Remote address
+                        	**type**\:  :py:class:`RemoteAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.RemoteAddress>`
+                        
+                        .. attribute:: sid_type
+                        
+                        	SID type
+                        	**type**\:  :py:class:`XtcSrSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcSrSid>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-xtc-agent-oper'
+                        _revision = '2017-09-11'
+
+                        def __init__(self):
+                            super(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops, self).__init__()
+
+                            self.yang_name = "hops"
+                            self.yang_parent_name = "paths"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("sid", ("sid", Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.Sid)), ("local-address", ("local_address", Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.LocalAddress)), ("remote-address", ("remote_address", Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.RemoteAddress))])
+                            self._leafs = OrderedDict([
+                                ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
+                            ])
+                            self.sid_type = None
+
+                            self.sid = Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.Sid()
+                            self.sid.parent = self
+                            self._children_name_map["sid"] = "sid"
+
+                            self.local_address = Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.LocalAddress()
+                            self.local_address.parent = self
+                            self._children_name_map["local_address"] = "local-address"
+
+                            self.remote_address = Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.RemoteAddress()
+                            self.remote_address.parent = self
+                            self._children_name_map["remote_address"] = "remote-address"
+                            self._segment_path = lambda: "hops"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops, ['sid_type'], name, value)
+
+
+                        class Sid(Entity):
+                            """
+                            SID value
+                            
+                            .. attribute:: sid_type
+                            
+                            	SIDType
+                            	**type**\:  :py:class:`XtcSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcSid>`
+                            
+                            .. attribute:: label
+                            
+                            	MPLS label
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: ipv6
+                            
+                            	IPv6 address
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-xtc-agent-oper'
+                            _revision = '2017-09-11'
+
+                            def __init__(self):
+                                super(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.Sid, self).__init__()
+
+                                self.yang_name = "sid"
+                                self.yang_parent_name = "hops"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
+                                    ('label', YLeaf(YType.uint32, 'label')),
+                                    ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                ])
+                                self.sid_type = None
+                                self.label = None
+                                self.ipv6 = None
+                                self._segment_path = lambda: "sid"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.Sid, ['sid_type', 'label', 'ipv6'], name, value)
+
+
+                        class LocalAddress(Entity):
+                            """
+                            Local address
+                            
+                            .. attribute:: af_name
+                            
+                            	AFName
+                            	**type**\:  :py:class:`XtcAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcAfId>`
+                            
+                            .. attribute:: ipv4
+                            
+                            	IPv4 address type
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            .. attribute:: ipv6
+                            
+                            	IPv6 address type
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-xtc-agent-oper'
+                            _revision = '2017-09-11'
+
+                            def __init__(self):
+                                super(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.LocalAddress, self).__init__()
+
+                                self.yang_name = "local-address"
+                                self.yang_parent_name = "hops"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                    ('ipv4', YLeaf(YType.str, 'ipv4')),
+                                    ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                ])
+                                self.af_name = None
+                                self.ipv4 = None
+                                self.ipv6 = None
+                                self._segment_path = lambda: "local-address"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.LocalAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
+
+
+                        class RemoteAddress(Entity):
+                            """
+                            Remote address
+                            
+                            .. attribute:: af_name
+                            
+                            	AFName
+                            	**type**\:  :py:class:`XtcAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcAfId>`
+                            
+                            .. attribute:: ipv4
+                            
+                            	IPv4 address type
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            .. attribute:: ipv6
+                            
+                            	IPv6 address type
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-xtc-agent-oper'
+                            _revision = '2017-09-11'
+
+                            def __init__(self):
+                                super(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.RemoteAddress, self).__init__()
+
+                                self.yang_name = "remote-address"
+                                self.yang_parent_name = "hops"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                    ('ipv4', YLeaf(YType.str, 'ipv4')),
+                                    ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                ])
+                                self.af_name = None
+                                self.ipv4 = None
+                                self.ipv6 = None
+                                self._segment_path = lambda: "remote-address"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.RemoteAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
     class TopologySummary(Entity):
@@ -3970,8 +4809,7 @@ class Xtc(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('nodes', YLeaf(YType.uint32, 'nodes')),
                 ('prefixes', YLeaf(YType.uint32, 'prefixes')),
@@ -4015,8 +4853,7 @@ class Xtc(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("topology-node", ("topology_node", Xtc.TopologyNodes.TopologyNode))])
+            self._child_classes = OrderedDict([("topology-node", ("topology_node", Xtc.TopologyNodes.TopologyNode))])
             self._leafs = OrderedDict()
 
             self.topology_node = YList(self)
@@ -4036,7 +4873,7 @@ class Xtc(Entity):
             	Node Identifier
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: node_protocol_identifier
             
@@ -4085,10 +4922,9 @@ class Xtc(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_identifier']
-                self._child_container_classes = OrderedDict([("node-protocol-identifier", ("node_protocol_identifier", Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier))])
-                self._child_list_classes = OrderedDict([("prefix-sid", ("prefix_sid", Xtc.TopologyNodes.TopologyNode.PrefixSid)), ("ipv4-link", ("ipv4_link", Xtc.TopologyNodes.TopologyNode.Ipv4Link)), ("ipv6-link", ("ipv6_link", Xtc.TopologyNodes.TopologyNode.Ipv6Link))])
+                self._child_classes = OrderedDict([("node-protocol-identifier", ("node_protocol_identifier", Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier)), ("prefix-sid", ("prefix_sid", Xtc.TopologyNodes.TopologyNode.PrefixSid)), ("ipv4-link", ("ipv4_link", Xtc.TopologyNodes.TopologyNode.Ipv4Link)), ("ipv6-link", ("ipv6_link", Xtc.TopologyNodes.TopologyNode.Ipv6Link))])
                 self._leafs = OrderedDict([
-                    ('node_identifier', YLeaf(YType.int32, 'node-identifier')),
+                    ('node_identifier', YLeaf(YType.uint32, 'node-identifier')),
                     ('node_identifier_xr', YLeaf(YType.uint32, 'node-identifier-xr')),
                     ('overload', YLeaf(YType.boolean, 'overload')),
                 ])
@@ -4099,7 +4935,6 @@ class Xtc(Entity):
                 self.node_protocol_identifier = Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier()
                 self.node_protocol_identifier.parent = self
                 self._children_name_map["node_protocol_identifier"] = "node-protocol-identifier"
-                self._children_yang_names.add("node-protocol-identifier")
 
                 self.prefix_sid = YList(self)
                 self.ipv4_link = YList(self)
@@ -4164,8 +4999,7 @@ class Xtc(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("igp-information", ("igp_information", Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation))])
+                    self._child_classes = OrderedDict([("igp-information", ("igp_information", Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation))])
                     self._leafs = OrderedDict([
                         ('node_name', YLeaf(YType.str, 'node-name')),
                         ('ipv4_bgp_router_id_set', YLeaf(YType.boolean, 'ipv4-bgp-router-id-set')),
@@ -4217,8 +5051,7 @@ class Xtc(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("igp", ("igp", Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("igp", ("igp", Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp))])
                         self._leafs = OrderedDict([
                             ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
                         ])
@@ -4227,7 +5060,6 @@ class Xtc(Entity):
                         self.igp = Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp()
                         self.igp.parent = self
                         self._children_name_map["igp"] = "igp"
-                        self._children_yang_names.add("igp")
                         self._segment_path = lambda: "igp-information"
 
                     def __setattr__(self, name, value):
@@ -4273,8 +5105,7 @@ class Xtc(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("isis", ("isis", Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Isis)), ("ospf", ("ospf", Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Ospf)), ("bgp", ("bgp", Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Bgp))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("isis", ("isis", Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Isis)), ("ospf", ("ospf", Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Ospf)), ("bgp", ("bgp", Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Bgp))])
                             self._leafs = OrderedDict([
                                 ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
                             ])
@@ -4283,17 +5114,14 @@ class Xtc(Entity):
                             self.isis = Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Isis()
                             self.isis.parent = self
                             self._children_name_map["isis"] = "isis"
-                            self._children_yang_names.add("isis")
 
                             self.ospf = Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Ospf()
                             self.ospf.parent = self
                             self._children_name_map["ospf"] = "ospf"
-                            self._children_yang_names.add("ospf")
 
                             self.bgp = Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Bgp()
                             self.bgp.parent = self
                             self._children_name_map["bgp"] = "bgp"
-                            self._children_yang_names.add("bgp")
                             self._segment_path = lambda: "igp"
 
                         def __setattr__(self, name, value):
@@ -4331,8 +5159,7 @@ class Xtc(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('system_id', YLeaf(YType.str, 'system-id')),
                                     ('level', YLeaf(YType.uint32, 'level')),
@@ -4378,8 +5205,7 @@ class Xtc(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('router_id', YLeaf(YType.str, 'router-id')),
                                     ('area', YLeaf(YType.uint32, 'area')),
@@ -4418,8 +5244,7 @@ class Xtc(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('router_id', YLeaf(YType.str, 'router-id')),
                                 ])
@@ -4473,8 +5298,7 @@ class Xtc(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("sid-prefix", ("sid_prefix", Xtc.TopologyNodes.TopologyNode.PrefixSid.SidPrefix))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("sid-prefix", ("sid_prefix", Xtc.TopologyNodes.TopologyNode.PrefixSid.SidPrefix))])
                     self._leafs = OrderedDict([
                         ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
                         ('algorithm', YLeaf(YType.uint32, 'algorithm')),
@@ -4487,7 +5311,6 @@ class Xtc(Entity):
                     self.sid_prefix = Xtc.TopologyNodes.TopologyNode.PrefixSid.SidPrefix()
                     self.sid_prefix.parent = self
                     self._children_name_map["sid_prefix"] = "sid-prefix"
-                    self._children_yang_names.add("sid-prefix")
                     self._segment_path = lambda: "prefix-sid"
 
                 def __setattr__(self, name, value):
@@ -4532,8 +5355,7 @@ class Xtc(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('af_name', YLeaf(YType.enumeration, 'af-name')),
                             ('ipv4', YLeaf(YType.str, 'ipv4')),
@@ -4638,8 +5460,7 @@ class Xtc(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("local-igp-information", ("local_igp_information", Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation)), ("remote-node-protocol-identifier", ("remote_node_protocol_identifier", Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier))])
-                    self._child_list_classes = OrderedDict([("adjacency-sid", ("adjacency_sid", Xtc.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid))])
+                    self._child_classes = OrderedDict([("local-igp-information", ("local_igp_information", Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation)), ("remote-node-protocol-identifier", ("remote_node_protocol_identifier", Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier)), ("adjacency-sid", ("adjacency_sid", Xtc.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid))])
                     self._leafs = OrderedDict([
                         ('local_ipv4_address', YLeaf(YType.str, 'local-ipv4-address')),
                         ('remote_ipv4_address', YLeaf(YType.str, 'remote-ipv4-address')),
@@ -4662,12 +5483,10 @@ class Xtc(Entity):
                     self.local_igp_information = Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation()
                     self.local_igp_information.parent = self
                     self._children_name_map["local_igp_information"] = "local-igp-information"
-                    self._children_yang_names.add("local-igp-information")
 
                     self.remote_node_protocol_identifier = Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier()
                     self.remote_node_protocol_identifier.parent = self
                     self._children_name_map["remote_node_protocol_identifier"] = "remote-node-protocol-identifier"
-                    self._children_yang_names.add("remote-node-protocol-identifier")
 
                     self.adjacency_sid = YList(self)
                     self._segment_path = lambda: "ipv4-link"
@@ -4707,8 +5526,7 @@ class Xtc(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("igp", ("igp", Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("igp", ("igp", Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp))])
                         self._leafs = OrderedDict([
                             ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
                         ])
@@ -4717,7 +5535,6 @@ class Xtc(Entity):
                         self.igp = Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp()
                         self.igp.parent = self
                         self._children_name_map["igp"] = "igp"
-                        self._children_yang_names.add("igp")
                         self._segment_path = lambda: "local-igp-information"
 
                     def __setattr__(self, name, value):
@@ -4763,8 +5580,7 @@ class Xtc(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("isis", ("isis", Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Isis)), ("ospf", ("ospf", Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Ospf)), ("bgp", ("bgp", Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Bgp))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("isis", ("isis", Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Isis)), ("ospf", ("ospf", Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Ospf)), ("bgp", ("bgp", Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Bgp))])
                             self._leafs = OrderedDict([
                                 ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
                             ])
@@ -4773,17 +5589,14 @@ class Xtc(Entity):
                             self.isis = Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Isis()
                             self.isis.parent = self
                             self._children_name_map["isis"] = "isis"
-                            self._children_yang_names.add("isis")
 
                             self.ospf = Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Ospf()
                             self.ospf.parent = self
                             self._children_name_map["ospf"] = "ospf"
-                            self._children_yang_names.add("ospf")
 
                             self.bgp = Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Bgp()
                             self.bgp.parent = self
                             self._children_name_map["bgp"] = "bgp"
-                            self._children_yang_names.add("bgp")
                             self._segment_path = lambda: "igp"
 
                         def __setattr__(self, name, value):
@@ -4821,8 +5634,7 @@ class Xtc(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('system_id', YLeaf(YType.str, 'system-id')),
                                     ('level', YLeaf(YType.uint32, 'level')),
@@ -4868,8 +5680,7 @@ class Xtc(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('router_id', YLeaf(YType.str, 'router-id')),
                                     ('area', YLeaf(YType.uint32, 'area')),
@@ -4908,8 +5719,7 @@ class Xtc(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('router_id', YLeaf(YType.str, 'router-id')),
                                 ])
@@ -4973,8 +5783,7 @@ class Xtc(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("igp-information", ("igp_information", Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation))])
+                        self._child_classes = OrderedDict([("igp-information", ("igp_information", Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation))])
                         self._leafs = OrderedDict([
                             ('node_name', YLeaf(YType.str, 'node-name')),
                             ('ipv4_bgp_router_id_set', YLeaf(YType.boolean, 'ipv4-bgp-router-id-set')),
@@ -5026,8 +5835,7 @@ class Xtc(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("igp", ("igp", Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("igp", ("igp", Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp))])
                             self._leafs = OrderedDict([
                                 ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
                             ])
@@ -5036,7 +5844,6 @@ class Xtc(Entity):
                             self.igp = Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp()
                             self.igp.parent = self
                             self._children_name_map["igp"] = "igp"
-                            self._children_yang_names.add("igp")
                             self._segment_path = lambda: "igp-information"
 
                         def __setattr__(self, name, value):
@@ -5082,8 +5889,7 @@ class Xtc(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("isis", ("isis", Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis)), ("ospf", ("ospf", Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf)), ("bgp", ("bgp", Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("isis", ("isis", Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis)), ("ospf", ("ospf", Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf)), ("bgp", ("bgp", Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp))])
                                 self._leafs = OrderedDict([
                                     ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
                                 ])
@@ -5092,17 +5898,14 @@ class Xtc(Entity):
                                 self.isis = Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis()
                                 self.isis.parent = self
                                 self._children_name_map["isis"] = "isis"
-                                self._children_yang_names.add("isis")
 
                                 self.ospf = Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf()
                                 self.ospf.parent = self
                                 self._children_name_map["ospf"] = "ospf"
-                                self._children_yang_names.add("ospf")
 
                                 self.bgp = Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp()
                                 self.bgp.parent = self
                                 self._children_name_map["bgp"] = "bgp"
-                                self._children_yang_names.add("bgp")
                                 self._segment_path = lambda: "igp"
 
                             def __setattr__(self, name, value):
@@ -5140,8 +5943,7 @@ class Xtc(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('system_id', YLeaf(YType.str, 'system-id')),
                                         ('level', YLeaf(YType.uint32, 'level')),
@@ -5187,8 +5989,7 @@ class Xtc(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('router_id', YLeaf(YType.str, 'router-id')),
                                         ('area', YLeaf(YType.uint32, 'area')),
@@ -5227,8 +6028,7 @@ class Xtc(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('router_id', YLeaf(YType.str, 'router-id')),
                                     ])
@@ -5282,8 +6082,7 @@ class Xtc(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("sid-prefix", ("sid_prefix", Xtc.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("sid-prefix", ("sid_prefix", Xtc.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix))])
                         self._leafs = OrderedDict([
                             ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
                             ('algorithm', YLeaf(YType.uint32, 'algorithm')),
@@ -5296,7 +6095,6 @@ class Xtc(Entity):
                         self.sid_prefix = Xtc.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix()
                         self.sid_prefix.parent = self
                         self._children_name_map["sid_prefix"] = "sid-prefix"
-                        self._children_yang_names.add("sid-prefix")
                         self._segment_path = lambda: "adjacency-sid"
 
                     def __setattr__(self, name, value):
@@ -5341,8 +6139,7 @@ class Xtc(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                 ('ipv4', YLeaf(YType.str, 'ipv4')),
@@ -5433,8 +6230,7 @@ class Xtc(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("local-igp-information", ("local_igp_information", Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation)), ("remote-node-protocol-identifier", ("remote_node_protocol_identifier", Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier))])
-                    self._child_list_classes = OrderedDict([("adjacency-sid", ("adjacency_sid", Xtc.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid))])
+                    self._child_classes = OrderedDict([("local-igp-information", ("local_igp_information", Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation)), ("remote-node-protocol-identifier", ("remote_node_protocol_identifier", Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier)), ("adjacency-sid", ("adjacency_sid", Xtc.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid))])
                     self._leafs = OrderedDict([
                         ('local_ipv6_address', YLeaf(YType.str, 'local-ipv6-address')),
                         ('remote_ipv6_address', YLeaf(YType.str, 'remote-ipv6-address')),
@@ -5453,12 +6249,10 @@ class Xtc(Entity):
                     self.local_igp_information = Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation()
                     self.local_igp_information.parent = self
                     self._children_name_map["local_igp_information"] = "local-igp-information"
-                    self._children_yang_names.add("local-igp-information")
 
                     self.remote_node_protocol_identifier = Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier()
                     self.remote_node_protocol_identifier.parent = self
                     self._children_name_map["remote_node_protocol_identifier"] = "remote-node-protocol-identifier"
-                    self._children_yang_names.add("remote-node-protocol-identifier")
 
                     self.adjacency_sid = YList(self)
                     self._segment_path = lambda: "ipv6-link"
@@ -5498,8 +6292,7 @@ class Xtc(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("igp", ("igp", Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("igp", ("igp", Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp))])
                         self._leafs = OrderedDict([
                             ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
                         ])
@@ -5508,7 +6301,6 @@ class Xtc(Entity):
                         self.igp = Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp()
                         self.igp.parent = self
                         self._children_name_map["igp"] = "igp"
-                        self._children_yang_names.add("igp")
                         self._segment_path = lambda: "local-igp-information"
 
                     def __setattr__(self, name, value):
@@ -5554,8 +6346,7 @@ class Xtc(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("isis", ("isis", Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Isis)), ("ospf", ("ospf", Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Ospf)), ("bgp", ("bgp", Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Bgp))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("isis", ("isis", Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Isis)), ("ospf", ("ospf", Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Ospf)), ("bgp", ("bgp", Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Bgp))])
                             self._leafs = OrderedDict([
                                 ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
                             ])
@@ -5564,17 +6355,14 @@ class Xtc(Entity):
                             self.isis = Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Isis()
                             self.isis.parent = self
                             self._children_name_map["isis"] = "isis"
-                            self._children_yang_names.add("isis")
 
                             self.ospf = Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Ospf()
                             self.ospf.parent = self
                             self._children_name_map["ospf"] = "ospf"
-                            self._children_yang_names.add("ospf")
 
                             self.bgp = Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Bgp()
                             self.bgp.parent = self
                             self._children_name_map["bgp"] = "bgp"
-                            self._children_yang_names.add("bgp")
                             self._segment_path = lambda: "igp"
 
                         def __setattr__(self, name, value):
@@ -5612,8 +6400,7 @@ class Xtc(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('system_id', YLeaf(YType.str, 'system-id')),
                                     ('level', YLeaf(YType.uint32, 'level')),
@@ -5659,8 +6446,7 @@ class Xtc(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('router_id', YLeaf(YType.str, 'router-id')),
                                     ('area', YLeaf(YType.uint32, 'area')),
@@ -5699,8 +6485,7 @@ class Xtc(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('router_id', YLeaf(YType.str, 'router-id')),
                                 ])
@@ -5764,8 +6549,7 @@ class Xtc(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("igp-information", ("igp_information", Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation))])
+                        self._child_classes = OrderedDict([("igp-information", ("igp_information", Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation))])
                         self._leafs = OrderedDict([
                             ('node_name', YLeaf(YType.str, 'node-name')),
                             ('ipv4_bgp_router_id_set', YLeaf(YType.boolean, 'ipv4-bgp-router-id-set')),
@@ -5817,8 +6601,7 @@ class Xtc(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("igp", ("igp", Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("igp", ("igp", Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp))])
                             self._leafs = OrderedDict([
                                 ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
                             ])
@@ -5827,7 +6610,6 @@ class Xtc(Entity):
                             self.igp = Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp()
                             self.igp.parent = self
                             self._children_name_map["igp"] = "igp"
-                            self._children_yang_names.add("igp")
                             self._segment_path = lambda: "igp-information"
 
                         def __setattr__(self, name, value):
@@ -5873,8 +6655,7 @@ class Xtc(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("isis", ("isis", Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis)), ("ospf", ("ospf", Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf)), ("bgp", ("bgp", Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("isis", ("isis", Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis)), ("ospf", ("ospf", Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf)), ("bgp", ("bgp", Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp))])
                                 self._leafs = OrderedDict([
                                     ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
                                 ])
@@ -5883,17 +6664,14 @@ class Xtc(Entity):
                                 self.isis = Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis()
                                 self.isis.parent = self
                                 self._children_name_map["isis"] = "isis"
-                                self._children_yang_names.add("isis")
 
                                 self.ospf = Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf()
                                 self.ospf.parent = self
                                 self._children_name_map["ospf"] = "ospf"
-                                self._children_yang_names.add("ospf")
 
                                 self.bgp = Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp()
                                 self.bgp.parent = self
                                 self._children_name_map["bgp"] = "bgp"
-                                self._children_yang_names.add("bgp")
                                 self._segment_path = lambda: "igp"
 
                             def __setattr__(self, name, value):
@@ -5931,8 +6709,7 @@ class Xtc(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('system_id', YLeaf(YType.str, 'system-id')),
                                         ('level', YLeaf(YType.uint32, 'level')),
@@ -5978,8 +6755,7 @@ class Xtc(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('router_id', YLeaf(YType.str, 'router-id')),
                                         ('area', YLeaf(YType.uint32, 'area')),
@@ -6018,8 +6794,7 @@ class Xtc(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('router_id', YLeaf(YType.str, 'router-id')),
                                     ])
@@ -6073,8 +6848,7 @@ class Xtc(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("sid-prefix", ("sid_prefix", Xtc.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("sid-prefix", ("sid_prefix", Xtc.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix))])
                         self._leafs = OrderedDict([
                             ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
                             ('algorithm', YLeaf(YType.uint32, 'algorithm')),
@@ -6087,7 +6861,6 @@ class Xtc(Entity):
                         self.sid_prefix = Xtc.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix()
                         self.sid_prefix.parent = self
                         self._children_name_map["sid_prefix"] = "sid-prefix"
-                        self._children_yang_names.add("sid-prefix")
                         self._segment_path = lambda: "adjacency-sid"
 
                     def __setattr__(self, name, value):
@@ -6132,8 +6905,7 @@ class Xtc(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                 ('ipv4', YLeaf(YType.str, 'ipv4')),
@@ -6172,8 +6944,7 @@ class Xtc(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("prefix-info", ("prefix_info", Xtc.PrefixInfos.PrefixInfo))])
+            self._child_classes = OrderedDict([("prefix-info", ("prefix_info", Xtc.PrefixInfos.PrefixInfo))])
             self._leafs = OrderedDict()
 
             self.prefix_info = YList(self)
@@ -6193,7 +6964,7 @@ class Xtc(Entity):
             	Node ID
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: node_protocol_identifier
             
@@ -6227,10 +6998,9 @@ class Xtc(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_identifier']
-                self._child_container_classes = OrderedDict([("node-protocol-identifier", ("node_protocol_identifier", Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier))])
-                self._child_list_classes = OrderedDict([("address", ("address", Xtc.PrefixInfos.PrefixInfo.Address))])
+                self._child_classes = OrderedDict([("node-protocol-identifier", ("node_protocol_identifier", Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier)), ("address", ("address", Xtc.PrefixInfos.PrefixInfo.Address))])
                 self._leafs = OrderedDict([
-                    ('node_identifier', YLeaf(YType.int32, 'node-identifier')),
+                    ('node_identifier', YLeaf(YType.uint32, 'node-identifier')),
                     ('node_identifier_xr', YLeaf(YType.uint32, 'node-identifier-xr')),
                 ])
                 self.node_identifier = None
@@ -6239,7 +7009,6 @@ class Xtc(Entity):
                 self.node_protocol_identifier = Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier()
                 self.node_protocol_identifier.parent = self
                 self._children_name_map["node_protocol_identifier"] = "node-protocol-identifier"
-                self._children_yang_names.add("node-protocol-identifier")
 
                 self.address = YList(self)
                 self._segment_path = lambda: "prefix-info" + "[node-identifier='" + str(self.node_identifier) + "']"
@@ -6302,8 +7071,7 @@ class Xtc(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("igp-information", ("igp_information", Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation))])
+                    self._child_classes = OrderedDict([("igp-information", ("igp_information", Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation))])
                     self._leafs = OrderedDict([
                         ('node_name', YLeaf(YType.str, 'node-name')),
                         ('ipv4_bgp_router_id_set', YLeaf(YType.boolean, 'ipv4-bgp-router-id-set')),
@@ -6355,8 +7123,7 @@ class Xtc(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("igp", ("igp", Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("igp", ("igp", Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp))])
                         self._leafs = OrderedDict([
                             ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
                         ])
@@ -6365,7 +7132,6 @@ class Xtc(Entity):
                         self.igp = Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp()
                         self.igp.parent = self
                         self._children_name_map["igp"] = "igp"
-                        self._children_yang_names.add("igp")
                         self._segment_path = lambda: "igp-information"
 
                     def __setattr__(self, name, value):
@@ -6411,8 +7177,7 @@ class Xtc(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("isis", ("isis", Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Isis)), ("ospf", ("ospf", Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Ospf)), ("bgp", ("bgp", Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Bgp))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("isis", ("isis", Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Isis)), ("ospf", ("ospf", Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Ospf)), ("bgp", ("bgp", Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Bgp))])
                             self._leafs = OrderedDict([
                                 ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
                             ])
@@ -6421,17 +7186,14 @@ class Xtc(Entity):
                             self.isis = Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Isis()
                             self.isis.parent = self
                             self._children_name_map["isis"] = "isis"
-                            self._children_yang_names.add("isis")
 
                             self.ospf = Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Ospf()
                             self.ospf.parent = self
                             self._children_name_map["ospf"] = "ospf"
-                            self._children_yang_names.add("ospf")
 
                             self.bgp = Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Bgp()
                             self.bgp.parent = self
                             self._children_name_map["bgp"] = "bgp"
-                            self._children_yang_names.add("bgp")
                             self._segment_path = lambda: "igp"
 
                         def __setattr__(self, name, value):
@@ -6469,8 +7231,7 @@ class Xtc(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('system_id', YLeaf(YType.str, 'system-id')),
                                     ('level', YLeaf(YType.uint32, 'level')),
@@ -6516,8 +7277,7 @@ class Xtc(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('router_id', YLeaf(YType.str, 'router-id')),
                                     ('area', YLeaf(YType.uint32, 'area')),
@@ -6556,8 +7316,7 @@ class Xtc(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('router_id', YLeaf(YType.str, 'router-id')),
                                 ])
@@ -6606,8 +7365,7 @@ class Xtc(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('af_name', YLeaf(YType.enumeration, 'af-name')),
                         ('ipv4', YLeaf(YType.str, 'ipv4')),

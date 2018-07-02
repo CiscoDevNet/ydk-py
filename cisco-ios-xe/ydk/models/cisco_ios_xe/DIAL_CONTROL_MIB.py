@@ -20,27 +20,27 @@ class DIALCONTROLMIB(Entity):
     .. attribute:: dialctlconfiguration
     
     	
-    	**type**\:  :py:class:`Dialctlconfiguration <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Dialctlconfiguration>`
+    	**type**\:  :py:class:`DialCtlConfiguration <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.DialCtlConfiguration>`
     
     .. attribute:: callhistory
     
     	
-    	**type**\:  :py:class:`Callhistory <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callhistory>`
+    	**type**\:  :py:class:`CallHistory <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.CallHistory>`
     
     .. attribute:: dialctlpeercfgtable
     
     	The list of peers from which the managed device will accept calls or to which it will place them
-    	**type**\:  :py:class:`Dialctlpeercfgtable <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Dialctlpeercfgtable>`
+    	**type**\:  :py:class:`DialCtlPeerCfgTable <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.DialCtlPeerCfgTable>`
     
     .. attribute:: callactivetable
     
     	A table containing information about active calls to a specific destination
-    	**type**\:  :py:class:`Callactivetable <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable>`
+    	**type**\:  :py:class:`CallActiveTable <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.CallActiveTable>`
     
     .. attribute:: callhistorytable
     
     	A table containing information about specific calls to a specific destination
-    	**type**\:  :py:class:`Callhistorytable <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callhistorytable>`
+    	**type**\:  :py:class:`CallHistoryTable <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.CallHistoryTable>`
     
     
 
@@ -58,50 +58,47 @@ class DIALCONTROLMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("dialCtlConfiguration", ("dialctlconfiguration", DIALCONTROLMIB.Dialctlconfiguration)), ("callHistory", ("callhistory", DIALCONTROLMIB.Callhistory)), ("dialCtlPeerCfgTable", ("dialctlpeercfgtable", DIALCONTROLMIB.Dialctlpeercfgtable)), ("callActiveTable", ("callactivetable", DIALCONTROLMIB.Callactivetable)), ("callHistoryTable", ("callhistorytable", DIALCONTROLMIB.Callhistorytable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("dialCtlConfiguration", ("dialctlconfiguration", DIALCONTROLMIB.DialCtlConfiguration)), ("callHistory", ("callhistory", DIALCONTROLMIB.CallHistory)), ("dialCtlPeerCfgTable", ("dialctlpeercfgtable", DIALCONTROLMIB.DialCtlPeerCfgTable)), ("callActiveTable", ("callactivetable", DIALCONTROLMIB.CallActiveTable)), ("callHistoryTable", ("callhistorytable", DIALCONTROLMIB.CallHistoryTable))])
         self._leafs = OrderedDict()
 
-        self.dialctlconfiguration = DIALCONTROLMIB.Dialctlconfiguration()
+        self.dialctlconfiguration = DIALCONTROLMIB.DialCtlConfiguration()
         self.dialctlconfiguration.parent = self
         self._children_name_map["dialctlconfiguration"] = "dialCtlConfiguration"
-        self._children_yang_names.add("dialCtlConfiguration")
 
-        self.callhistory = DIALCONTROLMIB.Callhistory()
+        self.callhistory = DIALCONTROLMIB.CallHistory()
         self.callhistory.parent = self
         self._children_name_map["callhistory"] = "callHistory"
-        self._children_yang_names.add("callHistory")
 
-        self.dialctlpeercfgtable = DIALCONTROLMIB.Dialctlpeercfgtable()
+        self.dialctlpeercfgtable = DIALCONTROLMIB.DialCtlPeerCfgTable()
         self.dialctlpeercfgtable.parent = self
         self._children_name_map["dialctlpeercfgtable"] = "dialCtlPeerCfgTable"
-        self._children_yang_names.add("dialCtlPeerCfgTable")
 
-        self.callactivetable = DIALCONTROLMIB.Callactivetable()
+        self.callactivetable = DIALCONTROLMIB.CallActiveTable()
         self.callactivetable.parent = self
         self._children_name_map["callactivetable"] = "callActiveTable"
-        self._children_yang_names.add("callActiveTable")
 
-        self.callhistorytable = DIALCONTROLMIB.Callhistorytable()
+        self.callhistorytable = DIALCONTROLMIB.CallHistoryTable()
         self.callhistorytable.parent = self
         self._children_name_map["callhistorytable"] = "callHistoryTable"
-        self._children_yang_names.add("callHistoryTable")
         self._segment_path = lambda: "DIAL-CONTROL-MIB:DIAL-CONTROL-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(DIALCONTROLMIB, [], name, value)
 
-    class Dialctlconfiguration(Entity):
+
+    class DialCtlConfiguration(Entity):
         """
         
         
         .. attribute:: dialctlacceptmode
         
         	The security level for acceptance of incoming calls. acceptNone(1)  \- incoming calls will not be accepted acceptAll(2)   \- incoming calls will be accepted,                  even if there is no matching entry                  in the dialCtlPeerCfgTable acceptKnown(3) \- incoming calls will be accepted only                  if there is a matching entry in the                  dialCtlPeerCfgTable
-        	**type**\:  :py:class:`Dialctlacceptmode <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Dialctlconfiguration.Dialctlacceptmode>`
+        	**type**\:  :py:class:`DialCtlAcceptMode <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.DialCtlConfiguration.DialCtlAcceptMode>`
         
         .. attribute:: dialctltrapenable
         
         	This object indicates whether dialCtlPeerCallInformation and dialCtlPeerCallSetup traps should be generated for all peers. If the value of this object is enabled(1), traps will be generated for all peers. If the value of this object is disabled(2), traps will be generated only for peers having dialCtlPeerCfgTrapEnable set to enabled(1)
-        	**type**\:  :py:class:`Dialctltrapenable <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Dialctlconfiguration.Dialctltrapenable>`
+        	**type**\:  :py:class:`DialCtlTrapEnable <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.DialCtlConfiguration.DialCtlTrapEnable>`
         
         
 
@@ -111,15 +108,14 @@ class DIALCONTROLMIB(Entity):
         _revision = '1996-09-23'
 
         def __init__(self):
-            super(DIALCONTROLMIB.Dialctlconfiguration, self).__init__()
+            super(DIALCONTROLMIB.DialCtlConfiguration, self).__init__()
 
             self.yang_name = "dialCtlConfiguration"
             self.yang_parent_name = "DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('dialctlacceptmode', YLeaf(YType.enumeration, 'dialCtlAcceptMode')),
                 ('dialctltrapenable', YLeaf(YType.enumeration, 'dialCtlTrapEnable')),
@@ -130,11 +126,11 @@ class DIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "DIAL-CONTROL-MIB:DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DIALCONTROLMIB.Dialctlconfiguration, ['dialctlacceptmode', 'dialctltrapenable'], name, value)
+            self._perform_setattr(DIALCONTROLMIB.DialCtlConfiguration, [u'dialctlacceptmode', u'dialctltrapenable'], name, value)
 
-        class Dialctlacceptmode(Enum):
+        class DialCtlAcceptMode(Enum):
             """
-            Dialctlacceptmode (Enum Class)
+            DialCtlAcceptMode (Enum Class)
 
             The security level for acceptance of incoming calls.
 
@@ -167,9 +163,9 @@ class DIALCONTROLMIB(Entity):
             acceptKnown = Enum.YLeaf(3, "acceptKnown")
 
 
-        class Dialctltrapenable(Enum):
+        class DialCtlTrapEnable(Enum):
             """
-            Dialctltrapenable (Enum Class)
+            DialCtlTrapEnable (Enum Class)
 
             This object indicates whether dialCtlPeerCallInformation
 
@@ -197,7 +193,7 @@ class DIALCONTROLMIB(Entity):
 
 
 
-    class Callhistory(Entity):
+    class CallHistory(Entity):
         """
         
         
@@ -225,15 +221,14 @@ class DIALCONTROLMIB(Entity):
         _revision = '1996-09-23'
 
         def __init__(self):
-            super(DIALCONTROLMIB.Callhistory, self).__init__()
+            super(DIALCONTROLMIB.CallHistory, self).__init__()
 
             self.yang_name = "callHistory"
             self.yang_parent_name = "DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('callhistorytablemaxlength', YLeaf(YType.int32, 'callHistoryTableMaxLength')),
                 ('callhistoryretaintimer', YLeaf(YType.int32, 'callHistoryRetainTimer')),
@@ -244,10 +239,10 @@ class DIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "DIAL-CONTROL-MIB:DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DIALCONTROLMIB.Callhistory, ['callhistorytablemaxlength', 'callhistoryretaintimer'], name, value)
+            self._perform_setattr(DIALCONTROLMIB.CallHistory, [u'callhistorytablemaxlength', u'callhistoryretaintimer'], name, value)
 
 
-    class Dialctlpeercfgtable(Entity):
+    class DialCtlPeerCfgTable(Entity):
         """
         The list of peers from which the managed device
         will accept calls or to which it will place them.
@@ -255,7 +250,7 @@ class DIALCONTROLMIB(Entity):
         .. attribute:: dialctlpeercfgentry
         
         	Configuration data for a single Peer. This entry is effectively permanent, and contains information to identify the peer, how to connect to the peer, how to identify the peer and its permissions. The value of dialCtlPeerCfgOriginateAddress must be specified before a new row in this table can become active(1). Any writeable parameters in an existing entry can be modified while the entry is active. The modification will take effect when the peer in question will be called the next time. An entry in this table can only be created if the associated ifEntry already exists
-        	**type**\: list of  		 :py:class:`Dialctlpeercfgentry <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Dialctlpeercfgtable.Dialctlpeercfgentry>`
+        	**type**\: list of  		 :py:class:`DialCtlPeerCfgEntry <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.DialCtlPeerCfgTable.DialCtlPeerCfgEntry>`
         
         
 
@@ -265,15 +260,14 @@ class DIALCONTROLMIB(Entity):
         _revision = '1996-09-23'
 
         def __init__(self):
-            super(DIALCONTROLMIB.Dialctlpeercfgtable, self).__init__()
+            super(DIALCONTROLMIB.DialCtlPeerCfgTable, self).__init__()
 
             self.yang_name = "dialCtlPeerCfgTable"
             self.yang_parent_name = "DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dialCtlPeerCfgEntry", ("dialctlpeercfgentry", DIALCONTROLMIB.Dialctlpeercfgtable.Dialctlpeercfgentry))])
+            self._child_classes = OrderedDict([("dialCtlPeerCfgEntry", ("dialctlpeercfgentry", DIALCONTROLMIB.DialCtlPeerCfgTable.DialCtlPeerCfgEntry))])
             self._leafs = OrderedDict()
 
             self.dialctlpeercfgentry = YList(self)
@@ -281,10 +275,10 @@ class DIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "DIAL-CONTROL-MIB:DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DIALCONTROLMIB.Dialctlpeercfgtable, [], name, value)
+            self._perform_setattr(DIALCONTROLMIB.DialCtlPeerCfgTable, [], name, value)
 
 
-        class Dialctlpeercfgentry(Entity):
+        class DialCtlPeerCfgEntry(Entity):
             """
             Configuration data for a single Peer. This entry is
             effectively permanent, and contains information
@@ -313,7 +307,7 @@ class DIALCONTROLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: dialctlpeercfgiftype
             
@@ -357,12 +351,12 @@ class DIALCONTROLMIB(Entity):
             .. attribute:: dialctlpeercfginfotype
             
             	The Information Transfer Capability to be used when calling this peer.  speech(2) refers to a non\-data connection, whereas audio31(6) and audio7(7) refer to data mode connections
-            	**type**\:  :py:class:`Dialctlpeercfginfotype <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Dialctlpeercfgtable.Dialctlpeercfgentry.Dialctlpeercfginfotype>`
+            	**type**\:  :py:class:`DialCtlPeerCfgInfoType <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.DialCtlPeerCfgTable.DialCtlPeerCfgEntry.DialCtlPeerCfgInfoType>`
             
             .. attribute:: dialctlpeercfgpermission
             
             	Applicable permissions. callback(4) either rejects the call and then calls back, or uses the 'Reverse charging' information element if it is available. Note that callback(4) is supposed to control charging, not security, and applies to callback prior to accepting a call. Callback for security reasons can be handled using PPP callback
-            	**type**\:  :py:class:`Dialctlpeercfgpermission <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Dialctlpeercfgtable.Dialctlpeercfgentry.Dialctlpeercfgpermission>`
+            	**type**\:  :py:class:`DialCtlPeerCfgPermission <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.DialCtlPeerCfgTable.DialCtlPeerCfgEntry.DialCtlPeerCfgPermission>`
             
             .. attribute:: dialctlpeercfginactivitytimer
             
@@ -424,7 +418,7 @@ class DIALCONTROLMIB(Entity):
             .. attribute:: dialctlpeercfgtrapenable
             
             	This object indicates whether dialCtlPeerCallInformation and dialCtlPeerCallSetup traps should be generated for this peer
-            	**type**\:  :py:class:`Dialctlpeercfgtrapenable <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Dialctlpeercfgtable.Dialctlpeercfgentry.Dialctlpeercfgtrapenable>`
+            	**type**\:  :py:class:`DialCtlPeerCfgTrapEnable <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.DialCtlPeerCfgTable.DialCtlPeerCfgEntry.DialCtlPeerCfgTrapEnable>`
             
             .. attribute:: dialctlpeercfgstatus
             
@@ -502,15 +496,14 @@ class DIALCONTROLMIB(Entity):
             _revision = '1996-09-23'
 
             def __init__(self):
-                super(DIALCONTROLMIB.Dialctlpeercfgtable.Dialctlpeercfgentry, self).__init__()
+                super(DIALCONTROLMIB.DialCtlPeerCfgTable.DialCtlPeerCfgEntry, self).__init__()
 
                 self.yang_name = "dialCtlPeerCfgEntry"
                 self.yang_parent_name = "dialCtlPeerCfgTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dialctlpeercfgid','ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dialctlpeercfgid', YLeaf(YType.int32, 'dialCtlPeerCfgId')),
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
@@ -575,11 +568,11 @@ class DIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "DIAL-CONTROL-MIB:DIAL-CONTROL-MIB/dialCtlPeerCfgTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIALCONTROLMIB.Dialctlpeercfgtable.Dialctlpeercfgentry, ['dialctlpeercfgid', 'ifindex', 'dialctlpeercfgiftype', 'dialctlpeercfglowerif', 'dialctlpeercfgoriginateaddress', 'dialctlpeercfgansweraddress', 'dialctlpeercfgsubaddress', 'dialctlpeercfgclosedusergroup', 'dialctlpeercfgspeed', 'dialctlpeercfginfotype', 'dialctlpeercfgpermission', 'dialctlpeercfginactivitytimer', 'dialctlpeercfgminduration', 'dialctlpeercfgmaxduration', 'dialctlpeercfgcarrierdelay', 'dialctlpeercfgcallretries', 'dialctlpeercfgretrydelay', 'dialctlpeercfgfailuredelay', 'dialctlpeercfgtrapenable', 'dialctlpeercfgstatus', 'dialctlpeerstatsconnecttime', 'dialctlpeerstatschargedunits', 'dialctlpeerstatssuccesscalls', 'dialctlpeerstatsfailcalls', 'dialctlpeerstatsacceptcalls', 'dialctlpeerstatsrefusecalls', 'dialctlpeerstatslastdisconnectcause', 'dialctlpeerstatslastdisconnecttext', 'dialctlpeerstatslastsetuptime'], name, value)
+                self._perform_setattr(DIALCONTROLMIB.DialCtlPeerCfgTable.DialCtlPeerCfgEntry, [u'dialctlpeercfgid', u'ifindex', u'dialctlpeercfgiftype', u'dialctlpeercfglowerif', u'dialctlpeercfgoriginateaddress', u'dialctlpeercfgansweraddress', u'dialctlpeercfgsubaddress', u'dialctlpeercfgclosedusergroup', u'dialctlpeercfgspeed', u'dialctlpeercfginfotype', u'dialctlpeercfgpermission', u'dialctlpeercfginactivitytimer', u'dialctlpeercfgminduration', u'dialctlpeercfgmaxduration', u'dialctlpeercfgcarrierdelay', u'dialctlpeercfgcallretries', u'dialctlpeercfgretrydelay', u'dialctlpeercfgfailuredelay', u'dialctlpeercfgtrapenable', u'dialctlpeercfgstatus', u'dialctlpeerstatsconnecttime', u'dialctlpeerstatschargedunits', u'dialctlpeerstatssuccesscalls', u'dialctlpeerstatsfailcalls', u'dialctlpeerstatsacceptcalls', u'dialctlpeerstatsrefusecalls', u'dialctlpeerstatslastdisconnectcause', u'dialctlpeerstatslastdisconnecttext', u'dialctlpeerstatslastsetuptime'], name, value)
 
-            class Dialctlpeercfginfotype(Enum):
+            class DialCtlPeerCfgInfoType(Enum):
                 """
-                Dialctlpeercfginfotype (Enum Class)
+                DialCtlPeerCfgInfoType (Enum Class)
 
                 The Information Transfer Capability to be used when
 
@@ -634,9 +627,9 @@ class DIALCONTROLMIB(Entity):
                 fax = Enum.YLeaf(10, "fax")
 
 
-            class Dialctlpeercfgpermission(Enum):
+            class DialCtlPeerCfgPermission(Enum):
                 """
-                Dialctlpeercfgpermission (Enum Class)
+                DialCtlPeerCfgPermission (Enum Class)
 
                 Applicable permissions. callback(4) either rejects the
 
@@ -675,9 +668,9 @@ class DIALCONTROLMIB(Entity):
                 none = Enum.YLeaf(5, "none")
 
 
-            class Dialctlpeercfgtrapenable(Enum):
+            class DialCtlPeerCfgTrapEnable(Enum):
                 """
-                Dialctlpeercfgtrapenable (Enum Class)
+                DialCtlPeerCfgTrapEnable (Enum Class)
 
                 This object indicates whether dialCtlPeerCallInformation
 
@@ -697,7 +690,7 @@ class DIALCONTROLMIB(Entity):
 
 
 
-    class Callactivetable(Entity):
+    class CallActiveTable(Entity):
         """
         A table containing information about active
         calls to a specific destination.
@@ -705,7 +698,7 @@ class DIALCONTROLMIB(Entity):
         .. attribute:: callactiveentry
         
         	The information regarding a single active Connection. An entry in this table will be created when a call is started. An entry in this table will be deleted when an active call clears
-        	**type**\: list of  		 :py:class:`Callactiveentry <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry>`
+        	**type**\: list of  		 :py:class:`CallActiveEntry <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.CallActiveTable.CallActiveEntry>`
         
         
 
@@ -715,15 +708,14 @@ class DIALCONTROLMIB(Entity):
         _revision = '1996-09-23'
 
         def __init__(self):
-            super(DIALCONTROLMIB.Callactivetable, self).__init__()
+            super(DIALCONTROLMIB.CallActiveTable, self).__init__()
 
             self.yang_name = "callActiveTable"
             self.yang_parent_name = "DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("callActiveEntry", ("callactiveentry", DIALCONTROLMIB.Callactivetable.Callactiveentry))])
+            self._child_classes = OrderedDict([("callActiveEntry", ("callactiveentry", DIALCONTROLMIB.CallActiveTable.CallActiveEntry))])
             self._leafs = OrderedDict()
 
             self.callactiveentry = YList(self)
@@ -731,10 +723,10 @@ class DIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "DIAL-CONTROL-MIB:DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DIALCONTROLMIB.Callactivetable, [], name, value)
+            self._perform_setattr(DIALCONTROLMIB.CallActiveTable, [], name, value)
 
 
-        class Callactiveentry(Entity):
+        class CallActiveEntry(Entity):
             """
             The information regarding a single active Connection.
             An entry in this table will be created when a call is
@@ -796,12 +788,12 @@ class DIALCONTROLMIB(Entity):
             .. attribute:: callactivecallstate
             
             	The current call state. unknown(1)     \- The call state is unknown. connecting(2)  \- A connection attempt (outgoing call)                  is being made. connected(3)   \- An incoming call is in the process                  of validation. active(4)      \- The call is active
-            	**type**\:  :py:class:`Callactivecallstate <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry.Callactivecallstate>`
+            	**type**\:  :py:class:`CallActiveCallState <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.CallActiveTable.CallActiveEntry.CallActiveCallState>`
             
             .. attribute:: callactivecallorigin
             
             	The call origin
-            	**type**\:  :py:class:`Callactivecallorigin <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry.Callactivecallorigin>`
+            	**type**\:  :py:class:`CallActiveCallOrigin <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.CallActiveTable.CallActiveEntry.CallActiveCallOrigin>`
             
             .. attribute:: callactivechargedunits
             
@@ -813,7 +805,7 @@ class DIALCONTROLMIB(Entity):
             .. attribute:: callactiveinfotype
             
             	The information type for this call
-            	**type**\:  :py:class:`Callactiveinfotype <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry.Callactiveinfotype>`
+            	**type**\:  :py:class:`CallActiveInfoType <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.CallActiveTable.CallActiveEntry.CallActiveInfoType>`
             
             .. attribute:: callactivetransmitpackets
             
@@ -851,15 +843,14 @@ class DIALCONTROLMIB(Entity):
             _revision = '1996-09-23'
 
             def __init__(self):
-                super(DIALCONTROLMIB.Callactivetable.Callactiveentry, self).__init__()
+                super(DIALCONTROLMIB.CallActiveTable.CallActiveEntry, self).__init__()
 
                 self.yang_name = "callActiveEntry"
                 self.yang_parent_name = "callActiveTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['callactivesetuptime','callactiveindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('callactivesetuptime', YLeaf(YType.uint32, 'callActiveSetupTime')),
                     ('callactiveindex', YLeaf(YType.int32, 'callActiveIndex')),
@@ -898,11 +889,11 @@ class DIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "DIAL-CONTROL-MIB:DIAL-CONTROL-MIB/callActiveTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIALCONTROLMIB.Callactivetable.Callactiveentry, ['callactivesetuptime', 'callactiveindex', 'callactivepeeraddress', 'callactivepeersubaddress', 'callactivepeerid', 'callactivepeerifindex', 'callactivelogicalifindex', 'callactiveconnecttime', 'callactivecallstate', 'callactivecallorigin', 'callactivechargedunits', 'callactiveinfotype', 'callactivetransmitpackets', 'callactivetransmitbytes', 'callactivereceivepackets', 'callactivereceivebytes'], name, value)
+                self._perform_setattr(DIALCONTROLMIB.CallActiveTable.CallActiveEntry, [u'callactivesetuptime', u'callactiveindex', u'callactivepeeraddress', u'callactivepeersubaddress', u'callactivepeerid', u'callactivepeerifindex', u'callactivelogicalifindex', u'callactiveconnecttime', u'callactivecallstate', u'callactivecallorigin', u'callactivechargedunits', u'callactiveinfotype', u'callactivetransmitpackets', u'callactivetransmitbytes', u'callactivereceivepackets', u'callactivereceivebytes'], name, value)
 
-            class Callactivecallorigin(Enum):
+            class CallActiveCallOrigin(Enum):
                 """
-                Callactivecallorigin (Enum Class)
+                CallActiveCallOrigin (Enum Class)
 
                 The call origin.
 
@@ -921,9 +912,9 @@ class DIALCONTROLMIB(Entity):
                 callback = Enum.YLeaf(3, "callback")
 
 
-            class Callactivecallstate(Enum):
+            class CallActiveCallState(Enum):
                 """
-                Callactivecallstate (Enum Class)
+                CallActiveCallState (Enum Class)
 
                 The current call state.
 
@@ -958,9 +949,9 @@ class DIALCONTROLMIB(Entity):
                 active = Enum.YLeaf(4, "active")
 
 
-            class Callactiveinfotype(Enum):
+            class CallActiveInfoType(Enum):
                 """
-                Callactiveinfotype (Enum Class)
+                CallActiveInfoType (Enum Class)
 
                 The information type for this call.
 
@@ -1008,7 +999,7 @@ class DIALCONTROLMIB(Entity):
 
 
 
-    class Callhistorytable(Entity):
+    class CallHistoryTable(Entity):
         """
         A table containing information about specific
         calls to a specific destination.
@@ -1016,7 +1007,7 @@ class DIALCONTROLMIB(Entity):
         .. attribute:: callhistoryentry
         
         	The information regarding a single Connection
-        	**type**\: list of  		 :py:class:`Callhistoryentry <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callhistorytable.Callhistoryentry>`
+        	**type**\: list of  		 :py:class:`CallHistoryEntry <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.CallHistoryTable.CallHistoryEntry>`
         
         
 
@@ -1026,15 +1017,14 @@ class DIALCONTROLMIB(Entity):
         _revision = '1996-09-23'
 
         def __init__(self):
-            super(DIALCONTROLMIB.Callhistorytable, self).__init__()
+            super(DIALCONTROLMIB.CallHistoryTable, self).__init__()
 
             self.yang_name = "callHistoryTable"
             self.yang_parent_name = "DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("callHistoryEntry", ("callhistoryentry", DIALCONTROLMIB.Callhistorytable.Callhistoryentry))])
+            self._child_classes = OrderedDict([("callHistoryEntry", ("callhistoryentry", DIALCONTROLMIB.CallHistoryTable.CallHistoryEntry))])
             self._leafs = OrderedDict()
 
             self.callhistoryentry = YList(self)
@@ -1042,10 +1032,10 @@ class DIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "DIAL-CONTROL-MIB:DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DIALCONTROLMIB.Callhistorytable, [], name, value)
+            self._perform_setattr(DIALCONTROLMIB.CallHistoryTable, [], name, value)
 
 
-        class Callhistoryentry(Entity):
+        class CallHistoryEntry(Entity):
             """
             The information regarding a single Connection.
             
@@ -1056,7 +1046,7 @@ class DIALCONTROLMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`callactivesetuptime <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry>`
+            	**refers to**\:  :py:class:`callactivesetuptime <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.CallActiveTable.CallActiveEntry>`
             
             .. attribute:: callactiveindex  (key)
             
@@ -1065,7 +1055,7 @@ class DIALCONTROLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`callactiveindex <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry>`
+            	**refers to**\:  :py:class:`callactiveindex <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.CallActiveTable.CallActiveEntry>`
             
             .. attribute:: callhistorypeeraddress
             
@@ -1127,7 +1117,7 @@ class DIALCONTROLMIB(Entity):
             .. attribute:: callhistorycallorigin
             
             	The call origin
-            	**type**\:  :py:class:`Callhistorycallorigin <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callhistorytable.Callhistoryentry.Callhistorycallorigin>`
+            	**type**\:  :py:class:`CallHistoryCallOrigin <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.CallHistoryTable.CallHistoryEntry.CallHistoryCallOrigin>`
             
             .. attribute:: callhistorychargedunits
             
@@ -1139,7 +1129,7 @@ class DIALCONTROLMIB(Entity):
             .. attribute:: callhistoryinfotype
             
             	The information type for this call
-            	**type**\:  :py:class:`Callhistoryinfotype <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callhistorytable.Callhistoryentry.Callhistoryinfotype>`
+            	**type**\:  :py:class:`CallHistoryInfoType <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.CallHistoryTable.CallHistoryEntry.CallHistoryInfoType>`
             
             .. attribute:: callhistorytransmitpackets
             
@@ -1177,15 +1167,14 @@ class DIALCONTROLMIB(Entity):
             _revision = '1996-09-23'
 
             def __init__(self):
-                super(DIALCONTROLMIB.Callhistorytable.Callhistoryentry, self).__init__()
+                super(DIALCONTROLMIB.CallHistoryTable.CallHistoryEntry, self).__init__()
 
                 self.yang_name = "callHistoryEntry"
                 self.yang_parent_name = "callHistoryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['callactivesetuptime','callactiveindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('callactivesetuptime', YLeaf(YType.str, 'callActiveSetupTime')),
                     ('callactiveindex', YLeaf(YType.str, 'callActiveIndex')),
@@ -1228,11 +1217,11 @@ class DIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "DIAL-CONTROL-MIB:DIAL-CONTROL-MIB/callHistoryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIALCONTROLMIB.Callhistorytable.Callhistoryentry, ['callactivesetuptime', 'callactiveindex', 'callhistorypeeraddress', 'callhistorypeersubaddress', 'callhistorypeerid', 'callhistorypeerifindex', 'callhistorylogicalifindex', 'callhistorydisconnectcause', 'callhistorydisconnecttext', 'callhistoryconnecttime', 'callhistorydisconnecttime', 'callhistorycallorigin', 'callhistorychargedunits', 'callhistoryinfotype', 'callhistorytransmitpackets', 'callhistorytransmitbytes', 'callhistoryreceivepackets', 'callhistoryreceivebytes'], name, value)
+                self._perform_setattr(DIALCONTROLMIB.CallHistoryTable.CallHistoryEntry, [u'callactivesetuptime', u'callactiveindex', u'callhistorypeeraddress', u'callhistorypeersubaddress', u'callhistorypeerid', u'callhistorypeerifindex', u'callhistorylogicalifindex', u'callhistorydisconnectcause', u'callhistorydisconnecttext', u'callhistoryconnecttime', u'callhistorydisconnecttime', u'callhistorycallorigin', u'callhistorychargedunits', u'callhistoryinfotype', u'callhistorytransmitpackets', u'callhistorytransmitbytes', u'callhistoryreceivepackets', u'callhistoryreceivebytes'], name, value)
 
-            class Callhistorycallorigin(Enum):
+            class CallHistoryCallOrigin(Enum):
                 """
-                Callhistorycallorigin (Enum Class)
+                CallHistoryCallOrigin (Enum Class)
 
                 The call origin.
 
@@ -1251,9 +1240,9 @@ class DIALCONTROLMIB(Entity):
                 callback = Enum.YLeaf(3, "callback")
 
 
-            class Callhistoryinfotype(Enum):
+            class CallHistoryInfoType(Enum):
                 """
-                Callhistoryinfotype (Enum Class)
+                CallHistoryInfoType (Enum Class)
 
                 The information type for this call.
 

@@ -44,15 +44,16 @@ class Controller(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("switch", ("switch", Controller.Switch))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("switch", ("switch", Controller.Switch))])
         self._leafs = OrderedDict()
 
         self.switch = Controller.Switch()
         self.switch.parent = self
         self._children_name_map["switch"] = "switch"
-        self._children_yang_names.add("switch")
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Controller, [], name, value)
 
 
     class Switch(Entity):
@@ -79,16 +80,17 @@ class Controller(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("oper", ("oper", Controller.Switch.Oper))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("oper", ("oper", Controller.Switch.Oper))])
             self._leafs = OrderedDict()
 
             self.oper = Controller.Switch.Oper()
             self.oper.parent = self
             self._children_name_map["oper"] = "oper"
-            self._children_yang_names.add("oper")
             self._segment_path = lambda: "switch"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Controller.Switch, [], name, value)
 
 
         class Oper(Entity):
@@ -175,76 +177,65 @@ class Controller(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("reachable", ("reachable", Controller.Switch.Oper.Reachable)), ("summary", ("summary", Controller.Switch.Oper.Summary)), ("statistics", ("statistics", Controller.Switch.Oper.Statistics)), ("mac", ("mac", Controller.Switch.Oper.Mac)), ("bridge", ("bridge", Controller.Switch.Oper.Bridge)), ("fdb", ("fdb", Controller.Switch.Oper.Fdb)), ("vlan", ("vlan", Controller.Switch.Oper.Vlan)), ("esd", ("esd", Controller.Switch.Oper.Esd)), ("mgmt-agent", ("mgmt_agent", Controller.Switch.Oper.MgmtAgent)), ("sdr", ("sdr", Controller.Switch.Oper.Sdr)), ("port-state", ("port_state", Controller.Switch.Oper.PortState)), ("trunk", ("trunk", Controller.Switch.Oper.Trunk)), ("switch-debug-cont", ("switch_debug_cont", Controller.Switch.Oper.SwitchDebugCont))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("reachable", ("reachable", Controller.Switch.Oper.Reachable)), ("summary", ("summary", Controller.Switch.Oper.Summary)), ("statistics", ("statistics", Controller.Switch.Oper.Statistics)), ("mac", ("mac", Controller.Switch.Oper.Mac)), ("bridge", ("bridge", Controller.Switch.Oper.Bridge)), ("fdb", ("fdb", Controller.Switch.Oper.Fdb)), ("vlan", ("vlan", Controller.Switch.Oper.Vlan)), ("esd", ("esd", Controller.Switch.Oper.Esd)), ("mgmt-agent", ("mgmt_agent", Controller.Switch.Oper.MgmtAgent)), ("sdr", ("sdr", Controller.Switch.Oper.Sdr)), ("port-state", ("port_state", Controller.Switch.Oper.PortState)), ("trunk", ("trunk", Controller.Switch.Oper.Trunk)), ("switch-debug-cont", ("switch_debug_cont", Controller.Switch.Oper.SwitchDebugCont))])
                 self._leafs = OrderedDict()
 
                 self.reachable = Controller.Switch.Oper.Reachable()
                 self.reachable.parent = self
                 self._children_name_map["reachable"] = "reachable"
-                self._children_yang_names.add("reachable")
 
                 self.summary = Controller.Switch.Oper.Summary()
                 self.summary.parent = self
                 self._children_name_map["summary"] = "summary"
-                self._children_yang_names.add("summary")
 
                 self.statistics = Controller.Switch.Oper.Statistics()
                 self.statistics.parent = self
                 self._children_name_map["statistics"] = "statistics"
-                self._children_yang_names.add("statistics")
 
                 self.mac = Controller.Switch.Oper.Mac()
                 self.mac.parent = self
                 self._children_name_map["mac"] = "mac"
-                self._children_yang_names.add("mac")
 
                 self.bridge = Controller.Switch.Oper.Bridge()
                 self.bridge.parent = self
                 self._children_name_map["bridge"] = "bridge"
-                self._children_yang_names.add("bridge")
 
                 self.fdb = Controller.Switch.Oper.Fdb()
                 self.fdb.parent = self
                 self._children_name_map["fdb"] = "fdb"
-                self._children_yang_names.add("fdb")
 
                 self.vlan = Controller.Switch.Oper.Vlan()
                 self.vlan.parent = self
                 self._children_name_map["vlan"] = "vlan"
-                self._children_yang_names.add("vlan")
 
                 self.esd = Controller.Switch.Oper.Esd()
                 self.esd.parent = self
                 self._children_name_map["esd"] = "esd"
-                self._children_yang_names.add("esd")
 
                 self.mgmt_agent = Controller.Switch.Oper.MgmtAgent()
                 self.mgmt_agent.parent = self
                 self._children_name_map["mgmt_agent"] = "mgmt-agent"
-                self._children_yang_names.add("mgmt-agent")
 
                 self.sdr = Controller.Switch.Oper.Sdr()
                 self.sdr.parent = self
                 self._children_name_map["sdr"] = "sdr"
-                self._children_yang_names.add("sdr")
 
                 self.port_state = Controller.Switch.Oper.PortState()
                 self.port_state.parent = self
                 self._children_name_map["port_state"] = "port-state"
-                self._children_yang_names.add("port-state")
 
                 self.trunk = Controller.Switch.Oper.Trunk()
                 self.trunk.parent = self
                 self._children_name_map["trunk"] = "trunk"
-                self._children_yang_names.add("trunk")
 
                 self.switch_debug_cont = Controller.Switch.Oper.SwitchDebugCont()
                 self.switch_debug_cont.parent = self
                 self._children_name_map["switch_debug_cont"] = "switch-debug-cont"
-                self._children_yang_names.add("switch-debug-cont")
                 self._segment_path = lambda: "oper"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Controller.Switch.Oper, [], name, value)
 
 
             class Reachable(Entity):
@@ -271,8 +262,7 @@ class Controller(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Reachable.Location))])
+                    self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Reachable.Location))])
                     self._leafs = OrderedDict()
 
                     self.location = YList(self)
@@ -317,8 +307,7 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['rack','card','switch_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('rack', YLeaf(YType.enumeration, 'rack')),
                             ('card', YLeaf(YType.enumeration, 'card')),
@@ -331,7 +320,7 @@ class Controller(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/reachable/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Controller.Switch.Oper.Reachable.Location, ['rack', 'card', 'switch_id'], name, value)
+                        self._perform_setattr(Controller.Switch.Oper.Reachable.Location, [u'rack', u'card', u'switch_id'], name, value)
 
 
             class Summary(Entity):
@@ -358,8 +347,7 @@ class Controller(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Summary.Location))])
+                    self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Summary.Location))])
                     self._leafs = OrderedDict()
 
                     self.location = YList(self)
@@ -414,8 +402,7 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['rack','card','switch_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("port-iter", ("port_iter", Controller.Switch.Oper.Summary.Location.PortIter))])
+                        self._child_classes = OrderedDict([("port-iter", ("port_iter", Controller.Switch.Oper.Summary.Location.PortIter))])
                         self._leafs = OrderedDict([
                             ('rack', YLeaf(YType.enumeration, 'rack')),
                             ('card', YLeaf(YType.enumeration, 'card')),
@@ -432,7 +419,7 @@ class Controller(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/summary/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Controller.Switch.Oper.Summary.Location, ['rack', 'card', 'switch_id', 'serial_num'], name, value)
+                        self._perform_setattr(Controller.Switch.Oper.Summary.Location, [u'rack', u'card', u'switch_id', u'serial_num'], name, value)
 
 
                     class PortIter(Entity):
@@ -491,8 +478,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['port']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('port', YLeaf(YType.int32, 'port')),
                                 ('phys_state', YLeaf(YType.enumeration, 'phys-state')),
@@ -512,7 +498,7 @@ class Controller(Entity):
                             self._segment_path = lambda: "port-iter" + "[port='" + str(self.port) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Summary.Location.PortIter, ['port', 'phys_state', 'admin_state', 'port_speed', 'protocol_state', 'forwarding', 'connects_to'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Summary.Location.PortIter, [u'port', u'phys_state', u'admin_state', u'port_speed', u'protocol_state', u'forwarding', u'connects_to'], name, value)
 
 
             class Statistics(Entity):
@@ -544,21 +530,21 @@ class Controller(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("summary-statistics", ("summary_statistics", Controller.Switch.Oper.Statistics.SummaryStatistics)), ("detail", ("detail", Controller.Switch.Oper.Statistics.Detail))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("summary-statistics", ("summary_statistics", Controller.Switch.Oper.Statistics.SummaryStatistics)), ("detail", ("detail", Controller.Switch.Oper.Statistics.Detail))])
                     self._leafs = OrderedDict()
 
                     self.summary_statistics = Controller.Switch.Oper.Statistics.SummaryStatistics()
                     self.summary_statistics.parent = self
                     self._children_name_map["summary_statistics"] = "summary-statistics"
-                    self._children_yang_names.add("summary-statistics")
 
                     self.detail = Controller.Switch.Oper.Statistics.Detail()
                     self.detail.parent = self
                     self._children_name_map["detail"] = "detail"
-                    self._children_yang_names.add("detail")
                     self._segment_path = lambda: "statistics"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Controller.Switch.Oper.Statistics, [], name, value)
 
 
                 class SummaryStatistics(Entity):
@@ -585,8 +571,7 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Statistics.SummaryStatistics.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Statistics.SummaryStatistics.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -641,8 +626,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['rack','card','switch_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("port-iter", ("port_iter", Controller.Switch.Oper.Statistics.SummaryStatistics.Location.PortIter))])
+                            self._child_classes = OrderedDict([("port-iter", ("port_iter", Controller.Switch.Oper.Statistics.SummaryStatistics.Location.PortIter))])
                             self._leafs = OrderedDict([
                                 ('rack', YLeaf(YType.enumeration, 'rack')),
                                 ('card', YLeaf(YType.enumeration, 'card')),
@@ -733,8 +717,7 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['port']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('port', YLeaf(YType.int32, 'port')),
                                     ('phys_state', YLeaf(YType.enumeration, 'phys-state')),
@@ -783,8 +766,7 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Statistics.Detail.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Statistics.Detail.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -834,8 +816,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['rack','card','switch_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("port-iter", ("port_iter", Controller.Switch.Oper.Statistics.Detail.Location.PortIter))])
+                            self._child_classes = OrderedDict([("port-iter", ("port_iter", Controller.Switch.Oper.Statistics.Detail.Location.PortIter))])
                             self._leafs = OrderedDict([
                                 ('rack', YLeaf(YType.enumeration, 'rack')),
                                 ('card', YLeaf(YType.enumeration, 'card')),
@@ -899,8 +880,7 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['port']
-                                self._child_container_classes = OrderedDict([("counters", ("counters", Controller.Switch.Oper.Statistics.Detail.Location.PortIter.Counters))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("counters", ("counters", Controller.Switch.Oper.Statistics.Detail.Location.PortIter.Counters))])
                                 self._leafs = OrderedDict([
                                     ('port', YLeaf(YType.int32, 'port')),
                                     ('phys_state', YLeaf(YType.enumeration, 'phys-state')),
@@ -915,7 +895,6 @@ class Controller(Entity):
                                 self.counters = Controller.Switch.Oper.Statistics.Detail.Location.PortIter.Counters()
                                 self.counters.parent = self
                                 self._children_name_map["counters"] = "counters"
-                                self._children_yang_names.add("counters")
                                 self._segment_path = lambda: "port-iter" + "[port='" + str(self.port) + "']"
 
                             def __setattr__(self, name, value):
@@ -1172,8 +1151,7 @@ class Controller(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('sw_det_rx_ucast_packets', YLeaf(YType.uint64, 'sw-det-rx-ucast-packets')),
                                         ('sw_det_rx_mcast_packets', YLeaf(YType.uint64, 'sw-det-rx-mcast-packets')),
@@ -1272,16 +1250,17 @@ class Controller(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("mac-statistics", ("mac_statistics", Controller.Switch.Oper.Mac.MacStatistics))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("mac-statistics", ("mac_statistics", Controller.Switch.Oper.Mac.MacStatistics))])
                     self._leafs = OrderedDict()
 
                     self.mac_statistics = Controller.Switch.Oper.Mac.MacStatistics()
                     self.mac_statistics.parent = self
                     self._children_name_map["mac_statistics"] = "mac-statistics"
-                    self._children_yang_names.add("mac-statistics")
                     self._segment_path = lambda: "mac"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Controller.Switch.Oper.Mac, [], name, value)
 
 
                 class MacStatistics(Entity):
@@ -1308,8 +1287,7 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Mac.MacStatistics.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Mac.MacStatistics.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -1359,8 +1337,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['rack','card','switch_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("port-iter", ("port_iter", Controller.Switch.Oper.Mac.MacStatistics.Location.PortIter))])
+                            self._child_classes = OrderedDict([("port-iter", ("port_iter", Controller.Switch.Oper.Mac.MacStatistics.Location.PortIter))])
                             self._leafs = OrderedDict([
                                 ('rack', YLeaf(YType.enumeration, 'rack')),
                                 ('card', YLeaf(YType.enumeration, 'card')),
@@ -1409,8 +1386,7 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['port']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("mac-entry", ("mac_entry", Controller.Switch.Oper.Mac.MacStatistics.Location.PortIter.MacEntry))])
+                                self._child_classes = OrderedDict([("mac-entry", ("mac_entry", Controller.Switch.Oper.Mac.MacStatistics.Location.PortIter.MacEntry))])
                                 self._leafs = OrderedDict([
                                     ('port', YLeaf(YType.int32, 'port')),
                                 ])
@@ -1464,8 +1440,7 @@ class Controller(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['id']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('id', YLeaf(YType.uint32, 'id')),
                                         ('base_reg', YLeaf(YType.str, 'base-reg')),
@@ -1506,16 +1481,17 @@ class Controller(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("statistics", ("statistics", Controller.Switch.Oper.Bridge.Statistics))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("statistics", ("statistics", Controller.Switch.Oper.Bridge.Statistics))])
                     self._leafs = OrderedDict()
 
                     self.statistics = Controller.Switch.Oper.Bridge.Statistics()
                     self.statistics.parent = self
                     self._children_name_map["statistics"] = "statistics"
-                    self._children_yang_names.add("statistics")
                     self._segment_path = lambda: "bridge"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Controller.Switch.Oper.Bridge, [], name, value)
 
 
                 class Statistics(Entity):
@@ -1542,8 +1518,7 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Bridge.Statistics.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Bridge.Statistics.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -1598,8 +1573,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['rack','card','switch_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("ingress-set-id", ("ingress_set_id", Controller.Switch.Oper.Bridge.Statistics.Location.IngressSetId)), ("egress-set-id", ("egress_set_id", Controller.Switch.Oper.Bridge.Statistics.Location.EgressSetId))])
+                            self._child_classes = OrderedDict([("ingress-set-id", ("ingress_set_id", Controller.Switch.Oper.Bridge.Statistics.Location.IngressSetId)), ("egress-set-id", ("egress_set_id", Controller.Switch.Oper.Bridge.Statistics.Location.EgressSetId))])
                             self._leafs = OrderedDict([
                                 ('rack', YLeaf(YType.enumeration, 'rack')),
                                 ('card', YLeaf(YType.enumeration, 'card')),
@@ -1615,7 +1589,7 @@ class Controller(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/bridge/statistics/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Bridge.Statistics.Location, ['rack', 'card', 'switch_id'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Bridge.Statistics.Location, [u'rack', u'card', u'switch_id'], name, value)
 
 
                         class IngressSetId(Entity):
@@ -1677,8 +1651,7 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['ingress_set']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('ingress_set', YLeaf(YType.uint32, 'ingress-set')),
                                     ('ingress_set_name', YLeaf(YType.str, 'ingress-set-name')),
@@ -1696,7 +1669,7 @@ class Controller(Entity):
                                 self._segment_path = lambda: "ingress-set-id" + "[ingress-set='" + str(self.ingress_set) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.Bridge.Statistics.Location.IngressSetId, ['ingress_set', 'ingress_set_name', 'ingress_frames', 'ingress_vlan_discards', 'ingress_security_discards', 'ingress_other_discards'], name, value)
+                                self._perform_setattr(Controller.Switch.Oper.Bridge.Statistics.Location.IngressSetId, [u'ingress_set', u'ingress_set_name', u'ingress_frames', u'ingress_vlan_discards', u'ingress_security_discards', u'ingress_other_discards'], name, value)
 
 
                         class EgressSetId(Entity):
@@ -1779,8 +1752,7 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['egress_set']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('egress_set', YLeaf(YType.uint32, 'egress-set')),
                                     ('egress_set_name', YLeaf(YType.str, 'egress-set-name')),
@@ -1804,7 +1776,7 @@ class Controller(Entity):
                                 self._segment_path = lambda: "egress-set-id" + "[egress-set='" + str(self.egress_set) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.Bridge.Statistics.Location.EgressSetId, ['egress_set', 'egress_set_name', 'egress_ucast_frames', 'egress_mcast_frames', 'egress_bcast_frames', 'egress_discarded_frames', 'egress_txq_congestion', 'egress_ctrl_packets', 'egress_other_drops'], name, value)
+                                self._perform_setattr(Controller.Switch.Oper.Bridge.Statistics.Location.EgressSetId, [u'egress_set', u'egress_set_name', u'egress_ucast_frames', u'egress_mcast_frames', u'egress_bcast_frames', u'egress_discarded_frames', u'egress_txq_congestion', u'egress_ctrl_packets', u'egress_other_drops'], name, value)
 
 
             class Fdb(Entity):
@@ -1851,36 +1823,33 @@ class Controller(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("vlan", ("vlan", Controller.Switch.Oper.Fdb.Vlan)), ("mac", ("mac", Controller.Switch.Oper.Fdb.Mac)), ("port", ("port", Controller.Switch.Oper.Fdb.Port)), ("statistics", ("statistics", Controller.Switch.Oper.Fdb.Statistics)), ("switch-fdb-common", ("switch_fdb_common", Controller.Switch.Oper.Fdb.SwitchFdbCommon))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("vlan", ("vlan", Controller.Switch.Oper.Fdb.Vlan)), ("mac", ("mac", Controller.Switch.Oper.Fdb.Mac)), ("port", ("port", Controller.Switch.Oper.Fdb.Port)), ("statistics", ("statistics", Controller.Switch.Oper.Fdb.Statistics)), ("switch-fdb-common", ("switch_fdb_common", Controller.Switch.Oper.Fdb.SwitchFdbCommon))])
                     self._leafs = OrderedDict()
 
                     self.vlan = Controller.Switch.Oper.Fdb.Vlan()
                     self.vlan.parent = self
                     self._children_name_map["vlan"] = "vlan"
-                    self._children_yang_names.add("vlan")
 
                     self.mac = Controller.Switch.Oper.Fdb.Mac()
                     self.mac.parent = self
                     self._children_name_map["mac"] = "mac"
-                    self._children_yang_names.add("mac")
 
                     self.port = Controller.Switch.Oper.Fdb.Port()
                     self.port.parent = self
                     self._children_name_map["port"] = "port"
-                    self._children_yang_names.add("port")
 
                     self.statistics = Controller.Switch.Oper.Fdb.Statistics()
                     self.statistics.parent = self
                     self._children_name_map["statistics"] = "statistics"
-                    self._children_yang_names.add("statistics")
 
                     self.switch_fdb_common = Controller.Switch.Oper.Fdb.SwitchFdbCommon()
                     self.switch_fdb_common.parent = self
                     self._children_name_map["switch_fdb_common"] = "switch-fdb-common"
-                    self._children_yang_names.add("switch-fdb-common")
                     self._segment_path = lambda: "fdb"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Controller.Switch.Oper.Fdb, [], name, value)
 
 
                 class Vlan(Entity):
@@ -1907,8 +1876,7 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("vlan-iter", ("vlan_iter", Controller.Switch.Oper.Fdb.Vlan.VlanIter))])
+                        self._child_classes = OrderedDict([("vlan-iter", ("vlan_iter", Controller.Switch.Oper.Fdb.Vlan.VlanIter))])
                         self._leafs = OrderedDict()
 
                         self.vlan_iter = YList(self)
@@ -1950,8 +1918,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['vlan']
-                            self._child_container_classes = OrderedDict([("switch-fdb-common", ("switch_fdb_common", Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("switch-fdb-common", ("switch_fdb_common", Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon))])
                             self._leafs = OrderedDict([
                                 ('vlan', YLeaf(YType.uint16, 'vlan')),
                             ])
@@ -1960,12 +1927,11 @@ class Controller(Entity):
                             self.switch_fdb_common = Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon()
                             self.switch_fdb_common.parent = self
                             self._children_name_map["switch_fdb_common"] = "switch-fdb-common"
-                            self._children_yang_names.add("switch-fdb-common")
                             self._segment_path = lambda: "vlan-iter" + "[vlan='" + str(self.vlan) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/fdb/vlan/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Fdb.Vlan.VlanIter, ['vlan'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Fdb.Vlan.VlanIter, [u'vlan'], name, value)
 
 
                         class SwitchFdbCommon(Entity):
@@ -1992,8 +1958,7 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon.Location))])
+                                self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon.Location))])
                                 self._leafs = OrderedDict()
 
                                 self.location = YList(self)
@@ -2061,8 +2026,7 @@ class Controller(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['rack','card','switch_id']
-                                    self._child_container_classes = OrderedDict([("fdb-block", ("fdb_block", Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon.Location.FdbBlock))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("fdb-block", ("fdb_block", Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon.Location.FdbBlock))])
                                     self._leafs = OrderedDict([
                                         ('rack', YLeaf(YType.enumeration, 'rack')),
                                         ('card', YLeaf(YType.enumeration, 'card')),
@@ -2081,11 +2045,10 @@ class Controller(Entity):
                                     self.fdb_block = Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon.Location.FdbBlock()
                                     self.fdb_block.parent = self
                                     self._children_name_map["fdb_block"] = "fdb-block"
-                                    self._children_yang_names.add("fdb-block")
                                     self._segment_path = lambda: "location" + "[rack='" + str(self.rack) + "']" + "[card='" + str(self.card) + "']" + "[switch-id='" + str(self.switch_id) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon.Location, ['rack', 'card', 'switch_id', 'num_entries', 'has_trunk_entry', 'trunk_entry_message'], name, value)
+                                    self._perform_setattr(Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon.Location, [u'rack', u'card', u'switch_id', u'num_entries', u'has_trunk_entry', u'trunk_entry_message'], name, value)
 
 
                                 class FdbBlock(Entity):
@@ -2112,8 +2075,7 @@ class Controller(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("fdb-entry", ("fdb_entry", Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon.Location.FdbBlock.FdbEntry))])
+                                        self._child_classes = OrderedDict([("fdb-entry", ("fdb_entry", Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon.Location.FdbBlock.FdbEntry))])
                                         self._leafs = OrderedDict()
 
                                         self.fdb_entry = YList(self)
@@ -2196,8 +2158,7 @@ class Controller(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['fdb_index']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('fdb_index', YLeaf(YType.uint32, 'fdb-index')),
                                                 ('fdb_mac_addr', YLeaf(YType.str, 'fdb-mac-addr')),
@@ -2219,7 +2180,7 @@ class Controller(Entity):
                                             self._segment_path = lambda: "fdb-entry" + "[fdb-index='" + str(self.fdb_index) + "']"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon.Location.FdbBlock.FdbEntry, ['fdb_index', 'fdb_mac_addr', 'fdb_vlan', 'fdb_vlan_hex', 'fdb_port', 'fdb_trap_entry', 'fdb_static_entry', 'fdb_synced_cores'], name, value)
+                                            self._perform_setattr(Controller.Switch.Oper.Fdb.Vlan.VlanIter.SwitchFdbCommon.Location.FdbBlock.FdbEntry, [u'fdb_index', u'fdb_mac_addr', u'fdb_vlan', u'fdb_vlan_hex', u'fdb_port', u'fdb_trap_entry', u'fdb_static_entry', u'fdb_synced_cores'], name, value)
 
 
                 class Mac(Entity):
@@ -2246,8 +2207,7 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("mac-iter", ("mac_iter", Controller.Switch.Oper.Fdb.Mac.MacIter))])
+                        self._child_classes = OrderedDict([("mac-iter", ("mac_iter", Controller.Switch.Oper.Fdb.Mac.MacIter))])
                         self._leafs = OrderedDict()
 
                         self.mac_iter = YList(self)
@@ -2289,8 +2249,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['mac']
-                            self._child_container_classes = OrderedDict([("switch-fdb-common", ("switch_fdb_common", Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("switch-fdb-common", ("switch_fdb_common", Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon))])
                             self._leafs = OrderedDict([
                                 ('mac', YLeaf(YType.str, 'mac')),
                             ])
@@ -2299,12 +2258,11 @@ class Controller(Entity):
                             self.switch_fdb_common = Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon()
                             self.switch_fdb_common.parent = self
                             self._children_name_map["switch_fdb_common"] = "switch-fdb-common"
-                            self._children_yang_names.add("switch-fdb-common")
                             self._segment_path = lambda: "mac-iter" + "[mac='" + str(self.mac) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/fdb/mac/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Fdb.Mac.MacIter, ['mac'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Fdb.Mac.MacIter, [u'mac'], name, value)
 
 
                         class SwitchFdbCommon(Entity):
@@ -2331,8 +2289,7 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon.Location))])
+                                self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon.Location))])
                                 self._leafs = OrderedDict()
 
                                 self.location = YList(self)
@@ -2400,8 +2357,7 @@ class Controller(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['rack','card','switch_id']
-                                    self._child_container_classes = OrderedDict([("fdb-block", ("fdb_block", Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon.Location.FdbBlock))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("fdb-block", ("fdb_block", Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon.Location.FdbBlock))])
                                     self._leafs = OrderedDict([
                                         ('rack', YLeaf(YType.enumeration, 'rack')),
                                         ('card', YLeaf(YType.enumeration, 'card')),
@@ -2420,11 +2376,10 @@ class Controller(Entity):
                                     self.fdb_block = Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon.Location.FdbBlock()
                                     self.fdb_block.parent = self
                                     self._children_name_map["fdb_block"] = "fdb-block"
-                                    self._children_yang_names.add("fdb-block")
                                     self._segment_path = lambda: "location" + "[rack='" + str(self.rack) + "']" + "[card='" + str(self.card) + "']" + "[switch-id='" + str(self.switch_id) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon.Location, ['rack', 'card', 'switch_id', 'num_entries', 'has_trunk_entry', 'trunk_entry_message'], name, value)
+                                    self._perform_setattr(Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon.Location, [u'rack', u'card', u'switch_id', u'num_entries', u'has_trunk_entry', u'trunk_entry_message'], name, value)
 
 
                                 class FdbBlock(Entity):
@@ -2451,8 +2406,7 @@ class Controller(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("fdb-entry", ("fdb_entry", Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon.Location.FdbBlock.FdbEntry))])
+                                        self._child_classes = OrderedDict([("fdb-entry", ("fdb_entry", Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon.Location.FdbBlock.FdbEntry))])
                                         self._leafs = OrderedDict()
 
                                         self.fdb_entry = YList(self)
@@ -2535,8 +2489,7 @@ class Controller(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['fdb_index']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('fdb_index', YLeaf(YType.uint32, 'fdb-index')),
                                                 ('fdb_mac_addr', YLeaf(YType.str, 'fdb-mac-addr')),
@@ -2558,7 +2511,7 @@ class Controller(Entity):
                                             self._segment_path = lambda: "fdb-entry" + "[fdb-index='" + str(self.fdb_index) + "']"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon.Location.FdbBlock.FdbEntry, ['fdb_index', 'fdb_mac_addr', 'fdb_vlan', 'fdb_vlan_hex', 'fdb_port', 'fdb_trap_entry', 'fdb_static_entry', 'fdb_synced_cores'], name, value)
+                                            self._perform_setattr(Controller.Switch.Oper.Fdb.Mac.MacIter.SwitchFdbCommon.Location.FdbBlock.FdbEntry, [u'fdb_index', u'fdb_mac_addr', u'fdb_vlan', u'fdb_vlan_hex', u'fdb_port', u'fdb_trap_entry', u'fdb_static_entry', u'fdb_synced_cores'], name, value)
 
 
                 class Port(Entity):
@@ -2585,8 +2538,7 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("port-iter", ("port_iter", Controller.Switch.Oper.Fdb.Port.PortIter))])
+                        self._child_classes = OrderedDict([("port-iter", ("port_iter", Controller.Switch.Oper.Fdb.Port.PortIter))])
                         self._leafs = OrderedDict()
 
                         self.port_iter = YList(self)
@@ -2628,8 +2580,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['port']
-                            self._child_container_classes = OrderedDict([("switch-fdb-common", ("switch_fdb_common", Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("switch-fdb-common", ("switch_fdb_common", Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon))])
                             self._leafs = OrderedDict([
                                 ('port', YLeaf(YType.int32, 'port')),
                             ])
@@ -2638,12 +2589,11 @@ class Controller(Entity):
                             self.switch_fdb_common = Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon()
                             self.switch_fdb_common.parent = self
                             self._children_name_map["switch_fdb_common"] = "switch-fdb-common"
-                            self._children_yang_names.add("switch-fdb-common")
                             self._segment_path = lambda: "port-iter" + "[port='" + str(self.port) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/fdb/port/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Fdb.Port.PortIter, ['port'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Fdb.Port.PortIter, [u'port'], name, value)
 
 
                         class SwitchFdbCommon(Entity):
@@ -2670,8 +2620,7 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon.Location))])
+                                self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon.Location))])
                                 self._leafs = OrderedDict()
 
                                 self.location = YList(self)
@@ -2739,8 +2688,7 @@ class Controller(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['rack','card','switch_id']
-                                    self._child_container_classes = OrderedDict([("fdb-block", ("fdb_block", Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon.Location.FdbBlock))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("fdb-block", ("fdb_block", Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon.Location.FdbBlock))])
                                     self._leafs = OrderedDict([
                                         ('rack', YLeaf(YType.enumeration, 'rack')),
                                         ('card', YLeaf(YType.enumeration, 'card')),
@@ -2759,11 +2707,10 @@ class Controller(Entity):
                                     self.fdb_block = Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon.Location.FdbBlock()
                                     self.fdb_block.parent = self
                                     self._children_name_map["fdb_block"] = "fdb-block"
-                                    self._children_yang_names.add("fdb-block")
                                     self._segment_path = lambda: "location" + "[rack='" + str(self.rack) + "']" + "[card='" + str(self.card) + "']" + "[switch-id='" + str(self.switch_id) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon.Location, ['rack', 'card', 'switch_id', 'num_entries', 'has_trunk_entry', 'trunk_entry_message'], name, value)
+                                    self._perform_setattr(Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon.Location, [u'rack', u'card', u'switch_id', u'num_entries', u'has_trunk_entry', u'trunk_entry_message'], name, value)
 
 
                                 class FdbBlock(Entity):
@@ -2790,8 +2737,7 @@ class Controller(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("fdb-entry", ("fdb_entry", Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon.Location.FdbBlock.FdbEntry))])
+                                        self._child_classes = OrderedDict([("fdb-entry", ("fdb_entry", Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon.Location.FdbBlock.FdbEntry))])
                                         self._leafs = OrderedDict()
 
                                         self.fdb_entry = YList(self)
@@ -2874,8 +2820,7 @@ class Controller(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['fdb_index']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('fdb_index', YLeaf(YType.uint32, 'fdb-index')),
                                                 ('fdb_mac_addr', YLeaf(YType.str, 'fdb-mac-addr')),
@@ -2897,7 +2842,7 @@ class Controller(Entity):
                                             self._segment_path = lambda: "fdb-entry" + "[fdb-index='" + str(self.fdb_index) + "']"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon.Location.FdbBlock.FdbEntry, ['fdb_index', 'fdb_mac_addr', 'fdb_vlan', 'fdb_vlan_hex', 'fdb_port', 'fdb_trap_entry', 'fdb_static_entry', 'fdb_synced_cores'], name, value)
+                                            self._perform_setattr(Controller.Switch.Oper.Fdb.Port.PortIter.SwitchFdbCommon.Location.FdbBlock.FdbEntry, [u'fdb_index', u'fdb_mac_addr', u'fdb_vlan', u'fdb_vlan_hex', u'fdb_port', u'fdb_trap_entry', u'fdb_static_entry', u'fdb_synced_cores'], name, value)
 
 
                 class Statistics(Entity):
@@ -2924,8 +2869,7 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Fdb.Statistics.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Fdb.Statistics.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -2980,8 +2924,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['rack','card','switch_id']
-                            self._child_container_classes = OrderedDict([("counter-info", ("counter_info", Controller.Switch.Oper.Fdb.Statistics.Location.CounterInfo))])
-                            self._child_list_classes = OrderedDict([("core-id", ("core_id", Controller.Switch.Oper.Fdb.Statistics.Location.CoreId))])
+                            self._child_classes = OrderedDict([("counter-info", ("counter_info", Controller.Switch.Oper.Fdb.Statistics.Location.CounterInfo)), ("core-id", ("core_id", Controller.Switch.Oper.Fdb.Statistics.Location.CoreId))])
                             self._leafs = OrderedDict([
                                 ('rack', YLeaf(YType.enumeration, 'rack')),
                                 ('card', YLeaf(YType.enumeration, 'card')),
@@ -2994,14 +2937,13 @@ class Controller(Entity):
                             self.counter_info = Controller.Switch.Oper.Fdb.Statistics.Location.CounterInfo()
                             self.counter_info.parent = self
                             self._children_name_map["counter_info"] = "counter-info"
-                            self._children_yang_names.add("counter-info")
 
                             self.core_id = YList(self)
                             self._segment_path = lambda: "location" + "[rack='" + str(self.rack) + "']" + "[card='" + str(self.card) + "']" + "[switch-id='" + str(self.switch_id) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/fdb/statistics/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Fdb.Statistics.Location, ['rack', 'card', 'switch_id'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Fdb.Statistics.Location, [u'rack', u'card', u'switch_id'], name, value)
 
 
                         class CounterInfo(Entity):
@@ -3159,8 +3101,7 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('fdb_shadow_entries', YLeaf(YType.uint32, 'fdb-shadow-entries')),
                                     ('fdb_max_shadow_entries', YLeaf(YType.uint32, 'fdb-max-shadow-entries')),
@@ -3206,7 +3147,7 @@ class Controller(Entity):
                                 self._segment_path = lambda: "counter-info"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.Fdb.Statistics.Location.CounterInfo, ['fdb_shadow_entries', 'fdb_max_shadow_entries', 'fdb_max_hash_chain', 'fdb_entries_added', 'fdb_entries_deleted', 'fdb_entries_updated', 'fdb_flushes', 'fdb_address_updates', 'fdb_new_addresses', 'fdb_aged_updates', 'fdb_transplant_updates', 'fdb_forwarding_updates', 'fdb_address_insert_errors', 'fdb_address_update_errors', 'fdb_memory_errors', 'fdb_allocation_errors', 'fdb_address_updates_queued', 'fdb_address_queue_full', 'fdb_forwarding_updates_queued', 'fdb_forwarding_queue_full'], name, value)
+                                self._perform_setattr(Controller.Switch.Oper.Fdb.Statistics.Location.CounterInfo, [u'fdb_shadow_entries', u'fdb_max_shadow_entries', u'fdb_max_hash_chain', u'fdb_entries_added', u'fdb_entries_deleted', u'fdb_entries_updated', u'fdb_flushes', u'fdb_address_updates', u'fdb_new_addresses', u'fdb_aged_updates', u'fdb_transplant_updates', u'fdb_forwarding_updates', u'fdb_address_insert_errors', u'fdb_address_update_errors', u'fdb_memory_errors', u'fdb_allocation_errors', u'fdb_address_updates_queued', u'fdb_address_queue_full', u'fdb_forwarding_updates_queued', u'fdb_forwarding_queue_full'], name, value)
 
 
                         class CoreId(Entity):
@@ -3249,8 +3190,7 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['core']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('core', YLeaf(YType.int32, 'core')),
                                     ('core_entries', YLeaf(YType.uint32, 'core-entries')),
@@ -3262,7 +3202,7 @@ class Controller(Entity):
                                 self._segment_path = lambda: "core-id" + "[core='" + str(self.core) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.Fdb.Statistics.Location.CoreId, ['core', 'core_entries', 'core_static_entries'], name, value)
+                                self._perform_setattr(Controller.Switch.Oper.Fdb.Statistics.Location.CoreId, [u'core', u'core_entries', u'core_static_entries'], name, value)
 
 
                 class SwitchFdbCommon(Entity):
@@ -3289,8 +3229,7 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Fdb.SwitchFdbCommon.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Fdb.SwitchFdbCommon.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -3359,8 +3298,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['rack','card','switch_id']
-                            self._child_container_classes = OrderedDict([("fdb-block", ("fdb_block", Controller.Switch.Oper.Fdb.SwitchFdbCommon.Location.FdbBlock))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("fdb-block", ("fdb_block", Controller.Switch.Oper.Fdb.SwitchFdbCommon.Location.FdbBlock))])
                             self._leafs = OrderedDict([
                                 ('rack', YLeaf(YType.enumeration, 'rack')),
                                 ('card', YLeaf(YType.enumeration, 'card')),
@@ -3379,12 +3317,11 @@ class Controller(Entity):
                             self.fdb_block = Controller.Switch.Oper.Fdb.SwitchFdbCommon.Location.FdbBlock()
                             self.fdb_block.parent = self
                             self._children_name_map["fdb_block"] = "fdb-block"
-                            self._children_yang_names.add("fdb-block")
                             self._segment_path = lambda: "location" + "[rack='" + str(self.rack) + "']" + "[card='" + str(self.card) + "']" + "[switch-id='" + str(self.switch_id) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/fdb/switch-fdb-common/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Fdb.SwitchFdbCommon.Location, ['rack', 'card', 'switch_id', 'num_entries', 'has_trunk_entry', 'trunk_entry_message'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Fdb.SwitchFdbCommon.Location, [u'rack', u'card', u'switch_id', u'num_entries', u'has_trunk_entry', u'trunk_entry_message'], name, value)
 
 
                         class FdbBlock(Entity):
@@ -3411,8 +3348,7 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("fdb-entry", ("fdb_entry", Controller.Switch.Oper.Fdb.SwitchFdbCommon.Location.FdbBlock.FdbEntry))])
+                                self._child_classes = OrderedDict([("fdb-entry", ("fdb_entry", Controller.Switch.Oper.Fdb.SwitchFdbCommon.Location.FdbBlock.FdbEntry))])
                                 self._leafs = OrderedDict()
 
                                 self.fdb_entry = YList(self)
@@ -3495,8 +3431,7 @@ class Controller(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['fdb_index']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('fdb_index', YLeaf(YType.uint32, 'fdb-index')),
                                         ('fdb_mac_addr', YLeaf(YType.str, 'fdb-mac-addr')),
@@ -3518,7 +3453,7 @@ class Controller(Entity):
                                     self._segment_path = lambda: "fdb-entry" + "[fdb-index='" + str(self.fdb_index) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.Fdb.SwitchFdbCommon.Location.FdbBlock.FdbEntry, ['fdb_index', 'fdb_mac_addr', 'fdb_vlan', 'fdb_vlan_hex', 'fdb_port', 'fdb_trap_entry', 'fdb_static_entry', 'fdb_synced_cores'], name, value)
+                                    self._perform_setattr(Controller.Switch.Oper.Fdb.SwitchFdbCommon.Location.FdbBlock.FdbEntry, [u'fdb_index', u'fdb_mac_addr', u'fdb_vlan', u'fdb_vlan_hex', u'fdb_port', u'fdb_trap_entry', u'fdb_static_entry', u'fdb_synced_cores'], name, value)
 
 
             class Vlan(Entity):
@@ -3560,31 +3495,29 @@ class Controller(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("rules", ("rules", Controller.Switch.Oper.Vlan.Rules)), ("information", ("information", Controller.Switch.Oper.Vlan.Information)), ("vlan-detail", ("vlan_detail", Controller.Switch.Oper.Vlan.VlanDetail)), ("membership", ("membership", Controller.Switch.Oper.Vlan.Membership))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("rules", ("rules", Controller.Switch.Oper.Vlan.Rules)), ("information", ("information", Controller.Switch.Oper.Vlan.Information)), ("vlan-detail", ("vlan_detail", Controller.Switch.Oper.Vlan.VlanDetail)), ("membership", ("membership", Controller.Switch.Oper.Vlan.Membership))])
                     self._leafs = OrderedDict()
 
                     self.rules = Controller.Switch.Oper.Vlan.Rules()
                     self.rules.parent = self
                     self._children_name_map["rules"] = "rules"
-                    self._children_yang_names.add("rules")
 
                     self.information = Controller.Switch.Oper.Vlan.Information()
                     self.information.parent = self
                     self._children_name_map["information"] = "information"
-                    self._children_yang_names.add("information")
 
                     self.vlan_detail = Controller.Switch.Oper.Vlan.VlanDetail()
                     self.vlan_detail.parent = self
                     self._children_name_map["vlan_detail"] = "vlan-detail"
-                    self._children_yang_names.add("vlan-detail")
 
                     self.membership = Controller.Switch.Oper.Vlan.Membership()
                     self.membership.parent = self
                     self._children_name_map["membership"] = "membership"
-                    self._children_yang_names.add("membership")
                     self._segment_path = lambda: "vlan"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Controller.Switch.Oper.Vlan, [], name, value)
 
 
                 class Rules(Entity):
@@ -3611,8 +3544,7 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Vlan.Rules.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Vlan.Rules.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -3662,8 +3594,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['rack','card','switch_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("port-iter", ("port_iter", Controller.Switch.Oper.Vlan.Rules.Location.PortIter))])
+                            self._child_classes = OrderedDict([("port-iter", ("port_iter", Controller.Switch.Oper.Vlan.Rules.Location.PortIter))])
                             self._leafs = OrderedDict([
                                 ('rack', YLeaf(YType.enumeration, 'rack')),
                                 ('card', YLeaf(YType.enumeration, 'card')),
@@ -3678,7 +3609,7 @@ class Controller(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/vlan/rules/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Vlan.Rules.Location, ['rack', 'card', 'switch_id'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Vlan.Rules.Location, [u'rack', u'card', u'switch_id'], name, value)
 
 
                         class PortIter(Entity):
@@ -3712,8 +3643,7 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['port']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("vlan-id", ("vlan_id", Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId))])
+                                self._child_classes = OrderedDict([("vlan-id", ("vlan_id", Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId))])
                                 self._leafs = OrderedDict([
                                     ('port', YLeaf(YType.int32, 'port')),
                                 ])
@@ -3723,7 +3653,7 @@ class Controller(Entity):
                                 self._segment_path = lambda: "port-iter" + "[port='" + str(self.port) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.Vlan.Rules.Location.PortIter, ['port'], name, value)
+                                self._perform_setattr(Controller.Switch.Oper.Vlan.Rules.Location.PortIter, [u'port'], name, value)
 
 
                             class VlanId(Entity):
@@ -3757,8 +3687,7 @@ class Controller(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['vlan']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("rule-id", ("rule_id", Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId.RuleId))])
+                                    self._child_classes = OrderedDict([("rule-id", ("rule_id", Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId.RuleId))])
                                     self._leafs = OrderedDict([
                                         ('vlan', YLeaf(YType.uint16, 'vlan')),
                                     ])
@@ -3768,7 +3697,7 @@ class Controller(Entity):
                                     self._segment_path = lambda: "vlan-id" + "[vlan='" + str(self.vlan) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId, ['vlan'], name, value)
+                                    self._perform_setattr(Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId, [u'vlan'], name, value)
 
 
                                 class RuleId(Entity):
@@ -3824,8 +3753,7 @@ class Controller(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('direction', YLeaf(YType.enumeration, 'direction')),
                                             ('match_table', YLeaf(YType.enumeration, 'match-table')),
@@ -3843,7 +3771,7 @@ class Controller(Entity):
                                         self._segment_path = lambda: "rule-id"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId.RuleId, ['direction', 'match_table', 'match_type', 'match_vlan_id', 'action', 'action_vlan_id'], name, value)
+                                        self._perform_setattr(Controller.Switch.Oper.Vlan.Rules.Location.PortIter.VlanId.RuleId, [u'direction', u'match_table', u'match_type', u'match_vlan_id', u'action', u'action_vlan_id'], name, value)
 
 
                 class Information(Entity):
@@ -3875,14 +3803,12 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("summary", ("summary", Controller.Switch.Oper.Vlan.Information.Summary))])
-                        self._child_list_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Vlan.Information.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Vlan.Information.Location)), ("summary", ("summary", Controller.Switch.Oper.Vlan.Information.Summary))])
                         self._leafs = OrderedDict()
 
                         self.summary = Controller.Switch.Oper.Vlan.Information.Summary()
                         self.summary.parent = self
                         self._children_name_map["summary"] = "summary"
-                        self._children_yang_names.add("summary")
 
                         self.location = YList(self)
                         self._segment_path = lambda: "information"
@@ -3936,8 +3862,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['rack','card','switch_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("sdr-id", ("sdr_id", Controller.Switch.Oper.Vlan.Information.Location.SdrId))])
+                            self._child_classes = OrderedDict([("sdr-id", ("sdr_id", Controller.Switch.Oper.Vlan.Information.Location.SdrId))])
                             self._leafs = OrderedDict([
                                 ('rack', YLeaf(YType.enumeration, 'rack')),
                                 ('card', YLeaf(YType.enumeration, 'card')),
@@ -3954,7 +3879,7 @@ class Controller(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/vlan/information/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Location, ['rack', 'card', 'switch_id', 'serial_num'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Location, [u'rack', u'card', u'switch_id', u'serial_num'], name, value)
 
 
                         class SdrId(Entity):
@@ -3993,8 +3918,7 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['sdr']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("vlan-id", ("vlan_id", Controller.Switch.Oper.Vlan.Information.Location.SdrId.VlanId))])
+                                self._child_classes = OrderedDict([("vlan-id", ("vlan_id", Controller.Switch.Oper.Vlan.Information.Location.SdrId.VlanId))])
                                 self._leafs = OrderedDict([
                                     ('sdr', YLeaf(YType.uint8, 'sdr')),
                                     ('esd_sdr_name', YLeaf(YType.str, 'esd-sdr-name')),
@@ -4006,7 +3930,7 @@ class Controller(Entity):
                                 self._segment_path = lambda: "sdr-id" + "[sdr='" + str(self.sdr) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Location.SdrId, ['sdr', 'esd_sdr_name'], name, value)
+                                self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Location.SdrId, [u'sdr', u'esd_sdr_name'], name, value)
 
 
                             class VlanId(Entity):
@@ -4049,8 +3973,7 @@ class Controller(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['vlan']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('vlan', YLeaf(YType.uint16, 'vlan')),
                                         ('vlan_hex', YLeaf(YType.str, 'vlan-hex')),
@@ -4062,7 +3985,7 @@ class Controller(Entity):
                                     self._segment_path = lambda: "vlan-id" + "[vlan='" + str(self.vlan) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Location.SdrId.VlanId, ['vlan', 'vlan_hex', 'vlan_use'], name, value)
+                                    self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Location.SdrId.VlanId, [u'vlan', u'vlan_hex', u'vlan_use'], name, value)
 
 
                     class Summary(Entity):
@@ -4089,8 +4012,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("sdr-id", ("sdr_id", Controller.Switch.Oper.Vlan.Information.Summary.SdrId))])
+                            self._child_classes = OrderedDict([("sdr-id", ("sdr_id", Controller.Switch.Oper.Vlan.Information.Summary.SdrId))])
                             self._leafs = OrderedDict()
 
                             self.sdr_id = YList(self)
@@ -4137,8 +4059,7 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = ['sdr']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("vlan-id", ("vlan_id", Controller.Switch.Oper.Vlan.Information.Summary.SdrId.VlanId))])
+                                self._child_classes = OrderedDict([("vlan-id", ("vlan_id", Controller.Switch.Oper.Vlan.Information.Summary.SdrId.VlanId))])
                                 self._leafs = OrderedDict([
                                     ('sdr', YLeaf(YType.uint8, 'sdr')),
                                     ('esd_sdr_name', YLeaf(YType.str, 'esd-sdr-name')),
@@ -4151,7 +4072,7 @@ class Controller(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/vlan/information/summary/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Summary.SdrId, ['sdr', 'esd_sdr_name'], name, value)
+                                self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Summary.SdrId, [u'sdr', u'esd_sdr_name'], name, value)
 
 
                             class VlanId(Entity):
@@ -4194,8 +4115,7 @@ class Controller(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['vlan']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('vlan', YLeaf(YType.uint16, 'vlan')),
                                         ('vlan_hex', YLeaf(YType.str, 'vlan-hex')),
@@ -4207,7 +4127,7 @@ class Controller(Entity):
                                     self._segment_path = lambda: "vlan-id" + "[vlan='" + str(self.vlan) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Summary.SdrId.VlanId, ['vlan', 'vlan_hex', 'vlan_use'], name, value)
+                                    self._perform_setattr(Controller.Switch.Oper.Vlan.Information.Summary.SdrId.VlanId, [u'vlan', u'vlan_hex', u'vlan_use'], name, value)
 
 
                 class VlanDetail(Entity):
@@ -4234,8 +4154,7 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("vlan-id", ("vlan_id", Controller.Switch.Oper.Vlan.VlanDetail.VlanId))])
+                        self._child_classes = OrderedDict([("vlan-id", ("vlan_id", Controller.Switch.Oper.Vlan.VlanDetail.VlanId))])
                         self._leafs = OrderedDict()
 
                         self.vlan_id = YList(self)
@@ -4277,8 +4196,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['vlan']
-                            self._child_container_classes = OrderedDict([("rules", ("rules", Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("rules", ("rules", Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules))])
                             self._leafs = OrderedDict([
                                 ('vlan', YLeaf(YType.uint16, 'vlan')),
                             ])
@@ -4287,12 +4205,11 @@ class Controller(Entity):
                             self.rules = Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules()
                             self.rules.parent = self
                             self._children_name_map["rules"] = "rules"
-                            self._children_yang_names.add("rules")
                             self._segment_path = lambda: "vlan-id" + "[vlan='" + str(self.vlan) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/vlan/vlan-detail/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Vlan.VlanDetail.VlanId, ['vlan'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Vlan.VlanDetail.VlanId, [u'vlan'], name, value)
 
 
                         class Rules(Entity):
@@ -4319,8 +4236,7 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location))])
+                                self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location))])
                                 self._leafs = OrderedDict()
 
                                 self.location = YList(self)
@@ -4369,8 +4285,7 @@ class Controller(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['rack','card','switch_id']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("port-iter", ("port_iter", Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location.PortIter))])
+                                    self._child_classes = OrderedDict([("port-iter", ("port_iter", Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location.PortIter))])
                                     self._leafs = OrderedDict([
                                         ('rack', YLeaf(YType.enumeration, 'rack')),
                                         ('card', YLeaf(YType.enumeration, 'card')),
@@ -4384,7 +4299,7 @@ class Controller(Entity):
                                     self._segment_path = lambda: "location" + "[rack='" + str(self.rack) + "']" + "[card='" + str(self.card) + "']" + "[switch-id='" + str(self.switch_id) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location, ['rack', 'card', 'switch_id'], name, value)
+                                    self._perform_setattr(Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location, [u'rack', u'card', u'switch_id'], name, value)
 
 
                                 class PortIter(Entity):
@@ -4418,8 +4333,7 @@ class Controller(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['port']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("rule-id", ("rule_id", Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location.PortIter.RuleId))])
+                                        self._child_classes = OrderedDict([("rule-id", ("rule_id", Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location.PortIter.RuleId))])
                                         self._leafs = OrderedDict([
                                             ('port', YLeaf(YType.int32, 'port')),
                                         ])
@@ -4429,7 +4343,7 @@ class Controller(Entity):
                                         self._segment_path = lambda: "port-iter" + "[port='" + str(self.port) + "']"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location.PortIter, ['port'], name, value)
+                                        self._perform_setattr(Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location.PortIter, [u'port'], name, value)
 
 
                                     class RuleId(Entity):
@@ -4485,8 +4399,7 @@ class Controller(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('direction', YLeaf(YType.enumeration, 'direction')),
                                                 ('match_table', YLeaf(YType.enumeration, 'match-table')),
@@ -4504,7 +4417,7 @@ class Controller(Entity):
                                             self._segment_path = lambda: "rule-id"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location.PortIter.RuleId, ['direction', 'match_table', 'match_type', 'match_vlan_id', 'action', 'action_vlan_id'], name, value)
+                                            self._perform_setattr(Controller.Switch.Oper.Vlan.VlanDetail.VlanId.Rules.Location.PortIter.RuleId, [u'direction', u'match_table', u'match_type', u'match_vlan_id', u'action', u'action_vlan_id'], name, value)
 
 
                 class Membership(Entity):
@@ -4531,8 +4444,7 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Vlan.Membership.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Vlan.Membership.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -4582,8 +4494,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['rack','card','switch_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("vlan-id", ("vlan_id", Controller.Switch.Oper.Vlan.Membership.Location.VlanId))])
+                            self._child_classes = OrderedDict([("vlan-id", ("vlan_id", Controller.Switch.Oper.Vlan.Membership.Location.VlanId))])
                             self._leafs = OrderedDict([
                                 ('rack', YLeaf(YType.enumeration, 'rack')),
                                 ('card', YLeaf(YType.enumeration, 'card')),
@@ -4598,7 +4509,7 @@ class Controller(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/vlan/membership/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Vlan.Membership.Location, ['rack', 'card', 'switch_id'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Vlan.Membership.Location, [u'rack', u'card', u'switch_id'], name, value)
 
 
                         class VlanId(Entity):
@@ -4643,8 +4554,7 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['vlan']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('vlan', YLeaf(YType.uint16, 'vlan')),
                                     ('vlan_hex', YLeaf(YType.str, 'vlan-hex')),
@@ -4656,7 +4566,7 @@ class Controller(Entity):
                                 self._segment_path = lambda: "vlan-id" + "[vlan='" + str(self.vlan) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.Vlan.Membership.Location.VlanId, ['vlan', 'vlan_hex', 'port'], name, value)
+                                self._perform_setattr(Controller.Switch.Oper.Vlan.Membership.Location.VlanId, [u'vlan', u'vlan_hex', u'port'], name, value)
 
 
             class Esd(Entity):
@@ -4683,8 +4593,7 @@ class Controller(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("instance", ("instance", Controller.Switch.Oper.Esd.Instance))])
+                    self._child_classes = OrderedDict([("instance", ("instance", Controller.Switch.Oper.Esd.Instance))])
                     self._leafs = OrderedDict()
 
                     self.instance = YList(self)
@@ -4724,8 +4633,7 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['process_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("trace", ("trace", Controller.Switch.Oper.Esd.Instance.Trace))])
+                        self._child_classes = OrderedDict([("trace", ("trace", Controller.Switch.Oper.Esd.Instance.Trace))])
                         self._leafs = OrderedDict([
                             ('process_name', YLeaf(YType.str, 'process_name')),
                         ])
@@ -4736,7 +4644,7 @@ class Controller(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/esd/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Controller.Switch.Oper.Esd.Instance, ['process_name'], name, value)
+                        self._perform_setattr(Controller.Switch.Oper.Esd.Instance, [u'process_name'], name, value)
 
 
                     class Trace(Entity):
@@ -4768,8 +4676,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['buffer']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Esd.Instance.Trace.Location))])
+                            self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Esd.Instance.Trace.Location))])
                             self._leafs = OrderedDict([
                                 ('buffer', YLeaf(YType.str, 'buffer')),
                             ])
@@ -4779,7 +4686,7 @@ class Controller(Entity):
                             self._segment_path = lambda: "trace" + "[buffer='" + str(self.buffer) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.Esd.Instance.Trace, ['buffer'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.Esd.Instance.Trace, [u'buffer'], name, value)
 
 
                         class Location(Entity):
@@ -4811,8 +4718,7 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['location_name']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("all-options", ("all_options", Controller.Switch.Oper.Esd.Instance.Trace.Location.AllOptions))])
+                                self._child_classes = OrderedDict([("all-options", ("all_options", Controller.Switch.Oper.Esd.Instance.Trace.Location.AllOptions))])
                                 self._leafs = OrderedDict([
                                     ('location_name', YLeaf(YType.str, 'location_name')),
                                 ])
@@ -4822,7 +4728,7 @@ class Controller(Entity):
                                 self._segment_path = lambda: "location" + "[location_name='" + str(self.location_name) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.Esd.Instance.Trace.Location, ['location_name'], name, value)
+                                self._perform_setattr(Controller.Switch.Oper.Esd.Instance.Trace.Location, [u'location_name'], name, value)
 
 
                             class AllOptions(Entity):
@@ -4854,8 +4760,7 @@ class Controller(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['option']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("trace-blocks", ("trace_blocks", Controller.Switch.Oper.Esd.Instance.Trace.Location.AllOptions.TraceBlocks))])
+                                    self._child_classes = OrderedDict([("trace-blocks", ("trace_blocks", Controller.Switch.Oper.Esd.Instance.Trace.Location.AllOptions.TraceBlocks))])
                                     self._leafs = OrderedDict([
                                         ('option', YLeaf(YType.str, 'option')),
                                     ])
@@ -4865,7 +4770,7 @@ class Controller(Entity):
                                     self._segment_path = lambda: "all-options" + "[option='" + str(self.option) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.Esd.Instance.Trace.Location.AllOptions, ['option'], name, value)
+                                    self._perform_setattr(Controller.Switch.Oper.Esd.Instance.Trace.Location.AllOptions, [u'option'], name, value)
 
 
                                 class TraceBlocks(Entity):
@@ -4892,8 +4797,7 @@ class Controller(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('data', YLeaf(YType.str, 'data')),
                                         ])
@@ -4901,7 +4805,7 @@ class Controller(Entity):
                                         self._segment_path = lambda: "trace-blocks"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Controller.Switch.Oper.Esd.Instance.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
+                                        self._perform_setattr(Controller.Switch.Oper.Esd.Instance.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
 
             class MgmtAgent(Entity):
@@ -4933,21 +4837,21 @@ class Controller(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("esdma", ("esdma", Controller.Switch.Oper.MgmtAgent.Esdma)), ("connections", ("connections", Controller.Switch.Oper.MgmtAgent.Connections))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("esdma", ("esdma", Controller.Switch.Oper.MgmtAgent.Esdma)), ("connections", ("connections", Controller.Switch.Oper.MgmtAgent.Connections))])
                     self._leafs = OrderedDict()
 
                     self.esdma = Controller.Switch.Oper.MgmtAgent.Esdma()
                     self.esdma.parent = self
                     self._children_name_map["esdma"] = "esdma"
-                    self._children_yang_names.add("esdma")
 
                     self.connections = Controller.Switch.Oper.MgmtAgent.Connections()
                     self.connections.parent = self
                     self._children_name_map["connections"] = "connections"
-                    self._children_yang_names.add("connections")
                     self._segment_path = lambda: "mgmt-agent"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Controller.Switch.Oper.MgmtAgent, [], name, value)
 
 
                 class Esdma(Entity):
@@ -4974,8 +4878,7 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("trace", ("trace", Controller.Switch.Oper.MgmtAgent.Esdma.Trace))])
+                        self._child_classes = OrderedDict([("trace", ("trace", Controller.Switch.Oper.MgmtAgent.Esdma.Trace))])
                         self._leafs = OrderedDict()
 
                         self.trace = YList(self)
@@ -5015,8 +4918,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['buffer']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location))])
+                            self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location))])
                             self._leafs = OrderedDict([
                                 ('buffer', YLeaf(YType.str, 'buffer')),
                             ])
@@ -5027,7 +4929,7 @@ class Controller(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/mgmt-agent/esdma/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Esdma.Trace, ['buffer'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Esdma.Trace, [u'buffer'], name, value)
 
 
                         class Location(Entity):
@@ -5059,8 +4961,7 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['location_name']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("all-options", ("all_options", Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location.AllOptions))])
+                                self._child_classes = OrderedDict([("all-options", ("all_options", Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location.AllOptions))])
                                 self._leafs = OrderedDict([
                                     ('location_name', YLeaf(YType.str, 'location_name')),
                                 ])
@@ -5070,7 +4971,7 @@ class Controller(Entity):
                                 self._segment_path = lambda: "location" + "[location_name='" + str(self.location_name) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location, ['location_name'], name, value)
+                                self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location, [u'location_name'], name, value)
 
 
                             class AllOptions(Entity):
@@ -5102,8 +5003,7 @@ class Controller(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['option']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("trace-blocks", ("trace_blocks", Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location.AllOptions.TraceBlocks))])
+                                    self._child_classes = OrderedDict([("trace-blocks", ("trace_blocks", Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location.AllOptions.TraceBlocks))])
                                     self._leafs = OrderedDict([
                                         ('option', YLeaf(YType.str, 'option')),
                                     ])
@@ -5113,7 +5013,7 @@ class Controller(Entity):
                                     self._segment_path = lambda: "all-options" + "[option='" + str(self.option) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location.AllOptions, ['option'], name, value)
+                                    self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location.AllOptions, [u'option'], name, value)
 
 
                                 class TraceBlocks(Entity):
@@ -5140,8 +5040,7 @@ class Controller(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('data', YLeaf(YType.str, 'data')),
                                         ])
@@ -5149,7 +5048,7 @@ class Controller(Entity):
                                         self._segment_path = lambda: "trace-blocks"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
+                                        self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Esdma.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
 
                 class Connections(Entity):
@@ -5212,8 +5111,7 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("esdma-info", ("esdma_info", Controller.Switch.Oper.MgmtAgent.Connections.EsdmaInfo))])
-                        self._child_list_classes = OrderedDict([("sdr-nm-client-id", ("sdr_nm_client_id", Controller.Switch.Oper.MgmtAgent.Connections.SdrNmClientId)), ("esd-client-id", ("esd_client_id", Controller.Switch.Oper.MgmtAgent.Connections.EsdClientId)), ("mlap-client-id", ("mlap_client_id", Controller.Switch.Oper.MgmtAgent.Connections.MlapClientId))])
+                        self._child_classes = OrderedDict([("esdma-info", ("esdma_info", Controller.Switch.Oper.MgmtAgent.Connections.EsdmaInfo)), ("sdr-nm-client-id", ("sdr_nm_client_id", Controller.Switch.Oper.MgmtAgent.Connections.SdrNmClientId)), ("esd-client-id", ("esd_client_id", Controller.Switch.Oper.MgmtAgent.Connections.EsdClientId)), ("mlap-client-id", ("mlap_client_id", Controller.Switch.Oper.MgmtAgent.Connections.MlapClientId))])
                         self._leafs = OrderedDict([
                             ('sdr_nm_num_clients', YLeaf(YType.uint32, 'sdr-nm-num-clients')),
                             ('esd_client_num_clients', YLeaf(YType.uint32, 'esd-client-num-clients')),
@@ -5226,7 +5124,6 @@ class Controller(Entity):
                         self.esdma_info = Controller.Switch.Oper.MgmtAgent.Connections.EsdmaInfo()
                         self.esdma_info.parent = self
                         self._children_name_map["esdma_info"] = "esdma-info"
-                        self._children_yang_names.add("esdma-info")
 
                         self.sdr_nm_client_id = YList(self)
                         self.esd_client_id = YList(self)
@@ -5235,7 +5132,7 @@ class Controller(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/mgmt-agent/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Connections, ['sdr_nm_num_clients', 'esd_client_num_clients', 'mlap_client_num_clients'], name, value)
+                        self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Connections, [u'sdr_nm_num_clients', u'esd_client_num_clients', u'mlap_client_num_clients'], name, value)
 
 
                     class EsdmaInfo(Entity):
@@ -5270,8 +5167,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('active_esdma_address', YLeaf(YType.str, 'active-esdma-address')),
                             ])
@@ -5280,7 +5176,7 @@ class Controller(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/mgmt-agent/connections/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Connections.EsdmaInfo, ['active_esdma_address'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Connections.EsdmaInfo, [u'active_esdma_address'], name, value)
 
 
                     class SdrNmClientId(Entity):
@@ -5322,8 +5218,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('sdr_nm_ip_address', YLeaf(YType.str, 'sdr-nm-ip-address')),
                                 ('sdr_nm_port_num', YLeaf(YType.uint16, 'sdr-nm-port-num')),
@@ -5334,7 +5229,7 @@ class Controller(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/mgmt-agent/connections/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Connections.SdrNmClientId, ['sdr_nm_ip_address', 'sdr_nm_port_num'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Connections.SdrNmClientId, [u'sdr_nm_ip_address', u'sdr_nm_port_num'], name, value)
 
 
                     class EsdClientId(Entity):
@@ -5391,8 +5286,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('esd_client_ip_address', YLeaf(YType.str, 'esd-client-ip-address')),
                                 ('esd_client_port_num', YLeaf(YType.uint16, 'esd-client-port-num')),
@@ -5409,7 +5303,7 @@ class Controller(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/mgmt-agent/connections/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Connections.EsdClientId, ['esd_client_ip_address', 'esd_client_port_num', 'esd_client_location', 'esd_client_switch_info_cached', 'esd_client_sdr_info_cached'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Connections.EsdClientId, [u'esd_client_ip_address', u'esd_client_port_num', u'esd_client_location', u'esd_client_switch_info_cached', u'esd_client_sdr_info_cached'], name, value)
 
 
                     class MlapClientId(Entity):
@@ -5461,8 +5355,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('mlap_client_ip_address', YLeaf(YType.str, 'mlap-client-ip-address')),
                                 ('mlap_client_port_num', YLeaf(YType.uint16, 'mlap-client-port-num')),
@@ -5477,7 +5370,7 @@ class Controller(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/mgmt-agent/connections/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Connections.MlapClientId, ['mlap_client_ip_address', 'mlap_client_port_num', 'mlap_client_location', 'mlap_client_switch_info_cached'], name, value)
+                            self._perform_setattr(Controller.Switch.Oper.MgmtAgent.Connections.MlapClientId, [u'mlap_client_ip_address', u'mlap_client_port_num', u'mlap_client_location', u'mlap_client_switch_info_cached'], name, value)
 
 
             class Sdr(Entity):
@@ -5519,31 +5412,29 @@ class Controller(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("port-statistics", ("port_statistics", Controller.Switch.Oper.Sdr.PortStatistics)), ("global-statistics", ("global_statistics", Controller.Switch.Oper.Sdr.GlobalStatistics)), ("policers", ("policers", Controller.Switch.Oper.Sdr.Policers)), ("sdr-detail", ("sdr_detail", Controller.Switch.Oper.Sdr.SdrDetail))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("port-statistics", ("port_statistics", Controller.Switch.Oper.Sdr.PortStatistics)), ("global-statistics", ("global_statistics", Controller.Switch.Oper.Sdr.GlobalStatistics)), ("policers", ("policers", Controller.Switch.Oper.Sdr.Policers)), ("sdr-detail", ("sdr_detail", Controller.Switch.Oper.Sdr.SdrDetail))])
                     self._leafs = OrderedDict()
 
                     self.port_statistics = Controller.Switch.Oper.Sdr.PortStatistics()
                     self.port_statistics.parent = self
                     self._children_name_map["port_statistics"] = "port-statistics"
-                    self._children_yang_names.add("port-statistics")
 
                     self.global_statistics = Controller.Switch.Oper.Sdr.GlobalStatistics()
                     self.global_statistics.parent = self
                     self._children_name_map["global_statistics"] = "global-statistics"
-                    self._children_yang_names.add("global-statistics")
 
                     self.policers = Controller.Switch.Oper.Sdr.Policers()
                     self.policers.parent = self
                     self._children_name_map["policers"] = "policers"
-                    self._children_yang_names.add("policers")
 
                     self.sdr_detail = Controller.Switch.Oper.Sdr.SdrDetail()
                     self.sdr_detail.parent = self
                     self._children_name_map["sdr_detail"] = "sdr-detail"
-                    self._children_yang_names.add("sdr-detail")
                     self._segment_path = lambda: "sdr"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Controller.Switch.Oper.Sdr, [], name, value)
 
 
                 class PortStatistics(Entity):
@@ -5570,8 +5461,7 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Sdr.PortStatistics.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Sdr.PortStatistics.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -5621,8 +5511,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['rack','card','switch_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("port-iter", ("port_iter", Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter))])
+                            self._child_classes = OrderedDict([("port-iter", ("port_iter", Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter))])
                             self._leafs = OrderedDict([
                                 ('rack', YLeaf(YType.enumeration, 'rack')),
                                 ('card', YLeaf(YType.enumeration, 'card')),
@@ -5671,8 +5560,7 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['port']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("sdr-id", ("sdr_id", Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter.SdrId))])
+                                self._child_classes = OrderedDict([("sdr-id", ("sdr_id", Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter.SdrId))])
                                 self._leafs = OrderedDict([
                                     ('port', YLeaf(YType.int32, 'port')),
                                 ])
@@ -5721,8 +5609,7 @@ class Controller(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['sdr']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("traffic-type-id", ("traffic_type_id", Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter.SdrId.TrafficTypeId))])
+                                    self._child_classes = OrderedDict([("traffic-type-id", ("traffic_type_id", Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter.SdrId.TrafficTypeId))])
                                     self._leafs = OrderedDict([
                                         ('sdr', YLeaf(YType.uint8, 'sdr')),
                                         ('esd_sdr_name', YLeaf(YType.str, 'esd-sdr-name')),
@@ -5766,8 +5653,7 @@ class Controller(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['traffic_type']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("direction-id", ("direction_id", Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter.SdrId.TrafficTypeId.DirectionId))])
+                                        self._child_classes = OrderedDict([("direction-id", ("direction_id", Controller.Switch.Oper.Sdr.PortStatistics.Location.PortIter.SdrId.TrafficTypeId.DirectionId))])
                                         self._leafs = OrderedDict([
                                             ('traffic_type', YLeaf(YType.enumeration, 'traffic-type')),
                                         ])
@@ -5825,8 +5711,7 @@ class Controller(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['direction']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('direction', YLeaf(YType.enumeration, 'direction')),
                                                 ('green_packets', YLeaf(YType.uint64, 'green-packets')),
@@ -5867,8 +5752,7 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Sdr.GlobalStatistics.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Sdr.GlobalStatistics.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -5918,8 +5802,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['rack','card','switch_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("sdr-id", ("sdr_id", Controller.Switch.Oper.Sdr.GlobalStatistics.Location.SdrId))])
+                            self._child_classes = OrderedDict([("sdr-id", ("sdr_id", Controller.Switch.Oper.Sdr.GlobalStatistics.Location.SdrId))])
                             self._leafs = OrderedDict([
                                 ('rack', YLeaf(YType.enumeration, 'rack')),
                                 ('card', YLeaf(YType.enumeration, 'card')),
@@ -5973,8 +5856,7 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['sdr']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("traffic-type-id", ("traffic_type_id", Controller.Switch.Oper.Sdr.GlobalStatistics.Location.SdrId.TrafficTypeId))])
+                                self._child_classes = OrderedDict([("traffic-type-id", ("traffic_type_id", Controller.Switch.Oper.Sdr.GlobalStatistics.Location.SdrId.TrafficTypeId))])
                                 self._leafs = OrderedDict([
                                     ('sdr', YLeaf(YType.uint8, 'sdr')),
                                     ('esd_sdr_name', YLeaf(YType.str, 'esd-sdr-name')),
@@ -6018,8 +5900,7 @@ class Controller(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['traffic_type']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("traffic-class-id", ("traffic_class_id", Controller.Switch.Oper.Sdr.GlobalStatistics.Location.SdrId.TrafficTypeId.TrafficClassId))])
+                                    self._child_classes = OrderedDict([("traffic-class-id", ("traffic_class_id", Controller.Switch.Oper.Sdr.GlobalStatistics.Location.SdrId.TrafficTypeId.TrafficClassId))])
                                     self._leafs = OrderedDict([
                                         ('traffic_type', YLeaf(YType.enumeration, 'traffic-type')),
                                     ])
@@ -6079,8 +5960,7 @@ class Controller(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['tc']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('tc', YLeaf(YType.int8, 'tc')),
                                             ('green_packets', YLeaf(YType.uint64, 'green-packets')),
@@ -6121,8 +6001,7 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Sdr.Policers.Location))])
+                        self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Sdr.Policers.Location))])
                         self._leafs = OrderedDict()
 
                         self.location = YList(self)
@@ -6177,8 +6056,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['rack','card','switch_id']
-                            self._child_container_classes = OrderedDict([("esd-policer-status", ("esd_policer_status", Controller.Switch.Oper.Sdr.Policers.Location.EsdPolicerStatus))])
-                            self._child_list_classes = OrderedDict([("sdr-id", ("sdr_id", Controller.Switch.Oper.Sdr.Policers.Location.SdrId))])
+                            self._child_classes = OrderedDict([("esd-policer-status", ("esd_policer_status", Controller.Switch.Oper.Sdr.Policers.Location.EsdPolicerStatus)), ("sdr-id", ("sdr_id", Controller.Switch.Oper.Sdr.Policers.Location.SdrId))])
                             self._leafs = OrderedDict([
                                 ('rack', YLeaf(YType.enumeration, 'rack')),
                                 ('card', YLeaf(YType.enumeration, 'card')),
@@ -6191,7 +6069,6 @@ class Controller(Entity):
                             self.esd_policer_status = Controller.Switch.Oper.Sdr.Policers.Location.EsdPolicerStatus()
                             self.esd_policer_status.parent = self
                             self._children_name_map["esd_policer_status"] = "esd-policer-status"
-                            self._children_yang_names.add("esd-policer-status")
 
                             self.sdr_id = YList(self)
                             self._segment_path = lambda: "location" + "[rack='" + str(self.rack) + "']" + "[card='" + str(self.card) + "']" + "[switch-id='" + str(self.switch_id) + "']"
@@ -6225,15 +6102,16 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("indent-group", ("indent_group", Controller.Switch.Oper.Sdr.Policers.Location.EsdPolicerStatus.IndentGroup))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("indent-group", ("indent_group", Controller.Switch.Oper.Sdr.Policers.Location.EsdPolicerStatus.IndentGroup))])
                                 self._leafs = OrderedDict()
 
                                 self.indent_group = Controller.Switch.Oper.Sdr.Policers.Location.EsdPolicerStatus.IndentGroup()
                                 self.indent_group.parent = self
                                 self._children_name_map["indent_group"] = "indent-group"
-                                self._children_yang_names.add("indent-group")
                                 self._segment_path = lambda: "esd-policer-status"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Controller.Switch.Oper.Sdr.Policers.Location.EsdPolicerStatus, [], name, value)
 
 
                             class IndentGroup(Entity):
@@ -6307,8 +6185,7 @@ class Controller(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('esd_port_policing_enabled', YLeaf(YType.enumeration, 'esd-port-policing-enabled')),
                                         ('esd_port_committed_burst_size', YLeaf(YType.uint32, 'esd-port-committed-burst-size')),
@@ -6383,8 +6260,7 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['sdr']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("esd-sdr-cos-type-iter", ("esd_sdr_cos_type_iter", Controller.Switch.Oper.Sdr.Policers.Location.SdrId.EsdSdrCosTypeIter))])
+                                self._child_classes = OrderedDict([("esd-sdr-cos-type-iter", ("esd_sdr_cos_type_iter", Controller.Switch.Oper.Sdr.Policers.Location.SdrId.EsdSdrCosTypeIter))])
                                 self._leafs = OrderedDict([
                                     ('sdr', YLeaf(YType.uint8, 'sdr')),
                                     ('esd_sdr_name', YLeaf(YType.str, 'esd-sdr-name')),
@@ -6483,8 +6359,7 @@ class Controller(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['esd_sdr_cos_type']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('esd_sdr_cos_type', YLeaf(YType.enumeration, 'esd-sdr-cos-type')),
                                         ('esd_sdr_cos_0', YLeaf(YType.uint8, 'esd-sdr-cos-0')),
@@ -6535,8 +6410,7 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("sdr-id", ("sdr_id", Controller.Switch.Oper.Sdr.SdrDetail.SdrId))])
+                        self._child_classes = OrderedDict([("sdr-id", ("sdr_id", Controller.Switch.Oper.Sdr.SdrDetail.SdrId))])
                         self._leafs = OrderedDict()
 
                         self.sdr_id = YList(self)
@@ -6578,8 +6452,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['sdr']
-                            self._child_container_classes = OrderedDict([("port-statistics", ("port_statistics", Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("port-statistics", ("port_statistics", Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics))])
                             self._leafs = OrderedDict([
                                 ('sdr', YLeaf(YType.uint8, 'sdr')),
                             ])
@@ -6588,7 +6461,6 @@ class Controller(Entity):
                             self.port_statistics = Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics()
                             self.port_statistics.parent = self
                             self._children_name_map["port_statistics"] = "port-statistics"
-                            self._children_yang_names.add("port-statistics")
                             self._segment_path = lambda: "sdr-id" + "[sdr='" + str(self.sdr) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/sdr/sdr-detail/%s" % self._segment_path()
 
@@ -6620,8 +6492,7 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location))])
+                                self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location))])
                                 self._leafs = OrderedDict()
 
                                 self.location = YList(self)
@@ -6670,8 +6541,7 @@ class Controller(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['rack','card','switch_id']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("port-iter", ("port_iter", Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter))])
+                                    self._child_classes = OrderedDict([("port-iter", ("port_iter", Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter))])
                                     self._leafs = OrderedDict([
                                         ('rack', YLeaf(YType.enumeration, 'rack')),
                                         ('card', YLeaf(YType.enumeration, 'card')),
@@ -6719,8 +6589,7 @@ class Controller(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['port']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("traffic-type-id", ("traffic_type_id", Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId))])
+                                        self._child_classes = OrderedDict([("traffic-type-id", ("traffic_type_id", Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId))])
                                         self._leafs = OrderedDict([
                                             ('port', YLeaf(YType.int32, 'port')),
                                         ])
@@ -6762,8 +6631,7 @@ class Controller(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['traffic_type']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("direction-id", ("direction_id", Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId))])
+                                            self._child_classes = OrderedDict([("direction-id", ("direction_id", Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId))])
                                             self._leafs = OrderedDict([
                                                 ('traffic_type', YLeaf(YType.enumeration, 'traffic-type')),
                                             ])
@@ -6805,8 +6673,7 @@ class Controller(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['direction']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("traffic-class-id", ("traffic_class_id", Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId.TrafficClassId))])
+                                                self._child_classes = OrderedDict([("traffic-class-id", ("traffic_class_id", Controller.Switch.Oper.Sdr.SdrDetail.SdrId.PortStatistics.Location.PortIter.TrafficTypeId.DirectionId.TrafficClassId))])
                                                 self._leafs = OrderedDict([
                                                     ('direction', YLeaf(YType.enumeration, 'direction')),
                                                 ])
@@ -6866,8 +6733,7 @@ class Controller(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['tc']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('tc', YLeaf(YType.int8, 'tc')),
                                                         ('green_packets', YLeaf(YType.uint64, 'green-packets')),
@@ -6908,8 +6774,7 @@ class Controller(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.PortState.Location))])
+                    self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.PortState.Location))])
                     self._leafs = OrderedDict()
 
                     self.location = YList(self)
@@ -6959,8 +6824,7 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['rack','card','switch_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("port-iter", ("port_iter", Controller.Switch.Oper.PortState.Location.PortIter))])
+                        self._child_classes = OrderedDict([("port-iter", ("port_iter", Controller.Switch.Oper.PortState.Location.PortIter))])
                         self._leafs = OrderedDict([
                             ('rack', YLeaf(YType.enumeration, 'rack')),
                             ('card', YLeaf(YType.enumeration, 'card')),
@@ -7004,8 +6868,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['port']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('port', YLeaf(YType.int32, 'port')),
                             ])
@@ -7040,8 +6903,7 @@ class Controller(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Trunk.Location))])
+                    self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.Trunk.Location))])
                     self._leafs = OrderedDict()
 
                     self.location = YList(self)
@@ -7103,8 +6965,7 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['rack','card','switch_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("trunk-member-port-iter", ("trunk_member_port_iter", Controller.Switch.Oper.Trunk.Location.TrunkMemberPortIter))])
+                        self._child_classes = OrderedDict([("trunk-member-port-iter", ("trunk_member_port_iter", Controller.Switch.Oper.Trunk.Location.TrunkMemberPortIter))])
                         self._leafs = OrderedDict([
                             ('rack', YLeaf(YType.enumeration, 'rack')),
                             ('card', YLeaf(YType.enumeration, 'card')),
@@ -7157,8 +7018,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['trunk_member_port']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('trunk_member_port', YLeaf(YType.uint32, 'trunk-member-port')),
                                 ('trunk_member_status', YLeaf(YType.enumeration, 'trunk-member-status')),
@@ -7195,16 +7055,17 @@ class Controller(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("debug", ("debug", Controller.Switch.Oper.SwitchDebugCont.Debug))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("debug", ("debug", Controller.Switch.Oper.SwitchDebugCont.Debug))])
                     self._leafs = OrderedDict()
 
                     self.debug = Controller.Switch.Oper.SwitchDebugCont.Debug()
                     self.debug.parent = self
                     self._children_name_map["debug"] = "debug"
-                    self._children_yang_names.add("debug")
                     self._segment_path = lambda: "switch-debug-cont"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Controller.Switch.Oper.SwitchDebugCont, [], name, value)
 
 
                 class Debug(Entity):
@@ -7231,16 +7092,17 @@ class Controller(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("counters", ("counters", Controller.Switch.Oper.SwitchDebugCont.Debug.Counters))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("counters", ("counters", Controller.Switch.Oper.SwitchDebugCont.Debug.Counters))])
                         self._leafs = OrderedDict()
 
                         self.counters = Controller.Switch.Oper.SwitchDebugCont.Debug.Counters()
                         self.counters.parent = self
                         self._children_name_map["counters"] = "counters"
-                        self._children_yang_names.add("counters")
                         self._segment_path = lambda: "debug"
                         self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/switch-debug-cont/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Controller.Switch.Oper.SwitchDebugCont.Debug, [], name, value)
 
 
                     class Counters(Entity):
@@ -7267,8 +7129,7 @@ class Controller(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location))])
+                            self._child_classes = OrderedDict([("location", ("location", Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location))])
                             self._leafs = OrderedDict()
 
                             self.location = YList(self)
@@ -7318,8 +7179,7 @@ class Controller(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = ['rack','card','switch_id']
-                                self._child_container_classes = OrderedDict([("counters", ("counters", Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location.Counters_))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("counters", ("counters", Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location.Counters_))])
                                 self._leafs = OrderedDict([
                                     ('rack', YLeaf(YType.enumeration, 'rack')),
                                     ('card', YLeaf(YType.enumeration, 'card')),
@@ -7332,12 +7192,11 @@ class Controller(Entity):
                                 self.counters = Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location.Counters_()
                                 self.counters.parent = self
                                 self._children_name_map["counters"] = "counters"
-                                self._children_yang_names.add("counters")
                                 self._segment_path = lambda: "location" + "[rack='" + str(self.rack) + "']" + "[card='" + str(self.card) + "']" + "[switch-id='" + str(self.switch_id) + "']"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-controllers-asr9k:controller/switch/oper/switch-debug-cont/debug/counters/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location, ['rack', 'card', 'switch_id'], name, value)
+                                self._perform_setattr(Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location, [u'rack', u'card', u'switch_id'], name, value)
 
 
                             class Counters_(Entity):
@@ -7516,8 +7375,7 @@ class Controller(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("switch-core", ("switch_core", Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location.Counters_.SwitchCore))])
+                                    self._child_classes = OrderedDict([("switch-core", ("switch_core", Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location.Counters_.SwitchCore))])
                                     self._leafs = OrderedDict([
                                         ('phy_polling_enabled', YLeaf(YType.boolean, 'phy-polling-enabled')),
                                         ('tx_thread_wdog_cnt', YLeaf(YType.uint64, 'tx-thread-wdog-cnt')),
@@ -7569,7 +7427,7 @@ class Controller(Entity):
                                     self._segment_path = lambda: "counters"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location.Counters_, ['phy_polling_enabled', 'tx_thread_wdog_cnt', 'rx_thread_wdog_cnt', 'task_lock_longest_wait_time', 'task_lock_longest_wait_event', 'task_lock_longest_held_time', 'task_lock_longest_held_event', 'task_unlock_longest_wait_time', 'task_unlock_longest_wait_event', 'dma_max_rx_dequeued_per_int', 'dma_rx_packets_dequeued', 'dma_rx_packet_dequeue_errors', 'dma_tx_packets_queued', 'dma_tx_packets_completed', 'dma_tx_packet_no_msg_errors', 'dma_tx_packet_msg_too_big_errors', 'dma_tx_packet_no_buffer_errors', 'dma_tx_packet_queue_errors', 'dma_tx_packet_completion_errors', 'dma_max_tx_freed_per_int', 'dma_tx_buf_alloc_count', 'dma_tx_buf_free_count'], name, value)
+                                    self._perform_setattr(Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location.Counters_, [u'phy_polling_enabled', u'tx_thread_wdog_cnt', u'rx_thread_wdog_cnt', u'task_lock_longest_wait_time', u'task_lock_longest_wait_event', u'task_lock_longest_held_time', u'task_lock_longest_held_event', u'task_unlock_longest_wait_time', u'task_unlock_longest_wait_event', u'dma_max_rx_dequeued_per_int', u'dma_rx_packets_dequeued', u'dma_rx_packet_dequeue_errors', u'dma_tx_packets_queued', u'dma_tx_packets_completed', u'dma_tx_packet_no_msg_errors', u'dma_tx_packet_msg_too_big_errors', u'dma_tx_packet_no_buffer_errors', u'dma_tx_packet_queue_errors', u'dma_tx_packet_completion_errors', u'dma_max_tx_freed_per_int', u'dma_tx_buf_alloc_count', u'dma_tx_buf_free_count'], name, value)
 
 
                                 class SwitchCore(Entity):
@@ -7647,8 +7505,7 @@ class Controller(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['core']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('core', YLeaf(YType.uint8, 'core')),
                                             ('msi_count', YLeaf(YType.uint64, 'msi-count')),
@@ -7670,7 +7527,7 @@ class Controller(Entity):
                                         self._segment_path = lambda: "switch-core" + "[core='" + str(self.core) + "']"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location.Counters_.SwitchCore, ['core', 'msi_count', 'aer_count', 'hp_count', 'wdog_count', 'core_task_lock_longest_wait_time', 'core_task_lock_longest_held_time', 'core_task_unlock_longest_wait_time'], name, value)
+                                        self._perform_setattr(Controller.Switch.Oper.SwitchDebugCont.Debug.Counters.Location.Counters_.SwitchCore, [u'core', u'msi_count', u'aer_count', u'hp_count', u'wdog_count', u'core_task_lock_longest_wait_time', u'core_task_lock_longest_held_time', u'core_task_unlock_longest_wait_time'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Controller()

@@ -177,45 +177,40 @@ class Rsvp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("neighbors", ("neighbors", Rsvp.Neighbors)), ("controllers", ("controllers", Rsvp.Controllers)), ("global-logging", ("global_logging", Rsvp.GlobalLogging)), ("global-bandwidth", ("global_bandwidth", Rsvp.GlobalBandwidth)), ("interfaces", ("interfaces", Rsvp.Interfaces)), ("signalling", ("signalling", Rsvp.Signalling)), ("authentication", ("authentication", Rsvp.Authentication))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("neighbors", ("neighbors", Rsvp.Neighbors)), ("controllers", ("controllers", Rsvp.Controllers)), ("global-logging", ("global_logging", Rsvp.GlobalLogging)), ("global-bandwidth", ("global_bandwidth", Rsvp.GlobalBandwidth)), ("interfaces", ("interfaces", Rsvp.Interfaces)), ("signalling", ("signalling", Rsvp.Signalling)), ("authentication", ("authentication", Rsvp.Authentication))])
         self._leafs = OrderedDict()
 
         self.neighbors = Rsvp.Neighbors()
         self.neighbors.parent = self
         self._children_name_map["neighbors"] = "neighbors"
-        self._children_yang_names.add("neighbors")
 
         self.controllers = Rsvp.Controllers()
         self.controllers.parent = self
         self._children_name_map["controllers"] = "controllers"
-        self._children_yang_names.add("controllers")
 
         self.global_logging = Rsvp.GlobalLogging()
         self.global_logging.parent = self
         self._children_name_map["global_logging"] = "global-logging"
-        self._children_yang_names.add("global-logging")
 
         self.global_bandwidth = Rsvp.GlobalBandwidth()
         self.global_bandwidth.parent = self
         self._children_name_map["global_bandwidth"] = "global-bandwidth"
-        self._children_yang_names.add("global-bandwidth")
 
         self.interfaces = Rsvp.Interfaces()
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
-        self._children_yang_names.add("interfaces")
 
         self.signalling = Rsvp.Signalling()
         self.signalling.parent = self
         self._children_name_map["signalling"] = "signalling"
-        self._children_yang_names.add("signalling")
 
         self.authentication = Rsvp.Authentication()
         self.authentication.parent = self
         self._children_name_map["authentication"] = "authentication"
-        self._children_yang_names.add("authentication")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Rsvp, [], name, value)
 
 
     class Neighbors(Entity):
@@ -242,8 +237,7 @@ class Rsvp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Rsvp.Neighbors.Neighbor))])
+            self._child_classes = OrderedDict([("neighbor", ("neighbor", Rsvp.Neighbors.Neighbor))])
             self._leafs = OrderedDict()
 
             self.neighbor = YList(self)
@@ -285,8 +279,7 @@ class Rsvp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['neighbor']
-                self._child_container_classes = OrderedDict([("authentication", ("authentication", Rsvp.Neighbors.Neighbor.Authentication))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("authentication", ("authentication", Rsvp.Neighbors.Neighbor.Authentication))])
                 self._leafs = OrderedDict([
                     ('neighbor', YLeaf(YType.str, 'neighbor')),
                 ])
@@ -295,7 +288,6 @@ class Rsvp(Entity):
                 self.authentication = Rsvp.Neighbors.Neighbor.Authentication()
                 self.authentication.parent = self
                 self._children_name_map["authentication"] = "authentication"
-                self._children_yang_names.add("authentication")
                 self._segment_path = lambda: "neighbor" + "[neighbor='" + str(self.neighbor) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/neighbors/%s" % self._segment_path()
 
@@ -350,8 +342,7 @@ class Rsvp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('life_time', YLeaf(YType.uint32, 'life-time')),
                         ('enable', YLeaf(YType.boolean, 'enable')),
@@ -392,8 +383,7 @@ class Rsvp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("controller", ("controller", Rsvp.Controllers.Controller))])
+            self._child_classes = OrderedDict([("controller", ("controller", Rsvp.Controllers.Controller))])
             self._leafs = OrderedDict()
 
             self.controller = YList(self)
@@ -440,8 +430,7 @@ class Rsvp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['controller_name']
-                self._child_container_classes = OrderedDict([("cntl-signalling", ("cntl_signalling", Rsvp.Controllers.Controller.CntlSignalling))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("cntl-signalling", ("cntl_signalling", Rsvp.Controllers.Controller.CntlSignalling))])
                 self._leafs = OrderedDict([
                     ('controller_name', YLeaf(YType.str, 'controller-name')),
                     ('enable', YLeaf(YType.empty, 'enable')),
@@ -452,7 +441,6 @@ class Rsvp(Entity):
                 self.cntl_signalling = Rsvp.Controllers.Controller.CntlSignalling()
                 self.cntl_signalling.parent = self
                 self._children_name_map["cntl_signalling"] = "cntl-signalling"
-                self._children_yang_names.add("cntl-signalling")
                 self._segment_path = lambda: "controller" + "[controller-name='" + str(self.controller_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/controllers/%s" % self._segment_path()
 
@@ -484,15 +472,16 @@ class Rsvp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("out-of-band", ("out_of_band", Rsvp.Controllers.Controller.CntlSignalling.OutOfBand))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("out-of-band", ("out_of_band", Rsvp.Controllers.Controller.CntlSignalling.OutOfBand))])
                     self._leafs = OrderedDict()
 
                     self.out_of_band = Rsvp.Controllers.Controller.CntlSignalling.OutOfBand()
                     self.out_of_band.parent = self
                     self._children_name_map["out_of_band"] = "out-of-band"
-                    self._children_yang_names.add("out-of-band")
                     self._segment_path = lambda: "cntl-signalling"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Rsvp.Controllers.Controller.CntlSignalling, [], name, value)
 
 
                 class OutOfBand(Entity):
@@ -532,8 +521,7 @@ class Rsvp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('missed_messages', YLeaf(YType.uint32, 'missed-messages')),
                             ('refresh_interval', YLeaf(YType.uint32, 'refresh-interval')),
@@ -575,8 +563,7 @@ class Rsvp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('log_nsr_status', YLeaf(YType.empty, 'log-nsr-status')),
                 ('log_issu_status', YLeaf(YType.empty, 'log-issu-status')),
@@ -614,16 +601,17 @@ class Rsvp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("default-interface-percent", ("default_interface_percent", Rsvp.GlobalBandwidth.DefaultInterfacePercent))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("default-interface-percent", ("default_interface_percent", Rsvp.GlobalBandwidth.DefaultInterfacePercent))])
             self._leafs = OrderedDict()
 
             self.default_interface_percent = Rsvp.GlobalBandwidth.DefaultInterfacePercent()
             self.default_interface_percent.parent = self
             self._children_name_map["default_interface_percent"] = "default-interface-percent"
-            self._children_yang_names.add("default-interface-percent")
             self._segment_path = lambda: "global-bandwidth"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Rsvp.GlobalBandwidth, [], name, value)
 
 
         class DefaultInterfacePercent(Entity):
@@ -655,21 +643,21 @@ class Rsvp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("mam", ("mam", Rsvp.GlobalBandwidth.DefaultInterfacePercent.Mam)), ("rdm", ("rdm", Rsvp.GlobalBandwidth.DefaultInterfacePercent.Rdm))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("mam", ("mam", Rsvp.GlobalBandwidth.DefaultInterfacePercent.Mam)), ("rdm", ("rdm", Rsvp.GlobalBandwidth.DefaultInterfacePercent.Rdm))])
                 self._leafs = OrderedDict()
 
                 self.mam = Rsvp.GlobalBandwidth.DefaultInterfacePercent.Mam()
                 self.mam.parent = self
                 self._children_name_map["mam"] = "mam"
-                self._children_yang_names.add("mam")
 
                 self.rdm = Rsvp.GlobalBandwidth.DefaultInterfacePercent.Rdm()
                 self.rdm.parent = self
                 self._children_name_map["rdm"] = "rdm"
-                self._children_yang_names.add("rdm")
                 self._segment_path = lambda: "default-interface-percent"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/global-bandwidth/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Rsvp.GlobalBandwidth.DefaultInterfacePercent, [], name, value)
 
 
             class Mam(Entity):
@@ -713,8 +701,7 @@ class Rsvp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('max_res_percent', YLeaf(YType.uint32, 'max-res-percent')),
                         ('bc0_percent', YLeaf(YType.uint32, 'bc0-percent')),
@@ -764,8 +751,7 @@ class Rsvp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('bc0_percent', YLeaf(YType.uint32, 'bc0-percent')),
                         ('bc1_percent', YLeaf(YType.uint32, 'bc1-percent')),
@@ -803,8 +789,7 @@ class Rsvp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("interface", ("interface", Rsvp.Interfaces.Interface))])
+            self._child_classes = OrderedDict([("interface", ("interface", Rsvp.Interfaces.Interface))])
             self._leafs = OrderedDict()
 
             self.interface = YList(self)
@@ -861,8 +846,7 @@ class Rsvp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([("if-signalling", ("if_signalling", Rsvp.Interfaces.Interface.IfSignalling)), ("bandwidth", ("bandwidth", Rsvp.Interfaces.Interface.Bandwidth)), ("authentication", ("authentication", Rsvp.Interfaces.Interface.Authentication))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("if-signalling", ("if_signalling", Rsvp.Interfaces.Interface.IfSignalling)), ("bandwidth", ("bandwidth", Rsvp.Interfaces.Interface.Bandwidth)), ("authentication", ("authentication", Rsvp.Interfaces.Interface.Authentication))])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('enable', YLeaf(YType.empty, 'enable')),
@@ -873,17 +857,14 @@ class Rsvp(Entity):
                 self.if_signalling = Rsvp.Interfaces.Interface.IfSignalling()
                 self.if_signalling.parent = self
                 self._children_name_map["if_signalling"] = "if-signalling"
-                self._children_yang_names.add("if-signalling")
 
                 self.bandwidth = Rsvp.Interfaces.Interface.Bandwidth()
                 self.bandwidth.parent = self
                 self._children_name_map["bandwidth"] = "bandwidth"
-                self._children_yang_names.add("bandwidth")
 
                 self.authentication = Rsvp.Interfaces.Interface.Authentication()
                 self.authentication.parent = self
                 self._children_name_map["authentication"] = "authentication"
-                self._children_yang_names.add("authentication")
                 self._segment_path = lambda: "interface" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/interfaces/%s" % self._segment_path()
 
@@ -962,8 +943,7 @@ class Rsvp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("refresh-reduction", ("refresh_reduction", Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction)), ("interval-rate", ("interval_rate", Rsvp.Interfaces.Interface.IfSignalling.IntervalRate)), ("out-of-band", ("out_of_band", Rsvp.Interfaces.Interface.IfSignalling.OutOfBand))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("refresh-reduction", ("refresh_reduction", Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction)), ("interval-rate", ("interval_rate", Rsvp.Interfaces.Interface.IfSignalling.IntervalRate)), ("out-of-band", ("out_of_band", Rsvp.Interfaces.Interface.IfSignalling.OutOfBand))])
                     self._leafs = OrderedDict([
                         ('dscp', YLeaf(YType.uint32, 'dscp')),
                         ('missed_messages', YLeaf(YType.uint32, 'missed-messages')),
@@ -980,17 +960,14 @@ class Rsvp(Entity):
                     self.refresh_reduction = Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction()
                     self.refresh_reduction.parent = self
                     self._children_name_map["refresh_reduction"] = "refresh-reduction"
-                    self._children_yang_names.add("refresh-reduction")
 
                     self.interval_rate = Rsvp.Interfaces.Interface.IfSignalling.IntervalRate()
                     self.interval_rate.parent = self
                     self._children_name_map["interval_rate"] = "interval-rate"
-                    self._children_yang_names.add("interval-rate")
 
                     self.out_of_band = Rsvp.Interfaces.Interface.IfSignalling.OutOfBand()
                     self.out_of_band.parent = self
                     self._children_name_map["out_of_band"] = "out-of-band"
-                    self._children_yang_names.add("out-of-band")
                     self._segment_path = lambda: "if-signalling"
 
                 def __setattr__(self, name, value):
@@ -1081,8 +1058,7 @@ class Rsvp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('disable', YLeaf(YType.empty, 'disable')),
                             ('reliable_ack_max_size', YLeaf(YType.uint32, 'reliable-ack-max-size')),
@@ -1145,8 +1121,7 @@ class Rsvp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('messages_per_interval', YLeaf(YType.uint32, 'messages-per-interval')),
                             ('interval_size', YLeaf(YType.uint32, 'interval-size')),
@@ -1196,8 +1171,7 @@ class Rsvp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('missed_messages', YLeaf(YType.uint32, 'missed-messages')),
                             ('refresh_interval', YLeaf(YType.uint32, 'refresh-interval')),
@@ -1239,20 +1213,20 @@ class Rsvp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("mam", ("mam", Rsvp.Interfaces.Interface.Bandwidth.Mam)), ("rdm", ("rdm", Rsvp.Interfaces.Interface.Bandwidth.Rdm))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("mam", ("mam", Rsvp.Interfaces.Interface.Bandwidth.Mam)), ("rdm", ("rdm", Rsvp.Interfaces.Interface.Bandwidth.Rdm))])
                     self._leafs = OrderedDict()
 
                     self.mam = Rsvp.Interfaces.Interface.Bandwidth.Mam()
                     self.mam.parent = self
                     self._children_name_map["mam"] = "mam"
-                    self._children_yang_names.add("mam")
 
                     self.rdm = Rsvp.Interfaces.Interface.Bandwidth.Rdm()
                     self.rdm.parent = self
                     self._children_name_map["rdm"] = "rdm"
-                    self._children_yang_names.add("rdm")
                     self._segment_path = lambda: "bandwidth"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Rsvp.Interfaces.Interface.Bandwidth, [], name, value)
 
 
                 class Mam(Entity):
@@ -1309,8 +1283,7 @@ class Rsvp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('max_resv_bandwidth', YLeaf(YType.uint32, 'max-resv-bandwidth')),
                             ('max_resv_flow', YLeaf(YType.uint32, 'max-resv-flow')),
@@ -1391,8 +1364,7 @@ class Rsvp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('max_resv_flow', YLeaf(YType.uint32, 'max-resv-flow')),
                             ('bc0_bandwidth', YLeaf(YType.uint32, 'bc0-bandwidth')),
@@ -1462,8 +1434,7 @@ class Rsvp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('life_time', YLeaf(YType.uint32, 'life-time')),
                         ('enable', YLeaf(YType.boolean, 'enable')),
@@ -1544,8 +1515,7 @@ class Rsvp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("global-out-of-band", ("global_out_of_band", Rsvp.Signalling.GlobalOutOfBand)), ("graceful-restart", ("graceful_restart", Rsvp.Signalling.GracefulRestart)), ("prefix-filtering", ("prefix_filtering", Rsvp.Signalling.PrefixFiltering)), ("pesr", ("pesr", Rsvp.Signalling.Pesr)), ("checksum", ("checksum", Rsvp.Signalling.Checksum))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("global-out-of-band", ("global_out_of_band", Rsvp.Signalling.GlobalOutOfBand)), ("graceful-restart", ("graceful_restart", Rsvp.Signalling.GracefulRestart)), ("prefix-filtering", ("prefix_filtering", Rsvp.Signalling.PrefixFiltering)), ("pesr", ("pesr", Rsvp.Signalling.Pesr)), ("checksum", ("checksum", Rsvp.Signalling.Checksum))])
             self._leafs = OrderedDict([
                 ('hello_graceful_restart_misses', YLeaf(YType.uint32, 'hello-graceful-restart-misses')),
                 ('hello_graceful_restart_interval', YLeaf(YType.uint32, 'hello-graceful-restart-interval')),
@@ -1556,27 +1526,22 @@ class Rsvp(Entity):
             self.global_out_of_band = Rsvp.Signalling.GlobalOutOfBand()
             self.global_out_of_band.parent = self
             self._children_name_map["global_out_of_band"] = "global-out-of-band"
-            self._children_yang_names.add("global-out-of-band")
 
             self.graceful_restart = Rsvp.Signalling.GracefulRestart()
             self.graceful_restart.parent = self
             self._children_name_map["graceful_restart"] = "graceful-restart"
-            self._children_yang_names.add("graceful-restart")
 
             self.prefix_filtering = Rsvp.Signalling.PrefixFiltering()
             self.prefix_filtering.parent = self
             self._children_name_map["prefix_filtering"] = "prefix-filtering"
-            self._children_yang_names.add("prefix-filtering")
 
             self.pesr = Rsvp.Signalling.Pesr()
             self.pesr.parent = self
             self._children_name_map["pesr"] = "pesr"
-            self._children_yang_names.add("pesr")
 
             self.checksum = Rsvp.Signalling.Checksum()
             self.checksum.parent = self
             self._children_name_map["checksum"] = "checksum"
-            self._children_yang_names.add("checksum")
             self._segment_path = lambda: "signalling"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/%s" % self._segment_path()
 
@@ -1610,8 +1575,7 @@ class Rsvp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('vrf', YLeaf(YType.str, 'vrf')),
                 ])
@@ -1674,8 +1638,7 @@ class Rsvp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("lsp-class-type", ("lsp_class_type", Rsvp.Signalling.GracefulRestart.LspClassType))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("lsp-class-type", ("lsp_class_type", Rsvp.Signalling.GracefulRestart.LspClassType))])
                 self._leafs = OrderedDict([
                     ('enable', YLeaf(YType.boolean, 'enable')),
                     ('restart_time', YLeaf(YType.uint32, 'restart-time')),
@@ -1688,7 +1651,6 @@ class Rsvp(Entity):
                 self.lsp_class_type = Rsvp.Signalling.GracefulRestart.LspClassType()
                 self.lsp_class_type.parent = self
                 self._children_name_map["lsp_class_type"] = "lsp-class-type"
-                self._children_yang_names.add("lsp-class-type")
                 self._segment_path = lambda: "graceful-restart"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/%s" % self._segment_path()
 
@@ -1721,8 +1683,7 @@ class Rsvp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('enable', YLeaf(YType.boolean, 'enable')),
                     ])
@@ -1765,8 +1726,7 @@ class Rsvp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("default-deny-action", ("default_deny_action", Rsvp.Signalling.PrefixFiltering.DefaultDenyAction))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("default-deny-action", ("default_deny_action", Rsvp.Signalling.PrefixFiltering.DefaultDenyAction))])
                 self._leafs = OrderedDict([
                     ('acl', YLeaf(YType.str, 'acl')),
                 ])
@@ -1775,7 +1735,6 @@ class Rsvp(Entity):
                 self.default_deny_action = Rsvp.Signalling.PrefixFiltering.DefaultDenyAction()
                 self.default_deny_action.parent = self
                 self._children_name_map["default_deny_action"] = "default-deny-action"
-                self._children_yang_names.add("default-deny-action")
                 self._segment_path = lambda: "prefix-filtering"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/%s" % self._segment_path()
 
@@ -1808,8 +1767,7 @@ class Rsvp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('drop', YLeaf(YType.empty, 'drop')),
                     ])
@@ -1845,8 +1803,7 @@ class Rsvp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('disable', YLeaf(YType.empty, 'disable')),
                 ])
@@ -1882,8 +1839,7 @@ class Rsvp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('disable', YLeaf(YType.empty, 'disable')),
                 ])
@@ -1942,8 +1898,7 @@ class Rsvp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('life_time', YLeaf(YType.uint32, 'life-time')),
                 ('enable', YLeaf(YType.boolean, 'enable')),

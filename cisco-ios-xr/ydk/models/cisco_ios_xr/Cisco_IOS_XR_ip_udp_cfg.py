@@ -54,7 +54,7 @@ class IpUdp(Entity):
     """
 
     _prefix = 'ip-udp-cfg'
-    _revision = '2017-07-31'
+    _revision = '2017-09-30'
 
     def __init__(self):
         super(IpUdp, self).__init__()
@@ -65,8 +65,7 @@ class IpUdp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("num-thread", ("num_thread", IpUdp.NumThread)), ("directory", ("directory", IpUdp.Directory))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("num-thread", ("num_thread", IpUdp.NumThread)), ("directory", ("directory", IpUdp.Directory))])
         self._leafs = OrderedDict([
             ('receive_q', YLeaf(YType.uint32, 'receive-q')),
         ])
@@ -74,11 +73,9 @@ class IpUdp(Entity):
 
         self.num_thread = None
         self._children_name_map["num_thread"] = "num-thread"
-        self._children_yang_names.add("num-thread")
 
         self.directory = None
         self._children_name_map["directory"] = "directory"
-        self._children_yang_names.add("directory")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-udp-cfg:ip-udp"
 
     def __setattr__(self, name, value):
@@ -114,7 +111,7 @@ class IpUdp(Entity):
         """
 
         _prefix = 'ip-udp-cfg'
-        _revision = '2017-07-31'
+        _revision = '2017-09-30'
 
         def __init__(self):
             super(IpUdp.NumThread, self).__init__()
@@ -124,8 +121,7 @@ class IpUdp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('udp_in_q_threads', YLeaf(YType.uint32, 'udp-in-q-threads')),
@@ -176,7 +172,7 @@ class IpUdp(Entity):
         """
 
         _prefix = 'ip-udp-cfg'
-        _revision = '2017-07-31'
+        _revision = '2017-09-30'
 
         def __init__(self):
             super(IpUdp.Directory, self).__init__()
@@ -186,8 +182,7 @@ class IpUdp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('directoryname', YLeaf(YType.str, 'directoryname')),

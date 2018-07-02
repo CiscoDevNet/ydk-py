@@ -45,15 +45,16 @@ class Ppp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("syslog", ("syslog", Ppp.Syslog))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("syslog", ("syslog", Ppp.Syslog))])
         self._leafs = OrderedDict()
 
         self.syslog = Ppp.Syslog()
         self.syslog.parent = self
         self._children_name_map["syslog"] = "syslog"
-        self._children_yang_names.add("syslog")
         self._segment_path = lambda: "Cisco-IOS-XR-ppp-ma-syslog-cfg:ppp"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Ppp, [], name, value)
 
 
     class Syslog(Entity):
@@ -80,8 +81,7 @@ class Ppp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('enable_session_status', YLeaf(YType.empty, 'enable-session-status')),
             ])

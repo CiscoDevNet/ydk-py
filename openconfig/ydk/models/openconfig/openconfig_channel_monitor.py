@@ -39,8 +39,7 @@ class ChannelMonitors(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("channel-monitor", ("channel_monitor", ChannelMonitors.ChannelMonitor))])
+        self._child_classes = OrderedDict([("channel-monitor", ("channel_monitor", ChannelMonitors.ChannelMonitor))])
         self._leafs = OrderedDict()
 
         self.channel_monitor = YList(self)
@@ -91,8 +90,7 @@ class ChannelMonitors(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['name']
-            self._child_container_classes = OrderedDict([("config", ("config", ChannelMonitors.ChannelMonitor.Config)), ("state", ("state", ChannelMonitors.ChannelMonitor.State)), ("channels", ("channels", ChannelMonitors.ChannelMonitor.Channels))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("config", ("config", ChannelMonitors.ChannelMonitor.Config)), ("state", ("state", ChannelMonitors.ChannelMonitor.State)), ("channels", ("channels", ChannelMonitors.ChannelMonitor.Channels))])
             self._leafs = OrderedDict([
                 ('name', YLeaf(YType.str, 'name')),
             ])
@@ -101,17 +99,14 @@ class ChannelMonitors(Entity):
             self.config = ChannelMonitors.ChannelMonitor.Config()
             self.config.parent = self
             self._children_name_map["config"] = "config"
-            self._children_yang_names.add("config")
 
             self.state = ChannelMonitors.ChannelMonitor.State()
             self.state.parent = self
             self._children_name_map["state"] = "state"
-            self._children_yang_names.add("state")
 
             self.channels = ChannelMonitors.ChannelMonitor.Channels()
             self.channels.parent = self
             self._children_name_map["channels"] = "channels"
-            self._children_yang_names.add("channels")
             self._segment_path = lambda: "channel-monitor" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "openconfig-channel-monitor:channel-monitors/%s" % self._segment_path()
 
@@ -152,8 +147,7 @@ class ChannelMonitors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('monitor_port', YLeaf(YType.str, 'monitor-port')),
@@ -199,8 +193,7 @@ class ChannelMonitors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('monitor_port', YLeaf(YType.str, 'monitor-port')),
@@ -238,8 +231,7 @@ class ChannelMonitors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("channel", ("channel", ChannelMonitors.ChannelMonitor.Channels.Channel))])
+                self._child_classes = OrderedDict([("channel", ("channel", ChannelMonitors.ChannelMonitor.Channels.Channel))])
                 self._leafs = OrderedDict()
 
                 self.channel = YList(self)
@@ -291,8 +283,7 @@ class ChannelMonitors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['lower_frequency','upper_frequency']
-                    self._child_container_classes = OrderedDict([("state", ("state", ChannelMonitors.ChannelMonitor.Channels.Channel.State))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("state", ("state", ChannelMonitors.ChannelMonitor.Channels.Channel.State))])
                     self._leafs = OrderedDict([
                         ('lower_frequency', YLeaf(YType.str, 'lower-frequency')),
                         ('upper_frequency', YLeaf(YType.str, 'upper-frequency')),
@@ -303,7 +294,6 @@ class ChannelMonitors(Entity):
                     self.state = ChannelMonitors.ChannelMonitor.Channels.Channel.State()
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
-                    self._children_yang_names.add("state")
                     self._segment_path = lambda: "channel" + "[lower-frequency='" + str(self.lower_frequency) + "']" + "[upper-frequency='" + str(self.upper_frequency) + "']"
 
                 def __setattr__(self, name, value):
@@ -352,8 +342,7 @@ class ChannelMonitors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('lower_frequency', YLeaf(YType.uint64, 'lower-frequency')),
                             ('upper_frequency', YLeaf(YType.uint64, 'upper-frequency')),

@@ -2148,7 +2148,7 @@ class Cfm(Entity):
     """
 
     _prefix = 'ethernet-cfm-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-10-06'
 
     def __init__(self):
         super(Cfm, self).__init__()
@@ -2159,20 +2159,20 @@ class Cfm(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", Cfm.Nodes)), ("global", ("global_", Cfm.Global))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", Cfm.Nodes)), ("global", ("global_", Cfm.Global))])
         self._leafs = OrderedDict()
 
         self.nodes = Cfm.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
 
         self.global_ = Cfm.Global()
         self.global_.parent = self
         self._children_name_map["global_"] = "global"
-        self._children_yang_names.add("global")
         self._segment_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Cfm, [], name, value)
 
 
     class Nodes(Entity):
@@ -2189,7 +2189,7 @@ class Cfm(Entity):
         """
 
         _prefix = 'ethernet-cfm-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-10-06'
 
         def __init__(self):
             super(Cfm.Nodes, self).__init__()
@@ -2199,8 +2199,7 @@ class Cfm(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", Cfm.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", Cfm.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -2247,7 +2246,7 @@ class Cfm(Entity):
             """
 
             _prefix = 'ethernet-cfm-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-10-06'
 
             def __init__(self):
                 super(Cfm.Nodes.Node, self).__init__()
@@ -2257,8 +2256,7 @@ class Cfm(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node']
-                self._child_container_classes = OrderedDict([("interface-aises", ("interface_aises", Cfm.Nodes.Node.InterfaceAises)), ("interface-statistics", ("interface_statistics", Cfm.Nodes.Node.InterfaceStatistics)), ("summary", ("summary", Cfm.Nodes.Node.Summary)), ("ccm-learning-databases", ("ccm_learning_databases", Cfm.Nodes.Node.CcmLearningDatabases))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("interface-aises", ("interface_aises", Cfm.Nodes.Node.InterfaceAises)), ("interface-statistics", ("interface_statistics", Cfm.Nodes.Node.InterfaceStatistics)), ("summary", ("summary", Cfm.Nodes.Node.Summary)), ("ccm-learning-databases", ("ccm_learning_databases", Cfm.Nodes.Node.CcmLearningDatabases))])
                 self._leafs = OrderedDict([
                     ('node', YLeaf(YType.str, 'node')),
                 ])
@@ -2267,22 +2265,18 @@ class Cfm(Entity):
                 self.interface_aises = Cfm.Nodes.Node.InterfaceAises()
                 self.interface_aises.parent = self
                 self._children_name_map["interface_aises"] = "interface-aises"
-                self._children_yang_names.add("interface-aises")
 
                 self.interface_statistics = Cfm.Nodes.Node.InterfaceStatistics()
                 self.interface_statistics.parent = self
                 self._children_name_map["interface_statistics"] = "interface-statistics"
-                self._children_yang_names.add("interface-statistics")
 
                 self.summary = Cfm.Nodes.Node.Summary()
                 self.summary.parent = self
                 self._children_name_map["summary"] = "summary"
-                self._children_yang_names.add("summary")
 
                 self.ccm_learning_databases = Cfm.Nodes.Node.CcmLearningDatabases()
                 self.ccm_learning_databases.parent = self
                 self._children_name_map["ccm_learning_databases"] = "ccm-learning-databases"
-                self._children_yang_names.add("ccm-learning-databases")
                 self._segment_path = lambda: "node" + "[node='" + str(self.node) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/nodes/%s" % self._segment_path()
 
@@ -2304,7 +2298,7 @@ class Cfm(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-10-06'
 
                 def __init__(self):
                     super(Cfm.Nodes.Node.InterfaceAises, self).__init__()
@@ -2314,8 +2308,7 @@ class Cfm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface-ais", ("interface_ais", Cfm.Nodes.Node.InterfaceAises.InterfaceAis))])
+                    self._child_classes = OrderedDict([("interface-ais", ("interface_ais", Cfm.Nodes.Node.InterfaceAises.InterfaceAis))])
                     self._leafs = OrderedDict()
 
                     self.interface_ais = YList(self)
@@ -2373,7 +2366,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis, self).__init__()
@@ -2383,8 +2376,7 @@ class Cfm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name','direction']
-                        self._child_container_classes = OrderedDict([("statistics", ("statistics", Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("statistics", ("statistics", Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('direction', YLeaf(YType.enumeration, 'direction')),
@@ -2403,7 +2395,6 @@ class Cfm(Entity):
                         self.statistics = Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics()
                         self.statistics.parent = self
                         self._children_name_map["statistics"] = "statistics"
-                        self._children_yang_names.add("statistics")
                         self._segment_path = lambda: "interface-ais" + "[interface-name='" + str(self.interface_name) + "']" + "[direction='" + str(self.direction) + "']"
 
                     def __setattr__(self, name, value):
@@ -2461,7 +2452,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics, self).__init__()
@@ -2471,8 +2462,7 @@ class Cfm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("defects", ("defects", Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects)), ("last-started", ("last_started", Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("defects", ("defects", Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects)), ("last-started", ("last_started", Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted))])
                             self._leafs = OrderedDict([
                                 ('direction', YLeaf(YType.enumeration, 'direction')),
                                 ('lowest_level', YLeaf(YType.enumeration, 'lowest-level')),
@@ -2491,12 +2481,10 @@ class Cfm(Entity):
                             self.defects = Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects()
                             self.defects.parent = self
                             self._children_name_map["defects"] = "defects"
-                            self._children_yang_names.add("defects")
 
                             self.last_started = Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted()
                             self.last_started.parent = self
                             self._children_name_map["last_started"] = "last-started"
-                            self._children_yang_names.add("last-started")
                             self._segment_path = lambda: "statistics"
 
                         def __setattr__(self, name, value):
@@ -2560,7 +2548,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects, self).__init__()
@@ -2570,8 +2558,7 @@ class Cfm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("remote-meps-defects", ("remote_meps_defects", Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("remote-meps-defects", ("remote_meps_defects", Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects))])
                                 self._leafs = OrderedDict([
                                     ('ais_received', YLeaf(YType.boolean, 'ais-received')),
                                     ('peer_meps_that_timed_out', YLeaf(YType.uint32, 'peer-meps-that-timed-out')),
@@ -2592,7 +2579,6 @@ class Cfm(Entity):
                                 self.remote_meps_defects = Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects()
                                 self.remote_meps_defects.parent = self
                                 self._children_name_map["remote_meps_defects"] = "remote-meps-defects"
-                                self._children_yang_names.add("remote-meps-defects")
                                 self._segment_path = lambda: "defects"
 
                             def __setattr__(self, name, value):
@@ -2643,7 +2629,7 @@ class Cfm(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-10-06'
 
                                 def __init__(self):
                                     super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects, self).__init__()
@@ -2653,8 +2639,7 @@ class Cfm(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('loss_threshold_exceeded', YLeaf(YType.boolean, 'loss-threshold-exceeded')),
                                         ('invalid_level', YLeaf(YType.boolean, 'invalid-level')),
@@ -2704,7 +2689,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted, self).__init__()
@@ -2714,8 +2699,7 @@ class Cfm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('seconds', YLeaf(YType.uint32, 'seconds')),
                                     ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -2742,7 +2726,7 @@ class Cfm(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-10-06'
 
                 def __init__(self):
                     super(Cfm.Nodes.Node.InterfaceStatistics, self).__init__()
@@ -2752,8 +2736,7 @@ class Cfm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface-statistic", ("interface_statistic", Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic))])
+                    self._child_classes = OrderedDict([("interface-statistic", ("interface_statistic", Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic))])
                     self._leafs = OrderedDict()
 
                     self.interface_statistic = YList(self)
@@ -2791,7 +2774,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic, self).__init__()
@@ -2801,8 +2784,7 @@ class Cfm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface']
-                        self._child_container_classes = OrderedDict([("statistics", ("statistics", Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("statistics", ("statistics", Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics))])
                         self._leafs = OrderedDict([
                             ('interface', YLeaf(YType.str, 'interface')),
                             ('interface_xr', YLeaf(YType.str, 'interface-xr')),
@@ -2813,7 +2795,6 @@ class Cfm(Entity):
                         self.statistics = Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics()
                         self.statistics.parent = self
                         self._children_name_map["statistics"] = "statistics"
-                        self._children_yang_names.add("statistics")
                         self._segment_path = lambda: "interface-statistic" + "[interface='" + str(self.interface) + "']"
 
                     def __setattr__(self, name, value):
@@ -2853,7 +2834,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics, self).__init__()
@@ -2863,8 +2844,7 @@ class Cfm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('malformed_packets', YLeaf(YType.uint64, 'malformed-packets')),
                                 ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
@@ -3070,7 +3050,7 @@ class Cfm(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-10-06'
 
                 def __init__(self):
                     super(Cfm.Nodes.Node.Summary, self).__init__()
@@ -3080,8 +3060,7 @@ class Cfm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('domains', YLeaf(YType.uint32, 'domains')),
                         ('services', YLeaf(YType.uint32, 'services')),
@@ -3139,7 +3118,7 @@ class Cfm(Entity):
                     self._segment_path = lambda: "summary"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Nodes.Node.Summary, ['domains', 'services', 'ccm_rate', 'local_meps', 'operational_local_meps', 'down_meps', 'up_meps', 'offloaded', 'offloaded_at3_3ms', 'offloaded_at10ms', 'disabled_misconfigured', 'disabled_out_of_resources', 'disabled_operational_error', 'peer_meps', 'operational_peer_meps', 'peer_meps_with_defects', 'peer_meps_without_defects', 'peer_meps_timed_out', 'mips', 'interfaces', 'bridge_domains_and_xconnects', 'traceroute_cache_entries', 'traceroute_cache_replies', 'ccm_learning_db_entries', 'issu_role', 'bnm_enabled_links'], name, value)
+                    self._perform_setattr(Cfm.Nodes.Node.Summary, [u'domains', u'services', u'ccm_rate', u'local_meps', u'operational_local_meps', u'down_meps', u'up_meps', u'offloaded', u'offloaded_at3_3ms', u'offloaded_at10ms', u'disabled_misconfigured', u'disabled_out_of_resources', u'disabled_operational_error', u'peer_meps', u'operational_peer_meps', u'peer_meps_with_defects', u'peer_meps_without_defects', u'peer_meps_timed_out', u'mips', u'interfaces', u'bridge_domains_and_xconnects', u'traceroute_cache_entries', u'traceroute_cache_replies', u'ccm_learning_db_entries', u'issu_role', u'bnm_enabled_links'], name, value)
 
 
             class CcmLearningDatabases(Entity):
@@ -3156,7 +3135,7 @@ class Cfm(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-10-06'
 
                 def __init__(self):
                     super(Cfm.Nodes.Node.CcmLearningDatabases, self).__init__()
@@ -3166,8 +3145,7 @@ class Cfm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("ccm-learning-database", ("ccm_learning_database", Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase))])
+                    self._child_classes = OrderedDict([("ccm-learning-database", ("ccm_learning_database", Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase))])
                     self._leafs = OrderedDict()
 
                     self.ccm_learning_database = YList(self)
@@ -3246,7 +3224,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase, self).__init__()
@@ -3256,8 +3234,7 @@ class Cfm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['domain','service','mac_address']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('domain', YLeaf(YType.str, 'domain')),
                             ('service', YLeaf(YType.str, 'service')),
@@ -3323,14 +3300,14 @@ class Cfm(Entity):
         .. attribute:: peer_me_pv2s
         
         	Peer MEPs table Version 2
-        	**type**\:  :py:class:`PeerMePv2S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S>`
+        	**type**\:  :py:class:`PeerMePv2s <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s>`
         
         
 
         """
 
         _prefix = 'ethernet-cfm-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-10-06'
 
         def __init__(self):
             super(Cfm.Global, self).__init__()
@@ -3340,46 +3317,41 @@ class Cfm(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("incomplete-traceroutes", ("incomplete_traceroutes", Cfm.Global.IncompleteTraceroutes)), ("maintenance-points", ("maintenance_points", Cfm.Global.MaintenancePoints)), ("global-configuration-errors", ("global_configuration_errors", Cfm.Global.GlobalConfigurationErrors)), ("mep-configuration-errors", ("mep_configuration_errors", Cfm.Global.MepConfigurationErrors)), ("traceroute-caches", ("traceroute_caches", Cfm.Global.TracerouteCaches)), ("local-meps", ("local_meps", Cfm.Global.LocalMeps)), ("peer-me-pv2s", ("peer_me_pv2s", Cfm.Global.PeerMePv2S))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("incomplete-traceroutes", ("incomplete_traceroutes", Cfm.Global.IncompleteTraceroutes)), ("maintenance-points", ("maintenance_points", Cfm.Global.MaintenancePoints)), ("global-configuration-errors", ("global_configuration_errors", Cfm.Global.GlobalConfigurationErrors)), ("mep-configuration-errors", ("mep_configuration_errors", Cfm.Global.MepConfigurationErrors)), ("traceroute-caches", ("traceroute_caches", Cfm.Global.TracerouteCaches)), ("local-meps", ("local_meps", Cfm.Global.LocalMeps)), ("peer-me-pv2s", ("peer_me_pv2s", Cfm.Global.PeerMePv2s))])
             self._leafs = OrderedDict()
 
             self.incomplete_traceroutes = Cfm.Global.IncompleteTraceroutes()
             self.incomplete_traceroutes.parent = self
             self._children_name_map["incomplete_traceroutes"] = "incomplete-traceroutes"
-            self._children_yang_names.add("incomplete-traceroutes")
 
             self.maintenance_points = Cfm.Global.MaintenancePoints()
             self.maintenance_points.parent = self
             self._children_name_map["maintenance_points"] = "maintenance-points"
-            self._children_yang_names.add("maintenance-points")
 
             self.global_configuration_errors = Cfm.Global.GlobalConfigurationErrors()
             self.global_configuration_errors.parent = self
             self._children_name_map["global_configuration_errors"] = "global-configuration-errors"
-            self._children_yang_names.add("global-configuration-errors")
 
             self.mep_configuration_errors = Cfm.Global.MepConfigurationErrors()
             self.mep_configuration_errors.parent = self
             self._children_name_map["mep_configuration_errors"] = "mep-configuration-errors"
-            self._children_yang_names.add("mep-configuration-errors")
 
             self.traceroute_caches = Cfm.Global.TracerouteCaches()
             self.traceroute_caches.parent = self
             self._children_name_map["traceroute_caches"] = "traceroute-caches"
-            self._children_yang_names.add("traceroute-caches")
 
             self.local_meps = Cfm.Global.LocalMeps()
             self.local_meps.parent = self
             self._children_name_map["local_meps"] = "local-meps"
-            self._children_yang_names.add("local-meps")
 
-            self.peer_me_pv2s = Cfm.Global.PeerMePv2S()
+            self.peer_me_pv2s = Cfm.Global.PeerMePv2s()
             self.peer_me_pv2s.parent = self
             self._children_name_map["peer_me_pv2s"] = "peer-me-pv2s"
-            self._children_yang_names.add("peer-me-pv2s")
             self._segment_path = lambda: "global"
             self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Cfm.Global, [], name, value)
 
 
         class IncompleteTraceroutes(Entity):
@@ -3396,7 +3368,7 @@ class Cfm(Entity):
             """
 
             _prefix = 'ethernet-cfm-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-10-06'
 
             def __init__(self):
                 super(Cfm.Global.IncompleteTraceroutes, self).__init__()
@@ -3406,8 +3378,7 @@ class Cfm(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("incomplete-traceroute", ("incomplete_traceroute", Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute))])
+                self._child_classes = OrderedDict([("incomplete-traceroute", ("incomplete_traceroute", Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute))])
                 self._leafs = OrderedDict()
 
                 self.incomplete_traceroute = YList(self)
@@ -3456,7 +3427,7 @@ class Cfm(Entity):
                 	Transaction ID
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: traceroute_information
                 
@@ -3477,7 +3448,7 @@ class Cfm(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-10-06'
 
                 def __init__(self):
                     super(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute, self).__init__()
@@ -3487,14 +3458,13 @@ class Cfm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['domain','service','mep_id','interface','transaction_id']
-                    self._child_container_classes = OrderedDict([("traceroute-information", ("traceroute_information", Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("traceroute-information", ("traceroute_information", Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation))])
                     self._leafs = OrderedDict([
                         ('domain', YLeaf(YType.str, 'domain')),
                         ('service', YLeaf(YType.str, 'service')),
                         ('mep_id', YLeaf(YType.uint32, 'mep-id')),
                         ('interface', YLeaf(YType.str, 'interface')),
-                        ('transaction_id', YLeaf(YType.int32, 'transaction-id')),
+                        ('transaction_id', YLeaf(YType.uint32, 'transaction-id')),
                         ('time_left', YLeaf(YType.uint64, 'time-left')),
                     ])
                     self.domain = None
@@ -3507,7 +3477,6 @@ class Cfm(Entity):
                     self.traceroute_information = Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation()
                     self.traceroute_information.parent = self
                     self._children_name_map["traceroute_information"] = "traceroute-information"
-                    self._children_yang_names.add("traceroute-information")
                     self._segment_path = lambda: "incomplete-traceroute" + "[domain='" + str(self.domain) + "']" + "[service='" + str(self.service) + "']" + "[mep-id='" + str(self.mep_id) + "']" + "[interface='" + str(self.interface) + "']" + "[transaction-id='" + str(self.transaction_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/incomplete-traceroutes/%s" % self._segment_path()
 
@@ -3609,7 +3578,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation, self).__init__()
@@ -3619,8 +3588,7 @@ class Cfm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("options", ("options", Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("options", ("options", Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options))])
                         self._leafs = OrderedDict([
                             ('domain', YLeaf(YType.str, 'domain')),
                             ('service', YLeaf(YType.str, 'service')),
@@ -3651,7 +3619,6 @@ class Cfm(Entity):
                         self.options = Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options()
                         self.options.parent = self
                         self._children_name_map["options"] = "options"
-                        self._children_yang_names.add("options")
                         self._segment_path = lambda: "traceroute-information"
 
                     def __setattr__(self, name, value):
@@ -3682,7 +3649,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options, self).__init__()
@@ -3692,8 +3659,7 @@ class Cfm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("basic-options", ("basic_options", Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions)), ("exploratory-options", ("exploratory_options", Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("basic-options", ("basic_options", Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions)), ("exploratory-options", ("exploratory_options", Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions))])
                             self._leafs = OrderedDict([
                                 ('mode', YLeaf(YType.enumeration, 'mode')),
                             ])
@@ -3702,12 +3668,10 @@ class Cfm(Entity):
                             self.basic_options = Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions()
                             self.basic_options.parent = self
                             self._children_name_map["basic_options"] = "basic-options"
-                            self._children_yang_names.add("basic-options")
 
                             self.exploratory_options = Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions()
                             self.exploratory_options.parent = self
                             self._children_name_map["exploratory_options"] = "exploratory-options"
-                            self._children_yang_names.add("exploratory-options")
                             self._segment_path = lambda: "options"
 
                         def __setattr__(self, name, value):
@@ -3733,7 +3697,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions, self).__init__()
@@ -3743,8 +3707,7 @@ class Cfm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('is_auto', YLeaf(YType.boolean, 'is-auto')),
                                     ('fdb_only', YLeaf(YType.boolean, 'fdb-only')),
@@ -3783,7 +3746,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions, self).__init__()
@@ -3793,8 +3756,7 @@ class Cfm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('delay_model', YLeaf(YType.enumeration, 'delay-model')),
                                     ('delay_constant_factor', YLeaf(YType.uint32, 'delay-constant-factor')),
@@ -3823,7 +3785,7 @@ class Cfm(Entity):
             """
 
             _prefix = 'ethernet-cfm-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-10-06'
 
             def __init__(self):
                 super(Cfm.Global.MaintenancePoints, self).__init__()
@@ -3833,8 +3795,7 @@ class Cfm(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("maintenance-point", ("maintenance_point", Cfm.Global.MaintenancePoints.MaintenancePoint))])
+                self._child_classes = OrderedDict([("maintenance-point", ("maintenance_point", Cfm.Global.MaintenancePoints.MaintenancePoint))])
                 self._leafs = OrderedDict()
 
                 self.maintenance_point = YList(self)
@@ -3893,7 +3854,7 @@ class Cfm(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-10-06'
 
                 def __init__(self):
                     super(Cfm.Global.MaintenancePoints.MaintenancePoint, self).__init__()
@@ -3903,8 +3864,7 @@ class Cfm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['domain','service','interface']
-                    self._child_container_classes = OrderedDict([("maintenance-point", ("maintenance_point", Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint_))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("maintenance-point", ("maintenance_point", Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint_))])
                     self._leafs = OrderedDict([
                         ('domain', YLeaf(YType.str, 'domain')),
                         ('service', YLeaf(YType.str, 'service')),
@@ -3921,12 +3881,11 @@ class Cfm(Entity):
                     self.maintenance_point = Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint_()
                     self.maintenance_point.parent = self
                     self._children_name_map["maintenance_point"] = "maintenance-point"
-                    self._children_yang_names.add("maintenance-point")
                     self._segment_path = lambda: "maintenance-point" + "[domain='" + str(self.domain) + "']" + "[service='" + str(self.service) + "']" + "[interface='" + str(self.interface) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/maintenance-points/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Global.MaintenancePoints.MaintenancePoint, ['domain', 'service', 'interface', 'mep_has_error', 'mac_address'], name, value)
+                    self._perform_setattr(Cfm.Global.MaintenancePoints.MaintenancePoint, ['domain', 'service', 'interface', u'mep_has_error', u'mac_address'], name, value)
 
 
                 class MaintenancePoint_(Entity):
@@ -3972,7 +3931,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint_, self).__init__()
@@ -3982,8 +3941,7 @@ class Cfm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('domain_name', YLeaf(YType.str, 'domain-name')),
                             ('level', YLeaf(YType.enumeration, 'level')),
@@ -4001,7 +3959,7 @@ class Cfm(Entity):
                         self._segment_path = lambda: "maintenance-point"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint_, ['domain_name', 'level', 'service_name', 'interface', 'maintenance_point_type', 'mep_id'], name, value)
+                        self._perform_setattr(Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint_, [u'domain_name', u'level', u'service_name', u'interface', u'maintenance_point_type', u'mep_id'], name, value)
 
 
         class GlobalConfigurationErrors(Entity):
@@ -4018,7 +3976,7 @@ class Cfm(Entity):
             """
 
             _prefix = 'ethernet-cfm-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-10-06'
 
             def __init__(self):
                 super(Cfm.Global.GlobalConfigurationErrors, self).__init__()
@@ -4028,8 +3986,7 @@ class Cfm(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("global-configuration-error", ("global_configuration_error", Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError))])
+                self._child_classes = OrderedDict([("global-configuration-error", ("global_configuration_error", Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError))])
                 self._leafs = OrderedDict()
 
                 self.global_configuration_error = YList(self)
@@ -4094,7 +4051,7 @@ class Cfm(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-10-06'
 
                 def __init__(self):
                     super(Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError, self).__init__()
@@ -4104,8 +4061,7 @@ class Cfm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['domain','service']
-                    self._child_container_classes = OrderedDict([("bridge-domain-id", ("bridge_domain_id", Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("bridge-domain-id", ("bridge_domain_id", Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId))])
                     self._leafs = OrderedDict([
                         ('domain', YLeaf(YType.str, 'domain')),
                         ('service', YLeaf(YType.str, 'service')),
@@ -4126,12 +4082,11 @@ class Cfm(Entity):
                     self.bridge_domain_id = Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId()
                     self.bridge_domain_id.parent = self
                     self._children_name_map["bridge_domain_id"] = "bridge-domain-id"
-                    self._children_yang_names.add("bridge-domain-id")
                     self._segment_path = lambda: "global-configuration-error" + "[domain='" + str(self.domain) + "']" + "[service='" + str(self.service) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/global-configuration-errors/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError, ['domain', 'service', 'domain_name', 'level', 'service_name', 'bridge_domain_is_configured', 'l2_fib_download_error'], name, value)
+                    self._perform_setattr(Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError, ['domain', 'service', u'domain_name', u'level', u'service_name', u'bridge_domain_is_configured', u'l2_fib_download_error'], name, value)
 
 
                 class BridgeDomainId(Entity):
@@ -4180,7 +4135,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId, self).__init__()
@@ -4190,8 +4145,7 @@ class Cfm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('bridge_domain_id_format', YLeaf(YType.enumeration, 'bridge-domain-id-format')),
                             ('group', YLeaf(YType.str, 'group')),
@@ -4209,7 +4163,7 @@ class Cfm(Entity):
                         self._segment_path = lambda: "bridge-domain-id"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId, ['bridge_domain_id_format', 'group', 'name', 'ce_id', 'remote_ce_id', 'evi'], name, value)
+                        self._perform_setattr(Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId, [u'bridge_domain_id_format', u'group', u'name', u'ce_id', u'remote_ce_id', u'evi'], name, value)
 
 
         class MepConfigurationErrors(Entity):
@@ -4226,7 +4180,7 @@ class Cfm(Entity):
             """
 
             _prefix = 'ethernet-cfm-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-10-06'
 
             def __init__(self):
                 super(Cfm.Global.MepConfigurationErrors, self).__init__()
@@ -4236,8 +4190,7 @@ class Cfm(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("mep-configuration-error", ("mep_configuration_error", Cfm.Global.MepConfigurationErrors.MepConfigurationError))])
+                self._child_classes = OrderedDict([("mep-configuration-error", ("mep_configuration_error", Cfm.Global.MepConfigurationErrors.MepConfigurationError))])
                 self._leafs = OrderedDict()
 
                 self.mep_configuration_error = YList(self)
@@ -4431,7 +4384,7 @@ class Cfm(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-10-06'
 
                 def __init__(self):
                     super(Cfm.Global.MepConfigurationErrors.MepConfigurationError, self).__init__()
@@ -4441,8 +4394,7 @@ class Cfm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['domain','service','interface']
-                    self._child_container_classes = OrderedDict([("mep", ("mep", Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep)), ("service-bridge-domain", ("service_bridge_domain", Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain)), ("interface-bridge-domain", ("interface_bridge_domain", Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain)), ("satellite-capabilities", ("satellite_capabilities", Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("mep", ("mep", Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep)), ("service-bridge-domain", ("service_bridge_domain", Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain)), ("interface-bridge-domain", ("interface_bridge_domain", Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain)), ("satellite-capabilities", ("satellite_capabilities", Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities))])
                     self._leafs = OrderedDict([
                         ('domain', YLeaf(YType.str, 'domain')),
                         ('service', YLeaf(YType.str, 'service')),
@@ -4507,27 +4459,23 @@ class Cfm(Entity):
                     self.mep = Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep()
                     self.mep.parent = self
                     self._children_name_map["mep"] = "mep"
-                    self._children_yang_names.add("mep")
 
                     self.service_bridge_domain = Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain()
                     self.service_bridge_domain.parent = self
                     self._children_name_map["service_bridge_domain"] = "service-bridge-domain"
-                    self._children_yang_names.add("service-bridge-domain")
 
                     self.interface_bridge_domain = Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain()
                     self.interface_bridge_domain.parent = self
                     self._children_name_map["interface_bridge_domain"] = "interface-bridge-domain"
-                    self._children_yang_names.add("interface-bridge-domain")
 
                     self.satellite_capabilities = Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities()
                     self.satellite_capabilities.parent = self
                     self._children_name_map["satellite_capabilities"] = "satellite-capabilities"
-                    self._children_yang_names.add("satellite-capabilities")
                     self._segment_path = lambda: "mep-configuration-error" + "[domain='" + str(self.domain) + "']" + "[service='" + str(self.service) + "']" + "[interface='" + str(self.interface) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/mep-configuration-errors/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError, ['domain', 'service', 'interface', 'ccm_interval', 'no_domain', 'no_service', 'bridge_domain_mismatch', 'level_conflict', 'ccm_interval_not_supported', 'offload_out_of_resources', 'offload_multiple_local_mep', 'offload_no_cross_check', 'offload_multiple_peer_meps', 'offload_mep_direction_not_supported', 'ais_configured', 'bundle_level0', 'bridge_domain_not_in_bd_infra', 'maid_format_not_supported', 'fatal_offload_error', 'satellite_limitation', 'sla_loopback_operations_disabled', 'sla_synthetic_loss_operations_disabled', 'sla_delay_measurement_operations_disabled', 'no_valid_mac_address', 'no_interface_type', 'not_in_im', 'no_mlacp', 'satellite_error_string', 'satellite_id'], name, value)
+                    self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError, ['domain', 'service', 'interface', u'ccm_interval', u'no_domain', u'no_service', u'bridge_domain_mismatch', u'level_conflict', u'ccm_interval_not_supported', u'offload_out_of_resources', u'offload_multiple_local_mep', u'offload_no_cross_check', u'offload_multiple_peer_meps', u'offload_mep_direction_not_supported', u'ais_configured', u'bundle_level0', u'bridge_domain_not_in_bd_infra', u'maid_format_not_supported', u'fatal_offload_error', u'satellite_limitation', u'sla_loopback_operations_disabled', u'sla_synthetic_loss_operations_disabled', u'sla_delay_measurement_operations_disabled', u'no_valid_mac_address', u'no_interface_type', u'not_in_im', u'no_mlacp', u'satellite_error_string', u'satellite_id'], name, value)
 
 
                 class Mep(Entity):
@@ -4573,7 +4521,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep, self).__init__()
@@ -4583,8 +4531,7 @@ class Cfm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('domain_name', YLeaf(YType.str, 'domain-name')),
                             ('level', YLeaf(YType.enumeration, 'level')),
@@ -4602,7 +4549,7 @@ class Cfm(Entity):
                         self._segment_path = lambda: "mep"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep, ['domain_name', 'level', 'service_name', 'interface', 'maintenance_point_type', 'mep_id'], name, value)
+                        self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep, [u'domain_name', u'level', u'service_name', u'interface', u'maintenance_point_type', u'mep_id'], name, value)
 
 
                 class ServiceBridgeDomain(Entity):
@@ -4651,7 +4598,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain, self).__init__()
@@ -4661,8 +4608,7 @@ class Cfm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('bridge_domain_id_format', YLeaf(YType.enumeration, 'bridge-domain-id-format')),
                             ('group', YLeaf(YType.str, 'group')),
@@ -4680,7 +4626,7 @@ class Cfm(Entity):
                         self._segment_path = lambda: "service-bridge-domain"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain, ['bridge_domain_id_format', 'group', 'name', 'ce_id', 'remote_ce_id', 'evi'], name, value)
+                        self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain, [u'bridge_domain_id_format', u'group', u'name', u'ce_id', u'remote_ce_id', u'evi'], name, value)
 
 
                 class InterfaceBridgeDomain(Entity):
@@ -4728,7 +4674,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain, self).__init__()
@@ -4738,8 +4684,7 @@ class Cfm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('bridge_domain_id_format', YLeaf(YType.enumeration, 'bridge-domain-id-format')),
                             ('group', YLeaf(YType.str, 'group')),
@@ -4757,7 +4702,7 @@ class Cfm(Entity):
                         self._segment_path = lambda: "interface-bridge-domain"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain, ['bridge_domain_id_format', 'group', 'name', 'ce_id', 'remote_ce_id', 'evi'], name, value)
+                        self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain, [u'bridge_domain_id_format', u'group', u'name', u'ce_id', u'remote_ce_id', u'evi'], name, value)
 
 
                 class SatelliteCapabilities(Entity):
@@ -4784,7 +4729,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities, self).__init__()
@@ -4794,25 +4739,24 @@ class Cfm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("loopback", ("loopback", Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback)), ("delay-measurement", ("delay_measurement", Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement)), ("synthetic-loss-measurement", ("synthetic_loss_measurement", Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("loopback", ("loopback", Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback)), ("delay-measurement", ("delay_measurement", Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement)), ("synthetic-loss-measurement", ("synthetic_loss_measurement", Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement))])
                         self._leafs = OrderedDict()
 
                         self.loopback = Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback()
                         self.loopback.parent = self
                         self._children_name_map["loopback"] = "loopback"
-                        self._children_yang_names.add("loopback")
 
                         self.delay_measurement = Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement()
                         self.delay_measurement.parent = self
                         self._children_name_map["delay_measurement"] = "delay-measurement"
-                        self._children_yang_names.add("delay-measurement")
 
                         self.synthetic_loss_measurement = Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement()
                         self.synthetic_loss_measurement.parent = self
                         self._children_name_map["synthetic_loss_measurement"] = "synthetic-loss-measurement"
-                        self._children_yang_names.add("synthetic-loss-measurement")
                         self._segment_path = lambda: "satellite-capabilities"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities, [], name, value)
 
 
                     class Loopback(Entity):
@@ -4834,7 +4778,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback, self).__init__()
@@ -4844,8 +4788,7 @@ class Cfm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('responder', YLeaf(YType.boolean, 'responder')),
                                 ('controller', YLeaf(YType.boolean, 'controller')),
@@ -4855,7 +4798,7 @@ class Cfm(Entity):
                             self._segment_path = lambda: "loopback"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback, ['responder', 'controller'], name, value)
+                            self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback, [u'responder', u'controller'], name, value)
 
 
                     class DelayMeasurement(Entity):
@@ -4877,7 +4820,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement, self).__init__()
@@ -4887,8 +4830,7 @@ class Cfm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('responder', YLeaf(YType.boolean, 'responder')),
                                 ('controller', YLeaf(YType.boolean, 'controller')),
@@ -4898,7 +4840,7 @@ class Cfm(Entity):
                             self._segment_path = lambda: "delay-measurement"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement, ['responder', 'controller'], name, value)
+                            self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement, [u'responder', u'controller'], name, value)
 
 
                     class SyntheticLossMeasurement(Entity):
@@ -4920,7 +4862,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement, self).__init__()
@@ -4930,8 +4872,7 @@ class Cfm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('responder', YLeaf(YType.boolean, 'responder')),
                                 ('controller', YLeaf(YType.boolean, 'controller')),
@@ -4941,7 +4882,7 @@ class Cfm(Entity):
                             self._segment_path = lambda: "synthetic-loss-measurement"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement, ['responder', 'controller'], name, value)
+                            self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement, [u'responder', u'controller'], name, value)
 
 
         class TracerouteCaches(Entity):
@@ -4958,7 +4899,7 @@ class Cfm(Entity):
             """
 
             _prefix = 'ethernet-cfm-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-10-06'
 
             def __init__(self):
                 super(Cfm.Global.TracerouteCaches, self).__init__()
@@ -4968,8 +4909,7 @@ class Cfm(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("traceroute-cache", ("traceroute_cache", Cfm.Global.TracerouteCaches.TracerouteCache))])
+                self._child_classes = OrderedDict([("traceroute-cache", ("traceroute_cache", Cfm.Global.TracerouteCaches.TracerouteCache))])
                 self._leafs = OrderedDict()
 
                 self.traceroute_cache = YList(self)
@@ -5018,7 +4958,7 @@ class Cfm(Entity):
                 	Transaction ID
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: traceroute_information
                 
@@ -5047,7 +4987,7 @@ class Cfm(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-10-06'
 
                 def __init__(self):
                     super(Cfm.Global.TracerouteCaches.TracerouteCache, self).__init__()
@@ -5057,14 +4997,13 @@ class Cfm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['domain','service','mep_id','interface','transaction_id']
-                    self._child_container_classes = OrderedDict([("traceroute-information", ("traceroute_information", Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation))])
-                    self._child_list_classes = OrderedDict([("linktrace-reply", ("linktrace_reply", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply)), ("exploratory-linktrace-reply", ("exploratory_linktrace_reply", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply))])
+                    self._child_classes = OrderedDict([("traceroute-information", ("traceroute_information", Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation)), ("linktrace-reply", ("linktrace_reply", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply)), ("exploratory-linktrace-reply", ("exploratory_linktrace_reply", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply))])
                     self._leafs = OrderedDict([
                         ('domain', YLeaf(YType.str, 'domain')),
                         ('service', YLeaf(YType.str, 'service')),
                         ('mep_id', YLeaf(YType.uint32, 'mep-id')),
                         ('interface', YLeaf(YType.str, 'interface')),
-                        ('transaction_id', YLeaf(YType.int32, 'transaction-id')),
+                        ('transaction_id', YLeaf(YType.uint32, 'transaction-id')),
                         ('replies_dropped', YLeaf(YType.uint32, 'replies-dropped')),
                     ])
                     self.domain = None
@@ -5077,7 +5016,6 @@ class Cfm(Entity):
                     self.traceroute_information = Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation()
                     self.traceroute_information.parent = self
                     self._children_name_map["traceroute_information"] = "traceroute-information"
-                    self._children_yang_names.add("traceroute-information")
 
                     self.linktrace_reply = YList(self)
                     self.exploratory_linktrace_reply = YList(self)
@@ -5182,7 +5120,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation, self).__init__()
@@ -5192,8 +5130,7 @@ class Cfm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("options", ("options", Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("options", ("options", Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options))])
                         self._leafs = OrderedDict([
                             ('domain', YLeaf(YType.str, 'domain')),
                             ('service', YLeaf(YType.str, 'service')),
@@ -5224,7 +5161,6 @@ class Cfm(Entity):
                         self.options = Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options()
                         self.options.parent = self
                         self._children_name_map["options"] = "options"
-                        self._children_yang_names.add("options")
                         self._segment_path = lambda: "traceroute-information"
 
                     def __setattr__(self, name, value):
@@ -5255,7 +5191,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options, self).__init__()
@@ -5265,8 +5201,7 @@ class Cfm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("basic-options", ("basic_options", Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions)), ("exploratory-options", ("exploratory_options", Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("basic-options", ("basic_options", Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions)), ("exploratory-options", ("exploratory_options", Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions))])
                             self._leafs = OrderedDict([
                                 ('mode', YLeaf(YType.enumeration, 'mode')),
                             ])
@@ -5275,12 +5210,10 @@ class Cfm(Entity):
                             self.basic_options = Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions()
                             self.basic_options.parent = self
                             self._children_name_map["basic_options"] = "basic-options"
-                            self._children_yang_names.add("basic-options")
 
                             self.exploratory_options = Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions()
                             self.exploratory_options.parent = self
                             self._children_name_map["exploratory_options"] = "exploratory-options"
-                            self._children_yang_names.add("exploratory-options")
                             self._segment_path = lambda: "options"
 
                         def __setattr__(self, name, value):
@@ -5306,7 +5239,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions, self).__init__()
@@ -5316,8 +5249,7 @@ class Cfm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('is_auto', YLeaf(YType.boolean, 'is-auto')),
                                     ('fdb_only', YLeaf(YType.boolean, 'fdb-only')),
@@ -5356,7 +5288,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions, self).__init__()
@@ -5366,8 +5298,7 @@ class Cfm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('delay_model', YLeaf(YType.enumeration, 'delay-model')),
                                     ('delay_constant_factor', YLeaf(YType.uint32, 'delay-constant-factor')),
@@ -5438,7 +5369,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply, self).__init__()
@@ -5448,8 +5379,7 @@ class Cfm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("header", ("header", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header)), ("sender-id", ("sender_id", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId)), ("egress-id", ("egress_id", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId)), ("reply-ingress", ("reply_ingress", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress)), ("reply-egress", ("reply_egress", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress)), ("last-hop", ("last_hop", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop))])
-                        self._child_list_classes = OrderedDict([("organization-specific-tlv", ("organization_specific_tlv", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv)), ("unknown-tlv", ("unknown_tlv", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv))])
+                        self._child_classes = OrderedDict([("header", ("header", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header)), ("sender-id", ("sender_id", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId)), ("egress-id", ("egress_id", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId)), ("reply-ingress", ("reply_ingress", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress)), ("reply-egress", ("reply_egress", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress)), ("last-hop", ("last_hop", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop)), ("organization-specific-tlv", ("organization_specific_tlv", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv)), ("unknown-tlv", ("unknown_tlv", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv))])
                         self._leafs = OrderedDict([
                             ('raw_data', YLeaf(YType.str, 'raw-data')),
                         ])
@@ -5458,32 +5388,26 @@ class Cfm(Entity):
                         self.header = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header()
                         self.header.parent = self
                         self._children_name_map["header"] = "header"
-                        self._children_yang_names.add("header")
 
                         self.sender_id = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId()
                         self.sender_id.parent = self
                         self._children_name_map["sender_id"] = "sender-id"
-                        self._children_yang_names.add("sender-id")
 
                         self.egress_id = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId()
                         self.egress_id.parent = self
                         self._children_name_map["egress_id"] = "egress-id"
-                        self._children_yang_names.add("egress-id")
 
                         self.reply_ingress = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress()
                         self.reply_ingress.parent = self
                         self._children_name_map["reply_ingress"] = "reply-ingress"
-                        self._children_yang_names.add("reply-ingress")
 
                         self.reply_egress = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress()
                         self.reply_egress.parent = self
                         self._children_name_map["reply_egress"] = "reply-egress"
-                        self._children_yang_names.add("reply-egress")
 
                         self.last_hop = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop()
                         self.last_hop.parent = self
                         self._children_name_map["last_hop"] = "last-hop"
-                        self._children_yang_names.add("last-hop")
 
                         self.organization_specific_tlv = YList(self)
                         self.unknown_tlv = YList(self)
@@ -5548,7 +5472,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header, self).__init__()
@@ -5558,8 +5482,7 @@ class Cfm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('level', YLeaf(YType.enumeration, 'level')),
                                 ('version', YLeaf(YType.uint8, 'version')),
@@ -5612,7 +5535,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId, self).__init__()
@@ -5622,8 +5545,7 @@ class Cfm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("chassis-id", ("chassis_id", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("chassis-id", ("chassis_id", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId))])
                             self._leafs = OrderedDict([
                                 ('management_address_domain', YLeaf(YType.str, 'management-address-domain')),
                                 ('management_address', YLeaf(YType.str, 'management-address')),
@@ -5634,7 +5556,6 @@ class Cfm(Entity):
                             self.chassis_id = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId()
                             self.chassis_id.parent = self
                             self._children_name_map["chassis_id"] = "chassis-id"
-                            self._children_yang_names.add("chassis-id")
                             self._segment_path = lambda: "sender-id"
 
                         def __setattr__(self, name, value):
@@ -5674,7 +5595,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId, self).__init__()
@@ -5684,8 +5605,7 @@ class Cfm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("chassis-id-value", ("chassis_id_value", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("chassis-id-value", ("chassis_id_value", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue))])
                                 self._leafs = OrderedDict([
                                     ('chassis_id_type', YLeaf(YType.enumeration, 'chassis-id-type')),
                                     ('chassis_id_type_value', YLeaf(YType.uint8, 'chassis-id-type-value')),
@@ -5698,7 +5618,6 @@ class Cfm(Entity):
                                 self.chassis_id_value = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue()
                                 self.chassis_id_value.parent = self
                                 self._children_name_map["chassis_id_value"] = "chassis-id-value"
-                                self._children_yang_names.add("chassis-id-value")
                                 self._segment_path = lambda: "chassis-id"
 
                             def __setattr__(self, name, value):
@@ -5738,7 +5657,7 @@ class Cfm(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-10-06'
 
                                 def __init__(self):
                                     super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue, self).__init__()
@@ -5748,8 +5667,7 @@ class Cfm(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('chassis_id_format', YLeaf(YType.enumeration, 'chassis-id-format')),
                                         ('chassis_id_string', YLeaf(YType.str, 'chassis-id-string')),
@@ -5785,7 +5703,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId, self).__init__()
@@ -5795,20 +5713,20 @@ class Cfm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("last-egress-id", ("last_egress_id", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId)), ("next-egress-id", ("next_egress_id", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("last-egress-id", ("last_egress_id", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId)), ("next-egress-id", ("next_egress_id", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId))])
                             self._leafs = OrderedDict()
 
                             self.last_egress_id = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId()
                             self.last_egress_id.parent = self
                             self._children_name_map["last_egress_id"] = "last-egress-id"
-                            self._children_yang_names.add("last-egress-id")
 
                             self.next_egress_id = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId()
                             self.next_egress_id.parent = self
                             self._children_name_map["next_egress_id"] = "next-egress-id"
-                            self._children_yang_names.add("next-egress-id")
                             self._segment_path = lambda: "egress-id"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId, [], name, value)
 
 
                         class LastEgressId(Entity):
@@ -5834,7 +5752,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId, self).__init__()
@@ -5844,8 +5762,7 @@ class Cfm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('unique_id', YLeaf(YType.uint16, 'unique-id')),
                                     ('mac_address', YLeaf(YType.str, 'mac-address')),
@@ -5881,7 +5798,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId, self).__init__()
@@ -5891,8 +5808,7 @@ class Cfm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('unique_id', YLeaf(YType.uint16, 'unique-id')),
                                     ('mac_address', YLeaf(YType.str, 'mac-address')),
@@ -5931,7 +5847,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress, self).__init__()
@@ -5941,8 +5857,7 @@ class Cfm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("port-id", ("port_id", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("port-id", ("port_id", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId))])
                             self._leafs = OrderedDict([
                                 ('action', YLeaf(YType.enumeration, 'action')),
                                 ('mac_address', YLeaf(YType.str, 'mac-address')),
@@ -5953,7 +5868,6 @@ class Cfm(Entity):
                             self.port_id = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId()
                             self.port_id.parent = self
                             self._children_name_map["port_id"] = "port-id"
-                            self._children_yang_names.add("port-id")
                             self._segment_path = lambda: "reply-ingress"
 
                         def __setattr__(self, name, value):
@@ -5993,7 +5907,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId, self).__init__()
@@ -6003,8 +5917,7 @@ class Cfm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("port-id-value", ("port_id_value", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("port-id-value", ("port_id_value", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue))])
                                 self._leafs = OrderedDict([
                                     ('port_id_type', YLeaf(YType.enumeration, 'port-id-type')),
                                     ('port_id_type_value', YLeaf(YType.uint8, 'port-id-type-value')),
@@ -6017,7 +5930,6 @@ class Cfm(Entity):
                                 self.port_id_value = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue()
                                 self.port_id_value.parent = self
                                 self._children_name_map["port_id_value"] = "port-id-value"
-                                self._children_yang_names.add("port-id-value")
                                 self._segment_path = lambda: "port-id"
 
                             def __setattr__(self, name, value):
@@ -6057,7 +5969,7 @@ class Cfm(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-10-06'
 
                                 def __init__(self):
                                     super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue, self).__init__()
@@ -6067,8 +5979,7 @@ class Cfm(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('port_id_format', YLeaf(YType.enumeration, 'port-id-format')),
                                         ('port_id_string', YLeaf(YType.str, 'port-id-string')),
@@ -6111,7 +6022,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress, self).__init__()
@@ -6121,8 +6032,7 @@ class Cfm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("port-id", ("port_id", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("port-id", ("port_id", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId))])
                             self._leafs = OrderedDict([
                                 ('action', YLeaf(YType.enumeration, 'action')),
                                 ('mac_address', YLeaf(YType.str, 'mac-address')),
@@ -6133,7 +6043,6 @@ class Cfm(Entity):
                             self.port_id = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId()
                             self.port_id.parent = self
                             self._children_name_map["port_id"] = "port-id"
-                            self._children_yang_names.add("port-id")
                             self._segment_path = lambda: "reply-egress"
 
                         def __setattr__(self, name, value):
@@ -6173,7 +6082,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId, self).__init__()
@@ -6183,8 +6092,7 @@ class Cfm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("port-id-value", ("port_id_value", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("port-id-value", ("port_id_value", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue))])
                                 self._leafs = OrderedDict([
                                     ('port_id_type', YLeaf(YType.enumeration, 'port-id-type')),
                                     ('port_id_type_value', YLeaf(YType.uint8, 'port-id-type-value')),
@@ -6197,7 +6105,6 @@ class Cfm(Entity):
                                 self.port_id_value = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue()
                                 self.port_id_value.parent = self
                                 self._children_name_map["port_id_value"] = "port-id-value"
-                                self._children_yang_names.add("port-id-value")
                                 self._segment_path = lambda: "port-id"
 
                             def __setattr__(self, name, value):
@@ -6237,7 +6144,7 @@ class Cfm(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-10-06'
 
                                 def __init__(self):
                                     super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue, self).__init__()
@@ -6247,8 +6154,7 @@ class Cfm(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('port_id_format', YLeaf(YType.enumeration, 'port-id-format')),
                                         ('port_id_string', YLeaf(YType.str, 'port-id-string')),
@@ -6289,7 +6195,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop, self).__init__()
@@ -6299,8 +6205,7 @@ class Cfm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("egress-id", ("egress_id", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("egress-id", ("egress_id", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId))])
                             self._leafs = OrderedDict([
                                 ('last_hop_format', YLeaf(YType.enumeration, 'last-hop-format')),
                                 ('host_name', YLeaf(YType.str, 'host-name')),
@@ -6311,7 +6216,6 @@ class Cfm(Entity):
                             self.egress_id = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId()
                             self.egress_id.parent = self
                             self._children_name_map["egress_id"] = "egress-id"
-                            self._children_yang_names.add("egress-id")
                             self._segment_path = lambda: "last-hop"
 
                         def __setattr__(self, name, value):
@@ -6341,7 +6245,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId, self).__init__()
@@ -6351,8 +6255,7 @@ class Cfm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('unique_id', YLeaf(YType.uint16, 'unique-id')),
                                     ('mac_address', YLeaf(YType.str, 'mac-address')),
@@ -6395,7 +6298,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv, self).__init__()
@@ -6405,8 +6308,7 @@ class Cfm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('oui', YLeaf(YType.str, 'oui')),
                                 ('subtype', YLeaf(YType.uint8, 'subtype')),
@@ -6444,7 +6346,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv, self).__init__()
@@ -6454,8 +6356,7 @@ class Cfm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('typecode', YLeaf(YType.uint8, 'typecode')),
                                 ('value', YLeaf(YType.str, 'value')),
@@ -6519,7 +6420,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply, self).__init__()
@@ -6529,8 +6430,7 @@ class Cfm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("header", ("header", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header)), ("sender-id", ("sender_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId)), ("reply-ingress", ("reply_ingress", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress)), ("reply-egress", ("reply_egress", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress)), ("last-hop", ("last_hop", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop))])
-                        self._child_list_classes = OrderedDict([("organization-specific-tlv", ("organization_specific_tlv", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv)), ("unknown-tlv", ("unknown_tlv", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv))])
+                        self._child_classes = OrderedDict([("header", ("header", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header)), ("sender-id", ("sender_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId)), ("reply-ingress", ("reply_ingress", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress)), ("reply-egress", ("reply_egress", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress)), ("last-hop", ("last_hop", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop)), ("organization-specific-tlv", ("organization_specific_tlv", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv)), ("unknown-tlv", ("unknown_tlv", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv))])
                         self._leafs = OrderedDict([
                             ('raw_data', YLeaf(YType.str, 'raw-data')),
                         ])
@@ -6539,27 +6439,22 @@ class Cfm(Entity):
                         self.header = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header()
                         self.header.parent = self
                         self._children_name_map["header"] = "header"
-                        self._children_yang_names.add("header")
 
                         self.sender_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId()
                         self.sender_id.parent = self
                         self._children_name_map["sender_id"] = "sender-id"
-                        self._children_yang_names.add("sender-id")
 
                         self.reply_ingress = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress()
                         self.reply_ingress.parent = self
                         self._children_name_map["reply_ingress"] = "reply-ingress"
-                        self._children_yang_names.add("reply-ingress")
 
                         self.reply_egress = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress()
                         self.reply_egress.parent = self
                         self._children_name_map["reply_egress"] = "reply-egress"
-                        self._children_yang_names.add("reply-egress")
 
                         self.last_hop = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop()
                         self.last_hop.parent = self
                         self._children_name_map["last_hop"] = "last-hop"
-                        self._children_yang_names.add("last-hop")
 
                         self.organization_specific_tlv = YList(self)
                         self.unknown_tlv = YList(self)
@@ -6638,7 +6533,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header, self).__init__()
@@ -6648,8 +6543,7 @@ class Cfm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('level', YLeaf(YType.enumeration, 'level')),
                                 ('version', YLeaf(YType.uint8, 'version')),
@@ -6706,7 +6600,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId, self).__init__()
@@ -6716,8 +6610,7 @@ class Cfm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("chassis-id", ("chassis_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("chassis-id", ("chassis_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId))])
                             self._leafs = OrderedDict([
                                 ('management_address_domain', YLeaf(YType.str, 'management-address-domain')),
                                 ('management_address', YLeaf(YType.str, 'management-address')),
@@ -6728,7 +6621,6 @@ class Cfm(Entity):
                             self.chassis_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId()
                             self.chassis_id.parent = self
                             self._children_name_map["chassis_id"] = "chassis-id"
-                            self._children_yang_names.add("chassis-id")
                             self._segment_path = lambda: "sender-id"
 
                         def __setattr__(self, name, value):
@@ -6768,7 +6660,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId, self).__init__()
@@ -6778,8 +6670,7 @@ class Cfm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("chassis-id-value", ("chassis_id_value", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("chassis-id-value", ("chassis_id_value", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue))])
                                 self._leafs = OrderedDict([
                                     ('chassis_id_type', YLeaf(YType.enumeration, 'chassis-id-type')),
                                     ('chassis_id_type_value', YLeaf(YType.uint8, 'chassis-id-type-value')),
@@ -6792,7 +6683,6 @@ class Cfm(Entity):
                                 self.chassis_id_value = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue()
                                 self.chassis_id_value.parent = self
                                 self._children_name_map["chassis_id_value"] = "chassis-id-value"
-                                self._children_yang_names.add("chassis-id-value")
                                 self._segment_path = lambda: "chassis-id"
 
                             def __setattr__(self, name, value):
@@ -6832,7 +6722,7 @@ class Cfm(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-10-06'
 
                                 def __init__(self):
                                     super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue, self).__init__()
@@ -6842,8 +6732,7 @@ class Cfm(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('chassis_id_format', YLeaf(YType.enumeration, 'chassis-id-format')),
                                         ('chassis_id_string', YLeaf(YType.str, 'chassis-id-string')),
@@ -6896,7 +6785,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress, self).__init__()
@@ -6906,8 +6795,7 @@ class Cfm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("last-egress-id", ("last_egress_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId)), ("next-egress-id", ("next_egress_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId)), ("port-id", ("port_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("last-egress-id", ("last_egress_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId)), ("next-egress-id", ("next_egress_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId)), ("port-id", ("port_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId))])
                             self._leafs = OrderedDict([
                                 ('action', YLeaf(YType.enumeration, 'action')),
                                 ('mac_address', YLeaf(YType.str, 'mac-address')),
@@ -6918,17 +6806,14 @@ class Cfm(Entity):
                             self.last_egress_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId()
                             self.last_egress_id.parent = self
                             self._children_name_map["last_egress_id"] = "last-egress-id"
-                            self._children_yang_names.add("last-egress-id")
 
                             self.next_egress_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId()
                             self.next_egress_id.parent = self
                             self._children_name_map["next_egress_id"] = "next-egress-id"
-                            self._children_yang_names.add("next-egress-id")
 
                             self.port_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId()
                             self.port_id.parent = self
                             self._children_name_map["port_id"] = "port-id"
-                            self._children_yang_names.add("port-id")
                             self._segment_path = lambda: "reply-ingress"
 
                         def __setattr__(self, name, value):
@@ -6958,7 +6843,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId, self).__init__()
@@ -6968,8 +6853,7 @@ class Cfm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('unique_id', YLeaf(YType.uint16, 'unique-id')),
                                     ('mac_address', YLeaf(YType.str, 'mac-address')),
@@ -7005,7 +6889,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId, self).__init__()
@@ -7015,8 +6899,7 @@ class Cfm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('unique_id', YLeaf(YType.uint16, 'unique-id')),
                                     ('mac_address', YLeaf(YType.str, 'mac-address')),
@@ -7062,7 +6945,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId, self).__init__()
@@ -7072,8 +6955,7 @@ class Cfm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("port-id-value", ("port_id_value", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("port-id-value", ("port_id_value", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue))])
                                 self._leafs = OrderedDict([
                                     ('port_id_type', YLeaf(YType.enumeration, 'port-id-type')),
                                     ('port_id_type_value', YLeaf(YType.uint8, 'port-id-type-value')),
@@ -7086,7 +6968,6 @@ class Cfm(Entity):
                                 self.port_id_value = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue()
                                 self.port_id_value.parent = self
                                 self._children_name_map["port_id_value"] = "port-id-value"
-                                self._children_yang_names.add("port-id-value")
                                 self._segment_path = lambda: "port-id"
 
                             def __setattr__(self, name, value):
@@ -7126,7 +7007,7 @@ class Cfm(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-10-06'
 
                                 def __init__(self):
                                     super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue, self).__init__()
@@ -7136,8 +7017,7 @@ class Cfm(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('port_id_format', YLeaf(YType.enumeration, 'port-id-format')),
                                         ('port_id_string', YLeaf(YType.str, 'port-id-string')),
@@ -7190,7 +7070,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress, self).__init__()
@@ -7200,8 +7080,7 @@ class Cfm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("last-egress-id", ("last_egress_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId)), ("next-egress-id", ("next_egress_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId)), ("port-id", ("port_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("last-egress-id", ("last_egress_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId)), ("next-egress-id", ("next_egress_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId)), ("port-id", ("port_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId))])
                             self._leafs = OrderedDict([
                                 ('action', YLeaf(YType.enumeration, 'action')),
                                 ('mac_address', YLeaf(YType.str, 'mac-address')),
@@ -7212,17 +7091,14 @@ class Cfm(Entity):
                             self.last_egress_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId()
                             self.last_egress_id.parent = self
                             self._children_name_map["last_egress_id"] = "last-egress-id"
-                            self._children_yang_names.add("last-egress-id")
 
                             self.next_egress_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId()
                             self.next_egress_id.parent = self
                             self._children_name_map["next_egress_id"] = "next-egress-id"
-                            self._children_yang_names.add("next-egress-id")
 
                             self.port_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId()
                             self.port_id.parent = self
                             self._children_name_map["port_id"] = "port-id"
-                            self._children_yang_names.add("port-id")
                             self._segment_path = lambda: "reply-egress"
 
                         def __setattr__(self, name, value):
@@ -7252,7 +7128,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId, self).__init__()
@@ -7262,8 +7138,7 @@ class Cfm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('unique_id', YLeaf(YType.uint16, 'unique-id')),
                                     ('mac_address', YLeaf(YType.str, 'mac-address')),
@@ -7299,7 +7174,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId, self).__init__()
@@ -7309,8 +7184,7 @@ class Cfm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('unique_id', YLeaf(YType.uint16, 'unique-id')),
                                     ('mac_address', YLeaf(YType.str, 'mac-address')),
@@ -7356,7 +7230,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId, self).__init__()
@@ -7366,8 +7240,7 @@ class Cfm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("port-id-value", ("port_id_value", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("port-id-value", ("port_id_value", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue))])
                                 self._leafs = OrderedDict([
                                     ('port_id_type', YLeaf(YType.enumeration, 'port-id-type')),
                                     ('port_id_type_value', YLeaf(YType.uint8, 'port-id-type-value')),
@@ -7380,7 +7253,6 @@ class Cfm(Entity):
                                 self.port_id_value = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue()
                                 self.port_id_value.parent = self
                                 self._children_name_map["port_id_value"] = "port-id-value"
-                                self._children_yang_names.add("port-id-value")
                                 self._segment_path = lambda: "port-id"
 
                             def __setattr__(self, name, value):
@@ -7420,7 +7292,7 @@ class Cfm(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-10-06'
 
                                 def __init__(self):
                                     super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue, self).__init__()
@@ -7430,8 +7302,7 @@ class Cfm(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('port_id_format', YLeaf(YType.enumeration, 'port-id-format')),
                                         ('port_id_string', YLeaf(YType.str, 'port-id-string')),
@@ -7472,7 +7343,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop, self).__init__()
@@ -7482,8 +7353,7 @@ class Cfm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("egress-id", ("egress_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("egress-id", ("egress_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId))])
                             self._leafs = OrderedDict([
                                 ('last_hop_format', YLeaf(YType.enumeration, 'last-hop-format')),
                                 ('host_name', YLeaf(YType.str, 'host-name')),
@@ -7494,7 +7364,6 @@ class Cfm(Entity):
                             self.egress_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId()
                             self.egress_id.parent = self
                             self._children_name_map["egress_id"] = "egress-id"
-                            self._children_yang_names.add("egress-id")
                             self._segment_path = lambda: "last-hop"
 
                         def __setattr__(self, name, value):
@@ -7524,7 +7393,7 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId, self).__init__()
@@ -7534,8 +7403,7 @@ class Cfm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('unique_id', YLeaf(YType.uint16, 'unique-id')),
                                     ('mac_address', YLeaf(YType.str, 'mac-address')),
@@ -7578,7 +7446,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv, self).__init__()
@@ -7588,8 +7456,7 @@ class Cfm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('oui', YLeaf(YType.str, 'oui')),
                                 ('subtype', YLeaf(YType.uint8, 'subtype')),
@@ -7627,7 +7494,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv, self).__init__()
@@ -7637,8 +7504,7 @@ class Cfm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('typecode', YLeaf(YType.uint8, 'typecode')),
                                 ('value', YLeaf(YType.str, 'value')),
@@ -7665,7 +7531,7 @@ class Cfm(Entity):
             """
 
             _prefix = 'ethernet-cfm-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-10-06'
 
             def __init__(self):
                 super(Cfm.Global.LocalMeps, self).__init__()
@@ -7675,8 +7541,7 @@ class Cfm(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("local-mep", ("local_mep", Cfm.Global.LocalMeps.LocalMep))])
+                self._child_classes = OrderedDict([("local-mep", ("local_mep", Cfm.Global.LocalMeps.LocalMep))])
                 self._leafs = OrderedDict()
 
                 self.local_mep = YList(self)
@@ -7905,7 +7770,7 @@ class Cfm(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-10-06'
 
                 def __init__(self):
                     super(Cfm.Global.LocalMeps.LocalMep, self).__init__()
@@ -7915,8 +7780,7 @@ class Cfm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['domain','service','mep_id','interface']
-                    self._child_container_classes = OrderedDict([("statistics", ("statistics", Cfm.Global.LocalMeps.LocalMep.Statistics)), ("ais-statistics", ("ais_statistics", Cfm.Global.LocalMeps.LocalMep.AisStatistics)), ("defects", ("defects", Cfm.Global.LocalMeps.LocalMep.Defects))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("statistics", ("statistics", Cfm.Global.LocalMeps.LocalMep.Statistics)), ("ais-statistics", ("ais_statistics", Cfm.Global.LocalMeps.LocalMep.AisStatistics)), ("defects", ("defects", Cfm.Global.LocalMeps.LocalMep.Defects))])
                     self._leafs = OrderedDict([
                         ('domain', YLeaf(YType.str, 'domain')),
                         ('service', YLeaf(YType.str, 'service')),
@@ -7991,17 +7855,14 @@ class Cfm(Entity):
                     self.statistics = Cfm.Global.LocalMeps.LocalMep.Statistics()
                     self.statistics.parent = self
                     self._children_name_map["statistics"] = "statistics"
-                    self._children_yang_names.add("statistics")
 
                     self.ais_statistics = Cfm.Global.LocalMeps.LocalMep.AisStatistics()
                     self.ais_statistics.parent = self
                     self._children_name_map["ais_statistics"] = "ais-statistics"
-                    self._children_yang_names.add("ais-statistics")
 
                     self.defects = Cfm.Global.LocalMeps.LocalMep.Defects()
                     self.defects.parent = self
                     self._children_name_map["defects"] = "defects"
-                    self._children_yang_names.add("defects")
                     self._segment_path = lambda: "local-mep" + "[domain='" + str(self.domain) + "']" + "[service='" + str(self.service) + "']" + "[mep-id='" + str(self.mep_id) + "']" + "[interface='" + str(self.interface) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/local-meps/%s" % self._segment_path()
 
@@ -8214,7 +8075,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(Cfm.Global.LocalMeps.LocalMep.Statistics, self).__init__()
@@ -8224,8 +8085,7 @@ class Cfm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('ccms_sent', YLeaf(YType.uint64, 'ccms-sent')),
                             ('ccms_received', YLeaf(YType.uint64, 'ccms-received')),
@@ -8341,7 +8201,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(Cfm.Global.LocalMeps.LocalMep.AisStatistics, self).__init__()
@@ -8351,8 +8211,7 @@ class Cfm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("sending-start", ("sending_start", Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart)), ("receiving-start", ("receiving_start", Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("sending-start", ("sending_start", Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart)), ("receiving-start", ("receiving_start", Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart))])
                         self._leafs = OrderedDict([
                             ('level', YLeaf(YType.enumeration, 'level')),
                             ('interval', YLeaf(YType.enumeration, 'interval')),
@@ -8371,12 +8230,10 @@ class Cfm(Entity):
                         self.sending_start = Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart()
                         self.sending_start.parent = self
                         self._children_name_map["sending_start"] = "sending-start"
-                        self._children_yang_names.add("sending-start")
 
                         self.receiving_start = Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart()
                         self.receiving_start.parent = self
                         self._children_name_map["receiving_start"] = "receiving-start"
-                        self._children_yang_names.add("receiving-start")
                         self._segment_path = lambda: "ais-statistics"
 
                     def __setattr__(self, name, value):
@@ -8410,7 +8267,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart, self).__init__()
@@ -8420,8 +8277,7 @@ class Cfm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('seconds', YLeaf(YType.uint32, 'seconds')),
                                 ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -8461,7 +8317,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart, self).__init__()
@@ -8471,8 +8327,7 @@ class Cfm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('seconds', YLeaf(YType.uint32, 'seconds')),
                                 ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -8542,7 +8397,7 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(Cfm.Global.LocalMeps.LocalMep.Defects, self).__init__()
@@ -8552,8 +8407,7 @@ class Cfm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("remote-meps-defects", ("remote_meps_defects", Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("remote-meps-defects", ("remote_meps_defects", Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects))])
                         self._leafs = OrderedDict([
                             ('ais_received', YLeaf(YType.boolean, 'ais-received')),
                             ('peer_meps_that_timed_out', YLeaf(YType.uint32, 'peer-meps-that-timed-out')),
@@ -8574,7 +8428,6 @@ class Cfm(Entity):
                         self.remote_meps_defects = Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects()
                         self.remote_meps_defects.parent = self
                         self._children_name_map["remote_meps_defects"] = "remote-meps-defects"
-                        self._children_yang_names.add("remote-meps-defects")
                         self._segment_path = lambda: "defects"
 
                     def __setattr__(self, name, value):
@@ -8625,7 +8478,7 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects, self).__init__()
@@ -8635,8 +8488,7 @@ class Cfm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('loss_threshold_exceeded', YLeaf(YType.boolean, 'loss-threshold-exceeded')),
                                 ('invalid_level', YLeaf(YType.boolean, 'invalid-level')),
@@ -8659,32 +8511,31 @@ class Cfm(Entity):
                             self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects, ['loss_threshold_exceeded', 'invalid_level', 'invalid_maid', 'invalid_ccm_interval', 'received_our_mac', 'received_our_mep_id', 'received_rdi'], name, value)
 
 
-        class PeerMePv2S(Entity):
+        class PeerMePv2s(Entity):
             """
             Peer MEPs table Version 2
             
             .. attribute:: peer_me_pv2
             
             	Information about a peer MEP for a particular local MEP
-            	**type**\: list of  		 :py:class:`PeerMePv2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2>`
+            	**type**\: list of  		 :py:class:`PeerMePv2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2>`
             
             
 
             """
 
             _prefix = 'ethernet-cfm-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-10-06'
 
             def __init__(self):
-                super(Cfm.Global.PeerMePv2S, self).__init__()
+                super(Cfm.Global.PeerMePv2s, self).__init__()
 
                 self.yang_name = "peer-me-pv2s"
                 self.yang_parent_name = "global"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("peer-me-pv2", ("peer_me_pv2", Cfm.Global.PeerMePv2S.PeerMePv2))])
+                self._child_classes = OrderedDict([("peer-me-pv2", ("peer_me_pv2", Cfm.Global.PeerMePv2s.PeerMePv2))])
                 self._leafs = OrderedDict()
 
                 self.peer_me_pv2 = YList(self)
@@ -8692,7 +8543,7 @@ class Cfm(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Cfm.Global.PeerMePv2S, [], name, value)
+                self._perform_setattr(Cfm.Global.PeerMePv2s, [], name, value)
 
 
             class PeerMePv2(Entity):
@@ -8745,7 +8596,7 @@ class Cfm(Entity):
                 .. attribute:: peer_mep
                 
                 	Peer MEP
-                	**type**\:  :py:class:`PeerMep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep>`
+                	**type**\:  :py:class:`PeerMep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep>`
                 
                 .. attribute:: domain_xr
                 
@@ -8791,18 +8642,17 @@ class Cfm(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-10-06'
 
                 def __init__(self):
-                    super(Cfm.Global.PeerMePv2S.PeerMePv2, self).__init__()
+                    super(Cfm.Global.PeerMePv2s.PeerMePv2, self).__init__()
 
                     self.yang_name = "peer-me-pv2"
                     self.yang_parent_name = "peer-me-pv2s"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['domain','service','local_mep_id','interface','peer_mep_id','peer_mac_address']
-                    self._child_container_classes = OrderedDict([("peer-mep", ("peer_mep", Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("peer-mep", ("peer_mep", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep))])
                     self._leafs = OrderedDict([
                         ('domain', YLeaf(YType.str, 'domain')),
                         ('service', YLeaf(YType.str, 'service')),
@@ -8832,15 +8682,14 @@ class Cfm(Entity):
                     self.mep_direction = None
                     self.standby = None
 
-                    self.peer_mep = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep()
+                    self.peer_mep = Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep()
                     self.peer_mep.parent = self
                     self._children_name_map["peer_mep"] = "peer-mep"
-                    self._children_yang_names.add("peer-mep")
                     self._segment_path = lambda: "peer-me-pv2" + "[domain='" + str(self.domain) + "']" + "[service='" + str(self.service) + "']" + "[local-mep-id='" + str(self.local_mep_id) + "']" + "[interface='" + str(self.interface) + "']" + "[peer-mep-id='" + str(self.peer_mep_id) + "']" + "[peer-mac-address='" + str(self.peer_mac_address) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/peer-me-pv2s/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Global.PeerMePv2S.PeerMePv2, ['domain', 'service', 'local_mep_id', 'interface', 'peer_mep_id', 'peer_mac_address', 'domain_xr', 'service_xr', 'level', 'mep_id', 'interface_xr', 'mep_direction', 'standby'], name, value)
+                    self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2, ['domain', 'service', 'local_mep_id', 'interface', 'peer_mep_id', 'peer_mac_address', 'domain_xr', 'service_xr', 'level', 'mep_id', 'interface_xr', 'mep_direction', 'standby'], name, value)
 
 
                 class PeerMep(Entity):
@@ -8850,22 +8699,22 @@ class Cfm(Entity):
                     .. attribute:: error_state
                     
                     	Error state
-                    	**type**\:  :py:class:`ErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.ErrorState>`
+                    	**type**\:  :py:class:`ErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.ErrorState>`
                     
                     .. attribute:: last_up_down_time
                     
                     	Elapsed time since peer MEP became active or timed out
-                    	**type**\:  :py:class:`LastUpDownTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastUpDownTime>`
+                    	**type**\:  :py:class:`LastUpDownTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastUpDownTime>`
                     
                     .. attribute:: last_ccm_received
                     
                     	Last CCM received from the peer MEP
-                    	**type**\:  :py:class:`LastCcmReceived <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived>`
+                    	**type**\:  :py:class:`LastCcmReceived <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived>`
                     
                     .. attribute:: statistics
                     
                     	Peer MEP statistics
-                    	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.Statistics>`
+                    	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics>`
                     
                     .. attribute:: mep_id
                     
@@ -8901,18 +8750,17 @@ class Cfm(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
-                        super(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep, self).__init__()
+                        super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep, self).__init__()
 
                         self.yang_name = "peer-mep"
                         self.yang_parent_name = "peer-me-pv2"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("error-state", ("error_state", Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.ErrorState)), ("last-up-down-time", ("last_up_down_time", Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastUpDownTime)), ("last-ccm-received", ("last_ccm_received", Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived)), ("statistics", ("statistics", Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.Statistics))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("error-state", ("error_state", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.ErrorState)), ("last-up-down-time", ("last_up_down_time", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastUpDownTime)), ("last-ccm-received", ("last_ccm_received", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived)), ("statistics", ("statistics", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics))])
                         self._leafs = OrderedDict([
                             ('mep_id', YLeaf(YType.uint16, 'mep-id')),
                             ('mac_address', YLeaf(YType.str, 'mac-address')),
@@ -8926,29 +8774,25 @@ class Cfm(Entity):
                         self.peer_mep_state = None
                         self.ccm_offload = None
 
-                        self.error_state = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.ErrorState()
+                        self.error_state = Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.ErrorState()
                         self.error_state.parent = self
                         self._children_name_map["error_state"] = "error-state"
-                        self._children_yang_names.add("error-state")
 
-                        self.last_up_down_time = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastUpDownTime()
+                        self.last_up_down_time = Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastUpDownTime()
                         self.last_up_down_time.parent = self
                         self._children_name_map["last_up_down_time"] = "last-up-down-time"
-                        self._children_yang_names.add("last-up-down-time")
 
-                        self.last_ccm_received = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived()
+                        self.last_ccm_received = Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived()
                         self.last_ccm_received.parent = self
                         self._children_name_map["last_ccm_received"] = "last-ccm-received"
-                        self._children_yang_names.add("last-ccm-received")
 
-                        self.statistics = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.Statistics()
+                        self.statistics = Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics()
                         self.statistics.parent = self
                         self._children_name_map["statistics"] = "statistics"
-                        self._children_yang_names.add("statistics")
                         self._segment_path = lambda: "peer-mep"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep, ['mep_id', 'mac_address', 'cross_check_state', 'peer_mep_state', 'ccm_offload'], name, value)
+                        self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep, ['mep_id', 'mac_address', 'cross_check_state', 'peer_mep_state', 'ccm_offload'], name, value)
 
 
                     class ErrorState(Entity):
@@ -8995,18 +8839,17 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
-                            super(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.ErrorState, self).__init__()
+                            super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.ErrorState, self).__init__()
 
                             self.yang_name = "error-state"
                             self.yang_parent_name = "peer-mep"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('loss_threshold_exceeded', YLeaf(YType.boolean, 'loss-threshold-exceeded')),
                                 ('invalid_level', YLeaf(YType.boolean, 'invalid-level')),
@@ -9026,7 +8869,7 @@ class Cfm(Entity):
                             self._segment_path = lambda: "error-state"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.ErrorState, ['loss_threshold_exceeded', 'invalid_level', 'invalid_maid', 'invalid_ccm_interval', 'received_our_mac', 'received_our_mep_id', 'received_rdi'], name, value)
+                            self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.ErrorState, ['loss_threshold_exceeded', 'invalid_level', 'invalid_maid', 'invalid_ccm_interval', 'received_our_mac', 'received_our_mep_id', 'received_rdi'], name, value)
 
 
                     class LastUpDownTime(Entity):
@@ -9057,18 +8900,17 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
-                            super(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastUpDownTime, self).__init__()
+                            super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastUpDownTime, self).__init__()
 
                             self.yang_name = "last-up-down-time"
                             self.yang_parent_name = "peer-mep"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('seconds', YLeaf(YType.uint32, 'seconds')),
                                 ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -9078,7 +8920,7 @@ class Cfm(Entity):
                             self._segment_path = lambda: "last-up-down-time"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastUpDownTime, ['seconds', 'nanoseconds'], name, value)
+                            self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastUpDownTime, ['seconds', 'nanoseconds'], name, value)
 
 
                     class LastCcmReceived(Entity):
@@ -9088,17 +8930,17 @@ class Cfm(Entity):
                         .. attribute:: header
                         
                         	Frame header
-                        	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header>`
+                        	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header>`
                         
                         .. attribute:: sender_id
                         
                         	Sender ID TLV
-                        	**type**\:  :py:class:`SenderId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId>`
+                        	**type**\:  :py:class:`SenderId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId>`
                         
                         .. attribute:: mep_name
                         
                         	MEP name
-                        	**type**\:  :py:class:`MepName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.MepName>`
+                        	**type**\:  :py:class:`MepName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.MepName>`
                         
                         .. attribute:: port_status
                         
@@ -9125,30 +8967,29 @@ class Cfm(Entity):
                         .. attribute:: organization_specific_tlv
                         
                         	Organizational\-specific TLVs
-                        	**type**\: list of  		 :py:class:`OrganizationSpecificTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv>`
+                        	**type**\: list of  		 :py:class:`OrganizationSpecificTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv>`
                         
                         .. attribute:: unknown_tlv
                         
                         	Unknown TLVs
-                        	**type**\: list of  		 :py:class:`UnknownTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv>`
+                        	**type**\: list of  		 :py:class:`UnknownTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv>`
                         
                         
 
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
-                            super(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived, self).__init__()
+                            super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived, self).__init__()
 
                             self.yang_name = "last-ccm-received"
                             self.yang_parent_name = "peer-mep"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("header", ("header", Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header)), ("sender-id", ("sender_id", Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId)), ("mep-name", ("mep_name", Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.MepName))])
-                            self._child_list_classes = OrderedDict([("organization-specific-tlv", ("organization_specific_tlv", Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv)), ("unknown-tlv", ("unknown_tlv", Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv))])
+                            self._child_classes = OrderedDict([("header", ("header", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header)), ("sender-id", ("sender_id", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId)), ("mep-name", ("mep_name", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.MepName)), ("organization-specific-tlv", ("organization_specific_tlv", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv)), ("unknown-tlv", ("unknown_tlv", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv))])
                             self._leafs = OrderedDict([
                                 ('port_status', YLeaf(YType.enumeration, 'port-status')),
                                 ('interface_status', YLeaf(YType.enumeration, 'interface-status')),
@@ -9160,27 +9001,24 @@ class Cfm(Entity):
                             self.additional_interface_status = None
                             self.raw_data = None
 
-                            self.header = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header()
+                            self.header = Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header()
                             self.header.parent = self
                             self._children_name_map["header"] = "header"
-                            self._children_yang_names.add("header")
 
-                            self.sender_id = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId()
+                            self.sender_id = Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId()
                             self.sender_id.parent = self
                             self._children_name_map["sender_id"] = "sender-id"
-                            self._children_yang_names.add("sender-id")
 
-                            self.mep_name = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.MepName()
+                            self.mep_name = Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.MepName()
                             self.mep_name.parent = self
                             self._children_name_map["mep_name"] = "mep-name"
-                            self._children_yang_names.add("mep-name")
 
                             self.organization_specific_tlv = YList(self)
                             self.unknown_tlv = YList(self)
                             self._segment_path = lambda: "last-ccm-received"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived, ['port_status', 'interface_status', 'additional_interface_status', 'raw_data'], name, value)
+                            self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived, ['port_status', 'interface_status', 'additional_interface_status', 'raw_data'], name, value)
 
 
                         class Header(Entity):
@@ -9190,12 +9028,12 @@ class Cfm(Entity):
                             .. attribute:: mdid
                             
                             	MDID
-                            	**type**\:  :py:class:`Mdid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid>`
+                            	**type**\:  :py:class:`Mdid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid>`
                             
                             .. attribute:: short_ma_name
                             
                             	Short MA Name
-                            	**type**\:  :py:class:`ShortMaName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName>`
+                            	**type**\:  :py:class:`ShortMaName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName>`
                             
                             .. attribute:: level
                             
@@ -9252,18 +9090,17 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
-                                super(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header, self).__init__()
+                                super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header, self).__init__()
 
                                 self.yang_name = "header"
                                 self.yang_parent_name = "last-ccm-received"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("mdid", ("mdid", Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid)), ("short-ma-name", ("short_ma_name", Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("mdid", ("mdid", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid)), ("short-ma-name", ("short_ma_name", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName))])
                                 self._leafs = OrderedDict([
                                     ('level', YLeaf(YType.enumeration, 'level')),
                                     ('version', YLeaf(YType.uint8, 'version')),
@@ -9283,19 +9120,17 @@ class Cfm(Entity):
                                 self.mdid_format = None
                                 self.short_ma_name_format = None
 
-                                self.mdid = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid()
+                                self.mdid = Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid()
                                 self.mdid.parent = self
                                 self._children_name_map["mdid"] = "mdid"
-                                self._children_yang_names.add("mdid")
 
-                                self.short_ma_name = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName()
+                                self.short_ma_name = Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName()
                                 self.short_ma_name.parent = self
                                 self._children_name_map["short_ma_name"] = "short-ma-name"
-                                self._children_yang_names.add("short-ma-name")
                                 self._segment_path = lambda: "header"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header, ['level', 'version', 'interval', 'rdi', 'sequence_number', 'mep_id', 'mdid_format', 'short_ma_name_format'], name, value)
+                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header, ['level', 'version', 'interval', 'rdi', 'sequence_number', 'mep_id', 'mdid_format', 'short_ma_name_format'], name, value)
 
 
                             class Mdid(Entity):
@@ -9305,7 +9140,7 @@ class Cfm(Entity):
                                 .. attribute:: mac_name
                                 
                                 	MAC address name
-                                	**type**\:  :py:class:`MacName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName>`
+                                	**type**\:  :py:class:`MacName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName>`
                                 
                                 .. attribute:: mdid_format_value
                                 
@@ -9334,18 +9169,17 @@ class Cfm(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-10-06'
 
                                 def __init__(self):
-                                    super(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid, self).__init__()
+                                    super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid, self).__init__()
 
                                     self.yang_name = "mdid"
                                     self.yang_parent_name = "header"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("mac-name", ("mac_name", Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("mac-name", ("mac_name", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName))])
                                     self._leafs = OrderedDict([
                                         ('mdid_format_value', YLeaf(YType.enumeration, 'mdid-format-value')),
                                         ('dns_like_name', YLeaf(YType.str, 'dns-like-name')),
@@ -9357,14 +9191,13 @@ class Cfm(Entity):
                                     self.string_name = None
                                     self.mdid_data = None
 
-                                    self.mac_name = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName()
+                                    self.mac_name = Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName()
                                     self.mac_name.parent = self
                                     self._children_name_map["mac_name"] = "mac-name"
-                                    self._children_yang_names.add("mac-name")
                                     self._segment_path = lambda: "mdid"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid, ['mdid_format_value', 'dns_like_name', 'string_name', 'mdid_data'], name, value)
+                                    self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid, [u'mdid_format_value', u'dns_like_name', u'string_name', u'mdid_data'], name, value)
 
 
                                 class MacName(Entity):
@@ -9390,18 +9223,17 @@ class Cfm(Entity):
                                     """
 
                                     _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-10-06'
 
                                     def __init__(self):
-                                        super(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName, self).__init__()
+                                        super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName, self).__init__()
 
                                         self.yang_name = "mac-name"
                                         self.yang_parent_name = "mdid"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('mac_address', YLeaf(YType.str, 'mac-address')),
                                             ('integer', YLeaf(YType.uint16, 'integer')),
@@ -9411,7 +9243,7 @@ class Cfm(Entity):
                                         self._segment_path = lambda: "mac-name"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName, ['mac_address', 'integer'], name, value)
+                                        self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName, [u'mac_address', u'integer'], name, value)
 
 
                             class ShortMaName(Entity):
@@ -9421,7 +9253,7 @@ class Cfm(Entity):
                                 .. attribute:: vpn_id_name
                                 
                                 	VPN ID name
-                                	**type**\:  :py:class:`VpnIdName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName>`
+                                	**type**\:  :py:class:`VpnIdName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName>`
                                 
                                 .. attribute:: short_ma_name_format_value
                                 
@@ -9464,18 +9296,17 @@ class Cfm(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-10-06'
 
                                 def __init__(self):
-                                    super(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName, self).__init__()
+                                    super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName, self).__init__()
 
                                     self.yang_name = "short-ma-name"
                                     self.yang_parent_name = "header"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("vpn-id-name", ("vpn_id_name", Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("vpn-id-name", ("vpn_id_name", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName))])
                                     self._leafs = OrderedDict([
                                         ('short_ma_name_format_value', YLeaf(YType.enumeration, 'short-ma-name-format-value')),
                                         ('vlan_id_name', YLeaf(YType.uint16, 'vlan-id-name')),
@@ -9491,14 +9322,13 @@ class Cfm(Entity):
                                     self.icc_based = None
                                     self.short_ma_name_data = None
 
-                                    self.vpn_id_name = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName()
+                                    self.vpn_id_name = Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName()
                                     self.vpn_id_name.parent = self
                                     self._children_name_map["vpn_id_name"] = "vpn-id-name"
-                                    self._children_yang_names.add("vpn-id-name")
                                     self._segment_path = lambda: "short-ma-name"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName, ['short_ma_name_format_value', 'vlan_id_name', 'string_name', 'integer_name', 'icc_based', 'short_ma_name_data'], name, value)
+                                    self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName, [u'short_ma_name_format_value', u'vlan_id_name', u'string_name', u'integer_name', u'icc_based', u'short_ma_name_data'], name, value)
 
 
                                 class VpnIdName(Entity):
@@ -9524,18 +9354,17 @@ class Cfm(Entity):
                                     """
 
                                     _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-10-06'
 
                                     def __init__(self):
-                                        super(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName, self).__init__()
+                                        super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName, self).__init__()
 
                                         self.yang_name = "vpn-id-name"
                                         self.yang_parent_name = "short-ma-name"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('oui', YLeaf(YType.uint32, 'oui')),
                                             ('index', YLeaf(YType.uint32, 'index')),
@@ -9545,7 +9374,7 @@ class Cfm(Entity):
                                         self._segment_path = lambda: "vpn-id-name"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName, ['oui', 'index'], name, value)
+                                        self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName, [u'oui', u'index'], name, value)
 
 
                         class SenderId(Entity):
@@ -9555,7 +9384,7 @@ class Cfm(Entity):
                             .. attribute:: chassis_id
                             
                             	Chassis ID
-                            	**type**\:  :py:class:`ChassisId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId>`
+                            	**type**\:  :py:class:`ChassisId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId>`
                             
                             .. attribute:: management_address_domain
                             
@@ -9576,18 +9405,17 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
-                                super(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId, self).__init__()
+                                super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId, self).__init__()
 
                                 self.yang_name = "sender-id"
                                 self.yang_parent_name = "last-ccm-received"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("chassis-id", ("chassis_id", Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("chassis-id", ("chassis_id", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId))])
                                 self._leafs = OrderedDict([
                                     ('management_address_domain', YLeaf(YType.str, 'management-address-domain')),
                                     ('management_address', YLeaf(YType.str, 'management-address')),
@@ -9595,14 +9423,13 @@ class Cfm(Entity):
                                 self.management_address_domain = None
                                 self.management_address = None
 
-                                self.chassis_id = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId()
+                                self.chassis_id = Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId()
                                 self.chassis_id.parent = self
                                 self._children_name_map["chassis_id"] = "chassis-id"
-                                self._children_yang_names.add("chassis-id")
                                 self._segment_path = lambda: "sender-id"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId, ['management_address_domain', 'management_address'], name, value)
+                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId, ['management_address_domain', 'management_address'], name, value)
 
 
                             class ChassisId(Entity):
@@ -9612,7 +9439,7 @@ class Cfm(Entity):
                                 .. attribute:: chassis_id_value
                                 
                                 	Chassis ID (Current)
-                                	**type**\:  :py:class:`ChassisIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue>`
+                                	**type**\:  :py:class:`ChassisIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue>`
                                 
                                 .. attribute:: chassis_id_type
                                 
@@ -9638,18 +9465,17 @@ class Cfm(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-10-06'
 
                                 def __init__(self):
-                                    super(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId, self).__init__()
+                                    super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId, self).__init__()
 
                                     self.yang_name = "chassis-id"
                                     self.yang_parent_name = "sender-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("chassis-id-value", ("chassis_id_value", Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("chassis-id-value", ("chassis_id_value", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue))])
                                     self._leafs = OrderedDict([
                                         ('chassis_id_type', YLeaf(YType.enumeration, 'chassis-id-type')),
                                         ('chassis_id_type_value', YLeaf(YType.uint8, 'chassis-id-type-value')),
@@ -9659,14 +9485,13 @@ class Cfm(Entity):
                                     self.chassis_id_type_value = None
                                     self.chassis_id = None
 
-                                    self.chassis_id_value = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue()
+                                    self.chassis_id_value = Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue()
                                     self.chassis_id_value.parent = self
                                     self._children_name_map["chassis_id_value"] = "chassis-id-value"
-                                    self._children_yang_names.add("chassis-id-value")
                                     self._segment_path = lambda: "chassis-id"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId, ['chassis_id_type', 'chassis_id_type_value', 'chassis_id'], name, value)
+                                    self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId, ['chassis_id_type', 'chassis_id_type_value', 'chassis_id'], name, value)
 
 
                                 class ChassisIdValue(Entity):
@@ -9702,18 +9527,17 @@ class Cfm(Entity):
                                     """
 
                                     _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-10-06'
 
                                     def __init__(self):
-                                        super(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue, self).__init__()
+                                        super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue, self).__init__()
 
                                         self.yang_name = "chassis-id-value"
                                         self.yang_parent_name = "chassis-id"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('chassis_id_format', YLeaf(YType.enumeration, 'chassis-id-format')),
                                             ('chassis_id_string', YLeaf(YType.str, 'chassis-id-string')),
@@ -9727,7 +9551,7 @@ class Cfm(Entity):
                                         self._segment_path = lambda: "chassis-id-value"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue, ['chassis_id_format', 'chassis_id_string', 'chassis_id_mac', 'chassis_id_raw'], name, value)
+                                        self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue, ['chassis_id_format', 'chassis_id_string', 'chassis_id_mac', 'chassis_id_raw'], name, value)
 
 
                         class MepName(Entity):
@@ -9744,18 +9568,17 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
-                                super(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.MepName, self).__init__()
+                                super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.MepName, self).__init__()
 
                                 self.yang_name = "mep-name"
                                 self.yang_parent_name = "last-ccm-received"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('name', YLeaf(YType.str, 'name')),
                                 ])
@@ -9763,7 +9586,7 @@ class Cfm(Entity):
                                 self._segment_path = lambda: "mep-name"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.MepName, ['name'], name, value)
+                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.MepName, ['name'], name, value)
 
 
                         class OrganizationSpecificTlv(Entity):
@@ -9796,18 +9619,17 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
-                                super(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv, self).__init__()
+                                super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv, self).__init__()
 
                                 self.yang_name = "organization-specific-tlv"
                                 self.yang_parent_name = "last-ccm-received"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('oui', YLeaf(YType.str, 'oui')),
                                     ('subtype', YLeaf(YType.uint8, 'subtype')),
@@ -9819,7 +9641,7 @@ class Cfm(Entity):
                                 self._segment_path = lambda: "organization-specific-tlv"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv, ['oui', 'subtype', 'value'], name, value)
+                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv, ['oui', 'subtype', 'value'], name, value)
 
 
                         class UnknownTlv(Entity):
@@ -9845,18 +9667,17 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
-                                super(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv, self).__init__()
+                                super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv, self).__init__()
 
                                 self.yang_name = "unknown-tlv"
                                 self.yang_parent_name = "last-ccm-received"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('typecode', YLeaf(YType.uint8, 'typecode')),
                                     ('value', YLeaf(YType.str, 'value')),
@@ -9866,7 +9687,7 @@ class Cfm(Entity):
                                 self._segment_path = lambda: "unknown-tlv"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv, ['typecode', 'value'], name, value)
+                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv, ['typecode', 'value'], name, value)
 
 
                     class Statistics(Entity):
@@ -9876,7 +9697,7 @@ class Cfm(Entity):
                         .. attribute:: last_ccm_received_time
                         
                         	Elapsed time since last CCM received
-                        	**type**\:  :py:class:`LastCcmReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime>`
+                        	**type**\:  :py:class:`LastCcmReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime>`
                         
                         .. attribute:: ccms_received
                         
@@ -9946,18 +9767,17 @@ class Cfm(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
-                            super(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.Statistics, self).__init__()
+                            super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics, self).__init__()
 
                             self.yang_name = "statistics"
                             self.yang_parent_name = "peer-mep"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("last-ccm-received-time", ("last_ccm_received_time", Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("last-ccm-received-time", ("last_ccm_received_time", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime))])
                             self._leafs = OrderedDict([
                                 ('ccms_received', YLeaf(YType.uint64, 'ccms-received')),
                                 ('ccms_wrong_level', YLeaf(YType.uint64, 'ccms-wrong-level')),
@@ -9979,14 +9799,13 @@ class Cfm(Entity):
                             self.ccms_out_of_sequence = None
                             self.last_ccm_sequence_number = None
 
-                            self.last_ccm_received_time = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime()
+                            self.last_ccm_received_time = Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime()
                             self.last_ccm_received_time.parent = self
                             self._children_name_map["last_ccm_received_time"] = "last-ccm-received-time"
-                            self._children_yang_names.add("last-ccm-received-time")
                             self._segment_path = lambda: "statistics"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.Statistics, ['ccms_received', 'ccms_wrong_level', 'ccms_invalid_maid', 'ccms_invalid_interval', 'ccms_invalid_source_mac_address', 'ccms_our_mep_id', 'ccms_rdi', 'ccms_out_of_sequence', 'last_ccm_sequence_number'], name, value)
+                            self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics, ['ccms_received', 'ccms_wrong_level', 'ccms_invalid_maid', 'ccms_invalid_interval', 'ccms_invalid_source_mac_address', 'ccms_our_mep_id', 'ccms_rdi', 'ccms_out_of_sequence', 'last_ccm_sequence_number'], name, value)
 
 
                         class LastCcmReceivedTime(Entity):
@@ -10016,18 +9835,17 @@ class Cfm(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
-                                super(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime, self).__init__()
+                                super(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime, self).__init__()
 
                                 self.yang_name = "last-ccm-received-time"
                                 self.yang_parent_name = "statistics"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('seconds', YLeaf(YType.uint32, 'seconds')),
                                     ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
@@ -10037,7 +9855,7 @@ class Cfm(Entity):
                                 self._segment_path = lambda: "last-ccm-received-time"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime, ['seconds', 'nanoseconds'], name, value)
+                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime, ['seconds', 'nanoseconds'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Cfm()

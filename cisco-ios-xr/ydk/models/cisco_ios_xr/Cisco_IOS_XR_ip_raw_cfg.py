@@ -61,8 +61,7 @@ class IpRaw(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("num-thread", ("num_thread", IpRaw.NumThread)), ("directory", ("directory", IpRaw.Directory))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("num-thread", ("num_thread", IpRaw.NumThread)), ("directory", ("directory", IpRaw.Directory))])
         self._leafs = OrderedDict([
             ('receive_q', YLeaf(YType.uint32, 'receive-q')),
         ])
@@ -70,11 +69,9 @@ class IpRaw(Entity):
 
         self.num_thread = None
         self._children_name_map["num_thread"] = "num-thread"
-        self._children_yang_names.add("num-thread")
 
         self.directory = None
         self._children_name_map["directory"] = "directory"
-        self._children_yang_names.add("directory")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-raw-cfg:ip-raw"
 
     def __setattr__(self, name, value):
@@ -120,8 +117,7 @@ class IpRaw(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('raw_in_q_threads', YLeaf(YType.uint32, 'raw-in-q-threads')),
@@ -182,8 +178,7 @@ class IpRaw(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('directoryname', YLeaf(YType.str, 'directoryname')),

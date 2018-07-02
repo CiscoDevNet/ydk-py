@@ -256,19 +256,16 @@ class AlarmMgr(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("brief", ("brief", AlarmMgr.Brief)), ("detail", ("detail", AlarmMgr.Detail))])
-        self._child_list_classes = OrderedDict([("trace", ("trace", AlarmMgr.Trace))])
+        self._child_classes = OrderedDict([("trace", ("trace", AlarmMgr.Trace)), ("brief", ("brief", AlarmMgr.Brief)), ("detail", ("detail", AlarmMgr.Detail))])
         self._leafs = OrderedDict()
 
         self.brief = AlarmMgr.Brief()
         self.brief.parent = self
         self._children_name_map["brief"] = "brief"
-        self._children_yang_names.add("brief")
 
         self.detail = AlarmMgr.Detail()
         self.detail.parent = self
         self._children_name_map["detail"] = "detail"
-        self._children_yang_names.add("detail")
 
         self.trace = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr"
@@ -306,8 +303,7 @@ class AlarmMgr(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['buffer']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("location", ("location", AlarmMgr.Trace.Location))])
+            self._child_classes = OrderedDict([("location", ("location", AlarmMgr.Trace.Location))])
             self._leafs = OrderedDict([
                 ('buffer', YLeaf(YType.str, 'buffer')),
             ])
@@ -318,7 +314,7 @@ class AlarmMgr(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(AlarmMgr.Trace, ['buffer'], name, value)
+            self._perform_setattr(AlarmMgr.Trace, [u'buffer'], name, value)
 
 
         class Location(Entity):
@@ -350,8 +346,7 @@ class AlarmMgr(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['location_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("all-options", ("all_options", AlarmMgr.Trace.Location.AllOptions))])
+                self._child_classes = OrderedDict([("all-options", ("all_options", AlarmMgr.Trace.Location.AllOptions))])
                 self._leafs = OrderedDict([
                     ('location_name', YLeaf(YType.str, 'location_name')),
                 ])
@@ -361,7 +356,7 @@ class AlarmMgr(Entity):
                 self._segment_path = lambda: "location" + "[location_name='" + str(self.location_name) + "']"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(AlarmMgr.Trace.Location, ['location_name'], name, value)
+                self._perform_setattr(AlarmMgr.Trace.Location, [u'location_name'], name, value)
 
 
             class AllOptions(Entity):
@@ -393,8 +388,7 @@ class AlarmMgr(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['option']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("trace-blocks", ("trace_blocks", AlarmMgr.Trace.Location.AllOptions.TraceBlocks))])
+                    self._child_classes = OrderedDict([("trace-blocks", ("trace_blocks", AlarmMgr.Trace.Location.AllOptions.TraceBlocks))])
                     self._leafs = OrderedDict([
                         ('option', YLeaf(YType.str, 'option')),
                     ])
@@ -404,7 +398,7 @@ class AlarmMgr(Entity):
                     self._segment_path = lambda: "all-options" + "[option='" + str(self.option) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(AlarmMgr.Trace.Location.AllOptions, ['option'], name, value)
+                    self._perform_setattr(AlarmMgr.Trace.Location.AllOptions, [u'option'], name, value)
 
 
                 class TraceBlocks(Entity):
@@ -431,8 +425,7 @@ class AlarmMgr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('data', YLeaf(YType.str, 'data')),
                         ])
@@ -440,7 +433,7 @@ class AlarmMgr(Entity):
                         self._segment_path = lambda: "trace-blocks"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(AlarmMgr.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
+                        self._perform_setattr(AlarmMgr.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
 
     class Brief(Entity):
@@ -477,26 +470,25 @@ class AlarmMgr(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("card", ("card", AlarmMgr.Brief.Card)), ("rack", ("rack", AlarmMgr.Brief.Rack)), ("system", ("system", AlarmMgr.Brief.System))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("card", ("card", AlarmMgr.Brief.Card)), ("rack", ("rack", AlarmMgr.Brief.Rack)), ("system", ("system", AlarmMgr.Brief.System))])
             self._leafs = OrderedDict()
 
             self.card = AlarmMgr.Brief.Card()
             self.card.parent = self
             self._children_name_map["card"] = "card"
-            self._children_yang_names.add("card")
 
             self.rack = AlarmMgr.Brief.Rack()
             self.rack.parent = self
             self._children_name_map["rack"] = "rack"
-            self._children_yang_names.add("rack")
 
             self.system = AlarmMgr.Brief.System()
             self.system.parent = self
             self._children_name_map["system"] = "system"
-            self._children_yang_names.add("system")
             self._segment_path = lambda: "brief"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(AlarmMgr.Brief, [], name, value)
 
 
         class Card(Entity):
@@ -524,8 +516,7 @@ class AlarmMgr(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AlarmMgr.Brief.Card.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AlarmMgr.Brief.Card.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -545,7 +536,7 @@ class AlarmMgr(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: active
                 
@@ -577,8 +568,7 @@ class AlarmMgr(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['locations']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("active", ("active", AlarmMgr.Brief.Card.Location.Active)), ("history", ("history", AlarmMgr.Brief.Card.Location.History)), ("suppressed", ("suppressed", AlarmMgr.Brief.Card.Location.Suppressed))])
+                    self._child_classes = OrderedDict([("active", ("active", AlarmMgr.Brief.Card.Location.Active)), ("history", ("history", AlarmMgr.Brief.Card.Location.History)), ("suppressed", ("suppressed", AlarmMgr.Brief.Card.Location.Suppressed))])
                     self._leafs = OrderedDict([
                         ('locations', YLeaf(YType.str, 'locations')),
                     ])
@@ -658,8 +648,7 @@ class AlarmMgr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['aid','eid']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('aid', YLeaf(YType.str, 'aid')),
                             ('eid', YLeaf(YType.str, 'eid')),
@@ -755,8 +744,7 @@ class AlarmMgr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['aid','eid']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('aid', YLeaf(YType.str, 'aid')),
                             ('eid', YLeaf(YType.str, 'eid')),
@@ -854,8 +842,7 @@ class AlarmMgr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['aid','eid']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('aid', YLeaf(YType.str, 'aid')),
                             ('eid', YLeaf(YType.str, 'eid')),
@@ -909,8 +896,7 @@ class AlarmMgr(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("rack_locations", ("rack_locations", AlarmMgr.Brief.Rack.RackLocations))])
+                self._child_classes = OrderedDict([("rack_locations", ("rack_locations", AlarmMgr.Brief.Rack.RackLocations))])
                 self._leafs = OrderedDict()
 
                 self.rack_locations = YList(self)
@@ -962,8 +948,7 @@ class AlarmMgr(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['rackid']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("active", ("active", AlarmMgr.Brief.Rack.RackLocations.Active)), ("history", ("history", AlarmMgr.Brief.Rack.RackLocations.History)), ("suppressed", ("suppressed", AlarmMgr.Brief.Rack.RackLocations.Suppressed))])
+                    self._child_classes = OrderedDict([("active", ("active", AlarmMgr.Brief.Rack.RackLocations.Active)), ("history", ("history", AlarmMgr.Brief.Rack.RackLocations.History)), ("suppressed", ("suppressed", AlarmMgr.Brief.Rack.RackLocations.Suppressed))])
                     self._leafs = OrderedDict([
                         ('rackid', YLeaf(YType.uint32, 'rackid')),
                     ])
@@ -1043,8 +1028,7 @@ class AlarmMgr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['aid','eid']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('aid', YLeaf(YType.str, 'aid')),
                             ('eid', YLeaf(YType.str, 'eid')),
@@ -1140,8 +1124,7 @@ class AlarmMgr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['aid','eid']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('aid', YLeaf(YType.str, 'aid')),
                             ('eid', YLeaf(YType.str, 'eid')),
@@ -1239,8 +1222,7 @@ class AlarmMgr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['aid','eid']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('aid', YLeaf(YType.str, 'aid')),
                             ('eid', YLeaf(YType.str, 'eid')),
@@ -1303,8 +1285,7 @@ class AlarmMgr(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("active", ("active", AlarmMgr.Brief.System.Active)), ("history", ("history", AlarmMgr.Brief.System.History)), ("suppressed", ("suppressed", AlarmMgr.Brief.System.Suppressed))])
+                self._child_classes = OrderedDict([("active", ("active", AlarmMgr.Brief.System.Active)), ("history", ("history", AlarmMgr.Brief.System.History)), ("suppressed", ("suppressed", AlarmMgr.Brief.System.Suppressed))])
                 self._leafs = OrderedDict()
 
                 self.active = YList(self)
@@ -1381,8 +1362,7 @@ class AlarmMgr(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['aid','eid']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('aid', YLeaf(YType.str, 'aid')),
                         ('eid', YLeaf(YType.str, 'eid')),
@@ -1479,8 +1459,7 @@ class AlarmMgr(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['aid','eid']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('aid', YLeaf(YType.str, 'aid')),
                         ('eid', YLeaf(YType.str, 'eid')),
@@ -1579,8 +1558,7 @@ class AlarmMgr(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['aid','eid']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('aid', YLeaf(YType.str, 'aid')),
                         ('eid', YLeaf(YType.str, 'eid')),
@@ -1644,26 +1622,25 @@ class AlarmMgr(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("card", ("card", AlarmMgr.Detail.Card)), ("rack", ("rack", AlarmMgr.Detail.Rack)), ("system", ("system", AlarmMgr.Detail.System))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("card", ("card", AlarmMgr.Detail.Card)), ("rack", ("rack", AlarmMgr.Detail.Rack)), ("system", ("system", AlarmMgr.Detail.System))])
             self._leafs = OrderedDict()
 
             self.card = AlarmMgr.Detail.Card()
             self.card.parent = self
             self._children_name_map["card"] = "card"
-            self._children_yang_names.add("card")
 
             self.rack = AlarmMgr.Detail.Rack()
             self.rack.parent = self
             self._children_name_map["rack"] = "rack"
-            self._children_yang_names.add("rack")
 
             self.system = AlarmMgr.Detail.System()
             self.system.parent = self
             self._children_name_map["system"] = "system"
-            self._children_yang_names.add("system")
             self._segment_path = lambda: "detail"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(AlarmMgr.Detail, [], name, value)
 
 
         class Card(Entity):
@@ -1691,8 +1668,7 @@ class AlarmMgr(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", AlarmMgr.Detail.Card.Location))])
+                self._child_classes = OrderedDict([("location", ("location", AlarmMgr.Detail.Card.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -1712,7 +1688,7 @@ class AlarmMgr(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: active
                 
@@ -1754,8 +1730,7 @@ class AlarmMgr(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['locations']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("active", ("active", AlarmMgr.Detail.Card.Location.Active)), ("history", ("history", AlarmMgr.Detail.Card.Location.History)), ("stats", ("stats", AlarmMgr.Detail.Card.Location.Stats)), ("clients", ("clients", AlarmMgr.Detail.Card.Location.Clients)), ("suppressed", ("suppressed", AlarmMgr.Detail.Card.Location.Suppressed))])
+                    self._child_classes = OrderedDict([("active", ("active", AlarmMgr.Detail.Card.Location.Active)), ("history", ("history", AlarmMgr.Detail.Card.Location.History)), ("stats", ("stats", AlarmMgr.Detail.Card.Location.Stats)), ("clients", ("clients", AlarmMgr.Detail.Card.Location.Clients)), ("suppressed", ("suppressed", AlarmMgr.Detail.Card.Location.Suppressed))])
                     self._leafs = OrderedDict([
                         ('locations', YLeaf(YType.str, 'locations')),
                     ])
@@ -1866,8 +1841,7 @@ class AlarmMgr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['aid','eid']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('aid', YLeaf(YType.str, 'aid')),
                             ('eid', YLeaf(YType.str, 'eid')),
@@ -1997,8 +1971,7 @@ class AlarmMgr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['aid','eid']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('aid', YLeaf(YType.str, 'aid')),
                             ('eid', YLeaf(YType.str, 'eid')),
@@ -2143,8 +2116,7 @@ class AlarmMgr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['attime']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('attime', YLeaf(YType.str, 'attime')),
                             ('reported', YLeaf(YType.uint64, 'reported')),
@@ -2204,8 +2176,6 @@ class AlarmMgr(Entity):
                     
                     	The location of this client
                     	**type**\: str
-                    
-                    	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                     
                     .. attribute:: agent_state
                     
@@ -2299,8 +2269,7 @@ class AlarmMgr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['agent_handle']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('agent_handle', YLeaf(YType.str, 'agent_handle')),
                             ('agent_name', YLeaf(YType.str, 'agent_name')),
@@ -2436,8 +2405,7 @@ class AlarmMgr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['aid','eid']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('aid', YLeaf(YType.str, 'aid')),
                             ('eid', YLeaf(YType.str, 'eid')),
@@ -2499,8 +2467,7 @@ class AlarmMgr(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("rack_locations", ("rack_locations", AlarmMgr.Detail.Rack.RackLocations))])
+                self._child_classes = OrderedDict([("rack_locations", ("rack_locations", AlarmMgr.Detail.Rack.RackLocations))])
                 self._leafs = OrderedDict()
 
                 self.rack_locations = YList(self)
@@ -2562,8 +2529,7 @@ class AlarmMgr(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['rackid']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("active", ("active", AlarmMgr.Detail.Rack.RackLocations.Active)), ("history", ("history", AlarmMgr.Detail.Rack.RackLocations.History)), ("stats", ("stats", AlarmMgr.Detail.Rack.RackLocations.Stats)), ("clients", ("clients", AlarmMgr.Detail.Rack.RackLocations.Clients)), ("suppressed", ("suppressed", AlarmMgr.Detail.Rack.RackLocations.Suppressed))])
+                    self._child_classes = OrderedDict([("active", ("active", AlarmMgr.Detail.Rack.RackLocations.Active)), ("history", ("history", AlarmMgr.Detail.Rack.RackLocations.History)), ("stats", ("stats", AlarmMgr.Detail.Rack.RackLocations.Stats)), ("clients", ("clients", AlarmMgr.Detail.Rack.RackLocations.Clients)), ("suppressed", ("suppressed", AlarmMgr.Detail.Rack.RackLocations.Suppressed))])
                     self._leafs = OrderedDict([
                         ('rackid', YLeaf(YType.uint32, 'rackid')),
                     ])
@@ -2674,8 +2640,7 @@ class AlarmMgr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['aid','eid']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('aid', YLeaf(YType.str, 'aid')),
                             ('eid', YLeaf(YType.str, 'eid')),
@@ -2805,8 +2770,7 @@ class AlarmMgr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['aid','eid']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('aid', YLeaf(YType.str, 'aid')),
                             ('eid', YLeaf(YType.str, 'eid')),
@@ -2951,8 +2915,7 @@ class AlarmMgr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['attime']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('attime', YLeaf(YType.str, 'attime')),
                             ('reported', YLeaf(YType.uint64, 'reported')),
@@ -3012,8 +2975,6 @@ class AlarmMgr(Entity):
                     
                     	The location of this client
                     	**type**\: str
-                    
-                    	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                     
                     .. attribute:: agent_state
                     
@@ -3107,8 +3068,7 @@ class AlarmMgr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['agent_handle']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('agent_handle', YLeaf(YType.str, 'agent_handle')),
                             ('agent_name', YLeaf(YType.str, 'agent_name')),
@@ -3244,8 +3204,7 @@ class AlarmMgr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['aid','eid']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('aid', YLeaf(YType.str, 'aid')),
                             ('eid', YLeaf(YType.str, 'eid')),
@@ -3327,8 +3286,7 @@ class AlarmMgr(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("active", ("active", AlarmMgr.Detail.System.Active)), ("history", ("history", AlarmMgr.Detail.System.History)), ("stats", ("stats", AlarmMgr.Detail.System.Stats)), ("clients", ("clients", AlarmMgr.Detail.System.Clients)), ("suppressed", ("suppressed", AlarmMgr.Detail.System.Suppressed))])
+                self._child_classes = OrderedDict([("active", ("active", AlarmMgr.Detail.System.Active)), ("history", ("history", AlarmMgr.Detail.System.History)), ("stats", ("stats", AlarmMgr.Detail.System.Stats)), ("clients", ("clients", AlarmMgr.Detail.System.Clients)), ("suppressed", ("suppressed", AlarmMgr.Detail.System.Suppressed))])
                 self._leafs = OrderedDict()
 
                 self.active = YList(self)
@@ -3436,8 +3394,7 @@ class AlarmMgr(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['aid','eid']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('aid', YLeaf(YType.str, 'aid')),
                         ('eid', YLeaf(YType.str, 'eid')),
@@ -3568,8 +3525,7 @@ class AlarmMgr(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['aid','eid']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('aid', YLeaf(YType.str, 'aid')),
                         ('eid', YLeaf(YType.str, 'eid')),
@@ -3715,8 +3671,7 @@ class AlarmMgr(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['attime']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('attime', YLeaf(YType.str, 'attime')),
                         ('reported', YLeaf(YType.uint64, 'reported')),
@@ -3777,8 +3732,6 @@ class AlarmMgr(Entity):
                 
                 	The location of this client
                 	**type**\: str
-                
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: agent_state
                 
@@ -3872,8 +3825,7 @@ class AlarmMgr(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['agent_handle']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('agent_handle', YLeaf(YType.str, 'agent_handle')),
                         ('agent_name', YLeaf(YType.str, 'agent_name')),
@@ -4010,8 +3962,7 @@ class AlarmMgr(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['aid','eid']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('aid', YLeaf(YType.str, 'aid')),
                         ('eid', YLeaf(YType.str, 'eid')),

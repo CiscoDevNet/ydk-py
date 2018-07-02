@@ -45,15 +45,16 @@ class Exception(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("enter", ("enter", Exception.Enter))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("enter", ("enter", Exception.Enter))])
         self._leafs = OrderedDict()
 
         self.enter = Exception.Enter()
         self.enter.parent = self
         self._children_name_map["enter"] = "enter"
-        self._children_yang_names.add("enter")
         self._segment_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Exception, [], name, value)
 
 
     class Enter(Entity):
@@ -160,8 +161,7 @@ class Exception(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("display-config1", ("display_config1", Exception.Enter.DisplayConfig1)), ("display-config2", ("display_config2", Exception.Enter.DisplayConfig2)), ("display-config3", ("display_config3", Exception.Enter.DisplayConfig3)), ("display-fall-back-config1", ("display_fall_back_config1", Exception.Enter.DisplayFallBackConfig1)), ("display-fall-back-config2", ("display_fall_back_config2", Exception.Enter.DisplayFallBackConfig2)), ("display-fall-back-config3", ("display_fall_back_config3", Exception.Enter.DisplayFallBackConfig3)), ("kernel-config", ("kernel_config", Exception.Enter.KernelConfig)), ("kernel-route-config", ("kernel_route_config", Exception.Enter.KernelRouteConfig)), ("core-size", ("core_size", Exception.Enter.CoreSize)), ("memory-threshold", ("memory_threshold", Exception.Enter.MemoryThreshold)), ("proc-size", ("proc_size", Exception.Enter.ProcSize)), ("qsize", ("qsize", Exception.Enter.Qsize))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("display-config1", ("display_config1", Exception.Enter.DisplayConfig1)), ("display-config2", ("display_config2", Exception.Enter.DisplayConfig2)), ("display-config3", ("display_config3", Exception.Enter.DisplayConfig3)), ("display-fall-back-config1", ("display_fall_back_config1", Exception.Enter.DisplayFallBackConfig1)), ("display-fall-back-config2", ("display_fall_back_config2", Exception.Enter.DisplayFallBackConfig2)), ("display-fall-back-config3", ("display_fall_back_config3", Exception.Enter.DisplayFallBackConfig3)), ("kernel-config", ("kernel_config", Exception.Enter.KernelConfig)), ("kernel-route-config", ("kernel_route_config", Exception.Enter.KernelRouteConfig)), ("core-size", ("core_size", Exception.Enter.CoreSize)), ("memory-threshold", ("memory_threshold", Exception.Enter.MemoryThreshold)), ("proc-size", ("proc_size", Exception.Enter.ProcSize)), ("qsize", ("qsize", Exception.Enter.Qsize))])
             self._leafs = OrderedDict([
                 ('pak_mem', YLeaf(YType.str, 'pak-mem')),
                 ('sparse', YLeaf(YType.str, 'sparse')),
@@ -178,67 +178,55 @@ class Exception(Entity):
             self.display_config1 = Exception.Enter.DisplayConfig1()
             self.display_config1.parent = self
             self._children_name_map["display_config1"] = "display-config1"
-            self._children_yang_names.add("display-config1")
 
             self.display_config2 = Exception.Enter.DisplayConfig2()
             self.display_config2.parent = self
             self._children_name_map["display_config2"] = "display-config2"
-            self._children_yang_names.add("display-config2")
 
             self.display_config3 = Exception.Enter.DisplayConfig3()
             self.display_config3.parent = self
             self._children_name_map["display_config3"] = "display-config3"
-            self._children_yang_names.add("display-config3")
 
             self.display_fall_back_config1 = Exception.Enter.DisplayFallBackConfig1()
             self.display_fall_back_config1.parent = self
             self._children_name_map["display_fall_back_config1"] = "display-fall-back-config1"
-            self._children_yang_names.add("display-fall-back-config1")
 
             self.display_fall_back_config2 = Exception.Enter.DisplayFallBackConfig2()
             self.display_fall_back_config2.parent = self
             self._children_name_map["display_fall_back_config2"] = "display-fall-back-config2"
-            self._children_yang_names.add("display-fall-back-config2")
 
             self.display_fall_back_config3 = Exception.Enter.DisplayFallBackConfig3()
             self.display_fall_back_config3.parent = self
             self._children_name_map["display_fall_back_config3"] = "display-fall-back-config3"
-            self._children_yang_names.add("display-fall-back-config3")
 
             self.kernel_config = Exception.Enter.KernelConfig()
             self.kernel_config.parent = self
             self._children_name_map["kernel_config"] = "kernel-config"
-            self._children_yang_names.add("kernel-config")
 
             self.kernel_route_config = Exception.Enter.KernelRouteConfig()
             self.kernel_route_config.parent = self
             self._children_name_map["kernel_route_config"] = "kernel-route-config"
-            self._children_yang_names.add("kernel-route-config")
 
             self.core_size = Exception.Enter.CoreSize()
             self.core_size.parent = self
             self._children_name_map["core_size"] = "core-size"
-            self._children_yang_names.add("core-size")
 
             self.memory_threshold = Exception.Enter.MemoryThreshold()
             self.memory_threshold.parent = self
             self._children_name_map["memory_threshold"] = "memory-threshold"
-            self._children_yang_names.add("memory-threshold")
 
             self.proc_size = Exception.Enter.ProcSize()
             self.proc_size.parent = self
             self._children_name_map["proc_size"] = "proc-size"
-            self._children_yang_names.add("proc-size")
 
             self.qsize = Exception.Enter.Qsize()
             self.qsize.parent = self
             self._children_name_map["qsize"] = "qsize"
-            self._children_yang_names.add("qsize")
             self._segment_path = lambda: "enter"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Exception.Enter, ['pak_mem', 'sparse', 'spr_size', 'core_verification', 'dump_time_out'], name, value)
+            self._perform_setattr(Exception.Enter, [u'pak_mem', u'sparse', u'spr_size', u'core_verification', u'dump_time_out'], name, value)
 
 
         class DisplayConfig1(Entity):
@@ -294,8 +282,7 @@ class Exception(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('choice', YLeaf(YType.str, 'choice')),
                     ('path', YLeaf(YType.str, 'path')),
@@ -314,7 +301,7 @@ class Exception(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception/enter/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Exception.Enter.DisplayConfig1, ['choice', 'path', 'compress', 'file_name', 'range_low', 'range_high'], name, value)
+                self._perform_setattr(Exception.Enter.DisplayConfig1, [u'choice', u'path', u'compress', u'file_name', u'range_low', u'range_high'], name, value)
 
 
         class DisplayConfig2(Entity):
@@ -370,8 +357,7 @@ class Exception(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('choice', YLeaf(YType.str, 'choice')),
                     ('path', YLeaf(YType.str, 'path')),
@@ -390,7 +376,7 @@ class Exception(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception/enter/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Exception.Enter.DisplayConfig2, ['choice', 'path', 'compress', 'file_name', 'range_low', 'range_high'], name, value)
+                self._perform_setattr(Exception.Enter.DisplayConfig2, [u'choice', u'path', u'compress', u'file_name', u'range_low', u'range_high'], name, value)
 
 
         class DisplayConfig3(Entity):
@@ -446,8 +432,7 @@ class Exception(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('choice', YLeaf(YType.str, 'choice')),
                     ('path', YLeaf(YType.str, 'path')),
@@ -466,7 +451,7 @@ class Exception(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception/enter/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Exception.Enter.DisplayConfig3, ['choice', 'path', 'compress', 'file_name', 'range_low', 'range_high'], name, value)
+                self._perform_setattr(Exception.Enter.DisplayConfig3, [u'choice', u'path', u'compress', u'file_name', u'range_low', u'range_high'], name, value)
 
 
         class DisplayFallBackConfig1(Entity):
@@ -527,8 +512,7 @@ class Exception(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('choice_fall_back', YLeaf(YType.str, 'choice-fall-back')),
                     ('path', YLeaf(YType.str, 'path')),
@@ -549,7 +533,7 @@ class Exception(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception/enter/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Exception.Enter.DisplayFallBackConfig1, ['choice_fall_back', 'path', 'compress', 'file_name', 'boot_device_str', 'range_low', 'range_high'], name, value)
+                self._perform_setattr(Exception.Enter.DisplayFallBackConfig1, [u'choice_fall_back', u'path', u'compress', u'file_name', u'boot_device_str', u'range_low', u'range_high'], name, value)
 
 
         class DisplayFallBackConfig2(Entity):
@@ -610,8 +594,7 @@ class Exception(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('choice_fall_back', YLeaf(YType.str, 'choice-fall-back')),
                     ('path', YLeaf(YType.str, 'path')),
@@ -632,7 +615,7 @@ class Exception(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception/enter/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Exception.Enter.DisplayFallBackConfig2, ['choice_fall_back', 'path', 'compress', 'file_name', 'boot_device_str', 'range_low', 'range_high'], name, value)
+                self._perform_setattr(Exception.Enter.DisplayFallBackConfig2, [u'choice_fall_back', u'path', u'compress', u'file_name', u'boot_device_str', u'range_low', u'range_high'], name, value)
 
 
         class DisplayFallBackConfig3(Entity):
@@ -693,8 +676,7 @@ class Exception(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('choice_fall_back', YLeaf(YType.str, 'choice-fall-back')),
                     ('path', YLeaf(YType.str, 'path')),
@@ -715,7 +697,7 @@ class Exception(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception/enter/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Exception.Enter.DisplayFallBackConfig3, ['choice_fall_back', 'path', 'compress', 'file_name', 'boot_device_str', 'range_low', 'range_high'], name, value)
+                self._perform_setattr(Exception.Enter.DisplayFallBackConfig3, [u'choice_fall_back', u'path', u'compress', u'file_name', u'boot_device_str', u'range_low', u'range_high'], name, value)
 
 
         class KernelConfig(Entity):
@@ -757,8 +739,7 @@ class Exception(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('choice_fall_back', YLeaf(YType.str, 'choice-fall-back')),
                     ('path', YLeaf(YType.str, 'path')),
@@ -773,7 +754,7 @@ class Exception(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception/enter/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Exception.Enter.KernelConfig, ['choice_fall_back', 'path', 'file_name', 'memory'], name, value)
+                self._perform_setattr(Exception.Enter.KernelConfig, [u'choice_fall_back', u'path', u'file_name', u'memory'], name, value)
 
 
         class KernelRouteConfig(Entity):
@@ -829,8 +810,7 @@ class Exception(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('slot', YLeaf(YType.uint32, 'slot')),
                     ('port', YLeaf(YType.uint32, 'port')),
@@ -849,7 +829,7 @@ class Exception(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception/enter/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Exception.Enter.KernelRouteConfig, ['slot', 'port', 'ip_addr', 'mask', 'destination', 'next_hop'], name, value)
+                self._perform_setattr(Exception.Enter.KernelRouteConfig, [u'slot', u'port', u'ip_addr', u'mask', u'destination', u'next_hop'], name, value)
 
 
         class CoreSize(Entity):
@@ -876,8 +856,7 @@ class Exception(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('string', YLeaf(YType.str, 'string')),
                 ])
@@ -886,7 +865,7 @@ class Exception(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception/enter/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Exception.Enter.CoreSize, ['string'], name, value)
+                self._perform_setattr(Exception.Enter.CoreSize, [u'string'], name, value)
 
 
         class MemoryThreshold(Entity):
@@ -913,8 +892,7 @@ class Exception(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('string', YLeaf(YType.str, 'string')),
                 ])
@@ -923,7 +901,7 @@ class Exception(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception/enter/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Exception.Enter.MemoryThreshold, ['string'], name, value)
+                self._perform_setattr(Exception.Enter.MemoryThreshold, [u'string'], name, value)
 
 
         class ProcSize(Entity):
@@ -950,8 +928,7 @@ class Exception(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('string', YLeaf(YType.str, 'string')),
                 ])
@@ -960,7 +937,7 @@ class Exception(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception/enter/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Exception.Enter.ProcSize, ['string'], name, value)
+                self._perform_setattr(Exception.Enter.ProcSize, [u'string'], name, value)
 
 
         class Qsize(Entity):
@@ -987,8 +964,7 @@ class Exception(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('string', YLeaf(YType.str, 'string')),
                 ])
@@ -997,7 +973,7 @@ class Exception(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception/enter/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Exception.Enter.Qsize, ['string'], name, value)
+                self._perform_setattr(Exception.Enter.Qsize, [u'string'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Exception()

@@ -58,44 +58,44 @@ class RFC1213MIB(Entity):
     .. attribute:: iftable
     
     	A list of interface entries.  The number of entries is given by the value of ifNumber
-    	**type**\:  :py:class:`Iftable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Iftable>`
+    	**type**\:  :py:class:`IfTable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.IfTable>`
     
     .. attribute:: attable
     
     	The Address Translation tables contain the NetworkAddress to `physical' address equivalences. Some interfaces do not use translation tables for determining address equivalences (e.g., DDN\-X.25 has an algorithmic method); if all interfaces are of this type, then the Address Translation table is empty, i.e., has zero entries
-    	**type**\:  :py:class:`Attable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Attable>`
+    	**type**\:  :py:class:`AtTable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.AtTable>`
     
     	**status**\: obsolete
     
     .. attribute:: ipaddrtable
     
     	The table of addressing information relevant to this entity's IP addresses
-    	**type**\:  :py:class:`Ipaddrtable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Ipaddrtable>`
+    	**type**\:  :py:class:`IpAddrTable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.IpAddrTable>`
     
     .. attribute:: iproutetable
     
     	This entity's IP Routing table
-    	**type**\:  :py:class:`Iproutetable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Iproutetable>`
+    	**type**\:  :py:class:`IpRouteTable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.IpRouteTable>`
     
     .. attribute:: ipnettomediatable
     
     	The IP Address Translation table used for mapping from IP addresses to physical addresses
-    	**type**\:  :py:class:`Ipnettomediatable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Ipnettomediatable>`
+    	**type**\:  :py:class:`IpNetToMediaTable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.IpNetToMediaTable>`
     
     .. attribute:: tcpconntable
     
     	A table containing TCP connection\-specific information
-    	**type**\:  :py:class:`Tcpconntable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Tcpconntable>`
+    	**type**\:  :py:class:`TcpConnTable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.TcpConnTable>`
     
     .. attribute:: udptable
     
     	A table containing UDP listener information
-    	**type**\:  :py:class:`Udptable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Udptable>`
+    	**type**\:  :py:class:`UdpTable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.UdpTable>`
     
     .. attribute:: egpneightable
     
     	The EGP neighbor table
-    	**type**\:  :py:class:`Egpneightable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Egpneightable>`
+    	**type**\:  :py:class:`EgpNeighTable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.EgpNeighTable>`
     
     
 
@@ -112,90 +112,76 @@ class RFC1213MIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("system", ("system", RFC1213MIB.System)), ("interfaces", ("interfaces", RFC1213MIB.Interfaces)), ("ip", ("ip", RFC1213MIB.Ip)), ("icmp", ("icmp", RFC1213MIB.Icmp)), ("tcp", ("tcp", RFC1213MIB.Tcp)), ("udp", ("udp", RFC1213MIB.Udp)), ("egp", ("egp", RFC1213MIB.Egp)), ("snmp", ("snmp", RFC1213MIB.Snmp)), ("ifTable", ("iftable", RFC1213MIB.Iftable)), ("atTable", ("attable", RFC1213MIB.Attable)), ("ipAddrTable", ("ipaddrtable", RFC1213MIB.Ipaddrtable)), ("ipRouteTable", ("iproutetable", RFC1213MIB.Iproutetable)), ("ipNetToMediaTable", ("ipnettomediatable", RFC1213MIB.Ipnettomediatable)), ("tcpConnTable", ("tcpconntable", RFC1213MIB.Tcpconntable)), ("udpTable", ("udptable", RFC1213MIB.Udptable)), ("egpNeighTable", ("egpneightable", RFC1213MIB.Egpneightable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("system", ("system", RFC1213MIB.System)), ("interfaces", ("interfaces", RFC1213MIB.Interfaces)), ("ip", ("ip", RFC1213MIB.Ip)), ("icmp", ("icmp", RFC1213MIB.Icmp)), ("tcp", ("tcp", RFC1213MIB.Tcp)), ("udp", ("udp", RFC1213MIB.Udp)), ("egp", ("egp", RFC1213MIB.Egp)), ("snmp", ("snmp", RFC1213MIB.Snmp)), ("ifTable", ("iftable", RFC1213MIB.IfTable)), ("atTable", ("attable", RFC1213MIB.AtTable)), ("ipAddrTable", ("ipaddrtable", RFC1213MIB.IpAddrTable)), ("ipRouteTable", ("iproutetable", RFC1213MIB.IpRouteTable)), ("ipNetToMediaTable", ("ipnettomediatable", RFC1213MIB.IpNetToMediaTable)), ("tcpConnTable", ("tcpconntable", RFC1213MIB.TcpConnTable)), ("udpTable", ("udptable", RFC1213MIB.UdpTable)), ("egpNeighTable", ("egpneightable", RFC1213MIB.EgpNeighTable))])
         self._leafs = OrderedDict()
 
         self.system = RFC1213MIB.System()
         self.system.parent = self
         self._children_name_map["system"] = "system"
-        self._children_yang_names.add("system")
 
         self.interfaces = RFC1213MIB.Interfaces()
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
-        self._children_yang_names.add("interfaces")
 
         self.ip = RFC1213MIB.Ip()
         self.ip.parent = self
         self._children_name_map["ip"] = "ip"
-        self._children_yang_names.add("ip")
 
         self.icmp = RFC1213MIB.Icmp()
         self.icmp.parent = self
         self._children_name_map["icmp"] = "icmp"
-        self._children_yang_names.add("icmp")
 
         self.tcp = RFC1213MIB.Tcp()
         self.tcp.parent = self
         self._children_name_map["tcp"] = "tcp"
-        self._children_yang_names.add("tcp")
 
         self.udp = RFC1213MIB.Udp()
         self.udp.parent = self
         self._children_name_map["udp"] = "udp"
-        self._children_yang_names.add("udp")
 
         self.egp = RFC1213MIB.Egp()
         self.egp.parent = self
         self._children_name_map["egp"] = "egp"
-        self._children_yang_names.add("egp")
 
         self.snmp = RFC1213MIB.Snmp()
         self.snmp.parent = self
         self._children_name_map["snmp"] = "snmp"
-        self._children_yang_names.add("snmp")
 
-        self.iftable = RFC1213MIB.Iftable()
+        self.iftable = RFC1213MIB.IfTable()
         self.iftable.parent = self
         self._children_name_map["iftable"] = "ifTable"
-        self._children_yang_names.add("ifTable")
 
-        self.attable = RFC1213MIB.Attable()
+        self.attable = RFC1213MIB.AtTable()
         self.attable.parent = self
         self._children_name_map["attable"] = "atTable"
-        self._children_yang_names.add("atTable")
 
-        self.ipaddrtable = RFC1213MIB.Ipaddrtable()
+        self.ipaddrtable = RFC1213MIB.IpAddrTable()
         self.ipaddrtable.parent = self
         self._children_name_map["ipaddrtable"] = "ipAddrTable"
-        self._children_yang_names.add("ipAddrTable")
 
-        self.iproutetable = RFC1213MIB.Iproutetable()
+        self.iproutetable = RFC1213MIB.IpRouteTable()
         self.iproutetable.parent = self
         self._children_name_map["iproutetable"] = "ipRouteTable"
-        self._children_yang_names.add("ipRouteTable")
 
-        self.ipnettomediatable = RFC1213MIB.Ipnettomediatable()
+        self.ipnettomediatable = RFC1213MIB.IpNetToMediaTable()
         self.ipnettomediatable.parent = self
         self._children_name_map["ipnettomediatable"] = "ipNetToMediaTable"
-        self._children_yang_names.add("ipNetToMediaTable")
 
-        self.tcpconntable = RFC1213MIB.Tcpconntable()
+        self.tcpconntable = RFC1213MIB.TcpConnTable()
         self.tcpconntable.parent = self
         self._children_name_map["tcpconntable"] = "tcpConnTable"
-        self._children_yang_names.add("tcpConnTable")
 
-        self.udptable = RFC1213MIB.Udptable()
+        self.udptable = RFC1213MIB.UdpTable()
         self.udptable.parent = self
         self._children_name_map["udptable"] = "udpTable"
-        self._children_yang_names.add("udpTable")
 
-        self.egpneightable = RFC1213MIB.Egpneightable()
+        self.egpneightable = RFC1213MIB.EgpNeighTable()
         self.egpneightable.parent = self
         self._children_name_map["egpneightable"] = "egpNeighTable"
-        self._children_yang_names.add("egpNeighTable")
         self._segment_path = lambda: "RFC1213-MIB:RFC1213-MIB"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(RFC1213MIB, [], name, value)
 
 
     class System(Entity):
@@ -265,8 +251,7 @@ class RFC1213MIB(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('sysdescr', YLeaf(YType.str, 'sysDescr')),
                 ('sysobjectid', YLeaf(YType.str, 'sysObjectID')),
@@ -287,7 +272,7 @@ class RFC1213MIB(Entity):
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1213MIB.System, ['sysdescr', 'sysobjectid', 'sysuptime', 'syscontact', 'sysname', 'syslocation', 'sysservices'], name, value)
+            self._perform_setattr(RFC1213MIB.System, [u'sysdescr', u'sysobjectid', u'sysuptime', u'syscontact', u'sysname', u'syslocation', u'sysservices'], name, value)
 
 
     class Interfaces(Entity):
@@ -315,8 +300,7 @@ class RFC1213MIB(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ifnumber', YLeaf(YType.int32, 'ifNumber')),
             ])
@@ -325,7 +309,7 @@ class RFC1213MIB(Entity):
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1213MIB.Interfaces, ['ifnumber'], name, value)
+            self._perform_setattr(RFC1213MIB.Interfaces, [u'ifnumber'], name, value)
 
 
     class Ip(Entity):
@@ -335,7 +319,7 @@ class RFC1213MIB(Entity):
         .. attribute:: ipforwarding
         
         	The indication of whether this entity is acting as an IP gateway in respect to the forwarding of datagrams received by, but not addressed to, this entity.  IP gateways forward datagrams.  IP hosts do not (except those source\-routed via the host).  Note that for some managed nodes, this object may take on only a subset of the values possible. Accordingly, it is appropriate for an agent to return a `badValue' response if a management station attempts to change this object to an inappropriate value
-        	**type**\:  :py:class:`Ipforwarding <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Ip.Ipforwarding>`
+        	**type**\:  :py:class:`IpForwarding <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Ip.IpForwarding>`
         
         .. attribute:: ipdefaultttl
         
@@ -484,8 +468,7 @@ class RFC1213MIB(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ipforwarding', YLeaf(YType.enumeration, 'ipForwarding')),
                 ('ipdefaultttl', YLeaf(YType.int32, 'ipDefaultTTL')),
@@ -532,11 +515,11 @@ class RFC1213MIB(Entity):
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1213MIB.Ip, ['ipforwarding', 'ipdefaultttl', 'ipinreceives', 'ipinhdrerrors', 'ipinaddrerrors', 'ipforwdatagrams', 'ipinunknownprotos', 'ipindiscards', 'ipindelivers', 'ipoutrequests', 'ipoutdiscards', 'ipoutnoroutes', 'ipreasmtimeout', 'ipreasmreqds', 'ipreasmoks', 'ipreasmfails', 'ipfragoks', 'ipfragfails', 'ipfragcreates', 'iproutingdiscards'], name, value)
+            self._perform_setattr(RFC1213MIB.Ip, [u'ipforwarding', u'ipdefaultttl', u'ipinreceives', u'ipinhdrerrors', u'ipinaddrerrors', u'ipforwdatagrams', u'ipinunknownprotos', u'ipindiscards', u'ipindelivers', u'ipoutrequests', u'ipoutdiscards', u'ipoutnoroutes', u'ipreasmtimeout', u'ipreasmreqds', u'ipreasmoks', u'ipreasmfails', u'ipfragoks', u'ipfragfails', u'ipfragcreates', u'iproutingdiscards'], name, value)
 
-        class Ipforwarding(Enum):
+        class IpForwarding(Enum):
             """
-            Ipforwarding (Enum Class)
+            IpForwarding (Enum Class)
 
             The indication of whether this entity is acting
 
@@ -772,8 +755,7 @@ class RFC1213MIB(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('icmpinmsgs', YLeaf(YType.uint32, 'icmpInMsgs')),
                 ('icmpinerrors', YLeaf(YType.uint32, 'icmpInErrors')),
@@ -832,7 +814,7 @@ class RFC1213MIB(Entity):
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1213MIB.Icmp, ['icmpinmsgs', 'icmpinerrors', 'icmpindestunreachs', 'icmpintimeexcds', 'icmpinparmprobs', 'icmpinsrcquenchs', 'icmpinredirects', 'icmpinechos', 'icmpinechoreps', 'icmpintimestamps', 'icmpintimestampreps', 'icmpinaddrmasks', 'icmpinaddrmaskreps', 'icmpoutmsgs', 'icmpouterrors', 'icmpoutdestunreachs', 'icmpouttimeexcds', 'icmpoutparmprobs', 'icmpoutsrcquenchs', 'icmpoutredirects', 'icmpoutechos', 'icmpoutechoreps', 'icmpouttimestamps', 'icmpouttimestampreps', 'icmpoutaddrmasks', 'icmpoutaddrmaskreps'], name, value)
+            self._perform_setattr(RFC1213MIB.Icmp, [u'icmpinmsgs', u'icmpinerrors', u'icmpindestunreachs', u'icmpintimeexcds', u'icmpinparmprobs', u'icmpinsrcquenchs', u'icmpinredirects', u'icmpinechos', u'icmpinechoreps', u'icmpintimestamps', u'icmpintimestampreps', u'icmpinaddrmasks', u'icmpinaddrmaskreps', u'icmpoutmsgs', u'icmpouterrors', u'icmpoutdestunreachs', u'icmpouttimeexcds', u'icmpoutparmprobs', u'icmpoutsrcquenchs', u'icmpoutredirects', u'icmpoutechos', u'icmpoutechoreps', u'icmpouttimestamps', u'icmpouttimestampreps', u'icmpoutaddrmasks', u'icmpoutaddrmaskreps'], name, value)
 
 
     class Tcp(Entity):
@@ -842,7 +824,7 @@ class RFC1213MIB(Entity):
         .. attribute:: tcprtoalgorithm
         
         	The algorithm used to determine the timeout value used for retransmitting unacknowledged octets
-        	**type**\:  :py:class:`Tcprtoalgorithm <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Tcp.Tcprtoalgorithm>`
+        	**type**\:  :py:class:`TcpRtoAlgorithm <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Tcp.TcpRtoAlgorithm>`
         
         .. attribute:: tcprtomin
         
@@ -949,8 +931,7 @@ class RFC1213MIB(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('tcprtoalgorithm', YLeaf(YType.enumeration, 'tcpRtoAlgorithm')),
                 ('tcprtomin', YLeaf(YType.int32, 'tcpRtoMin')),
@@ -985,11 +966,11 @@ class RFC1213MIB(Entity):
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1213MIB.Tcp, ['tcprtoalgorithm', 'tcprtomin', 'tcprtomax', 'tcpmaxconn', 'tcpactiveopens', 'tcppassiveopens', 'tcpattemptfails', 'tcpestabresets', 'tcpcurrestab', 'tcpinsegs', 'tcpoutsegs', 'tcpretranssegs', 'tcpinerrs', 'tcpoutrsts'], name, value)
+            self._perform_setattr(RFC1213MIB.Tcp, [u'tcprtoalgorithm', u'tcprtomin', u'tcprtomax', u'tcpmaxconn', u'tcpactiveopens', u'tcppassiveopens', u'tcpattemptfails', u'tcpestabresets', u'tcpcurrestab', u'tcpinsegs', u'tcpoutsegs', u'tcpretranssegs', u'tcpinerrs', u'tcpoutrsts'], name, value)
 
-        class Tcprtoalgorithm(Enum):
+        class TcpRtoAlgorithm(Enum):
             """
-            Tcprtoalgorithm (Enum Class)
+            TcpRtoAlgorithm (Enum Class)
 
             The algorithm used to determine the timeout value
 
@@ -1065,8 +1046,7 @@ class RFC1213MIB(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('udpindatagrams', YLeaf(YType.uint32, 'udpInDatagrams')),
                 ('udpnoports', YLeaf(YType.uint32, 'udpNoPorts')),
@@ -1081,7 +1061,7 @@ class RFC1213MIB(Entity):
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1213MIB.Udp, ['udpindatagrams', 'udpnoports', 'udpinerrors', 'udpoutdatagrams'], name, value)
+            self._perform_setattr(RFC1213MIB.Udp, [u'udpindatagrams', u'udpnoports', u'udpinerrors', u'udpoutdatagrams'], name, value)
 
 
     class Egp(Entity):
@@ -1137,8 +1117,7 @@ class RFC1213MIB(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('egpinmsgs', YLeaf(YType.uint32, 'egpInMsgs')),
                 ('egpinerrors', YLeaf(YType.uint32, 'egpInErrors')),
@@ -1155,7 +1134,7 @@ class RFC1213MIB(Entity):
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1213MIB.Egp, ['egpinmsgs', 'egpinerrors', 'egpoutmsgs', 'egpouterrors', 'egpas'], name, value)
+            self._perform_setattr(RFC1213MIB.Egp, [u'egpinmsgs', u'egpinerrors', u'egpoutmsgs', u'egpouterrors', u'egpas'], name, value)
 
 
     class Snmp(Entity):
@@ -1354,7 +1333,7 @@ class RFC1213MIB(Entity):
         .. attribute:: snmpenableauthentraps
         
         	Indicates whether the SNMP agent process is permitted to generate authentication\-failure traps.  The value of this object overrides any configuration information; as such, it provides a means whereby all authentication\-failure traps may be disabled.  Note that it is strongly recommended that this object be stored in non\-volatile memory so that it remains constant between re\-initializations of the network management system
-        	**type**\:  :py:class:`Snmpenableauthentraps <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Snmp.Snmpenableauthentraps>`
+        	**type**\:  :py:class:`SnmpEnableAuthenTraps <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Snmp.SnmpEnableAuthenTraps>`
         
         
 
@@ -1370,8 +1349,7 @@ class RFC1213MIB(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('snmpinpkts', YLeaf(YType.uint32, 'snmpInPkts')),
                 ('snmpoutpkts', YLeaf(YType.uint32, 'snmpOutPkts')),
@@ -1434,11 +1412,11 @@ class RFC1213MIB(Entity):
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1213MIB.Snmp, ['snmpinpkts', 'snmpoutpkts', 'snmpinbadversions', 'snmpinbadcommunitynames', 'snmpinbadcommunityuses', 'snmpinasnparseerrs', 'snmpintoobigs', 'snmpinnosuchnames', 'snmpinbadvalues', 'snmpinreadonlys', 'snmpingenerrs', 'snmpintotalreqvars', 'snmpintotalsetvars', 'snmpingetrequests', 'snmpingetnexts', 'snmpinsetrequests', 'snmpingetresponses', 'snmpintraps', 'snmpouttoobigs', 'snmpoutnosuchnames', 'snmpoutbadvalues', 'snmpoutgenerrs', 'snmpoutgetrequests', 'snmpoutgetnexts', 'snmpoutsetrequests', 'snmpoutgetresponses', 'snmpouttraps', 'snmpenableauthentraps'], name, value)
+            self._perform_setattr(RFC1213MIB.Snmp, [u'snmpinpkts', u'snmpoutpkts', u'snmpinbadversions', u'snmpinbadcommunitynames', u'snmpinbadcommunityuses', u'snmpinasnparseerrs', u'snmpintoobigs', u'snmpinnosuchnames', u'snmpinbadvalues', u'snmpinreadonlys', u'snmpingenerrs', u'snmpintotalreqvars', u'snmpintotalsetvars', u'snmpingetrequests', u'snmpingetnexts', u'snmpinsetrequests', u'snmpingetresponses', u'snmpintraps', u'snmpouttoobigs', u'snmpoutnosuchnames', u'snmpoutbadvalues', u'snmpoutgenerrs', u'snmpoutgetrequests', u'snmpoutgetnexts', u'snmpoutsetrequests', u'snmpoutgetresponses', u'snmpouttraps', u'snmpenableauthentraps'], name, value)
 
-        class Snmpenableauthentraps(Enum):
+        class SnmpEnableAuthenTraps(Enum):
             """
-            Snmpenableauthentraps (Enum Class)
+            SnmpEnableAuthenTraps (Enum Class)
 
             Indicates whether the SNMP agent process is
 
@@ -1472,7 +1450,7 @@ class RFC1213MIB(Entity):
 
 
 
-    class Iftable(Entity):
+    class IfTable(Entity):
         """
         A list of interface entries.  The number of
         entries is given by the value of ifNumber.
@@ -1480,7 +1458,7 @@ class RFC1213MIB(Entity):
         .. attribute:: ifentry
         
         	An interface entry containing objects at the subnetwork layer and below for a particular interface
-        	**type**\: list of  		 :py:class:`Ifentry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Iftable.Ifentry>`
+        	**type**\: list of  		 :py:class:`IfEntry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.IfTable.IfEntry>`
         
         
 
@@ -1489,15 +1467,14 @@ class RFC1213MIB(Entity):
         _prefix = 'RFC1213-MIB'
 
         def __init__(self):
-            super(RFC1213MIB.Iftable, self).__init__()
+            super(RFC1213MIB.IfTable, self).__init__()
 
             self.yang_name = "ifTable"
             self.yang_parent_name = "RFC1213-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ifEntry", ("ifentry", RFC1213MIB.Iftable.Ifentry))])
+            self._child_classes = OrderedDict([("ifEntry", ("ifentry", RFC1213MIB.IfTable.IfEntry))])
             self._leafs = OrderedDict()
 
             self.ifentry = YList(self)
@@ -1505,10 +1482,10 @@ class RFC1213MIB(Entity):
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1213MIB.Iftable, [], name, value)
+            self._perform_setattr(RFC1213MIB.IfTable, [], name, value)
 
 
-        class Ifentry(Entity):
+        class IfEntry(Entity):
             """
             An interface entry containing objects at the
             subnetwork layer and below for a particular
@@ -1555,12 +1532,12 @@ class RFC1213MIB(Entity):
             .. attribute:: ifadminstatus
             
             	The desired state of the interface.  The testing(3) state indicates that no operational packets can be passed
-            	**type**\:  :py:class:`Ifadminstatus <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Iftable.Ifentry.Ifadminstatus>`
+            	**type**\:  :py:class:`IfAdminStatus <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.IfTable.IfEntry.IfAdminStatus>`
             
             .. attribute:: ifoperstatus
             
             	The current operational state of the interface. The testing(3) state indicates that no operational packets can be passed
-            	**type**\:  :py:class:`Ifoperstatus <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Iftable.Ifentry.Ifoperstatus>`
+            	**type**\:  :py:class:`IfOperStatus <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.IfTable.IfEntry.IfOperStatus>`
             
             .. attribute:: iflastchange
             
@@ -1667,15 +1644,14 @@ class RFC1213MIB(Entity):
             _prefix = 'RFC1213-MIB'
 
             def __init__(self):
-                super(RFC1213MIB.Iftable.Ifentry, self).__init__()
+                super(RFC1213MIB.IfTable.IfEntry, self).__init__()
 
                 self.yang_name = "ifEntry"
                 self.yang_parent_name = "ifTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.int32, 'ifIndex')),
                     ('ifdescr', YLeaf(YType.str, 'ifDescr')),
@@ -1726,11 +1702,11 @@ class RFC1213MIB(Entity):
                 self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/ifTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RFC1213MIB.Iftable.Ifentry, ['ifindex', 'ifdescr', 'iftype', 'ifmtu', 'ifspeed', 'ifphysaddress', 'ifadminstatus', 'ifoperstatus', 'iflastchange', 'ifinoctets', 'ifinucastpkts', 'ifinnucastpkts', 'ifindiscards', 'ifinerrors', 'ifinunknownprotos', 'ifoutoctets', 'ifoutucastpkts', 'ifoutnucastpkts', 'ifoutdiscards', 'ifouterrors', 'ifoutqlen', 'ifspecific'], name, value)
+                self._perform_setattr(RFC1213MIB.IfTable.IfEntry, [u'ifindex', u'ifdescr', u'iftype', u'ifmtu', u'ifspeed', u'ifphysaddress', u'ifadminstatus', u'ifoperstatus', u'iflastchange', u'ifinoctets', u'ifinucastpkts', u'ifinnucastpkts', u'ifindiscards', u'ifinerrors', u'ifinunknownprotos', u'ifoutoctets', u'ifoutucastpkts', u'ifoutnucastpkts', u'ifoutdiscards', u'ifouterrors', u'ifoutqlen', u'ifspecific'], name, value)
 
-            class Ifadminstatus(Enum):
+            class IfAdminStatus(Enum):
                 """
-                Ifadminstatus (Enum Class)
+                IfAdminStatus (Enum Class)
 
                 The desired state of the interface.  The
 
@@ -1753,9 +1729,9 @@ class RFC1213MIB(Entity):
                 testing = Enum.YLeaf(3, "testing")
 
 
-            class Ifoperstatus(Enum):
+            class IfOperStatus(Enum):
                 """
-                Ifoperstatus (Enum Class)
+                IfOperStatus (Enum Class)
 
                 The current operational state of the interface.
 
@@ -1787,7 +1763,7 @@ class RFC1213MIB(Entity):
 
 
 
-    class Attable(Entity):
+    class AtTable(Entity):
         """
         The Address Translation tables contain the
         NetworkAddress to `physical' address equivalences.
@@ -1800,7 +1776,7 @@ class RFC1213MIB(Entity):
         .. attribute:: atentry
         
         	Each entry contains one NetworkAddress to `physical' address equivalence
-        	**type**\: list of  		 :py:class:`Atentry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Attable.Atentry>`
+        	**type**\: list of  		 :py:class:`AtEntry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.AtTable.AtEntry>`
         
         	**status**\: obsolete
         
@@ -1811,15 +1787,14 @@ class RFC1213MIB(Entity):
         _prefix = 'RFC1213-MIB'
 
         def __init__(self):
-            super(RFC1213MIB.Attable, self).__init__()
+            super(RFC1213MIB.AtTable, self).__init__()
 
             self.yang_name = "atTable"
             self.yang_parent_name = "RFC1213-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("atEntry", ("atentry", RFC1213MIB.Attable.Atentry))])
+            self._child_classes = OrderedDict([("atEntry", ("atentry", RFC1213MIB.AtTable.AtEntry))])
             self._leafs = OrderedDict()
 
             self.atentry = YList(self)
@@ -1827,10 +1802,10 @@ class RFC1213MIB(Entity):
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1213MIB.Attable, [], name, value)
+            self._perform_setattr(RFC1213MIB.AtTable, [], name, value)
 
 
-        class Atentry(Entity):
+        class AtEntry(Entity):
             """
             Each entry contains one NetworkAddress to
             `physical' address equivalence.
@@ -1876,15 +1851,14 @@ class RFC1213MIB(Entity):
             _prefix = 'RFC1213-MIB'
 
             def __init__(self):
-                super(RFC1213MIB.Attable.Atentry, self).__init__()
+                super(RFC1213MIB.AtTable.AtEntry, self).__init__()
 
                 self.yang_name = "atEntry"
                 self.yang_parent_name = "atTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['atifindex','atifindex_2','atnetaddress']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('atifindex', YLeaf(YType.int32, 'atIfIndex')),
                     ('atifindex_2', YLeaf(YType.int32, 'atIfIndex_2')),
@@ -1899,10 +1873,10 @@ class RFC1213MIB(Entity):
                 self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/atTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RFC1213MIB.Attable.Atentry, ['atifindex', 'atifindex_2', 'atnetaddress', 'atphysaddress'], name, value)
+                self._perform_setattr(RFC1213MIB.AtTable.AtEntry, [u'atifindex', u'atifindex_2', u'atnetaddress', u'atphysaddress'], name, value)
 
 
-    class Ipaddrtable(Entity):
+    class IpAddrTable(Entity):
         """
         The table of addressing information relevant to
         this entity's IP addresses.
@@ -1910,7 +1884,7 @@ class RFC1213MIB(Entity):
         .. attribute:: ipaddrentry
         
         	The addressing information for one of this entity's IP addresses
-        	**type**\: list of  		 :py:class:`Ipaddrentry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Ipaddrtable.Ipaddrentry>`
+        	**type**\: list of  		 :py:class:`IpAddrEntry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.IpAddrTable.IpAddrEntry>`
         
         
 
@@ -1919,15 +1893,14 @@ class RFC1213MIB(Entity):
         _prefix = 'RFC1213-MIB'
 
         def __init__(self):
-            super(RFC1213MIB.Ipaddrtable, self).__init__()
+            super(RFC1213MIB.IpAddrTable, self).__init__()
 
             self.yang_name = "ipAddrTable"
             self.yang_parent_name = "RFC1213-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ipAddrEntry", ("ipaddrentry", RFC1213MIB.Ipaddrtable.Ipaddrentry))])
+            self._child_classes = OrderedDict([("ipAddrEntry", ("ipaddrentry", RFC1213MIB.IpAddrTable.IpAddrEntry))])
             self._leafs = OrderedDict()
 
             self.ipaddrentry = YList(self)
@@ -1935,10 +1908,10 @@ class RFC1213MIB(Entity):
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1213MIB.Ipaddrtable, [], name, value)
+            self._perform_setattr(RFC1213MIB.IpAddrTable, [], name, value)
 
 
-        class Ipaddrentry(Entity):
+        class IpAddrEntry(Entity):
             """
             The addressing information for one of this
             entity's IP addresses.
@@ -1985,15 +1958,14 @@ class RFC1213MIB(Entity):
             _prefix = 'RFC1213-MIB'
 
             def __init__(self):
-                super(RFC1213MIB.Ipaddrtable.Ipaddrentry, self).__init__()
+                super(RFC1213MIB.IpAddrTable.IpAddrEntry, self).__init__()
 
                 self.yang_name = "ipAddrEntry"
                 self.yang_parent_name = "ipAddrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ipadentaddr']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ipadentaddr', YLeaf(YType.str, 'ipAdEntAddr')),
                     ('ipadentifindex', YLeaf(YType.int32, 'ipAdEntIfIndex')),
@@ -2010,17 +1982,17 @@ class RFC1213MIB(Entity):
                 self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/ipAddrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RFC1213MIB.Ipaddrtable.Ipaddrentry, ['ipadentaddr', 'ipadentifindex', 'ipadentnetmask', 'ipadentbcastaddr', 'ipadentreasmmaxsize'], name, value)
+                self._perform_setattr(RFC1213MIB.IpAddrTable.IpAddrEntry, [u'ipadentaddr', u'ipadentifindex', u'ipadentnetmask', u'ipadentbcastaddr', u'ipadentreasmmaxsize'], name, value)
 
 
-    class Iproutetable(Entity):
+    class IpRouteTable(Entity):
         """
         This entity's IP Routing table.
         
         .. attribute:: iprouteentry
         
         	A route to a particular destination
-        	**type**\: list of  		 :py:class:`Iprouteentry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Iproutetable.Iprouteentry>`
+        	**type**\: list of  		 :py:class:`IpRouteEntry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.IpRouteTable.IpRouteEntry>`
         
         
 
@@ -2029,15 +2001,14 @@ class RFC1213MIB(Entity):
         _prefix = 'RFC1213-MIB'
 
         def __init__(self):
-            super(RFC1213MIB.Iproutetable, self).__init__()
+            super(RFC1213MIB.IpRouteTable, self).__init__()
 
             self.yang_name = "ipRouteTable"
             self.yang_parent_name = "RFC1213-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ipRouteEntry", ("iprouteentry", RFC1213MIB.Iproutetable.Iprouteentry))])
+            self._child_classes = OrderedDict([("ipRouteEntry", ("iprouteentry", RFC1213MIB.IpRouteTable.IpRouteEntry))])
             self._leafs = OrderedDict()
 
             self.iprouteentry = YList(self)
@@ -2045,10 +2016,10 @@ class RFC1213MIB(Entity):
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1213MIB.Iproutetable, [], name, value)
+            self._perform_setattr(RFC1213MIB.IpRouteTable, [], name, value)
 
 
-        class Iprouteentry(Entity):
+        class IpRouteEntry(Entity):
             """
             A route to a particular destination.
             
@@ -2104,12 +2075,12 @@ class RFC1213MIB(Entity):
             .. attribute:: iproutetype
             
             	The type of route.  Note that the values direct(3) and indirect(4) refer to the notion of direct and indirect routing in the IP architecture.  Setting this object to the value invalid(2) has the effect of invalidating the corresponding entry in the ipRouteTable object.  That is, it effectively disassociates the destination identified with said entry from the route identified with said entry.  It is an implementation\-specific matter as to whether the agent removes an invalidated entry from the table. Accordingly, management stations must be prepared to receive tabular information from agents that corresponds to entries not currently in use. Proper interpretation of such entries requires examination of the relevant ipRouteType object
-            	**type**\:  :py:class:`Iproutetype <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Iproutetable.Iprouteentry.Iproutetype>`
+            	**type**\:  :py:class:`IpRouteType <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.IpRouteTable.IpRouteEntry.IpRouteType>`
             
             .. attribute:: iprouteproto
             
             	The routing mechanism via which this route was learned.  Inclusion of values for gateway routing protocols is not intended to imply that hosts should support those protocols
-            	**type**\:  :py:class:`Iprouteproto <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Iproutetable.Iprouteentry.Iprouteproto>`
+            	**type**\:  :py:class:`IpRouteProto <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.IpRouteTable.IpRouteEntry.IpRouteProto>`
             
             .. attribute:: iprouteage
             
@@ -2146,15 +2117,14 @@ class RFC1213MIB(Entity):
             _prefix = 'RFC1213-MIB'
 
             def __init__(self):
-                super(RFC1213MIB.Iproutetable.Iprouteentry, self).__init__()
+                super(RFC1213MIB.IpRouteTable.IpRouteEntry, self).__init__()
 
                 self.yang_name = "ipRouteEntry"
                 self.yang_parent_name = "ipRouteTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['iproutedest']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('iproutedest', YLeaf(YType.str, 'ipRouteDest')),
                     ('iprouteifindex', YLeaf(YType.int32, 'ipRouteIfIndex')),
@@ -2187,11 +2157,11 @@ class RFC1213MIB(Entity):
                 self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/ipRouteTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RFC1213MIB.Iproutetable.Iprouteentry, ['iproutedest', 'iprouteifindex', 'iproutemetric1', 'iproutemetric2', 'iproutemetric3', 'iproutemetric4', 'iproutenexthop', 'iproutetype', 'iprouteproto', 'iprouteage', 'iproutemask', 'iproutemetric5', 'iprouteinfo'], name, value)
+                self._perform_setattr(RFC1213MIB.IpRouteTable.IpRouteEntry, [u'iproutedest', u'iprouteifindex', u'iproutemetric1', u'iproutemetric2', u'iproutemetric3', u'iproutemetric4', u'iproutenexthop', u'iproutetype', u'iprouteproto', u'iprouteage', u'iproutemask', u'iproutemetric5', u'iprouteinfo'], name, value)
 
-            class Iprouteproto(Enum):
+            class IpRouteProto(Enum):
                 """
-                Iprouteproto (Enum Class)
+                IpRouteProto (Enum Class)
 
                 The routing mechanism via which this route was
 
@@ -2260,9 +2230,9 @@ class RFC1213MIB(Entity):
                 bgp = Enum.YLeaf(14, "bgp")
 
 
-            class Iproutetype(Enum):
+            class IpRouteType(Enum):
                 """
-                Iproutetype (Enum Class)
+                IpRouteType (Enum Class)
 
                 The type of route.  Note that the values
 
@@ -2318,7 +2288,7 @@ class RFC1213MIB(Entity):
 
 
 
-    class Ipnettomediatable(Entity):
+    class IpNetToMediaTable(Entity):
         """
         The IP Address Translation table used for mapping
         from IP addresses to physical addresses.
@@ -2326,7 +2296,7 @@ class RFC1213MIB(Entity):
         .. attribute:: ipnettomediaentry
         
         	Each entry contains one IpAddress to `physical' address equivalence
-        	**type**\: list of  		 :py:class:`Ipnettomediaentry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Ipnettomediatable.Ipnettomediaentry>`
+        	**type**\: list of  		 :py:class:`IpNetToMediaEntry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.IpNetToMediaTable.IpNetToMediaEntry>`
         
         
 
@@ -2335,15 +2305,14 @@ class RFC1213MIB(Entity):
         _prefix = 'RFC1213-MIB'
 
         def __init__(self):
-            super(RFC1213MIB.Ipnettomediatable, self).__init__()
+            super(RFC1213MIB.IpNetToMediaTable, self).__init__()
 
             self.yang_name = "ipNetToMediaTable"
             self.yang_parent_name = "RFC1213-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ipNetToMediaEntry", ("ipnettomediaentry", RFC1213MIB.Ipnettomediatable.Ipnettomediaentry))])
+            self._child_classes = OrderedDict([("ipNetToMediaEntry", ("ipnettomediaentry", RFC1213MIB.IpNetToMediaTable.IpNetToMediaEntry))])
             self._leafs = OrderedDict()
 
             self.ipnettomediaentry = YList(self)
@@ -2351,10 +2320,10 @@ class RFC1213MIB(Entity):
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1213MIB.Ipnettomediatable, [], name, value)
+            self._perform_setattr(RFC1213MIB.IpNetToMediaTable, [], name, value)
 
 
-        class Ipnettomediaentry(Entity):
+        class IpNetToMediaEntry(Entity):
             """
             Each entry contains one IpAddress to `physical'
             address equivalence.
@@ -2381,7 +2350,7 @@ class RFC1213MIB(Entity):
             .. attribute:: ipnettomediatype
             
             	The type of mapping.  Setting this object to the value invalid(2) has the effect of invalidating the corresponding entry in the ipNetToMediaTable.  That is, it effectively disassociates the interface identified with said entry from the mapping identified with said entry. It is an implementation\-specific matter as to whether the agent removes an invalidated entry from the table.  Accordingly, management stations must be prepared to receive tabular information from agents that corresponds to entries not currently in use.  Proper interpretation of such entries requires examination of the relevant ipNetToMediaType object
-            	**type**\:  :py:class:`Ipnettomediatype <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Ipnettomediatable.Ipnettomediaentry.Ipnettomediatype>`
+            	**type**\:  :py:class:`IpNetToMediaType <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.IpNetToMediaTable.IpNetToMediaEntry.IpNetToMediaType>`
             
             
 
@@ -2390,15 +2359,14 @@ class RFC1213MIB(Entity):
             _prefix = 'RFC1213-MIB'
 
             def __init__(self):
-                super(RFC1213MIB.Ipnettomediatable.Ipnettomediaentry, self).__init__()
+                super(RFC1213MIB.IpNetToMediaTable.IpNetToMediaEntry, self).__init__()
 
                 self.yang_name = "ipNetToMediaEntry"
                 self.yang_parent_name = "ipNetToMediaTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ipnettomediaifindex','ipnettomedianetaddress']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ipnettomediaifindex', YLeaf(YType.int32, 'ipNetToMediaIfIndex')),
                     ('ipnettomedianetaddress', YLeaf(YType.str, 'ipNetToMediaNetAddress')),
@@ -2413,11 +2381,11 @@ class RFC1213MIB(Entity):
                 self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/ipNetToMediaTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RFC1213MIB.Ipnettomediatable.Ipnettomediaentry, ['ipnettomediaifindex', 'ipnettomedianetaddress', 'ipnettomediaphysaddress', 'ipnettomediatype'], name, value)
+                self._perform_setattr(RFC1213MIB.IpNetToMediaTable.IpNetToMediaEntry, [u'ipnettomediaifindex', u'ipnettomedianetaddress', u'ipnettomediaphysaddress', u'ipnettomediatype'], name, value)
 
-            class Ipnettomediatype(Enum):
+            class IpNetToMediaType(Enum):
                 """
-                Ipnettomediatype (Enum Class)
+                IpNetToMediaType (Enum Class)
 
                 The type of mapping.
 
@@ -2467,7 +2435,7 @@ class RFC1213MIB(Entity):
 
 
 
-    class Tcpconntable(Entity):
+    class TcpConnTable(Entity):
         """
         A table containing TCP connection\-specific
         information.
@@ -2475,7 +2443,7 @@ class RFC1213MIB(Entity):
         .. attribute:: tcpconnentry
         
         	Information about a particular current TCP connection.  An object of this type is transient, in that it ceases to exist when (or soon after) the connection makes the transition to the CLOSED state
-        	**type**\: list of  		 :py:class:`Tcpconnentry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Tcpconntable.Tcpconnentry>`
+        	**type**\: list of  		 :py:class:`TcpConnEntry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.TcpConnTable.TcpConnEntry>`
         
         
 
@@ -2484,15 +2452,14 @@ class RFC1213MIB(Entity):
         _prefix = 'RFC1213-MIB'
 
         def __init__(self):
-            super(RFC1213MIB.Tcpconntable, self).__init__()
+            super(RFC1213MIB.TcpConnTable, self).__init__()
 
             self.yang_name = "tcpConnTable"
             self.yang_parent_name = "RFC1213-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("tcpConnEntry", ("tcpconnentry", RFC1213MIB.Tcpconntable.Tcpconnentry))])
+            self._child_classes = OrderedDict([("tcpConnEntry", ("tcpconnentry", RFC1213MIB.TcpConnTable.TcpConnEntry))])
             self._leafs = OrderedDict()
 
             self.tcpconnentry = YList(self)
@@ -2500,10 +2467,10 @@ class RFC1213MIB(Entity):
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1213MIB.Tcpconntable, [], name, value)
+            self._perform_setattr(RFC1213MIB.TcpConnTable, [], name, value)
 
 
-        class Tcpconnentry(Entity):
+        class TcpConnEntry(Entity):
             """
             Information about a particular current TCP
             connection.  An object of this type is transient,
@@ -2542,7 +2509,7 @@ class RFC1213MIB(Entity):
             .. attribute:: tcpconnstate
             
             	The state of this TCP connection.  The only value which may be set by a management station is deleteTCB(12).  Accordingly, it is appropriate for an agent to return a `badValue' response if a management station attempts to set this object to any other value.  If a management station sets this object to the value deleteTCB(12), then this has the effect of deleting the TCB (as defined in RFC 793) of the corresponding connection on the managed node, resulting in immediate termination of the connection.  As an implementation\-specific option, a RST segment may be sent from the managed node to the other TCP endpoint (note however that RST segments are not sent reliably)
-            	**type**\:  :py:class:`Tcpconnstate <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Tcpconntable.Tcpconnentry.Tcpconnstate>`
+            	**type**\:  :py:class:`TcpConnState <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.TcpConnTable.TcpConnEntry.TcpConnState>`
             
             
 
@@ -2551,15 +2518,14 @@ class RFC1213MIB(Entity):
             _prefix = 'RFC1213-MIB'
 
             def __init__(self):
-                super(RFC1213MIB.Tcpconntable.Tcpconnentry, self).__init__()
+                super(RFC1213MIB.TcpConnTable.TcpConnEntry, self).__init__()
 
                 self.yang_name = "tcpConnEntry"
                 self.yang_parent_name = "tcpConnTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['tcpconnlocaladdress','tcpconnlocalport','tcpconnremaddress','tcpconnremport']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('tcpconnlocaladdress', YLeaf(YType.str, 'tcpConnLocalAddress')),
                     ('tcpconnlocalport', YLeaf(YType.int32, 'tcpConnLocalPort')),
@@ -2576,11 +2542,11 @@ class RFC1213MIB(Entity):
                 self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/tcpConnTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RFC1213MIB.Tcpconntable.Tcpconnentry, ['tcpconnlocaladdress', 'tcpconnlocalport', 'tcpconnremaddress', 'tcpconnremport', 'tcpconnstate'], name, value)
+                self._perform_setattr(RFC1213MIB.TcpConnTable.TcpConnEntry, [u'tcpconnlocaladdress', u'tcpconnlocalport', u'tcpconnremaddress', u'tcpconnremport', u'tcpconnstate'], name, value)
 
-            class Tcpconnstate(Enum):
+            class TcpConnState(Enum):
                 """
-                Tcpconnstate (Enum Class)
+                TcpConnState (Enum Class)
 
                 The state of this TCP connection.
 
@@ -2666,14 +2632,14 @@ class RFC1213MIB(Entity):
 
 
 
-    class Udptable(Entity):
+    class UdpTable(Entity):
         """
         A table containing UDP listener information.
         
         .. attribute:: udpentry
         
         	Information about a particular current UDP listener
-        	**type**\: list of  		 :py:class:`Udpentry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Udptable.Udpentry>`
+        	**type**\: list of  		 :py:class:`UdpEntry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.UdpTable.UdpEntry>`
         
         
 
@@ -2682,15 +2648,14 @@ class RFC1213MIB(Entity):
         _prefix = 'RFC1213-MIB'
 
         def __init__(self):
-            super(RFC1213MIB.Udptable, self).__init__()
+            super(RFC1213MIB.UdpTable, self).__init__()
 
             self.yang_name = "udpTable"
             self.yang_parent_name = "RFC1213-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("udpEntry", ("udpentry", RFC1213MIB.Udptable.Udpentry))])
+            self._child_classes = OrderedDict([("udpEntry", ("udpentry", RFC1213MIB.UdpTable.UdpEntry))])
             self._leafs = OrderedDict()
 
             self.udpentry = YList(self)
@@ -2698,10 +2663,10 @@ class RFC1213MIB(Entity):
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1213MIB.Udptable, [], name, value)
+            self._perform_setattr(RFC1213MIB.UdpTable, [], name, value)
 
 
-        class Udpentry(Entity):
+        class UdpEntry(Entity):
             """
             Information about a particular current UDP
             listener.
@@ -2727,15 +2692,14 @@ class RFC1213MIB(Entity):
             _prefix = 'RFC1213-MIB'
 
             def __init__(self):
-                super(RFC1213MIB.Udptable.Udpentry, self).__init__()
+                super(RFC1213MIB.UdpTable.UdpEntry, self).__init__()
 
                 self.yang_name = "udpEntry"
                 self.yang_parent_name = "udpTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['udplocaladdress','udplocalport']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('udplocaladdress', YLeaf(YType.str, 'udpLocalAddress')),
                     ('udplocalport', YLeaf(YType.int32, 'udpLocalPort')),
@@ -2746,17 +2710,17 @@ class RFC1213MIB(Entity):
                 self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/udpTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RFC1213MIB.Udptable.Udpentry, ['udplocaladdress', 'udplocalport'], name, value)
+                self._perform_setattr(RFC1213MIB.UdpTable.UdpEntry, [u'udplocaladdress', u'udplocalport'], name, value)
 
 
-    class Egpneightable(Entity):
+    class EgpNeighTable(Entity):
         """
         The EGP neighbor table.
         
         .. attribute:: egpneighentry
         
         	Information about this entity's relationship with a particular EGP neighbor
-        	**type**\: list of  		 :py:class:`Egpneighentry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Egpneightable.Egpneighentry>`
+        	**type**\: list of  		 :py:class:`EgpNeighEntry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.EgpNeighTable.EgpNeighEntry>`
         
         
 
@@ -2765,15 +2729,14 @@ class RFC1213MIB(Entity):
         _prefix = 'RFC1213-MIB'
 
         def __init__(self):
-            super(RFC1213MIB.Egpneightable, self).__init__()
+            super(RFC1213MIB.EgpNeighTable, self).__init__()
 
             self.yang_name = "egpNeighTable"
             self.yang_parent_name = "RFC1213-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("egpNeighEntry", ("egpneighentry", RFC1213MIB.Egpneightable.Egpneighentry))])
+            self._child_classes = OrderedDict([("egpNeighEntry", ("egpneighentry", RFC1213MIB.EgpNeighTable.EgpNeighEntry))])
             self._leafs = OrderedDict()
 
             self.egpneighentry = YList(self)
@@ -2781,10 +2744,10 @@ class RFC1213MIB(Entity):
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1213MIB.Egpneightable, [], name, value)
+            self._perform_setattr(RFC1213MIB.EgpNeighTable, [], name, value)
 
 
-        class Egpneighentry(Entity):
+        class EgpNeighEntry(Entity):
             """
             Information about this entity's relationship with
             a particular EGP neighbor.
@@ -2799,7 +2762,7 @@ class RFC1213MIB(Entity):
             .. attribute:: egpneighstate
             
             	The EGP state of the local system with respect to this entry's EGP neighbor.  Each EGP state is represented by a value that is one greater than the numerical value associated with said state in RFC 904
-            	**type**\:  :py:class:`Egpneighstate <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Egpneightable.Egpneighentry.Egpneighstate>`
+            	**type**\:  :py:class:`EgpNeighState <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.EgpNeighTable.EgpNeighEntry.EgpNeighState>`
             
             .. attribute:: egpneighas
             
@@ -2881,12 +2844,12 @@ class RFC1213MIB(Entity):
             .. attribute:: egpneighmode
             
             	The polling mode of this EGP entity, either passive or active
-            	**type**\:  :py:class:`Egpneighmode <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Egpneightable.Egpneighentry.Egpneighmode>`
+            	**type**\:  :py:class:`EgpNeighMode <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.EgpNeighTable.EgpNeighEntry.EgpNeighMode>`
             
             .. attribute:: egpneigheventtrigger
             
             	A control variable used to trigger operator\- initiated Start and Stop events.  When read, this variable always returns the most recent value that egpNeighEventTrigger was set to.  If it has not been set since the last initialization of the network management subsystem on the node, it returns a value of `stop'.  When set, this variable causes a Start or Stop event on the specified neighbor, as specified on pages 8\-10 of RFC 904.  Briefly, a Start event causes an Idle peer to begin neighbor acquisition and a non\-Idle peer to reinitiate neighbor acquisition.  A stop event causes a non\-Idle peer to return to the Idle state until a Start event occurs, either via egpNeighEventTrigger or otherwise
-            	**type**\:  :py:class:`Egpneigheventtrigger <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Egpneightable.Egpneighentry.Egpneigheventtrigger>`
+            	**type**\:  :py:class:`EgpNeighEventTrigger <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.EgpNeighTable.EgpNeighEntry.EgpNeighEventTrigger>`
             
             
 
@@ -2895,15 +2858,14 @@ class RFC1213MIB(Entity):
             _prefix = 'RFC1213-MIB'
 
             def __init__(self):
-                super(RFC1213MIB.Egpneightable.Egpneighentry, self).__init__()
+                super(RFC1213MIB.EgpNeighTable.EgpNeighEntry, self).__init__()
 
                 self.yang_name = "egpNeighEntry"
                 self.yang_parent_name = "egpNeighTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['egpneighaddr']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('egpneighaddr', YLeaf(YType.str, 'egpNeighAddr')),
                     ('egpneighstate', YLeaf(YType.enumeration, 'egpNeighState')),
@@ -2940,11 +2902,11 @@ class RFC1213MIB(Entity):
                 self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/egpNeighTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RFC1213MIB.Egpneightable.Egpneighentry, ['egpneighaddr', 'egpneighstate', 'egpneighas', 'egpneighinmsgs', 'egpneighinerrs', 'egpneighoutmsgs', 'egpneighouterrs', 'egpneighinerrmsgs', 'egpneighouterrmsgs', 'egpneighstateups', 'egpneighstatedowns', 'egpneighintervalhello', 'egpneighintervalpoll', 'egpneighmode', 'egpneigheventtrigger'], name, value)
+                self._perform_setattr(RFC1213MIB.EgpNeighTable.EgpNeighEntry, [u'egpneighaddr', u'egpneighstate', u'egpneighas', u'egpneighinmsgs', u'egpneighinerrs', u'egpneighoutmsgs', u'egpneighouterrs', u'egpneighinerrmsgs', u'egpneighouterrmsgs', u'egpneighstateups', u'egpneighstatedowns', u'egpneighintervalhello', u'egpneighintervalpoll', u'egpneighmode', u'egpneigheventtrigger'], name, value)
 
-            class Egpneigheventtrigger(Enum):
+            class EgpNeighEventTrigger(Enum):
                 """
-                Egpneigheventtrigger (Enum Class)
+                EgpNeighEventTrigger (Enum Class)
 
                 A control variable used to trigger operator\-
 
@@ -2989,9 +2951,9 @@ class RFC1213MIB(Entity):
                 stop = Enum.YLeaf(2, "stop")
 
 
-            class Egpneighmode(Enum):
+            class EgpNeighMode(Enum):
                 """
-                Egpneighmode (Enum Class)
+                EgpNeighMode (Enum Class)
 
                 The polling mode of this EGP entity, either
 
@@ -3008,9 +2970,9 @@ class RFC1213MIB(Entity):
                 passive = Enum.YLeaf(2, "passive")
 
 
-            class Egpneighstate(Enum):
+            class EgpNeighState(Enum):
                 """
-                Egpneighstate (Enum Class)
+                EgpNeighState (Enum Class)
 
                 The EGP state of the local system with respect to
 

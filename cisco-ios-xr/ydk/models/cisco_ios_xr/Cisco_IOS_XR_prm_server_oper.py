@@ -46,15 +46,16 @@ class HardwareModule(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", HardwareModule.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", HardwareModule.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = HardwareModule.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-prm-server-oper:hardware-module"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(HardwareModule, [], name, value)
 
 
     class Nodes(Entity):
@@ -81,8 +82,7 @@ class HardwareModule(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", HardwareModule.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", HardwareModule.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -124,8 +124,7 @@ class HardwareModule(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("np", ("np", HardwareModule.Nodes.Node.Np))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("np", ("np", HardwareModule.Nodes.Node.Np))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -134,7 +133,6 @@ class HardwareModule(Entity):
                 self.np = HardwareModule.Nodes.Node.Np()
                 self.np.parent = self
                 self._children_name_map["np"] = "np"
-                self._children_yang_names.add("np")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-prm-server-oper:hardware-module/nodes/%s" % self._segment_path()
 
@@ -171,20 +169,20 @@ class HardwareModule(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("cpu", ("cpu", HardwareModule.Nodes.Node.Np.Cpu)), ("platform-drop", ("platform_drop", HardwareModule.Nodes.Node.Np.PlatformDrop))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("cpu", ("cpu", HardwareModule.Nodes.Node.Np.Cpu)), ("platform-drop", ("platform_drop", HardwareModule.Nodes.Node.Np.PlatformDrop))])
                     self._leafs = OrderedDict()
 
                     self.cpu = HardwareModule.Nodes.Node.Np.Cpu()
                     self.cpu.parent = self
                     self._children_name_map["cpu"] = "cpu"
-                    self._children_yang_names.add("cpu")
 
                     self.platform_drop = HardwareModule.Nodes.Node.Np.PlatformDrop()
                     self.platform_drop.parent = self
                     self._children_name_map["platform_drop"] = "platform-drop"
-                    self._children_yang_names.add("platform-drop")
                     self._segment_path = lambda: "np"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(HardwareModule.Nodes.Node.Np, [], name, value)
 
 
                 class Cpu(Entity):
@@ -211,15 +209,16 @@ class HardwareModule(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("indexes", ("indexes", HardwareModule.Nodes.Node.Np.Cpu.Indexes))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("indexes", ("indexes", HardwareModule.Nodes.Node.Np.Cpu.Indexes))])
                         self._leafs = OrderedDict()
 
                         self.indexes = HardwareModule.Nodes.Node.Np.Cpu.Indexes()
                         self.indexes.parent = self
                         self._children_name_map["indexes"] = "indexes"
-                        self._children_yang_names.add("indexes")
                         self._segment_path = lambda: "cpu"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(HardwareModule.Nodes.Node.Np.Cpu, [], name, value)
 
 
                     class Indexes(Entity):
@@ -246,8 +245,7 @@ class HardwareModule(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("index", ("index", HardwareModule.Nodes.Node.Np.Cpu.Indexes.Index))])
+                            self._child_classes = OrderedDict([("index", ("index", HardwareModule.Nodes.Node.Np.Cpu.Indexes.Index))])
                             self._leafs = OrderedDict()
 
                             self.index = YList(self)
@@ -266,7 +264,7 @@ class HardwareModule(Entity):
                             	Index value
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: cos_q_name
                             
@@ -332,10 +330,9 @@ class HardwareModule(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['index']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('index', YLeaf(YType.int32, 'index')),
+                                    ('index', YLeaf(YType.uint32, 'index')),
                                     ('cos_q_name', YLeaf(YType.str, 'cos-q-name')),
                                     ('cos_q', YLeaf(YType.uint8, 'cos-q')),
                                     ('rx_channel', YLeaf(YType.uint32, 'rx-channel')),
@@ -355,7 +352,7 @@ class HardwareModule(Entity):
                                 self._segment_path = lambda: "index" + "[index='" + str(self.index) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(HardwareModule.Nodes.Node.Np.Cpu.Indexes.Index, ['index', 'cos_q_name', 'cos_q', 'rx_channel', 'flow_rate', 'burst', 'accepted', 'dropped'], name, value)
+                                self._perform_setattr(HardwareModule.Nodes.Node.Np.Cpu.Indexes.Index, ['index', u'cos_q_name', u'cos_q', u'rx_channel', u'flow_rate', u'burst', u'accepted', u'dropped'], name, value)
 
 
                 class PlatformDrop(Entity):
@@ -387,20 +384,20 @@ class HardwareModule(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("indxes", ("indxes", HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes)), ("idxes", ("idxes", HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("indxes", ("indxes", HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes)), ("idxes", ("idxes", HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes))])
                         self._leafs = OrderedDict()
 
                         self.indxes = HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes()
                         self.indxes.parent = self
                         self._children_name_map["indxes"] = "indxes"
-                        self._children_yang_names.add("indxes")
 
                         self.idxes = HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes()
                         self.idxes.parent = self
                         self._children_name_map["idxes"] = "idxes"
-                        self._children_yang_names.add("idxes")
                         self._segment_path = lambda: "platform-drop"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(HardwareModule.Nodes.Node.Np.PlatformDrop, [], name, value)
 
 
                     class Indxes(Entity):
@@ -427,8 +424,7 @@ class HardwareModule(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("indx", ("indx", HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes.Indx))])
+                            self._child_classes = OrderedDict([("indx", ("indx", HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes.Indx))])
                             self._leafs = OrderedDict()
 
                             self.indx = YList(self)
@@ -447,7 +443,7 @@ class HardwareModule(Entity):
                             	Index value
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: total_captured
                             
@@ -556,10 +552,9 @@ class HardwareModule(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['index']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('index', YLeaf(YType.int32, 'index')),
+                                    ('index', YLeaf(YType.uint32, 'index')),
                                     ('total_captured', YLeaf(YType.uint32, 'total-captured')),
                                     ('captured_pak', YLeaf(YType.str, 'captured-pak')),
                                     ('pkt_index', YLeaf(YType.uint8, 'pkt-index')),
@@ -589,7 +584,7 @@ class HardwareModule(Entity):
                                 self._segment_path = lambda: "indx" + "[index='" + str(self.index) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes.Indx, ['index', 'total_captured', 'captured_pak', 'pkt_index', 'ifhandle', 'buffer_len', 'reason_hi', 'reason', 'years', 'hours', 'days', 'mins', 'secs'], name, value)
+                                self._perform_setattr(HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes.Indx, ['index', u'total_captured', u'captured_pak', u'pkt_index', u'ifhandle', u'buffer_len', u'reason_hi', u'reason', u'years', u'hours', u'days', u'mins', u'secs'], name, value)
 
 
                     class Idxes(Entity):
@@ -616,8 +611,7 @@ class HardwareModule(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("idx", ("idx", HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes.Idx))])
+                            self._child_classes = OrderedDict([("idx", ("idx", HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes.Idx))])
                             self._leafs = OrderedDict()
 
                             self.idx = YList(self)
@@ -636,7 +630,7 @@ class HardwareModule(Entity):
                             	Index value
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: drop_reason
                             
@@ -667,10 +661,9 @@ class HardwareModule(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['index']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('index', YLeaf(YType.int32, 'index')),
+                                    ('index', YLeaf(YType.uint32, 'index')),
                                     ('drop_reason', YLeaf(YType.str, 'drop-reason')),
                                     ('counters', YLeaf(YType.uint32, 'counters')),
                                 ])
@@ -680,7 +673,7 @@ class HardwareModule(Entity):
                                 self._segment_path = lambda: "idx" + "[index='" + str(self.index) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes.Idx, ['index', 'drop_reason', 'counters'], name, value)
+                                self._perform_setattr(HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes.Idx, ['index', u'drop_reason', u'counters'], name, value)
 
     def clone_ptr(self):
         self._top_entity = HardwareModule()
@@ -711,15 +704,16 @@ class Prm(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", Prm.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", Prm.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = Prm.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-prm-server-oper:prm"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Prm, [], name, value)
 
 
     class Nodes(Entity):
@@ -746,8 +740,7 @@ class Prm(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", Prm.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", Prm.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -789,8 +782,7 @@ class Prm(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("server", ("server", Prm.Nodes.Node.Server))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("server", ("server", Prm.Nodes.Node.Server))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -799,7 +791,6 @@ class Prm(Entity):
                 self.server = Prm.Nodes.Node.Server()
                 self.server.parent = self
                 self._children_name_map["server"] = "server"
-                self._children_yang_names.add("server")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-prm-server-oper:prm/nodes/%s" % self._segment_path()
 
@@ -831,15 +822,16 @@ class Prm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("resource", ("resource", Prm.Nodes.Node.Server.Resource))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("resource", ("resource", Prm.Nodes.Node.Server.Resource))])
                     self._leafs = OrderedDict()
 
                     self.resource = Prm.Nodes.Node.Server.Resource()
                     self.resource.parent = self
                     self._children_name_map["resource"] = "resource"
-                    self._children_yang_names.add("resource")
                     self._segment_path = lambda: "server"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Prm.Nodes.Node.Server, [], name, value)
 
 
                 class Resource(Entity):
@@ -866,15 +858,16 @@ class Prm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("indexes", ("indexes", Prm.Nodes.Node.Server.Resource.Indexes))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("indexes", ("indexes", Prm.Nodes.Node.Server.Resource.Indexes))])
                         self._leafs = OrderedDict()
 
                         self.indexes = Prm.Nodes.Node.Server.Resource.Indexes()
                         self.indexes.parent = self
                         self._children_name_map["indexes"] = "indexes"
-                        self._children_yang_names.add("indexes")
                         self._segment_path = lambda: "resource"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Prm.Nodes.Node.Server.Resource, [], name, value)
 
 
                     class Indexes(Entity):
@@ -901,8 +894,7 @@ class Prm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("index", ("index", Prm.Nodes.Node.Server.Resource.Indexes.Index))])
+                            self._child_classes = OrderedDict([("index", ("index", Prm.Nodes.Node.Server.Resource.Indexes.Index))])
                             self._leafs = OrderedDict()
 
                             self.index = YList(self)
@@ -921,7 +913,7 @@ class Prm(Entity):
                             	Index value
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: resource_name
                             
@@ -997,10 +989,9 @@ class Prm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['index']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('index', YLeaf(YType.int32, 'index')),
+                                    ('index', YLeaf(YType.uint32, 'index')),
                                     ('resource_name', YLeaf(YType.str, 'resource-name')),
                                     ('resource_type', YLeaf(YType.uint32, 'resource-type')),
                                     ('total_num', YLeaf(YType.uint32, 'total-num')),
@@ -1024,7 +1015,7 @@ class Prm(Entity):
                                 self._segment_path = lambda: "index" + "[index='" + str(self.index) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Prm.Nodes.Node.Server.Resource.Indexes.Index, ['index', 'resource_name', 'resource_type', 'total_num', 'free_num', 'first_available_index', 'start_index', 'availability_status', 'flags', 'inconsistent'], name, value)
+                                self._perform_setattr(Prm.Nodes.Node.Server.Resource.Indexes.Index, ['index', u'resource_name', u'resource_type', u'total_num', u'free_num', u'first_available_index', u'start_index', u'availability_status', u'flags', u'inconsistent'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Prm()

@@ -45,15 +45,16 @@ class Macsec(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("secy", ("secy", Macsec.Secy))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("secy", ("secy", Macsec.Secy))])
         self._leafs = OrderedDict()
 
         self.secy = Macsec.Secy()
         self.secy.parent = self
         self._children_name_map["secy"] = "secy"
-        self._children_yang_names.add("secy")
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-macsec-secy-oper:macsec"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Macsec, [], name, value)
 
 
     class Secy(Entity):
@@ -80,16 +81,17 @@ class Macsec(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("interfaces", ("interfaces", Macsec.Secy.Interfaces))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("interfaces", ("interfaces", Macsec.Secy.Interfaces))])
             self._leafs = OrderedDict()
 
             self.interfaces = Macsec.Secy.Interfaces()
             self.interfaces.parent = self
             self._children_name_map["interfaces"] = "interfaces"
-            self._children_yang_names.add("interfaces")
             self._segment_path = lambda: "secy"
             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-macsec-secy-oper:macsec/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Macsec.Secy, [], name, value)
 
 
         class Interfaces(Entity):
@@ -116,8 +118,7 @@ class Macsec(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("interface", ("interface", Macsec.Secy.Interfaces.Interface))])
+                self._child_classes = OrderedDict([("interface", ("interface", Macsec.Secy.Interfaces.Interface))])
                 self._leafs = OrderedDict()
 
                 self.interface = YList(self)
@@ -159,8 +160,7 @@ class Macsec(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([("stats", ("stats", Macsec.Secy.Interfaces.Interface.Stats))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("stats", ("stats", Macsec.Secy.Interfaces.Interface.Stats))])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                     ])
@@ -169,7 +169,6 @@ class Macsec(Entity):
                     self.stats = Macsec.Secy.Interfaces.Interface.Stats()
                     self.stats.parent = self
                     self._children_name_map["stats"] = "stats"
-                    self._children_yang_names.add("stats")
                     self._segment_path = lambda: "interface" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-crypto-macsec-secy-oper:macsec/secy/interfaces/%s" % self._segment_path()
 
@@ -211,19 +210,16 @@ class Macsec(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("intf-stats", ("intf_stats", Macsec.Secy.Interfaces.Interface.Stats.IntfStats)), ("tx-sc-stats", ("tx_sc_stats", Macsec.Secy.Interfaces.Interface.Stats.TxScStats))])
-                        self._child_list_classes = OrderedDict([("rx-sc-stats", ("rx_sc_stats", Macsec.Secy.Interfaces.Interface.Stats.RxScStats))])
+                        self._child_classes = OrderedDict([("intf-stats", ("intf_stats", Macsec.Secy.Interfaces.Interface.Stats.IntfStats)), ("tx-sc-stats", ("tx_sc_stats", Macsec.Secy.Interfaces.Interface.Stats.TxScStats)), ("rx-sc-stats", ("rx_sc_stats", Macsec.Secy.Interfaces.Interface.Stats.RxScStats))])
                         self._leafs = OrderedDict()
 
                         self.intf_stats = Macsec.Secy.Interfaces.Interface.Stats.IntfStats()
                         self.intf_stats.parent = self
                         self._children_name_map["intf_stats"] = "intf-stats"
-                        self._children_yang_names.add("intf-stats")
 
                         self.tx_sc_stats = Macsec.Secy.Interfaces.Interface.Stats.TxScStats()
                         self.tx_sc_stats.parent = self
                         self._children_name_map["tx_sc_stats"] = "tx-sc-stats"
-                        self._children_yang_names.add("tx-sc-stats")
 
                         self.rx_sc_stats = YList(self)
                         self._segment_path = lambda: "stats"
@@ -335,8 +331,7 @@ class Macsec(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('in_pkts_untagged', YLeaf(YType.uint64, 'in-pkts-untagged')),
                                 ('in_pkts_no_tag', YLeaf(YType.uint64, 'in-pkts-no-tag')),
@@ -435,8 +430,7 @@ class Macsec(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("txsa-stat", ("txsa_stat", Macsec.Secy.Interfaces.Interface.Stats.TxScStats.TxsaStat))])
+                            self._child_classes = OrderedDict([("txsa-stat", ("txsa_stat", Macsec.Secy.Interfaces.Interface.Stats.TxScStats.TxsaStat))])
                             self._leafs = OrderedDict([
                                 ('tx_sci', YLeaf(YType.uint64, 'tx-sci')),
                                 ('out_pkts_protected', YLeaf(YType.uint64, 'out-pkts-protected')),
@@ -499,8 +493,7 @@ class Macsec(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('out_pkts_protected', YLeaf(YType.uint64, 'out-pkts-protected')),
                                     ('out_pkts_encrypted', YLeaf(YType.uint64, 'out-pkts-encrypted')),
@@ -623,8 +616,7 @@ class Macsec(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("rxsa-stat", ("rxsa_stat", Macsec.Secy.Interfaces.Interface.Stats.RxScStats.RxsaStat))])
+                            self._child_classes = OrderedDict([("rxsa-stat", ("rxsa_stat", Macsec.Secy.Interfaces.Interface.Stats.RxScStats.RxsaStat))])
                             self._leafs = OrderedDict([
                                 ('rx_sci', YLeaf(YType.uint64, 'rx-sci')),
                                 ('in_pkts_unchecked', YLeaf(YType.uint64, 'in-pkts-unchecked')),
@@ -720,8 +712,7 @@ class Macsec(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('in_pkts_ok', YLeaf(YType.uint64, 'in-pkts-ok')),
                                     ('in_pkts_invalid', YLeaf(YType.uint64, 'in-pkts-invalid')),

@@ -161,8 +161,7 @@ class VrrpOperData(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("vrrp-oper-state", ("vrrp_oper_state", VrrpOperData.VrrpOperState))])
+        self._child_classes = OrderedDict([("vrrp-oper-state", ("vrrp_oper_state", VrrpOperData.VrrpOperState))])
         self._leafs = OrderedDict()
 
         self.vrrp_oper_state = YList(self)
@@ -395,8 +394,7 @@ class VrrpOperData(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['if_number','group_id','addr_type']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("track-list", ("track_list", VrrpOperData.VrrpOperState.TrackList))])
+            self._child_classes = OrderedDict([("track-list", ("track_list", VrrpOperData.VrrpOperState.TrackList))])
             self._leafs = OrderedDict([
                 ('if_number', YLeaf(YType.uint32, 'if-number')),
                 ('group_id', YLeaf(YType.uint32, 'group-id')),
@@ -495,8 +493,7 @@ class VrrpOperData(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('track_name', YLeaf(YType.str, 'track-name')),
                     ('track_obj_state', YLeaf(YType.enumeration, 'track-obj-state')),

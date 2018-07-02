@@ -54,7 +54,7 @@ class FsyncSourceSelectionLogging(Enum):
 
     .. data:: changes = 1
 
-    	Log selection changes
+    	Log both selection changes and errors
 
     .. data:: errors = 2
 
@@ -110,22 +110,30 @@ class FrequencySynchronization(Entity):
     	Source selection logging option
     	**type**\:  :py:class:`FsyncSourceSelectionLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_cfg.FsyncSourceSelectionLogging>`
     
+    	**mandatory**\: True
+    
     .. attribute:: clock_interface_source_type
     
     	Clock interface source type
     	**type**\:  :py:class:`FsyncClockSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_cfg.FsyncClockSource>`
+    
+    	**mandatory**\: True
     
     .. attribute:: system_timing_mode
     
     	System timing mode
     	**type**\:  :py:class:`FsyncSystemTimingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_cfg.FsyncSystemTimingMode>`
     
+    	**mandatory**\: True
     
+    
+
+    This class is a :ref:`presence class<presence-class>`
 
     """
 
     _prefix = 'freqsync-cfg'
-    _revision = '2015-11-09'
+    _revision = '2017-09-30'
 
     def __init__(self):
         super(FrequencySynchronization, self).__init__()
@@ -136,8 +144,8 @@ class FrequencySynchronization(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
+        self.is_presence_container = True
         self._leafs = OrderedDict([
             ('quality_level_option', YLeaf(YType.enumeration, 'quality-level-option')),
             ('enable', YLeaf(YType.empty, 'enable')),

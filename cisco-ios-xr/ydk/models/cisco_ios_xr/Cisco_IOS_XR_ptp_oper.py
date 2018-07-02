@@ -19,6 +19,129 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+class ImStateEnum(Enum):
+    """
+    ImStateEnum (Enum Class)
+
+    Im state enum
+
+    .. data:: im_state_not_ready = 0
+
+    	im state not ready
+
+    .. data:: im_state_admin_down = 1
+
+    	im state admin down
+
+    .. data:: im_state_down = 2
+
+    	im state down
+
+    .. data:: im_state_up = 3
+
+    	im state up
+
+    .. data:: im_state_shutdown = 4
+
+    	im state shutdown
+
+    .. data:: im_state_err_disable = 5
+
+    	im state err disable
+
+    .. data:: im_state_down_immediate = 6
+
+    	im state down immediate
+
+    .. data:: im_state_down_immediate_admin = 7
+
+    	im state down immediate admin
+
+    .. data:: im_state_down_graceful = 8
+
+    	im state down graceful
+
+    .. data:: im_state_begin_shutdown = 9
+
+    	im state begin shutdown
+
+    .. data:: im_state_end_shutdown = 10
+
+    	im state end shutdown
+
+    .. data:: im_state_begin_error_disable = 11
+
+    	im state begin error disable
+
+    .. data:: im_state_end_error_disable = 12
+
+    	im state end error disable
+
+    .. data:: im_state_begin_down_graceful = 13
+
+    	im state begin down graceful
+
+    .. data:: im_state_reset = 14
+
+    	im state reset
+
+    .. data:: im_state_operational = 15
+
+    	im state operational
+
+    .. data:: im_state_not_operational = 16
+
+    	im state not operational
+
+    .. data:: im_state_unknown = 17
+
+    	im state unknown
+
+    .. data:: im_state_last = 18
+
+    	im state last
+
+    """
+
+    im_state_not_ready = Enum.YLeaf(0, "im-state-not-ready")
+
+    im_state_admin_down = Enum.YLeaf(1, "im-state-admin-down")
+
+    im_state_down = Enum.YLeaf(2, "im-state-down")
+
+    im_state_up = Enum.YLeaf(3, "im-state-up")
+
+    im_state_shutdown = Enum.YLeaf(4, "im-state-shutdown")
+
+    im_state_err_disable = Enum.YLeaf(5, "im-state-err-disable")
+
+    im_state_down_immediate = Enum.YLeaf(6, "im-state-down-immediate")
+
+    im_state_down_immediate_admin = Enum.YLeaf(7, "im-state-down-immediate-admin")
+
+    im_state_down_graceful = Enum.YLeaf(8, "im-state-down-graceful")
+
+    im_state_begin_shutdown = Enum.YLeaf(9, "im-state-begin-shutdown")
+
+    im_state_end_shutdown = Enum.YLeaf(10, "im-state-end-shutdown")
+
+    im_state_begin_error_disable = Enum.YLeaf(11, "im-state-begin-error-disable")
+
+    im_state_end_error_disable = Enum.YLeaf(12, "im-state-end-error-disable")
+
+    im_state_begin_down_graceful = Enum.YLeaf(13, "im-state-begin-down-graceful")
+
+    im_state_reset = Enum.YLeaf(14, "im-state-reset")
+
+    im_state_operational = Enum.YLeaf(15, "im-state-operational")
+
+    im_state_not_operational = Enum.YLeaf(16, "im-state-not-operational")
+
+    im_state_unknown = Enum.YLeaf(17, "im-state-unknown")
+
+    im_state_last = Enum.YLeaf(18, "im-state-last")
+
+
 class PtpBagClockLeapSeconds(Enum):
     """
     PtpBagClockLeapSeconds (Enum Class)
@@ -365,6 +488,11 @@ class Ptp(Entity):
     	Table for node\-specific operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes>`
     
+    .. attribute:: summary
+    
+    	Summary operational data
+    	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Summary>`
+    
     .. attribute:: interface_configuration_errors
     
     	Table for interface configuration error operational data
@@ -420,11 +548,6 @@ class Ptp(Entity):
     	UTC offset information
     	**type**\:  :py:class:`UtcOffsetInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.UtcOffsetInfo>`
     
-    .. attribute:: platform
-    
-    	PTP platform specific data
-    	**type**\:  :py:class:`Platform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform>`
-    
     
 
     """
@@ -441,75 +564,64 @@ class Ptp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", Ptp.Nodes)), ("interface-configuration-errors", ("interface_configuration_errors", Ptp.InterfaceConfigurationErrors)), ("interface-foreign-masters", ("interface_foreign_masters", Ptp.InterfaceForeignMasters)), ("local-clock", ("local_clock", Ptp.LocalClock)), ("interface-packet-counters", ("interface_packet_counters", Ptp.InterfacePacketCounters)), ("advertised-clock", ("advertised_clock", Ptp.AdvertisedClock)), ("interfaces", ("interfaces", Ptp.Interfaces)), ("dataset", ("dataset", Ptp.Dataset)), ("global-configuration-error", ("global_configuration_error", Ptp.GlobalConfigurationError)), ("grandmaster", ("grandmaster", Ptp.Grandmaster)), ("interface-unicast-peers", ("interface_unicast_peers", Ptp.InterfaceUnicastPeers)), ("utc-offset-info", ("utc_offset_info", Ptp.UtcOffsetInfo)), ("Cisco-IOS-XR-ptp-pd-oper:platform", ("platform", Ptp.Platform))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", Ptp.Nodes)), ("summary", ("summary", Ptp.Summary)), ("interface-configuration-errors", ("interface_configuration_errors", Ptp.InterfaceConfigurationErrors)), ("interface-foreign-masters", ("interface_foreign_masters", Ptp.InterfaceForeignMasters)), ("local-clock", ("local_clock", Ptp.LocalClock)), ("interface-packet-counters", ("interface_packet_counters", Ptp.InterfacePacketCounters)), ("advertised-clock", ("advertised_clock", Ptp.AdvertisedClock)), ("interfaces", ("interfaces", Ptp.Interfaces)), ("dataset", ("dataset", Ptp.Dataset)), ("global-configuration-error", ("global_configuration_error", Ptp.GlobalConfigurationError)), ("grandmaster", ("grandmaster", Ptp.Grandmaster)), ("interface-unicast-peers", ("interface_unicast_peers", Ptp.InterfaceUnicastPeers)), ("utc-offset-info", ("utc_offset_info", Ptp.UtcOffsetInfo))])
         self._leafs = OrderedDict()
 
         self.nodes = Ptp.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
+
+        self.summary = Ptp.Summary()
+        self.summary.parent = self
+        self._children_name_map["summary"] = "summary"
 
         self.interface_configuration_errors = Ptp.InterfaceConfigurationErrors()
         self.interface_configuration_errors.parent = self
         self._children_name_map["interface_configuration_errors"] = "interface-configuration-errors"
-        self._children_yang_names.add("interface-configuration-errors")
 
         self.interface_foreign_masters = Ptp.InterfaceForeignMasters()
         self.interface_foreign_masters.parent = self
         self._children_name_map["interface_foreign_masters"] = "interface-foreign-masters"
-        self._children_yang_names.add("interface-foreign-masters")
 
         self.local_clock = Ptp.LocalClock()
         self.local_clock.parent = self
         self._children_name_map["local_clock"] = "local-clock"
-        self._children_yang_names.add("local-clock")
 
         self.interface_packet_counters = Ptp.InterfacePacketCounters()
         self.interface_packet_counters.parent = self
         self._children_name_map["interface_packet_counters"] = "interface-packet-counters"
-        self._children_yang_names.add("interface-packet-counters")
 
         self.advertised_clock = Ptp.AdvertisedClock()
         self.advertised_clock.parent = self
         self._children_name_map["advertised_clock"] = "advertised-clock"
-        self._children_yang_names.add("advertised-clock")
 
         self.interfaces = Ptp.Interfaces()
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
-        self._children_yang_names.add("interfaces")
 
         self.dataset = Ptp.Dataset()
         self.dataset.parent = self
         self._children_name_map["dataset"] = "dataset"
-        self._children_yang_names.add("dataset")
 
         self.global_configuration_error = Ptp.GlobalConfigurationError()
         self.global_configuration_error.parent = self
         self._children_name_map["global_configuration_error"] = "global-configuration-error"
-        self._children_yang_names.add("global-configuration-error")
 
         self.grandmaster = Ptp.Grandmaster()
         self.grandmaster.parent = self
         self._children_name_map["grandmaster"] = "grandmaster"
-        self._children_yang_names.add("grandmaster")
 
         self.interface_unicast_peers = Ptp.InterfaceUnicastPeers()
         self.interface_unicast_peers.parent = self
         self._children_name_map["interface_unicast_peers"] = "interface-unicast-peers"
-        self._children_yang_names.add("interface-unicast-peers")
 
         self.utc_offset_info = Ptp.UtcOffsetInfo()
         self.utc_offset_info.parent = self
         self._children_name_map["utc_offset_info"] = "utc-offset-info"
-        self._children_yang_names.add("utc-offset-info")
-
-        self.platform = Ptp.Platform()
-        self.platform.parent = self
-        self._children_name_map["platform"] = "Cisco-IOS-XR-ptp-pd-oper:platform"
-        self._children_yang_names.add("Cisco-IOS-XR-ptp-pd-oper:platform")
         self._segment_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Ptp, [], name, value)
 
 
     class Nodes(Entity):
@@ -536,8 +648,7 @@ class Ptp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", Ptp.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", Ptp.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -599,8 +710,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("node-interface-foreign-masters", ("node_interface_foreign_masters", Ptp.Nodes.Node.NodeInterfaceForeignMasters)), ("summary", ("summary", Ptp.Nodes.Node.Summary)), ("node-interfaces", ("node_interfaces", Ptp.Nodes.Node.NodeInterfaces)), ("node-interface-unicast-peers", ("node_interface_unicast_peers", Ptp.Nodes.Node.NodeInterfaceUnicastPeers)), ("packet-counters", ("packet_counters", Ptp.Nodes.Node.PacketCounters))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("node-interface-foreign-masters", ("node_interface_foreign_masters", Ptp.Nodes.Node.NodeInterfaceForeignMasters)), ("summary", ("summary", Ptp.Nodes.Node.Summary)), ("node-interfaces", ("node_interfaces", Ptp.Nodes.Node.NodeInterfaces)), ("node-interface-unicast-peers", ("node_interface_unicast_peers", Ptp.Nodes.Node.NodeInterfaceUnicastPeers)), ("packet-counters", ("packet_counters", Ptp.Nodes.Node.PacketCounters))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -609,27 +719,22 @@ class Ptp(Entity):
                 self.node_interface_foreign_masters = Ptp.Nodes.Node.NodeInterfaceForeignMasters()
                 self.node_interface_foreign_masters.parent = self
                 self._children_name_map["node_interface_foreign_masters"] = "node-interface-foreign-masters"
-                self._children_yang_names.add("node-interface-foreign-masters")
 
                 self.summary = Ptp.Nodes.Node.Summary()
                 self.summary.parent = self
                 self._children_name_map["summary"] = "summary"
-                self._children_yang_names.add("summary")
 
                 self.node_interfaces = Ptp.Nodes.Node.NodeInterfaces()
                 self.node_interfaces.parent = self
                 self._children_name_map["node_interfaces"] = "node-interfaces"
-                self._children_yang_names.add("node-interfaces")
 
                 self.node_interface_unicast_peers = Ptp.Nodes.Node.NodeInterfaceUnicastPeers()
                 self.node_interface_unicast_peers.parent = self
                 self._children_name_map["node_interface_unicast_peers"] = "node-interface-unicast-peers"
-                self._children_yang_names.add("node-interface-unicast-peers")
 
                 self.packet_counters = Ptp.Nodes.Node.PacketCounters()
                 self.packet_counters.parent = self
                 self._children_name_map["packet_counters"] = "packet-counters"
-                self._children_yang_names.add("packet-counters")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/nodes/%s" % self._segment_path()
 
@@ -662,8 +767,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("node-interface-foreign-master", ("node_interface_foreign_master", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster))])
+                    self._child_classes = OrderedDict([("node-interface-foreign-master", ("node_interface_foreign_master", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster))])
                     self._leafs = OrderedDict()
 
                     self.node_interface_foreign_master = YList(self)
@@ -712,8 +816,7 @@ class Ptp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("foreign-clock", ("foreign_clock", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock))])
+                        self._child_classes = OrderedDict([("foreign-clock", ("foreign_clock", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('port_number', YLeaf(YType.uint16, 'port-number')),
@@ -839,8 +942,7 @@ class Ptp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("foreign-clock", ("foreign_clock", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_)), ("address", ("address", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address)), ("announce-grant", ("announce_grant", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.AnnounceGrant)), ("sync-grant", ("sync_grant", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.SyncGrant)), ("delay-response-grant", ("delay_response_grant", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.DelayResponseGrant))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("foreign-clock", ("foreign_clock", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_)), ("address", ("address", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address)), ("announce-grant", ("announce_grant", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.AnnounceGrant)), ("sync-grant", ("sync_grant", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.SyncGrant)), ("delay-response-grant", ("delay_response_grant", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.DelayResponseGrant))])
                             self._leafs = OrderedDict([
                                 ('is_qualified', YLeaf(YType.boolean, 'is-qualified')),
                                 ('is_grandmaster', YLeaf(YType.boolean, 'is-grandmaster')),
@@ -869,27 +971,22 @@ class Ptp(Entity):
                             self.foreign_clock = Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_()
                             self.foreign_clock.parent = self
                             self._children_name_map["foreign_clock"] = "foreign-clock"
-                            self._children_yang_names.add("foreign-clock")
 
                             self.address = Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address()
                             self.address.parent = self
                             self._children_name_map["address"] = "address"
-                            self._children_yang_names.add("address")
 
                             self.announce_grant = Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.AnnounceGrant()
                             self.announce_grant.parent = self
                             self._children_name_map["announce_grant"] = "announce-grant"
-                            self._children_yang_names.add("announce-grant")
 
                             self.sync_grant = Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.SyncGrant()
                             self.sync_grant.parent = self
                             self._children_name_map["sync_grant"] = "sync-grant"
-                            self._children_yang_names.add("sync-grant")
 
                             self.delay_response_grant = Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.DelayResponseGrant()
                             self.delay_response_grant.parent = self
                             self._children_name_map["delay_response_grant"] = "delay-response-grant"
-                            self._children_yang_names.add("delay-response-grant")
                             self._segment_path = lambda: "foreign-clock"
 
                         def __setattr__(self, name, value):
@@ -1025,8 +1122,7 @@ class Ptp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("utc-offset", ("utc_offset", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.UtcOffset)), ("receiver", ("receiver", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.Receiver)), ("sender", ("sender", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.Sender))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("utc-offset", ("utc_offset", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.UtcOffset)), ("receiver", ("receiver", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.Receiver)), ("sender", ("sender", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.Sender))])
                                 self._leafs = OrderedDict([
                                     ('clock_id', YLeaf(YType.uint64, 'clock-id')),
                                     ('priority1', YLeaf(YType.uint8, 'priority1')),
@@ -1063,17 +1159,14 @@ class Ptp(Entity):
                                 self.utc_offset = Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.UtcOffset()
                                 self.utc_offset.parent = self
                                 self._children_name_map["utc_offset"] = "utc-offset"
-                                self._children_yang_names.add("utc-offset")
 
                                 self.receiver = Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.Receiver()
                                 self.receiver.parent = self
                                 self._children_name_map["receiver"] = "receiver"
-                                self._children_yang_names.add("receiver")
 
                                 self.sender = Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.Sender()
                                 self.sender.parent = self
                                 self._children_name_map["sender"] = "sender"
-                                self._children_yang_names.add("sender")
                                 self._segment_path = lambda: "foreign-clock"
 
                             def __setattr__(self, name, value):
@@ -1111,8 +1204,7 @@ class Ptp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('current_offset', YLeaf(YType.int16, 'current-offset')),
                                         ('offset_valid', YLeaf(YType.boolean, 'offset-valid')),
@@ -1158,8 +1250,7 @@ class Ptp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('clock_id', YLeaf(YType.uint64, 'clock-id')),
                                         ('port_number', YLeaf(YType.uint16, 'port-number')),
@@ -1205,8 +1296,7 @@ class Ptp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('clock_id', YLeaf(YType.uint64, 'clock-id')),
                                         ('port_number', YLeaf(YType.uint16, 'port-number')),
@@ -1265,8 +1355,7 @@ class Ptp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("mac-address", ("mac_address", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address.Ipv6Address))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("mac-address", ("mac_address", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address.Ipv6Address))])
                                 self._leafs = OrderedDict([
                                     ('encapsulation', YLeaf(YType.enumeration, 'encapsulation')),
                                     ('address_unknown', YLeaf(YType.boolean, 'address-unknown')),
@@ -1279,12 +1368,10 @@ class Ptp(Entity):
                                 self.mac_address = Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address.MacAddress()
                                 self.mac_address.parent = self
                                 self._children_name_map["mac_address"] = "mac-address"
-                                self._children_yang_names.add("mac-address")
 
                                 self.ipv6_address = Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address.Ipv6Address()
                                 self.ipv6_address.parent = self
                                 self._children_name_map["ipv6_address"] = "ipv6-address"
-                                self._children_yang_names.add("ipv6-address")
                                 self._segment_path = lambda: "address"
 
                             def __setattr__(self, name, value):
@@ -1317,8 +1404,7 @@ class Ptp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('macaddr', YLeaf(YType.str, 'macaddr')),
                                     ])
@@ -1355,8 +1441,7 @@ class Ptp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
                                     ])
@@ -1400,8 +1485,7 @@ class Ptp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('log_grant_interval', YLeaf(YType.int8, 'log-grant-interval')),
                                     ('grant_duration', YLeaf(YType.uint32, 'grant-duration')),
@@ -1447,8 +1531,7 @@ class Ptp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('log_grant_interval', YLeaf(YType.int8, 'log-grant-interval')),
                                     ('grant_duration', YLeaf(YType.uint32, 'grant-duration')),
@@ -1495,8 +1578,7 @@ class Ptp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('log_grant_interval', YLeaf(YType.int8, 'log-grant-interval')),
                                     ('grant_duration', YLeaf(YType.uint32, 'grant-duration')),
@@ -1598,8 +1680,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('port_state_init_count', YLeaf(YType.uint32, 'port-state-init-count')),
                         ('port_state_listening_count', YLeaf(YType.uint32, 'port-state-listening-count')),
@@ -1652,8 +1733,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("node-interface", ("node_interface", Ptp.Nodes.Node.NodeInterfaces.NodeInterface))])
+                    self._child_classes = OrderedDict([("node-interface", ("node_interface", Ptp.Nodes.Node.NodeInterfaces.NodeInterface))])
                     self._leafs = OrderedDict()
 
                     self.node_interface = YList(self)
@@ -1694,9 +1774,7 @@ class Ptp(Entity):
                     .. attribute:: line_state
                     
                     	Line state
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
+                    	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.ImStateEnum>`
                     
                     .. attribute:: encapsulation
                     
@@ -1760,6 +1838,16 @@ class Ptp(Entity):
                     	The configured port state
                     	**type**\:  :py:class:`PtpBagRestrictPortState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagRestrictPortState>`
                     
+                    .. attribute:: supports_unicast
+                    
+                    	The interface supports unicast
+                    	**type**\: bool
+                    
+                    .. attribute:: supports_master
+                    
+                    	The interface supports operation in master mode
+                    	**type**\: bool
+                    
                     .. attribute:: supports_one_step
                     
                     	The interface supports one\-step operation
@@ -1778,6 +1866,11 @@ class Ptp(Entity):
                     .. attribute:: supports_multicast
                     
                     	The interface supports multicast
+                    	**type**\: bool
+                    
+                    .. attribute:: supports_ipv4
+                    
+                    	The interface supports IPv4 transport
                     	**type**\: bool
                     
                     .. attribute:: supports_ipv6
@@ -1869,13 +1962,12 @@ class Ptp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("mac-address", ("mac_address", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MacAddress))])
-                        self._child_list_classes = OrderedDict([("master-table", ("master_table", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable))])
+                        self._child_classes = OrderedDict([("mac-address", ("mac_address", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MacAddress)), ("master-table", ("master_table", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('port_state', YLeaf(YType.enumeration, 'port-state')),
                             ('port_number', YLeaf(YType.uint16, 'port-number')),
-                            ('line_state', YLeaf(YType.uint32, 'line-state')),
+                            ('line_state', YLeaf(YType.enumeration, 'line-state')),
                             ('encapsulation', YLeaf(YType.enumeration, 'encapsulation')),
                             ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
                             ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -1886,10 +1978,13 @@ class Ptp(Entity):
                             ('announce_timeout', YLeaf(YType.uint32, 'announce-timeout')),
                             ('log_min_delay_request_interval', YLeaf(YType.int32, 'log-min-delay-request-interval')),
                             ('configured_port_state', YLeaf(YType.enumeration, 'configured-port-state')),
+                            ('supports_unicast', YLeaf(YType.boolean, 'supports-unicast')),
+                            ('supports_master', YLeaf(YType.boolean, 'supports-master')),
                             ('supports_one_step', YLeaf(YType.boolean, 'supports-one-step')),
                             ('supports_two_step', YLeaf(YType.boolean, 'supports-two-step')),
                             ('supports_ethernet', YLeaf(YType.boolean, 'supports-ethernet')),
                             ('supports_multicast', YLeaf(YType.boolean, 'supports-multicast')),
+                            ('supports_ipv4', YLeaf(YType.boolean, 'supports-ipv4')),
                             ('supports_ipv6', YLeaf(YType.boolean, 'supports-ipv6')),
                             ('supports_slave', YLeaf(YType.boolean, 'supports-slave')),
                             ('supports_source_ip', YLeaf(YType.boolean, 'supports-source-ip')),
@@ -1916,10 +2011,13 @@ class Ptp(Entity):
                         self.announce_timeout = None
                         self.log_min_delay_request_interval = None
                         self.configured_port_state = None
+                        self.supports_unicast = None
+                        self.supports_master = None
                         self.supports_one_step = None
                         self.supports_two_step = None
                         self.supports_ethernet = None
                         self.supports_multicast = None
+                        self.supports_ipv4 = None
                         self.supports_ipv6 = None
                         self.supports_slave = None
                         self.supports_source_ip = None
@@ -1935,13 +2033,12 @@ class Ptp(Entity):
                         self.mac_address = Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MacAddress()
                         self.mac_address.parent = self
                         self._children_name_map["mac_address"] = "mac-address"
-                        self._children_yang_names.add("mac-address")
 
                         self.master_table = YList(self)
                         self._segment_path = lambda: "node-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ptp.Nodes.Node.NodeInterfaces.NodeInterface, ['interface_name', 'port_state', 'port_number', 'line_state', 'encapsulation', 'ipv6_address', 'ipv4_address', 'two_step', 'communication_model', 'log_sync_interval', 'log_announce_interval', 'announce_timeout', 'log_min_delay_request_interval', 'configured_port_state', 'supports_one_step', 'supports_two_step', 'supports_ethernet', 'supports_multicast', 'supports_ipv6', 'supports_slave', 'supports_source_ip', 'max_sync_rate', 'event_cos', 'general_cos', 'event_dscp', 'general_dscp', 'unicast_peers', 'local_priority', 'signal_fail'], name, value)
+                        self._perform_setattr(Ptp.Nodes.Node.NodeInterfaces.NodeInterface, ['interface_name', 'port_state', 'port_number', 'line_state', 'encapsulation', 'ipv6_address', 'ipv4_address', 'two_step', 'communication_model', 'log_sync_interval', 'log_announce_interval', 'announce_timeout', 'log_min_delay_request_interval', 'configured_port_state', 'supports_unicast', 'supports_master', 'supports_one_step', 'supports_two_step', 'supports_ethernet', 'supports_multicast', 'supports_ipv4', 'supports_ipv6', 'supports_slave', 'supports_source_ip', 'max_sync_rate', 'event_cos', 'general_cos', 'event_dscp', 'general_dscp', 'unicast_peers', 'local_priority', 'signal_fail'], name, value)
 
 
                     class MacAddress(Entity):
@@ -1971,8 +2068,7 @@ class Ptp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('macaddr', YLeaf(YType.str, 'macaddr')),
                             ])
@@ -2053,8 +2149,7 @@ class Ptp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("address", ("address", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("address", ("address", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address))])
                             self._leafs = OrderedDict([
                                 ('communication_model', YLeaf(YType.enumeration, 'communication-model')),
                                 ('priority', YLeaf(YType.uint8, 'priority')),
@@ -2077,7 +2172,6 @@ class Ptp(Entity):
                             self.address = Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address()
                             self.address.parent = self
                             self._children_name_map["address"] = "address"
-                            self._children_yang_names.add("address")
                             self._segment_path = lambda: "master-table"
 
                         def __setattr__(self, name, value):
@@ -2130,8 +2224,7 @@ class Ptp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("mac-address", ("mac_address", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address.Ipv6Address))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("mac-address", ("mac_address", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address.Ipv6Address))])
                                 self._leafs = OrderedDict([
                                     ('encapsulation', YLeaf(YType.enumeration, 'encapsulation')),
                                     ('address_unknown', YLeaf(YType.boolean, 'address-unknown')),
@@ -2144,12 +2237,10 @@ class Ptp(Entity):
                                 self.mac_address = Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address.MacAddress()
                                 self.mac_address.parent = self
                                 self._children_name_map["mac_address"] = "mac-address"
-                                self._children_yang_names.add("mac-address")
 
                                 self.ipv6_address = Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address.Ipv6Address()
                                 self.ipv6_address.parent = self
                                 self._children_name_map["ipv6_address"] = "ipv6-address"
-                                self._children_yang_names.add("ipv6-address")
                                 self._segment_path = lambda: "address"
 
                             def __setattr__(self, name, value):
@@ -2182,8 +2273,7 @@ class Ptp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('macaddr', YLeaf(YType.str, 'macaddr')),
                                     ])
@@ -2220,8 +2310,7 @@ class Ptp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
                                     ])
@@ -2256,8 +2345,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("node-interface-unicast-peer", ("node_interface_unicast_peer", Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer))])
+                    self._child_classes = OrderedDict([("node-interface-unicast-peer", ("node_interface_unicast_peer", Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer))])
                     self._leafs = OrderedDict()
 
                     self.node_interface_unicast_peer = YList(self)
@@ -2310,8 +2398,7 @@ class Ptp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("peers", ("peers", Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers))])
+                        self._child_classes = OrderedDict([("peers", ("peers", Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('name', YLeaf(YType.str, 'name')),
@@ -2367,30 +2454,28 @@ class Ptp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("address", ("address", Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.Address)), ("announce-grant", ("announce_grant", Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.AnnounceGrant)), ("sync-grant", ("sync_grant", Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.SyncGrant)), ("delay-response-grant", ("delay_response_grant", Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.DelayResponseGrant))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("address", ("address", Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.Address)), ("announce-grant", ("announce_grant", Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.AnnounceGrant)), ("sync-grant", ("sync_grant", Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.SyncGrant)), ("delay-response-grant", ("delay_response_grant", Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.DelayResponseGrant))])
                             self._leafs = OrderedDict()
 
                             self.address = Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.Address()
                             self.address.parent = self
                             self._children_name_map["address"] = "address"
-                            self._children_yang_names.add("address")
 
                             self.announce_grant = Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.AnnounceGrant()
                             self.announce_grant.parent = self
                             self._children_name_map["announce_grant"] = "announce-grant"
-                            self._children_yang_names.add("announce-grant")
 
                             self.sync_grant = Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.SyncGrant()
                             self.sync_grant.parent = self
                             self._children_name_map["sync_grant"] = "sync-grant"
-                            self._children_yang_names.add("sync-grant")
 
                             self.delay_response_grant = Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.DelayResponseGrant()
                             self.delay_response_grant.parent = self
                             self._children_name_map["delay_response_grant"] = "delay-response-grant"
-                            self._children_yang_names.add("delay-response-grant")
                             self._segment_path = lambda: "peers"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers, [], name, value)
 
 
                         class Address(Entity):
@@ -2439,8 +2524,7 @@ class Ptp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("mac-address", ("mac_address", Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.Address.Ipv6Address))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("mac-address", ("mac_address", Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.Address.Ipv6Address))])
                                 self._leafs = OrderedDict([
                                     ('encapsulation', YLeaf(YType.enumeration, 'encapsulation')),
                                     ('address_unknown', YLeaf(YType.boolean, 'address-unknown')),
@@ -2453,12 +2537,10 @@ class Ptp(Entity):
                                 self.mac_address = Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.Address.MacAddress()
                                 self.mac_address.parent = self
                                 self._children_name_map["mac_address"] = "mac-address"
-                                self._children_yang_names.add("mac-address")
 
                                 self.ipv6_address = Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.Address.Ipv6Address()
                                 self.ipv6_address.parent = self
                                 self._children_name_map["ipv6_address"] = "ipv6-address"
-                                self._children_yang_names.add("ipv6-address")
                                 self._segment_path = lambda: "address"
 
                             def __setattr__(self, name, value):
@@ -2491,8 +2573,7 @@ class Ptp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('macaddr', YLeaf(YType.str, 'macaddr')),
                                     ])
@@ -2529,8 +2610,7 @@ class Ptp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
                                     ])
@@ -2574,8 +2654,7 @@ class Ptp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('log_grant_interval', YLeaf(YType.int8, 'log-grant-interval')),
                                     ('grant_duration', YLeaf(YType.uint32, 'grant-duration')),
@@ -2621,8 +2700,7 @@ class Ptp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('log_grant_interval', YLeaf(YType.int8, 'log-grant-interval')),
                                     ('grant_duration', YLeaf(YType.uint32, 'grant-duration')),
@@ -2669,8 +2747,7 @@ class Ptp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('log_grant_interval', YLeaf(YType.int8, 'log-grant-interval')),
                                     ('grant_duration', YLeaf(YType.uint32, 'grant-duration')),
@@ -2712,20 +2789,20 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("counters", ("counters", Ptp.Nodes.Node.PacketCounters.Counters)), ("drop-reasons", ("drop_reasons", Ptp.Nodes.Node.PacketCounters.DropReasons))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("counters", ("counters", Ptp.Nodes.Node.PacketCounters.Counters)), ("drop-reasons", ("drop_reasons", Ptp.Nodes.Node.PacketCounters.DropReasons))])
                     self._leafs = OrderedDict()
 
                     self.counters = Ptp.Nodes.Node.PacketCounters.Counters()
                     self.counters.parent = self
                     self._children_name_map["counters"] = "counters"
-                    self._children_yang_names.add("counters")
 
                     self.drop_reasons = Ptp.Nodes.Node.PacketCounters.DropReasons()
                     self.drop_reasons.parent = self
                     self._children_name_map["drop_reasons"] = "drop-reasons"
-                    self._children_yang_names.add("drop-reasons")
                     self._segment_path = lambda: "packet-counters"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ptp.Nodes.Node.PacketCounters, [], name, value)
 
 
                 class Counters(Entity):
@@ -2999,8 +3076,7 @@ class Ptp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('announce_sent', YLeaf(YType.uint32, 'announce-sent')),
                             ('announce_received', YLeaf(YType.uint32, 'announce-received')),
@@ -3268,8 +3344,7 @@ class Ptp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('not_ready', YLeaf(YType.uint32, 'not-ready')),
                             ('wrong_domain', YLeaf(YType.uint32, 'wrong-domain')),
@@ -3326,6 +3401,125 @@ class Ptp(Entity):
                         self._perform_setattr(Ptp.Nodes.Node.PacketCounters.DropReasons, ['not_ready', 'wrong_domain', 'too_short', 'looped_same_port', 'looped_higher_port', 'looped_lower_port', 'no_timestamp', 'zero_timestamp', 'invalid_tl_vs', 'not_for_us', 'not_listening', 'wrong_master', 'unknown_master', 'not_master', 'not_slave', 'not_granted', 'too_slow', 'invalid_packet', 'wrong_sequence_id', 'no_offload_session', 'not_supported', 'min_clock_class', 'g8275_1_incompatible', 'g8275_2_incompatible'], name, value)
 
 
+    class Summary(Entity):
+        """
+        Summary operational data
+        
+        .. attribute:: port_state_init_count
+        
+        	Number of interfaces in 'Init' port state
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: port_state_listening_count
+        
+        	Number of interfaces in 'Listening' port state
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: port_state_passive_count
+        
+        	Number of interfaces in 'Passive' port state
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: port_state_pre_master_count
+        
+        	Number of interfaces in 'Pre\-Master' port state
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: port_state_master_count
+        
+        	Number of interfaces in 'Master' port state
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: port_state_slave_count
+        
+        	Number of interfaces in 'Slave' port state
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: port_state_uncalibrated_count
+        
+        	Number of interfaces in 'Uncalibrated port state
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: port_state_faulty_count
+        
+        	Number of interfaces in 'Faulty' port state
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: total_interfaces
+        
+        	Total number of interfaces
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: total_interfaces_valid_port_num
+        
+        	Total number of interfaces with a valid port number
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        
+
+        """
+
+        _prefix = 'ptp-oper'
+        _revision = '2017-02-02'
+
+        def __init__(self):
+            super(Ptp.Summary, self).__init__()
+
+            self.yang_name = "summary"
+            self.yang_parent_name = "ptp"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('port_state_init_count', YLeaf(YType.uint32, 'port-state-init-count')),
+                ('port_state_listening_count', YLeaf(YType.uint32, 'port-state-listening-count')),
+                ('port_state_passive_count', YLeaf(YType.uint32, 'port-state-passive-count')),
+                ('port_state_pre_master_count', YLeaf(YType.uint32, 'port-state-pre-master-count')),
+                ('port_state_master_count', YLeaf(YType.uint32, 'port-state-master-count')),
+                ('port_state_slave_count', YLeaf(YType.uint32, 'port-state-slave-count')),
+                ('port_state_uncalibrated_count', YLeaf(YType.uint32, 'port-state-uncalibrated-count')),
+                ('port_state_faulty_count', YLeaf(YType.uint32, 'port-state-faulty-count')),
+                ('total_interfaces', YLeaf(YType.uint32, 'total-interfaces')),
+                ('total_interfaces_valid_port_num', YLeaf(YType.uint32, 'total-interfaces-valid-port-num')),
+            ])
+            self.port_state_init_count = None
+            self.port_state_listening_count = None
+            self.port_state_passive_count = None
+            self.port_state_pre_master_count = None
+            self.port_state_master_count = None
+            self.port_state_slave_count = None
+            self.port_state_uncalibrated_count = None
+            self.port_state_faulty_count = None
+            self.total_interfaces = None
+            self.total_interfaces_valid_port_num = None
+            self._segment_path = lambda: "summary"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Ptp.Summary, ['port_state_init_count', 'port_state_listening_count', 'port_state_passive_count', 'port_state_pre_master_count', 'port_state_master_count', 'port_state_slave_count', 'port_state_uncalibrated_count', 'port_state_faulty_count', 'total_interfaces', 'total_interfaces_valid_port_num'], name, value)
+
+
     class InterfaceConfigurationErrors(Entity):
         """
         Table for interface configuration error
@@ -3351,8 +3545,7 @@ class Ptp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("interface-configuration-error", ("interface_configuration_error", Ptp.InterfaceConfigurationErrors.InterfaceConfigurationError))])
+            self._child_classes = OrderedDict([("interface-configuration-error", ("interface_configuration_error", Ptp.InterfaceConfigurationErrors.InterfaceConfigurationError))])
             self._leafs = OrderedDict()
 
             self.interface_configuration_error = YList(self)
@@ -3414,8 +3607,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface_name']
-                self._child_container_classes = OrderedDict([("configuration-errors", ("configuration_errors", Ptp.InterfaceConfigurationErrors.InterfaceConfigurationError.ConfigurationErrors))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("configuration-errors", ("configuration_errors", Ptp.InterfaceConfigurationErrors.InterfaceConfigurationError.ConfigurationErrors))])
                 self._leafs = OrderedDict([
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                     ('configuration_profile_name', YLeaf(YType.str, 'configuration-profile-name')),
@@ -3432,7 +3624,6 @@ class Ptp(Entity):
                 self.configuration_errors = Ptp.InterfaceConfigurationErrors.InterfaceConfigurationError.ConfigurationErrors()
                 self.configuration_errors.parent = self
                 self._children_name_map["configuration_errors"] = "configuration-errors"
-                self._children_yang_names.add("configuration-errors")
                 self._segment_path = lambda: "interface-configuration-error" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/interface-configuration-errors/%s" % self._segment_path()
 
@@ -3574,6 +3765,16 @@ class Ptp(Entity):
                 	Reducing invalid unicast grants is not compatible with configured profile
                 	**type**\: bool
                 
+                .. attribute:: invalid_master_config
+                
+                	Master configuration is not compatible with configured clock\-type
+                	**type**\: bool
+                
+                .. attribute:: invalid_slave_config
+                
+                	Slave configuration is not compatible with configured clock\-type
+                	**type**\: bool
+                
                 
 
                 """
@@ -3589,8 +3790,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('global_ptp', YLeaf(YType.boolean, 'global-ptp')),
                         ('ethernet_transport', YLeaf(YType.boolean, 'ethernet-transport')),
@@ -3618,6 +3818,8 @@ class Ptp(Entity):
                         ('profile_sync_timeout', YLeaf(YType.boolean, 'profile-sync-timeout')),
                         ('profile_delay_resp_timeout', YLeaf(YType.boolean, 'profile-delay-resp-timeout')),
                         ('invalid_grant_reduction', YLeaf(YType.boolean, 'invalid-grant-reduction')),
+                        ('invalid_master_config', YLeaf(YType.boolean, 'invalid-master-config')),
+                        ('invalid_slave_config', YLeaf(YType.boolean, 'invalid-slave-config')),
                     ])
                     self.global_ptp = None
                     self.ethernet_transport = None
@@ -3645,10 +3847,12 @@ class Ptp(Entity):
                     self.profile_sync_timeout = None
                     self.profile_delay_resp_timeout = None
                     self.invalid_grant_reduction = None
+                    self.invalid_master_config = None
+                    self.invalid_slave_config = None
                     self._segment_path = lambda: "configuration-errors"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.InterfaceConfigurationErrors.InterfaceConfigurationError.ConfigurationErrors, ['global_ptp', 'ethernet_transport', 'one_step', 'slave', 'ipv6', 'multicast', 'profile_not_global', 'local_priority', 'profile_ethernet', 'profile_ipv4', 'profile_ipv6', 'profile_unicast', 'profile_multicast', 'profile_mixed', 'profile_master_unicast', 'profile_master_multicast', 'profile_master_mixed', 'target_address_ipv4', 'target_address_ipv6', 'profile_port_state', 'profile_announce_interval', 'profile_sync_interval', 'profile_delay_req_interval', 'profile_sync_timeout', 'profile_delay_resp_timeout', 'invalid_grant_reduction'], name, value)
+                    self._perform_setattr(Ptp.InterfaceConfigurationErrors.InterfaceConfigurationError.ConfigurationErrors, ['global_ptp', 'ethernet_transport', 'one_step', 'slave', 'ipv6', 'multicast', 'profile_not_global', 'local_priority', 'profile_ethernet', 'profile_ipv4', 'profile_ipv6', 'profile_unicast', 'profile_multicast', 'profile_mixed', 'profile_master_unicast', 'profile_master_multicast', 'profile_master_mixed', 'target_address_ipv4', 'target_address_ipv6', 'profile_port_state', 'profile_announce_interval', 'profile_sync_interval', 'profile_delay_req_interval', 'profile_sync_timeout', 'profile_delay_resp_timeout', 'invalid_grant_reduction', 'invalid_master_config', 'invalid_slave_config'], name, value)
 
 
     class InterfaceForeignMasters(Entity):
@@ -3676,8 +3880,7 @@ class Ptp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("interface-foreign-master", ("interface_foreign_master", Ptp.InterfaceForeignMasters.InterfaceForeignMaster))])
+            self._child_classes = OrderedDict([("interface-foreign-master", ("interface_foreign_master", Ptp.InterfaceForeignMasters.InterfaceForeignMaster))])
             self._leafs = OrderedDict()
 
             self.interface_foreign_master = YList(self)
@@ -3726,8 +3929,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("foreign-clock", ("foreign_clock", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock))])
+                self._child_classes = OrderedDict([("foreign-clock", ("foreign_clock", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock))])
                 self._leafs = OrderedDict([
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                     ('port_number', YLeaf(YType.uint16, 'port-number')),
@@ -3854,8 +4056,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("foreign-clock", ("foreign_clock", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_)), ("address", ("address", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address)), ("announce-grant", ("announce_grant", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.AnnounceGrant)), ("sync-grant", ("sync_grant", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.SyncGrant)), ("delay-response-grant", ("delay_response_grant", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.DelayResponseGrant))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("foreign-clock", ("foreign_clock", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_)), ("address", ("address", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address)), ("announce-grant", ("announce_grant", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.AnnounceGrant)), ("sync-grant", ("sync_grant", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.SyncGrant)), ("delay-response-grant", ("delay_response_grant", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.DelayResponseGrant))])
                     self._leafs = OrderedDict([
                         ('is_qualified', YLeaf(YType.boolean, 'is-qualified')),
                         ('is_grandmaster', YLeaf(YType.boolean, 'is-grandmaster')),
@@ -3884,27 +4085,22 @@ class Ptp(Entity):
                     self.foreign_clock = Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_()
                     self.foreign_clock.parent = self
                     self._children_name_map["foreign_clock"] = "foreign-clock"
-                    self._children_yang_names.add("foreign-clock")
 
                     self.address = Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address()
                     self.address.parent = self
                     self._children_name_map["address"] = "address"
-                    self._children_yang_names.add("address")
 
                     self.announce_grant = Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.AnnounceGrant()
                     self.announce_grant.parent = self
                     self._children_name_map["announce_grant"] = "announce-grant"
-                    self._children_yang_names.add("announce-grant")
 
                     self.sync_grant = Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.SyncGrant()
                     self.sync_grant.parent = self
                     self._children_name_map["sync_grant"] = "sync-grant"
-                    self._children_yang_names.add("sync-grant")
 
                     self.delay_response_grant = Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.DelayResponseGrant()
                     self.delay_response_grant.parent = self
                     self._children_name_map["delay_response_grant"] = "delay-response-grant"
-                    self._children_yang_names.add("delay-response-grant")
                     self._segment_path = lambda: "foreign-clock"
 
                 def __setattr__(self, name, value):
@@ -4040,8 +4236,7 @@ class Ptp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("utc-offset", ("utc_offset", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.UtcOffset)), ("receiver", ("receiver", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.Receiver)), ("sender", ("sender", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.Sender))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("utc-offset", ("utc_offset", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.UtcOffset)), ("receiver", ("receiver", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.Receiver)), ("sender", ("sender", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.Sender))])
                         self._leafs = OrderedDict([
                             ('clock_id', YLeaf(YType.uint64, 'clock-id')),
                             ('priority1', YLeaf(YType.uint8, 'priority1')),
@@ -4078,17 +4273,14 @@ class Ptp(Entity):
                         self.utc_offset = Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.UtcOffset()
                         self.utc_offset.parent = self
                         self._children_name_map["utc_offset"] = "utc-offset"
-                        self._children_yang_names.add("utc-offset")
 
                         self.receiver = Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.Receiver()
                         self.receiver.parent = self
                         self._children_name_map["receiver"] = "receiver"
-                        self._children_yang_names.add("receiver")
 
                         self.sender = Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.Sender()
                         self.sender.parent = self
                         self._children_name_map["sender"] = "sender"
-                        self._children_yang_names.add("sender")
                         self._segment_path = lambda: "foreign-clock"
 
                     def __setattr__(self, name, value):
@@ -4126,8 +4318,7 @@ class Ptp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('current_offset', YLeaf(YType.int16, 'current-offset')),
                                 ('offset_valid', YLeaf(YType.boolean, 'offset-valid')),
@@ -4173,8 +4364,7 @@ class Ptp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('clock_id', YLeaf(YType.uint64, 'clock-id')),
                                 ('port_number', YLeaf(YType.uint16, 'port-number')),
@@ -4220,8 +4410,7 @@ class Ptp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('clock_id', YLeaf(YType.uint64, 'clock-id')),
                                 ('port_number', YLeaf(YType.uint16, 'port-number')),
@@ -4280,8 +4469,7 @@ class Ptp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("mac-address", ("mac_address", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address.Ipv6Address))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("mac-address", ("mac_address", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address.Ipv6Address))])
                         self._leafs = OrderedDict([
                             ('encapsulation', YLeaf(YType.enumeration, 'encapsulation')),
                             ('address_unknown', YLeaf(YType.boolean, 'address-unknown')),
@@ -4294,12 +4482,10 @@ class Ptp(Entity):
                         self.mac_address = Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address.MacAddress()
                         self.mac_address.parent = self
                         self._children_name_map["mac_address"] = "mac-address"
-                        self._children_yang_names.add("mac-address")
 
                         self.ipv6_address = Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address.Ipv6Address()
                         self.ipv6_address.parent = self
                         self._children_name_map["ipv6_address"] = "ipv6-address"
-                        self._children_yang_names.add("ipv6-address")
                         self._segment_path = lambda: "address"
 
                     def __setattr__(self, name, value):
@@ -4332,8 +4518,7 @@ class Ptp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('macaddr', YLeaf(YType.str, 'macaddr')),
                             ])
@@ -4370,8 +4555,7 @@ class Ptp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
                             ])
@@ -4415,8 +4599,7 @@ class Ptp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_grant_interval', YLeaf(YType.int8, 'log-grant-interval')),
                             ('grant_duration', YLeaf(YType.uint32, 'grant-duration')),
@@ -4462,8 +4645,7 @@ class Ptp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_grant_interval', YLeaf(YType.int8, 'log-grant-interval')),
                             ('grant_duration', YLeaf(YType.uint32, 'grant-duration')),
@@ -4510,8 +4692,7 @@ class Ptp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_grant_interval', YLeaf(YType.int8, 'log-grant-interval')),
                             ('grant_duration', YLeaf(YType.uint32, 'grant-duration')),
@@ -4555,8 +4736,7 @@ class Ptp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("clock-properties", ("clock_properties", Ptp.LocalClock.ClockProperties))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("clock-properties", ("clock_properties", Ptp.LocalClock.ClockProperties))])
             self._leafs = OrderedDict([
                 ('domain', YLeaf(YType.uint8, 'domain')),
             ])
@@ -4565,7 +4745,6 @@ class Ptp(Entity):
             self.clock_properties = Ptp.LocalClock.ClockProperties()
             self.clock_properties.parent = self
             self._children_name_map["clock_properties"] = "clock-properties"
-            self._children_yang_names.add("clock-properties")
             self._segment_path = lambda: "local-clock"
             self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/%s" % self._segment_path()
 
@@ -4702,8 +4881,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("utc-offset", ("utc_offset", Ptp.LocalClock.ClockProperties.UtcOffset)), ("receiver", ("receiver", Ptp.LocalClock.ClockProperties.Receiver)), ("sender", ("sender", Ptp.LocalClock.ClockProperties.Sender))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("utc-offset", ("utc_offset", Ptp.LocalClock.ClockProperties.UtcOffset)), ("receiver", ("receiver", Ptp.LocalClock.ClockProperties.Receiver)), ("sender", ("sender", Ptp.LocalClock.ClockProperties.Sender))])
                 self._leafs = OrderedDict([
                     ('clock_id', YLeaf(YType.uint64, 'clock-id')),
                     ('priority1', YLeaf(YType.uint8, 'priority1')),
@@ -4740,17 +4918,14 @@ class Ptp(Entity):
                 self.utc_offset = Ptp.LocalClock.ClockProperties.UtcOffset()
                 self.utc_offset.parent = self
                 self._children_name_map["utc_offset"] = "utc-offset"
-                self._children_yang_names.add("utc-offset")
 
                 self.receiver = Ptp.LocalClock.ClockProperties.Receiver()
                 self.receiver.parent = self
                 self._children_name_map["receiver"] = "receiver"
-                self._children_yang_names.add("receiver")
 
                 self.sender = Ptp.LocalClock.ClockProperties.Sender()
                 self.sender.parent = self
                 self._children_name_map["sender"] = "sender"
-                self._children_yang_names.add("sender")
                 self._segment_path = lambda: "clock-properties"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/local-clock/%s" % self._segment_path()
 
@@ -4789,8 +4964,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('current_offset', YLeaf(YType.int16, 'current-offset')),
                         ('offset_valid', YLeaf(YType.boolean, 'offset-valid')),
@@ -4837,8 +5011,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('clock_id', YLeaf(YType.uint64, 'clock-id')),
                         ('port_number', YLeaf(YType.uint16, 'port-number')),
@@ -4885,8 +5058,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('clock_id', YLeaf(YType.uint64, 'clock-id')),
                         ('port_number', YLeaf(YType.uint16, 'port-number')),
@@ -4925,8 +5097,7 @@ class Ptp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("interface-packet-counter", ("interface_packet_counter", Ptp.InterfacePacketCounters.InterfacePacketCounter))])
+            self._child_classes = OrderedDict([("interface-packet-counter", ("interface_packet_counter", Ptp.InterfacePacketCounters.InterfacePacketCounter))])
             self._leafs = OrderedDict()
 
             self.interface_packet_counter = YList(self)
@@ -4973,8 +5144,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface_name']
-                self._child_container_classes = OrderedDict([("counters", ("counters", Ptp.InterfacePacketCounters.InterfacePacketCounter.Counters))])
-                self._child_list_classes = OrderedDict([("peer-counter", ("peer_counter", Ptp.InterfacePacketCounters.InterfacePacketCounter.PeerCounter))])
+                self._child_classes = OrderedDict([("counters", ("counters", Ptp.InterfacePacketCounters.InterfacePacketCounter.Counters)), ("peer-counter", ("peer_counter", Ptp.InterfacePacketCounters.InterfacePacketCounter.PeerCounter))])
                 self._leafs = OrderedDict([
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                 ])
@@ -4983,7 +5153,6 @@ class Ptp(Entity):
                 self.counters = Ptp.InterfacePacketCounters.InterfacePacketCounter.Counters()
                 self.counters.parent = self
                 self._children_name_map["counters"] = "counters"
-                self._children_yang_names.add("counters")
 
                 self.peer_counter = YList(self)
                 self._segment_path = lambda: "interface-packet-counter" + "[interface-name='" + str(self.interface_name) + "']"
@@ -5264,8 +5433,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('announce_sent', YLeaf(YType.uint32, 'announce-sent')),
                         ('announce_received', YLeaf(YType.uint32, 'announce-received')),
@@ -5375,20 +5543,20 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("address", ("address", Ptp.InterfacePacketCounters.InterfacePacketCounter.PeerCounter.Address)), ("counters", ("counters", Ptp.InterfacePacketCounters.InterfacePacketCounter.PeerCounter.Counters))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("address", ("address", Ptp.InterfacePacketCounters.InterfacePacketCounter.PeerCounter.Address)), ("counters", ("counters", Ptp.InterfacePacketCounters.InterfacePacketCounter.PeerCounter.Counters))])
                     self._leafs = OrderedDict()
 
                     self.address = Ptp.InterfacePacketCounters.InterfacePacketCounter.PeerCounter.Address()
                     self.address.parent = self
                     self._children_name_map["address"] = "address"
-                    self._children_yang_names.add("address")
 
                     self.counters = Ptp.InterfacePacketCounters.InterfacePacketCounter.PeerCounter.Counters()
                     self.counters.parent = self
                     self._children_name_map["counters"] = "counters"
-                    self._children_yang_names.add("counters")
                     self._segment_path = lambda: "peer-counter"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ptp.InterfacePacketCounters.InterfacePacketCounter.PeerCounter, [], name, value)
 
 
                 class Address(Entity):
@@ -5437,8 +5605,7 @@ class Ptp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("mac-address", ("mac_address", Ptp.InterfacePacketCounters.InterfacePacketCounter.PeerCounter.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.InterfacePacketCounters.InterfacePacketCounter.PeerCounter.Address.Ipv6Address))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("mac-address", ("mac_address", Ptp.InterfacePacketCounters.InterfacePacketCounter.PeerCounter.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.InterfacePacketCounters.InterfacePacketCounter.PeerCounter.Address.Ipv6Address))])
                         self._leafs = OrderedDict([
                             ('encapsulation', YLeaf(YType.enumeration, 'encapsulation')),
                             ('address_unknown', YLeaf(YType.boolean, 'address-unknown')),
@@ -5451,12 +5618,10 @@ class Ptp(Entity):
                         self.mac_address = Ptp.InterfacePacketCounters.InterfacePacketCounter.PeerCounter.Address.MacAddress()
                         self.mac_address.parent = self
                         self._children_name_map["mac_address"] = "mac-address"
-                        self._children_yang_names.add("mac-address")
 
                         self.ipv6_address = Ptp.InterfacePacketCounters.InterfacePacketCounter.PeerCounter.Address.Ipv6Address()
                         self.ipv6_address.parent = self
                         self._children_name_map["ipv6_address"] = "ipv6-address"
-                        self._children_yang_names.add("ipv6-address")
                         self._segment_path = lambda: "address"
 
                     def __setattr__(self, name, value):
@@ -5489,8 +5654,7 @@ class Ptp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('macaddr', YLeaf(YType.str, 'macaddr')),
                             ])
@@ -5527,8 +5691,7 @@ class Ptp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
                             ])
@@ -5810,8 +5973,7 @@ class Ptp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('announce_sent', YLeaf(YType.uint32, 'announce-sent')),
                             ('announce_received', YLeaf(YType.uint32, 'announce-received')),
@@ -5943,8 +6105,7 @@ class Ptp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("clock-properties", ("clock_properties", Ptp.AdvertisedClock.ClockProperties))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("clock-properties", ("clock_properties", Ptp.AdvertisedClock.ClockProperties))])
             self._leafs = OrderedDict([
                 ('domain', YLeaf(YType.uint8, 'domain')),
                 ('time_source_configured', YLeaf(YType.boolean, 'time-source-configured')),
@@ -5961,7 +6122,6 @@ class Ptp(Entity):
             self.clock_properties = Ptp.AdvertisedClock.ClockProperties()
             self.clock_properties.parent = self
             self._children_name_map["clock_properties"] = "clock-properties"
-            self._children_yang_names.add("clock-properties")
             self._segment_path = lambda: "advertised-clock"
             self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/%s" % self._segment_path()
 
@@ -6098,8 +6258,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("utc-offset", ("utc_offset", Ptp.AdvertisedClock.ClockProperties.UtcOffset)), ("receiver", ("receiver", Ptp.AdvertisedClock.ClockProperties.Receiver)), ("sender", ("sender", Ptp.AdvertisedClock.ClockProperties.Sender))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("utc-offset", ("utc_offset", Ptp.AdvertisedClock.ClockProperties.UtcOffset)), ("receiver", ("receiver", Ptp.AdvertisedClock.ClockProperties.Receiver)), ("sender", ("sender", Ptp.AdvertisedClock.ClockProperties.Sender))])
                 self._leafs = OrderedDict([
                     ('clock_id', YLeaf(YType.uint64, 'clock-id')),
                     ('priority1', YLeaf(YType.uint8, 'priority1')),
@@ -6136,17 +6295,14 @@ class Ptp(Entity):
                 self.utc_offset = Ptp.AdvertisedClock.ClockProperties.UtcOffset()
                 self.utc_offset.parent = self
                 self._children_name_map["utc_offset"] = "utc-offset"
-                self._children_yang_names.add("utc-offset")
 
                 self.receiver = Ptp.AdvertisedClock.ClockProperties.Receiver()
                 self.receiver.parent = self
                 self._children_name_map["receiver"] = "receiver"
-                self._children_yang_names.add("receiver")
 
                 self.sender = Ptp.AdvertisedClock.ClockProperties.Sender()
                 self.sender.parent = self
                 self._children_name_map["sender"] = "sender"
-                self._children_yang_names.add("sender")
                 self._segment_path = lambda: "clock-properties"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/advertised-clock/%s" % self._segment_path()
 
@@ -6185,8 +6341,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('current_offset', YLeaf(YType.int16, 'current-offset')),
                         ('offset_valid', YLeaf(YType.boolean, 'offset-valid')),
@@ -6233,8 +6388,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('clock_id', YLeaf(YType.uint64, 'clock-id')),
                         ('port_number', YLeaf(YType.uint16, 'port-number')),
@@ -6281,8 +6435,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('clock_id', YLeaf(YType.uint64, 'clock-id')),
                         ('port_number', YLeaf(YType.uint16, 'port-number')),
@@ -6320,8 +6473,7 @@ class Ptp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("interface", ("interface", Ptp.Interfaces.Interface))])
+            self._child_classes = OrderedDict([("interface", ("interface", Ptp.Interfaces.Interface))])
             self._leafs = OrderedDict()
 
             self.interface = YList(self)
@@ -6363,9 +6515,7 @@ class Ptp(Entity):
             .. attribute:: line_state
             
             	Line state
-            	**type**\: int
-            
-            	**range:** 0..4294967295
+            	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.ImStateEnum>`
             
             .. attribute:: encapsulation
             
@@ -6429,6 +6579,16 @@ class Ptp(Entity):
             	The configured port state
             	**type**\:  :py:class:`PtpBagRestrictPortState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagRestrictPortState>`
             
+            .. attribute:: supports_unicast
+            
+            	The interface supports unicast
+            	**type**\: bool
+            
+            .. attribute:: supports_master
+            
+            	The interface supports operation in master mode
+            	**type**\: bool
+            
             .. attribute:: supports_one_step
             
             	The interface supports one\-step operation
@@ -6447,6 +6607,11 @@ class Ptp(Entity):
             .. attribute:: supports_multicast
             
             	The interface supports multicast
+            	**type**\: bool
+            
+            .. attribute:: supports_ipv4
+            
+            	The interface supports IPv4 transport
             	**type**\: bool
             
             .. attribute:: supports_ipv6
@@ -6538,13 +6703,12 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface_name']
-                self._child_container_classes = OrderedDict([("mac-address", ("mac_address", Ptp.Interfaces.Interface.MacAddress))])
-                self._child_list_classes = OrderedDict([("master-table", ("master_table", Ptp.Interfaces.Interface.MasterTable))])
+                self._child_classes = OrderedDict([("mac-address", ("mac_address", Ptp.Interfaces.Interface.MacAddress)), ("master-table", ("master_table", Ptp.Interfaces.Interface.MasterTable))])
                 self._leafs = OrderedDict([
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                     ('port_state', YLeaf(YType.enumeration, 'port-state')),
                     ('port_number', YLeaf(YType.uint16, 'port-number')),
-                    ('line_state', YLeaf(YType.uint32, 'line-state')),
+                    ('line_state', YLeaf(YType.enumeration, 'line-state')),
                     ('encapsulation', YLeaf(YType.enumeration, 'encapsulation')),
                     ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -6555,10 +6719,13 @@ class Ptp(Entity):
                     ('announce_timeout', YLeaf(YType.uint32, 'announce-timeout')),
                     ('log_min_delay_request_interval', YLeaf(YType.int32, 'log-min-delay-request-interval')),
                     ('configured_port_state', YLeaf(YType.enumeration, 'configured-port-state')),
+                    ('supports_unicast', YLeaf(YType.boolean, 'supports-unicast')),
+                    ('supports_master', YLeaf(YType.boolean, 'supports-master')),
                     ('supports_one_step', YLeaf(YType.boolean, 'supports-one-step')),
                     ('supports_two_step', YLeaf(YType.boolean, 'supports-two-step')),
                     ('supports_ethernet', YLeaf(YType.boolean, 'supports-ethernet')),
                     ('supports_multicast', YLeaf(YType.boolean, 'supports-multicast')),
+                    ('supports_ipv4', YLeaf(YType.boolean, 'supports-ipv4')),
                     ('supports_ipv6', YLeaf(YType.boolean, 'supports-ipv6')),
                     ('supports_slave', YLeaf(YType.boolean, 'supports-slave')),
                     ('supports_source_ip', YLeaf(YType.boolean, 'supports-source-ip')),
@@ -6585,10 +6752,13 @@ class Ptp(Entity):
                 self.announce_timeout = None
                 self.log_min_delay_request_interval = None
                 self.configured_port_state = None
+                self.supports_unicast = None
+                self.supports_master = None
                 self.supports_one_step = None
                 self.supports_two_step = None
                 self.supports_ethernet = None
                 self.supports_multicast = None
+                self.supports_ipv4 = None
                 self.supports_ipv6 = None
                 self.supports_slave = None
                 self.supports_source_ip = None
@@ -6604,14 +6774,13 @@ class Ptp(Entity):
                 self.mac_address = Ptp.Interfaces.Interface.MacAddress()
                 self.mac_address.parent = self
                 self._children_name_map["mac_address"] = "mac-address"
-                self._children_yang_names.add("mac-address")
 
                 self.master_table = YList(self)
                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/interfaces/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.Interfaces.Interface, ['interface_name', 'port_state', 'port_number', 'line_state', 'encapsulation', 'ipv6_address', 'ipv4_address', 'two_step', 'communication_model', 'log_sync_interval', 'log_announce_interval', 'announce_timeout', 'log_min_delay_request_interval', 'configured_port_state', 'supports_one_step', 'supports_two_step', 'supports_ethernet', 'supports_multicast', 'supports_ipv6', 'supports_slave', 'supports_source_ip', 'max_sync_rate', 'event_cos', 'general_cos', 'event_dscp', 'general_dscp', 'unicast_peers', 'local_priority', 'signal_fail'], name, value)
+                self._perform_setattr(Ptp.Interfaces.Interface, ['interface_name', 'port_state', 'port_number', 'line_state', 'encapsulation', 'ipv6_address', 'ipv4_address', 'two_step', 'communication_model', 'log_sync_interval', 'log_announce_interval', 'announce_timeout', 'log_min_delay_request_interval', 'configured_port_state', 'supports_unicast', 'supports_master', 'supports_one_step', 'supports_two_step', 'supports_ethernet', 'supports_multicast', 'supports_ipv4', 'supports_ipv6', 'supports_slave', 'supports_source_ip', 'max_sync_rate', 'event_cos', 'general_cos', 'event_dscp', 'general_dscp', 'unicast_peers', 'local_priority', 'signal_fail'], name, value)
 
 
             class MacAddress(Entity):
@@ -6641,8 +6810,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('macaddr', YLeaf(YType.str, 'macaddr')),
                     ])
@@ -6723,8 +6891,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("address", ("address", Ptp.Interfaces.Interface.MasterTable.Address))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("address", ("address", Ptp.Interfaces.Interface.MasterTable.Address))])
                     self._leafs = OrderedDict([
                         ('communication_model', YLeaf(YType.enumeration, 'communication-model')),
                         ('priority', YLeaf(YType.uint8, 'priority')),
@@ -6747,7 +6914,6 @@ class Ptp(Entity):
                     self.address = Ptp.Interfaces.Interface.MasterTable.Address()
                     self.address.parent = self
                     self._children_name_map["address"] = "address"
-                    self._children_yang_names.add("address")
                     self._segment_path = lambda: "master-table"
 
                 def __setattr__(self, name, value):
@@ -6800,8 +6966,7 @@ class Ptp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("mac-address", ("mac_address", Ptp.Interfaces.Interface.MasterTable.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.Interfaces.Interface.MasterTable.Address.Ipv6Address))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("mac-address", ("mac_address", Ptp.Interfaces.Interface.MasterTable.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.Interfaces.Interface.MasterTable.Address.Ipv6Address))])
                         self._leafs = OrderedDict([
                             ('encapsulation', YLeaf(YType.enumeration, 'encapsulation')),
                             ('address_unknown', YLeaf(YType.boolean, 'address-unknown')),
@@ -6814,12 +6979,10 @@ class Ptp(Entity):
                         self.mac_address = Ptp.Interfaces.Interface.MasterTable.Address.MacAddress()
                         self.mac_address.parent = self
                         self._children_name_map["mac_address"] = "mac-address"
-                        self._children_yang_names.add("mac-address")
 
                         self.ipv6_address = Ptp.Interfaces.Interface.MasterTable.Address.Ipv6Address()
                         self.ipv6_address.parent = self
                         self._children_name_map["ipv6_address"] = "ipv6-address"
-                        self._children_yang_names.add("ipv6-address")
                         self._segment_path = lambda: "address"
 
                     def __setattr__(self, name, value):
@@ -6852,8 +7015,7 @@ class Ptp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('macaddr', YLeaf(YType.str, 'macaddr')),
                             ])
@@ -6890,8 +7052,7 @@ class Ptp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
                             ])
@@ -6946,36 +7107,33 @@ class Ptp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("default-ds", ("default_ds", Ptp.Dataset.DefaultDs)), ("current-ds", ("current_ds", Ptp.Dataset.CurrentDs)), ("parent-ds", ("parent_ds", Ptp.Dataset.ParentDs)), ("port-dses", ("port_dses", Ptp.Dataset.PortDses)), ("time-properties-ds", ("time_properties_ds", Ptp.Dataset.TimePropertiesDs))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("default-ds", ("default_ds", Ptp.Dataset.DefaultDs)), ("current-ds", ("current_ds", Ptp.Dataset.CurrentDs)), ("parent-ds", ("parent_ds", Ptp.Dataset.ParentDs)), ("port-dses", ("port_dses", Ptp.Dataset.PortDses)), ("time-properties-ds", ("time_properties_ds", Ptp.Dataset.TimePropertiesDs))])
             self._leafs = OrderedDict()
 
             self.default_ds = Ptp.Dataset.DefaultDs()
             self.default_ds.parent = self
             self._children_name_map["default_ds"] = "default-ds"
-            self._children_yang_names.add("default-ds")
 
             self.current_ds = Ptp.Dataset.CurrentDs()
             self.current_ds.parent = self
             self._children_name_map["current_ds"] = "current-ds"
-            self._children_yang_names.add("current-ds")
 
             self.parent_ds = Ptp.Dataset.ParentDs()
             self.parent_ds.parent = self
             self._children_name_map["parent_ds"] = "parent-ds"
-            self._children_yang_names.add("parent-ds")
 
             self.port_dses = Ptp.Dataset.PortDses()
             self.port_dses.parent = self
             self._children_name_map["port_dses"] = "port-dses"
-            self._children_yang_names.add("port-dses")
 
             self.time_properties_ds = Ptp.Dataset.TimePropertiesDs()
             self.time_properties_ds.parent = self
             self._children_name_map["time_properties_ds"] = "time-properties-ds"
-            self._children_yang_names.add("time-properties-ds")
             self._segment_path = lambda: "dataset"
             self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Ptp.Dataset, [], name, value)
 
 
         class DefaultDs(Entity):
@@ -7076,8 +7234,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('two_step_flag', YLeaf(YType.boolean, 'two-step-flag')),
                     ('clock_id', YLeaf(YType.uint64, 'clock-id')),
@@ -7152,8 +7309,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('steps_removed', YLeaf(YType.uint16, 'steps-removed')),
                     ('offset_from_master', YLeaf(YType.int64, 'offset-from-master')),
@@ -7264,8 +7420,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('parent_clock_id', YLeaf(YType.uint64, 'parent-clock-id')),
                     ('parent_port_number', YLeaf(YType.uint16, 'parent-port-number')),
@@ -7321,8 +7476,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("port-ds", ("port_ds", Ptp.Dataset.PortDses.PortDs))])
+                self._child_classes = OrderedDict([("port-ds", ("port_ds", Ptp.Dataset.PortDses.PortDs))])
                 self._leafs = OrderedDict()
 
                 self.port_ds = YList(self)
@@ -7449,8 +7603,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['interface_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ('clock_id', YLeaf(YType.uint64, 'clock-id')),
@@ -7552,8 +7705,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('current_utc_offset', YLeaf(YType.int16, 'current-utc-offset')),
                     ('current_utc_offset_valid', YLeaf(YType.boolean, 'current-utc-offset-valid')),
@@ -7632,8 +7784,7 @@ class Ptp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("configuration-errors", ("configuration_errors", Ptp.GlobalConfigurationError.ConfigurationErrors))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("configuration-errors", ("configuration_errors", Ptp.GlobalConfigurationError.ConfigurationErrors))])
             self._leafs = OrderedDict([
                 ('clock_profile', YLeaf(YType.enumeration, 'clock-profile')),
                 ('clock_profile_set', YLeaf(YType.boolean, 'clock-profile-set')),
@@ -7650,7 +7801,6 @@ class Ptp(Entity):
             self.configuration_errors = Ptp.GlobalConfigurationError.ConfigurationErrors()
             self.configuration_errors.parent = self
             self._children_name_map["configuration_errors"] = "configuration-errors"
-            self._children_yang_names.add("configuration-errors")
             self._segment_path = lambda: "global-configuration-error"
             self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/%s" % self._segment_path()
 
@@ -7697,8 +7847,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('domain', YLeaf(YType.boolean, 'domain')),
                     ('profile_priority1_config', YLeaf(YType.boolean, 'profile-priority1-config')),
@@ -7771,8 +7920,7 @@ class Ptp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("clock-properties", ("clock_properties", Ptp.Grandmaster.ClockProperties)), ("address", ("address", Ptp.Grandmaster.Address))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("clock-properties", ("clock_properties", Ptp.Grandmaster.ClockProperties)), ("address", ("address", Ptp.Grandmaster.Address))])
             self._leafs = OrderedDict([
                 ('used_for_time', YLeaf(YType.boolean, 'used-for-time')),
                 ('used_for_frequency', YLeaf(YType.boolean, 'used-for-frequency')),
@@ -7787,12 +7935,10 @@ class Ptp(Entity):
             self.clock_properties = Ptp.Grandmaster.ClockProperties()
             self.clock_properties.parent = self
             self._children_name_map["clock_properties"] = "clock-properties"
-            self._children_yang_names.add("clock-properties")
 
             self.address = Ptp.Grandmaster.Address()
             self.address.parent = self
             self._children_name_map["address"] = "address"
-            self._children_yang_names.add("address")
             self._segment_path = lambda: "grandmaster"
             self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/%s" % self._segment_path()
 
@@ -7929,8 +8075,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("utc-offset", ("utc_offset", Ptp.Grandmaster.ClockProperties.UtcOffset)), ("receiver", ("receiver", Ptp.Grandmaster.ClockProperties.Receiver)), ("sender", ("sender", Ptp.Grandmaster.ClockProperties.Sender))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("utc-offset", ("utc_offset", Ptp.Grandmaster.ClockProperties.UtcOffset)), ("receiver", ("receiver", Ptp.Grandmaster.ClockProperties.Receiver)), ("sender", ("sender", Ptp.Grandmaster.ClockProperties.Sender))])
                 self._leafs = OrderedDict([
                     ('clock_id', YLeaf(YType.uint64, 'clock-id')),
                     ('priority1', YLeaf(YType.uint8, 'priority1')),
@@ -7967,17 +8112,14 @@ class Ptp(Entity):
                 self.utc_offset = Ptp.Grandmaster.ClockProperties.UtcOffset()
                 self.utc_offset.parent = self
                 self._children_name_map["utc_offset"] = "utc-offset"
-                self._children_yang_names.add("utc-offset")
 
                 self.receiver = Ptp.Grandmaster.ClockProperties.Receiver()
                 self.receiver.parent = self
                 self._children_name_map["receiver"] = "receiver"
-                self._children_yang_names.add("receiver")
 
                 self.sender = Ptp.Grandmaster.ClockProperties.Sender()
                 self.sender.parent = self
                 self._children_name_map["sender"] = "sender"
-                self._children_yang_names.add("sender")
                 self._segment_path = lambda: "clock-properties"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/grandmaster/%s" % self._segment_path()
 
@@ -8016,8 +8158,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('current_offset', YLeaf(YType.int16, 'current-offset')),
                         ('offset_valid', YLeaf(YType.boolean, 'offset-valid')),
@@ -8064,8 +8205,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('clock_id', YLeaf(YType.uint64, 'clock-id')),
                         ('port_number', YLeaf(YType.uint16, 'port-number')),
@@ -8112,8 +8252,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('clock_id', YLeaf(YType.uint64, 'clock-id')),
                         ('port_number', YLeaf(YType.uint16, 'port-number')),
@@ -8173,8 +8312,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("mac-address", ("mac_address", Ptp.Grandmaster.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.Grandmaster.Address.Ipv6Address))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("mac-address", ("mac_address", Ptp.Grandmaster.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.Grandmaster.Address.Ipv6Address))])
                 self._leafs = OrderedDict([
                     ('encapsulation', YLeaf(YType.enumeration, 'encapsulation')),
                     ('address_unknown', YLeaf(YType.boolean, 'address-unknown')),
@@ -8187,12 +8325,10 @@ class Ptp(Entity):
                 self.mac_address = Ptp.Grandmaster.Address.MacAddress()
                 self.mac_address.parent = self
                 self._children_name_map["mac_address"] = "mac-address"
-                self._children_yang_names.add("mac-address")
 
                 self.ipv6_address = Ptp.Grandmaster.Address.Ipv6Address()
                 self.ipv6_address.parent = self
                 self._children_name_map["ipv6_address"] = "ipv6-address"
-                self._children_yang_names.add("ipv6-address")
                 self._segment_path = lambda: "address"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/grandmaster/%s" % self._segment_path()
 
@@ -8226,8 +8362,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('macaddr', YLeaf(YType.str, 'macaddr')),
                     ])
@@ -8265,8 +8400,7 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
                     ])
@@ -8303,8 +8437,7 @@ class Ptp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("interface-unicast-peer", ("interface_unicast_peer", Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer))])
+            self._child_classes = OrderedDict([("interface-unicast-peer", ("interface_unicast_peer", Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer))])
             self._leafs = OrderedDict()
 
             self.interface_unicast_peer = YList(self)
@@ -8358,8 +8491,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("peers", ("peers", Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers))])
+                self._child_classes = OrderedDict([("peers", ("peers", Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers))])
                 self._leafs = OrderedDict([
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                     ('name', YLeaf(YType.str, 'name')),
@@ -8416,30 +8548,28 @@ class Ptp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("address", ("address", Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.Address)), ("announce-grant", ("announce_grant", Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.AnnounceGrant)), ("sync-grant", ("sync_grant", Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.SyncGrant)), ("delay-response-grant", ("delay_response_grant", Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.DelayResponseGrant))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("address", ("address", Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.Address)), ("announce-grant", ("announce_grant", Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.AnnounceGrant)), ("sync-grant", ("sync_grant", Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.SyncGrant)), ("delay-response-grant", ("delay_response_grant", Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.DelayResponseGrant))])
                     self._leafs = OrderedDict()
 
                     self.address = Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.Address()
                     self.address.parent = self
                     self._children_name_map["address"] = "address"
-                    self._children_yang_names.add("address")
 
                     self.announce_grant = Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.AnnounceGrant()
                     self.announce_grant.parent = self
                     self._children_name_map["announce_grant"] = "announce-grant"
-                    self._children_yang_names.add("announce-grant")
 
                     self.sync_grant = Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.SyncGrant()
                     self.sync_grant.parent = self
                     self._children_name_map["sync_grant"] = "sync-grant"
-                    self._children_yang_names.add("sync-grant")
 
                     self.delay_response_grant = Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.DelayResponseGrant()
                     self.delay_response_grant.parent = self
                     self._children_name_map["delay_response_grant"] = "delay-response-grant"
-                    self._children_yang_names.add("delay-response-grant")
                     self._segment_path = lambda: "peers"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers, [], name, value)
 
 
                 class Address(Entity):
@@ -8488,8 +8618,7 @@ class Ptp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("mac-address", ("mac_address", Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.Address.Ipv6Address))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("mac-address", ("mac_address", Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.Address.Ipv6Address))])
                         self._leafs = OrderedDict([
                             ('encapsulation', YLeaf(YType.enumeration, 'encapsulation')),
                             ('address_unknown', YLeaf(YType.boolean, 'address-unknown')),
@@ -8502,12 +8631,10 @@ class Ptp(Entity):
                         self.mac_address = Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.Address.MacAddress()
                         self.mac_address.parent = self
                         self._children_name_map["mac_address"] = "mac-address"
-                        self._children_yang_names.add("mac-address")
 
                         self.ipv6_address = Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.Address.Ipv6Address()
                         self.ipv6_address.parent = self
                         self._children_name_map["ipv6_address"] = "ipv6-address"
-                        self._children_yang_names.add("ipv6-address")
                         self._segment_path = lambda: "address"
 
                     def __setattr__(self, name, value):
@@ -8540,8 +8667,7 @@ class Ptp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('macaddr', YLeaf(YType.str, 'macaddr')),
                             ])
@@ -8578,8 +8704,7 @@ class Ptp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
                             ])
@@ -8623,8 +8748,7 @@ class Ptp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_grant_interval', YLeaf(YType.int8, 'log-grant-interval')),
                             ('grant_duration', YLeaf(YType.uint32, 'grant-duration')),
@@ -8670,8 +8794,7 @@ class Ptp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_grant_interval', YLeaf(YType.int8, 'log-grant-interval')),
                             ('grant_duration', YLeaf(YType.uint32, 'grant-duration')),
@@ -8718,8 +8841,7 @@ class Ptp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('log_grant_interval', YLeaf(YType.int8, 'log-grant-interval')),
                             ('grant_duration', YLeaf(YType.uint32, 'grant-duration')),
@@ -8816,8 +8938,7 @@ class Ptp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("current-offset-info", ("current_offset_info", Ptp.UtcOffsetInfo.CurrentOffsetInfo)), ("current-gm-offset-info", ("current_gm_offset_info", Ptp.UtcOffsetInfo.CurrentGmOffsetInfo)), ("configured-offset-info", ("configured_offset_info", Ptp.UtcOffsetInfo.ConfiguredOffsetInfo)), ("previous-gm-offset-info", ("previous_gm_offset_info", Ptp.UtcOffsetInfo.PreviousGmOffsetInfo)), ("hardware-offset-info", ("hardware_offset_info", Ptp.UtcOffsetInfo.HardwareOffsetInfo)), ("gm-leap-second", ("gm_leap_second", Ptp.UtcOffsetInfo.GmLeapSecond))])
-            self._child_list_classes = OrderedDict([("configured-leap-second", ("configured_leap_second", Ptp.UtcOffsetInfo.ConfiguredLeapSecond))])
+            self._child_classes = OrderedDict([("current-offset-info", ("current_offset_info", Ptp.UtcOffsetInfo.CurrentOffsetInfo)), ("current-gm-offset-info", ("current_gm_offset_info", Ptp.UtcOffsetInfo.CurrentGmOffsetInfo)), ("configured-offset-info", ("configured_offset_info", Ptp.UtcOffsetInfo.ConfiguredOffsetInfo)), ("previous-gm-offset-info", ("previous_gm_offset_info", Ptp.UtcOffsetInfo.PreviousGmOffsetInfo)), ("hardware-offset-info", ("hardware_offset_info", Ptp.UtcOffsetInfo.HardwareOffsetInfo)), ("gm-leap-second", ("gm_leap_second", Ptp.UtcOffsetInfo.GmLeapSecond)), ("configured-leap-second", ("configured_leap_second", Ptp.UtcOffsetInfo.ConfiguredLeapSecond))])
             self._leafs = OrderedDict([
                 ('source_type', YLeaf(YType.uint8, 'source-type')),
                 ('source_file', YLeaf(YType.str, 'source-file')),
@@ -8832,32 +8953,26 @@ class Ptp(Entity):
             self.current_offset_info = Ptp.UtcOffsetInfo.CurrentOffsetInfo()
             self.current_offset_info.parent = self
             self._children_name_map["current_offset_info"] = "current-offset-info"
-            self._children_yang_names.add("current-offset-info")
 
             self.current_gm_offset_info = Ptp.UtcOffsetInfo.CurrentGmOffsetInfo()
             self.current_gm_offset_info.parent = self
             self._children_name_map["current_gm_offset_info"] = "current-gm-offset-info"
-            self._children_yang_names.add("current-gm-offset-info")
 
             self.configured_offset_info = Ptp.UtcOffsetInfo.ConfiguredOffsetInfo()
             self.configured_offset_info.parent = self
             self._children_name_map["configured_offset_info"] = "configured-offset-info"
-            self._children_yang_names.add("configured-offset-info")
 
             self.previous_gm_offset_info = Ptp.UtcOffsetInfo.PreviousGmOffsetInfo()
             self.previous_gm_offset_info.parent = self
             self._children_name_map["previous_gm_offset_info"] = "previous-gm-offset-info"
-            self._children_yang_names.add("previous-gm-offset-info")
 
             self.hardware_offset_info = Ptp.UtcOffsetInfo.HardwareOffsetInfo()
             self.hardware_offset_info.parent = self
             self._children_name_map["hardware_offset_info"] = "hardware-offset-info"
-            self._children_yang_names.add("hardware-offset-info")
 
             self.gm_leap_second = Ptp.UtcOffsetInfo.GmLeapSecond()
             self.gm_leap_second.parent = self
             self._children_name_map["gm_leap_second"] = "gm-leap-second"
-            self._children_yang_names.add("gm-leap-second")
 
             self.configured_leap_second = YList(self)
             self._segment_path = lambda: "utc-offset-info"
@@ -8907,8 +9022,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('offset', YLeaf(YType.int16, 'offset')),
                     ('valid', YLeaf(YType.boolean, 'valid')),
@@ -8965,8 +9079,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('offset', YLeaf(YType.int16, 'offset')),
                     ('valid', YLeaf(YType.boolean, 'valid')),
@@ -9022,8 +9135,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('offset', YLeaf(YType.int16, 'offset')),
                     ('valid', YLeaf(YType.boolean, 'valid')),
@@ -9080,8 +9192,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('offset', YLeaf(YType.int16, 'offset')),
                     ('valid', YLeaf(YType.boolean, 'valid')),
@@ -9138,8 +9249,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('offset', YLeaf(YType.int16, 'offset')),
                     ('valid', YLeaf(YType.boolean, 'valid')),
@@ -9203,8 +9313,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('offset', YLeaf(YType.int16, 'offset')),
                     ('offset_start_date', YLeaf(YType.uint64, 'offset-start-date')),
@@ -9270,8 +9379,7 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('offset', YLeaf(YType.int16, 'offset')),
                     ('offset_start_date', YLeaf(YType.uint64, 'offset-start-date')),
@@ -9287,752 +9395,6 @@ class Ptp(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ptp.UtcOffsetInfo.ConfiguredLeapSecond, ['offset', 'offset_start_date', 'offset_change', 'offset_applied'], name, value)
-
-
-    class Platform(Entity):
-        """
-        PTP platform specific data
-        
-        .. attribute:: servo
-        
-        	PTP servo related parameters
-        	**type**\:  :py:class:`Servo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo>`
-        
-        
-
-        """
-
-        _prefix = 'ptp-pd-oper'
-        _revision = '2016-06-08'
-
-        def __init__(self):
-            super(Ptp.Platform, self).__init__()
-
-            self.yang_name = "platform"
-            self.yang_parent_name = "ptp"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("servo", ("servo", Ptp.Platform.Servo))])
-            self._child_list_classes = OrderedDict([])
-            self._leafs = OrderedDict()
-
-            self.servo = Ptp.Platform.Servo()
-            self.servo.parent = self
-            self._children_name_map["servo"] = "servo"
-            self._children_yang_names.add("servo")
-            self._segment_path = lambda: "Cisco-IOS-XR-ptp-pd-oper:platform"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/%s" % self._segment_path()
-
-
-        class Servo(Entity):
-            """
-            PTP servo related parameters
-            
-            .. attribute:: last_set_time
-            
-            	last input of setTime
-            	**type**\:  :py:class:`LastSetTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.LastSetTime>`
-            
-            .. attribute:: last_received_t1
-            
-            	last T1 timestamp received
-            	**type**\:  :py:class:`LastReceivedT1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.LastReceivedT1>`
-            
-            .. attribute:: last_received_t2
-            
-            	last T2 timestamp received
-            	**type**\:  :py:class:`LastReceivedT2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.LastReceivedT2>`
-            
-            .. attribute:: last_received_t3
-            
-            	last T3 timestamp received
-            	**type**\:  :py:class:`LastReceivedT3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.LastReceivedT3>`
-            
-            .. attribute:: last_received_t4
-            
-            	last T4 timestamp received
-            	**type**\:  :py:class:`LastReceivedT4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.LastReceivedT4>`
-            
-            .. attribute:: pre_received_t1
-            
-            	pre T1 timestamp received
-            	**type**\:  :py:class:`PreReceivedT1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.PreReceivedT1>`
-            
-            .. attribute:: pre_received_t2
-            
-            	pre T2 timestamp received
-            	**type**\:  :py:class:`PreReceivedT2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.PreReceivedT2>`
-            
-            .. attribute:: pre_received_t3
-            
-            	pre T3 timestamp received
-            	**type**\:  :py:class:`PreReceivedT3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.PreReceivedT3>`
-            
-            .. attribute:: pre_received_t4
-            
-            	pre T4 timestamp received
-            	**type**\:  :py:class:`PreReceivedT4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.PreReceivedT4>`
-            
-            .. attribute:: lock_status
-            
-            	lock status of device
-            	**type**\: int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: running
-            
-            	running status of apr
-            	**type**\: bool
-            
-            .. attribute:: device_status
-            
-            	status of device
-            	**type**\: str
-            
-            	**length:** 0..50
-            
-            .. attribute:: log_level
-            
-            	log level of apr
-            	**type**\: int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: phase_accuracy_last
-            
-            	 last phase alignment accuracy
-            	**type**\: int
-            
-            	**range:** \-9223372036854775808..9223372036854775807
-            
-            .. attribute:: num_sync_timestamp
-            
-            	number of sync timestamp received
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: num_delay_timestamp
-            
-            	number of delay timestamp received
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: num_set_time
-            
-            	number of setTime() been called
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: num_step_time
-            
-            	number of stepTime() been called
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: num_adjust_freq
-            
-            	number of adjustFreq() been called
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: num_adjust_freq_time
-            
-            	number of adjustFreqTime() been called
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: last_adjust_freq
-            
-            	last input of adjustFreq
-            	**type**\: int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: last_step_time
-            
-            	last input of stepTime
-            	**type**\: int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: num_discard_sync_timestamp
-            
-            	number of sync timestamp discarded
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: num_discard_delay_timestamp
-            
-            	number of delay timestamp discarded
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: flagof_last_set_time
-            
-            	last input flag of setTime
-            	**type**\: bool
-            
-            .. attribute:: offset_from_master
-            
-            	Time Offset From Master
-            	**type**\: int
-            
-            	**range:** \-9223372036854775808..9223372036854775807
-            
-            .. attribute:: mean_path_delay
-            
-            	Mean Path Delay
-            	**type**\: int
-            
-            	**range:** \-9223372036854775808..9223372036854775807
-            
-            
-
-            """
-
-            _prefix = 'ptp-pd-oper'
-            _revision = '2016-06-08'
-
-            def __init__(self):
-                super(Ptp.Platform.Servo, self).__init__()
-
-                self.yang_name = "servo"
-                self.yang_parent_name = "platform"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("last-set-time", ("last_set_time", Ptp.Platform.Servo.LastSetTime)), ("last-received-t1", ("last_received_t1", Ptp.Platform.Servo.LastReceivedT1)), ("last-received-t2", ("last_received_t2", Ptp.Platform.Servo.LastReceivedT2)), ("last-received-t3", ("last_received_t3", Ptp.Platform.Servo.LastReceivedT3)), ("last-received-t4", ("last_received_t4", Ptp.Platform.Servo.LastReceivedT4)), ("pre-received-t1", ("pre_received_t1", Ptp.Platform.Servo.PreReceivedT1)), ("pre-received-t2", ("pre_received_t2", Ptp.Platform.Servo.PreReceivedT2)), ("pre-received-t3", ("pre_received_t3", Ptp.Platform.Servo.PreReceivedT3)), ("pre-received-t4", ("pre_received_t4", Ptp.Platform.Servo.PreReceivedT4))])
-                self._child_list_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('lock_status', YLeaf(YType.uint16, 'lock-status')),
-                    ('running', YLeaf(YType.boolean, 'running')),
-                    ('device_status', YLeaf(YType.str, 'device-status')),
-                    ('log_level', YLeaf(YType.uint16, 'log-level')),
-                    ('phase_accuracy_last', YLeaf(YType.int64, 'phase-accuracy-last')),
-                    ('num_sync_timestamp', YLeaf(YType.uint32, 'num-sync-timestamp')),
-                    ('num_delay_timestamp', YLeaf(YType.uint32, 'num-delay-timestamp')),
-                    ('num_set_time', YLeaf(YType.uint32, 'num-set-time')),
-                    ('num_step_time', YLeaf(YType.uint32, 'num-step-time')),
-                    ('num_adjust_freq', YLeaf(YType.uint32, 'num-adjust-freq')),
-                    ('num_adjust_freq_time', YLeaf(YType.uint32, 'num-adjust-freq-time')),
-                    ('last_adjust_freq', YLeaf(YType.int32, 'last-adjust-freq')),
-                    ('last_step_time', YLeaf(YType.int32, 'last-step-time')),
-                    ('num_discard_sync_timestamp', YLeaf(YType.uint32, 'num-discard-sync-timestamp')),
-                    ('num_discard_delay_timestamp', YLeaf(YType.uint32, 'num-discard-delay-timestamp')),
-                    ('flagof_last_set_time', YLeaf(YType.boolean, 'flagof-last-set-time')),
-                    ('offset_from_master', YLeaf(YType.int64, 'offset-from-master')),
-                    ('mean_path_delay', YLeaf(YType.int64, 'mean-path-delay')),
-                ])
-                self.lock_status = None
-                self.running = None
-                self.device_status = None
-                self.log_level = None
-                self.phase_accuracy_last = None
-                self.num_sync_timestamp = None
-                self.num_delay_timestamp = None
-                self.num_set_time = None
-                self.num_step_time = None
-                self.num_adjust_freq = None
-                self.num_adjust_freq_time = None
-                self.last_adjust_freq = None
-                self.last_step_time = None
-                self.num_discard_sync_timestamp = None
-                self.num_discard_delay_timestamp = None
-                self.flagof_last_set_time = None
-                self.offset_from_master = None
-                self.mean_path_delay = None
-
-                self.last_set_time = Ptp.Platform.Servo.LastSetTime()
-                self.last_set_time.parent = self
-                self._children_name_map["last_set_time"] = "last-set-time"
-                self._children_yang_names.add("last-set-time")
-
-                self.last_received_t1 = Ptp.Platform.Servo.LastReceivedT1()
-                self.last_received_t1.parent = self
-                self._children_name_map["last_received_t1"] = "last-received-t1"
-                self._children_yang_names.add("last-received-t1")
-
-                self.last_received_t2 = Ptp.Platform.Servo.LastReceivedT2()
-                self.last_received_t2.parent = self
-                self._children_name_map["last_received_t2"] = "last-received-t2"
-                self._children_yang_names.add("last-received-t2")
-
-                self.last_received_t3 = Ptp.Platform.Servo.LastReceivedT3()
-                self.last_received_t3.parent = self
-                self._children_name_map["last_received_t3"] = "last-received-t3"
-                self._children_yang_names.add("last-received-t3")
-
-                self.last_received_t4 = Ptp.Platform.Servo.LastReceivedT4()
-                self.last_received_t4.parent = self
-                self._children_name_map["last_received_t4"] = "last-received-t4"
-                self._children_yang_names.add("last-received-t4")
-
-                self.pre_received_t1 = Ptp.Platform.Servo.PreReceivedT1()
-                self.pre_received_t1.parent = self
-                self._children_name_map["pre_received_t1"] = "pre-received-t1"
-                self._children_yang_names.add("pre-received-t1")
-
-                self.pre_received_t2 = Ptp.Platform.Servo.PreReceivedT2()
-                self.pre_received_t2.parent = self
-                self._children_name_map["pre_received_t2"] = "pre-received-t2"
-                self._children_yang_names.add("pre-received-t2")
-
-                self.pre_received_t3 = Ptp.Platform.Servo.PreReceivedT3()
-                self.pre_received_t3.parent = self
-                self._children_name_map["pre_received_t3"] = "pre-received-t3"
-                self._children_yang_names.add("pre-received-t3")
-
-                self.pre_received_t4 = Ptp.Platform.Servo.PreReceivedT4()
-                self.pre_received_t4.parent = self
-                self._children_name_map["pre_received_t4"] = "pre-received-t4"
-                self._children_yang_names.add("pre-received-t4")
-                self._segment_path = lambda: "servo"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.Platform.Servo, ['lock_status', 'running', 'device_status', 'log_level', 'phase_accuracy_last', 'num_sync_timestamp', 'num_delay_timestamp', 'num_set_time', 'num_step_time', 'num_adjust_freq', 'num_adjust_freq_time', 'last_adjust_freq', 'last_step_time', 'num_discard_sync_timestamp', 'num_discard_delay_timestamp', 'flagof_last_set_time', 'offset_from_master', 'mean_path_delay'], name, value)
-
-
-            class LastSetTime(Entity):
-                """
-                last input of setTime
-                
-                .. attribute:: second
-                
-                	value of second
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: nano_second
-                
-                	value of nano second
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ptp-pd-oper'
-                _revision = '2016-06-08'
-
-                def __init__(self):
-                    super(Ptp.Platform.Servo.LastSetTime, self).__init__()
-
-                    self.yang_name = "last-set-time"
-                    self.yang_parent_name = "servo"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('second', YLeaf(YType.uint32, 'second')),
-                        ('nano_second', YLeaf(YType.uint32, 'nano-second')),
-                    ])
-                    self.second = None
-                    self.nano_second = None
-                    self._segment_path = lambda: "last-set-time"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Platform.Servo.LastSetTime, ['second', 'nano_second'], name, value)
-
-
-            class LastReceivedT1(Entity):
-                """
-                last T1 timestamp received
-                
-                .. attribute:: second
-                
-                	value of second
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: nano_second
-                
-                	value of nano second
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ptp-pd-oper'
-                _revision = '2016-06-08'
-
-                def __init__(self):
-                    super(Ptp.Platform.Servo.LastReceivedT1, self).__init__()
-
-                    self.yang_name = "last-received-t1"
-                    self.yang_parent_name = "servo"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('second', YLeaf(YType.uint32, 'second')),
-                        ('nano_second', YLeaf(YType.uint32, 'nano-second')),
-                    ])
-                    self.second = None
-                    self.nano_second = None
-                    self._segment_path = lambda: "last-received-t1"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Platform.Servo.LastReceivedT1, ['second', 'nano_second'], name, value)
-
-
-            class LastReceivedT2(Entity):
-                """
-                last T2 timestamp received
-                
-                .. attribute:: second
-                
-                	value of second
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: nano_second
-                
-                	value of nano second
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ptp-pd-oper'
-                _revision = '2016-06-08'
-
-                def __init__(self):
-                    super(Ptp.Platform.Servo.LastReceivedT2, self).__init__()
-
-                    self.yang_name = "last-received-t2"
-                    self.yang_parent_name = "servo"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('second', YLeaf(YType.uint32, 'second')),
-                        ('nano_second', YLeaf(YType.uint32, 'nano-second')),
-                    ])
-                    self.second = None
-                    self.nano_second = None
-                    self._segment_path = lambda: "last-received-t2"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Platform.Servo.LastReceivedT2, ['second', 'nano_second'], name, value)
-
-
-            class LastReceivedT3(Entity):
-                """
-                last T3 timestamp received
-                
-                .. attribute:: second
-                
-                	value of second
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: nano_second
-                
-                	value of nano second
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ptp-pd-oper'
-                _revision = '2016-06-08'
-
-                def __init__(self):
-                    super(Ptp.Platform.Servo.LastReceivedT3, self).__init__()
-
-                    self.yang_name = "last-received-t3"
-                    self.yang_parent_name = "servo"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('second', YLeaf(YType.uint32, 'second')),
-                        ('nano_second', YLeaf(YType.uint32, 'nano-second')),
-                    ])
-                    self.second = None
-                    self.nano_second = None
-                    self._segment_path = lambda: "last-received-t3"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Platform.Servo.LastReceivedT3, ['second', 'nano_second'], name, value)
-
-
-            class LastReceivedT4(Entity):
-                """
-                last T4 timestamp received
-                
-                .. attribute:: second
-                
-                	value of second
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: nano_second
-                
-                	value of nano second
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ptp-pd-oper'
-                _revision = '2016-06-08'
-
-                def __init__(self):
-                    super(Ptp.Platform.Servo.LastReceivedT4, self).__init__()
-
-                    self.yang_name = "last-received-t4"
-                    self.yang_parent_name = "servo"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('second', YLeaf(YType.uint32, 'second')),
-                        ('nano_second', YLeaf(YType.uint32, 'nano-second')),
-                    ])
-                    self.second = None
-                    self.nano_second = None
-                    self._segment_path = lambda: "last-received-t4"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Platform.Servo.LastReceivedT4, ['second', 'nano_second'], name, value)
-
-
-            class PreReceivedT1(Entity):
-                """
-                pre T1 timestamp received
-                
-                .. attribute:: second
-                
-                	value of second
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: nano_second
-                
-                	value of nano second
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ptp-pd-oper'
-                _revision = '2016-06-08'
-
-                def __init__(self):
-                    super(Ptp.Platform.Servo.PreReceivedT1, self).__init__()
-
-                    self.yang_name = "pre-received-t1"
-                    self.yang_parent_name = "servo"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('second', YLeaf(YType.uint32, 'second')),
-                        ('nano_second', YLeaf(YType.uint32, 'nano-second')),
-                    ])
-                    self.second = None
-                    self.nano_second = None
-                    self._segment_path = lambda: "pre-received-t1"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Platform.Servo.PreReceivedT1, ['second', 'nano_second'], name, value)
-
-
-            class PreReceivedT2(Entity):
-                """
-                pre T2 timestamp received
-                
-                .. attribute:: second
-                
-                	value of second
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: nano_second
-                
-                	value of nano second
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ptp-pd-oper'
-                _revision = '2016-06-08'
-
-                def __init__(self):
-                    super(Ptp.Platform.Servo.PreReceivedT2, self).__init__()
-
-                    self.yang_name = "pre-received-t2"
-                    self.yang_parent_name = "servo"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('second', YLeaf(YType.uint32, 'second')),
-                        ('nano_second', YLeaf(YType.uint32, 'nano-second')),
-                    ])
-                    self.second = None
-                    self.nano_second = None
-                    self._segment_path = lambda: "pre-received-t2"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Platform.Servo.PreReceivedT2, ['second', 'nano_second'], name, value)
-
-
-            class PreReceivedT3(Entity):
-                """
-                pre T3 timestamp received
-                
-                .. attribute:: second
-                
-                	value of second
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: nano_second
-                
-                	value of nano second
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ptp-pd-oper'
-                _revision = '2016-06-08'
-
-                def __init__(self):
-                    super(Ptp.Platform.Servo.PreReceivedT3, self).__init__()
-
-                    self.yang_name = "pre-received-t3"
-                    self.yang_parent_name = "servo"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('second', YLeaf(YType.uint32, 'second')),
-                        ('nano_second', YLeaf(YType.uint32, 'nano-second')),
-                    ])
-                    self.second = None
-                    self.nano_second = None
-                    self._segment_path = lambda: "pre-received-t3"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Platform.Servo.PreReceivedT3, ['second', 'nano_second'], name, value)
-
-
-            class PreReceivedT4(Entity):
-                """
-                pre T4 timestamp received
-                
-                .. attribute:: second
-                
-                	value of second
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: nano_second
-                
-                	value of nano second
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ptp-pd-oper'
-                _revision = '2016-06-08'
-
-                def __init__(self):
-                    super(Ptp.Platform.Servo.PreReceivedT4, self).__init__()
-
-                    self.yang_name = "pre-received-t4"
-                    self.yang_parent_name = "servo"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('second', YLeaf(YType.uint32, 'second')),
-                        ('nano_second', YLeaf(YType.uint32, 'nano-second')),
-                    ])
-                    self.second = None
-                    self.nano_second = None
-                    self._segment_path = lambda: "pre-received-t4"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Platform.Servo.PreReceivedT4, ['second', 'nano_second'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ptp()

@@ -276,20 +276,20 @@ class MobileIp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("domains", ("domains", MobileIp.Domains)), ("lmas", ("lmas", MobileIp.Lmas))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("domains", ("domains", MobileIp.Domains)), ("lmas", ("lmas", MobileIp.Lmas))])
         self._leafs = OrderedDict()
 
         self.domains = MobileIp.Domains()
         self.domains.parent = self
         self._children_name_map["domains"] = "domains"
-        self._children_yang_names.add("domains")
 
         self.lmas = MobileIp.Lmas()
         self.lmas.parent = self
         self._children_name_map["lmas"] = "lmas"
-        self._children_yang_names.add("lmas")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(MobileIp, [], name, value)
 
 
     class Domains(Entity):
@@ -316,8 +316,7 @@ class MobileIp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("domain", ("domain", MobileIp.Domains.Domain))])
+            self._child_classes = OrderedDict([("domain", ("domain", MobileIp.Domains.Domain))])
             self._leafs = OrderedDict()
 
             self.domain = YList(self)
@@ -379,8 +378,7 @@ class MobileIp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['domain_name']
-                self._child_container_classes = OrderedDict([("mags", ("mags", MobileIp.Domains.Domain.Mags)), ("nais", ("nais", MobileIp.Domains.Domain.Nais)), ("authenticate-option", ("authenticate_option", MobileIp.Domains.Domain.AuthenticateOption)), ("lmas", ("lmas", MobileIp.Domains.Domain.Lmas))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("mags", ("mags", MobileIp.Domains.Domain.Mags)), ("nais", ("nais", MobileIp.Domains.Domain.Nais)), ("authenticate-option", ("authenticate_option", MobileIp.Domains.Domain.AuthenticateOption)), ("lmas", ("lmas", MobileIp.Domains.Domain.Lmas))])
                 self._leafs = OrderedDict([
                     ('domain_name', YLeaf(YType.str, 'domain-name')),
                     ('enable', YLeaf(YType.empty, 'enable')),
@@ -391,22 +389,18 @@ class MobileIp(Entity):
                 self.mags = MobileIp.Domains.Domain.Mags()
                 self.mags.parent = self
                 self._children_name_map["mags"] = "mags"
-                self._children_yang_names.add("mags")
 
                 self.nais = MobileIp.Domains.Domain.Nais()
                 self.nais.parent = self
                 self._children_name_map["nais"] = "nais"
-                self._children_yang_names.add("nais")
 
                 self.authenticate_option = MobileIp.Domains.Domain.AuthenticateOption()
                 self.authenticate_option.parent = self
                 self._children_name_map["authenticate_option"] = "authenticate-option"
-                self._children_yang_names.add("authenticate-option")
 
                 self.lmas = MobileIp.Domains.Domain.Lmas()
                 self.lmas.parent = self
                 self._children_name_map["lmas"] = "lmas"
-                self._children_yang_names.add("lmas")
                 self._segment_path = lambda: "domain" + "[domain-name='" + str(self.domain_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/domains/%s" % self._segment_path()
 
@@ -438,8 +432,7 @@ class MobileIp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("mag", ("mag", MobileIp.Domains.Domain.Mags.Mag))])
+                    self._child_classes = OrderedDict([("mag", ("mag", MobileIp.Domains.Domain.Mags.Mag))])
                     self._leafs = OrderedDict()
 
                     self.mag = YList(self)
@@ -475,8 +468,7 @@ class MobileIp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['mag_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('mag_name', YLeaf(YType.str, 'mag-name')),
                         ])
@@ -511,8 +503,7 @@ class MobileIp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("nai", ("nai", MobileIp.Domains.Domain.Nais.Nai))])
+                    self._child_classes = OrderedDict([("nai", ("nai", MobileIp.Domains.Domain.Nais.Nai))])
                     self._leafs = OrderedDict()
 
                     self.nai = YList(self)
@@ -581,8 +572,7 @@ class MobileIp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['nai_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('nai_name', YLeaf(YType.str, 'nai-name')),
                             ('lma', YLeaf(YType.str, 'lma')),
@@ -636,8 +626,7 @@ class MobileIp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('spi', YLeaf(YType.str, 'spi')),
                         ('key', YLeaf(YType.str, 'key')),
@@ -674,8 +663,7 @@ class MobileIp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("lma", ("lma", MobileIp.Domains.Domain.Lmas.Lma))])
+                    self._child_classes = OrderedDict([("lma", ("lma", MobileIp.Domains.Domain.Lmas.Lma))])
                     self._leafs = OrderedDict()
 
                     self.lma = YList(self)
@@ -711,8 +699,7 @@ class MobileIp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['lma_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('lma_name', YLeaf(YType.str, 'lma-name')),
                         ])
@@ -747,8 +734,7 @@ class MobileIp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("lma", ("lma", MobileIp.Lmas.Lma))])
+            self._child_classes = OrderedDict([("lma", ("lma", MobileIp.Lmas.Lma))])
             self._leafs = OrderedDict()
 
             self.lma = YList(self)
@@ -930,8 +916,7 @@ class MobileIp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['lma_name','domain_name']
-                self._child_container_classes = OrderedDict([("binding-revocation-attributes", ("binding_revocation_attributes", MobileIp.Lmas.Lma.BindingRevocationAttributes)), ("rat-attributes", ("rat_attributes", MobileIp.Lmas.Lma.RatAttributes)), ("heart-beat-attributes", ("heart_beat_attributes", MobileIp.Lmas.Lma.HeartBeatAttributes)), ("lmaipv6-addresses", ("lmaipv6_addresses", MobileIp.Lmas.Lma.Lmaipv6Addresses)), ("hnp", ("hnp", MobileIp.Lmas.Lma.Hnp)), ("redistribute", ("redistribute", MobileIp.Lmas.Lma.Redistribute)), ("aaa", ("aaa", MobileIp.Lmas.Lma.Aaa)), ("dscp", ("dscp", MobileIp.Lmas.Lma.Dscp)), ("lmaipv4-addresses", ("lmaipv4_addresses", MobileIp.Lmas.Lma.Lmaipv4Addresses)), ("roles", ("roles", MobileIp.Lmas.Lma.Roles)), ("binding-attributes", ("binding_attributes", MobileIp.Lmas.Lma.BindingAttributes)), ("mags", ("mags", MobileIp.Lmas.Lma.Mags)), ("tunnel-attributes", ("tunnel_attributes", MobileIp.Lmas.Lma.TunnelAttributes)), ("services", ("services", MobileIp.Lmas.Lma.Services)), ("networks", ("networks", MobileIp.Lmas.Lma.Networks)), ("replay-protection", ("replay_protection", MobileIp.Lmas.Lma.ReplayProtection))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("binding-revocation-attributes", ("binding_revocation_attributes", MobileIp.Lmas.Lma.BindingRevocationAttributes)), ("rat-attributes", ("rat_attributes", MobileIp.Lmas.Lma.RatAttributes)), ("heart-beat-attributes", ("heart_beat_attributes", MobileIp.Lmas.Lma.HeartBeatAttributes)), ("lmaipv6-addresses", ("lmaipv6_addresses", MobileIp.Lmas.Lma.Lmaipv6Addresses)), ("hnp", ("hnp", MobileIp.Lmas.Lma.Hnp)), ("redistribute", ("redistribute", MobileIp.Lmas.Lma.Redistribute)), ("aaa", ("aaa", MobileIp.Lmas.Lma.Aaa)), ("dscp", ("dscp", MobileIp.Lmas.Lma.Dscp)), ("lmaipv4-addresses", ("lmaipv4_addresses", MobileIp.Lmas.Lma.Lmaipv4Addresses)), ("roles", ("roles", MobileIp.Lmas.Lma.Roles)), ("binding-attributes", ("binding_attributes", MobileIp.Lmas.Lma.BindingAttributes)), ("mags", ("mags", MobileIp.Lmas.Lma.Mags)), ("tunnel-attributes", ("tunnel_attributes", MobileIp.Lmas.Lma.TunnelAttributes)), ("services", ("services", MobileIp.Lmas.Lma.Services)), ("networks", ("networks", MobileIp.Lmas.Lma.Networks)), ("replay-protection", ("replay_protection", MobileIp.Lmas.Lma.ReplayProtection))])
                 self._leafs = OrderedDict([
                     ('lma_name', YLeaf(YType.str, 'lma-name')),
                     ('domain_name', YLeaf(YType.str, 'domain-name')),
@@ -962,82 +947,66 @@ class MobileIp(Entity):
                 self.binding_revocation_attributes = MobileIp.Lmas.Lma.BindingRevocationAttributes()
                 self.binding_revocation_attributes.parent = self
                 self._children_name_map["binding_revocation_attributes"] = "binding-revocation-attributes"
-                self._children_yang_names.add("binding-revocation-attributes")
 
                 self.rat_attributes = MobileIp.Lmas.Lma.RatAttributes()
                 self.rat_attributes.parent = self
                 self._children_name_map["rat_attributes"] = "rat-attributes"
-                self._children_yang_names.add("rat-attributes")
 
                 self.heart_beat_attributes = MobileIp.Lmas.Lma.HeartBeatAttributes()
                 self.heart_beat_attributes.parent = self
                 self._children_name_map["heart_beat_attributes"] = "heart-beat-attributes"
-                self._children_yang_names.add("heart-beat-attributes")
 
                 self.lmaipv6_addresses = MobileIp.Lmas.Lma.Lmaipv6Addresses()
                 self.lmaipv6_addresses.parent = self
                 self._children_name_map["lmaipv6_addresses"] = "lmaipv6-addresses"
-                self._children_yang_names.add("lmaipv6-addresses")
 
                 self.hnp = MobileIp.Lmas.Lma.Hnp()
                 self.hnp.parent = self
                 self._children_name_map["hnp"] = "hnp"
-                self._children_yang_names.add("hnp")
 
                 self.redistribute = MobileIp.Lmas.Lma.Redistribute()
                 self.redistribute.parent = self
                 self._children_name_map["redistribute"] = "redistribute"
-                self._children_yang_names.add("redistribute")
 
                 self.aaa = MobileIp.Lmas.Lma.Aaa()
                 self.aaa.parent = self
                 self._children_name_map["aaa"] = "aaa"
-                self._children_yang_names.add("aaa")
 
                 self.dscp = MobileIp.Lmas.Lma.Dscp()
                 self.dscp.parent = self
                 self._children_name_map["dscp"] = "dscp"
-                self._children_yang_names.add("dscp")
 
                 self.lmaipv4_addresses = MobileIp.Lmas.Lma.Lmaipv4Addresses()
                 self.lmaipv4_addresses.parent = self
                 self._children_name_map["lmaipv4_addresses"] = "lmaipv4-addresses"
-                self._children_yang_names.add("lmaipv4-addresses")
 
                 self.roles = MobileIp.Lmas.Lma.Roles()
                 self.roles.parent = self
                 self._children_name_map["roles"] = "roles"
-                self._children_yang_names.add("roles")
 
                 self.binding_attributes = MobileIp.Lmas.Lma.BindingAttributes()
                 self.binding_attributes.parent = self
                 self._children_name_map["binding_attributes"] = "binding-attributes"
-                self._children_yang_names.add("binding-attributes")
 
                 self.mags = MobileIp.Lmas.Lma.Mags()
                 self.mags.parent = self
                 self._children_name_map["mags"] = "mags"
-                self._children_yang_names.add("mags")
 
                 self.tunnel_attributes = MobileIp.Lmas.Lma.TunnelAttributes()
                 self.tunnel_attributes.parent = self
                 self._children_name_map["tunnel_attributes"] = "tunnel-attributes"
-                self._children_yang_names.add("tunnel-attributes")
 
                 self.services = MobileIp.Lmas.Lma.Services()
                 self.services.parent = self
                 self._children_name_map["services"] = "services"
-                self._children_yang_names.add("services")
 
                 self.networks = MobileIp.Lmas.Lma.Networks()
                 self.networks.parent = self
                 self._children_name_map["networks"] = "networks"
-                self._children_yang_names.add("networks")
 
                 self.replay_protection = MobileIp.Lmas.Lma.ReplayProtection()
                 self.replay_protection.parent = self
                 self._children_name_map["replay_protection"] = "replay-protection"
-                self._children_yang_names.add("replay-protection")
                 self._segment_path = lambda: "lma" + "[lma-name='" + str(self.lma_name) + "']" + "[domain-name='" + str(self.domain_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/%s" % self._segment_path()
 
@@ -1076,8 +1045,7 @@ class MobileIp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("delay", ("delay", MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("delay", ("delay", MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay))])
                     self._leafs = OrderedDict([
                         ('retry', YLeaf(YType.uint32, 'retry')),
                     ])
@@ -1086,7 +1054,6 @@ class MobileIp(Entity):
                     self.delay = MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay()
                     self.delay.parent = self
                     self._children_name_map["delay"] = "delay"
-                    self._children_yang_names.add("delay")
                     self._segment_path = lambda: "binding-revocation-attributes"
 
                 def __setattr__(self, name, value):
@@ -1127,8 +1094,7 @@ class MobileIp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('br_min', YLeaf(YType.uint32, 'br-min')),
                             ('br_max', YLeaf(YType.uint32, 'br-max')),
@@ -1172,8 +1138,7 @@ class MobileIp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('lma_rat', YLeaf(YType.enumeration, 'lma-rat')),
                         ('priority_value', YLeaf(YType.uint32, 'priority-value')),
@@ -1226,8 +1191,7 @@ class MobileIp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interval', YLeaf(YType.uint32, 'interval')),
                         ('retries', YLeaf(YType.uint32, 'retries')),
@@ -1266,8 +1230,7 @@ class MobileIp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("lmaipv6-address", ("lmaipv6_address", MobileIp.Lmas.Lma.Lmaipv6Addresses.Lmaipv6Address))])
+                    self._child_classes = OrderedDict([("lmaipv6-address", ("lmaipv6_address", MobileIp.Lmas.Lma.Lmaipv6Addresses.Lmaipv6Address))])
                     self._leafs = OrderedDict()
 
                     self.lmaipv6_address = YList(self)
@@ -1303,8 +1266,7 @@ class MobileIp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['address']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('address', YLeaf(YType.str, 'address')),
                         ])
@@ -1341,8 +1303,7 @@ class MobileIp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('maximum', YLeaf(YType.uint32, 'maximum')),
                     ])
@@ -1382,8 +1343,7 @@ class MobileIp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('redist_type', YLeaf(YType.enumeration, 'redist-type')),
                         ('redist_sub_type', YLeaf(YType.enumeration, 'redist-sub-type')),
@@ -1420,15 +1380,16 @@ class MobileIp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("accounting", ("accounting", MobileIp.Lmas.Lma.Aaa.Accounting))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("accounting", ("accounting", MobileIp.Lmas.Lma.Aaa.Accounting))])
                     self._leafs = OrderedDict()
 
                     self.accounting = MobileIp.Lmas.Lma.Aaa.Accounting()
                     self.accounting.parent = self
                     self._children_name_map["accounting"] = "accounting"
-                    self._children_yang_names.add("accounting")
                     self._segment_path = lambda: "aaa"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MobileIp.Lmas.Lma.Aaa, [], name, value)
 
 
                 class Accounting(Entity):
@@ -1464,8 +1425,7 @@ class MobileIp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('enable', YLeaf(YType.empty, 'enable')),
                             ('interim_interval', YLeaf(YType.uint32, 'interim-interval')),
@@ -1509,8 +1469,7 @@ class MobileIp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('value', YLeaf(YType.uint32, 'value')),
                         ('force', YLeaf(YType.empty, 'force')),
@@ -1547,8 +1506,7 @@ class MobileIp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("lmaipv4-address", ("lmaipv4_address", MobileIp.Lmas.Lma.Lmaipv4Addresses.Lmaipv4Address))])
+                    self._child_classes = OrderedDict([("lmaipv4-address", ("lmaipv4_address", MobileIp.Lmas.Lma.Lmaipv4Addresses.Lmaipv4Address))])
                     self._leafs = OrderedDict()
 
                     self.lmaipv4_address = YList(self)
@@ -1584,8 +1542,7 @@ class MobileIp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['address']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('address', YLeaf(YType.str, 'address')),
                         ])
@@ -1620,8 +1577,7 @@ class MobileIp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("role", ("role", MobileIp.Lmas.Lma.Roles.Role))])
+                    self._child_classes = OrderedDict([("role", ("role", MobileIp.Lmas.Lma.Roles.Role))])
                     self._leafs = OrderedDict()
 
                     self.role = YList(self)
@@ -1655,8 +1611,7 @@ class MobileIp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['lma_role']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('lma_role', YLeaf(YType.enumeration, 'lma-role')),
                         ])
@@ -1725,8 +1680,7 @@ class MobileIp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('refresh_time', YLeaf(YType.uint32, 'refresh-time')),
                         ('delete_wait_interval', YLeaf(YType.uint32, 'delete-wait-interval')),
@@ -1769,8 +1723,7 @@ class MobileIp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("mag", ("mag", MobileIp.Lmas.Lma.Mags.Mag))])
+                    self._child_classes = OrderedDict([("mag", ("mag", MobileIp.Lmas.Lma.Mags.Mag))])
                     self._leafs = OrderedDict()
 
                     self.mag = YList(self)
@@ -1849,8 +1802,7 @@ class MobileIp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['mag_name','domain_name']
-                        self._child_container_classes = OrderedDict([("authenticate-option", ("authenticate_option", MobileIp.Lmas.Lma.Mags.Mag.AuthenticateOption)), ("dscp", ("dscp", MobileIp.Lmas.Lma.Mags.Mag.Dscp))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("authenticate-option", ("authenticate_option", MobileIp.Lmas.Lma.Mags.Mag.AuthenticateOption)), ("dscp", ("dscp", MobileIp.Lmas.Lma.Mags.Mag.Dscp))])
                         self._leafs = OrderedDict([
                             ('mag_name', YLeaf(YType.str, 'mag-name')),
                             ('domain_name', YLeaf(YType.str, 'domain-name')),
@@ -1869,12 +1821,10 @@ class MobileIp(Entity):
                         self.authenticate_option = MobileIp.Lmas.Lma.Mags.Mag.AuthenticateOption()
                         self.authenticate_option.parent = self
                         self._children_name_map["authenticate_option"] = "authenticate-option"
-                        self._children_yang_names.add("authenticate-option")
 
                         self.dscp = MobileIp.Lmas.Lma.Mags.Mag.Dscp()
                         self.dscp.parent = self
                         self._children_name_map["dscp"] = "dscp"
-                        self._children_yang_names.add("dscp")
                         self._segment_path = lambda: "mag" + "[mag-name='" + str(self.mag_name) + "']" + "[domain-name='" + str(self.domain_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -1915,8 +1865,7 @@ class MobileIp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('spi', YLeaf(YType.str, 'spi')),
                                 ('key', YLeaf(YType.str, 'key')),
@@ -1960,8 +1909,7 @@ class MobileIp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('value', YLeaf(YType.uint32, 'value')),
                                 ('force', YLeaf(YType.empty, 'force')),
@@ -2007,8 +1955,7 @@ class MobileIp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('mtu', YLeaf(YType.uint32, 'mtu')),
                         ('acl', YLeaf(YType.str, 'acl')),
@@ -2045,8 +1992,7 @@ class MobileIp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("service", ("service", MobileIp.Lmas.Lma.Services.Service))])
+                    self._child_classes = OrderedDict([("service", ("service", MobileIp.Lmas.Lma.Services.Service))])
                     self._leafs = OrderedDict()
 
                     self.service = YList(self)
@@ -2132,8 +2078,7 @@ class MobileIp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['lma_service']
-                        self._child_container_classes = OrderedDict([("customers", ("customers", MobileIp.Lmas.Lma.Services.Service.Customers))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("customers", ("customers", MobileIp.Lmas.Lma.Services.Service.Customers))])
                         self._leafs = OrderedDict([
                             ('lma_service', YLeaf(YType.enumeration, 'lma-service')),
                             ('mnp_customer', YLeaf(YType.uint32, 'mnp-customer')),
@@ -2156,7 +2101,6 @@ class MobileIp(Entity):
                         self.customers = MobileIp.Lmas.Lma.Services.Service.Customers()
                         self.customers.parent = self
                         self._children_name_map["customers"] = "customers"
-                        self._children_yang_names.add("customers")
                         self._segment_path = lambda: "service" + "[lma-service='" + str(self.lma_service) + "']"
 
                     def __setattr__(self, name, value):
@@ -2187,8 +2131,7 @@ class MobileIp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("customer", ("customer", MobileIp.Lmas.Lma.Services.Service.Customers.Customer))])
+                            self._child_classes = OrderedDict([("customer", ("customer", MobileIp.Lmas.Lma.Services.Service.Customers.Customer))])
                             self._leafs = OrderedDict()
 
                             self.customer = YList(self)
@@ -2320,8 +2263,7 @@ class MobileIp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['customer_name','vrf_name']
-                                self._child_container_classes = OrderedDict([("authenticate-option", ("authenticate_option", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.AuthenticateOption)), ("heart-beat-attributes", ("heart_beat_attributes", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.HeartBeatAttributes)), ("transports", ("transports", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports)), ("network-attributes", ("network_attributes", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes)), ("gre-key", ("gre_key", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey)), ("binding-attributes", ("binding_attributes", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("authenticate-option", ("authenticate_option", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.AuthenticateOption)), ("heart-beat-attributes", ("heart_beat_attributes", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.HeartBeatAttributes)), ("transports", ("transports", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports)), ("network-attributes", ("network_attributes", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes)), ("gre-key", ("gre_key", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey)), ("binding-attributes", ("binding_attributes", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes))])
                                 self._leafs = OrderedDict([
                                     ('customer_name', YLeaf(YType.str, 'customer-name')),
                                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
@@ -2348,32 +2290,26 @@ class MobileIp(Entity):
                                 self.authenticate_option = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.AuthenticateOption()
                                 self.authenticate_option.parent = self
                                 self._children_name_map["authenticate_option"] = "authenticate-option"
-                                self._children_yang_names.add("authenticate-option")
 
                                 self.heart_beat_attributes = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.HeartBeatAttributes()
                                 self.heart_beat_attributes.parent = self
                                 self._children_name_map["heart_beat_attributes"] = "heart-beat-attributes"
-                                self._children_yang_names.add("heart-beat-attributes")
 
                                 self.transports = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports()
                                 self.transports.parent = self
                                 self._children_name_map["transports"] = "transports"
-                                self._children_yang_names.add("transports")
 
                                 self.network_attributes = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes()
                                 self.network_attributes.parent = self
                                 self._children_name_map["network_attributes"] = "network-attributes"
-                                self._children_yang_names.add("network-attributes")
 
                                 self.gre_key = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey()
                                 self.gre_key.parent = self
                                 self._children_name_map["gre_key"] = "gre-key"
-                                self._children_yang_names.add("gre-key")
 
                                 self.binding_attributes = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes()
                                 self.binding_attributes.parent = self
                                 self._children_name_map["binding_attributes"] = "binding-attributes"
-                                self._children_yang_names.add("binding-attributes")
                                 self._segment_path = lambda: "customer" + "[customer-name='" + str(self.customer_name) + "']" + "[vrf-name='" + str(self.vrf_name) + "']"
 
                             def __setattr__(self, name, value):
@@ -2414,8 +2350,7 @@ class MobileIp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('spi', YLeaf(YType.str, 'spi')),
                                         ('key', YLeaf(YType.str, 'key')),
@@ -2468,8 +2403,7 @@ class MobileIp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('interval', YLeaf(YType.uint32, 'interval')),
                                         ('retries', YLeaf(YType.uint32, 'retries')),
@@ -2508,8 +2442,7 @@ class MobileIp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("transport", ("transport", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports.Transport))])
+                                    self._child_classes = OrderedDict([("transport", ("transport", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports.Transport))])
                                     self._leafs = OrderedDict()
 
                                     self.transport = YList(self)
@@ -2559,8 +2492,7 @@ class MobileIp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['vrf_name']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                                             ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -2604,8 +2536,7 @@ class MobileIp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("authorizes", ("authorizes", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("authorizes", ("authorizes", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes))])
                                     self._leafs = OrderedDict([
                                         ('unauthorize', YLeaf(YType.empty, 'unauthorize')),
                                     ])
@@ -2614,7 +2545,6 @@ class MobileIp(Entity):
                                     self.authorizes = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes()
                                     self.authorizes.parent = self
                                     self._children_name_map["authorizes"] = "authorizes"
-                                    self._children_yang_names.add("authorizes")
                                     self._segment_path = lambda: "network-attributes"
 
                                 def __setattr__(self, name, value):
@@ -2645,8 +2575,7 @@ class MobileIp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("authorize", ("authorize", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize))])
+                                        self._child_classes = OrderedDict([("authorize", ("authorize", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize))])
                                         self._leafs = OrderedDict()
 
                                         self.authorize = YList(self)
@@ -2687,8 +2616,7 @@ class MobileIp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['name']
-                                            self._child_container_classes = OrderedDict([("pool-attributes", ("pool_attributes", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("pool-attributes", ("pool_attributes", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes))])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                             ])
@@ -2697,7 +2625,6 @@ class MobileIp(Entity):
                                             self.pool_attributes = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes()
                                             self.pool_attributes.parent = self
                                             self._children_name_map["pool_attributes"] = "pool-attributes"
-                                            self._children_yang_names.add("pool-attributes")
                                             self._segment_path = lambda: "authorize" + "[name='" + str(self.name) + "']"
 
                                         def __setattr__(self, name, value):
@@ -2733,20 +2660,20 @@ class MobileIp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([("mobile-node", ("mobile_node", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode)), ("mobile-network", ("mobile_network", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("mobile-node", ("mobile_node", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode)), ("mobile-network", ("mobile_network", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork))])
                                                 self._leafs = OrderedDict()
 
                                                 self.mobile_node = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode()
                                                 self.mobile_node.parent = self
                                                 self._children_name_map["mobile_node"] = "mobile-node"
-                                                self._children_yang_names.add("mobile-node")
 
                                                 self.mobile_network = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork()
                                                 self.mobile_network.parent = self
                                                 self._children_name_map["mobile_network"] = "mobile-network"
-                                                self._children_yang_names.add("mobile-network")
                                                 self._segment_path = lambda: "pool-attributes"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes, [], name, value)
 
 
                                             class MobileNode(Entity):
@@ -2778,20 +2705,20 @@ class MobileIp(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([("ipv4-pool", ("ipv4_pool", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv4Pool)), ("ipv6-pool", ("ipv6_pool", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv6Pool))])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([("ipv4-pool", ("ipv4_pool", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv4Pool)), ("ipv6-pool", ("ipv6_pool", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv6Pool))])
                                                     self._leafs = OrderedDict()
 
                                                     self.ipv4_pool = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv4Pool()
                                                     self.ipv4_pool.parent = self
                                                     self._children_name_map["ipv4_pool"] = "ipv4-pool"
-                                                    self._children_yang_names.add("ipv4-pool")
 
                                                     self.ipv6_pool = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv6Pool()
                                                     self.ipv6_pool.parent = self
                                                     self._children_name_map["ipv6_pool"] = "ipv6-pool"
-                                                    self._children_yang_names.add("ipv6-pool")
                                                     self._segment_path = lambda: "mobile-node"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode, [], name, value)
 
 
                                                 class Ipv4Pool(Entity):
@@ -2827,8 +2754,7 @@ class MobileIp(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('start_address', YLeaf(YType.str, 'start-address')),
                                                             ('pool_prefix', YLeaf(YType.uint32, 'pool-prefix')),
@@ -2874,8 +2800,7 @@ class MobileIp(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('start_address', YLeaf(YType.str, 'start-address')),
                                                             ('pool_prefix', YLeaf(YType.uint32, 'pool-prefix')),
@@ -2917,20 +2842,20 @@ class MobileIp(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([("mripv6-pools", ("mripv6_pools", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools)), ("mripv4-pools", ("mripv4_pools", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools))])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([("mripv6-pools", ("mripv6_pools", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools)), ("mripv4-pools", ("mripv4_pools", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools))])
                                                     self._leafs = OrderedDict()
 
                                                     self.mripv6_pools = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools()
                                                     self.mripv6_pools.parent = self
                                                     self._children_name_map["mripv6_pools"] = "mripv6-pools"
-                                                    self._children_yang_names.add("mripv6-pools")
 
                                                     self.mripv4_pools = MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools()
                                                     self.mripv4_pools.parent = self
                                                     self._children_name_map["mripv4_pools"] = "mripv4-pools"
-                                                    self._children_yang_names.add("mripv4-pools")
                                                     self._segment_path = lambda: "mobile-network"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork, [], name, value)
 
 
                                                 class Mripv6Pools(Entity):
@@ -2957,8 +2882,7 @@ class MobileIp(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([("mripv6-pool", ("mripv6_pool", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool))])
+                                                        self._child_classes = OrderedDict([("mripv6-pool", ("mripv6_pool", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool))])
                                                         self._leafs = OrderedDict()
 
                                                         self.mripv6_pool = YList(self)
@@ -3008,8 +2932,7 @@ class MobileIp(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = ['start_address']
-                                                            self._child_container_classes = OrderedDict([])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
                                                                 ('start_address', YLeaf(YType.str, 'start-address')),
                                                                 ('pool_prefix', YLeaf(YType.uint32, 'pool-prefix')),
@@ -3048,8 +2971,7 @@ class MobileIp(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = []
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([("mripv4-pool", ("mripv4_pool", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool))])
+                                                        self._child_classes = OrderedDict([("mripv4-pool", ("mripv4_pool", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool))])
                                                         self._leafs = OrderedDict()
 
                                                         self.mripv4_pool = YList(self)
@@ -3099,8 +3021,7 @@ class MobileIp(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = ['start_address']
-                                                            self._child_container_classes = OrderedDict([])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
                                                                 ('start_address', YLeaf(YType.str, 'start-address')),
                                                                 ('pool_prefix', YLeaf(YType.uint32, 'pool-prefix')),
@@ -3146,8 +3067,7 @@ class MobileIp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('gre_key_type', YLeaf(YType.enumeration, 'gre-key-type')),
                                         ('gre_key_value', YLeaf(YType.uint32, 'gre-key-value')),
@@ -3188,8 +3108,7 @@ class MobileIp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('max_life_time', YLeaf(YType.uint32, 'max-life-time')),
                                     ])
@@ -3224,8 +3143,7 @@ class MobileIp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("network", ("network", MobileIp.Lmas.Lma.Networks.Network))])
+                    self._child_classes = OrderedDict([("network", ("network", MobileIp.Lmas.Lma.Networks.Network))])
                     self._leafs = OrderedDict()
 
                     self.network = YList(self)
@@ -3266,8 +3184,7 @@ class MobileIp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['lma_network']
-                        self._child_container_classes = OrderedDict([("pool-attributes", ("pool_attributes", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("pool-attributes", ("pool_attributes", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes))])
                         self._leafs = OrderedDict([
                             ('lma_network', YLeaf(YType.str, 'lma-network')),
                         ])
@@ -3276,7 +3193,6 @@ class MobileIp(Entity):
                         self.pool_attributes = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes()
                         self.pool_attributes.parent = self
                         self._children_name_map["pool_attributes"] = "pool-attributes"
-                        self._children_yang_names.add("pool-attributes")
                         self._segment_path = lambda: "network" + "[lma-network='" + str(self.lma_network) + "']"
 
                     def __setattr__(self, name, value):
@@ -3312,20 +3228,20 @@ class MobileIp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("mobile-node", ("mobile_node", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode)), ("mobile-network", ("mobile_network", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("mobile-node", ("mobile_node", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode)), ("mobile-network", ("mobile_network", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork))])
                             self._leafs = OrderedDict()
 
                             self.mobile_node = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode()
                             self.mobile_node.parent = self
                             self._children_name_map["mobile_node"] = "mobile-node"
-                            self._children_yang_names.add("mobile-node")
 
                             self.mobile_network = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork()
                             self.mobile_network.parent = self
                             self._children_name_map["mobile_network"] = "mobile-network"
-                            self._children_yang_names.add("mobile-network")
                             self._segment_path = lambda: "pool-attributes"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes, [], name, value)
 
 
                         class MobileNode(Entity):
@@ -3357,20 +3273,20 @@ class MobileIp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("ipv4-pool", ("ipv4_pool", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool)), ("ipv6-pool", ("ipv6_pool", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("ipv4-pool", ("ipv4_pool", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool)), ("ipv6-pool", ("ipv6_pool", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool))])
                                 self._leafs = OrderedDict()
 
                                 self.ipv4_pool = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool()
                                 self.ipv4_pool.parent = self
                                 self._children_name_map["ipv4_pool"] = "ipv4-pool"
-                                self._children_yang_names.add("ipv4-pool")
 
                                 self.ipv6_pool = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool()
                                 self.ipv6_pool.parent = self
                                 self._children_name_map["ipv6_pool"] = "ipv6-pool"
-                                self._children_yang_names.add("ipv6-pool")
                                 self._segment_path = lambda: "mobile-node"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode, [], name, value)
 
 
                             class Ipv4Pool(Entity):
@@ -3406,8 +3322,7 @@ class MobileIp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('start_address', YLeaf(YType.str, 'start-address')),
                                         ('pool_prefix', YLeaf(YType.uint32, 'pool-prefix')),
@@ -3453,8 +3368,7 @@ class MobileIp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('start_address', YLeaf(YType.str, 'start-address')),
                                         ('pool_prefix', YLeaf(YType.uint32, 'pool-prefix')),
@@ -3496,20 +3410,20 @@ class MobileIp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("mripv6-pools", ("mripv6_pools", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools)), ("mripv4-pools", ("mripv4_pools", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("mripv6-pools", ("mripv6_pools", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools)), ("mripv4-pools", ("mripv4_pools", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools))])
                                 self._leafs = OrderedDict()
 
                                 self.mripv6_pools = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools()
                                 self.mripv6_pools.parent = self
                                 self._children_name_map["mripv6_pools"] = "mripv6-pools"
-                                self._children_yang_names.add("mripv6-pools")
 
                                 self.mripv4_pools = MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools()
                                 self.mripv4_pools.parent = self
                                 self._children_name_map["mripv4_pools"] = "mripv4-pools"
-                                self._children_yang_names.add("mripv4-pools")
                                 self._segment_path = lambda: "mobile-network"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork, [], name, value)
 
 
                             class Mripv6Pools(Entity):
@@ -3536,8 +3450,7 @@ class MobileIp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("mripv6-pool", ("mripv6_pool", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool))])
+                                    self._child_classes = OrderedDict([("mripv6-pool", ("mripv6_pool", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool))])
                                     self._leafs = OrderedDict()
 
                                     self.mripv6_pool = YList(self)
@@ -3587,8 +3500,7 @@ class MobileIp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['start_address']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('start_address', YLeaf(YType.str, 'start-address')),
                                             ('pool_prefix', YLeaf(YType.uint32, 'pool-prefix')),
@@ -3627,8 +3539,7 @@ class MobileIp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("mripv4-pool", ("mripv4_pool", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool))])
+                                    self._child_classes = OrderedDict([("mripv4-pool", ("mripv4_pool", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool))])
                                     self._leafs = OrderedDict()
 
                                     self.mripv4_pool = YList(self)
@@ -3678,8 +3589,7 @@ class MobileIp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['start_address']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('start_address', YLeaf(YType.str, 'start-address')),
                                             ('pool_prefix', YLeaf(YType.uint32, 'pool-prefix')),
@@ -3722,8 +3632,7 @@ class MobileIp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('timestamp_window', YLeaf(YType.uint32, 'timestamp-window')),
                     ])

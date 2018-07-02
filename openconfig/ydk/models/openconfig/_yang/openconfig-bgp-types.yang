@@ -3,11 +3,11 @@ module openconfig-bgp-types {
   namespace "http://openconfig.net/yang/bgp-types";
   prefix oc-bgp-types;
 
-  import ietf-inet-types {
-    prefix inet;
-  }
   import openconfig-types {
     prefix oc-types;
+  }
+  import openconfig-inet-types {
+    prefix oc-inet;
   }
   import openconfig-extensions {
     prefix oc-ext;
@@ -23,6 +23,16 @@ module openconfig-bgp-types {
      policy. It can be imported by modules that make use of BGP
      attributes";
 
+  revision 2017-02-02 {
+    description
+      "Bugfix to remove remaining global-level policy data";
+    reference "3.0.1";
+  }
+  revision 2017-01-26 {
+    description
+      "Add dynamic neighbor support, migrate to OpenConfig types";
+    reference "3.0.0";
+  }
   revision 2016-06-21 {
     description
       "OpenConfig BGP refactor";
@@ -247,38 +257,89 @@ module openconfig-bgp-types {
         range "65536..4294901759";
       }
       type string {
-        pattern "([0-9]+:[0-9]+)";
+        pattern "^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$";
       }
     }
     description
-      "Type definition for standard commmunity attributes";
+      "Type definition for standard commmunity attributes represented as
+       a integer value, or a string of the form N:M where N and M are
+       integers between 0 and 65535.";
     reference "RFC 1997 - BGP Communities Attribute";
   }
 
   typedef bgp-ext-community-type {
     type union {
       type string {
-        pattern "(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])";
+        pattern "^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$";
       }
       type string {
-        pattern "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])";
+        pattern "^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$";
       }
       type string {
-        pattern "route\\-target:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])";
+        pattern "^(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$";
       }
       type string {
-        pattern "route\\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])";
+        pattern "^route\\-target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$";
       }
       type string {
-        pattern "route\\-origin:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])";
+        pattern "^route\\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$";
       }
       type string {
-        pattern "route\\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])";
+        pattern "^route\\-target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$";
+      }
+      type string {
+        pattern "^route\\-origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$";
+      }
+      type string {
+        pattern "^route\\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$";
+      }
+      type string {
+        pattern "^route\\-origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$";
       }
     }
     description
-      "Type definition for extended community attributes";
-    reference "RFC 4360 - BGP Extended Communities Attribute";
+      "Type definition for extended community attributes. In the case that
+       common communities are utilised, they are represented as a string
+       of the form:
+        - <2b AS>:<4b value> per RFC4360 section 3.1
+        - <4b IPv4>:<2b value> per RFC4360 section 3.2
+        - <4b AS>:<2b value> per RFC5668 section 2.
+        - route-target:<2b AS>:<4b value> per RFC4360 section 4
+        - route-target:<4b IPv4>:<2b value> per RFC4360 section 4
+        - route-origin:<2b ASN>:<4b value> per RFC4360 section 5
+        - route-origin:<4b IPv4>:<2b value> per RFC4360 section 5";
+    reference
+      "RFC 4360 - BGP Extended Communities Attribute
+       RFC 5668 - 4-Octet AS Specific BGP Extended Community";
+  }
+
+  typedef bgp-ext-community-recv-type {
+    type union {
+      type bgp-ext-community-type;
+      type binary {
+        length "8";
+      }
+    }
+    description
+      "A type definition utilised to define the extended community in a
+       context where the system is receiving the extended community from
+       an external source, such that the value may be unknown. In the case
+       that the received extended community is unknown it is defined to be
+       a 8-octet quantity formatted according to RFC4360:
+       
+       Type Field: 1 or 2 octets.
+       Value Field: Remaining octets.
+       
+       The high-order octet of the type field is encoded such that bit 0
+       indicates whether the extended community type is IANA assigned; 
+       and bit 1 indicates whether the extended community is transitive.
+       The remaining bits of the high-order type field must be interpreted
+       to determine whether the low-order type field should be parsed,
+       or whether the entire remainder of the extended community is a
+       value.";
+    reference
+      "RFC 4360 - BGP Extended Communities Attribute
+       RFC 5668 - 4-Octet AS Specific BGP Extended Community";
   }
 
   typedef bgp-community-regexp-type {
@@ -314,15 +375,15 @@ module openconfig-bgp-types {
     type enumeration {
       enum "INTERNAL" {
         description
-          "internal (iBGP) peer";
+          "Internal (iBGP) peer";
       }
       enum "EXTERNAL" {
         description
-          "external (eBGP) peer";
+          "External (eBGP) peer";
       }
     }
     description
-      "labels a peer or peer group as explicitly internal or
+      "Labels a peer or peer group as explicitly internal or
        external";
   }
 
@@ -331,25 +392,17 @@ module openconfig-bgp-types {
       base REMOVE_PRIVATE_AS_OPTION;
     }
     description
-      "set of options for configuring how private AS path numbers
+      "Set of options for configuring how private AS path numbers
        are removed from advertisements";
-  }
-
-  typedef percentage {
-    type uint8 {
-      range "0..100";
-    }
-    description
-      "Integer indicating a percentage value";
   }
 
   typedef rr-cluster-id-type {
     type union {
       type uint32;
-      type inet:ipv4-address;
+      type oc-inet:ipv4-address;
     }
     description
-      "union type for route reflector cluster ids:
+      "Union type for route reflector cluster ids:
        option 1: 4-byte number
        option 2: IP address";
   }
@@ -358,19 +411,19 @@ module openconfig-bgp-types {
     type enumeration {
       enum "STANDARD" {
         description
-          "send only standard communities";
+          "Send only standard communities";
       }
       enum "EXTENDED" {
         description
-          "send only extended communities";
+          "Send only extended communities";
       }
       enum "BOTH" {
         description
-          "send both standard and extended communities";
+          "Send both standard and extended communities";
       }
       enum "NONE" {
         description
-          "do not send any community attribute";
+          "Do not send any community attribute";
       }
     }
     description
@@ -379,5 +432,34 @@ module openconfig-bgp-types {
        EXTENDED: extended BGP community [rfc4360]
        BOTH: both standard and extended community";
   }
-  oc-ext:openconfig-version "2.1.1";
+
+  typedef as-path-segment-type {
+    type enumeration {
+      enum "AS_SEQ" {
+        description
+          "Ordered set of autonomous systems that a route in
+           the UPDATE message has traversed";
+      }
+      enum "AS_SET" {
+        description
+          "Unordered set of autonomous systems that a route in
+           the UPDATE message has traversed";
+      }
+      enum "AS_CONFED_SEQUENCE" {
+        description
+          "Ordered set of Member Autonomous
+           Systems in the local confederation that the UPDATE message
+           has traversed";
+      }
+      enum "AS_CONFED_SET" {
+        description
+          "Unordered set of Member Autonomous Systems
+           in the local confederation that the UPDATE message has
+           traversed";
+      }
+    }
+    description
+      "Defines the types of BGP AS path segments.";
+  }
+  oc-ext:openconfig-version "3.0.1";
 }

@@ -512,20 +512,20 @@ class Alarms(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("detail", ("detail", Alarms.Detail)), ("brief", ("brief", Alarms.Brief))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("detail", ("detail", Alarms.Detail)), ("brief", ("brief", Alarms.Brief))])
         self._leafs = OrderedDict()
 
         self.detail = Alarms.Detail()
         self.detail.parent = self
         self._children_name_map["detail"] = "detail"
-        self._children_yang_names.add("detail")
 
         self.brief = Alarms.Brief()
         self.brief.parent = self
         self._children_name_map["brief"] = "brief"
-        self._children_yang_names.add("brief")
         self._segment_path = lambda: "Cisco-IOS-XR-alarmgr-server-oper:alarms"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Alarms, [], name, value)
 
 
     class Detail(Entity):
@@ -557,21 +557,21 @@ class Alarms(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("detail-system", ("detail_system", Alarms.Detail.DetailSystem)), ("detail-card", ("detail_card", Alarms.Detail.DetailCard))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("detail-system", ("detail_system", Alarms.Detail.DetailSystem)), ("detail-card", ("detail_card", Alarms.Detail.DetailCard))])
             self._leafs = OrderedDict()
 
             self.detail_system = Alarms.Detail.DetailSystem()
             self.detail_system.parent = self
             self._children_name_map["detail_system"] = "detail-system"
-            self._children_yang_names.add("detail-system")
 
             self.detail_card = Alarms.Detail.DetailCard()
             self.detail_card.parent = self
             self._children_name_map["detail_card"] = "detail-card"
-            self._children_yang_names.add("detail-card")
             self._segment_path = lambda: "detail"
             self._absolute_path = lambda: "Cisco-IOS-XR-alarmgr-server-oper:alarms/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Alarms.Detail, [], name, value)
 
 
         class DetailSystem(Entity):
@@ -618,36 +618,33 @@ class Alarms(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("active", ("active", Alarms.Detail.DetailSystem.Active)), ("history", ("history", Alarms.Detail.DetailSystem.History)), ("suppressed", ("suppressed", Alarms.Detail.DetailSystem.Suppressed)), ("stats", ("stats", Alarms.Detail.DetailSystem.Stats)), ("clients", ("clients", Alarms.Detail.DetailSystem.Clients))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("active", ("active", Alarms.Detail.DetailSystem.Active)), ("history", ("history", Alarms.Detail.DetailSystem.History)), ("suppressed", ("suppressed", Alarms.Detail.DetailSystem.Suppressed)), ("stats", ("stats", Alarms.Detail.DetailSystem.Stats)), ("clients", ("clients", Alarms.Detail.DetailSystem.Clients))])
                 self._leafs = OrderedDict()
 
                 self.active = Alarms.Detail.DetailSystem.Active()
                 self.active.parent = self
                 self._children_name_map["active"] = "active"
-                self._children_yang_names.add("active")
 
                 self.history = Alarms.Detail.DetailSystem.History()
                 self.history.parent = self
                 self._children_name_map["history"] = "history"
-                self._children_yang_names.add("history")
 
                 self.suppressed = Alarms.Detail.DetailSystem.Suppressed()
                 self.suppressed.parent = self
                 self._children_name_map["suppressed"] = "suppressed"
-                self._children_yang_names.add("suppressed")
 
                 self.stats = Alarms.Detail.DetailSystem.Stats()
                 self.stats.parent = self
                 self._children_name_map["stats"] = "stats"
-                self._children_yang_names.add("stats")
 
                 self.clients = Alarms.Detail.DetailSystem.Clients()
                 self.clients.parent = self
                 self._children_name_map["clients"] = "clients"
-                self._children_yang_names.add("clients")
                 self._segment_path = lambda: "detail-system"
                 self._absolute_path = lambda: "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Alarms.Detail.DetailSystem, [], name, value)
 
 
             class Active(Entity):
@@ -674,8 +671,7 @@ class Alarms(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("alarm-info", ("alarm_info", Alarms.Detail.DetailSystem.Active.AlarmInfo))])
+                    self._child_classes = OrderedDict([("alarm-info", ("alarm_info", Alarms.Detail.DetailSystem.Active.AlarmInfo))])
                     self._leafs = OrderedDict()
 
                     self.alarm_info = YList(self)
@@ -836,8 +832,7 @@ class Alarms(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("otn", ("otn", Alarms.Detail.DetailSystem.Active.AlarmInfo.Otn)), ("tca", ("tca", Alarms.Detail.DetailSystem.Active.AlarmInfo.Tca))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("otn", ("otn", Alarms.Detail.DetailSystem.Active.AlarmInfo.Otn)), ("tca", ("tca", Alarms.Detail.DetailSystem.Active.AlarmInfo.Tca))])
                         self._leafs = OrderedDict([
                             ('description', YLeaf(YType.str, 'description')),
                             ('location', YLeaf(YType.str, 'location')),
@@ -882,12 +877,10 @@ class Alarms(Entity):
                         self.otn = Alarms.Detail.DetailSystem.Active.AlarmInfo.Otn()
                         self.otn.parent = self
                         self._children_name_map["otn"] = "otn"
-                        self._children_yang_names.add("otn")
 
                         self.tca = Alarms.Detail.DetailSystem.Active.AlarmInfo.Tca()
                         self.tca.parent = self
                         self._children_name_map["tca"] = "tca"
-                        self._children_yang_names.add("tca")
                         self._segment_path = lambda: "alarm-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-system/active/%s" % self._segment_path()
 
@@ -924,8 +917,7 @@ class Alarms(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('direction', YLeaf(YType.enumeration, 'direction')),
                                 ('notification_source', YLeaf(YType.enumeration, 'notification-source')),
@@ -977,8 +969,7 @@ class Alarms(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('threshold_value', YLeaf(YType.str, 'threshold-value')),
                                 ('current_value', YLeaf(YType.str, 'current-value')),
@@ -1018,8 +1009,7 @@ class Alarms(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("alarm-info", ("alarm_info", Alarms.Detail.DetailSystem.History.AlarmInfo))])
+                    self._child_classes = OrderedDict([("alarm-info", ("alarm_info", Alarms.Detail.DetailSystem.History.AlarmInfo))])
                     self._leafs = OrderedDict()
 
                     self.alarm_info = YList(self)
@@ -1180,8 +1170,7 @@ class Alarms(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("otn", ("otn", Alarms.Detail.DetailSystem.History.AlarmInfo.Otn)), ("tca", ("tca", Alarms.Detail.DetailSystem.History.AlarmInfo.Tca))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("otn", ("otn", Alarms.Detail.DetailSystem.History.AlarmInfo.Otn)), ("tca", ("tca", Alarms.Detail.DetailSystem.History.AlarmInfo.Tca))])
                         self._leafs = OrderedDict([
                             ('description', YLeaf(YType.str, 'description')),
                             ('location', YLeaf(YType.str, 'location')),
@@ -1226,12 +1215,10 @@ class Alarms(Entity):
                         self.otn = Alarms.Detail.DetailSystem.History.AlarmInfo.Otn()
                         self.otn.parent = self
                         self._children_name_map["otn"] = "otn"
-                        self._children_yang_names.add("otn")
 
                         self.tca = Alarms.Detail.DetailSystem.History.AlarmInfo.Tca()
                         self.tca.parent = self
                         self._children_name_map["tca"] = "tca"
-                        self._children_yang_names.add("tca")
                         self._segment_path = lambda: "alarm-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-system/history/%s" % self._segment_path()
 
@@ -1268,8 +1255,7 @@ class Alarms(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('direction', YLeaf(YType.enumeration, 'direction')),
                                 ('notification_source', YLeaf(YType.enumeration, 'notification-source')),
@@ -1321,8 +1307,7 @@ class Alarms(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('threshold_value', YLeaf(YType.str, 'threshold-value')),
                                 ('current_value', YLeaf(YType.str, 'current-value')),
@@ -1362,8 +1347,7 @@ class Alarms(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("suppressed-info", ("suppressed_info", Alarms.Detail.DetailSystem.Suppressed.SuppressedInfo))])
+                    self._child_classes = OrderedDict([("suppressed-info", ("suppressed_info", Alarms.Detail.DetailSystem.Suppressed.SuppressedInfo))])
                     self._leafs = OrderedDict()
 
                     self.suppressed_info = YList(self)
@@ -1514,8 +1498,7 @@ class Alarms(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("otn", ("otn", Alarms.Detail.DetailSystem.Suppressed.SuppressedInfo.Otn))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("otn", ("otn", Alarms.Detail.DetailSystem.Suppressed.SuppressedInfo.Otn))])
                         self._leafs = OrderedDict([
                             ('description', YLeaf(YType.str, 'description')),
                             ('location', YLeaf(YType.str, 'location')),
@@ -1558,7 +1541,6 @@ class Alarms(Entity):
                         self.otn = Alarms.Detail.DetailSystem.Suppressed.SuppressedInfo.Otn()
                         self.otn.parent = self
                         self._children_name_map["otn"] = "otn"
-                        self._children_yang_names.add("otn")
                         self._segment_path = lambda: "suppressed-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-system/suppressed/%s" % self._segment_path()
 
@@ -1595,8 +1577,7 @@ class Alarms(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('direction', YLeaf(YType.enumeration, 'direction')),
                                 ('notification_source', YLeaf(YType.enumeration, 'notification-source')),
@@ -1734,8 +1715,7 @@ class Alarms(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('reported', YLeaf(YType.uint64, 'reported')),
                         ('dropped', YLeaf(YType.uint64, 'dropped')),
@@ -1799,8 +1779,7 @@ class Alarms(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("client-info", ("client_info", Alarms.Detail.DetailSystem.Clients.ClientInfo))])
+                    self._child_classes = OrderedDict([("client-info", ("client_info", Alarms.Detail.DetailSystem.Clients.ClientInfo))])
                     self._leafs = OrderedDict()
 
                     self.client_info = YList(self)
@@ -1930,8 +1909,7 @@ class Alarms(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('name', YLeaf(YType.str, 'name')),
                             ('id', YLeaf(YType.uint32, 'id')),
@@ -1997,16 +1975,17 @@ class Alarms(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("detail-locations", ("detail_locations", Alarms.Detail.DetailCard.DetailLocations))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("detail-locations", ("detail_locations", Alarms.Detail.DetailCard.DetailLocations))])
                 self._leafs = OrderedDict()
 
                 self.detail_locations = Alarms.Detail.DetailCard.DetailLocations()
                 self.detail_locations.parent = self
                 self._children_name_map["detail_locations"] = "detail-locations"
-                self._children_yang_names.add("detail-locations")
                 self._segment_path = lambda: "detail-card"
                 self._absolute_path = lambda: "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Alarms.Detail.DetailCard, [], name, value)
 
 
             class DetailLocations(Entity):
@@ -2033,8 +2012,7 @@ class Alarms(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("detail-location", ("detail_location", Alarms.Detail.DetailCard.DetailLocations.DetailLocation))])
+                    self._child_classes = OrderedDict([("detail-location", ("detail_location", Alarms.Detail.DetailCard.DetailLocations.DetailLocation))])
                     self._leafs = OrderedDict()
 
                     self.detail_location = YList(self)
@@ -2096,8 +2074,7 @@ class Alarms(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['node_id']
-                        self._child_container_classes = OrderedDict([("active", ("active", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active)), ("history", ("history", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History)), ("suppressed", ("suppressed", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed)), ("stats", ("stats", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Stats)), ("clients", ("clients", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Clients))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("active", ("active", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active)), ("history", ("history", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History)), ("suppressed", ("suppressed", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed)), ("stats", ("stats", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Stats)), ("clients", ("clients", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Clients))])
                         self._leafs = OrderedDict([
                             ('node_id', YLeaf(YType.str, 'node-id')),
                         ])
@@ -2106,27 +2083,22 @@ class Alarms(Entity):
                         self.active = Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active()
                         self.active.parent = self
                         self._children_name_map["active"] = "active"
-                        self._children_yang_names.add("active")
 
                         self.history = Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History()
                         self.history.parent = self
                         self._children_name_map["history"] = "history"
-                        self._children_yang_names.add("history")
 
                         self.suppressed = Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed()
                         self.suppressed.parent = self
                         self._children_name_map["suppressed"] = "suppressed"
-                        self._children_yang_names.add("suppressed")
 
                         self.stats = Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Stats()
                         self.stats.parent = self
                         self._children_name_map["stats"] = "stats"
-                        self._children_yang_names.add("stats")
 
                         self.clients = Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Clients()
                         self.clients.parent = self
                         self._children_name_map["clients"] = "clients"
-                        self._children_yang_names.add("clients")
                         self._segment_path = lambda: "detail-location" + "[node-id='" + str(self.node_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-card/detail-locations/%s" % self._segment_path()
 
@@ -2158,8 +2130,7 @@ class Alarms(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("alarm-info", ("alarm_info", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo))])
+                            self._child_classes = OrderedDict([("alarm-info", ("alarm_info", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo))])
                             self._leafs = OrderedDict()
 
                             self.alarm_info = YList(self)
@@ -2319,8 +2290,7 @@ class Alarms(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("otn", ("otn", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo.Otn)), ("tca", ("tca", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo.Tca))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("otn", ("otn", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo.Otn)), ("tca", ("tca", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo.Tca))])
                                 self._leafs = OrderedDict([
                                     ('description', YLeaf(YType.str, 'description')),
                                     ('location', YLeaf(YType.str, 'location')),
@@ -2365,12 +2335,10 @@ class Alarms(Entity):
                                 self.otn = Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo.Otn()
                                 self.otn.parent = self
                                 self._children_name_map["otn"] = "otn"
-                                self._children_yang_names.add("otn")
 
                                 self.tca = Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo.Tca()
                                 self.tca.parent = self
                                 self._children_name_map["tca"] = "tca"
-                                self._children_yang_names.add("tca")
                                 self._segment_path = lambda: "alarm-info"
 
                             def __setattr__(self, name, value):
@@ -2406,8 +2374,7 @@ class Alarms(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('direction', YLeaf(YType.enumeration, 'direction')),
                                         ('notification_source', YLeaf(YType.enumeration, 'notification-source')),
@@ -2458,8 +2425,7 @@ class Alarms(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('threshold_value', YLeaf(YType.str, 'threshold-value')),
                                         ('current_value', YLeaf(YType.str, 'current-value')),
@@ -2498,8 +2464,7 @@ class Alarms(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("alarm-info", ("alarm_info", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo))])
+                            self._child_classes = OrderedDict([("alarm-info", ("alarm_info", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo))])
                             self._leafs = OrderedDict()
 
                             self.alarm_info = YList(self)
@@ -2659,8 +2624,7 @@ class Alarms(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("otn", ("otn", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo.Otn)), ("tca", ("tca", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo.Tca))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("otn", ("otn", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo.Otn)), ("tca", ("tca", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo.Tca))])
                                 self._leafs = OrderedDict([
                                     ('description', YLeaf(YType.str, 'description')),
                                     ('location', YLeaf(YType.str, 'location')),
@@ -2705,12 +2669,10 @@ class Alarms(Entity):
                                 self.otn = Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo.Otn()
                                 self.otn.parent = self
                                 self._children_name_map["otn"] = "otn"
-                                self._children_yang_names.add("otn")
 
                                 self.tca = Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo.Tca()
                                 self.tca.parent = self
                                 self._children_name_map["tca"] = "tca"
-                                self._children_yang_names.add("tca")
                                 self._segment_path = lambda: "alarm-info"
 
                             def __setattr__(self, name, value):
@@ -2746,8 +2708,7 @@ class Alarms(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('direction', YLeaf(YType.enumeration, 'direction')),
                                         ('notification_source', YLeaf(YType.enumeration, 'notification-source')),
@@ -2798,8 +2759,7 @@ class Alarms(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('threshold_value', YLeaf(YType.str, 'threshold-value')),
                                         ('current_value', YLeaf(YType.str, 'current-value')),
@@ -2838,8 +2798,7 @@ class Alarms(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("suppressed-info", ("suppressed_info", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed.SuppressedInfo))])
+                            self._child_classes = OrderedDict([("suppressed-info", ("suppressed_info", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed.SuppressedInfo))])
                             self._leafs = OrderedDict()
 
                             self.suppressed_info = YList(self)
@@ -2989,8 +2948,7 @@ class Alarms(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("otn", ("otn", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed.SuppressedInfo.Otn))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("otn", ("otn", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed.SuppressedInfo.Otn))])
                                 self._leafs = OrderedDict([
                                     ('description', YLeaf(YType.str, 'description')),
                                     ('location', YLeaf(YType.str, 'location')),
@@ -3033,7 +2991,6 @@ class Alarms(Entity):
                                 self.otn = Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed.SuppressedInfo.Otn()
                                 self.otn.parent = self
                                 self._children_name_map["otn"] = "otn"
-                                self._children_yang_names.add("otn")
                                 self._segment_path = lambda: "suppressed-info"
 
                             def __setattr__(self, name, value):
@@ -3069,8 +3026,7 @@ class Alarms(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('direction', YLeaf(YType.enumeration, 'direction')),
                                         ('notification_source', YLeaf(YType.enumeration, 'notification-source')),
@@ -3207,8 +3163,7 @@ class Alarms(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('reported', YLeaf(YType.uint64, 'reported')),
                                 ('dropped', YLeaf(YType.uint64, 'dropped')),
@@ -3272,8 +3227,7 @@ class Alarms(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("client-info", ("client_info", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Clients.ClientInfo))])
+                            self._child_classes = OrderedDict([("client-info", ("client_info", Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Clients.ClientInfo))])
                             self._leafs = OrderedDict()
 
                             self.client_info = YList(self)
@@ -3402,8 +3356,7 @@ class Alarms(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('name', YLeaf(YType.str, 'name')),
                                     ('id', YLeaf(YType.uint32, 'id')),
@@ -3473,21 +3426,21 @@ class Alarms(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("brief-card", ("brief_card", Alarms.Brief.BriefCard)), ("brief-system", ("brief_system", Alarms.Brief.BriefSystem))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("brief-card", ("brief_card", Alarms.Brief.BriefCard)), ("brief-system", ("brief_system", Alarms.Brief.BriefSystem))])
             self._leafs = OrderedDict()
 
             self.brief_card = Alarms.Brief.BriefCard()
             self.brief_card.parent = self
             self._children_name_map["brief_card"] = "brief-card"
-            self._children_yang_names.add("brief-card")
 
             self.brief_system = Alarms.Brief.BriefSystem()
             self.brief_system.parent = self
             self._children_name_map["brief_system"] = "brief-system"
-            self._children_yang_names.add("brief-system")
             self._segment_path = lambda: "brief"
             self._absolute_path = lambda: "Cisco-IOS-XR-alarmgr-server-oper:alarms/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Alarms.Brief, [], name, value)
 
 
         class BriefCard(Entity):
@@ -3514,16 +3467,17 @@ class Alarms(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("brief-locations", ("brief_locations", Alarms.Brief.BriefCard.BriefLocations))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("brief-locations", ("brief_locations", Alarms.Brief.BriefCard.BriefLocations))])
                 self._leafs = OrderedDict()
 
                 self.brief_locations = Alarms.Brief.BriefCard.BriefLocations()
                 self.brief_locations.parent = self
                 self._children_name_map["brief_locations"] = "brief-locations"
-                self._children_yang_names.add("brief-locations")
                 self._segment_path = lambda: "brief-card"
                 self._absolute_path = lambda: "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Alarms.Brief.BriefCard, [], name, value)
 
 
             class BriefLocations(Entity):
@@ -3550,8 +3504,7 @@ class Alarms(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("brief-location", ("brief_location", Alarms.Brief.BriefCard.BriefLocations.BriefLocation))])
+                    self._child_classes = OrderedDict([("brief-location", ("brief_location", Alarms.Brief.BriefCard.BriefLocations.BriefLocation))])
                     self._leafs = OrderedDict()
 
                     self.brief_location = YList(self)
@@ -3603,8 +3556,7 @@ class Alarms(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['node_id']
-                        self._child_container_classes = OrderedDict([("active", ("active", Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Active)), ("history", ("history", Alarms.Brief.BriefCard.BriefLocations.BriefLocation.History)), ("suppressed", ("suppressed", Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Suppressed))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("active", ("active", Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Active)), ("history", ("history", Alarms.Brief.BriefCard.BriefLocations.BriefLocation.History)), ("suppressed", ("suppressed", Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Suppressed))])
                         self._leafs = OrderedDict([
                             ('node_id', YLeaf(YType.str, 'node-id')),
                         ])
@@ -3613,17 +3565,14 @@ class Alarms(Entity):
                         self.active = Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Active()
                         self.active.parent = self
                         self._children_name_map["active"] = "active"
-                        self._children_yang_names.add("active")
 
                         self.history = Alarms.Brief.BriefCard.BriefLocations.BriefLocation.History()
                         self.history.parent = self
                         self._children_name_map["history"] = "history"
-                        self._children_yang_names.add("history")
 
                         self.suppressed = Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Suppressed()
                         self.suppressed.parent = self
                         self._children_name_map["suppressed"] = "suppressed"
-                        self._children_yang_names.add("suppressed")
                         self._segment_path = lambda: "brief-location" + "[node-id='" + str(self.node_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/brief-card/brief-locations/%s" % self._segment_path()
 
@@ -3655,8 +3604,7 @@ class Alarms(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("alarm-info", ("alarm_info", Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Active.AlarmInfo))])
+                            self._child_classes = OrderedDict([("alarm-info", ("alarm_info", Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Active.AlarmInfo))])
                             self._leafs = OrderedDict()
 
                             self.alarm_info = YList(self)
@@ -3737,8 +3685,7 @@ class Alarms(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('location', YLeaf(YType.str, 'location')),
                                     ('severity', YLeaf(YType.enumeration, 'severity')),
@@ -3787,8 +3734,7 @@ class Alarms(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("alarm-info", ("alarm_info", Alarms.Brief.BriefCard.BriefLocations.BriefLocation.History.AlarmInfo))])
+                            self._child_classes = OrderedDict([("alarm-info", ("alarm_info", Alarms.Brief.BriefCard.BriefLocations.BriefLocation.History.AlarmInfo))])
                             self._leafs = OrderedDict()
 
                             self.alarm_info = YList(self)
@@ -3869,8 +3815,7 @@ class Alarms(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('location', YLeaf(YType.str, 'location')),
                                     ('severity', YLeaf(YType.enumeration, 'severity')),
@@ -3919,8 +3864,7 @@ class Alarms(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("suppressed-info", ("suppressed_info", Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Suppressed.SuppressedInfo))])
+                            self._child_classes = OrderedDict([("suppressed-info", ("suppressed_info", Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Suppressed.SuppressedInfo))])
                             self._leafs = OrderedDict()
 
                             self.suppressed_info = YList(self)
@@ -4001,8 +3945,7 @@ class Alarms(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('location', YLeaf(YType.str, 'location')),
                                     ('severity', YLeaf(YType.enumeration, 'severity')),
@@ -4061,26 +4004,25 @@ class Alarms(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("active", ("active", Alarms.Brief.BriefSystem.Active)), ("history", ("history", Alarms.Brief.BriefSystem.History)), ("suppressed", ("suppressed", Alarms.Brief.BriefSystem.Suppressed))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("active", ("active", Alarms.Brief.BriefSystem.Active)), ("history", ("history", Alarms.Brief.BriefSystem.History)), ("suppressed", ("suppressed", Alarms.Brief.BriefSystem.Suppressed))])
                 self._leafs = OrderedDict()
 
                 self.active = Alarms.Brief.BriefSystem.Active()
                 self.active.parent = self
                 self._children_name_map["active"] = "active"
-                self._children_yang_names.add("active")
 
                 self.history = Alarms.Brief.BriefSystem.History()
                 self.history.parent = self
                 self._children_name_map["history"] = "history"
-                self._children_yang_names.add("history")
 
                 self.suppressed = Alarms.Brief.BriefSystem.Suppressed()
                 self.suppressed.parent = self
                 self._children_name_map["suppressed"] = "suppressed"
-                self._children_yang_names.add("suppressed")
                 self._segment_path = lambda: "brief-system"
                 self._absolute_path = lambda: "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Alarms.Brief.BriefSystem, [], name, value)
 
 
             class Active(Entity):
@@ -4107,8 +4049,7 @@ class Alarms(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("alarm-info", ("alarm_info", Alarms.Brief.BriefSystem.Active.AlarmInfo))])
+                    self._child_classes = OrderedDict([("alarm-info", ("alarm_info", Alarms.Brief.BriefSystem.Active.AlarmInfo))])
                     self._leafs = OrderedDict()
 
                     self.alarm_info = YList(self)
@@ -4190,8 +4131,7 @@ class Alarms(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('location', YLeaf(YType.str, 'location')),
                             ('severity', YLeaf(YType.enumeration, 'severity')),
@@ -4241,8 +4181,7 @@ class Alarms(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("alarm-info", ("alarm_info", Alarms.Brief.BriefSystem.History.AlarmInfo))])
+                    self._child_classes = OrderedDict([("alarm-info", ("alarm_info", Alarms.Brief.BriefSystem.History.AlarmInfo))])
                     self._leafs = OrderedDict()
 
                     self.alarm_info = YList(self)
@@ -4324,8 +4263,7 @@ class Alarms(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('location', YLeaf(YType.str, 'location')),
                             ('severity', YLeaf(YType.enumeration, 'severity')),
@@ -4375,8 +4313,7 @@ class Alarms(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("suppressed-info", ("suppressed_info", Alarms.Brief.BriefSystem.Suppressed.SuppressedInfo))])
+                    self._child_classes = OrderedDict([("suppressed-info", ("suppressed_info", Alarms.Brief.BriefSystem.Suppressed.SuppressedInfo))])
                     self._leafs = OrderedDict()
 
                     self.suppressed_info = YList(self)
@@ -4458,8 +4395,7 @@ class Alarms(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('location', YLeaf(YType.str, 'location')),
                             ('severity', YLeaf(YType.enumeration, 'severity')),

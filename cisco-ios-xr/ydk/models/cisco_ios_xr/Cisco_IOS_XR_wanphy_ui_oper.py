@@ -87,15 +87,16 @@ class Wanphy(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("controllers", ("controllers", Wanphy.Controllers))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("controllers", ("controllers", Wanphy.Controllers))])
         self._leafs = OrderedDict()
 
         self.controllers = Wanphy.Controllers()
         self.controllers.parent = self
         self._children_name_map["controllers"] = "controllers"
-        self._children_yang_names.add("controllers")
         self._segment_path = lambda: "Cisco-IOS-XR-wanphy-ui-oper:wanphy"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Wanphy, [], name, value)
 
 
     class Controllers(Entity):
@@ -122,8 +123,7 @@ class Wanphy(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("controller", ("controller", Wanphy.Controllers.Controller))])
+            self._child_classes = OrderedDict([("controller", ("controller", Wanphy.Controllers.Controller))])
             self._leafs = OrderedDict()
 
             self.controller = YList(self)
@@ -165,8 +165,7 @@ class Wanphy(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['controller_name']
-                self._child_container_classes = OrderedDict([("info", ("info", Wanphy.Controllers.Controller.Info))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("info", ("info", Wanphy.Controllers.Controller.Info))])
                 self._leafs = OrderedDict([
                     ('controller_name', YLeaf(YType.str, 'controller-name')),
                 ])
@@ -175,7 +174,6 @@ class Wanphy(Entity):
                 self.info = Wanphy.Controllers.Controller.Info()
                 self.info.parent = self
                 self._children_name_map["info"] = "info"
-                self._children_yang_names.add("info")
                 self._segment_path = lambda: "controller" + "[controller-name='" + str(self.controller_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-wanphy-ui-oper:wanphy/controllers/%s" % self._segment_path()
 
@@ -507,8 +505,7 @@ class Wanphy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('admin_mode', YLeaf(YType.enumeration, 'admin-mode')),
                         ('port_state', YLeaf(YType.uint32, 'port-state')),
@@ -604,7 +601,7 @@ class Wanphy(Entity):
                     self._segment_path = lambda: "info"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Wanphy.Controllers.Controller.Info, ['admin_mode', 'port_state', 'section_lof', 'section_los', 'section_bip', 'line_ais', 'line_rdi', 'line_febe', 'line_bip', 'path_ais', 'path_rdi', 'path_febe', 'path_bip', 'path_lop', 'path_newptr', 'path_pse', 'path_nse', 'wis_alarms_ser', 'wis_alarms_felcdp', 'wis_alarms_feaisp', 'wis_alarms_wlos', 'wis_alarms_plcd', 'wis_alarms_lfebip', 'wis_alarms_pbec', 'wis_alarms_plmp', 'sf_ber_threshold', 'sd_ber_threshold', 'sf_ber_report', 'sd_ber_report', 'operational_mode', 'remote_ip', 'register_p_febe', 'register_l_fe_bip', 'register_l_bip', 'register_p_bec', 'register_s_bip', 'register_j1_rx0', 'register_j1_rx1', 'register_j1_rx2', 'register_j1_rx3', 'register_j1_rx4', 'register_j1_rx5', 'register_j1_rx6', 'register_j1_rx7', 'wanphy_poll_timer'], name, value)
+                    self._perform_setattr(Wanphy.Controllers.Controller.Info, [u'admin_mode', u'port_state', u'section_lof', u'section_los', u'section_bip', u'line_ais', u'line_rdi', u'line_febe', u'line_bip', u'path_ais', u'path_rdi', u'path_febe', u'path_bip', u'path_lop', u'path_newptr', u'path_pse', u'path_nse', u'wis_alarms_ser', u'wis_alarms_felcdp', u'wis_alarms_feaisp', u'wis_alarms_wlos', u'wis_alarms_plcd', u'wis_alarms_lfebip', u'wis_alarms_pbec', u'wis_alarms_plmp', u'sf_ber_threshold', u'sd_ber_threshold', u'sf_ber_report', u'sd_ber_report', u'operational_mode', u'remote_ip', u'register_p_febe', u'register_l_fe_bip', u'register_l_bip', u'register_p_bec', u'register_s_bip', u'register_j1_rx0', u'register_j1_rx1', u'register_j1_rx2', u'register_j1_rx3', u'register_j1_rx4', u'register_j1_rx5', u'register_j1_rx6', u'register_j1_rx7', u'wanphy_poll_timer'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Wanphy()

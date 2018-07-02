@@ -75,72 +75,72 @@ class CISCOVTPMIB(Entity):
     .. attribute:: vtpstatus
     
     	
-    	**type**\:  :py:class:`Vtpstatus <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpstatus>`
+    	**type**\:  :py:class:`VtpStatus <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpStatus>`
     
     .. attribute:: internalvlaninfo
     
     	
-    	**type**\:  :py:class:`Internalvlaninfo <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Internalvlaninfo>`
+    	**type**\:  :py:class:`InternalVlanInfo <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.InternalVlanInfo>`
     
     .. attribute:: vlantrunkports
     
     	
-    	**type**\:  :py:class:`Vlantrunkports <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vlantrunkports>`
+    	**type**\:  :py:class:`VlanTrunkPorts <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VlanTrunkPorts>`
     
     .. attribute:: vlanstatistics
     
     	
-    	**type**\:  :py:class:`Vlanstatistics <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vlanstatistics>`
+    	**type**\:  :py:class:`VlanStatistics <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VlanStatistics>`
     
     .. attribute:: managementdomaintable
     
     	The table containing information on the management domains in which the local system is participating.  Devices which support only one management domain will support just one row in this table, and will not let it be deleted nor let other rows be created.  Devices which support multiple management domains will allow rows to be created and deleted, but will not allow the last row to be deleted. If the device does  not support VTP, the table is read\-only
-    	**type**\:  :py:class:`Managementdomaintable <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Managementdomaintable>`
+    	**type**\:  :py:class:`ManagementDomainTable <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.ManagementDomainTable>`
     
     .. attribute:: vtpvlantable
     
     	This table contains information on the VLANs which currently exist
-    	**type**\:  :py:class:`Vtpvlantable <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpvlantable>`
+    	**type**\:  :py:class:`VtpVlanTable <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpVlanTable>`
     
     .. attribute:: vtpinternalvlantable
     
     	A vtpInternalVlanTable entry contains information on an existing internal VLAN. It is internally created by the device for a specific application program  and hence owned by the application.   It cannot be modified or deleted by (local  or network) management
-    	**type**\:  :py:class:`Vtpinternalvlantable <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpinternalvlantable>`
+    	**type**\:  :py:class:`VtpInternalVlanTable <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpInternalVlanTable>`
     
     .. attribute:: vtpvlanedittable
     
     	The table which contains the information in the Edit Buffers, one Edit Buffer per management domain.  The information for a particular management domain is initialized, by a 'copy' operation, to be the current global VLAN information for that management domain.  After initialization, editing can be performed to add VLANs, delete VLANs, or modify their global parameters.  The information as modified through editing is local to this Edit Buffer.  An apply operation using the vtpVlanEditOperation object is necessary to instanciate the modified information as the new global VLAN information for that management domain.  To use the Edit Buffer, a manager acts as follows\:  1. ensures the Edit Buffer for a management domain is empty, i.e., there are no rows in this table for this management domain.  2. issues a SNMP set operation which sets vtpVlanEditOperation to 'copy', and vtpVlanEditBufferOwner to its own identifier (e.g., its own IP address).  3. if this set operation is successful, proceeds to edit the information in the vtpVlanEditTable.  4. if and when the edited information is to be instantiated, issues a SNMP set operation which sets vtpVlanEditOperation to 'apply'.  5. issues retrieval requests to obtain the value of vtpVlanApplyStatus, until the result of the apply is determined.  6. releases the Edit Buffer by issuing a SNMP set operation which sets vtpVlanEditOperation to 'release'.  Note that the information contained in this table is not saved across agent reboots
-    	**type**\:  :py:class:`Vtpvlanedittable <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpvlanedittable>`
+    	**type**\:  :py:class:`VtpVlanEditTable <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpVlanEditTable>`
     
     .. attribute:: vtpvlanlocalshutdowntable
     
     	Ths table contains the VLAN local shutdown information within management domain
-    	**type**\:  :py:class:`Vtpvlanlocalshutdowntable <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpvlanlocalshutdowntable>`
+    	**type**\:  :py:class:`VtpVlanLocalShutdownTable <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpVlanLocalShutdownTable>`
     
     .. attribute:: vlantrunkporttable
     
     	The table containing information on the local system's VLAN trunk ports
-    	**type**\:  :py:class:`Vlantrunkporttable <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vlantrunkporttable>`
+    	**type**\:  :py:class:`VlanTrunkPortTable <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VlanTrunkPortTable>`
     
     .. attribute:: vtpdiscovertable
     
     	This table contains information related to the discovery of the VTP members in the designated management domain. This table is not instantiated when  managementDomainVersionInUse is version1(1), version2(3) or none(3)
-    	**type**\:  :py:class:`Vtpdiscovertable <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpdiscovertable>`
+    	**type**\:  :py:class:`VtpDiscoverTable <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpDiscoverTable>`
     
     .. attribute:: vtpdiscoverresulttable
     
     	The table containing information of discovered VTP members in the management domain in which the local system is participating. This table is not instantiated when  managementDomainVersionInUse is version1(1), version2(2) or none(3)
-    	**type**\:  :py:class:`Vtpdiscoverresulttable <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpdiscoverresulttable>`
+    	**type**\:  :py:class:`VtpDiscoverResultTable <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpDiscoverResultTable>`
     
     .. attribute:: vtpdatabasetable
     
     	This table contains information of the VTP databases. It is not instantiated when managementDomainVersionInUse is version1(1),  version2(3) or none(3)
-    	**type**\:  :py:class:`Vtpdatabasetable <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpdatabasetable>`
+    	**type**\:  :py:class:`VtpDatabaseTable <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpDatabaseTable>`
     
     .. attribute:: vtpauthenticationtable
     
     	The table contains the authentication information of VTP in which the local system participates.  The security mechanism of VTP relies on a secret key that is used to alter the MD5 digest of the packets transmitted on the wire.  The secret value is created from a password that may be saved in plain text in the configuration or hidden from the configuration.  The device creating or modifying the VTP configuration signs it using the MD5 digest generated from the secret key before advertising it. Other devices in the domain receive this configuration use the same secret key to accept it if correctly signed or drop it otherwise.  The user has the option to hide the password from the configuration. Once the password is hidden, the secret key generated from the password is shown in the  configuration instead, and there is no other way to  show the password in plain text again but clearing  it or resetting it.   In an un\-trusted area, the password on a device can  be configured without being unveiled. After that, it has to be provided again by setting the same  value to vtpDatabaseTakeOverPassword if the user  wants to take over the whole VTP management domain of the database type.  When managementDomainVersionInUse is version3(4), the  authentication mechanism is common to all VTP database type
-    	**type**\:  :py:class:`Vtpauthenticationtable <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpauthenticationtable>`
+    	**type**\:  :py:class:`VtpAuthenticationTable <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpAuthenticationTable>`
     
     
 
@@ -158,90 +158,78 @@ class CISCOVTPMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("vtpStatus", ("vtpstatus", CISCOVTPMIB.Vtpstatus)), ("internalVlanInfo", ("internalvlaninfo", CISCOVTPMIB.Internalvlaninfo)), ("vlanTrunkPorts", ("vlantrunkports", CISCOVTPMIB.Vlantrunkports)), ("vlanStatistics", ("vlanstatistics", CISCOVTPMIB.Vlanstatistics)), ("managementDomainTable", ("managementdomaintable", CISCOVTPMIB.Managementdomaintable)), ("vtpVlanTable", ("vtpvlantable", CISCOVTPMIB.Vtpvlantable)), ("vtpInternalVlanTable", ("vtpinternalvlantable", CISCOVTPMIB.Vtpinternalvlantable)), ("vtpVlanEditTable", ("vtpvlanedittable", CISCOVTPMIB.Vtpvlanedittable)), ("vtpVlanLocalShutdownTable", ("vtpvlanlocalshutdowntable", CISCOVTPMIB.Vtpvlanlocalshutdowntable)), ("vlanTrunkPortTable", ("vlantrunkporttable", CISCOVTPMIB.Vlantrunkporttable)), ("vtpDiscoverTable", ("vtpdiscovertable", CISCOVTPMIB.Vtpdiscovertable)), ("vtpDiscoverResultTable", ("vtpdiscoverresulttable", CISCOVTPMIB.Vtpdiscoverresulttable)), ("vtpDatabaseTable", ("vtpdatabasetable", CISCOVTPMIB.Vtpdatabasetable)), ("vtpAuthenticationTable", ("vtpauthenticationtable", CISCOVTPMIB.Vtpauthenticationtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("vtpStatus", ("vtpstatus", CISCOVTPMIB.VtpStatus)), ("internalVlanInfo", ("internalvlaninfo", CISCOVTPMIB.InternalVlanInfo)), ("vlanTrunkPorts", ("vlantrunkports", CISCOVTPMIB.VlanTrunkPorts)), ("vlanStatistics", ("vlanstatistics", CISCOVTPMIB.VlanStatistics)), ("managementDomainTable", ("managementdomaintable", CISCOVTPMIB.ManagementDomainTable)), ("vtpVlanTable", ("vtpvlantable", CISCOVTPMIB.VtpVlanTable)), ("vtpInternalVlanTable", ("vtpinternalvlantable", CISCOVTPMIB.VtpInternalVlanTable)), ("vtpVlanEditTable", ("vtpvlanedittable", CISCOVTPMIB.VtpVlanEditTable)), ("vtpVlanLocalShutdownTable", ("vtpvlanlocalshutdowntable", CISCOVTPMIB.VtpVlanLocalShutdownTable)), ("vlanTrunkPortTable", ("vlantrunkporttable", CISCOVTPMIB.VlanTrunkPortTable)), ("vtpDiscoverTable", ("vtpdiscovertable", CISCOVTPMIB.VtpDiscoverTable)), ("vtpDiscoverResultTable", ("vtpdiscoverresulttable", CISCOVTPMIB.VtpDiscoverResultTable)), ("vtpDatabaseTable", ("vtpdatabasetable", CISCOVTPMIB.VtpDatabaseTable)), ("vtpAuthenticationTable", ("vtpauthenticationtable", CISCOVTPMIB.VtpAuthenticationTable))])
         self._leafs = OrderedDict()
 
-        self.vtpstatus = CISCOVTPMIB.Vtpstatus()
+        self.vtpstatus = CISCOVTPMIB.VtpStatus()
         self.vtpstatus.parent = self
         self._children_name_map["vtpstatus"] = "vtpStatus"
-        self._children_yang_names.add("vtpStatus")
 
-        self.internalvlaninfo = CISCOVTPMIB.Internalvlaninfo()
+        self.internalvlaninfo = CISCOVTPMIB.InternalVlanInfo()
         self.internalvlaninfo.parent = self
         self._children_name_map["internalvlaninfo"] = "internalVlanInfo"
-        self._children_yang_names.add("internalVlanInfo")
 
-        self.vlantrunkports = CISCOVTPMIB.Vlantrunkports()
+        self.vlantrunkports = CISCOVTPMIB.VlanTrunkPorts()
         self.vlantrunkports.parent = self
         self._children_name_map["vlantrunkports"] = "vlanTrunkPorts"
-        self._children_yang_names.add("vlanTrunkPorts")
 
-        self.vlanstatistics = CISCOVTPMIB.Vlanstatistics()
+        self.vlanstatistics = CISCOVTPMIB.VlanStatistics()
         self.vlanstatistics.parent = self
         self._children_name_map["vlanstatistics"] = "vlanStatistics"
-        self._children_yang_names.add("vlanStatistics")
 
-        self.managementdomaintable = CISCOVTPMIB.Managementdomaintable()
+        self.managementdomaintable = CISCOVTPMIB.ManagementDomainTable()
         self.managementdomaintable.parent = self
         self._children_name_map["managementdomaintable"] = "managementDomainTable"
-        self._children_yang_names.add("managementDomainTable")
 
-        self.vtpvlantable = CISCOVTPMIB.Vtpvlantable()
+        self.vtpvlantable = CISCOVTPMIB.VtpVlanTable()
         self.vtpvlantable.parent = self
         self._children_name_map["vtpvlantable"] = "vtpVlanTable"
-        self._children_yang_names.add("vtpVlanTable")
 
-        self.vtpinternalvlantable = CISCOVTPMIB.Vtpinternalvlantable()
+        self.vtpinternalvlantable = CISCOVTPMIB.VtpInternalVlanTable()
         self.vtpinternalvlantable.parent = self
         self._children_name_map["vtpinternalvlantable"] = "vtpInternalVlanTable"
-        self._children_yang_names.add("vtpInternalVlanTable")
 
-        self.vtpvlanedittable = CISCOVTPMIB.Vtpvlanedittable()
+        self.vtpvlanedittable = CISCOVTPMIB.VtpVlanEditTable()
         self.vtpvlanedittable.parent = self
         self._children_name_map["vtpvlanedittable"] = "vtpVlanEditTable"
-        self._children_yang_names.add("vtpVlanEditTable")
 
-        self.vtpvlanlocalshutdowntable = CISCOVTPMIB.Vtpvlanlocalshutdowntable()
+        self.vtpvlanlocalshutdowntable = CISCOVTPMIB.VtpVlanLocalShutdownTable()
         self.vtpvlanlocalshutdowntable.parent = self
         self._children_name_map["vtpvlanlocalshutdowntable"] = "vtpVlanLocalShutdownTable"
-        self._children_yang_names.add("vtpVlanLocalShutdownTable")
 
-        self.vlantrunkporttable = CISCOVTPMIB.Vlantrunkporttable()
+        self.vlantrunkporttable = CISCOVTPMIB.VlanTrunkPortTable()
         self.vlantrunkporttable.parent = self
         self._children_name_map["vlantrunkporttable"] = "vlanTrunkPortTable"
-        self._children_yang_names.add("vlanTrunkPortTable")
 
-        self.vtpdiscovertable = CISCOVTPMIB.Vtpdiscovertable()
+        self.vtpdiscovertable = CISCOVTPMIB.VtpDiscoverTable()
         self.vtpdiscovertable.parent = self
         self._children_name_map["vtpdiscovertable"] = "vtpDiscoverTable"
-        self._children_yang_names.add("vtpDiscoverTable")
 
-        self.vtpdiscoverresulttable = CISCOVTPMIB.Vtpdiscoverresulttable()
+        self.vtpdiscoverresulttable = CISCOVTPMIB.VtpDiscoverResultTable()
         self.vtpdiscoverresulttable.parent = self
         self._children_name_map["vtpdiscoverresulttable"] = "vtpDiscoverResultTable"
-        self._children_yang_names.add("vtpDiscoverResultTable")
 
-        self.vtpdatabasetable = CISCOVTPMIB.Vtpdatabasetable()
+        self.vtpdatabasetable = CISCOVTPMIB.VtpDatabaseTable()
         self.vtpdatabasetable.parent = self
         self._children_name_map["vtpdatabasetable"] = "vtpDatabaseTable"
-        self._children_yang_names.add("vtpDatabaseTable")
 
-        self.vtpauthenticationtable = CISCOVTPMIB.Vtpauthenticationtable()
+        self.vtpauthenticationtable = CISCOVTPMIB.VtpAuthenticationTable()
         self.vtpauthenticationtable.parent = self
         self._children_name_map["vtpauthenticationtable"] = "vtpAuthenticationTable"
-        self._children_yang_names.add("vtpAuthenticationTable")
         self._segment_path = lambda: "CISCO-VTP-MIB:CISCO-VTP-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOVTPMIB, [], name, value)
 
-    class Vtpstatus(Entity):
+
+    class VtpStatus(Entity):
         """
         
         
         .. attribute:: vtpversion
         
         	The version of VTP in use on the local system.  A device will report its version capability and not any particular version in use on the device. If the device does not support vtp, the version is none(3)
-        	**type**\:  :py:class:`Vtpversion <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpstatus.Vtpversion>`
+        	**type**\:  :py:class:`VtpVersion <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpStatus.VtpVersion>`
         
         .. attribute:: vtpmaxvlanstorage
         
@@ -273,15 +261,14 @@ class CISCOVTPMIB(Entity):
         _revision = '2013-10-14'
 
         def __init__(self):
-            super(CISCOVTPMIB.Vtpstatus, self).__init__()
+            super(CISCOVTPMIB.VtpStatus, self).__init__()
 
             self.yang_name = "vtpStatus"
             self.yang_parent_name = "CISCO-VTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('vtpversion', YLeaf(YType.enumeration, 'vtpVersion')),
                 ('vtpmaxvlanstorage', YLeaf(YType.int32, 'vtpMaxVlanStorage')),
@@ -298,11 +285,11 @@ class CISCOVTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVTPMIB.Vtpstatus, ['vtpversion', 'vtpmaxvlanstorage', 'vtpnotificationsenabled', 'vtpvlancreatednotifenabled', 'vtpvlandeletednotifenabled'], name, value)
+            self._perform_setattr(CISCOVTPMIB.VtpStatus, [u'vtpversion', u'vtpmaxvlanstorage', u'vtpnotificationsenabled', u'vtpvlancreatednotifenabled', u'vtpvlandeletednotifenabled'], name, value)
 
-        class Vtpversion(Enum):
+        class VtpVersion(Enum):
             """
-            Vtpversion (Enum Class)
+            VtpVersion (Enum Class)
 
             The version of VTP in use on the local system.  A device
 
@@ -332,14 +319,14 @@ class CISCOVTPMIB(Entity):
 
 
 
-    class Internalvlaninfo(Entity):
+    class InternalVlanInfo(Entity):
         """
         
         
         .. attribute:: vtpinternalvlanallocpolicy
         
         	The internal VLAN allocation policy.  'ascending'  \- internal VLANs are allocated                starting from a lowwer VLAN ID and                 upwards. 'descending' \- internal VLANs are allocated                starting from a higher VLAN ID and                downwards
-        	**type**\:  :py:class:`Vtpinternalvlanallocpolicy <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Internalvlaninfo.Vtpinternalvlanallocpolicy>`
+        	**type**\:  :py:class:`VtpInternalVlanAllocPolicy <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.InternalVlanInfo.VtpInternalVlanAllocPolicy>`
         
         
 
@@ -349,15 +336,14 @@ class CISCOVTPMIB(Entity):
         _revision = '2013-10-14'
 
         def __init__(self):
-            super(CISCOVTPMIB.Internalvlaninfo, self).__init__()
+            super(CISCOVTPMIB.InternalVlanInfo, self).__init__()
 
             self.yang_name = "internalVlanInfo"
             self.yang_parent_name = "CISCO-VTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('vtpinternalvlanallocpolicy', YLeaf(YType.enumeration, 'vtpInternalVlanAllocPolicy')),
             ])
@@ -366,11 +352,11 @@ class CISCOVTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVTPMIB.Internalvlaninfo, ['vtpinternalvlanallocpolicy'], name, value)
+            self._perform_setattr(CISCOVTPMIB.InternalVlanInfo, [u'vtpinternalvlanallocpolicy'], name, value)
 
-        class Vtpinternalvlanallocpolicy(Enum):
+        class VtpInternalVlanAllocPolicy(Enum):
             """
-            Vtpinternalvlanallocpolicy (Enum Class)
+            VtpInternalVlanAllocPolicy (Enum Class)
 
             The internal VLAN allocation policy.
 
@@ -398,7 +384,7 @@ class CISCOVTPMIB(Entity):
 
 
 
-    class Vlantrunkports(Entity):
+    class VlanTrunkPorts(Entity):
         """
         
         
@@ -424,15 +410,14 @@ class CISCOVTPMIB(Entity):
         _revision = '2013-10-14'
 
         def __init__(self):
-            super(CISCOVTPMIB.Vlantrunkports, self).__init__()
+            super(CISCOVTPMIB.VlanTrunkPorts, self).__init__()
 
             self.yang_name = "vlanTrunkPorts"
             self.yang_parent_name = "CISCO-VTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('vlantrunkportsetserialno', YLeaf(YType.int32, 'vlanTrunkPortSetSerialNo')),
                 ('vlantrunkportsdot1qtag', YLeaf(YType.boolean, 'vlanTrunkPortsDot1qTag')),
@@ -443,10 +428,10 @@ class CISCOVTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVTPMIB.Vlantrunkports, ['vlantrunkportsetserialno', 'vlantrunkportsdot1qtag'], name, value)
+            self._perform_setattr(CISCOVTPMIB.VlanTrunkPorts, [u'vlantrunkportsetserialno', u'vlantrunkportsdot1qtag'], name, value)
 
 
-    class Vlanstatistics(Entity):
+    class VlanStatistics(Entity):
         """
         
         
@@ -486,15 +471,14 @@ class CISCOVTPMIB(Entity):
         _revision = '2013-10-14'
 
         def __init__(self):
-            super(CISCOVTPMIB.Vlanstatistics, self).__init__()
+            super(CISCOVTPMIB.VlanStatistics, self).__init__()
 
             self.yang_name = "vlanStatistics"
             self.yang_parent_name = "CISCO-VTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('vlanstatsvlans', YLeaf(YType.uint32, 'vlanStatsVlans')),
                 ('vlanstatsextendedvlans', YLeaf(YType.uint32, 'vlanStatsExtendedVlans')),
@@ -509,10 +493,10 @@ class CISCOVTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVTPMIB.Vlanstatistics, ['vlanstatsvlans', 'vlanstatsextendedvlans', 'vlanstatsinternalvlans', 'vlanstatsfreevlans'], name, value)
+            self._perform_setattr(CISCOVTPMIB.VlanStatistics, [u'vlanstatsvlans', u'vlanstatsextendedvlans', u'vlanstatsinternalvlans', u'vlanstatsfreevlans'], name, value)
 
 
-    class Managementdomaintable(Entity):
+    class ManagementDomainTable(Entity):
         """
         The table containing information on the management domains
         in which the local system is participating.  Devices which
@@ -526,7 +510,7 @@ class CISCOVTPMIB(Entity):
         .. attribute:: managementdomainentry
         
         	Information about the status of one management domain
-        	**type**\: list of  		 :py:class:`Managementdomainentry <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Managementdomaintable.Managementdomainentry>`
+        	**type**\: list of  		 :py:class:`ManagementDomainEntry <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.ManagementDomainTable.ManagementDomainEntry>`
         
         
 
@@ -536,15 +520,14 @@ class CISCOVTPMIB(Entity):
         _revision = '2013-10-14'
 
         def __init__(self):
-            super(CISCOVTPMIB.Managementdomaintable, self).__init__()
+            super(CISCOVTPMIB.ManagementDomainTable, self).__init__()
 
             self.yang_name = "managementDomainTable"
             self.yang_parent_name = "CISCO-VTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("managementDomainEntry", ("managementdomainentry", CISCOVTPMIB.Managementdomaintable.Managementdomainentry))])
+            self._child_classes = OrderedDict([("managementDomainEntry", ("managementdomainentry", CISCOVTPMIB.ManagementDomainTable.ManagementDomainEntry))])
             self._leafs = OrderedDict()
 
             self.managementdomainentry = YList(self)
@@ -552,10 +535,10 @@ class CISCOVTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVTPMIB.Managementdomaintable, [], name, value)
+            self._perform_setattr(CISCOVTPMIB.ManagementDomainTable, [], name, value)
 
 
-        class Managementdomainentry(Entity):
+        class ManagementDomainEntry(Entity):
             """
             Information about the status of one management domain.
             
@@ -576,7 +559,7 @@ class CISCOVTPMIB(Entity):
             .. attribute:: managementdomainlocalmode
             
             	The local VTP mode in this management domain when managementDomainVersionInUse is version1(1) or version2(2).  If managementDomainVersionInUse is version3(4), this  object has the same value with vtpDatabaseLocalMode  of VLAN database type.  \- 'client' indicates that the local system is acting   as a VTP client.  \- 'server' indicates that the local system is acting   as a VTP server.  \- 'transparent' indicates that the local system does   not generate or listen to VTP messages, but forwards   messages. This mode can also be set by the device   itself when the amount of VLAN information is too   large for it to hold in DRAM.  \- 'off' indicates that the local system does not   generate, listen to or forward any VTP messages
-            	**type**\:  :py:class:`Managementdomainlocalmode <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Managementdomaintable.Managementdomainentry.Managementdomainlocalmode>`
+            	**type**\:  :py:class:`ManagementDomainLocalMode <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.ManagementDomainTable.ManagementDomainEntry.ManagementDomainLocalMode>`
             
             .. attribute:: managementdomainconfigrevnumber
             
@@ -617,17 +600,17 @@ class CISCOVTPMIB(Entity):
             .. attribute:: managementdomainpruningstate
             
             	An indication of whether VTP pruning is enabled or disabled in this managament domain.   This object can only be modified, either when the  corresponding instance value of managementDomainVersionInUse  is 'version1' or 'version2' and the corresponding instance  value of managementDomainLocalMode is 'server', or when the  corresponding instance value of managementDomainVersionInUse  is 'version3' and the corresponding instance value of  managementDomainLocalMode is 'server' or 'client'
-            	**type**\:  :py:class:`Managementdomainpruningstate <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Managementdomaintable.Managementdomainentry.Managementdomainpruningstate>`
+            	**type**\:  :py:class:`ManagementDomainPruningState <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.ManagementDomainTable.ManagementDomainEntry.ManagementDomainPruningState>`
             
             .. attribute:: managementdomainversioninuse
             
             	The current version of the VTP that is in use by the designated management domain.   This object can be set to none(3) only when  vtpVersion is none(3)
-            	**type**\:  :py:class:`Managementdomainversioninuse <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Managementdomaintable.Managementdomainentry.Managementdomainversioninuse>`
+            	**type**\:  :py:class:`ManagementDomainVersionInUse <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.ManagementDomainTable.ManagementDomainEntry.ManagementDomainVersionInUse>`
             
             .. attribute:: managementdomainpruningstateoper
             
             	Indicates whether VTP pruning is operationally enabled or disabled in this managament domain
-            	**type**\:  :py:class:`Managementdomainpruningstateoper <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Managementdomaintable.Managementdomainentry.Managementdomainpruningstateoper>`
+            	**type**\:  :py:class:`ManagementDomainPruningStateOper <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.ManagementDomainTable.ManagementDomainEntry.ManagementDomainPruningStateOper>`
             
             .. attribute:: managementdomainadminsrcif
             
@@ -669,12 +652,12 @@ class CISCOVTPMIB(Entity):
             .. attribute:: vtpvlaneditoperation
             
             	This object always has the value 'none' when read.  When written, each value causes the appropriate action\:   'copy' \- causes the creation of rows in the vtpVlanEditTable exactly corresponding to the current global VLAN information for this management domain.  If the Edit Buffer (for this management domain) is not currently empty, a copy operation fails.  A successful copy operation starts the deadman\-timer.   'apply' \- first performs a consistent check on the the modified information contained in the Edit Buffer, and if consistent, then tries to instanciate the modified information as the new global VLAN information.  Note that an empty Edit Buffer (for the management domain) would always result in an inconsistency since the default VLANs are required to be present.   'release' \- flushes the Edit Buffer (for this management domain), clears the Owner information, and aborts the deadman\-timer.  A release is generated automatically if the deadman\-timer ever expires.   'restartTimer' \- restarts the deadman\-timer.   'none' \- no operation is performed
-            	**type**\:  :py:class:`Vtpvlaneditoperation <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Managementdomaintable.Managementdomainentry.Vtpvlaneditoperation>`
+            	**type**\:  :py:class:`VtpVlanEditOperation <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.ManagementDomainTable.ManagementDomainEntry.VtpVlanEditOperation>`
             
             .. attribute:: vtpvlanapplystatus
             
             	The current status of an 'apply' operation to instanciate the Edit Buffer as the new global VLAN information (for this management domain).  If no apply is currently active, the status represented is that of the most recently completed apply.  The possible values are\:     inProgress \- 'apply' operation in progress;     succeeded \- the 'apply' was successful (this value is           also used when no apply has been invoked since the           last time the local system restarted);     configNumberError \- the apply failed because the value of           vtpVlanEditConfigRevNumber was less or equal to           the value of current value of            managementDomainConfigRevNumber;     inconsistentEdit \- the apply failed because the modified           information was not self\-consistent;     tooBig \- the apply failed because the modified           information was too large to fit in this VTP           Server's non\-volatile storage location;     localNVStoreFail \- the apply failed in trying to store           the new information in a local non\-volatile           storage location;     remoteNVStoreFail \- the apply failed in trying to store           the new information in a remote non\-volatile           storage location;     editBufferEmpty \- the apply failed because the Edit           Buffer was empty (for this management domain).     someOtherError \- the apply failed for some other reason           (e.g., insufficient memory).     notPrimaryServer \- the apply failed because the local            device is not a VTP primary server for VLAN            database type when managementDomainVersionInUse           is version3(4)
-            	**type**\:  :py:class:`Vtpvlanapplystatus <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Managementdomaintable.Managementdomainentry.Vtpvlanapplystatus>`
+            	**type**\:  :py:class:`VtpVlanApplyStatus <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.ManagementDomainTable.ManagementDomainEntry.VtpVlanApplyStatus>`
             
             .. attribute:: vtpvlaneditbufferowner
             
@@ -761,15 +744,14 @@ class CISCOVTPMIB(Entity):
             _revision = '2013-10-14'
 
             def __init__(self):
-                super(CISCOVTPMIB.Managementdomaintable.Managementdomainentry, self).__init__()
+                super(CISCOVTPMIB.ManagementDomainTable.ManagementDomainEntry, self).__init__()
 
                 self.yang_name = "managementDomainEntry"
                 self.yang_parent_name = "managementDomainTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['managementdomainindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('managementdomainindex', YLeaf(YType.int32, 'managementDomainIndex')),
                     ('managementdomainname', YLeaf(YType.str, 'managementDomainName')),
@@ -840,11 +822,11 @@ class CISCOVTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VTP-MIB:CISCO-VTP-MIB/managementDomainTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVTPMIB.Managementdomaintable.Managementdomainentry, ['managementdomainindex', 'managementdomainname', 'managementdomainlocalmode', 'managementdomainconfigrevnumber', 'managementdomainlastupdater', 'managementdomainlastchange', 'managementdomainrowstatus', 'managementdomaintftpserver', 'managementdomaintftppathname', 'managementdomainpruningstate', 'managementdomainversioninuse', 'managementdomainpruningstateoper', 'managementdomainadminsrcif', 'managementdomainsourceonlymode', 'managementdomainopersrcif', 'managementdomainconfigfile', 'managementdomainlocalupdatertype', 'managementdomainlocalupdater', 'managementdomaindeviceid', 'vtpvlaneditoperation', 'vtpvlanapplystatus', 'vtpvlaneditbufferowner', 'vtpvlaneditconfigrevnumber', 'vtpvlaneditmodifiedvlan', 'vtpinsummaryadverts', 'vtpinsubsetadverts', 'vtpinadvertrequests', 'vtpoutsummaryadverts', 'vtpoutsubsetadverts', 'vtpoutadvertrequests', 'vtpconfigrevnumbererrors', 'vtpconfigdigesterrors'], name, value)
+                self._perform_setattr(CISCOVTPMIB.ManagementDomainTable.ManagementDomainEntry, [u'managementdomainindex', u'managementdomainname', u'managementdomainlocalmode', u'managementdomainconfigrevnumber', u'managementdomainlastupdater', u'managementdomainlastchange', u'managementdomainrowstatus', u'managementdomaintftpserver', u'managementdomaintftppathname', u'managementdomainpruningstate', u'managementdomainversioninuse', u'managementdomainpruningstateoper', u'managementdomainadminsrcif', u'managementdomainsourceonlymode', u'managementdomainopersrcif', u'managementdomainconfigfile', u'managementdomainlocalupdatertype', u'managementdomainlocalupdater', u'managementdomaindeviceid', u'vtpvlaneditoperation', u'vtpvlanapplystatus', u'vtpvlaneditbufferowner', u'vtpvlaneditconfigrevnumber', u'vtpvlaneditmodifiedvlan', u'vtpinsummaryadverts', u'vtpinsubsetadverts', u'vtpinadvertrequests', u'vtpoutsummaryadverts', u'vtpoutsubsetadverts', u'vtpoutadvertrequests', u'vtpconfigrevnumbererrors', u'vtpconfigdigesterrors'], name, value)
 
-            class Managementdomainlocalmode(Enum):
+            class ManagementDomainLocalMode(Enum):
                 """
-                Managementdomainlocalmode (Enum Class)
+                ManagementDomainLocalMode (Enum Class)
 
                 The local VTP mode in this management domain when
 
@@ -899,9 +881,9 @@ class CISCOVTPMIB(Entity):
                 off = Enum.YLeaf(4, "off")
 
 
-            class Managementdomainpruningstate(Enum):
+            class ManagementDomainPruningState(Enum):
                 """
-                Managementdomainpruningstate (Enum Class)
+                ManagementDomainPruningState (Enum Class)
 
                 An indication of whether VTP pruning is enabled or disabled
 
@@ -932,9 +914,9 @@ class CISCOVTPMIB(Entity):
                 disabled = Enum.YLeaf(2, "disabled")
 
 
-            class Managementdomainpruningstateoper(Enum):
+            class ManagementDomainPruningStateOper(Enum):
                 """
-                Managementdomainpruningstateoper (Enum Class)
+                ManagementDomainPruningStateOper (Enum Class)
 
                 Indicates whether VTP pruning is operationally enabled or
 
@@ -951,9 +933,9 @@ class CISCOVTPMIB(Entity):
                 disabled = Enum.YLeaf(2, "disabled")
 
 
-            class Managementdomainversioninuse(Enum):
+            class ManagementDomainVersionInUse(Enum):
                 """
-                Managementdomainversioninuse (Enum Class)
+                ManagementDomainVersionInUse (Enum Class)
 
                 The current version of the VTP that is in use by the
 
@@ -982,9 +964,9 @@ class CISCOVTPMIB(Entity):
                 version3 = Enum.YLeaf(4, "version3")
 
 
-            class Vtpvlanapplystatus(Enum):
+            class VtpVlanApplyStatus(Enum):
                 """
-                Vtpvlanapplystatus (Enum Class)
+                VtpVlanApplyStatus (Enum Class)
 
                 The current status of an 'apply' operation to instanciate
 
@@ -1093,9 +1075,9 @@ class CISCOVTPMIB(Entity):
                 notPrimaryServer = Enum.YLeaf(10, "notPrimaryServer")
 
 
-            class Vtpvlaneditoperation(Enum):
+            class VtpVlanEditOperation(Enum):
                 """
-                Vtpvlaneditoperation (Enum Class)
+                VtpVlanEditOperation (Enum Class)
 
                 This object always has the value 'none' when read.  When
 
@@ -1163,7 +1145,7 @@ class CISCOVTPMIB(Entity):
 
 
 
-    class Vtpvlantable(Entity):
+    class VtpVlanTable(Entity):
         """
         This table contains information on the VLANs which
         currently exist.
@@ -1171,7 +1153,7 @@ class CISCOVTPMIB(Entity):
         .. attribute:: vtpvlanentry
         
         	Information about one current VLAN.  The managementDomainIndex value in the INDEX clause indicates which management domain the VLAN is in
-        	**type**\: list of  		 :py:class:`Vtpvlanentry <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpvlantable.Vtpvlanentry>`
+        	**type**\: list of  		 :py:class:`VtpVlanEntry <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpVlanTable.VtpVlanEntry>`
         
         
 
@@ -1181,15 +1163,14 @@ class CISCOVTPMIB(Entity):
         _revision = '2013-10-14'
 
         def __init__(self):
-            super(CISCOVTPMIB.Vtpvlantable, self).__init__()
+            super(CISCOVTPMIB.VtpVlanTable, self).__init__()
 
             self.yang_name = "vtpVlanTable"
             self.yang_parent_name = "CISCO-VTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vtpVlanEntry", ("vtpvlanentry", CISCOVTPMIB.Vtpvlantable.Vtpvlanentry))])
+            self._child_classes = OrderedDict([("vtpVlanEntry", ("vtpvlanentry", CISCOVTPMIB.VtpVlanTable.VtpVlanEntry))])
             self._leafs = OrderedDict()
 
             self.vtpvlanentry = YList(self)
@@ -1197,10 +1178,10 @@ class CISCOVTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVTPMIB.Vtpvlantable, [], name, value)
+            self._perform_setattr(CISCOVTPMIB.VtpVlanTable, [], name, value)
 
 
-        class Vtpvlanentry(Entity):
+        class VtpVlanEntry(Entity):
             """
             Information about one current VLAN.  The
             managementDomainIndex value in the INDEX clause indicates
@@ -1213,7 +1194,7 @@ class CISCOVTPMIB(Entity):
             
             	**range:** 1..255
             
-            	**refers to**\:  :py:class:`managementdomainindex <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Managementdomaintable.Managementdomainentry>`
+            	**refers to**\:  :py:class:`managementdomainindex <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.ManagementDomainTable.ManagementDomainEntry>`
             
             .. attribute:: vtpvlanindex  (key)
             
@@ -1225,7 +1206,7 @@ class CISCOVTPMIB(Entity):
             .. attribute:: vtpvlanstate
             
             	The state of this VLAN.  The state 'mtuTooBigForDevice' indicates that this device cannot participate in this VLAN because the VLAN's MTU is larger than the device can support.  The state 'mtuTooBigForTrunk' indicates that while this VLAN's MTU is supported by this device, it is too large for one or more of the device's trunk ports
-            	**type**\:  :py:class:`Vtpvlanstate <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpvlantable.Vtpvlanentry.Vtpvlanstate>`
+            	**type**\:  :py:class:`VtpVlanState <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpVlanTable.VtpVlanEntry.VtpVlanState>`
             
             .. attribute:: vtpvlantype
             
@@ -1270,7 +1251,7 @@ class CISCOVTPMIB(Entity):
             .. attribute:: vtpvlanstptype
             
             	The type of the Spanning Tree Protocol (STP) running on this VLAN.  This object is only instanciated when the value of the corresponding instance of vtpVlanType has a value of 'fddiNet' or 'trNet'.  The value returned by this object depends upon the value of the corresponding instance of vtpVlanEditStpType.  \- 'ieee' indicates IEEE STP is running exclusively.  \- 'ibm' indicates IBM STP is running exclusively.  \- 'hybrid' indicates a STP that allows a combination of   IEEE and IBM is running.  The 'hybrid' STP type results from tokenRing/fddi VLANs that are children of this trNet/fddiNet parent VLAN being configured in a combination of SRT and SRB vtpVlanBridgeTypes while the instance of vtpVlanEditStpType that corresponds to this object is set to 'auto'
-            	**type**\:  :py:class:`Vtpvlanstptype <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpvlantable.Vtpvlanentry.Vtpvlanstptype>`
+            	**type**\:  :py:class:`VtpVlanStpType <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpVlanTable.VtpVlanEntry.VtpVlanStpType>`
             
             .. attribute:: vtpvlanparentvlan
             
@@ -1296,7 +1277,7 @@ class CISCOVTPMIB(Entity):
             .. attribute:: vtpvlanbridgetype
             
             	The type of the Source Route bridging mode in use on this VLAN.  This object is only instantiated when the value of  the corresponding instance of vtpVlanType has a value of  fddi(2) or tokenRing(3) and Source Routing is in use on this VLAN
-            	**type**\:  :py:class:`Vtpvlanbridgetype <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpvlantable.Vtpvlanentry.Vtpvlanbridgetype>`
+            	**type**\:  :py:class:`VtpVlanBridgeType <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpVlanTable.VtpVlanEntry.VtpVlanBridgeType>`
             
             .. attribute:: vtpvlanarehopcount
             
@@ -1344,15 +1325,14 @@ class CISCOVTPMIB(Entity):
             _revision = '2013-10-14'
 
             def __init__(self):
-                super(CISCOVTPMIB.Vtpvlantable.Vtpvlanentry, self).__init__()
+                super(CISCOVTPMIB.VtpVlanTable.VtpVlanEntry, self).__init__()
 
                 self.yang_name = "vtpVlanEntry"
                 self.yang_parent_name = "vtpVlanTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['managementdomainindex','vtpvlanindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('managementdomainindex', YLeaf(YType.str, 'managementDomainIndex')),
                     ('vtpvlanindex', YLeaf(YType.int32, 'vtpVlanIndex')),
@@ -1399,11 +1379,11 @@ class CISCOVTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VTP-MIB:CISCO-VTP-MIB/vtpVlanTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVTPMIB.Vtpvlantable.Vtpvlanentry, ['managementdomainindex', 'vtpvlanindex', 'vtpvlanstate', 'vtpvlantype', 'vtpvlanname', 'vtpvlanmtu', 'vtpvlandot10said', 'vtpvlanringnumber', 'vtpvlanbridgenumber', 'vtpvlanstptype', 'vtpvlanparentvlan', 'vtpvlantranslationalvlan1', 'vtpvlantranslationalvlan2', 'vtpvlanbridgetype', 'vtpvlanarehopcount', 'vtpvlanstehopcount', 'vtpvlaniscrfbackup', 'vtpvlantypeext', 'vtpvlanifindex', 'stpxvlanmistpinstmapinstindex'], name, value)
+                self._perform_setattr(CISCOVTPMIB.VtpVlanTable.VtpVlanEntry, [u'managementdomainindex', u'vtpvlanindex', u'vtpvlanstate', u'vtpvlantype', u'vtpvlanname', u'vtpvlanmtu', u'vtpvlandot10said', u'vtpvlanringnumber', u'vtpvlanbridgenumber', u'vtpvlanstptype', u'vtpvlanparentvlan', u'vtpvlantranslationalvlan1', u'vtpvlantranslationalvlan2', u'vtpvlanbridgetype', u'vtpvlanarehopcount', u'vtpvlanstehopcount', u'vtpvlaniscrfbackup', u'vtpvlantypeext', u'vtpvlanifindex', 'stpxvlanmistpinstmapinstindex'], name, value)
 
-            class Vtpvlanbridgetype(Enum):
+            class VtpVlanBridgeType(Enum):
                 """
-                Vtpvlanbridgetype (Enum Class)
+                VtpVlanBridgeType (Enum Class)
 
                 The type of the Source Route bridging mode in use on this
 
@@ -1430,9 +1410,9 @@ class CISCOVTPMIB(Entity):
                 srb = Enum.YLeaf(2, "srb")
 
 
-            class Vtpvlanstate(Enum):
+            class VtpVlanState(Enum):
                 """
-                Vtpvlanstate (Enum Class)
+                VtpVlanState (Enum Class)
 
                 The state of this VLAN.
 
@@ -1467,9 +1447,9 @@ class CISCOVTPMIB(Entity):
                 mtuTooBigForTrunk = Enum.YLeaf(4, "mtuTooBigForTrunk")
 
 
-            class Vtpvlanstptype(Enum):
+            class VtpVlanStpType(Enum):
                 """
-                Vtpvlanstptype (Enum Class)
+                VtpVlanStpType (Enum Class)
 
                 The type of the Spanning Tree Protocol (STP) running on
 
@@ -1519,7 +1499,7 @@ class CISCOVTPMIB(Entity):
 
 
 
-    class Vtpinternalvlantable(Entity):
+    class VtpInternalVlanTable(Entity):
         """
         A vtpInternalVlanTable entry contains
         information on an existing internal
@@ -1532,7 +1512,7 @@ class CISCOVTPMIB(Entity):
         .. attribute:: vtpinternalvlanentry
         
         	Information about one current internal VLAN
-        	**type**\: list of  		 :py:class:`Vtpinternalvlanentry <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpinternalvlantable.Vtpinternalvlanentry>`
+        	**type**\: list of  		 :py:class:`VtpInternalVlanEntry <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpInternalVlanTable.VtpInternalVlanEntry>`
         
         
 
@@ -1542,15 +1522,14 @@ class CISCOVTPMIB(Entity):
         _revision = '2013-10-14'
 
         def __init__(self):
-            super(CISCOVTPMIB.Vtpinternalvlantable, self).__init__()
+            super(CISCOVTPMIB.VtpInternalVlanTable, self).__init__()
 
             self.yang_name = "vtpInternalVlanTable"
             self.yang_parent_name = "CISCO-VTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vtpInternalVlanEntry", ("vtpinternalvlanentry", CISCOVTPMIB.Vtpinternalvlantable.Vtpinternalvlanentry))])
+            self._child_classes = OrderedDict([("vtpInternalVlanEntry", ("vtpinternalvlanentry", CISCOVTPMIB.VtpInternalVlanTable.VtpInternalVlanEntry))])
             self._leafs = OrderedDict()
 
             self.vtpinternalvlanentry = YList(self)
@@ -1558,10 +1537,10 @@ class CISCOVTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVTPMIB.Vtpinternalvlantable, [], name, value)
+            self._perform_setattr(CISCOVTPMIB.VtpInternalVlanTable, [], name, value)
 
 
-        class Vtpinternalvlanentry(Entity):
+        class VtpInternalVlanEntry(Entity):
             """
             Information about one current internal
             VLAN.
@@ -1573,7 +1552,7 @@ class CISCOVTPMIB(Entity):
             
             	**range:** 1..255
             
-            	**refers to**\:  :py:class:`managementdomainindex <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Managementdomaintable.Managementdomainentry>`
+            	**refers to**\:  :py:class:`managementdomainindex <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.ManagementDomainTable.ManagementDomainEntry>`
             
             .. attribute:: vtpvlanindex  (key)
             
@@ -1582,7 +1561,7 @@ class CISCOVTPMIB(Entity):
             
             	**range:** 0..4095
             
-            	**refers to**\:  :py:class:`vtpvlanindex <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpvlantable.Vtpvlanentry>`
+            	**refers to**\:  :py:class:`vtpvlanindex <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpVlanTable.VtpVlanEntry>`
             
             .. attribute:: vtpinternalvlanowner
             
@@ -1597,15 +1576,14 @@ class CISCOVTPMIB(Entity):
             _revision = '2013-10-14'
 
             def __init__(self):
-                super(CISCOVTPMIB.Vtpinternalvlantable.Vtpinternalvlanentry, self).__init__()
+                super(CISCOVTPMIB.VtpInternalVlanTable.VtpInternalVlanEntry, self).__init__()
 
                 self.yang_name = "vtpInternalVlanEntry"
                 self.yang_parent_name = "vtpInternalVlanTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['managementdomainindex','vtpvlanindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('managementdomainindex', YLeaf(YType.str, 'managementDomainIndex')),
                     ('vtpvlanindex', YLeaf(YType.str, 'vtpVlanIndex')),
@@ -1618,10 +1596,10 @@ class CISCOVTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VTP-MIB:CISCO-VTP-MIB/vtpInternalVlanTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVTPMIB.Vtpinternalvlantable.Vtpinternalvlanentry, ['managementdomainindex', 'vtpvlanindex', 'vtpinternalvlanowner'], name, value)
+                self._perform_setattr(CISCOVTPMIB.VtpInternalVlanTable.VtpInternalVlanEntry, [u'managementdomainindex', u'vtpvlanindex', u'vtpinternalvlanowner'], name, value)
 
 
-    class Vtpvlanedittable(Entity):
+    class VtpVlanEditTable(Entity):
         """
         The table which contains the information in the Edit
         Buffers, one Edit Buffer per management domain.  The
@@ -1666,7 +1644,7 @@ class CISCOVTPMIB(Entity):
         .. attribute:: vtpvlaneditentry
         
         	Information about one VLAN in the Edit Buffer for a particular management domain
-        	**type**\: list of  		 :py:class:`Vtpvlaneditentry <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpvlanedittable.Vtpvlaneditentry>`
+        	**type**\: list of  		 :py:class:`VtpVlanEditEntry <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpVlanEditTable.VtpVlanEditEntry>`
         
         
 
@@ -1676,15 +1654,14 @@ class CISCOVTPMIB(Entity):
         _revision = '2013-10-14'
 
         def __init__(self):
-            super(CISCOVTPMIB.Vtpvlanedittable, self).__init__()
+            super(CISCOVTPMIB.VtpVlanEditTable, self).__init__()
 
             self.yang_name = "vtpVlanEditTable"
             self.yang_parent_name = "CISCO-VTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vtpVlanEditEntry", ("vtpvlaneditentry", CISCOVTPMIB.Vtpvlanedittable.Vtpvlaneditentry))])
+            self._child_classes = OrderedDict([("vtpVlanEditEntry", ("vtpvlaneditentry", CISCOVTPMIB.VtpVlanEditTable.VtpVlanEditEntry))])
             self._leafs = OrderedDict()
 
             self.vtpvlaneditentry = YList(self)
@@ -1692,10 +1669,10 @@ class CISCOVTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVTPMIB.Vtpvlanedittable, [], name, value)
+            self._perform_setattr(CISCOVTPMIB.VtpVlanEditTable, [], name, value)
 
 
-        class Vtpvlaneditentry(Entity):
+        class VtpVlanEditEntry(Entity):
             """
             Information about one VLAN in the Edit Buffer for a
             particular management domain.
@@ -1707,7 +1684,7 @@ class CISCOVTPMIB(Entity):
             
             	**range:** 1..255
             
-            	**refers to**\:  :py:class:`managementdomainindex <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Managementdomaintable.Managementdomainentry>`
+            	**refers to**\:  :py:class:`managementdomainindex <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.ManagementDomainTable.ManagementDomainEntry>`
             
             .. attribute:: vtpvlaneditindex  (key)
             
@@ -1719,7 +1696,7 @@ class CISCOVTPMIB(Entity):
             .. attribute:: vtpvlaneditstate
             
             	The state which this VLAN would have
-            	**type**\:  :py:class:`Vtpvlaneditstate <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpvlanedittable.Vtpvlaneditentry.Vtpvlaneditstate>`
+            	**type**\:  :py:class:`VtpVlanEditState <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpVlanEditTable.VtpVlanEditEntry.VtpVlanEditState>`
             
             .. attribute:: vtpvlanedittype
             
@@ -1764,7 +1741,7 @@ class CISCOVTPMIB(Entity):
             .. attribute:: vtpvlaneditstptype
             
             	The type of the Spanning Tree Protocol which would be running on this VLAN.  This object is only instantiated when the value of the corresponding instance of vtpVlanEditType has a value of fddiNet(4) or trNet(5).  If 'ieee' is selected, the STP that runs will be IEEE.  If 'ibm' is selected, the STP that runs will be IBM.  If 'auto' is selected, the STP that runs will be dependant on the values of vtpVlanEditBridgeType for all children tokenRing/fddi type VLANs.  This will result in a 'hybrid' STP (see vtpVlanStpType)
-            	**type**\:  :py:class:`Vtpvlaneditstptype <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpvlanedittable.Vtpvlaneditentry.Vtpvlaneditstptype>`
+            	**type**\:  :py:class:`VtpVlanEditStpType <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpVlanEditTable.VtpVlanEditEntry.VtpVlanEditStpType>`
             
             .. attribute:: vtpvlaneditparentvlan
             
@@ -1795,7 +1772,7 @@ class CISCOVTPMIB(Entity):
             .. attribute:: vtpvlaneditbridgetype
             
             	The type of Source Route bridging mode which would be in use on this VLAN.  This object is only instantiated when  the value of  the corresponding instance of vtpVlanEditType has a value of fddi(2) or tokenRing(3) and Source Routing  is in use on this VLAN
-            	**type**\:  :py:class:`Vtpvlaneditbridgetype <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpvlanedittable.Vtpvlaneditentry.Vtpvlaneditbridgetype>`
+            	**type**\:  :py:class:`VtpVlanEditBridgeType <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpVlanEditTable.VtpVlanEditEntry.VtpVlanEditBridgeType>`
             
             .. attribute:: vtpvlaneditarehopcount
             
@@ -1843,15 +1820,14 @@ class CISCOVTPMIB(Entity):
             _revision = '2013-10-14'
 
             def __init__(self):
-                super(CISCOVTPMIB.Vtpvlanedittable.Vtpvlaneditentry, self).__init__()
+                super(CISCOVTPMIB.VtpVlanEditTable.VtpVlanEditEntry, self).__init__()
 
                 self.yang_name = "vtpVlanEditEntry"
                 self.yang_parent_name = "vtpVlanEditTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['managementdomainindex','vtpvlaneditindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('managementdomainindex', YLeaf(YType.str, 'managementDomainIndex')),
                     ('vtpvlaneditindex', YLeaf(YType.int32, 'vtpVlanEditIndex')),
@@ -1900,11 +1876,11 @@ class CISCOVTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VTP-MIB:CISCO-VTP-MIB/vtpVlanEditTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVTPMIB.Vtpvlanedittable.Vtpvlaneditentry, ['managementdomainindex', 'vtpvlaneditindex', 'vtpvlaneditstate', 'vtpvlanedittype', 'vtpvlaneditname', 'vtpvlaneditmtu', 'vtpvlaneditdot10said', 'vtpvlaneditringnumber', 'vtpvlaneditbridgenumber', 'vtpvlaneditstptype', 'vtpvlaneditparentvlan', 'vtpvlaneditrowstatus', 'vtpvlanedittranslationalvlan1', 'vtpvlanedittranslationalvlan2', 'vtpvlaneditbridgetype', 'vtpvlaneditarehopcount', 'vtpvlaneditstehopcount', 'vtpvlaneditiscrfbackup', 'vtpvlanedittypeext', 'vtpvlanedittypeext2', 'stpxvlanmistpinstmapeditinstindex'], name, value)
+                self._perform_setattr(CISCOVTPMIB.VtpVlanEditTable.VtpVlanEditEntry, [u'managementdomainindex', u'vtpvlaneditindex', u'vtpvlaneditstate', u'vtpvlanedittype', u'vtpvlaneditname', u'vtpvlaneditmtu', u'vtpvlaneditdot10said', u'vtpvlaneditringnumber', u'vtpvlaneditbridgenumber', u'vtpvlaneditstptype', u'vtpvlaneditparentvlan', u'vtpvlaneditrowstatus', u'vtpvlanedittranslationalvlan1', u'vtpvlanedittranslationalvlan2', u'vtpvlaneditbridgetype', u'vtpvlaneditarehopcount', u'vtpvlaneditstehopcount', u'vtpvlaneditiscrfbackup', u'vtpvlanedittypeext', u'vtpvlanedittypeext2', 'stpxvlanmistpinstmapeditinstindex'], name, value)
 
-            class Vtpvlaneditbridgetype(Enum):
+            class VtpVlanEditBridgeType(Enum):
                 """
-                Vtpvlaneditbridgetype (Enum Class)
+                VtpVlanEditBridgeType (Enum Class)
 
                 The type of Source Route bridging mode which would be in
 
@@ -1927,9 +1903,9 @@ class CISCOVTPMIB(Entity):
                 srb = Enum.YLeaf(2, "srb")
 
 
-            class Vtpvlaneditstate(Enum):
+            class VtpVlanEditState(Enum):
                 """
-                Vtpvlaneditstate (Enum Class)
+                VtpVlanEditState (Enum Class)
 
                 The state which this VLAN would have.
 
@@ -1944,9 +1920,9 @@ class CISCOVTPMIB(Entity):
                 suspended = Enum.YLeaf(2, "suspended")
 
 
-            class Vtpvlaneditstptype(Enum):
+            class VtpVlanEditStpType(Enum):
                 """
-                Vtpvlaneditstptype (Enum Class)
+                VtpVlanEditStpType (Enum Class)
 
                 The type of the Spanning Tree Protocol which would be
 
@@ -1984,7 +1960,7 @@ class CISCOVTPMIB(Entity):
 
 
 
-    class Vtpvlanlocalshutdowntable(Entity):
+    class VtpVlanLocalShutdownTable(Entity):
         """
         Ths table contains the VLAN local shutdown
         information within management domain.
@@ -1992,7 +1968,7 @@ class CISCOVTPMIB(Entity):
         .. attribute:: vtpvlanlocalshutdownentry
         
         	An entry containing VLAN local shutdown information for a particular VLAN in the management domain.  An entry is created if a VLAN which supports local shutdown has been created.  An entry is deleted if a VLAN which supports local shutdown has been removed
-        	**type**\: list of  		 :py:class:`Vtpvlanlocalshutdownentry <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpvlanlocalshutdowntable.Vtpvlanlocalshutdownentry>`
+        	**type**\: list of  		 :py:class:`VtpVlanLocalShutdownEntry <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpVlanLocalShutdownTable.VtpVlanLocalShutdownEntry>`
         
         
 
@@ -2002,15 +1978,14 @@ class CISCOVTPMIB(Entity):
         _revision = '2013-10-14'
 
         def __init__(self):
-            super(CISCOVTPMIB.Vtpvlanlocalshutdowntable, self).__init__()
+            super(CISCOVTPMIB.VtpVlanLocalShutdownTable, self).__init__()
 
             self.yang_name = "vtpVlanLocalShutdownTable"
             self.yang_parent_name = "CISCO-VTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vtpVlanLocalShutdownEntry", ("vtpvlanlocalshutdownentry", CISCOVTPMIB.Vtpvlanlocalshutdowntable.Vtpvlanlocalshutdownentry))])
+            self._child_classes = OrderedDict([("vtpVlanLocalShutdownEntry", ("vtpvlanlocalshutdownentry", CISCOVTPMIB.VtpVlanLocalShutdownTable.VtpVlanLocalShutdownEntry))])
             self._leafs = OrderedDict()
 
             self.vtpvlanlocalshutdownentry = YList(self)
@@ -2018,10 +1993,10 @@ class CISCOVTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVTPMIB.Vtpvlanlocalshutdowntable, [], name, value)
+            self._perform_setattr(CISCOVTPMIB.VtpVlanLocalShutdownTable, [], name, value)
 
 
-        class Vtpvlanlocalshutdownentry(Entity):
+        class VtpVlanLocalShutdownEntry(Entity):
             """
             An entry containing VLAN local shutdown information for a
             particular VLAN in the management domain.
@@ -2039,7 +2014,7 @@ class CISCOVTPMIB(Entity):
             
             	**range:** 1..255
             
-            	**refers to**\:  :py:class:`managementdomainindex <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Managementdomaintable.Managementdomainentry>`
+            	**refers to**\:  :py:class:`managementdomainindex <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.ManagementDomainTable.ManagementDomainEntry>`
             
             .. attribute:: vtpvlanindex  (key)
             
@@ -2048,12 +2023,12 @@ class CISCOVTPMIB(Entity):
             
             	**range:** 0..4095
             
-            	**refers to**\:  :py:class:`vtpvlanindex <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpvlantable.Vtpvlanentry>`
+            	**refers to**\:  :py:class:`vtpvlanindex <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpVlanTable.VtpVlanEntry>`
             
             .. attribute:: vtpvlanlocalshutdown
             
             	The object specifies the VLAN local shutdown state
-            	**type**\:  :py:class:`Vtpvlanlocalshutdown <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpvlanlocalshutdowntable.Vtpvlanlocalshutdownentry.Vtpvlanlocalshutdown>`
+            	**type**\:  :py:class:`VtpVlanLocalShutdown <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpVlanLocalShutdownTable.VtpVlanLocalShutdownEntry.VtpVlanLocalShutdown>`
             
             
 
@@ -2063,15 +2038,14 @@ class CISCOVTPMIB(Entity):
             _revision = '2013-10-14'
 
             def __init__(self):
-                super(CISCOVTPMIB.Vtpvlanlocalshutdowntable.Vtpvlanlocalshutdownentry, self).__init__()
+                super(CISCOVTPMIB.VtpVlanLocalShutdownTable.VtpVlanLocalShutdownEntry, self).__init__()
 
                 self.yang_name = "vtpVlanLocalShutdownEntry"
                 self.yang_parent_name = "vtpVlanLocalShutdownTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['managementdomainindex','vtpvlanindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('managementdomainindex', YLeaf(YType.str, 'managementDomainIndex')),
                     ('vtpvlanindex', YLeaf(YType.str, 'vtpVlanIndex')),
@@ -2084,11 +2058,11 @@ class CISCOVTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VTP-MIB:CISCO-VTP-MIB/vtpVlanLocalShutdownTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVTPMIB.Vtpvlanlocalshutdowntable.Vtpvlanlocalshutdownentry, ['managementdomainindex', 'vtpvlanindex', 'vtpvlanlocalshutdown'], name, value)
+                self._perform_setattr(CISCOVTPMIB.VtpVlanLocalShutdownTable.VtpVlanLocalShutdownEntry, [u'managementdomainindex', u'vtpvlanindex', u'vtpvlanlocalshutdown'], name, value)
 
-            class Vtpvlanlocalshutdown(Enum):
+            class VtpVlanLocalShutdown(Enum):
                 """
-                Vtpvlanlocalshutdown (Enum Class)
+                VtpVlanLocalShutdown (Enum Class)
 
                 The object specifies the VLAN local shutdown state.
 
@@ -2104,7 +2078,7 @@ class CISCOVTPMIB(Entity):
 
 
 
-    class Vlantrunkporttable(Entity):
+    class VlanTrunkPortTable(Entity):
         """
         The table containing information on the local system's VLAN
         trunk ports.
@@ -2112,7 +2086,7 @@ class CISCOVTPMIB(Entity):
         .. attribute:: vlantrunkportentry
         
         	Information about one trunk port
-        	**type**\: list of  		 :py:class:`Vlantrunkportentry <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vlantrunkporttable.Vlantrunkportentry>`
+        	**type**\: list of  		 :py:class:`VlanTrunkPortEntry <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VlanTrunkPortTable.VlanTrunkPortEntry>`
         
         
 
@@ -2122,15 +2096,14 @@ class CISCOVTPMIB(Entity):
         _revision = '2013-10-14'
 
         def __init__(self):
-            super(CISCOVTPMIB.Vlantrunkporttable, self).__init__()
+            super(CISCOVTPMIB.VlanTrunkPortTable, self).__init__()
 
             self.yang_name = "vlanTrunkPortTable"
             self.yang_parent_name = "CISCO-VTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vlanTrunkPortEntry", ("vlantrunkportentry", CISCOVTPMIB.Vlantrunkporttable.Vlantrunkportentry))])
+            self._child_classes = OrderedDict([("vlanTrunkPortEntry", ("vlantrunkportentry", CISCOVTPMIB.VlanTrunkPortTable.VlanTrunkPortEntry))])
             self._leafs = OrderedDict()
 
             self.vlantrunkportentry = YList(self)
@@ -2138,10 +2111,10 @@ class CISCOVTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVTPMIB.Vlantrunkporttable, [], name, value)
+            self._perform_setattr(CISCOVTPMIB.VlanTrunkPortTable, [], name, value)
 
 
-        class Vlantrunkportentry(Entity):
+        class VlanTrunkPortEntry(Entity):
             """
             Information about one trunk port.
             
@@ -2162,7 +2135,7 @@ class CISCOVTPMIB(Entity):
             .. attribute:: vlantrunkportencapsulationtype
             
             	The type of VLAN encapsulation desired to be used on this trunk port. It is either a particular type, or 'negotiate' meaning whatever type results from the negotiation. negotiate(5) is not allowed if the port does not support negotiation or if its vlanTrunkPortDynamicState is set to on(1) or onNoNegotiate(5). Whether writing to this object in order to modify the encapsulation is supported is both device and interface specific
-            	**type**\:  :py:class:`Vlantrunkportencapsulationtype <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vlantrunkporttable.Vlantrunkportentry.Vlantrunkportencapsulationtype>`
+            	**type**\:  :py:class:`VlanTrunkPortEncapsulationType <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VlanTrunkPortTable.VlanTrunkPortEntry.VlanTrunkPortEncapsulationType>`
             
             .. attribute:: vlantrunkportvlansenabled
             
@@ -2228,12 +2201,12 @@ class CISCOVTPMIB(Entity):
             .. attribute:: vlantrunkportdynamicstate
             
             	For devices that allows dynamic determination of whether a link between two switches should be a trunk or not, this object allows the operator to mandate the behavior of that dynamic mechanism.  on(1) dictates that the interface will always be a trunk. This is the value for static entries (those that show no dynamic behavior). If the negotiation is supported on this port, negotiation will take place with the far end to attempt to bring the far end into trunking state.  off(2) allows an operator to specify that the specified interface is never to be trunk, regardless of any dynamic mechanisms to the contrary.  This value is useful for overriding the default behavior of some switches. If the negotiation is supported on this port, negotiation will take place with the far end to attempt on the link to bring the far end into non\-trunking state.  desirable(3) is used to indicate that it is desirable for the interface to become a trunk.  The device will initiate any negotiation necessary to become a trunk but will not become a trunk unless it receives confirmation from the far end on the link.  auto(4) is used to indicate that the interface is capable and willing to become a trunk but will not initiate trunking negotiations.  The far end on the link are required to either start negotiations or start sending encapsulated packets, on which event the specified interface will become a trunk.  onNoNegotiate(5) is used to indicate that the interface is permanently set to be a trunk, and no negotiation takes place with the far end on the link to ensure consistent operation. This is similar to on(1) except no negotiation takes place with the far end.  If the port does not support negotiation or its vlanTrunkPortEncapsulationType is set to negotiate(5), onNoNegotiate(5) is not allowed.  Devices that do no support dynamic determination (for just a particular interface, encapsulation or for the whole device) need only support the 'on', and 'off' values
-            	**type**\:  :py:class:`Vlantrunkportdynamicstate <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vlantrunkporttable.Vlantrunkportentry.Vlantrunkportdynamicstate>`
+            	**type**\:  :py:class:`VlanTrunkPortDynamicState <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VlanTrunkPortTable.VlanTrunkPortEntry.VlanTrunkPortDynamicState>`
             
             .. attribute:: vlantrunkportdynamicstatus
             
             	Indicates whether the specified interface is either acting as a trunk or not. This is a result of the vlanTrunkPortDynamicState and the ifOperStatus of the trunk port itself
-            	**type**\:  :py:class:`Vlantrunkportdynamicstatus <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vlantrunkporttable.Vlantrunkportentry.Vlantrunkportdynamicstatus>`
+            	**type**\:  :py:class:`VlanTrunkPortDynamicStatus <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VlanTrunkPortTable.VlanTrunkPortEntry.VlanTrunkPortDynamicStatus>`
             
             .. attribute:: vlantrunkportvtpenabled
             
@@ -2243,7 +2216,7 @@ class CISCOVTPMIB(Entity):
             .. attribute:: vlantrunkportencapsulationopertype
             
             	The type of VLAN encapsulation in use on this trunk port. For intefaces with vlanTrunkPortDynamicStatus of notTrunking(2) the vlanTrunkPortEncapsulationOperType shall be notApplicable(6)
-            	**type**\:  :py:class:`Vlantrunkportencapsulationopertype <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vlantrunkporttable.Vlantrunkportentry.Vlantrunkportencapsulationopertype>`
+            	**type**\:  :py:class:`VlanTrunkPortEncapsulationOperType <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VlanTrunkPortTable.VlanTrunkPortEntry.VlanTrunkPortEncapsulationOperType>`
             
             .. attribute:: vlantrunkportvlansenabled2k
             
@@ -2332,7 +2305,7 @@ class CISCOVTPMIB(Entity):
             .. attribute:: vlantrunkportdot1qtunnel
             
             	Indicates dot1qtunnel mode of the port.  If the portDot1qTunnel  is set to 'trunk' mode, the port's vlanTrunkPortDynamicState will be changed to 'onNoNegotiate' and the vlanTrunkPortEncapsulationType will be set to 'dot1Q'. These values cannot be changed unless dot1q tunnel is disabled on this port.  If the portDot1qTunnel mode is set to 'access' mode, the port's vlanTrunkPortDynamicState will be set to 'off'.And the value of vlanTrunkPortDynamicState cannot be changed unless dot1q tunnel is disabled on this port. 1Q packets received on this access port will remain.  Setting the port to dot1q tunnel 'disabled' mode causes the dot1q tunnel feature to be disabled on this port.  This object can't be set to 'trunk' or 'access' mode, when vlanTrunkPortsDot1qTag  object is set to 'false'.  This object has been deprecated and is replaced by the object 'cltcDot1qTunnelMode' in the CISCO\-L2\-TUNNEL\-CONFIG\-MIB
-            	**type**\:  :py:class:`Vlantrunkportdot1Qtunnel <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vlantrunkporttable.Vlantrunkportentry.Vlantrunkportdot1Qtunnel>`
+            	**type**\:  :py:class:`VlanTrunkPortDot1qTunnel <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VlanTrunkPortTable.VlanTrunkPortEntry.VlanTrunkPortDot1qTunnel>`
             
             	**status**\: deprecated
             
@@ -2402,15 +2375,14 @@ class CISCOVTPMIB(Entity):
             _revision = '2013-10-14'
 
             def __init__(self):
-                super(CISCOVTPMIB.Vlantrunkporttable.Vlantrunkportentry, self).__init__()
+                super(CISCOVTPMIB.VlanTrunkPortTable.VlanTrunkPortEntry, self).__init__()
 
                 self.yang_name = "vlanTrunkPortEntry"
                 self.yang_parent_name = "vlanTrunkPortTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['vlantrunkportifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('vlantrunkportifindex', YLeaf(YType.int32, 'vlanTrunkPortIfIndex')),
                     ('vlantrunkportmanagementdomain', YLeaf(YType.int32, 'vlanTrunkPortManagementDomain')),
@@ -2491,11 +2463,11 @@ class CISCOVTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VTP-MIB:CISCO-VTP-MIB/vlanTrunkPortTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVTPMIB.Vlantrunkporttable.Vlantrunkportentry, ['vlantrunkportifindex', 'vlantrunkportmanagementdomain', 'vlantrunkportencapsulationtype', 'vlantrunkportvlansenabled', 'vlantrunkportnativevlan', 'vlantrunkportrowstatus', 'vlantrunkportinjoins', 'vlantrunkportoutjoins', 'vlantrunkportoldadverts', 'vlantrunkportvlanspruningeligible', 'vlantrunkportvlansxmitjoined', 'vlantrunkportvlansrcvjoined', 'vlantrunkportdynamicstate', 'vlantrunkportdynamicstatus', 'vlantrunkportvtpenabled', 'vlantrunkportencapsulationopertype', 'vlantrunkportvlansenabled2k', 'vlantrunkportvlansenabled3k', 'vlantrunkportvlansenabled4k', 'vtpvlanspruningeligible2k', 'vtpvlanspruningeligible3k', 'vtpvlanspruningeligible4k', 'vlantrunkportvlansxmitjoined2k', 'vlantrunkportvlansxmitjoined3k', 'vlantrunkportvlansxmitjoined4k', 'vlantrunkportvlansrcvjoined2k', 'vlantrunkportvlansrcvjoined3k', 'vlantrunkportvlansrcvjoined4k', 'vlantrunkportdot1qtunnel', 'vlantrunkportvlansactivefirst2k', 'vlantrunkportvlansactivesecond2k', 'stpxpreferredvlansmap', 'stpxpreferredvlansmap2k', 'stpxpreferredvlansmap3k', 'stpxpreferredvlansmap4k', 'stpxpreferredmistpinstancesmap', 'stpxpreferredmstinstancesmap'], name, value)
+                self._perform_setattr(CISCOVTPMIB.VlanTrunkPortTable.VlanTrunkPortEntry, [u'vlantrunkportifindex', u'vlantrunkportmanagementdomain', u'vlantrunkportencapsulationtype', u'vlantrunkportvlansenabled', u'vlantrunkportnativevlan', u'vlantrunkportrowstatus', u'vlantrunkportinjoins', u'vlantrunkportoutjoins', u'vlantrunkportoldadverts', u'vlantrunkportvlanspruningeligible', u'vlantrunkportvlansxmitjoined', u'vlantrunkportvlansrcvjoined', u'vlantrunkportdynamicstate', u'vlantrunkportdynamicstatus', u'vlantrunkportvtpenabled', u'vlantrunkportencapsulationopertype', u'vlantrunkportvlansenabled2k', u'vlantrunkportvlansenabled3k', u'vlantrunkportvlansenabled4k', u'vtpvlanspruningeligible2k', u'vtpvlanspruningeligible3k', u'vtpvlanspruningeligible4k', u'vlantrunkportvlansxmitjoined2k', u'vlantrunkportvlansxmitjoined3k', u'vlantrunkportvlansxmitjoined4k', u'vlantrunkportvlansrcvjoined2k', u'vlantrunkportvlansrcvjoined3k', u'vlantrunkportvlansrcvjoined4k', u'vlantrunkportdot1qtunnel', u'vlantrunkportvlansactivefirst2k', u'vlantrunkportvlansactivesecond2k', 'stpxpreferredvlansmap', 'stpxpreferredvlansmap2k', 'stpxpreferredvlansmap3k', 'stpxpreferredvlansmap4k', 'stpxpreferredmistpinstancesmap', 'stpxpreferredmstinstancesmap'], name, value)
 
-            class Vlantrunkportdot1Qtunnel(Enum):
+            class VlanTrunkPortDot1qTunnel(Enum):
                 """
-                Vlantrunkportdot1Qtunnel (Enum Class)
+                VlanTrunkPortDot1qTunnel (Enum Class)
 
                 Indicates dot1qtunnel mode of the port.
 
@@ -2548,9 +2520,9 @@ class CISCOVTPMIB(Entity):
                 disabled = Enum.YLeaf(3, "disabled")
 
 
-            class Vlantrunkportdynamicstate(Enum):
+            class VlanTrunkPortDynamicState(Enum):
                 """
-                Vlantrunkportdynamicstate (Enum Class)
+                VlanTrunkPortDynamicState (Enum Class)
 
                 For devices that allows dynamic determination of whether
 
@@ -2651,9 +2623,9 @@ class CISCOVTPMIB(Entity):
                 onNoNegotiate = Enum.YLeaf(5, "onNoNegotiate")
 
 
-            class Vlantrunkportdynamicstatus(Enum):
+            class VlanTrunkPortDynamicStatus(Enum):
                 """
-                Vlantrunkportdynamicstatus (Enum Class)
+                VlanTrunkPortDynamicStatus (Enum Class)
 
                 Indicates whether the specified interface is either
 
@@ -2674,9 +2646,9 @@ class CISCOVTPMIB(Entity):
                 notTrunking = Enum.YLeaf(2, "notTrunking")
 
 
-            class Vlantrunkportencapsulationopertype(Enum):
+            class VlanTrunkPortEncapsulationOperType(Enum):
                 """
-                Vlantrunkportencapsulationopertype (Enum Class)
+                VlanTrunkPortEncapsulationOperType (Enum Class)
 
                 The type of VLAN encapsulation in use on this trunk port.
 
@@ -2713,9 +2685,9 @@ class CISCOVTPMIB(Entity):
                 notApplicable = Enum.YLeaf(6, "notApplicable")
 
 
-            class Vlantrunkportencapsulationtype(Enum):
+            class VlanTrunkPortEncapsulationType(Enum):
                 """
-                Vlantrunkportencapsulationtype (Enum Class)
+                VlanTrunkPortEncapsulationType (Enum Class)
 
                 The type of VLAN encapsulation desired to be used on this
 
@@ -2757,7 +2729,7 @@ class CISCOVTPMIB(Entity):
 
 
 
-    class Vtpdiscovertable(Entity):
+    class VtpDiscoverTable(Entity):
         """
         This table contains information related to the discovery
         of the VTP members in the designated management
@@ -2768,7 +2740,7 @@ class CISCOVTPMIB(Entity):
         .. attribute:: vtpdiscoverentry
         
         	Information related to the discovery of the VTP members in one management domain
-        	**type**\: list of  		 :py:class:`Vtpdiscoverentry <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpdiscovertable.Vtpdiscoverentry>`
+        	**type**\: list of  		 :py:class:`VtpDiscoverEntry <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpDiscoverTable.VtpDiscoverEntry>`
         
         
 
@@ -2778,15 +2750,14 @@ class CISCOVTPMIB(Entity):
         _revision = '2013-10-14'
 
         def __init__(self):
-            super(CISCOVTPMIB.Vtpdiscovertable, self).__init__()
+            super(CISCOVTPMIB.VtpDiscoverTable, self).__init__()
 
             self.yang_name = "vtpDiscoverTable"
             self.yang_parent_name = "CISCO-VTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vtpDiscoverEntry", ("vtpdiscoverentry", CISCOVTPMIB.Vtpdiscovertable.Vtpdiscoverentry))])
+            self._child_classes = OrderedDict([("vtpDiscoverEntry", ("vtpdiscoverentry", CISCOVTPMIB.VtpDiscoverTable.VtpDiscoverEntry))])
             self._leafs = OrderedDict()
 
             self.vtpdiscoverentry = YList(self)
@@ -2794,10 +2765,10 @@ class CISCOVTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVTPMIB.Vtpdiscovertable, [], name, value)
+            self._perform_setattr(CISCOVTPMIB.VtpDiscoverTable, [], name, value)
 
 
-        class Vtpdiscoverentry(Entity):
+        class VtpDiscoverEntry(Entity):
             """
             Information related to the discovery of the
             VTP members in one management domain.
@@ -2809,17 +2780,17 @@ class CISCOVTPMIB(Entity):
             
             	**range:** 1..255
             
-            	**refers to**\:  :py:class:`managementdomainindex <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Managementdomaintable.Managementdomainentry>`
+            	**refers to**\:  :py:class:`managementdomainindex <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.ManagementDomainTable.ManagementDomainEntry>`
             
             .. attribute:: vtpdiscoveraction
             
             	When this object is set to discover(1), all the entries in vtpDiscoverResultTable for the corresponding management domain will be removed  and the local device will begin to discover all VTP members in the management domain. Upon the successful completion of discovery, the discovered result will be stored in the vtpDiscoverResultTable.  If vtpDiscoverStatus is inProgress(1), setting  vtpDiscoverAction to discover(1) will fail.   When this object is set to purgeResult(3),  all the entries of vtpDiscoverResultTable for  the corresponding management domain will be removed from vtpDiscoverResultTable.  When this object is set to noOperation(2), no action will be taken. When read, this object always returns noOperation(2)
-            	**type**\:  :py:class:`Vtpdiscoveraction <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpdiscovertable.Vtpdiscoverentry.Vtpdiscoveraction>`
+            	**type**\:  :py:class:`VtpDiscoverAction <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpDiscoverTable.VtpDiscoverEntry.VtpDiscoverAction>`
             
             .. attribute:: vtpdiscoverstatus
             
             	The current status of VTP discovery.  inProgress \- a discovery is in progress;  succeeded \- the discovery was completed successfully             (this value is also used when              no discover has been invoked since the             last time the local system restarted);  resourceUnavailable \- the discovery failed because             the required allocation of a resource is             presently unavailable.  someOtherError \- 'the discovery failed due to a             reason no listed
-            	**type**\:  :py:class:`Vtpdiscoverstatus <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpdiscovertable.Vtpdiscoverentry.Vtpdiscoverstatus>`
+            	**type**\:  :py:class:`VtpDiscoverStatus <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpDiscoverTable.VtpDiscoverEntry.VtpDiscoverStatus>`
             
             .. attribute:: vtplastdiscovertime
             
@@ -2836,15 +2807,14 @@ class CISCOVTPMIB(Entity):
             _revision = '2013-10-14'
 
             def __init__(self):
-                super(CISCOVTPMIB.Vtpdiscovertable.Vtpdiscoverentry, self).__init__()
+                super(CISCOVTPMIB.VtpDiscoverTable.VtpDiscoverEntry, self).__init__()
 
                 self.yang_name = "vtpDiscoverEntry"
                 self.yang_parent_name = "vtpDiscoverTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['managementdomainindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('managementdomainindex', YLeaf(YType.str, 'managementDomainIndex')),
                     ('vtpdiscoveraction', YLeaf(YType.enumeration, 'vtpDiscoverAction')),
@@ -2859,11 +2829,11 @@ class CISCOVTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VTP-MIB:CISCO-VTP-MIB/vtpDiscoverTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVTPMIB.Vtpdiscovertable.Vtpdiscoverentry, ['managementdomainindex', 'vtpdiscoveraction', 'vtpdiscoverstatus', 'vtplastdiscovertime'], name, value)
+                self._perform_setattr(CISCOVTPMIB.VtpDiscoverTable.VtpDiscoverEntry, [u'managementdomainindex', u'vtpdiscoveraction', u'vtpdiscoverstatus', u'vtplastdiscovertime'], name, value)
 
-            class Vtpdiscoveraction(Enum):
+            class VtpDiscoverAction(Enum):
                 """
-                Vtpdiscoveraction (Enum Class)
+                VtpDiscoverAction (Enum Class)
 
                 When this object is set to discover(1), all the
 
@@ -2912,9 +2882,9 @@ class CISCOVTPMIB(Entity):
                 purgeResult = Enum.YLeaf(3, "purgeResult")
 
 
-            class Vtpdiscoverstatus(Enum):
+            class VtpDiscoverStatus(Enum):
                 """
-                Vtpdiscoverstatus (Enum Class)
+                VtpDiscoverStatus (Enum Class)
 
                 The current status of VTP discovery.
 
@@ -2958,7 +2928,7 @@ class CISCOVTPMIB(Entity):
 
 
 
-    class Vtpdiscoverresulttable(Entity):
+    class VtpDiscoverResultTable(Entity):
         """
         The table containing information of discovered VTP members
         in the management domain in which the local system is
@@ -2969,7 +2939,7 @@ class CISCOVTPMIB(Entity):
         .. attribute:: vtpdiscoverresultentry
         
         	A conceptual row is created for each VTP member which is found through successful discovery
-        	**type**\: list of  		 :py:class:`Vtpdiscoverresultentry <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpdiscoverresulttable.Vtpdiscoverresultentry>`
+        	**type**\: list of  		 :py:class:`VtpDiscoverResultEntry <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpDiscoverResultTable.VtpDiscoverResultEntry>`
         
         
 
@@ -2979,15 +2949,14 @@ class CISCOVTPMIB(Entity):
         _revision = '2013-10-14'
 
         def __init__(self):
-            super(CISCOVTPMIB.Vtpdiscoverresulttable, self).__init__()
+            super(CISCOVTPMIB.VtpDiscoverResultTable, self).__init__()
 
             self.yang_name = "vtpDiscoverResultTable"
             self.yang_parent_name = "CISCO-VTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vtpDiscoverResultEntry", ("vtpdiscoverresultentry", CISCOVTPMIB.Vtpdiscoverresulttable.Vtpdiscoverresultentry))])
+            self._child_classes = OrderedDict([("vtpDiscoverResultEntry", ("vtpdiscoverresultentry", CISCOVTPMIB.VtpDiscoverResultTable.VtpDiscoverResultEntry))])
             self._leafs = OrderedDict()
 
             self.vtpdiscoverresultentry = YList(self)
@@ -2995,10 +2964,10 @@ class CISCOVTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVTPMIB.Vtpdiscoverresulttable, [], name, value)
+            self._perform_setattr(CISCOVTPMIB.VtpDiscoverResultTable, [], name, value)
 
 
-        class Vtpdiscoverresultentry(Entity):
+        class VtpDiscoverResultEntry(Entity):
             """
             A conceptual row is created for each VTP member which
             is found through successful discovery.
@@ -3010,7 +2979,7 @@ class CISCOVTPMIB(Entity):
             
             	**range:** 1..255
             
-            	**refers to**\:  :py:class:`managementdomainindex <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Managementdomaintable.Managementdomainentry>`
+            	**refers to**\:  :py:class:`managementdomainindex <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.ManagementDomainTable.ManagementDomainEntry>`
             
             .. attribute:: vtpdiscoverresultindex  (key)
             
@@ -3067,15 +3036,14 @@ class CISCOVTPMIB(Entity):
             _revision = '2013-10-14'
 
             def __init__(self):
-                super(CISCOVTPMIB.Vtpdiscoverresulttable.Vtpdiscoverresultentry, self).__init__()
+                super(CISCOVTPMIB.VtpDiscoverResultTable.VtpDiscoverResultEntry, self).__init__()
 
                 self.yang_name = "vtpDiscoverResultEntry"
                 self.yang_parent_name = "vtpDiscoverResultTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['managementdomainindex','vtpdiscoverresultindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('managementdomainindex', YLeaf(YType.str, 'managementDomainIndex')),
                     ('vtpdiscoverresultindex', YLeaf(YType.uint32, 'vtpDiscoverResultIndex')),
@@ -3098,10 +3066,10 @@ class CISCOVTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VTP-MIB:CISCO-VTP-MIB/vtpDiscoverResultTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVTPMIB.Vtpdiscoverresulttable.Vtpdiscoverresultentry, ['managementdomainindex', 'vtpdiscoverresultindex', 'vtpdiscoverresultdatabasename', 'vtpdiscoverresultconflicting', 'vtpdiscoverresultdeviceid', 'vtpdiscoverresultprimaryserver', 'vtpdiscoverresultrevnumber', 'vtpdiscoverresultsystemname'], name, value)
+                self._perform_setattr(CISCOVTPMIB.VtpDiscoverResultTable.VtpDiscoverResultEntry, [u'managementdomainindex', u'vtpdiscoverresultindex', u'vtpdiscoverresultdatabasename', u'vtpdiscoverresultconflicting', u'vtpdiscoverresultdeviceid', u'vtpdiscoverresultprimaryserver', u'vtpdiscoverresultrevnumber', u'vtpdiscoverresultsystemname'], name, value)
 
 
-    class Vtpdatabasetable(Entity):
+    class VtpDatabaseTable(Entity):
         """
         This table contains information of the VTP
         databases. It is not instantiated when
@@ -3111,7 +3079,7 @@ class CISCOVTPMIB(Entity):
         .. attribute:: vtpdatabaseentry
         
         	Information about the status of the VTP database in the domain.  Each VTP database type known to the local device type has an entry in this table. An entry is also created for unknown database which is notified through VTP advertisements from other VTP servers
-        	**type**\: list of  		 :py:class:`Vtpdatabaseentry <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpdatabasetable.Vtpdatabaseentry>`
+        	**type**\: list of  		 :py:class:`VtpDatabaseEntry <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpDatabaseTable.VtpDatabaseEntry>`
         
         
 
@@ -3121,15 +3089,14 @@ class CISCOVTPMIB(Entity):
         _revision = '2013-10-14'
 
         def __init__(self):
-            super(CISCOVTPMIB.Vtpdatabasetable, self).__init__()
+            super(CISCOVTPMIB.VtpDatabaseTable, self).__init__()
 
             self.yang_name = "vtpDatabaseTable"
             self.yang_parent_name = "CISCO-VTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vtpDatabaseEntry", ("vtpdatabaseentry", CISCOVTPMIB.Vtpdatabasetable.Vtpdatabaseentry))])
+            self._child_classes = OrderedDict([("vtpDatabaseEntry", ("vtpdatabaseentry", CISCOVTPMIB.VtpDatabaseTable.VtpDatabaseEntry))])
             self._leafs = OrderedDict()
 
             self.vtpdatabaseentry = YList(self)
@@ -3137,10 +3104,10 @@ class CISCOVTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVTPMIB.Vtpdatabasetable, [], name, value)
+            self._perform_setattr(CISCOVTPMIB.VtpDatabaseTable, [], name, value)
 
 
-        class Vtpdatabaseentry(Entity):
+        class VtpDatabaseEntry(Entity):
             """
             Information about the status of the VTP database
             in the domain.  Each VTP database type known to the
@@ -3156,7 +3123,7 @@ class CISCOVTPMIB(Entity):
             
             	**range:** 1..255
             
-            	**refers to**\:  :py:class:`managementdomainindex <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Managementdomaintable.Managementdomainentry>`
+            	**refers to**\:  :py:class:`managementdomainindex <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.ManagementDomainTable.ManagementDomainEntry>`
             
             .. attribute:: vtpdatabaseindex  (key)
             
@@ -3175,7 +3142,7 @@ class CISCOVTPMIB(Entity):
             .. attribute:: vtpdatabaselocalmode
             
             	The local VTP mode for a particular database type in this administrative domain.  \- 'client' indicates that the local system is acting   as a VTP client of the database type.  \- 'server' indicates that the local system is acting   as a VTP server of the database type.  \- 'transparent' indicates that the local system does   not generate or listen to VTP messages of this    database type, but forwards   messages. This mode can also be set by the device   itself when the size of database is too large for it   to hold in DRAM.  \- 'off' indicates that the local system does not   generate, listen to or forward any VTP messages   of this database type.  The default mode is 'client' for the database type  known to the local device and 'transparent' for the unknown database type
-            	**type**\:  :py:class:`Vtpdatabaselocalmode <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpdatabasetable.Vtpdatabaseentry.Vtpdatabaselocalmode>`
+            	**type**\:  :py:class:`VtpDatabaseLocalMode <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpDatabaseTable.VtpDatabaseEntry.VtpDatabaseLocalMode>`
             
             .. attribute:: vtpdatabaserevnumber
             
@@ -3216,15 +3183,14 @@ class CISCOVTPMIB(Entity):
             _revision = '2013-10-14'
 
             def __init__(self):
-                super(CISCOVTPMIB.Vtpdatabasetable.Vtpdatabaseentry, self).__init__()
+                super(CISCOVTPMIB.VtpDatabaseTable.VtpDatabaseEntry, self).__init__()
 
                 self.yang_name = "vtpDatabaseEntry"
                 self.yang_parent_name = "vtpDatabaseTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['managementdomainindex','vtpdatabaseindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('managementdomainindex', YLeaf(YType.str, 'managementDomainIndex')),
                     ('vtpdatabaseindex', YLeaf(YType.uint32, 'vtpDatabaseIndex')),
@@ -3249,11 +3215,11 @@ class CISCOVTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VTP-MIB:CISCO-VTP-MIB/vtpDatabaseTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVTPMIB.Vtpdatabasetable.Vtpdatabaseentry, ['managementdomainindex', 'vtpdatabaseindex', 'vtpdatabasename', 'vtpdatabaselocalmode', 'vtpdatabaserevnumber', 'vtpdatabaseprimaryserver', 'vtpdatabaseprimaryserverid', 'vtpdatabasetakeoverprimary', 'vtpdatabasetakeoverpassword'], name, value)
+                self._perform_setattr(CISCOVTPMIB.VtpDatabaseTable.VtpDatabaseEntry, [u'managementdomainindex', u'vtpdatabaseindex', u'vtpdatabasename', u'vtpdatabaselocalmode', u'vtpdatabaserevnumber', u'vtpdatabaseprimaryserver', u'vtpdatabaseprimaryserverid', u'vtpdatabasetakeoverprimary', u'vtpdatabasetakeoverpassword'], name, value)
 
-            class Vtpdatabaselocalmode(Enum):
+            class VtpDatabaseLocalMode(Enum):
                 """
-                Vtpdatabaselocalmode (Enum Class)
+                VtpDatabaseLocalMode (Enum Class)
 
                 The local VTP mode for a particular database type
 
@@ -3311,7 +3277,7 @@ class CISCOVTPMIB(Entity):
 
 
 
-    class Vtpauthenticationtable(Entity):
+    class VtpAuthenticationTable(Entity):
         """
         The table contains the authentication information of VTP
         in which the local system participates.
@@ -3349,7 +3315,7 @@ class CISCOVTPMIB(Entity):
         .. attribute:: vtpauthentry
         
         	Information about the status of the VTP authentication information in one domain
-        	**type**\: list of  		 :py:class:`Vtpauthentry <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpauthenticationtable.Vtpauthentry>`
+        	**type**\: list of  		 :py:class:`VtpAuthEntry <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpAuthenticationTable.VtpAuthEntry>`
         
         
 
@@ -3359,15 +3325,14 @@ class CISCOVTPMIB(Entity):
         _revision = '2013-10-14'
 
         def __init__(self):
-            super(CISCOVTPMIB.Vtpauthenticationtable, self).__init__()
+            super(CISCOVTPMIB.VtpAuthenticationTable, self).__init__()
 
             self.yang_name = "vtpAuthenticationTable"
             self.yang_parent_name = "CISCO-VTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vtpAuthEntry", ("vtpauthentry", CISCOVTPMIB.Vtpauthenticationtable.Vtpauthentry))])
+            self._child_classes = OrderedDict([("vtpAuthEntry", ("vtpauthentry", CISCOVTPMIB.VtpAuthenticationTable.VtpAuthEntry))])
             self._leafs = OrderedDict()
 
             self.vtpauthentry = YList(self)
@@ -3375,10 +3340,10 @@ class CISCOVTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVTPMIB.Vtpauthenticationtable, [], name, value)
+            self._perform_setattr(CISCOVTPMIB.VtpAuthenticationTable, [], name, value)
 
 
-        class Vtpauthentry(Entity):
+        class VtpAuthEntry(Entity):
             """
             Information about the status of the VTP
             authentication information in one domain.
@@ -3390,7 +3355,7 @@ class CISCOVTPMIB(Entity):
             
             	**range:** 1..255
             
-            	**refers to**\:  :py:class:`managementdomainindex <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Managementdomaintable.Managementdomainentry>`
+            	**refers to**\:  :py:class:`managementdomainindex <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.ManagementDomainTable.ManagementDomainEntry>`
             
             .. attribute:: vtpauthpassword
             
@@ -3402,7 +3367,7 @@ class CISCOVTPMIB(Entity):
             .. attribute:: vtpauthpasswordtype
             
             	By default this object has the value as plaintext(1) and the VTP password is stored in the configuration file in plain text.  Setting this object to hidden(2) will hide the password from the configuration.  Once this object is set to hidden(2), it cannot be set to plaintext(1) alone. However, it may be set to plaintext(1) at the same time the password is set
-            	**type**\:  :py:class:`Vtpauthpasswordtype <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.Vtpauthenticationtable.Vtpauthentry.Vtpauthpasswordtype>`
+            	**type**\:  :py:class:`VtpAuthPasswordType <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CISCOVTPMIB.VtpAuthenticationTable.VtpAuthEntry.VtpAuthPasswordType>`
             
             .. attribute:: vtpauthsecretkey
             
@@ -3419,15 +3384,14 @@ class CISCOVTPMIB(Entity):
             _revision = '2013-10-14'
 
             def __init__(self):
-                super(CISCOVTPMIB.Vtpauthenticationtable.Vtpauthentry, self).__init__()
+                super(CISCOVTPMIB.VtpAuthenticationTable.VtpAuthEntry, self).__init__()
 
                 self.yang_name = "vtpAuthEntry"
                 self.yang_parent_name = "vtpAuthenticationTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['managementdomainindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('managementdomainindex', YLeaf(YType.str, 'managementDomainIndex')),
                     ('vtpauthpassword', YLeaf(YType.str, 'vtpAuthPassword')),
@@ -3442,11 +3406,11 @@ class CISCOVTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VTP-MIB:CISCO-VTP-MIB/vtpAuthenticationTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVTPMIB.Vtpauthenticationtable.Vtpauthentry, ['managementdomainindex', 'vtpauthpassword', 'vtpauthpasswordtype', 'vtpauthsecretkey'], name, value)
+                self._perform_setattr(CISCOVTPMIB.VtpAuthenticationTable.VtpAuthEntry, [u'managementdomainindex', u'vtpauthpassword', u'vtpauthpasswordtype', u'vtpauthsecretkey'], name, value)
 
-            class Vtpauthpasswordtype(Enum):
+            class VtpAuthPasswordType(Enum):
                 """
-                Vtpauthpasswordtype (Enum Class)
+                VtpAuthPasswordType (Enum Class)
 
                 By default this object has the value as plaintext(1)
 

@@ -285,15 +285,16 @@ class Ipv6NodeDiscovery(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", Ipv6NodeDiscovery.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", Ipv6NodeDiscovery.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = Ipv6NodeDiscovery.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Ipv6NodeDiscovery, [], name, value)
 
 
     class Nodes(Entity):
@@ -320,8 +321,7 @@ class Ipv6NodeDiscovery(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", Ipv6NodeDiscovery.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", Ipv6NodeDiscovery.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -394,8 +394,7 @@ class Ipv6NodeDiscovery(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("neighbor-interfaces", ("neighbor_interfaces", Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces)), ("neighbor-summary", ("neighbor_summary", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary)), ("bundle-nodes", ("bundle_nodes", Ipv6NodeDiscovery.Nodes.Node.BundleNodes)), ("bundle-interfaces", ("bundle_interfaces", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces)), ("interfaces", ("interfaces", Ipv6NodeDiscovery.Nodes.Node.Interfaces)), ("nd-virtual-routers", ("nd_virtual_routers", Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters)), ("slaac-interfaces", ("slaac_interfaces", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("neighbor-interfaces", ("neighbor_interfaces", Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces)), ("neighbor-summary", ("neighbor_summary", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary)), ("bundle-nodes", ("bundle_nodes", Ipv6NodeDiscovery.Nodes.Node.BundleNodes)), ("bundle-interfaces", ("bundle_interfaces", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces)), ("interfaces", ("interfaces", Ipv6NodeDiscovery.Nodes.Node.Interfaces)), ("nd-virtual-routers", ("nd_virtual_routers", Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters)), ("slaac-interfaces", ("slaac_interfaces", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -404,37 +403,30 @@ class Ipv6NodeDiscovery(Entity):
                 self.neighbor_interfaces = Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces()
                 self.neighbor_interfaces.parent = self
                 self._children_name_map["neighbor_interfaces"] = "neighbor-interfaces"
-                self._children_yang_names.add("neighbor-interfaces")
 
                 self.neighbor_summary = Ipv6NodeDiscovery.Nodes.Node.NeighborSummary()
                 self.neighbor_summary.parent = self
                 self._children_name_map["neighbor_summary"] = "neighbor-summary"
-                self._children_yang_names.add("neighbor-summary")
 
                 self.bundle_nodes = Ipv6NodeDiscovery.Nodes.Node.BundleNodes()
                 self.bundle_nodes.parent = self
                 self._children_name_map["bundle_nodes"] = "bundle-nodes"
-                self._children_yang_names.add("bundle-nodes")
 
                 self.bundle_interfaces = Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces()
                 self.bundle_interfaces.parent = self
                 self._children_name_map["bundle_interfaces"] = "bundle-interfaces"
-                self._children_yang_names.add("bundle-interfaces")
 
                 self.interfaces = Ipv6NodeDiscovery.Nodes.Node.Interfaces()
                 self.interfaces.parent = self
                 self._children_name_map["interfaces"] = "interfaces"
-                self._children_yang_names.add("interfaces")
 
                 self.nd_virtual_routers = Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters()
                 self.nd_virtual_routers.parent = self
                 self._children_name_map["nd_virtual_routers"] = "nd-virtual-routers"
-                self._children_yang_names.add("nd-virtual-routers")
 
                 self.slaac_interfaces = Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces()
                 self.slaac_interfaces.parent = self
                 self._children_name_map["slaac_interfaces"] = "slaac-interfaces"
-                self._children_yang_names.add("slaac-interfaces")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/%s" % self._segment_path()
 
@@ -467,8 +459,7 @@ class Ipv6NodeDiscovery(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("neighbor-interface", ("neighbor_interface", Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface))])
+                    self._child_classes = OrderedDict([("neighbor-interface", ("neighbor_interface", Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface))])
                     self._leafs = OrderedDict()
 
                     self.neighbor_interface = YList(self)
@@ -509,8 +500,7 @@ class Ipv6NodeDiscovery(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("host-addresses", ("host_addresses", Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("host-addresses", ("host_addresses", Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ])
@@ -519,7 +509,6 @@ class Ipv6NodeDiscovery(Entity):
                         self.host_addresses = Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses()
                         self.host_addresses.parent = self
                         self._children_name_map["host_addresses"] = "host-addresses"
-                        self._children_yang_names.add("host-addresses")
                         self._segment_path = lambda: "neighbor-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -551,8 +540,7 @@ class Ipv6NodeDiscovery(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("host-address", ("host_address", Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress))])
+                            self._child_classes = OrderedDict([("host-address", ("host_address", Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress))])
                             self._leafs = OrderedDict()
 
                             self.host_address = YList(self)
@@ -651,8 +639,7 @@ class Ipv6NodeDiscovery(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['host_address']
-                                self._child_container_classes = OrderedDict([("last-reached-time", ("last_reached_time", Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("last-reached-time", ("last_reached_time", Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime))])
                                 self._leafs = OrderedDict([
                                     ('host_address', YLeaf(YType.str, 'host-address')),
                                     ('reachability_state', YLeaf(YType.enumeration, 'reachability-state')),
@@ -681,7 +668,6 @@ class Ipv6NodeDiscovery(Entity):
                                 self.last_reached_time = Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime()
                                 self.last_reached_time.parent = self
                                 self._children_name_map["last_reached_time"] = "last-reached-time"
-                                self._children_yang_names.add("last-reached-time")
                                 self._segment_path = lambda: "host-address" + "[host-address='" + str(self.host_address) + "']"
 
                             def __setattr__(self, name, value):
@@ -716,8 +702,7 @@ class Ipv6NodeDiscovery(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('seconds', YLeaf(YType.uint32, 'seconds')),
                                     ])
@@ -769,8 +754,7 @@ class Ipv6NodeDiscovery(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("multicast", ("multicast", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast)), ("static", ("static", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static)), ("dynamic", ("dynamic", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("multicast", ("multicast", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast)), ("static", ("static", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static)), ("dynamic", ("dynamic", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic))])
                     self._leafs = OrderedDict([
                         ('total_neighbor_entries', YLeaf(YType.uint32, 'total-neighbor-entries')),
                     ])
@@ -779,17 +763,14 @@ class Ipv6NodeDiscovery(Entity):
                     self.multicast = Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast()
                     self.multicast.parent = self
                     self._children_name_map["multicast"] = "multicast"
-                    self._children_yang_names.add("multicast")
 
                     self.static = Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static()
                     self.static.parent = self
                     self._children_name_map["static"] = "static"
-                    self._children_yang_names.add("static")
 
                     self.dynamic = Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic()
                     self.dynamic.parent = self
                     self._children_name_map["dynamic"] = "dynamic"
-                    self._children_yang_names.add("dynamic")
                     self._segment_path = lambda: "neighbor-summary"
 
                 def __setattr__(self, name, value):
@@ -864,8 +845,7 @@ class Ipv6NodeDiscovery(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('incomplete_entries', YLeaf(YType.uint32, 'incomplete-entries')),
                             ('reachable_entries', YLeaf(YType.uint32, 'reachable-entries')),
@@ -956,8 +936,7 @@ class Ipv6NodeDiscovery(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('incomplete_entries', YLeaf(YType.uint32, 'incomplete-entries')),
                             ('reachable_entries', YLeaf(YType.uint32, 'reachable-entries')),
@@ -1048,8 +1027,7 @@ class Ipv6NodeDiscovery(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('incomplete_entries', YLeaf(YType.uint32, 'incomplete-entries')),
                             ('reachable_entries', YLeaf(YType.uint32, 'reachable-entries')),
@@ -1097,8 +1075,7 @@ class Ipv6NodeDiscovery(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("bundle-node", ("bundle_node", Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode))])
+                    self._child_classes = OrderedDict([("bundle-node", ("bundle_node", Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode))])
                     self._leafs = OrderedDict()
 
                     self.bundle_node = YList(self)
@@ -1192,8 +1169,7 @@ class Ipv6NodeDiscovery(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['node_name']
-                        self._child_container_classes = OrderedDict([("age", ("age", Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("age", ("age", Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age))])
                         self._leafs = OrderedDict([
                             ('node_name', YLeaf(YType.str, 'node-name')),
                             ('group_id', YLeaf(YType.uint32, 'group-id')),
@@ -1218,7 +1194,6 @@ class Ipv6NodeDiscovery(Entity):
                         self.age = Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age()
                         self.age.parent = self
                         self._children_name_map["age"] = "age"
-                        self._children_yang_names.add("age")
                         self._segment_path = lambda: "bundle-node" + "[node-name='" + str(self.node_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -1253,8 +1228,7 @@ class Ipv6NodeDiscovery(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('seconds', YLeaf(YType.uint32, 'seconds')),
                             ])
@@ -1290,8 +1264,7 @@ class Ipv6NodeDiscovery(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("bundle-interface", ("bundle_interface", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface))])
+                    self._child_classes = OrderedDict([("bundle-interface", ("bundle_interface", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface))])
                     self._leafs = OrderedDict()
 
                     self.bundle_interface = YList(self)
@@ -1419,8 +1392,7 @@ class Ipv6NodeDiscovery(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("nd-parameters", ("nd_parameters", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters)), ("local-address", ("local_address", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress))])
-                        self._child_list_classes = OrderedDict([("global-address", ("global_address", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress)), ("member-node", ("member_node", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode))])
+                        self._child_classes = OrderedDict([("nd-parameters", ("nd_parameters", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters)), ("local-address", ("local_address", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress)), ("global-address", ("global_address", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress)), ("member-node", ("member_node", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('parent_interface_name', YLeaf(YType.str, 'parent-interface-name')),
@@ -1451,12 +1423,10 @@ class Ipv6NodeDiscovery(Entity):
                         self.nd_parameters = Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters()
                         self.nd_parameters.parent = self
                         self._children_name_map["nd_parameters"] = "nd-parameters"
-                        self._children_yang_names.add("nd-parameters")
 
                         self.local_address = Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress()
                         self.local_address.parent = self
                         self._children_name_map["local_address"] = "local-address"
-                        self._children_yang_names.add("local-address")
 
                         self.global_address = YList(self)
                         self.member_node = YList(self)
@@ -1606,8 +1576,7 @@ class Ipv6NodeDiscovery(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_dad_enabled', YLeaf(YType.boolean, 'is-dad-enabled')),
                                 ('dad_attempts', YLeaf(YType.uint32, 'dad-attempts')),
@@ -1665,6 +1634,20 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        .. attribute:: valid_lifetime
+                        
+                        	Valid lifetime of a Prefix
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: pref_lifetime
+                        
+                        	Preffered lifetime of a Prefix
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
                         
 
                         """
@@ -1680,16 +1663,19 @@ class Ipv6NodeDiscovery(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                ('valid_lifetime', YLeaf(YType.uint32, 'valid-lifetime')),
+                                ('pref_lifetime', YLeaf(YType.uint32, 'pref-lifetime')),
                             ])
                             self.ipv6_address = None
+                            self.valid_lifetime = None
+                            self.pref_lifetime = None
                             self._segment_path = lambda: "local-address"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress, ['ipv6_address'], name, value)
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress, ['ipv6_address', 'valid_lifetime', 'pref_lifetime'], name, value)
 
 
                     class GlobalAddress(Entity):
@@ -1702,6 +1688,20 @@ class Ipv6NodeDiscovery(Entity):
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: valid_lifetime
+                        
+                        	Valid lifetime of a Prefix
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: pref_lifetime
+                        
+                        	Preffered lifetime of a Prefix
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
                         
                         
 
@@ -1718,16 +1718,19 @@ class Ipv6NodeDiscovery(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                ('valid_lifetime', YLeaf(YType.uint32, 'valid-lifetime')),
+                                ('pref_lifetime', YLeaf(YType.uint32, 'pref-lifetime')),
                             ])
                             self.ipv6_address = None
+                            self.valid_lifetime = None
+                            self.pref_lifetime = None
                             self._segment_path = lambda: "global-address"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress, ['ipv6_address'], name, value)
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress, ['ipv6_address', 'valid_lifetime', 'pref_lifetime'], name, value)
 
 
                     class MemberNode(Entity):
@@ -1763,8 +1766,7 @@ class Ipv6NodeDiscovery(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('node_name', YLeaf(YType.str, 'node-name')),
                                 ('total_links', YLeaf(YType.uint32, 'total-links')),
@@ -1802,8 +1804,7 @@ class Ipv6NodeDiscovery(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface", ("interface", Ipv6NodeDiscovery.Nodes.Node.Interfaces.Interface))])
+                    self._child_classes = OrderedDict([("interface", ("interface", Ipv6NodeDiscovery.Nodes.Node.Interfaces.Interface))])
                     self._leafs = OrderedDict()
 
                     self.interface = YList(self)
@@ -1961,8 +1962,7 @@ class Ipv6NodeDiscovery(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('is_dad_enabled', YLeaf(YType.boolean, 'is-dad-enabled')),
@@ -2036,8 +2036,7 @@ class Ipv6NodeDiscovery(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("nd-virtual-router", ("nd_virtual_router", Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter))])
+                    self._child_classes = OrderedDict([("nd-virtual-router", ("nd_virtual_router", Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter))])
                     self._leafs = OrderedDict()
 
                     self.nd_virtual_router = YList(self)
@@ -2115,8 +2114,7 @@ class Ipv6NodeDiscovery(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("local-address", ("local_address", Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress))])
-                        self._child_list_classes = OrderedDict([("vr-global-address", ("vr_global_address", Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress))])
+                        self._child_classes = OrderedDict([("local-address", ("local_address", Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress)), ("vr-global-address", ("vr_global_address", Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('link_layer_address', YLeaf(YType.str, 'link-layer-address')),
@@ -2135,7 +2133,6 @@ class Ipv6NodeDiscovery(Entity):
                         self.local_address = Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress()
                         self.local_address.parent = self
                         self._children_name_map["local_address"] = "local-address"
-                        self._children_yang_names.add("local-address")
 
                         self.vr_global_address = YList(self)
                         self._segment_path = lambda: "nd-virtual-router" + "[interface-name='" + str(self.interface_name) + "']"
@@ -2155,6 +2152,20 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        .. attribute:: valid_lifetime
+                        
+                        	Valid lifetime of a Prefix
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: pref_lifetime
+                        
+                        	Preffered lifetime of a Prefix
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
                         
 
                         """
@@ -2170,16 +2181,19 @@ class Ipv6NodeDiscovery(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                ('valid_lifetime', YLeaf(YType.uint32, 'valid-lifetime')),
+                                ('pref_lifetime', YLeaf(YType.uint32, 'pref-lifetime')),
                             ])
                             self.ipv6_address = None
+                            self.valid_lifetime = None
+                            self.pref_lifetime = None
                             self._segment_path = lambda: "local-address"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress, ['ipv6_address'], name, value)
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress, ['ipv6_address', 'valid_lifetime', 'pref_lifetime'], name, value)
 
 
                     class VrGlobalAddress(Entity):
@@ -2192,6 +2206,20 @@ class Ipv6NodeDiscovery(Entity):
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: valid_lifetime
+                        
+                        	Valid lifetime of a Prefix
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: pref_lifetime
+                        
+                        	Preffered lifetime of a Prefix
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
                         
                         
 
@@ -2208,16 +2236,19 @@ class Ipv6NodeDiscovery(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                ('valid_lifetime', YLeaf(YType.uint32, 'valid-lifetime')),
+                                ('pref_lifetime', YLeaf(YType.uint32, 'pref-lifetime')),
                             ])
                             self.ipv6_address = None
+                            self.valid_lifetime = None
+                            self.pref_lifetime = None
                             self._segment_path = lambda: "vr-global-address"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress, ['ipv6_address'], name, value)
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress, ['ipv6_address', 'valid_lifetime', 'pref_lifetime'], name, value)
 
 
             class SlaacInterfaces(Entity):
@@ -2245,8 +2276,7 @@ class Ipv6NodeDiscovery(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("slaac-interface", ("slaac_interface", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface))])
+                    self._child_classes = OrderedDict([("slaac-interface", ("slaac_interface", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface))])
                     self._leafs = OrderedDict()
 
                     self.slaac_interface = YList(self)
@@ -2288,8 +2318,7 @@ class Ipv6NodeDiscovery(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("router-advert-detail", ("router_advert_detail", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("router-advert-detail", ("router_advert_detail", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ])
@@ -2298,7 +2327,6 @@ class Ipv6NodeDiscovery(Entity):
                         self.router_advert_detail = Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail()
                         self.router_advert_detail.parent = self
                         self._children_name_map["router_advert_detail"] = "router-advert-detail"
-                        self._children_yang_names.add("router-advert-detail")
                         self._segment_path = lambda: "slaac-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -2337,8 +2365,7 @@ class Ipv6NodeDiscovery(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("ra", ("ra", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra))])
+                            self._child_classes = OrderedDict([("ra", ("ra", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra))])
                             self._leafs = OrderedDict([
                                 ('idb', YLeaf(YType.str, 'idb')),
                             ])
@@ -2463,8 +2490,7 @@ class Ipv6NodeDiscovery(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("elapsed-ra-time", ("elapsed_ra_time", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ElapsedRaTime)), ("reachable-time", ("reachable_time", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ReachableTime)), ("retrans-time", ("retrans_time", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.RetransTime))])
-                                self._child_list_classes = OrderedDict([("prefix-q", ("prefix_q", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.PrefixQ))])
+                                self._child_classes = OrderedDict([("elapsed-ra-time", ("elapsed_ra_time", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ElapsedRaTime)), ("reachable-time", ("reachable_time", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ReachableTime)), ("retrans-time", ("retrans_time", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.RetransTime)), ("prefix-q", ("prefix_q", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.PrefixQ))])
                                 self._leafs = OrderedDict([
                                     ('address', YLeaf(YType.str, 'address')),
                                     ('hops', YLeaf(YType.uint32, 'hops')),
@@ -2493,17 +2519,14 @@ class Ipv6NodeDiscovery(Entity):
                                 self.elapsed_ra_time = Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ElapsedRaTime()
                                 self.elapsed_ra_time.parent = self
                                 self._children_name_map["elapsed_ra_time"] = "elapsed-ra-time"
-                                self._children_yang_names.add("elapsed-ra-time")
 
                                 self.reachable_time = Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ReachableTime()
                                 self.reachable_time.parent = self
                                 self._children_name_map["reachable_time"] = "reachable-time"
-                                self._children_yang_names.add("reachable-time")
 
                                 self.retrans_time = Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.RetransTime()
                                 self.retrans_time.parent = self
                                 self._children_name_map["retrans_time"] = "retrans-time"
-                                self._children_yang_names.add("retrans-time")
 
                                 self.prefix_q = YList(self)
                                 self._segment_path = lambda: "ra"
@@ -2540,8 +2563,7 @@ class Ipv6NodeDiscovery(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('seconds', YLeaf(YType.uint32, 'seconds')),
                                     ])
@@ -2580,8 +2602,7 @@ class Ipv6NodeDiscovery(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('seconds', YLeaf(YType.uint32, 'seconds')),
                                     ])
@@ -2620,8 +2641,7 @@ class Ipv6NodeDiscovery(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('seconds', YLeaf(YType.uint32, 'seconds')),
                                     ])
@@ -2700,8 +2720,7 @@ class Ipv6NodeDiscovery(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('prefix_address', YLeaf(YType.str, 'prefix-address')),
                                         ('eui64', YLeaf(YType.str, 'eui64')),

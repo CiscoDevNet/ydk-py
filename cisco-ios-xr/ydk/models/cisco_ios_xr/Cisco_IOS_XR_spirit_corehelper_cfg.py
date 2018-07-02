@@ -45,15 +45,16 @@ class Exception(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("file", ("file", Exception.File))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("file", ("file", Exception.File))])
         self._leafs = OrderedDict()
 
         self.file = Exception.File()
         self.file.parent = self
         self._children_name_map["file"] = "file"
-        self._children_yang_names.add("file")
         self._segment_path = lambda: "Cisco-IOS-XR-spirit-corehelper-cfg:exception"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Exception, [], name, value)
 
 
     class File(Entity):
@@ -90,8 +91,7 @@ class Exception(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('choice2', YLeaf(YType.str, 'choice2')),
                 ('choice1', YLeaf(YType.str, 'choice1')),

@@ -89,20 +89,20 @@ class SystemTime(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("clock", ("clock", SystemTime.Clock)), ("uptime", ("uptime", SystemTime.Uptime))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("clock", ("clock", SystemTime.Clock)), ("uptime", ("uptime", SystemTime.Uptime))])
         self._leafs = OrderedDict()
 
         self.clock = SystemTime.Clock()
         self.clock.parent = self
         self._children_name_map["clock"] = "clock"
-        self._children_yang_names.add("clock")
 
         self.uptime = SystemTime.Uptime()
         self.uptime.parent = self
         self._children_name_map["uptime"] = "uptime"
-        self._children_yang_names.add("uptime")
         self._segment_path = lambda: "Cisco-IOS-XR-shellutil-oper:system-time"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(SystemTime, [], name, value)
 
 
     class Clock(Entity):
@@ -190,8 +190,7 @@ class SystemTime(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('year', YLeaf(YType.uint16, 'year')),
                 ('month', YLeaf(YType.uint8, 'month')),
@@ -218,7 +217,7 @@ class SystemTime(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-shellutil-oper:system-time/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SystemTime.Clock, ['year', 'month', 'day', 'hour', 'minute', 'second', 'millisecond', 'wday', 'time_zone', 'time_source'], name, value)
+            self._perform_setattr(SystemTime.Clock, [u'year', u'month', u'day', u'hour', u'minute', u'second', u'millisecond', u'wday', u'time_zone', u'time_source'], name, value)
 
 
     class Uptime(Entity):
@@ -254,8 +253,7 @@ class SystemTime(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('host_name', YLeaf(YType.str, 'host-name')),
                 ('uptime', YLeaf(YType.uint32, 'uptime')),
@@ -266,7 +264,7 @@ class SystemTime(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-shellutil-oper:system-time/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SystemTime.Uptime, ['host_name', 'uptime'], name, value)
+            self._perform_setattr(SystemTime.Uptime, [u'host_name', u'uptime'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SystemTime()

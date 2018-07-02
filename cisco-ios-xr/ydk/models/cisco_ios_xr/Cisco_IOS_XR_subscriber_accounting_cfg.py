@@ -49,15 +49,16 @@ class SubscriberAccounting(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("prepaid-configurations", ("prepaid_configurations", SubscriberAccounting.PrepaidConfigurations))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("prepaid-configurations", ("prepaid_configurations", SubscriberAccounting.PrepaidConfigurations))])
         self._leafs = OrderedDict()
 
         self.prepaid_configurations = SubscriberAccounting.PrepaidConfigurations()
         self.prepaid_configurations.parent = self
         self._children_name_map["prepaid_configurations"] = "prepaid-configurations"
-        self._children_yang_names.add("prepaid-configurations")
         self._segment_path = lambda: "Cisco-IOS-XR-subscriber-accounting-cfg:subscriber-accounting"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(SubscriberAccounting, [], name, value)
 
 
     class PrepaidConfigurations(Entity):
@@ -84,8 +85,7 @@ class SubscriberAccounting(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("prepaid-configuration", ("prepaid_configuration", SubscriberAccounting.PrepaidConfigurations.PrepaidConfiguration))])
+            self._child_classes = OrderedDict([("prepaid-configuration", ("prepaid_configuration", SubscriberAccounting.PrepaidConfigurations.PrepaidConfiguration))])
             self._leafs = OrderedDict()
 
             self.prepaid_configuration = YList(self)
@@ -176,8 +176,7 @@ class SubscriberAccounting(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['prepaid_config_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('prepaid_config_name', YLeaf(YType.str, 'prepaid-config-name')),
                     ('password', YLeaf(YType.str, 'password')),

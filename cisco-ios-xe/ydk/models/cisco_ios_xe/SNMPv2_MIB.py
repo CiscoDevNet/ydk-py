@@ -33,12 +33,12 @@ class SNMPv2MIB(Entity):
     .. attribute:: snmpset
     
     	
-    	**type**\:  :py:class:`Snmpset <ydk.models.cisco_ios_xe.SNMPv2_MIB.SNMPv2MIB.Snmpset>`
+    	**type**\:  :py:class:`SnmpSet <ydk.models.cisco_ios_xe.SNMPv2_MIB.SNMPv2MIB.SnmpSet>`
     
     .. attribute:: sysortable
     
     	The (conceptual) table listing the capabilities of the local SNMP application acting as a command responder with respect to various MIB modules. SNMP entities having dynamically\-configurable support of MIB modules will have a dynamically\-varying number of conceptual rows
-    	**type**\:  :py:class:`Sysortable <ydk.models.cisco_ios_xe.SNMPv2_MIB.SNMPv2MIB.Sysortable>`
+    	**type**\:  :py:class:`SysORTable <ydk.models.cisco_ios_xe.SNMPv2_MIB.SNMPv2MIB.SysORTable>`
     
     
 
@@ -56,30 +56,28 @@ class SNMPv2MIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("system", ("system", SNMPv2MIB.System)), ("snmp", ("snmp", SNMPv2MIB.Snmp)), ("snmpSet", ("snmpset", SNMPv2MIB.Snmpset)), ("sysORTable", ("sysortable", SNMPv2MIB.Sysortable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("system", ("system", SNMPv2MIB.System)), ("snmp", ("snmp", SNMPv2MIB.Snmp)), ("snmpSet", ("snmpset", SNMPv2MIB.SnmpSet)), ("sysORTable", ("sysortable", SNMPv2MIB.SysORTable))])
         self._leafs = OrderedDict()
 
         self.system = SNMPv2MIB.System()
         self.system.parent = self
         self._children_name_map["system"] = "system"
-        self._children_yang_names.add("system")
 
         self.snmp = SNMPv2MIB.Snmp()
         self.snmp.parent = self
         self._children_name_map["snmp"] = "snmp"
-        self._children_yang_names.add("snmp")
 
-        self.snmpset = SNMPv2MIB.Snmpset()
+        self.snmpset = SNMPv2MIB.SnmpSet()
         self.snmpset.parent = self
         self._children_name_map["snmpset"] = "snmpSet"
-        self._children_yang_names.add("snmpSet")
 
-        self.sysortable = SNMPv2MIB.Sysortable()
+        self.sysortable = SNMPv2MIB.SysORTable()
         self.sysortable.parent = self
         self._children_name_map["sysortable"] = "sysORTable"
-        self._children_yang_names.add("sysORTable")
         self._segment_path = lambda: "SNMPv2-MIB:SNMPv2-MIB"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(SNMPv2MIB, [], name, value)
 
 
     class System(Entity):
@@ -157,8 +155,7 @@ class SNMPv2MIB(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('sysdescr', YLeaf(YType.str, 'sysDescr')),
                 ('sysobjectid', YLeaf(YType.str, 'sysObjectID')),
@@ -181,7 +178,7 @@ class SNMPv2MIB(Entity):
             self._absolute_path = lambda: "SNMPv2-MIB:SNMPv2-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SNMPv2MIB.System, ['sysdescr', 'sysobjectid', 'sysuptime', 'syscontact', 'sysname', 'syslocation', 'sysservices', 'sysorlastchange'], name, value)
+            self._perform_setattr(SNMPv2MIB.System, [u'sysdescr', u'sysobjectid', u'sysuptime', u'syscontact', u'sysname', u'syslocation', u'sysservices', u'sysorlastchange'], name, value)
 
 
     class Snmp(Entity):
@@ -424,7 +421,7 @@ class SNMPv2MIB(Entity):
         .. attribute:: snmpenableauthentraps
         
         	Indicates whether the SNMP entity is permitted to generate authenticationFailure traps.  The value of this object overrides any configuration information; as such, it provides a means whereby all authenticationFailure traps may be disabled.  Note that it is strongly recommended that this object be stored in non\-volatile memory so that it remains constant across re\-initializations of the network management system
-        	**type**\:  :py:class:`Snmpenableauthentraps <ydk.models.cisco_ios_xe.SNMPv2_MIB.SNMPv2MIB.Snmp.Snmpenableauthentraps>`
+        	**type**\:  :py:class:`SnmpEnableAuthenTraps <ydk.models.cisco_ios_xe.SNMPv2_MIB.SNMPv2MIB.Snmp.SnmpEnableAuthenTraps>`
         
         .. attribute:: snmpsilentdrops
         
@@ -455,8 +452,7 @@ class SNMPv2MIB(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('snmpinpkts', YLeaf(YType.uint32, 'snmpInPkts')),
                 ('snmpoutpkts', YLeaf(YType.uint32, 'snmpOutPkts')),
@@ -523,11 +519,11 @@ class SNMPv2MIB(Entity):
             self._absolute_path = lambda: "SNMPv2-MIB:SNMPv2-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SNMPv2MIB.Snmp, ['snmpinpkts', 'snmpoutpkts', 'snmpinbadversions', 'snmpinbadcommunitynames', 'snmpinbadcommunityuses', 'snmpinasnparseerrs', 'snmpintoobigs', 'snmpinnosuchnames', 'snmpinbadvalues', 'snmpinreadonlys', 'snmpingenerrs', 'snmpintotalreqvars', 'snmpintotalsetvars', 'snmpingetrequests', 'snmpingetnexts', 'snmpinsetrequests', 'snmpingetresponses', 'snmpintraps', 'snmpouttoobigs', 'snmpoutnosuchnames', 'snmpoutbadvalues', 'snmpoutgenerrs', 'snmpoutgetrequests', 'snmpoutgetnexts', 'snmpoutsetrequests', 'snmpoutgetresponses', 'snmpouttraps', 'snmpenableauthentraps', 'snmpsilentdrops', 'snmpproxydrops'], name, value)
+            self._perform_setattr(SNMPv2MIB.Snmp, [u'snmpinpkts', u'snmpoutpkts', u'snmpinbadversions', u'snmpinbadcommunitynames', u'snmpinbadcommunityuses', u'snmpinasnparseerrs', u'snmpintoobigs', u'snmpinnosuchnames', u'snmpinbadvalues', u'snmpinreadonlys', u'snmpingenerrs', u'snmpintotalreqvars', u'snmpintotalsetvars', u'snmpingetrequests', u'snmpingetnexts', u'snmpinsetrequests', u'snmpingetresponses', u'snmpintraps', u'snmpouttoobigs', u'snmpoutnosuchnames', u'snmpoutbadvalues', u'snmpoutgenerrs', u'snmpoutgetrequests', u'snmpoutgetnexts', u'snmpoutsetrequests', u'snmpoutgetresponses', u'snmpouttraps', u'snmpenableauthentraps', u'snmpsilentdrops', u'snmpproxydrops'], name, value)
 
-        class Snmpenableauthentraps(Enum):
+        class SnmpEnableAuthenTraps(Enum):
             """
-            Snmpenableauthentraps (Enum Class)
+            SnmpEnableAuthenTraps (Enum Class)
 
             Indicates whether the SNMP entity is permitted to
 
@@ -559,7 +555,7 @@ class SNMPv2MIB(Entity):
 
 
 
-    class Snmpset(Entity):
+    class SnmpSet(Entity):
         """
         
         
@@ -578,15 +574,14 @@ class SNMPv2MIB(Entity):
         _revision = '2002-10-16'
 
         def __init__(self):
-            super(SNMPv2MIB.Snmpset, self).__init__()
+            super(SNMPv2MIB.SnmpSet, self).__init__()
 
             self.yang_name = "snmpSet"
             self.yang_parent_name = "SNMPv2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('snmpsetserialno', YLeaf(YType.int32, 'snmpSetSerialNo')),
             ])
@@ -595,10 +590,10 @@ class SNMPv2MIB(Entity):
             self._absolute_path = lambda: "SNMPv2-MIB:SNMPv2-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SNMPv2MIB.Snmpset, ['snmpsetserialno'], name, value)
+            self._perform_setattr(SNMPv2MIB.SnmpSet, [u'snmpsetserialno'], name, value)
 
 
-    class Sysortable(Entity):
+    class SysORTable(Entity):
         """
         The (conceptual) table listing the capabilities of
         the local SNMP application acting as a command
@@ -610,7 +605,7 @@ class SNMPv2MIB(Entity):
         .. attribute:: sysorentry
         
         	An entry (conceptual row) in the sysORTable
-        	**type**\: list of  		 :py:class:`Sysorentry <ydk.models.cisco_ios_xe.SNMPv2_MIB.SNMPv2MIB.Sysortable.Sysorentry>`
+        	**type**\: list of  		 :py:class:`SysOREntry <ydk.models.cisco_ios_xe.SNMPv2_MIB.SNMPv2MIB.SysORTable.SysOREntry>`
         
         
 
@@ -620,15 +615,14 @@ class SNMPv2MIB(Entity):
         _revision = '2002-10-16'
 
         def __init__(self):
-            super(SNMPv2MIB.Sysortable, self).__init__()
+            super(SNMPv2MIB.SysORTable, self).__init__()
 
             self.yang_name = "sysORTable"
             self.yang_parent_name = "SNMPv2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("sysOREntry", ("sysorentry", SNMPv2MIB.Sysortable.Sysorentry))])
+            self._child_classes = OrderedDict([("sysOREntry", ("sysorentry", SNMPv2MIB.SysORTable.SysOREntry))])
             self._leafs = OrderedDict()
 
             self.sysorentry = YList(self)
@@ -636,10 +630,10 @@ class SNMPv2MIB(Entity):
             self._absolute_path = lambda: "SNMPv2-MIB:SNMPv2-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SNMPv2MIB.Sysortable, [], name, value)
+            self._perform_setattr(SNMPv2MIB.SysORTable, [], name, value)
 
 
-        class Sysorentry(Entity):
+        class SysOREntry(Entity):
             """
             An entry (conceptual row) in the sysORTable.
             
@@ -677,15 +671,14 @@ class SNMPv2MIB(Entity):
             _revision = '2002-10-16'
 
             def __init__(self):
-                super(SNMPv2MIB.Sysortable.Sysorentry, self).__init__()
+                super(SNMPv2MIB.SysORTable.SysOREntry, self).__init__()
 
                 self.yang_name = "sysOREntry"
                 self.yang_parent_name = "sysORTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['sysorindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('sysorindex', YLeaf(YType.int32, 'sysORIndex')),
                     ('sysorid', YLeaf(YType.str, 'sysORID')),
@@ -700,7 +693,7 @@ class SNMPv2MIB(Entity):
                 self._absolute_path = lambda: "SNMPv2-MIB:SNMPv2-MIB/sysORTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SNMPv2MIB.Sysortable.Sysorentry, ['sysorindex', 'sysorid', 'sysordescr', 'sysoruptime'], name, value)
+                self._perform_setattr(SNMPv2MIB.SysORTable.SysOREntry, [u'sysorindex', u'sysorid', u'sysordescr', u'sysoruptime'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SNMPv2MIB()

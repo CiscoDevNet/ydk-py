@@ -131,20 +131,20 @@ class Pppoe(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("access-interface-statistics", ("access_interface_statistics", Pppoe.AccessInterfaceStatistics)), ("nodes", ("nodes", Pppoe.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("access-interface-statistics", ("access_interface_statistics", Pppoe.AccessInterfaceStatistics)), ("nodes", ("nodes", Pppoe.Nodes))])
         self._leafs = OrderedDict()
 
         self.access_interface_statistics = Pppoe.AccessInterfaceStatistics()
         self.access_interface_statistics.parent = self
         self._children_name_map["access_interface_statistics"] = "access-interface-statistics"
-        self._children_yang_names.add("access-interface-statistics")
 
         self.nodes = Pppoe.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-subscriber-pppoe-ma-oper:pppoe"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Pppoe, [], name, value)
 
 
     class AccessInterfaceStatistics(Entity):
@@ -171,8 +171,7 @@ class Pppoe(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("access-interface-statistic", ("access_interface_statistic", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic))])
+            self._child_classes = OrderedDict([("access-interface-statistic", ("access_interface_statistic", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic))])
             self._leafs = OrderedDict()
 
             self.access_interface_statistic = YList(self)
@@ -215,8 +214,7 @@ class Pppoe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface_name']
-                self._child_container_classes = OrderedDict([("packet-counts", ("packet_counts", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("packet-counts", ("packet_counts", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts))])
                 self._leafs = OrderedDict([
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                 ])
@@ -225,7 +223,6 @@ class Pppoe(Entity):
                 self.packet_counts = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts()
                 self.packet_counts.parent = self
                 self._children_name_map["packet_counts"] = "packet-counts"
-                self._children_yang_names.add("packet-counts")
                 self._segment_path = lambda: "access-interface-statistic" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-pppoe-ma-oper:pppoe/access-interface-statistics/%s" % self._segment_path()
 
@@ -292,50 +289,44 @@ class Pppoe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("padi", ("padi", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padi)), ("pado", ("pado", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Pado)), ("padr", ("padr", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padr)), ("pads-success", ("pads_success", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsSuccess)), ("pads-error", ("pads_error", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsError)), ("padt", ("padt", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padt)), ("session-state", ("session_state", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.SessionState)), ("other", ("other", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Other))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("padi", ("padi", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padi)), ("pado", ("pado", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Pado)), ("padr", ("padr", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padr)), ("pads-success", ("pads_success", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsSuccess)), ("pads-error", ("pads_error", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsError)), ("padt", ("padt", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padt)), ("session-state", ("session_state", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.SessionState)), ("other", ("other", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Other))])
                     self._leafs = OrderedDict()
 
                     self.padi = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padi()
                     self.padi.parent = self
                     self._children_name_map["padi"] = "padi"
-                    self._children_yang_names.add("padi")
 
                     self.pado = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Pado()
                     self.pado.parent = self
                     self._children_name_map["pado"] = "pado"
-                    self._children_yang_names.add("pado")
 
                     self.padr = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padr()
                     self.padr.parent = self
                     self._children_name_map["padr"] = "padr"
-                    self._children_yang_names.add("padr")
 
                     self.pads_success = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsSuccess()
                     self.pads_success.parent = self
                     self._children_name_map["pads_success"] = "pads-success"
-                    self._children_yang_names.add("pads-success")
 
                     self.pads_error = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsError()
                     self.pads_error.parent = self
                     self._children_name_map["pads_error"] = "pads-error"
-                    self._children_yang_names.add("pads-error")
 
                     self.padt = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padt()
                     self.padt.parent = self
                     self._children_name_map["padt"] = "padt"
-                    self._children_yang_names.add("padt")
 
                     self.session_state = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.SessionState()
                     self.session_state.parent = self
                     self._children_name_map["session_state"] = "session-state"
-                    self._children_yang_names.add("session-state")
 
                     self.other = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Other()
                     self.other.parent = self
                     self._children_name_map["other"] = "other"
-                    self._children_yang_names.add("other")
                     self._segment_path = lambda: "packet-counts"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts, [], name, value)
 
 
                 class Padi(Entity):
@@ -378,8 +369,7 @@ class Pppoe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('sent', YLeaf(YType.uint32, 'sent')),
                             ('received', YLeaf(YType.uint32, 'received')),
@@ -434,8 +424,7 @@ class Pppoe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('sent', YLeaf(YType.uint32, 'sent')),
                             ('received', YLeaf(YType.uint32, 'received')),
@@ -490,8 +479,7 @@ class Pppoe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('sent', YLeaf(YType.uint32, 'sent')),
                             ('received', YLeaf(YType.uint32, 'received')),
@@ -546,8 +534,7 @@ class Pppoe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('sent', YLeaf(YType.uint32, 'sent')),
                             ('received', YLeaf(YType.uint32, 'received')),
@@ -602,8 +589,7 @@ class Pppoe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('sent', YLeaf(YType.uint32, 'sent')),
                             ('received', YLeaf(YType.uint32, 'received')),
@@ -658,8 +644,7 @@ class Pppoe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('sent', YLeaf(YType.uint32, 'sent')),
                             ('received', YLeaf(YType.uint32, 'received')),
@@ -714,8 +699,7 @@ class Pppoe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('sent', YLeaf(YType.uint32, 'sent')),
                             ('received', YLeaf(YType.uint32, 'received')),
@@ -770,8 +754,7 @@ class Pppoe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('sent', YLeaf(YType.uint32, 'sent')),
                             ('received', YLeaf(YType.uint32, 'received')),
@@ -810,8 +793,7 @@ class Pppoe(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", Pppoe.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", Pppoe.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -873,8 +855,7 @@ class Pppoe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("statistics", ("statistics", Pppoe.Nodes.Node.Statistics)), ("access-interface", ("access_interface", Pppoe.Nodes.Node.AccessInterface)), ("interfaces", ("interfaces", Pppoe.Nodes.Node.Interfaces)), ("bba-groups", ("bba_groups", Pppoe.Nodes.Node.BbaGroups)), ("summary-total", ("summary_total", Pppoe.Nodes.Node.SummaryTotal))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("statistics", ("statistics", Pppoe.Nodes.Node.Statistics)), ("access-interface", ("access_interface", Pppoe.Nodes.Node.AccessInterface)), ("interfaces", ("interfaces", Pppoe.Nodes.Node.Interfaces)), ("bba-groups", ("bba_groups", Pppoe.Nodes.Node.BbaGroups)), ("summary-total", ("summary_total", Pppoe.Nodes.Node.SummaryTotal))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -883,27 +864,22 @@ class Pppoe(Entity):
                 self.statistics = Pppoe.Nodes.Node.Statistics()
                 self.statistics.parent = self
                 self._children_name_map["statistics"] = "statistics"
-                self._children_yang_names.add("statistics")
 
                 self.access_interface = Pppoe.Nodes.Node.AccessInterface()
                 self.access_interface.parent = self
                 self._children_name_map["access_interface"] = "access-interface"
-                self._children_yang_names.add("access-interface")
 
                 self.interfaces = Pppoe.Nodes.Node.Interfaces()
                 self.interfaces.parent = self
                 self._children_name_map["interfaces"] = "interfaces"
-                self._children_yang_names.add("interfaces")
 
                 self.bba_groups = Pppoe.Nodes.Node.BbaGroups()
                 self.bba_groups.parent = self
                 self._children_name_map["bba_groups"] = "bba-groups"
-                self._children_yang_names.add("bba-groups")
 
                 self.summary_total = Pppoe.Nodes.Node.SummaryTotal()
                 self.summary_total.parent = self
                 self._children_name_map["summary_total"] = "summary-total"
-                self._children_yang_names.add("summary-total")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-pppoe-ma-oper:pppoe/nodes/%s" % self._segment_path()
 
@@ -940,20 +916,20 @@ class Pppoe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("packet-counts", ("packet_counts", Pppoe.Nodes.Node.Statistics.PacketCounts)), ("packet-error-counts", ("packet_error_counts", Pppoe.Nodes.Node.Statistics.PacketErrorCounts))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("packet-counts", ("packet_counts", Pppoe.Nodes.Node.Statistics.PacketCounts)), ("packet-error-counts", ("packet_error_counts", Pppoe.Nodes.Node.Statistics.PacketErrorCounts))])
                     self._leafs = OrderedDict()
 
                     self.packet_counts = Pppoe.Nodes.Node.Statistics.PacketCounts()
                     self.packet_counts.parent = self
                     self._children_name_map["packet_counts"] = "packet-counts"
-                    self._children_yang_names.add("packet-counts")
 
                     self.packet_error_counts = Pppoe.Nodes.Node.Statistics.PacketErrorCounts()
                     self.packet_error_counts.parent = self
                     self._children_name_map["packet_error_counts"] = "packet-error-counts"
-                    self._children_yang_names.add("packet-error-counts")
                     self._segment_path = lambda: "statistics"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pppoe.Nodes.Node.Statistics, [], name, value)
 
 
                 class PacketCounts(Entity):
@@ -1015,50 +991,44 @@ class Pppoe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("padi", ("padi", Pppoe.Nodes.Node.Statistics.PacketCounts.Padi)), ("pado", ("pado", Pppoe.Nodes.Node.Statistics.PacketCounts.Pado)), ("padr", ("padr", Pppoe.Nodes.Node.Statistics.PacketCounts.Padr)), ("pads-success", ("pads_success", Pppoe.Nodes.Node.Statistics.PacketCounts.PadsSuccess)), ("pads-error", ("pads_error", Pppoe.Nodes.Node.Statistics.PacketCounts.PadsError)), ("padt", ("padt", Pppoe.Nodes.Node.Statistics.PacketCounts.Padt)), ("session-state", ("session_state", Pppoe.Nodes.Node.Statistics.PacketCounts.SessionState)), ("other", ("other", Pppoe.Nodes.Node.Statistics.PacketCounts.Other))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("padi", ("padi", Pppoe.Nodes.Node.Statistics.PacketCounts.Padi)), ("pado", ("pado", Pppoe.Nodes.Node.Statistics.PacketCounts.Pado)), ("padr", ("padr", Pppoe.Nodes.Node.Statistics.PacketCounts.Padr)), ("pads-success", ("pads_success", Pppoe.Nodes.Node.Statistics.PacketCounts.PadsSuccess)), ("pads-error", ("pads_error", Pppoe.Nodes.Node.Statistics.PacketCounts.PadsError)), ("padt", ("padt", Pppoe.Nodes.Node.Statistics.PacketCounts.Padt)), ("session-state", ("session_state", Pppoe.Nodes.Node.Statistics.PacketCounts.SessionState)), ("other", ("other", Pppoe.Nodes.Node.Statistics.PacketCounts.Other))])
                         self._leafs = OrderedDict()
 
                         self.padi = Pppoe.Nodes.Node.Statistics.PacketCounts.Padi()
                         self.padi.parent = self
                         self._children_name_map["padi"] = "padi"
-                        self._children_yang_names.add("padi")
 
                         self.pado = Pppoe.Nodes.Node.Statistics.PacketCounts.Pado()
                         self.pado.parent = self
                         self._children_name_map["pado"] = "pado"
-                        self._children_yang_names.add("pado")
 
                         self.padr = Pppoe.Nodes.Node.Statistics.PacketCounts.Padr()
                         self.padr.parent = self
                         self._children_name_map["padr"] = "padr"
-                        self._children_yang_names.add("padr")
 
                         self.pads_success = Pppoe.Nodes.Node.Statistics.PacketCounts.PadsSuccess()
                         self.pads_success.parent = self
                         self._children_name_map["pads_success"] = "pads-success"
-                        self._children_yang_names.add("pads-success")
 
                         self.pads_error = Pppoe.Nodes.Node.Statistics.PacketCounts.PadsError()
                         self.pads_error.parent = self
                         self._children_name_map["pads_error"] = "pads-error"
-                        self._children_yang_names.add("pads-error")
 
                         self.padt = Pppoe.Nodes.Node.Statistics.PacketCounts.Padt()
                         self.padt.parent = self
                         self._children_name_map["padt"] = "padt"
-                        self._children_yang_names.add("padt")
 
                         self.session_state = Pppoe.Nodes.Node.Statistics.PacketCounts.SessionState()
                         self.session_state.parent = self
                         self._children_name_map["session_state"] = "session-state"
-                        self._children_yang_names.add("session-state")
 
                         self.other = Pppoe.Nodes.Node.Statistics.PacketCounts.Other()
                         self.other.parent = self
                         self._children_name_map["other"] = "other"
-                        self._children_yang_names.add("other")
                         self._segment_path = lambda: "packet-counts"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts, [], name, value)
 
 
                     class Padi(Entity):
@@ -1101,8 +1071,7 @@ class Pppoe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('sent', YLeaf(YType.uint32, 'sent')),
                                 ('received', YLeaf(YType.uint32, 'received')),
@@ -1157,8 +1126,7 @@ class Pppoe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('sent', YLeaf(YType.uint32, 'sent')),
                                 ('received', YLeaf(YType.uint32, 'received')),
@@ -1213,8 +1181,7 @@ class Pppoe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('sent', YLeaf(YType.uint32, 'sent')),
                                 ('received', YLeaf(YType.uint32, 'received')),
@@ -1269,8 +1236,7 @@ class Pppoe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('sent', YLeaf(YType.uint32, 'sent')),
                                 ('received', YLeaf(YType.uint32, 'received')),
@@ -1325,8 +1291,7 @@ class Pppoe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('sent', YLeaf(YType.uint32, 'sent')),
                                 ('received', YLeaf(YType.uint32, 'received')),
@@ -1381,8 +1346,7 @@ class Pppoe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('sent', YLeaf(YType.uint32, 'sent')),
                                 ('received', YLeaf(YType.uint32, 'received')),
@@ -1437,8 +1401,7 @@ class Pppoe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('sent', YLeaf(YType.uint32, 'sent')),
                                 ('received', YLeaf(YType.uint32, 'received')),
@@ -1493,8 +1456,7 @@ class Pppoe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('sent', YLeaf(YType.uint32, 'sent')),
                                 ('received', YLeaf(YType.uint32, 'received')),
@@ -1892,8 +1854,7 @@ class Pppoe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('no_interface_handle', YLeaf(YType.uint32, 'no-interface-handle')),
                             ('no_packet_payload', YLeaf(YType.uint32, 'no-packet-payload')),
@@ -2030,15 +1991,16 @@ class Pppoe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("summaries", ("summaries", Pppoe.Nodes.Node.AccessInterface.Summaries))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("summaries", ("summaries", Pppoe.Nodes.Node.AccessInterface.Summaries))])
                     self._leafs = OrderedDict()
 
                     self.summaries = Pppoe.Nodes.Node.AccessInterface.Summaries()
                     self.summaries.parent = self
                     self._children_name_map["summaries"] = "summaries"
-                    self._children_yang_names.add("summaries")
                     self._segment_path = lambda: "access-interface"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pppoe.Nodes.Node.AccessInterface, [], name, value)
 
 
                 class Summaries(Entity):
@@ -2065,8 +2027,7 @@ class Pppoe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("summary", ("summary", Pppoe.Nodes.Node.AccessInterface.Summaries.Summary))])
+                        self._child_classes = OrderedDict([("summary", ("summary", Pppoe.Nodes.Node.AccessInterface.Summaries.Summary))])
                         self._leafs = OrderedDict()
 
                         self.summary = YList(self)
@@ -2150,8 +2111,7 @@ class Pppoe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['interface_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                                 ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
@@ -2200,8 +2160,7 @@ class Pppoe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface", ("interface", Pppoe.Nodes.Node.Interfaces.Interface))])
+                    self._child_classes = OrderedDict([("interface", ("interface", Pppoe.Nodes.Node.Interfaces.Interface))])
                     self._leafs = OrderedDict()
 
                     self.interface = YList(self)
@@ -2308,8 +2267,7 @@ class Pppoe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("tags", ("tags", Pppoe.Nodes.Node.Interfaces.Interface.Tags))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("tags", ("tags", Pppoe.Nodes.Node.Interfaces.Interface.Tags))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
@@ -2338,7 +2296,6 @@ class Pppoe(Entity):
                         self.tags = Pppoe.Nodes.Node.Interfaces.Interface.Tags()
                         self.tags.parent = self
                         self._children_name_map["tags"] = "tags"
-                        self._children_yang_names.add("tags")
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -2510,8 +2467,7 @@ class Pppoe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("access-loop-encapsulation", ("access_loop_encapsulation", Pppoe.Nodes.Node.Interfaces.Interface.Tags.AccessLoopEncapsulation))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("access-loop-encapsulation", ("access_loop_encapsulation", Pppoe.Nodes.Node.Interfaces.Interface.Tags.AccessLoopEncapsulation))])
                             self._leafs = OrderedDict([
                                 ('service_name', YLeaf(YType.str, 'service-name')),
                                 ('max_payload', YLeaf(YType.uint16, 'max-payload')),
@@ -2560,7 +2516,6 @@ class Pppoe(Entity):
                             self.access_loop_encapsulation = Pppoe.Nodes.Node.Interfaces.Interface.Tags.AccessLoopEncapsulation()
                             self.access_loop_encapsulation.parent = self
                             self._children_name_map["access_loop_encapsulation"] = "access-loop-encapsulation"
-                            self._children_yang_names.add("access-loop-encapsulation")
                             self._segment_path = lambda: "tags"
 
                         def __setattr__(self, name, value):
@@ -2607,8 +2562,7 @@ class Pppoe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('data_link', YLeaf(YType.uint8, 'data-link')),
                                     ('encaps1', YLeaf(YType.uint8, 'encaps1')),
@@ -2647,8 +2601,7 @@ class Pppoe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("bba-group", ("bba_group", Pppoe.Nodes.Node.BbaGroups.BbaGroup))])
+                    self._child_classes = OrderedDict([("bba-group", ("bba_group", Pppoe.Nodes.Node.BbaGroups.BbaGroup))])
                     self._leafs = OrderedDict()
 
                     self.bba_group = YList(self)
@@ -2704,8 +2657,7 @@ class Pppoe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['bba_group_name']
-                        self._child_container_classes = OrderedDict([("limit-config", ("limit_config", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig)), ("limits", ("limits", Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits)), ("throttles", ("throttles", Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles)), ("throttle-config", ("throttle_config", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("limit-config", ("limit_config", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig)), ("limits", ("limits", Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits)), ("throttles", ("throttles", Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles)), ("throttle-config", ("throttle_config", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig))])
                         self._leafs = OrderedDict([
                             ('bba_group_name', YLeaf(YType.str, 'bba-group-name')),
                         ])
@@ -2714,22 +2666,18 @@ class Pppoe(Entity):
                         self.limit_config = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig()
                         self.limit_config.parent = self
                         self._children_name_map["limit_config"] = "limit-config"
-                        self._children_yang_names.add("limit-config")
 
                         self.limits = Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits()
                         self.limits.parent = self
                         self._children_name_map["limits"] = "limits"
-                        self._children_yang_names.add("limits")
 
                         self.throttles = Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles()
                         self.throttles.parent = self
                         self._children_name_map["throttles"] = "throttles"
-                        self._children_yang_names.add("throttles")
 
                         self.throttle_config = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig()
                         self.throttle_config.parent = self
                         self._children_name_map["throttle_config"] = "throttle-config"
-                        self._children_yang_names.add("throttle-config")
                         self._segment_path = lambda: "bba-group" + "[bba-group-name='" + str(self.bba_group_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -2815,70 +2763,60 @@ class Pppoe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("card", ("card", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Card)), ("access-intf", ("access_intf", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.AccessIntf)), ("mac", ("mac", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Mac)), ("mac-iwf", ("mac_iwf", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwf)), ("mac-access-interface", ("mac_access_interface", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacAccessInterface)), ("mac-iwf-access-interface", ("mac_iwf_access_interface", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwfAccessInterface)), ("circuit-id", ("circuit_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitId)), ("remote-id", ("remote_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.RemoteId)), ("circuit-id-and-remote-id", ("circuit_id_and_remote_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitIdAndRemoteId)), ("outer-vlan-id", ("outer_vlan_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.OuterVlanId)), ("inner-vlan-id", ("inner_vlan_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.InnerVlanId)), ("vlan-id", ("vlan_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.VlanId))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("card", ("card", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Card)), ("access-intf", ("access_intf", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.AccessIntf)), ("mac", ("mac", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Mac)), ("mac-iwf", ("mac_iwf", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwf)), ("mac-access-interface", ("mac_access_interface", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacAccessInterface)), ("mac-iwf-access-interface", ("mac_iwf_access_interface", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwfAccessInterface)), ("circuit-id", ("circuit_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitId)), ("remote-id", ("remote_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.RemoteId)), ("circuit-id-and-remote-id", ("circuit_id_and_remote_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitIdAndRemoteId)), ("outer-vlan-id", ("outer_vlan_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.OuterVlanId)), ("inner-vlan-id", ("inner_vlan_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.InnerVlanId)), ("vlan-id", ("vlan_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.VlanId))])
                             self._leafs = OrderedDict()
 
                             self.card = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Card()
                             self.card.parent = self
                             self._children_name_map["card"] = "card"
-                            self._children_yang_names.add("card")
 
                             self.access_intf = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.AccessIntf()
                             self.access_intf.parent = self
                             self._children_name_map["access_intf"] = "access-intf"
-                            self._children_yang_names.add("access-intf")
 
                             self.mac = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Mac()
                             self.mac.parent = self
                             self._children_name_map["mac"] = "mac"
-                            self._children_yang_names.add("mac")
 
                             self.mac_iwf = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwf()
                             self.mac_iwf.parent = self
                             self._children_name_map["mac_iwf"] = "mac-iwf"
-                            self._children_yang_names.add("mac-iwf")
 
                             self.mac_access_interface = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacAccessInterface()
                             self.mac_access_interface.parent = self
                             self._children_name_map["mac_access_interface"] = "mac-access-interface"
-                            self._children_yang_names.add("mac-access-interface")
 
                             self.mac_iwf_access_interface = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwfAccessInterface()
                             self.mac_iwf_access_interface.parent = self
                             self._children_name_map["mac_iwf_access_interface"] = "mac-iwf-access-interface"
-                            self._children_yang_names.add("mac-iwf-access-interface")
 
                             self.circuit_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitId()
                             self.circuit_id.parent = self
                             self._children_name_map["circuit_id"] = "circuit-id"
-                            self._children_yang_names.add("circuit-id")
 
                             self.remote_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.RemoteId()
                             self.remote_id.parent = self
                             self._children_name_map["remote_id"] = "remote-id"
-                            self._children_yang_names.add("remote-id")
 
                             self.circuit_id_and_remote_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitIdAndRemoteId()
                             self.circuit_id_and_remote_id.parent = self
                             self._children_name_map["circuit_id_and_remote_id"] = "circuit-id-and-remote-id"
-                            self._children_yang_names.add("circuit-id-and-remote-id")
 
                             self.outer_vlan_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.OuterVlanId()
                             self.outer_vlan_id.parent = self
                             self._children_name_map["outer_vlan_id"] = "outer-vlan-id"
-                            self._children_yang_names.add("outer-vlan-id")
 
                             self.inner_vlan_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.InnerVlanId()
                             self.inner_vlan_id.parent = self
                             self._children_name_map["inner_vlan_id"] = "inner-vlan-id"
-                            self._children_yang_names.add("inner-vlan-id")
 
                             self.vlan_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.VlanId()
                             self.vlan_id.parent = self
                             self._children_name_map["vlan_id"] = "vlan-id"
-                            self._children_yang_names.add("vlan-id")
                             self._segment_path = lambda: "limit-config"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig, [], name, value)
 
 
                         class Card(Entity):
@@ -2921,8 +2859,7 @@ class Pppoe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('max_limit', YLeaf(YType.uint32, 'max-limit')),
                                     ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -2977,8 +2914,7 @@ class Pppoe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('max_limit', YLeaf(YType.uint32, 'max-limit')),
                                     ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -3033,8 +2969,7 @@ class Pppoe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('max_limit', YLeaf(YType.uint32, 'max-limit')),
                                     ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -3089,8 +3024,7 @@ class Pppoe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('max_limit', YLeaf(YType.uint32, 'max-limit')),
                                     ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -3145,8 +3079,7 @@ class Pppoe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('max_limit', YLeaf(YType.uint32, 'max-limit')),
                                     ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -3201,8 +3134,7 @@ class Pppoe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('max_limit', YLeaf(YType.uint32, 'max-limit')),
                                     ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -3257,8 +3189,7 @@ class Pppoe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('max_limit', YLeaf(YType.uint32, 'max-limit')),
                                     ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -3313,8 +3244,7 @@ class Pppoe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('max_limit', YLeaf(YType.uint32, 'max-limit')),
                                     ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -3369,8 +3299,7 @@ class Pppoe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('max_limit', YLeaf(YType.uint32, 'max-limit')),
                                     ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -3425,8 +3354,7 @@ class Pppoe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('max_limit', YLeaf(YType.uint32, 'max-limit')),
                                     ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -3481,8 +3409,7 @@ class Pppoe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('max_limit', YLeaf(YType.uint32, 'max-limit')),
                                     ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -3537,8 +3464,7 @@ class Pppoe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('max_limit', YLeaf(YType.uint32, 'max-limit')),
                                     ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -3577,8 +3503,7 @@ class Pppoe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("limit", ("limit", Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits.Limit))])
+                            self._child_classes = OrderedDict([("limit", ("limit", Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits.Limit))])
                             self._leafs = OrderedDict()
 
                             self.limit = YList(self)
@@ -3680,8 +3605,7 @@ class Pppoe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                                     ('mac_address', YLeaf(YType.str, 'mac-address')),
@@ -3736,8 +3660,7 @@ class Pppoe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("throttle", ("throttle", Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles.Throttle))])
+                            self._child_classes = OrderedDict([("throttle", ("throttle", Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles.Throttle))])
                             self._leafs = OrderedDict()
 
                             self.throttle = YList(self)
@@ -3850,8 +3773,7 @@ class Pppoe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                                     ('mac_address', YLeaf(YType.str, 'mac-address')),
@@ -3948,55 +3870,48 @@ class Pppoe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("mac", ("mac", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.Mac)), ("mac-access-interface", ("mac_access_interface", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacAccessInterface)), ("mac-iwf-access-interface", ("mac_iwf_access_interface", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacIwfAccessInterface)), ("circuit-id", ("circuit_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitId)), ("remote-id", ("remote_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.RemoteId)), ("circuit-id-and-remote-id", ("circuit_id_and_remote_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitIdAndRemoteId)), ("outer-vlan-id", ("outer_vlan_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.OuterVlanId)), ("inner-vlan-id", ("inner_vlan_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.InnerVlanId)), ("vlan-id", ("vlan_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.VlanId))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("mac", ("mac", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.Mac)), ("mac-access-interface", ("mac_access_interface", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacAccessInterface)), ("mac-iwf-access-interface", ("mac_iwf_access_interface", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacIwfAccessInterface)), ("circuit-id", ("circuit_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitId)), ("remote-id", ("remote_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.RemoteId)), ("circuit-id-and-remote-id", ("circuit_id_and_remote_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitIdAndRemoteId)), ("outer-vlan-id", ("outer_vlan_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.OuterVlanId)), ("inner-vlan-id", ("inner_vlan_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.InnerVlanId)), ("vlan-id", ("vlan_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.VlanId))])
                             self._leafs = OrderedDict()
 
                             self.mac = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.Mac()
                             self.mac.parent = self
                             self._children_name_map["mac"] = "mac"
-                            self._children_yang_names.add("mac")
 
                             self.mac_access_interface = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacAccessInterface()
                             self.mac_access_interface.parent = self
                             self._children_name_map["mac_access_interface"] = "mac-access-interface"
-                            self._children_yang_names.add("mac-access-interface")
 
                             self.mac_iwf_access_interface = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacIwfAccessInterface()
                             self.mac_iwf_access_interface.parent = self
                             self._children_name_map["mac_iwf_access_interface"] = "mac-iwf-access-interface"
-                            self._children_yang_names.add("mac-iwf-access-interface")
 
                             self.circuit_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitId()
                             self.circuit_id.parent = self
                             self._children_name_map["circuit_id"] = "circuit-id"
-                            self._children_yang_names.add("circuit-id")
 
                             self.remote_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.RemoteId()
                             self.remote_id.parent = self
                             self._children_name_map["remote_id"] = "remote-id"
-                            self._children_yang_names.add("remote-id")
 
                             self.circuit_id_and_remote_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitIdAndRemoteId()
                             self.circuit_id_and_remote_id.parent = self
                             self._children_name_map["circuit_id_and_remote_id"] = "circuit-id-and-remote-id"
-                            self._children_yang_names.add("circuit-id-and-remote-id")
 
                             self.outer_vlan_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.OuterVlanId()
                             self.outer_vlan_id.parent = self
                             self._children_name_map["outer_vlan_id"] = "outer-vlan-id"
-                            self._children_yang_names.add("outer-vlan-id")
 
                             self.inner_vlan_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.InnerVlanId()
                             self.inner_vlan_id.parent = self
                             self._children_name_map["inner_vlan_id"] = "inner-vlan-id"
-                            self._children_yang_names.add("inner-vlan-id")
 
                             self.vlan_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.VlanId()
                             self.vlan_id.parent = self
                             self._children_name_map["vlan_id"] = "vlan-id"
-                            self._children_yang_names.add("vlan-id")
                             self._segment_path = lambda: "throttle-config"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig, [], name, value)
 
 
                         class Mac(Entity):
@@ -4039,8 +3954,7 @@ class Pppoe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('limit', YLeaf(YType.uint32, 'limit')),
                                     ('request_period', YLeaf(YType.uint32, 'request-period')),
@@ -4095,8 +4009,7 @@ class Pppoe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('limit', YLeaf(YType.uint32, 'limit')),
                                     ('request_period', YLeaf(YType.uint32, 'request-period')),
@@ -4151,8 +4064,7 @@ class Pppoe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('limit', YLeaf(YType.uint32, 'limit')),
                                     ('request_period', YLeaf(YType.uint32, 'request-period')),
@@ -4207,8 +4119,7 @@ class Pppoe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('limit', YLeaf(YType.uint32, 'limit')),
                                     ('request_period', YLeaf(YType.uint32, 'request-period')),
@@ -4263,8 +4174,7 @@ class Pppoe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('limit', YLeaf(YType.uint32, 'limit')),
                                     ('request_period', YLeaf(YType.uint32, 'request-period')),
@@ -4319,8 +4229,7 @@ class Pppoe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('limit', YLeaf(YType.uint32, 'limit')),
                                     ('request_period', YLeaf(YType.uint32, 'request-period')),
@@ -4375,8 +4284,7 @@ class Pppoe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('limit', YLeaf(YType.uint32, 'limit')),
                                     ('request_period', YLeaf(YType.uint32, 'request-period')),
@@ -4431,8 +4339,7 @@ class Pppoe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('limit', YLeaf(YType.uint32, 'limit')),
                                     ('request_period', YLeaf(YType.uint32, 'request-period')),
@@ -4487,8 +4394,7 @@ class Pppoe(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('limit', YLeaf(YType.uint32, 'limit')),
                                     ('request_period', YLeaf(YType.uint32, 'request-period')),
@@ -4592,8 +4498,7 @@ class Pppoe(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ready_access_interfaces', YLeaf(YType.uint32, 'ready-access-interfaces')),
                         ('not_ready_access_interfaces', YLeaf(YType.uint32, 'not-ready-access-interfaces')),

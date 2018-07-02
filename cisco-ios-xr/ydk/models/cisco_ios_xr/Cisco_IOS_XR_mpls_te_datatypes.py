@@ -655,17 +655,11 @@ class MplsTePathSelectionMetric(Enum):
 
     	TE Metric
 
-    .. data:: delay = 4
-
-    	DELAY Metric
-
     """
 
     igp = Enum.YLeaf(1, "igp")
 
     te = Enum.YLeaf(2, "te")
-
-    delay = Enum.YLeaf(4, "delay")
 
 
 class MplsTePathSelectionSegmentRoutingAdjacencyProtection(Enum):

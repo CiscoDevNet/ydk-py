@@ -78,22 +78,22 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
     .. attribute:: ciscoimagelicensemgmtmibobjects
     
     	
-    	**type**\:  :py:class:`Ciscoimagelicensemgmtmibobjects <ydk.models.cisco_ios_xe.CISCO_IMAGE_LICENSE_MGMT_MIB.CISCOIMAGELICENSEMGMTMIB.Ciscoimagelicensemgmtmibobjects>`
+    	**type**\:  :py:class:`CiscoImageLicenseMgmtMIBObjects <ydk.models.cisco_ios_xe.CISCO_IMAGE_LICENSE_MGMT_MIB.CISCOIMAGELICENSEMGMTMIB.CiscoImageLicenseMgmtMIBObjects>`
     
     .. attribute:: cilmnotifcntl
     
     	
-    	**type**\:  :py:class:`Cilmnotifcntl <ydk.models.cisco_ios_xe.CISCO_IMAGE_LICENSE_MGMT_MIB.CISCOIMAGELICENSEMGMTMIB.Cilmnotifcntl>`
+    	**type**\:  :py:class:`CilmNotifCntl <ydk.models.cisco_ios_xe.CISCO_IMAGE_LICENSE_MGMT_MIB.CISCOIMAGELICENSEMGMTMIB.CilmNotifCntl>`
     
     .. attribute:: cilmbootimageleveltable
     
     	A table that contains the configuration information of current and next boot image level. This table contains entries for each software module running in an image  loaded in the device. The software module is identified by cilmModuleName and the device is identified by  entPhysicalIndex
-    	**type**\:  :py:class:`Cilmbootimageleveltable <ydk.models.cisco_ios_xe.CISCO_IMAGE_LICENSE_MGMT_MIB.CISCOIMAGELICENSEMGMTMIB.Cilmbootimageleveltable>`
+    	**type**\:  :py:class:`CilmBootImageLevelTable <ydk.models.cisco_ios_xe.CISCO_IMAGE_LICENSE_MGMT_MIB.CISCOIMAGELICENSEMGMTMIB.CilmBootImageLevelTable>`
     
     .. attribute:: cilmimageleveltolicensemaptable
     
     	This table contains the mapping between different image levels of each modules in the image and the license required to run the modules at a particular image level. This table can be used to identify the different image levels and the appropriate licenses  required for each
-    	**type**\:  :py:class:`Cilmimageleveltolicensemaptable <ydk.models.cisco_ios_xe.CISCO_IMAGE_LICENSE_MGMT_MIB.CISCOIMAGELICENSEMGMTMIB.Cilmimageleveltolicensemaptable>`
+    	**type**\:  :py:class:`CilmImageLevelToLicenseMapTable <ydk.models.cisco_ios_xe.CISCO_IMAGE_LICENSE_MGMT_MIB.CISCOIMAGELICENSEMGMTMIB.CilmImageLevelToLicenseMapTable>`
     
     
 
@@ -111,33 +111,31 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ciscoImageLicenseMgmtMIBObjects", ("ciscoimagelicensemgmtmibobjects", CISCOIMAGELICENSEMGMTMIB.Ciscoimagelicensemgmtmibobjects)), ("cilmNotifCntl", ("cilmnotifcntl", CISCOIMAGELICENSEMGMTMIB.Cilmnotifcntl)), ("cilmBootImageLevelTable", ("cilmbootimageleveltable", CISCOIMAGELICENSEMGMTMIB.Cilmbootimageleveltable)), ("cilmImageLevelToLicenseMapTable", ("cilmimageleveltolicensemaptable", CISCOIMAGELICENSEMGMTMIB.Cilmimageleveltolicensemaptable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ciscoImageLicenseMgmtMIBObjects", ("ciscoimagelicensemgmtmibobjects", CISCOIMAGELICENSEMGMTMIB.CiscoImageLicenseMgmtMIBObjects)), ("cilmNotifCntl", ("cilmnotifcntl", CISCOIMAGELICENSEMGMTMIB.CilmNotifCntl)), ("cilmBootImageLevelTable", ("cilmbootimageleveltable", CISCOIMAGELICENSEMGMTMIB.CilmBootImageLevelTable)), ("cilmImageLevelToLicenseMapTable", ("cilmimageleveltolicensemaptable", CISCOIMAGELICENSEMGMTMIB.CilmImageLevelToLicenseMapTable))])
         self._leafs = OrderedDict()
 
-        self.ciscoimagelicensemgmtmibobjects = CISCOIMAGELICENSEMGMTMIB.Ciscoimagelicensemgmtmibobjects()
+        self.ciscoimagelicensemgmtmibobjects = CISCOIMAGELICENSEMGMTMIB.CiscoImageLicenseMgmtMIBObjects()
         self.ciscoimagelicensemgmtmibobjects.parent = self
         self._children_name_map["ciscoimagelicensemgmtmibobjects"] = "ciscoImageLicenseMgmtMIBObjects"
-        self._children_yang_names.add("ciscoImageLicenseMgmtMIBObjects")
 
-        self.cilmnotifcntl = CISCOIMAGELICENSEMGMTMIB.Cilmnotifcntl()
+        self.cilmnotifcntl = CISCOIMAGELICENSEMGMTMIB.CilmNotifCntl()
         self.cilmnotifcntl.parent = self
         self._children_name_map["cilmnotifcntl"] = "cilmNotifCntl"
-        self._children_yang_names.add("cilmNotifCntl")
 
-        self.cilmbootimageleveltable = CISCOIMAGELICENSEMGMTMIB.Cilmbootimageleveltable()
+        self.cilmbootimageleveltable = CISCOIMAGELICENSEMGMTMIB.CilmBootImageLevelTable()
         self.cilmbootimageleveltable.parent = self
         self._children_name_map["cilmbootimageleveltable"] = "cilmBootImageLevelTable"
-        self._children_yang_names.add("cilmBootImageLevelTable")
 
-        self.cilmimageleveltolicensemaptable = CISCOIMAGELICENSEMGMTMIB.Cilmimageleveltolicensemaptable()
+        self.cilmimageleveltolicensemaptable = CISCOIMAGELICENSEMGMTMIB.CilmImageLevelToLicenseMapTable()
         self.cilmimageleveltolicensemaptable.parent = self
         self._children_name_map["cilmimageleveltolicensemaptable"] = "cilmImageLevelToLicenseMapTable"
-        self._children_yang_names.add("cilmImageLevelToLicenseMapTable")
         self._segment_path = lambda: "CISCO-IMAGE-LICENSE-MGMT-MIB:CISCO-IMAGE-LICENSE-MGMT-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOIMAGELICENSEMGMTMIB, [], name, value)
 
-    class Ciscoimagelicensemgmtmibobjects(Entity):
+
+    class CiscoImageLicenseMgmtMIBObjects(Entity):
         """
         
         
@@ -154,15 +152,14 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
         _revision = '2007-10-16'
 
         def __init__(self):
-            super(CISCOIMAGELICENSEMGMTMIB.Ciscoimagelicensemgmtmibobjects, self).__init__()
+            super(CISCOIMAGELICENSEMGMTMIB.CiscoImageLicenseMgmtMIBObjects, self).__init__()
 
             self.yang_name = "ciscoImageLicenseMgmtMIBObjects"
             self.yang_parent_name = "CISCO-IMAGE-LICENSE-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cilmeulaaccepted', YLeaf(YType.boolean, 'cilmEULAAccepted')),
             ])
@@ -171,10 +168,10 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
             self._absolute_path = lambda: "CISCO-IMAGE-LICENSE-MGMT-MIB:CISCO-IMAGE-LICENSE-MGMT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIMAGELICENSEMGMTMIB.Ciscoimagelicensemgmtmibobjects, ['cilmeulaaccepted'], name, value)
+            self._perform_setattr(CISCOIMAGELICENSEMGMTMIB.CiscoImageLicenseMgmtMIBObjects, ['cilmeulaaccepted'], name, value)
 
 
-    class Cilmnotifcntl(Entity):
+    class CilmNotifCntl(Entity):
         """
         
         
@@ -191,15 +188,14 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
         _revision = '2007-10-16'
 
         def __init__(self):
-            super(CISCOIMAGELICENSEMGMTMIB.Cilmnotifcntl, self).__init__()
+            super(CISCOIMAGELICENSEMGMTMIB.CilmNotifCntl, self).__init__()
 
             self.yang_name = "cilmNotifCntl"
             self.yang_parent_name = "CISCO-IMAGE-LICENSE-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cilmimagelevelchangednotif', YLeaf(YType.boolean, 'cilmImageLevelChangedNotif')),
             ])
@@ -208,10 +204,10 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
             self._absolute_path = lambda: "CISCO-IMAGE-LICENSE-MGMT-MIB:CISCO-IMAGE-LICENSE-MGMT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIMAGELICENSEMGMTMIB.Cilmnotifcntl, ['cilmimagelevelchangednotif'], name, value)
+            self._perform_setattr(CISCOIMAGELICENSEMGMTMIB.CilmNotifCntl, ['cilmimagelevelchangednotif'], name, value)
 
 
-    class Cilmbootimageleveltable(Entity):
+    class CilmBootImageLevelTable(Entity):
         """
         A table that contains the configuration information of
         current and next boot image level. This table contains
@@ -223,7 +219,7 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
         .. attribute:: cilmbootimagelevelentry
         
         	An entry in the table for each module containing the list of objects that define the configuration of next boot level. The following information is specified by the objects present in the table.  \- Current image level. \- Configured image level for the next boot. \- Actual image level for the next boot. \- License store index for the current license. \- License index of the current license. \- License store index for the next boot license. \- License index of the next boot license
-        	**type**\: list of  		 :py:class:`Cilmbootimagelevelentry <ydk.models.cisco_ios_xe.CISCO_IMAGE_LICENSE_MGMT_MIB.CISCOIMAGELICENSEMGMTMIB.Cilmbootimageleveltable.Cilmbootimagelevelentry>`
+        	**type**\: list of  		 :py:class:`CilmBootImageLevelEntry <ydk.models.cisco_ios_xe.CISCO_IMAGE_LICENSE_MGMT_MIB.CISCOIMAGELICENSEMGMTMIB.CilmBootImageLevelTable.CilmBootImageLevelEntry>`
         
         
 
@@ -233,15 +229,14 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
         _revision = '2007-10-16'
 
         def __init__(self):
-            super(CISCOIMAGELICENSEMGMTMIB.Cilmbootimageleveltable, self).__init__()
+            super(CISCOIMAGELICENSEMGMTMIB.CilmBootImageLevelTable, self).__init__()
 
             self.yang_name = "cilmBootImageLevelTable"
             self.yang_parent_name = "CISCO-IMAGE-LICENSE-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cilmBootImageLevelEntry", ("cilmbootimagelevelentry", CISCOIMAGELICENSEMGMTMIB.Cilmbootimageleveltable.Cilmbootimagelevelentry))])
+            self._child_classes = OrderedDict([("cilmBootImageLevelEntry", ("cilmbootimagelevelentry", CISCOIMAGELICENSEMGMTMIB.CilmBootImageLevelTable.CilmBootImageLevelEntry))])
             self._leafs = OrderedDict()
 
             self.cilmbootimagelevelentry = YList(self)
@@ -249,10 +244,10 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
             self._absolute_path = lambda: "CISCO-IMAGE-LICENSE-MGMT-MIB:CISCO-IMAGE-LICENSE-MGMT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIMAGELICENSEMGMTMIB.Cilmbootimageleveltable, [], name, value)
+            self._perform_setattr(CISCOIMAGELICENSEMGMTMIB.CilmBootImageLevelTable, [], name, value)
 
 
-        class Cilmbootimagelevelentry(Entity):
+        class CilmBootImageLevelEntry(Entity):
             """
             An entry in the table for each module containing the
             list of objects that define the configuration of next
@@ -274,7 +269,7 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cilmmodulename  (key)
             
@@ -338,15 +333,14 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
             _revision = '2007-10-16'
 
             def __init__(self):
-                super(CISCOIMAGELICENSEMGMTMIB.Cilmbootimageleveltable.Cilmbootimagelevelentry, self).__init__()
+                super(CISCOIMAGELICENSEMGMTMIB.CilmBootImageLevelTable.CilmBootImageLevelEntry, self).__init__()
 
                 self.yang_name = "cilmBootImageLevelEntry"
                 self.yang_parent_name = "cilmBootImageLevelTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','cilmmodulename']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cilmmodulename', YLeaf(YType.str, 'cilmModuleName')),
@@ -371,10 +365,10 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IMAGE-LICENSE-MGMT-MIB:CISCO-IMAGE-LICENSE-MGMT-MIB/cilmBootImageLevelTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIMAGELICENSEMGMTMIB.Cilmbootimageleveltable.Cilmbootimagelevelentry, ['entphysicalindex', 'cilmmodulename', 'cilmcurrentimagelevel', 'cilmconfiguredbootimagelevel', 'cilmnextbootimagelevel', 'cilmcurrentlicensestoreindex', 'cilmcurrentlicenseindex', 'cilmnextbootlicensestoreindex', 'cilmnextbootlicenseindex'], name, value)
+                self._perform_setattr(CISCOIMAGELICENSEMGMTMIB.CilmBootImageLevelTable.CilmBootImageLevelEntry, ['entphysicalindex', 'cilmmodulename', 'cilmcurrentimagelevel', 'cilmconfiguredbootimagelevel', 'cilmnextbootimagelevel', 'cilmcurrentlicensestoreindex', 'cilmcurrentlicenseindex', 'cilmnextbootlicensestoreindex', 'cilmnextbootlicenseindex'], name, value)
 
 
-    class Cilmimageleveltolicensemaptable(Entity):
+    class CilmImageLevelToLicenseMapTable(Entity):
         """
         This table contains the mapping between different
         image levels of each modules in the image and the
@@ -386,7 +380,7 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
         .. attribute:: cilmimageleveltolicensemapentry
         
         	An entry in the table containing the following information. \- The image levels at the which the modules can be run. \- The license required to the run a module at a particular image level. \- The priority of the license
-        	**type**\: list of  		 :py:class:`Cilmimageleveltolicensemapentry <ydk.models.cisco_ios_xe.CISCO_IMAGE_LICENSE_MGMT_MIB.CISCOIMAGELICENSEMGMTMIB.Cilmimageleveltolicensemaptable.Cilmimageleveltolicensemapentry>`
+        	**type**\: list of  		 :py:class:`CilmImageLevelToLicenseMapEntry <ydk.models.cisco_ios_xe.CISCO_IMAGE_LICENSE_MGMT_MIB.CISCOIMAGELICENSEMGMTMIB.CilmImageLevelToLicenseMapTable.CilmImageLevelToLicenseMapEntry>`
         
         
 
@@ -396,15 +390,14 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
         _revision = '2007-10-16'
 
         def __init__(self):
-            super(CISCOIMAGELICENSEMGMTMIB.Cilmimageleveltolicensemaptable, self).__init__()
+            super(CISCOIMAGELICENSEMGMTMIB.CilmImageLevelToLicenseMapTable, self).__init__()
 
             self.yang_name = "cilmImageLevelToLicenseMapTable"
             self.yang_parent_name = "CISCO-IMAGE-LICENSE-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cilmImageLevelToLicenseMapEntry", ("cilmimageleveltolicensemapentry", CISCOIMAGELICENSEMGMTMIB.Cilmimageleveltolicensemaptable.Cilmimageleveltolicensemapentry))])
+            self._child_classes = OrderedDict([("cilmImageLevelToLicenseMapEntry", ("cilmimageleveltolicensemapentry", CISCOIMAGELICENSEMGMTMIB.CilmImageLevelToLicenseMapTable.CilmImageLevelToLicenseMapEntry))])
             self._leafs = OrderedDict()
 
             self.cilmimageleveltolicensemapentry = YList(self)
@@ -412,10 +405,10 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
             self._absolute_path = lambda: "CISCO-IMAGE-LICENSE-MGMT-MIB:CISCO-IMAGE-LICENSE-MGMT-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIMAGELICENSEMGMTMIB.Cilmimageleveltolicensemaptable, [], name, value)
+            self._perform_setattr(CISCOIMAGELICENSEMGMTMIB.CilmImageLevelToLicenseMapTable, [], name, value)
 
 
-        class Cilmimageleveltolicensemapentry(Entity):
+        class CilmImageLevelToLicenseMapEntry(Entity):
             """
             An entry in the table containing the following
             information.
@@ -431,14 +424,14 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cilmmodulename  (key)
             
             	
             	**type**\: str
             
-            	**refers to**\:  :py:class:`cilmmodulename <ydk.models.cisco_ios_xe.CISCO_IMAGE_LICENSE_MGMT_MIB.CISCOIMAGELICENSEMGMTMIB.Cilmbootimageleveltable.Cilmbootimagelevelentry>`
+            	**refers to**\:  :py:class:`cilmmodulename <ydk.models.cisco_ios_xe.CISCO_IMAGE_LICENSE_MGMT_MIB.CISCOIMAGELICENSEMGMTMIB.CilmBootImageLevelTable.CilmBootImageLevelEntry>`
             
             .. attribute:: cilmimagelicensemapindex  (key)
             
@@ -476,15 +469,14 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
             _revision = '2007-10-16'
 
             def __init__(self):
-                super(CISCOIMAGELICENSEMGMTMIB.Cilmimageleveltolicensemaptable.Cilmimageleveltolicensemapentry, self).__init__()
+                super(CISCOIMAGELICENSEMGMTMIB.CilmImageLevelToLicenseMapTable.CilmImageLevelToLicenseMapEntry, self).__init__()
 
                 self.yang_name = "cilmImageLevelToLicenseMapEntry"
                 self.yang_parent_name = "cilmImageLevelToLicenseMapTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','cilmmodulename','cilmimagelicensemapindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cilmmodulename', YLeaf(YType.str, 'cilmModuleName')),
@@ -503,7 +495,7 @@ class CISCOIMAGELICENSEMGMTMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IMAGE-LICENSE-MGMT-MIB:CISCO-IMAGE-LICENSE-MGMT-MIB/cilmImageLevelToLicenseMapTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIMAGELICENSEMGMTMIB.Cilmimageleveltolicensemaptable.Cilmimageleveltolicensemapentry, ['entphysicalindex', 'cilmmodulename', 'cilmimagelicensemapindex', 'cilmimagelicenseimagelevel', 'cilmimagelicensename', 'cilmimagelicensepriority'], name, value)
+                self._perform_setattr(CISCOIMAGELICENSEMGMTMIB.CilmImageLevelToLicenseMapTable.CilmImageLevelToLicenseMapEntry, ['entphysicalindex', 'cilmmodulename', 'cilmimagelicensemapindex', 'cilmimagelicenseimagelevel', 'cilmimagelicensename', 'cilmimagelicensepriority'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOIMAGELICENSEMGMTMIB()

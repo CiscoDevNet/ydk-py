@@ -1,9 +1,15 @@
 """ Cisco_IOS_XR_sysadmin_rvm_mgr 
 
+This module contains definitions
+for the Calvados model objects.
+
 This module contains a collection of YANG
 definitions for Cisco IOS\-XR SysAdmin configuration.
 
 Copyright(c) 2013\-2017 by Cisco Systems, Inc.
+All rights reserved.
+
+Copyright (c) 2012\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -71,8 +77,7 @@ class RVM(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("all-locations", ("all_locations", RVM.AllLocations))])
+        self._child_classes = OrderedDict([("all-locations", ("all_locations", RVM.AllLocations))])
         self._leafs = OrderedDict()
 
         self.all_locations = YList(self)
@@ -121,8 +126,7 @@ class RVM(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['location']
-            self._child_container_classes = OrderedDict([("objects", ("objects", RVM.AllLocations.Objects)), ("node", ("node", RVM.AllLocations.Node)), ("card", ("card", RVM.AllLocations.Card))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("objects", ("objects", RVM.AllLocations.Objects)), ("node", ("node", RVM.AllLocations.Node)), ("card", ("card", RVM.AllLocations.Card))])
             self._leafs = OrderedDict([
                 ('location', YLeaf(YType.str, 'location')),
             ])
@@ -131,17 +135,14 @@ class RVM(Entity):
             self.objects = RVM.AllLocations.Objects()
             self.objects.parent = self
             self._children_name_map["objects"] = "objects"
-            self._children_yang_names.add("objects")
 
             self.node = RVM.AllLocations.Node()
             self.node.parent = self
             self._children_name_map["node"] = "node"
-            self._children_yang_names.add("node")
 
             self.card = RVM.AllLocations.Card()
             self.card.parent = self
             self._children_name_map["card"] = "card"
-            self._children_yang_names.add("card")
             self._segment_path = lambda: "all-locations" + "[location='" + str(self.location) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-rvm-mgr:RVM/%s" % self._segment_path()
 
@@ -173,8 +174,7 @@ class RVM(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("all-objs", ("all_objs", RVM.AllLocations.Objects.AllObjs))])
+                self._child_classes = OrderedDict([("all-objs", ("all_objs", RVM.AllLocations.Objects.AllObjs))])
                 self._leafs = OrderedDict()
 
                 self.all_objs = YList(self)
@@ -231,8 +231,7 @@ class RVM(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['index']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('index', YLeaf(YType.uint32, 'index')),
                         ('num_allocated', YLeaf(YType.uint32, 'num_allocated')),
@@ -273,8 +272,7 @@ class RVM(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("all-nodes", ("all_nodes", RVM.AllLocations.Node.AllNodes))])
+                self._child_classes = OrderedDict([("all-nodes", ("all_nodes", RVM.AllLocations.Node.AllNodes))])
                 self._leafs = OrderedDict()
 
                 self.all_nodes = YList(self)
@@ -330,8 +328,7 @@ class RVM(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['ipv4_addr']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ipv4_addr', YLeaf(YType.uint32, 'ipv4_addr')),
                         ('ipv4_addr_str', YLeaf(YType.str, 'ipv4_addr_str')),
@@ -374,8 +371,7 @@ class RVM(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("all-cards", ("all_cards", RVM.AllLocations.Card.AllCards))])
+                self._child_classes = OrderedDict([("all-cards", ("all_cards", RVM.AllLocations.Card.AllCards))])
                 self._leafs = OrderedDict()
 
                 self.all_cards = YList(self)
@@ -429,8 +425,7 @@ class RVM(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['serial_num']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('serial_num', YLeaf(YType.str, 'serial_num')),
                         ('card_flag', YLeaf(YType.str, 'card_flag')),

@@ -52,29 +52,29 @@ class Lpts(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer", ("ipolicer", Lpts.Ipolicer)), ("Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt", ("punt", Lpts.Punt))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer", ("ipolicer", Lpts.Ipolicer)), ("Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt", ("punt", Lpts.Punt))])
         self._leafs = OrderedDict()
 
         self.ipolicer = None
         self._children_name_map["ipolicer"] = "Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer"
-        self._children_yang_names.add("Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer")
 
         self.punt = Lpts.Punt()
         self.punt.parent = self
         self._children_name_map["punt"] = "Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt"
-        self._children_yang_names.add("Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt")
         self._segment_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Lpts, [], name, value)
 
 
     class Ipolicer(Entity):
         """
         Pre IFiB Configuration 
         
-        .. attribute:: ipv4acls
+        .. attribute:: acls
         
         	Table for ACLs
-        	**type**\:  :py:class:`Ipv4Acls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Ipv4Acls>`
+        	**type**\:  :py:class:`Acls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Acls>`
         
         .. attribute:: enable
         
@@ -95,7 +95,7 @@ class Lpts(Entity):
         """
 
         _prefix = 'lpts-pre-ifib-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Lpts.Ipolicer, self).__init__()
@@ -105,23 +105,20 @@ class Lpts(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("ipv4acls", ("ipv4acls", Lpts.Ipolicer.Ipv4Acls)), ("flows", ("flows", Lpts.Ipolicer.Flows))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("acls", ("acls", Lpts.Ipolicer.Acls)), ("flows", ("flows", Lpts.Ipolicer.Flows))])
             self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('enable', YLeaf(YType.empty, 'enable')),
             ])
             self.enable = None
 
-            self.ipv4acls = Lpts.Ipolicer.Ipv4Acls()
-            self.ipv4acls.parent = self
-            self._children_name_map["ipv4acls"] = "ipv4acls"
-            self._children_yang_names.add("ipv4acls")
+            self.acls = Lpts.Ipolicer.Acls()
+            self.acls.parent = self
+            self._children_name_map["acls"] = "acls"
 
             self.flows = Lpts.Ipolicer.Flows()
             self.flows.parent = self
             self._children_name_map["flows"] = "flows"
-            self._children_yang_names.add("flows")
             self._segment_path = lambda: "Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer"
             self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/%s" % self._segment_path()
 
@@ -129,43 +126,42 @@ class Lpts(Entity):
             self._perform_setattr(Lpts.Ipolicer, ['enable'], name, value)
 
 
-        class Ipv4Acls(Entity):
+        class Acls(Entity):
             """
             Table for ACLs
             
-            .. attribute:: ipv4acl
+            .. attribute:: acl
             
             	ACL name
-            	**type**\: list of  		 :py:class:`Ipv4Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Ipv4Acls.Ipv4Acl>`
+            	**type**\: list of  		 :py:class:`Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Acls.Acl>`
             
             
 
             """
 
             _prefix = 'lpts-pre-ifib-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
-                super(Lpts.Ipolicer.Ipv4Acls, self).__init__()
+                super(Lpts.Ipolicer.Acls, self).__init__()
 
-                self.yang_name = "ipv4acls"
+                self.yang_name = "acls"
                 self.yang_parent_name = "ipolicer"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("ipv4acl", ("ipv4acl", Lpts.Ipolicer.Ipv4Acls.Ipv4Acl))])
+                self._child_classes = OrderedDict([("acl", ("acl", Lpts.Ipolicer.Acls.Acl))])
                 self._leafs = OrderedDict()
 
-                self.ipv4acl = YList(self)
-                self._segment_path = lambda: "ipv4acls"
+                self.acl = YList(self)
+                self._segment_path = lambda: "acls"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Lpts.Ipolicer.Ipv4Acls, [], name, value)
+                self._perform_setattr(Lpts.Ipolicer.Acls, [], name, value)
 
 
-            class Ipv4Acl(Entity):
+            class Acl(Entity):
                 """
                 ACL name
                 
@@ -176,124 +172,198 @@ class Lpts(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
-                .. attribute:: ipv4vrf_names
+                .. attribute:: afi_types
                 
-                	VRF list
-                	**type**\:  :py:class:`Ipv4VrfNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Ipv4Acls.Ipv4Acl.Ipv4VrfNames>`
+                	AFI Family
+                	**type**\:  :py:class:`AfiTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Acls.Acl.AfiTypes>`
                 
                 
 
                 """
 
                 _prefix = 'lpts-pre-ifib-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Lpts.Ipolicer.Ipv4Acls.Ipv4Acl, self).__init__()
+                    super(Lpts.Ipolicer.Acls.Acl, self).__init__()
 
-                    self.yang_name = "ipv4acl"
-                    self.yang_parent_name = "ipv4acls"
+                    self.yang_name = "acl"
+                    self.yang_parent_name = "acls"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['acl_name']
-                    self._child_container_classes = OrderedDict([("ipv4vrf-names", ("ipv4vrf_names", Lpts.Ipolicer.Ipv4Acls.Ipv4Acl.Ipv4VrfNames))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("afi-types", ("afi_types", Lpts.Ipolicer.Acls.Acl.AfiTypes))])
                     self._leafs = OrderedDict([
                         ('acl_name', YLeaf(YType.str, 'acl-name')),
                     ])
                     self.acl_name = None
 
-                    self.ipv4vrf_names = Lpts.Ipolicer.Ipv4Acls.Ipv4Acl.Ipv4VrfNames()
-                    self.ipv4vrf_names.parent = self
-                    self._children_name_map["ipv4vrf_names"] = "ipv4vrf-names"
-                    self._children_yang_names.add("ipv4vrf-names")
-                    self._segment_path = lambda: "ipv4acl" + "[acl-name='" + str(self.acl_name) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer/ipv4acls/%s" % self._segment_path()
+                    self.afi_types = Lpts.Ipolicer.Acls.Acl.AfiTypes()
+                    self.afi_types.parent = self
+                    self._children_name_map["afi_types"] = "afi-types"
+                    self._segment_path = lambda: "acl" + "[acl-name='" + str(self.acl_name) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer/acls/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Lpts.Ipolicer.Ipv4Acls.Ipv4Acl, ['acl_name'], name, value)
+                    self._perform_setattr(Lpts.Ipolicer.Acls.Acl, ['acl_name'], name, value)
 
 
-                class Ipv4VrfNames(Entity):
+                class AfiTypes(Entity):
                     """
-                    VRF list
+                    AFI Family
                     
-                    .. attribute:: ipv4vrf_name
+                    .. attribute:: afi_type
                     
-                    	VRF name
-                    	**type**\: list of  		 :py:class:`Ipv4VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Ipv4Acls.Ipv4Acl.Ipv4VrfNames.Ipv4VrfName>`
+                    	AFI Family type
+                    	**type**\: list of  		 :py:class:`AfiType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Acls.Acl.AfiTypes.AfiType>`
                     
                     
 
                     """
 
                     _prefix = 'lpts-pre-ifib-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Lpts.Ipolicer.Ipv4Acls.Ipv4Acl.Ipv4VrfNames, self).__init__()
+                        super(Lpts.Ipolicer.Acls.Acl.AfiTypes, self).__init__()
 
-                        self.yang_name = "ipv4vrf-names"
-                        self.yang_parent_name = "ipv4acl"
+                        self.yang_name = "afi-types"
+                        self.yang_parent_name = "acl"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("ipv4vrf-name", ("ipv4vrf_name", Lpts.Ipolicer.Ipv4Acls.Ipv4Acl.Ipv4VrfNames.Ipv4VrfName))])
+                        self._child_classes = OrderedDict([("afi-type", ("afi_type", Lpts.Ipolicer.Acls.Acl.AfiTypes.AfiType))])
                         self._leafs = OrderedDict()
 
-                        self.ipv4vrf_name = YList(self)
-                        self._segment_path = lambda: "ipv4vrf-names"
+                        self.afi_type = YList(self)
+                        self._segment_path = lambda: "afi-types"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Lpts.Ipolicer.Ipv4Acls.Ipv4Acl.Ipv4VrfNames, [], name, value)
+                        self._perform_setattr(Lpts.Ipolicer.Acls.Acl.AfiTypes, [], name, value)
 
 
-                    class Ipv4VrfName(Entity):
+                    class AfiType(Entity):
                         """
-                        VRF name
+                        AFI Family type
                         
-                        .. attribute:: vrf_name  (key)
+                        .. attribute:: afi_family_type  (key)
                         
-                        	VRF name
-                        	**type**\: str
+                        	AFI Family Type
+                        	**type**\:  :py:class:`Lptsafi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.Lptsafi>`
                         
-                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                        .. attribute:: vrf_names
                         
-                        .. attribute:: acl_rate
-                        
-                        	pre\-ifib policer rate config commands
-                        	**type**\: int
-                        
-                        	**range:** 0..100000
+                        	VRF list
+                        	**type**\:  :py:class:`VrfNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Acls.Acl.AfiTypes.AfiType.VrfNames>`
                         
                         
 
                         """
 
                         _prefix = 'lpts-pre-ifib-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Lpts.Ipolicer.Ipv4Acls.Ipv4Acl.Ipv4VrfNames.Ipv4VrfName, self).__init__()
+                            super(Lpts.Ipolicer.Acls.Acl.AfiTypes.AfiType, self).__init__()
 
-                            self.yang_name = "ipv4vrf-name"
-                            self.yang_parent_name = "ipv4vrf-names"
+                            self.yang_name = "afi-type"
+                            self.yang_parent_name = "afi-types"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self.ylist_key_names = ['vrf_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self.ylist_key_names = ['afi_family_type']
+                            self._child_classes = OrderedDict([("vrf-names", ("vrf_names", Lpts.Ipolicer.Acls.Acl.AfiTypes.AfiType.VrfNames))])
                             self._leafs = OrderedDict([
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                ('acl_rate', YLeaf(YType.uint32, 'acl-rate')),
+                                ('afi_family_type', YLeaf(YType.enumeration, 'afi-family-type')),
                             ])
-                            self.vrf_name = None
-                            self.acl_rate = None
-                            self._segment_path = lambda: "ipv4vrf-name" + "[vrf-name='" + str(self.vrf_name) + "']"
+                            self.afi_family_type = None
+
+                            self.vrf_names = Lpts.Ipolicer.Acls.Acl.AfiTypes.AfiType.VrfNames()
+                            self.vrf_names.parent = self
+                            self._children_name_map["vrf_names"] = "vrf-names"
+                            self._segment_path = lambda: "afi-type" + "[afi-family-type='" + str(self.afi_family_type) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Lpts.Ipolicer.Ipv4Acls.Ipv4Acl.Ipv4VrfNames.Ipv4VrfName, ['vrf_name', 'acl_rate'], name, value)
+                            self._perform_setattr(Lpts.Ipolicer.Acls.Acl.AfiTypes.AfiType, ['afi_family_type'], name, value)
+
+
+                        class VrfNames(Entity):
+                            """
+                            VRF list
+                            
+                            .. attribute:: vrf_name
+                            
+                            	VRF name
+                            	**type**\: list of  		 :py:class:`VrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Acls.Acl.AfiTypes.AfiType.VrfNames.VrfName>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'lpts-pre-ifib-cfg'
+                            _revision = '2017-09-07'
+
+                            def __init__(self):
+                                super(Lpts.Ipolicer.Acls.Acl.AfiTypes.AfiType.VrfNames, self).__init__()
+
+                                self.yang_name = "vrf-names"
+                                self.yang_parent_name = "afi-type"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("vrf-name", ("vrf_name", Lpts.Ipolicer.Acls.Acl.AfiTypes.AfiType.VrfNames.VrfName))])
+                                self._leafs = OrderedDict()
+
+                                self.vrf_name = YList(self)
+                                self._segment_path = lambda: "vrf-names"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Lpts.Ipolicer.Acls.Acl.AfiTypes.AfiType.VrfNames, [], name, value)
+
+
+                            class VrfName(Entity):
+                                """
+                                VRF name
+                                
+                                .. attribute:: vrf_name  (key)
+                                
+                                	VRF name
+                                	**type**\: str
+                                
+                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                
+                                .. attribute:: acl_rate
+                                
+                                	pre\-ifib policer rate config commands
+                                	**type**\: int
+                                
+                                	**range:** 0..100000
+                                
+                                
+
+                                """
+
+                                _prefix = 'lpts-pre-ifib-cfg'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(Lpts.Ipolicer.Acls.Acl.AfiTypes.AfiType.VrfNames.VrfName, self).__init__()
+
+                                    self.yang_name = "vrf-name"
+                                    self.yang_parent_name = "vrf-names"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['vrf_name']
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                        ('acl_rate', YLeaf(YType.uint32, 'acl-rate')),
+                                    ])
+                                    self.vrf_name = None
+                                    self.acl_rate = None
+                                    self._segment_path = lambda: "vrf-name" + "[vrf-name='" + str(self.vrf_name) + "']"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Lpts.Ipolicer.Acls.Acl.AfiTypes.AfiType.VrfNames.VrfName, ['vrf_name', 'acl_rate'], name, value)
 
 
         class Flows(Entity):
@@ -310,7 +380,7 @@ class Lpts(Entity):
             """
 
             _prefix = 'lpts-pre-ifib-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Lpts.Ipolicer.Flows, self).__init__()
@@ -320,8 +390,7 @@ class Lpts(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("flow", ("flow", Lpts.Ipolicer.Flows.Flow))])
+                self._child_classes = OrderedDict([("flow", ("flow", Lpts.Ipolicer.Flows.Flow))])
                 self._leafs = OrderedDict()
 
                 self.flow = YList(self)
@@ -358,7 +427,7 @@ class Lpts(Entity):
                 """
 
                 _prefix = 'lpts-pre-ifib-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Lpts.Ipolicer.Flows.Flow, self).__init__()
@@ -368,8 +437,7 @@ class Lpts(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['flow_type']
-                    self._child_container_classes = OrderedDict([("precedences", ("precedences", Lpts.Ipolicer.Flows.Flow.Precedences))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("precedences", ("precedences", Lpts.Ipolicer.Flows.Flow.Precedences))])
                     self._leafs = OrderedDict([
                         ('flow_type', YLeaf(YType.enumeration, 'flow-type')),
                         ('rate', YLeaf(YType.uint32, 'rate')),
@@ -380,7 +448,6 @@ class Lpts(Entity):
                     self.precedences = Lpts.Ipolicer.Flows.Flow.Precedences()
                     self.precedences.parent = self
                     self._children_name_map["precedences"] = "precedences"
-                    self._children_yang_names.add("precedences")
                     self._segment_path = lambda: "flow" + "[flow-type='" + str(self.flow_type) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer/flows/%s" % self._segment_path()
 
@@ -408,7 +475,7 @@ class Lpts(Entity):
                     """
 
                     _prefix = 'lpts-pre-ifib-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Lpts.Ipolicer.Flows.Flow.Precedences, self).__init__()
@@ -418,8 +485,7 @@ class Lpts(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('precedence', YLeafList(YType.str, 'precedence')),
                         ])
@@ -444,7 +510,7 @@ class Lpts(Entity):
         """
 
         _prefix = 'lpts-punt-flowtrap-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Lpts.Punt, self).__init__()
@@ -454,16 +520,17 @@ class Lpts(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("flowtrap", ("flowtrap", Lpts.Punt.Flowtrap))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("flowtrap", ("flowtrap", Lpts.Punt.Flowtrap))])
             self._leafs = OrderedDict()
 
             self.flowtrap = Lpts.Punt.Flowtrap()
             self.flowtrap.parent = self
             self._children_name_map["flowtrap"] = "flowtrap"
-            self._children_yang_names.add("flowtrap")
             self._segment_path = lambda: "Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt"
             self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Lpts.Punt, [], name, value)
 
 
         class Flowtrap(Entity):
@@ -518,7 +585,7 @@ class Lpts(Entity):
             	Enable trap based on source mac on non\-subscriber interface
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: sample_prob
             
@@ -561,7 +628,7 @@ class Lpts(Entity):
             """
 
             _prefix = 'lpts-punt-flowtrap-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Lpts.Punt.Flowtrap, self).__init__()
@@ -571,14 +638,13 @@ class Lpts(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("penalty-rates", ("penalty_rates", Lpts.Punt.Flowtrap.PenaltyRates)), ("penalty-timeouts", ("penalty_timeouts", Lpts.Punt.Flowtrap.PenaltyTimeouts)), ("exclude", ("exclude", Lpts.Punt.Flowtrap.Exclude))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("penalty-rates", ("penalty_rates", Lpts.Punt.Flowtrap.PenaltyRates)), ("penalty-timeouts", ("penalty_timeouts", Lpts.Punt.Flowtrap.PenaltyTimeouts)), ("exclude", ("exclude", Lpts.Punt.Flowtrap.Exclude))])
                 self._leafs = OrderedDict([
                     ('max_flow_gap', YLeaf(YType.uint32, 'max-flow-gap')),
                     ('et_size', YLeaf(YType.uint32, 'et-size')),
                     ('eviction_threshold', YLeaf(YType.uint32, 'eviction-threshold')),
                     ('report_threshold', YLeaf(YType.uint16, 'report-threshold')),
-                    ('non_subscriber_interfaces', YLeaf(YType.int32, 'non-subscriber-interfaces')),
+                    ('non_subscriber_interfaces', YLeaf(YType.uint32, 'non-subscriber-interfaces')),
                     ('sample_prob', YLeaf(YType.str, 'sample-prob')),
                     ('eviction_search_limit', YLeaf(YType.uint32, 'eviction-search-limit')),
                     ('routing_protocols_enable', YLeaf(YType.boolean, 'routing-protocols-enable')),
@@ -601,17 +667,14 @@ class Lpts(Entity):
                 self.penalty_rates = Lpts.Punt.Flowtrap.PenaltyRates()
                 self.penalty_rates.parent = self
                 self._children_name_map["penalty_rates"] = "penalty-rates"
-                self._children_yang_names.add("penalty-rates")
 
                 self.penalty_timeouts = Lpts.Punt.Flowtrap.PenaltyTimeouts()
                 self.penalty_timeouts.parent = self
                 self._children_name_map["penalty_timeouts"] = "penalty-timeouts"
-                self._children_yang_names.add("penalty-timeouts")
 
                 self.exclude = Lpts.Punt.Flowtrap.Exclude()
                 self.exclude.parent = self
                 self._children_name_map["exclude"] = "exclude"
-                self._children_yang_names.add("exclude")
                 self._segment_path = lambda: "flowtrap"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/%s" % self._segment_path()
 
@@ -633,7 +696,7 @@ class Lpts(Entity):
                 """
 
                 _prefix = 'lpts-punt-flowtrap-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Lpts.Punt.Flowtrap.PenaltyRates, self).__init__()
@@ -643,8 +706,7 @@ class Lpts(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("penalty-rate", ("penalty_rate", Lpts.Punt.Flowtrap.PenaltyRates.PenaltyRate))])
+                    self._child_classes = OrderedDict([("penalty-rate", ("penalty_rate", Lpts.Punt.Flowtrap.PenaltyRates.PenaltyRate))])
                     self._leafs = OrderedDict()
 
                     self.penalty_rate = YList(self)
@@ -678,7 +740,7 @@ class Lpts(Entity):
                     """
 
                     _prefix = 'lpts-punt-flowtrap-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Lpts.Punt.Flowtrap.PenaltyRates.PenaltyRate, self).__init__()
@@ -688,8 +750,7 @@ class Lpts(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['protocol_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('protocol_name', YLeaf(YType.enumeration, 'protocol-name')),
                             ('rate', YLeaf(YType.uint32, 'rate')),
@@ -717,7 +778,7 @@ class Lpts(Entity):
                 """
 
                 _prefix = 'lpts-punt-flowtrap-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Lpts.Punt.Flowtrap.PenaltyTimeouts, self).__init__()
@@ -727,8 +788,7 @@ class Lpts(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("penalty-timeout", ("penalty_timeout", Lpts.Punt.Flowtrap.PenaltyTimeouts.PenaltyTimeout))])
+                    self._child_classes = OrderedDict([("penalty-timeout", ("penalty_timeout", Lpts.Punt.Flowtrap.PenaltyTimeouts.PenaltyTimeout))])
                     self._leafs = OrderedDict()
 
                     self.penalty_timeout = YList(self)
@@ -762,7 +822,7 @@ class Lpts(Entity):
                     """
 
                     _prefix = 'lpts-punt-flowtrap-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Lpts.Punt.Flowtrap.PenaltyTimeouts.PenaltyTimeout, self).__init__()
@@ -772,8 +832,7 @@ class Lpts(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['protocol_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('protocol_name', YLeaf(YType.enumeration, 'protocol-name')),
                             ('timeout', YLeaf(YType.uint32, 'timeout')),
@@ -801,7 +860,7 @@ class Lpts(Entity):
                 """
 
                 _prefix = 'lpts-punt-flowtrap-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Lpts.Punt.Flowtrap.Exclude, self).__init__()
@@ -811,16 +870,17 @@ class Lpts(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("interface-names", ("interface_names", Lpts.Punt.Flowtrap.Exclude.InterfaceNames))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("interface-names", ("interface_names", Lpts.Punt.Flowtrap.Exclude.InterfaceNames))])
                     self._leafs = OrderedDict()
 
                     self.interface_names = Lpts.Punt.Flowtrap.Exclude.InterfaceNames()
                     self.interface_names.parent = self
                     self._children_name_map["interface_names"] = "interface-names"
-                    self._children_yang_names.add("interface-names")
                     self._segment_path = lambda: "exclude"
                     self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/flowtrap/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Lpts.Punt.Flowtrap.Exclude, [], name, value)
 
 
                 class InterfaceNames(Entity):
@@ -837,7 +897,7 @@ class Lpts(Entity):
                     """
 
                     _prefix = 'lpts-punt-flowtrap-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Lpts.Punt.Flowtrap.Exclude.InterfaceNames, self).__init__()
@@ -847,8 +907,7 @@ class Lpts(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("interface-name", ("interface_name", Lpts.Punt.Flowtrap.Exclude.InterfaceNames.InterfaceName))])
+                        self._child_classes = OrderedDict([("interface-name", ("interface_name", Lpts.Punt.Flowtrap.Exclude.InterfaceNames.InterfaceName))])
                         self._leafs = OrderedDict()
 
                         self.interface_name = YList(self)
@@ -882,7 +941,7 @@ class Lpts(Entity):
                         """
 
                         _prefix = 'lpts-punt-flowtrap-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Lpts.Punt.Flowtrap.Exclude.InterfaceNames.InterfaceName, self).__init__()
@@ -892,8 +951,7 @@ class Lpts(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['ifname']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('ifname', YLeaf(YType.str, 'ifname')),
                                 ('id1', YLeaf(YType.boolean, 'id1')),

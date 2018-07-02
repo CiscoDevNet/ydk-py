@@ -13,22 +13,6 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class INVALIDROUTEREASON(Identity):
-    """
-    Base identity for reason code for routes that are rejected as
-    invalid.  Some derived entities are based on BMP v3
-    
-    
-
-    """
-
-    _prefix = 'oc-bgprib-types'
-    _revision = '2016-04-11'
-
-    def __init__(self):
-        super(INVALIDROUTEREASON, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:INVALID_ROUTE_REASON")
-
-
 class BGPNOTSELECTEDBESTPATH(Identity):
     """
     Base identity for indicating reason a route was was not
@@ -61,9 +45,10 @@ class BGPNOTSELECTEDPOLICY(Identity):
         super(BGPNOTSELECTEDPOLICY, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:BGP_NOT_SELECTED_POLICY")
 
 
-class INVALIDCLUSTERLOOP(Identity):
+class INVALIDROUTEREASON(Identity):
     """
-    Route was invalid due to CLUSTER\_LIST loop
+    Base identity for reason code for routes that are rejected as
+    invalid.  Some derived entities are based on BMP v3
     
     
 
@@ -73,22 +58,7 @@ class INVALIDCLUSTERLOOP(Identity):
     _revision = '2016-04-11'
 
     def __init__(self):
-        super(INVALIDCLUSTERLOOP, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:INVALID_CLUSTER_LOOP")
-
-
-class INVALIDASLOOP(Identity):
-    """
-    Route was invalid due to AS\_PATH loop
-    
-    
-
-    """
-
-    _prefix = 'oc-bgprib-types'
-    _revision = '2016-04-11'
-
-    def __init__(self):
-        super(INVALIDASLOOP, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:INVALID_AS_LOOP")
+        super(INVALIDROUTEREASON, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:INVALID_ROUTE_REASON")
 
 
 class INVALIDORIGINATOR(Identity):
@@ -107,10 +77,10 @@ class INVALIDORIGINATOR(Identity):
         super(INVALIDORIGINATOR, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:INVALID_ORIGINATOR")
 
 
-class INVALIDCONFED(Identity):
+class HIGHERROUTERID(Identity):
     """
-    Route was invalid due to a loop in the AS\_CONFED\_SEQUENCE or
-    AS\_CONFED\_SET attributes
+    Route was sent by a peer with a higher BGP Identifier value,
+    or router id
     
     
 
@@ -120,12 +90,12 @@ class INVALIDCONFED(Identity):
     _revision = '2016-04-11'
 
     def __init__(self):
-        super(INVALIDCONFED, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:INVALID_CONFED")
+        super(HIGHERROUTERID, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:HIGHER_ROUTER_ID")
 
 
-class LOCALPREFLOWER(Identity):
+class INVALIDCLUSTERLOOP(Identity):
     """
-    Route has a lower localpref attribute than current best path
+    Route was invalid due to CLUSTER\_LIST loop
     
     
 
@@ -135,12 +105,12 @@ class LOCALPREFLOWER(Identity):
     _revision = '2016-04-11'
 
     def __init__(self):
-        super(LOCALPREFLOWER, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:LOCAL_PREF_LOWER")
+        super(INVALIDCLUSTERLOOP, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:INVALID_CLUSTER_LOOP")
 
 
-class ASPATHLONGER(Identity):
+class REJECTEDIMPORTPOLICY(Identity):
     """
-    Route has a longer AS path attribute than current best path
+    Route was rejected after apply import policies
     
     
 
@@ -150,7 +120,7 @@ class ASPATHLONGER(Identity):
     _revision = '2016-04-11'
 
     def __init__(self):
-        super(ASPATHLONGER, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:AS_PATH_LONGER")
+        super(REJECTEDIMPORTPOLICY, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:REJECTED_IMPORT_POLICY")
 
 
 class ORIGINTYPEHIGHER(Identity):
@@ -185,9 +155,9 @@ class MEDHIGHER(Identity):
         super(MEDHIGHER, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:MED_HIGHER")
 
 
-class PREFEREXTERNAL(Identity):
+class INVALIDASLOOP(Identity):
     """
-    Route source is via IGP, rather than EGP.
+    Route was invalid due to AS\_PATH loop
     
     
 
@@ -197,12 +167,12 @@ class PREFEREXTERNAL(Identity):
     _revision = '2016-04-11'
 
     def __init__(self):
-        super(PREFEREXTERNAL, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:PREFER_EXTERNAL")
+        super(INVALIDASLOOP, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:INVALID_AS_LOOP")
 
 
-class NEXTHOPCOSTHIGHER(Identity):
+class LOCALPREFLOWER(Identity):
     """
-    Route has a higher interior cost to the next hop.
+    Route has a lower localpref attribute than current best path
     
     
 
@@ -212,13 +182,13 @@ class NEXTHOPCOSTHIGHER(Identity):
     _revision = '2016-04-11'
 
     def __init__(self):
-        super(NEXTHOPCOSTHIGHER, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:NEXTHOP_COST_HIGHER")
+        super(LOCALPREFLOWER, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:LOCAL_PREF_LOWER")
 
 
-class HIGHERROUTERID(Identity):
+class INVALIDCONFED(Identity):
     """
-    Route was sent by a peer with a higher BGP Identifier value,
-    or router id
+    Route was invalid due to a loop in the AS\_CONFED\_SEQUENCE or
+    AS\_CONFED\_SET attributes
     
     
 
@@ -228,7 +198,22 @@ class HIGHERROUTERID(Identity):
     _revision = '2016-04-11'
 
     def __init__(self):
-        super(HIGHERROUTERID, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:HIGHER_ROUTER_ID")
+        super(INVALIDCONFED, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:INVALID_CONFED")
+
+
+class ASPATHLONGER(Identity):
+    """
+    Route has a longer AS path attribute than current best path
+    
+    
+
+    """
+
+    _prefix = 'oc-bgprib-types'
+    _revision = '2016-04-11'
+
+    def __init__(self):
+        super(ASPATHLONGER, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:AS_PATH_LONGER")
 
 
 class HIGHERPEERADDRESS(Identity):
@@ -246,9 +231,9 @@ class HIGHERPEERADDRESS(Identity):
         super(HIGHERPEERADDRESS, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:HIGHER_PEER_ADDRESS")
 
 
-class REJECTEDIMPORTPOLICY(Identity):
+class NEXTHOPCOSTHIGHER(Identity):
     """
-    Route was rejected after apply import policies
+    Route has a higher interior cost to the next hop.
     
     
 
@@ -258,6 +243,21 @@ class REJECTEDIMPORTPOLICY(Identity):
     _revision = '2016-04-11'
 
     def __init__(self):
-        super(REJECTEDIMPORTPOLICY, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:REJECTED_IMPORT_POLICY")
+        super(NEXTHOPCOSTHIGHER, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:NEXTHOP_COST_HIGHER")
+
+
+class PREFEREXTERNAL(Identity):
+    """
+    Route source is via IGP, rather than EGP.
+    
+    
+
+    """
+
+    _prefix = 'oc-bgprib-types'
+    _revision = '2016-04-11'
+
+    def __init__(self):
+        super(PREFEREXTERNAL, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:PREFER_EXTERNAL")
 
 

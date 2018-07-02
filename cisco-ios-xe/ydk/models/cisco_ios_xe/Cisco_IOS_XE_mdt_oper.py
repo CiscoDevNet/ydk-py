@@ -198,14 +198,12 @@ class MdtOperData(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("mdt-streams", ("mdt_streams", MdtOperData.MdtStreams))])
-        self._child_list_classes = OrderedDict([("mdt-subscriptions", ("mdt_subscriptions", MdtOperData.MdtSubscriptions)), ("mdt-connections", ("mdt_connections", MdtOperData.MdtConnections))])
+        self._child_classes = OrderedDict([("mdt-streams", ("mdt_streams", MdtOperData.MdtStreams)), ("mdt-subscriptions", ("mdt_subscriptions", MdtOperData.MdtSubscriptions)), ("mdt-connections", ("mdt_connections", MdtOperData.MdtConnections))])
         self._leafs = OrderedDict()
 
         self.mdt_streams = MdtOperData.MdtStreams()
         self.mdt_streams.parent = self
         self._children_name_map["mdt_streams"] = "mdt-streams"
-        self._children_yang_names.add("mdt-streams")
 
         self.mdt_subscriptions = YList(self)
         self.mdt_connections = YList(self)
@@ -239,8 +237,7 @@ class MdtOperData(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('stream', YLeafList(YType.str, 'stream')),
             ])
@@ -324,8 +321,7 @@ class MdtOperData(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['subscription_id']
-            self._child_container_classes = OrderedDict([("base", ("base", MdtOperData.MdtSubscriptions.Base))])
-            self._child_list_classes = OrderedDict([("mdt-receivers", ("mdt_receivers", MdtOperData.MdtSubscriptions.MdtReceivers))])
+            self._child_classes = OrderedDict([("base", ("base", MdtOperData.MdtSubscriptions.Base)), ("mdt-receivers", ("mdt_receivers", MdtOperData.MdtSubscriptions.MdtReceivers))])
             self._leafs = OrderedDict([
                 ('subscription_id', YLeaf(YType.uint32, 'subscription-id')),
                 ('type', YLeaf(YType.enumeration, 'type')),
@@ -346,7 +342,6 @@ class MdtOperData(Entity):
             self.base = MdtOperData.MdtSubscriptions.Base()
             self.base.parent = self
             self._children_name_map["base"] = "base"
-            self._children_yang_names.add("base")
 
             self.mdt_receivers = YList(self)
             self._segment_path = lambda: "mdt-subscriptions" + "[subscription-id='" + str(self.subscription_id) + "']"
@@ -456,8 +451,7 @@ class MdtOperData(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('stream', YLeaf(YType.str, 'stream')),
                     ('encoding', YLeaf(YType.str, 'encoding')),
@@ -551,8 +545,7 @@ class MdtOperData(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['address','port']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('address', YLeaf(YType.str, 'address')),
                     ('port', YLeaf(YType.uint16, 'port')),
@@ -655,8 +648,7 @@ class MdtOperData(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['address','port','source_vrf','source_address']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mdt-sub-con-stats", ("mdt_sub_con_stats", MdtOperData.MdtConnections.MdtSubConStats))])
+            self._child_classes = OrderedDict([("mdt-sub-con-stats", ("mdt_sub_con_stats", MdtOperData.MdtConnections.MdtSubConStats))])
             self._leafs = OrderedDict([
                 ('address', YLeaf(YType.str, 'address')),
                 ('port', YLeaf(YType.uint16, 'port')),
@@ -725,8 +717,7 @@ class MdtOperData(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['sub_id']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('sub_id', YLeaf(YType.uint32, 'sub-id')),
                     ('updates_sent', YLeaf(YType.uint64, 'updates-sent')),

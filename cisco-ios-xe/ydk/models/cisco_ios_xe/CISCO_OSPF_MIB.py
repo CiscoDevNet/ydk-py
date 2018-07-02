@@ -24,39 +24,39 @@ class CISCOOSPFMIB(Entity):
     .. attribute:: cospfgeneralgroup
     
     	
-    	**type**\:  :py:class:`Cospfgeneralgroup <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfgeneralgroup>`
+    	**type**\:  :py:class:`CospfGeneralGroup <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.CospfGeneralGroup>`
     
     .. attribute:: cospflsdbtable
     
     	The OSPF Process's Link State Database. This  table is meant for Opaque LSA's
-    	**type**\:  :py:class:`Cospflsdbtable <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospflsdbtable>`
+    	**type**\:  :py:class:`CospfLsdbTable <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.CospfLsdbTable>`
     
     .. attribute:: cospfshamlinktable
     
     	Information about this router's sham links
-    	**type**\:  :py:class:`Cospfshamlinktable <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinktable>`
+    	**type**\:  :py:class:`CospfShamLinkTable <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.CospfShamLinkTable>`
     
     	**status**\: deprecated
     
     .. attribute:: cospflocallsdbtable
     
     	The OSPF Process's Link\-Local Link State Database for non\-virtual links
-    	**type**\:  :py:class:`Cospflocallsdbtable <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospflocallsdbtable>`
+    	**type**\:  :py:class:`CospfLocalLsdbTable <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.CospfLocalLsdbTable>`
     
     .. attribute:: cospfvirtlocallsdbtable
     
     	The OSPF Process's Link\-Local Link State Database for virtual links
-    	**type**\:  :py:class:`Cospfvirtlocallsdbtable <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfvirtlocallsdbtable>`
+    	**type**\:  :py:class:`CospfVirtLocalLsdbTable <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.CospfVirtLocalLsdbTable>`
     
     .. attribute:: cospfshamlinknbrtable
     
     	A table of sham link neighbor information
-    	**type**\:  :py:class:`Cospfshamlinknbrtable <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinknbrtable>`
+    	**type**\:  :py:class:`CospfShamLinkNbrTable <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.CospfShamLinkNbrTable>`
     
     .. attribute:: cospfshamlinkstable
     
     	Information about this router's sham links
-    	**type**\:  :py:class:`Cospfshamlinkstable <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinkstable>`
+    	**type**\:  :py:class:`CospfShamLinksTable <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.CospfShamLinksTable>`
     
     
 
@@ -74,48 +74,43 @@ class CISCOOSPFMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cospfGeneralGroup", ("cospfgeneralgroup", CISCOOSPFMIB.Cospfgeneralgroup)), ("cospfLsdbTable", ("cospflsdbtable", CISCOOSPFMIB.Cospflsdbtable)), ("cospfShamLinkTable", ("cospfshamlinktable", CISCOOSPFMIB.Cospfshamlinktable)), ("cospfLocalLsdbTable", ("cospflocallsdbtable", CISCOOSPFMIB.Cospflocallsdbtable)), ("cospfVirtLocalLsdbTable", ("cospfvirtlocallsdbtable", CISCOOSPFMIB.Cospfvirtlocallsdbtable)), ("cospfShamLinkNbrTable", ("cospfshamlinknbrtable", CISCOOSPFMIB.Cospfshamlinknbrtable)), ("cospfShamLinksTable", ("cospfshamlinkstable", CISCOOSPFMIB.Cospfshamlinkstable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cospfGeneralGroup", ("cospfgeneralgroup", CISCOOSPFMIB.CospfGeneralGroup)), ("cospfLsdbTable", ("cospflsdbtable", CISCOOSPFMIB.CospfLsdbTable)), ("cospfShamLinkTable", ("cospfshamlinktable", CISCOOSPFMIB.CospfShamLinkTable)), ("cospfLocalLsdbTable", ("cospflocallsdbtable", CISCOOSPFMIB.CospfLocalLsdbTable)), ("cospfVirtLocalLsdbTable", ("cospfvirtlocallsdbtable", CISCOOSPFMIB.CospfVirtLocalLsdbTable)), ("cospfShamLinkNbrTable", ("cospfshamlinknbrtable", CISCOOSPFMIB.CospfShamLinkNbrTable)), ("cospfShamLinksTable", ("cospfshamlinkstable", CISCOOSPFMIB.CospfShamLinksTable))])
         self._leafs = OrderedDict()
 
-        self.cospfgeneralgroup = CISCOOSPFMIB.Cospfgeneralgroup()
+        self.cospfgeneralgroup = CISCOOSPFMIB.CospfGeneralGroup()
         self.cospfgeneralgroup.parent = self
         self._children_name_map["cospfgeneralgroup"] = "cospfGeneralGroup"
-        self._children_yang_names.add("cospfGeneralGroup")
 
-        self.cospflsdbtable = CISCOOSPFMIB.Cospflsdbtable()
+        self.cospflsdbtable = CISCOOSPFMIB.CospfLsdbTable()
         self.cospflsdbtable.parent = self
         self._children_name_map["cospflsdbtable"] = "cospfLsdbTable"
-        self._children_yang_names.add("cospfLsdbTable")
 
-        self.cospfshamlinktable = CISCOOSPFMIB.Cospfshamlinktable()
+        self.cospfshamlinktable = CISCOOSPFMIB.CospfShamLinkTable()
         self.cospfshamlinktable.parent = self
         self._children_name_map["cospfshamlinktable"] = "cospfShamLinkTable"
-        self._children_yang_names.add("cospfShamLinkTable")
 
-        self.cospflocallsdbtable = CISCOOSPFMIB.Cospflocallsdbtable()
+        self.cospflocallsdbtable = CISCOOSPFMIB.CospfLocalLsdbTable()
         self.cospflocallsdbtable.parent = self
         self._children_name_map["cospflocallsdbtable"] = "cospfLocalLsdbTable"
-        self._children_yang_names.add("cospfLocalLsdbTable")
 
-        self.cospfvirtlocallsdbtable = CISCOOSPFMIB.Cospfvirtlocallsdbtable()
+        self.cospfvirtlocallsdbtable = CISCOOSPFMIB.CospfVirtLocalLsdbTable()
         self.cospfvirtlocallsdbtable.parent = self
         self._children_name_map["cospfvirtlocallsdbtable"] = "cospfVirtLocalLsdbTable"
-        self._children_yang_names.add("cospfVirtLocalLsdbTable")
 
-        self.cospfshamlinknbrtable = CISCOOSPFMIB.Cospfshamlinknbrtable()
+        self.cospfshamlinknbrtable = CISCOOSPFMIB.CospfShamLinkNbrTable()
         self.cospfshamlinknbrtable.parent = self
         self._children_name_map["cospfshamlinknbrtable"] = "cospfShamLinkNbrTable"
-        self._children_yang_names.add("cospfShamLinkNbrTable")
 
-        self.cospfshamlinkstable = CISCOOSPFMIB.Cospfshamlinkstable()
+        self.cospfshamlinkstable = CISCOOSPFMIB.CospfShamLinksTable()
         self.cospfshamlinkstable.parent = self
         self._children_name_map["cospfshamlinkstable"] = "cospfShamLinksTable"
-        self._children_yang_names.add("cospfShamLinksTable")
         self._segment_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOOSPFMIB, [], name, value)
 
-    class Cospfgeneralgroup(Entity):
+
+    class CospfGeneralGroup(Entity):
         """
         
         
@@ -156,15 +151,14 @@ class CISCOOSPFMIB(Entity):
         _revision = '2003-07-18'
 
         def __init__(self):
-            super(CISCOOSPFMIB.Cospfgeneralgroup, self).__init__()
+            super(CISCOOSPFMIB.CospfGeneralGroup, self).__init__()
 
             self.yang_name = "cospfGeneralGroup"
             self.yang_parent_name = "CISCO-OSPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cospfrfc1583compatibility', YLeaf(YType.boolean, 'cospfRFC1583Compatibility')),
                 ('cospfopaquelsasupport', YLeaf(YType.boolean, 'cospfOpaqueLsaSupport')),
@@ -181,10 +175,10 @@ class CISCOOSPFMIB(Entity):
             self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOOSPFMIB.Cospfgeneralgroup, ['cospfrfc1583compatibility', 'cospfopaquelsasupport', 'cospftrafficengineeringsupport', 'cospfopaqueaslsacount', 'cospfopaqueaslsacksumsum'], name, value)
+            self._perform_setattr(CISCOOSPFMIB.CospfGeneralGroup, ['cospfrfc1583compatibility', 'cospfopaquelsasupport', 'cospftrafficengineeringsupport', 'cospfopaqueaslsacount', 'cospfopaqueaslsacksumsum'], name, value)
 
 
-    class Cospflsdbtable(Entity):
+    class CospfLsdbTable(Entity):
         """
         The OSPF Process's Link State Database. This 
         table is meant for Opaque LSA's
@@ -192,7 +186,7 @@ class CISCOOSPFMIB(Entity):
         .. attribute:: cospflsdbentry
         
         	A single Link State Advertisement
-        	**type**\: list of  		 :py:class:`Cospflsdbentry <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospflsdbtable.Cospflsdbentry>`
+        	**type**\: list of  		 :py:class:`CospfLsdbEntry <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.CospfLsdbTable.CospfLsdbEntry>`
         
         
 
@@ -202,15 +196,14 @@ class CISCOOSPFMIB(Entity):
         _revision = '2003-07-18'
 
         def __init__(self):
-            super(CISCOOSPFMIB.Cospflsdbtable, self).__init__()
+            super(CISCOOSPFMIB.CospfLsdbTable, self).__init__()
 
             self.yang_name = "cospfLsdbTable"
             self.yang_parent_name = "CISCO-OSPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cospfLsdbEntry", ("cospflsdbentry", CISCOOSPFMIB.Cospflsdbtable.Cospflsdbentry))])
+            self._child_classes = OrderedDict([("cospfLsdbEntry", ("cospflsdbentry", CISCOOSPFMIB.CospfLsdbTable.CospfLsdbEntry))])
             self._leafs = OrderedDict()
 
             self.cospflsdbentry = YList(self)
@@ -218,10 +211,10 @@ class CISCOOSPFMIB(Entity):
             self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOOSPFMIB.Cospflsdbtable, [], name, value)
+            self._perform_setattr(CISCOOSPFMIB.CospfLsdbTable, [], name, value)
 
 
-        class Cospflsdbentry(Entity):
+        class CospfLsdbEntry(Entity):
             """
             A single Link State Advertisement.
             
@@ -232,12 +225,12 @@ class CISCOOSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            	**refers to**\:  :py:class:`ospflsdbareaid <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospflsdbtable.Ospflsdbentry>`
+            	**refers to**\:  :py:class:`ospflsdbareaid <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfLsdbTable.OspfLsdbEntry>`
             
             .. attribute:: cospflsdbtype  (key)
             
             	The type of the link state advertisement. Each link state type has a separate advertisement format
-            	**type**\:  :py:class:`Cospflsdbtype <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospflsdbtable.Cospflsdbentry.Cospflsdbtype>`
+            	**type**\:  :py:class:`CospfLsdbType <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.CospfLsdbTable.CospfLsdbEntry.CospfLsdbType>`
             
             .. attribute:: ospflsdblsid  (key)
             
@@ -246,7 +239,7 @@ class CISCOOSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            	**refers to**\:  :py:class:`ospflsdblsid <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospflsdbtable.Ospflsdbentry>`
+            	**refers to**\:  :py:class:`ospflsdblsid <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfLsdbTable.OspfLsdbEntry>`
             
             .. attribute:: ospflsdbrouterid  (key)
             
@@ -255,7 +248,7 @@ class CISCOOSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            	**refers to**\:  :py:class:`ospflsdbrouterid <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospflsdbtable.Ospflsdbentry>`
+            	**refers to**\:  :py:class:`ospflsdbrouterid <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfLsdbTable.OspfLsdbEntry>`
             
             .. attribute:: cospflsdbsequence
             
@@ -293,15 +286,14 @@ class CISCOOSPFMIB(Entity):
             _revision = '2003-07-18'
 
             def __init__(self):
-                super(CISCOOSPFMIB.Cospflsdbtable.Cospflsdbentry, self).__init__()
+                super(CISCOOSPFMIB.CospfLsdbTable.CospfLsdbEntry, self).__init__()
 
                 self.yang_name = "cospfLsdbEntry"
                 self.yang_parent_name = "cospfLsdbTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ospflsdbareaid','cospflsdbtype','ospflsdblsid','ospflsdbrouterid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ospflsdbareaid', YLeaf(YType.str, 'ospfLsdbAreaId')),
                     ('cospflsdbtype', YLeaf(YType.enumeration, 'cospfLsdbType')),
@@ -324,11 +316,11 @@ class CISCOOSPFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/cospfLsdbTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOOSPFMIB.Cospflsdbtable.Cospflsdbentry, ['ospflsdbareaid', 'cospflsdbtype', 'ospflsdblsid', 'ospflsdbrouterid', 'cospflsdbsequence', 'cospflsdbage', 'cospflsdbchecksum', 'cospflsdbadvertisement'], name, value)
+                self._perform_setattr(CISCOOSPFMIB.CospfLsdbTable.CospfLsdbEntry, ['ospflsdbareaid', 'cospflsdbtype', 'ospflsdblsid', 'ospflsdbrouterid', 'cospflsdbsequence', 'cospflsdbage', 'cospflsdbchecksum', 'cospflsdbadvertisement'], name, value)
 
-            class Cospflsdbtype(Enum):
+            class CospfLsdbType(Enum):
                 """
-                Cospflsdbtype (Enum Class)
+                CospfLsdbType (Enum Class)
 
                 The type of the link state advertisement.
 
@@ -346,14 +338,14 @@ class CISCOOSPFMIB(Entity):
 
 
 
-    class Cospfshamlinktable(Entity):
+    class CospfShamLinkTable(Entity):
         """
         Information about this router's sham links
         
         .. attribute:: cospfshamlinkentry
         
         	Information about a single sham link
-        	**type**\: list of  		 :py:class:`Cospfshamlinkentry <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinktable.Cospfshamlinkentry>`
+        	**type**\: list of  		 :py:class:`CospfShamLinkEntry <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.CospfShamLinkTable.CospfShamLinkEntry>`
         
         	**status**\: deprecated
         
@@ -365,15 +357,14 @@ class CISCOOSPFMIB(Entity):
         _revision = '2003-07-18'
 
         def __init__(self):
-            super(CISCOOSPFMIB.Cospfshamlinktable, self).__init__()
+            super(CISCOOSPFMIB.CospfShamLinkTable, self).__init__()
 
             self.yang_name = "cospfShamLinkTable"
             self.yang_parent_name = "CISCO-OSPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cospfShamLinkEntry", ("cospfshamlinkentry", CISCOOSPFMIB.Cospfshamlinktable.Cospfshamlinkentry))])
+            self._child_classes = OrderedDict([("cospfShamLinkEntry", ("cospfshamlinkentry", CISCOOSPFMIB.CospfShamLinkTable.CospfShamLinkEntry))])
             self._leafs = OrderedDict()
 
             self.cospfshamlinkentry = YList(self)
@@ -381,10 +372,10 @@ class CISCOOSPFMIB(Entity):
             self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOOSPFMIB.Cospfshamlinktable, [], name, value)
+            self._perform_setattr(CISCOOSPFMIB.CospfShamLinkTable, [], name, value)
 
 
-        class Cospfshamlinkentry(Entity):
+        class CospfShamLinkEntry(Entity):
             """
             Information about a single sham link
             
@@ -445,7 +436,7 @@ class CISCOOSPFMIB(Entity):
             .. attribute:: cospfshamlinkstate
             
             	OSPF sham link states
-            	**type**\:  :py:class:`Cospfshamlinkstate <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinktable.Cospfshamlinkentry.Cospfshamlinkstate>`
+            	**type**\:  :py:class:`CospfShamLinkState <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.CospfShamLinkTable.CospfShamLinkEntry.CospfShamLinkState>`
             
             	**status**\: deprecated
             
@@ -475,15 +466,14 @@ class CISCOOSPFMIB(Entity):
             _revision = '2003-07-18'
 
             def __init__(self):
-                super(CISCOOSPFMIB.Cospfshamlinktable.Cospfshamlinkentry, self).__init__()
+                super(CISCOOSPFMIB.CospfShamLinkTable.CospfShamLinkEntry, self).__init__()
 
                 self.yang_name = "cospfShamLinkEntry"
                 self.yang_parent_name = "cospfShamLinkTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cospfshamlinkareaid','cospfshamlinklocalipaddress','cospfshamlinkneighborid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cospfshamlinkareaid', YLeaf(YType.str, 'cospfShamLinkAreaId')),
                     ('cospfshamlinklocalipaddress', YLeaf(YType.str, 'cospfShamLinkLocalIpAddress')),
@@ -508,11 +498,11 @@ class CISCOOSPFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/cospfShamLinkTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOOSPFMIB.Cospfshamlinktable.Cospfshamlinkentry, ['cospfshamlinkareaid', 'cospfshamlinklocalipaddress', 'cospfshamlinkneighborid', 'cospfshamlinkretransinterval', 'cospfshamlinkhellointerval', 'cospfshamlinkrtrdeadinterval', 'cospfshamlinkstate', 'cospfshamlinkevents', 'cospfshamlinkmetric'], name, value)
+                self._perform_setattr(CISCOOSPFMIB.CospfShamLinkTable.CospfShamLinkEntry, ['cospfshamlinkareaid', 'cospfshamlinklocalipaddress', 'cospfshamlinkneighborid', 'cospfshamlinkretransinterval', 'cospfshamlinkhellointerval', 'cospfshamlinkrtrdeadinterval', 'cospfshamlinkstate', 'cospfshamlinkevents', 'cospfshamlinkmetric'], name, value)
 
-            class Cospfshamlinkstate(Enum):
+            class CospfShamLinkState(Enum):
                 """
-                Cospfshamlinkstate (Enum Class)
+                CospfShamLinkState (Enum Class)
 
                 OSPF sham link states.
 
@@ -528,7 +518,7 @@ class CISCOOSPFMIB(Entity):
 
 
 
-    class Cospflocallsdbtable(Entity):
+    class CospfLocalLsdbTable(Entity):
         """
         The OSPF Process's Link\-Local Link State Database
         for non\-virtual links.
@@ -536,7 +526,7 @@ class CISCOOSPFMIB(Entity):
         .. attribute:: cospflocallsdbentry
         
         	A single Link State Advertisement
-        	**type**\: list of  		 :py:class:`Cospflocallsdbentry <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospflocallsdbtable.Cospflocallsdbentry>`
+        	**type**\: list of  		 :py:class:`CospfLocalLsdbEntry <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.CospfLocalLsdbTable.CospfLocalLsdbEntry>`
         
         
 
@@ -546,15 +536,14 @@ class CISCOOSPFMIB(Entity):
         _revision = '2003-07-18'
 
         def __init__(self):
-            super(CISCOOSPFMIB.Cospflocallsdbtable, self).__init__()
+            super(CISCOOSPFMIB.CospfLocalLsdbTable, self).__init__()
 
             self.yang_name = "cospfLocalLsdbTable"
             self.yang_parent_name = "CISCO-OSPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cospfLocalLsdbEntry", ("cospflocallsdbentry", CISCOOSPFMIB.Cospflocallsdbtable.Cospflocallsdbentry))])
+            self._child_classes = OrderedDict([("cospfLocalLsdbEntry", ("cospflocallsdbentry", CISCOOSPFMIB.CospfLocalLsdbTable.CospfLocalLsdbEntry))])
             self._leafs = OrderedDict()
 
             self.cospflocallsdbentry = YList(self)
@@ -562,10 +551,10 @@ class CISCOOSPFMIB(Entity):
             self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOOSPFMIB.Cospflocallsdbtable, [], name, value)
+            self._perform_setattr(CISCOOSPFMIB.CospfLocalLsdbTable, [], name, value)
 
 
-        class Cospflocallsdbentry(Entity):
+        class CospfLocalLsdbEntry(Entity):
             """
             A single Link State Advertisement.
             
@@ -586,7 +575,7 @@ class CISCOOSPFMIB(Entity):
             .. attribute:: cospflocallsdbtype  (key)
             
             	The type of the link state advertisement. Each link state type has a separate advertisement format
-            	**type**\:  :py:class:`Cospflocallsdbtype <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospflocallsdbtable.Cospflocallsdbentry.Cospflocallsdbtype>`
+            	**type**\:  :py:class:`CospfLocalLsdbType <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.CospfLocalLsdbTable.CospfLocalLsdbEntry.CospfLocalLsdbType>`
             
             .. attribute:: cospflocallsdblsid  (key)
             
@@ -638,15 +627,14 @@ class CISCOOSPFMIB(Entity):
             _revision = '2003-07-18'
 
             def __init__(self):
-                super(CISCOOSPFMIB.Cospflocallsdbtable.Cospflocallsdbentry, self).__init__()
+                super(CISCOOSPFMIB.CospfLocalLsdbTable.CospfLocalLsdbEntry, self).__init__()
 
                 self.yang_name = "cospfLocalLsdbEntry"
                 self.yang_parent_name = "cospfLocalLsdbTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cospflocallsdbipaddress','cospflocallsdbaddresslessif','cospflocallsdbtype','cospflocallsdblsid','cospflocallsdbrouterid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cospflocallsdbipaddress', YLeaf(YType.str, 'cospfLocalLsdbIpAddress')),
                     ('cospflocallsdbaddresslessif', YLeaf(YType.int32, 'cospfLocalLsdbAddressLessIf')),
@@ -671,11 +659,11 @@ class CISCOOSPFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/cospfLocalLsdbTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOOSPFMIB.Cospflocallsdbtable.Cospflocallsdbentry, ['cospflocallsdbipaddress', 'cospflocallsdbaddresslessif', 'cospflocallsdbtype', 'cospflocallsdblsid', 'cospflocallsdbrouterid', 'cospflocallsdbsequence', 'cospflocallsdbage', 'cospflocallsdbchecksum', 'cospflocallsdbadvertisement'], name, value)
+                self._perform_setattr(CISCOOSPFMIB.CospfLocalLsdbTable.CospfLocalLsdbEntry, ['cospflocallsdbipaddress', 'cospflocallsdbaddresslessif', 'cospflocallsdbtype', 'cospflocallsdblsid', 'cospflocallsdbrouterid', 'cospflocallsdbsequence', 'cospflocallsdbage', 'cospflocallsdbchecksum', 'cospflocallsdbadvertisement'], name, value)
 
-            class Cospflocallsdbtype(Enum):
+            class CospfLocalLsdbType(Enum):
                 """
-                Cospflocallsdbtype (Enum Class)
+                CospfLocalLsdbType (Enum Class)
 
                 The type of the link state advertisement.
 
@@ -689,7 +677,7 @@ class CISCOOSPFMIB(Entity):
 
 
 
-    class Cospfvirtlocallsdbtable(Entity):
+    class CospfVirtLocalLsdbTable(Entity):
         """
         The OSPF Process's Link\-Local Link State Database
         for virtual links.
@@ -697,7 +685,7 @@ class CISCOOSPFMIB(Entity):
         .. attribute:: cospfvirtlocallsdbentry
         
         	A single Link State Advertisement
-        	**type**\: list of  		 :py:class:`Cospfvirtlocallsdbentry <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfvirtlocallsdbtable.Cospfvirtlocallsdbentry>`
+        	**type**\: list of  		 :py:class:`CospfVirtLocalLsdbEntry <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.CospfVirtLocalLsdbTable.CospfVirtLocalLsdbEntry>`
         
         
 
@@ -707,15 +695,14 @@ class CISCOOSPFMIB(Entity):
         _revision = '2003-07-18'
 
         def __init__(self):
-            super(CISCOOSPFMIB.Cospfvirtlocallsdbtable, self).__init__()
+            super(CISCOOSPFMIB.CospfVirtLocalLsdbTable, self).__init__()
 
             self.yang_name = "cospfVirtLocalLsdbTable"
             self.yang_parent_name = "CISCO-OSPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cospfVirtLocalLsdbEntry", ("cospfvirtlocallsdbentry", CISCOOSPFMIB.Cospfvirtlocallsdbtable.Cospfvirtlocallsdbentry))])
+            self._child_classes = OrderedDict([("cospfVirtLocalLsdbEntry", ("cospfvirtlocallsdbentry", CISCOOSPFMIB.CospfVirtLocalLsdbTable.CospfVirtLocalLsdbEntry))])
             self._leafs = OrderedDict()
 
             self.cospfvirtlocallsdbentry = YList(self)
@@ -723,10 +710,10 @@ class CISCOOSPFMIB(Entity):
             self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOOSPFMIB.Cospfvirtlocallsdbtable, [], name, value)
+            self._perform_setattr(CISCOOSPFMIB.CospfVirtLocalLsdbTable, [], name, value)
 
 
-        class Cospfvirtlocallsdbentry(Entity):
+        class CospfVirtLocalLsdbEntry(Entity):
             """
             A single Link State Advertisement.
             
@@ -747,7 +734,7 @@ class CISCOOSPFMIB(Entity):
             .. attribute:: cospfvirtlocallsdbtype  (key)
             
             	The type of the link state advertisement. Each  link state type has a separate advertisement format
-            	**type**\:  :py:class:`Cospfvirtlocallsdbtype <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfvirtlocallsdbtable.Cospfvirtlocallsdbentry.Cospfvirtlocallsdbtype>`
+            	**type**\:  :py:class:`CospfVirtLocalLsdbType <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.CospfVirtLocalLsdbTable.CospfVirtLocalLsdbEntry.CospfVirtLocalLsdbType>`
             
             .. attribute:: cospfvirtlocallsdblsid  (key)
             
@@ -799,15 +786,14 @@ class CISCOOSPFMIB(Entity):
             _revision = '2003-07-18'
 
             def __init__(self):
-                super(CISCOOSPFMIB.Cospfvirtlocallsdbtable.Cospfvirtlocallsdbentry, self).__init__()
+                super(CISCOOSPFMIB.CospfVirtLocalLsdbTable.CospfVirtLocalLsdbEntry, self).__init__()
 
                 self.yang_name = "cospfVirtLocalLsdbEntry"
                 self.yang_parent_name = "cospfVirtLocalLsdbTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cospfvirtlocallsdbtransitarea','cospfvirtlocallsdbneighbor','cospfvirtlocallsdbtype','cospfvirtlocallsdblsid','cospfvirtlocallsdbrouterid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cospfvirtlocallsdbtransitarea', YLeaf(YType.str, 'cospfVirtLocalLsdbTransitArea')),
                     ('cospfvirtlocallsdbneighbor', YLeaf(YType.str, 'cospfVirtLocalLsdbNeighbor')),
@@ -832,11 +818,11 @@ class CISCOOSPFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/cospfVirtLocalLsdbTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOOSPFMIB.Cospfvirtlocallsdbtable.Cospfvirtlocallsdbentry, ['cospfvirtlocallsdbtransitarea', 'cospfvirtlocallsdbneighbor', 'cospfvirtlocallsdbtype', 'cospfvirtlocallsdblsid', 'cospfvirtlocallsdbrouterid', 'cospfvirtlocallsdbsequence', 'cospfvirtlocallsdbage', 'cospfvirtlocallsdbchecksum', 'cospfvirtlocallsdbadvertisement'], name, value)
+                self._perform_setattr(CISCOOSPFMIB.CospfVirtLocalLsdbTable.CospfVirtLocalLsdbEntry, ['cospfvirtlocallsdbtransitarea', 'cospfvirtlocallsdbneighbor', 'cospfvirtlocallsdbtype', 'cospfvirtlocallsdblsid', 'cospfvirtlocallsdbrouterid', 'cospfvirtlocallsdbsequence', 'cospfvirtlocallsdbage', 'cospfvirtlocallsdbchecksum', 'cospfvirtlocallsdbadvertisement'], name, value)
 
-            class Cospfvirtlocallsdbtype(Enum):
+            class CospfVirtLocalLsdbType(Enum):
                 """
-                Cospfvirtlocallsdbtype (Enum Class)
+                CospfVirtLocalLsdbType (Enum Class)
 
                 The type of the link state advertisement.
 
@@ -850,14 +836,14 @@ class CISCOOSPFMIB(Entity):
 
 
 
-    class Cospfshamlinknbrtable(Entity):
+    class CospfShamLinkNbrTable(Entity):
         """
         A table of sham link neighbor information.
         
         .. attribute:: cospfshamlinknbrentry
         
         	Sham link neighbor information
-        	**type**\: list of  		 :py:class:`Cospfshamlinknbrentry <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinknbrtable.Cospfshamlinknbrentry>`
+        	**type**\: list of  		 :py:class:`CospfShamLinkNbrEntry <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.CospfShamLinkNbrTable.CospfShamLinkNbrEntry>`
         
         
 
@@ -867,15 +853,14 @@ class CISCOOSPFMIB(Entity):
         _revision = '2003-07-18'
 
         def __init__(self):
-            super(CISCOOSPFMIB.Cospfshamlinknbrtable, self).__init__()
+            super(CISCOOSPFMIB.CospfShamLinkNbrTable, self).__init__()
 
             self.yang_name = "cospfShamLinkNbrTable"
             self.yang_parent_name = "CISCO-OSPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cospfShamLinkNbrEntry", ("cospfshamlinknbrentry", CISCOOSPFMIB.Cospfshamlinknbrtable.Cospfshamlinknbrentry))])
+            self._child_classes = OrderedDict([("cospfShamLinkNbrEntry", ("cospfshamlinknbrentry", CISCOOSPFMIB.CospfShamLinkNbrTable.CospfShamLinkNbrEntry))])
             self._leafs = OrderedDict()
 
             self.cospfshamlinknbrentry = YList(self)
@@ -883,10 +868,10 @@ class CISCOOSPFMIB(Entity):
             self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOOSPFMIB.Cospfshamlinknbrtable, [], name, value)
+            self._perform_setattr(CISCOOSPFMIB.CospfShamLinkNbrTable, [], name, value)
 
 
-        class Cospfshamlinknbrentry(Entity):
+        class CospfShamLinkNbrEntry(Entity):
             """
             Sham link neighbor information.
             
@@ -902,7 +887,7 @@ class CISCOOSPFMIB(Entity):
             
             	**length:** 0..255
             
-            	**refers to**\:  :py:class:`cospfshamlinkslocalipaddr <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinkstable.Cospfshamlinksentry>`
+            	**refers to**\:  :py:class:`cospfshamlinkslocalipaddr <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.CospfShamLinksTable.CospfShamLinksEntry>`
             
             .. attribute:: cospfshamlinknbrarea  (key)
             
@@ -940,7 +925,7 @@ class CISCOOSPFMIB(Entity):
             .. attribute:: cospfshamlinknbrstate
             
             	The state of this sham link neighbor relation\- ship
-            	**type**\:  :py:class:`Cospfshamlinknbrstate <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinknbrtable.Cospfshamlinknbrentry.Cospfshamlinknbrstate>`
+            	**type**\:  :py:class:`CospfShamLinkNbrState <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.CospfShamLinkNbrTable.CospfShamLinkNbrEntry.CospfShamLinkNbrState>`
             
             .. attribute:: cospfshamlinknbrevents
             
@@ -969,15 +954,14 @@ class CISCOOSPFMIB(Entity):
             _revision = '2003-07-18'
 
             def __init__(self):
-                super(CISCOOSPFMIB.Cospfshamlinknbrtable.Cospfshamlinknbrentry, self).__init__()
+                super(CISCOOSPFMIB.CospfShamLinkNbrTable.CospfShamLinkNbrEntry, self).__init__()
 
                 self.yang_name = "cospfShamLinkNbrEntry"
                 self.yang_parent_name = "cospfShamLinkNbrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cospfshamlinkslocalipaddrtype','cospfshamlinkslocalipaddr','cospfshamlinknbrarea','cospfshamlinknbripaddrtype','cospfshamlinknbripaddr']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cospfshamlinkslocalipaddrtype', YLeaf(YType.enumeration, 'cospfShamLinksLocalIpAddrType')),
                     ('cospfshamlinkslocalipaddr', YLeaf(YType.str, 'cospfShamLinksLocalIpAddr')),
@@ -1006,11 +990,11 @@ class CISCOOSPFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/cospfShamLinkNbrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOOSPFMIB.Cospfshamlinknbrtable.Cospfshamlinknbrentry, ['cospfshamlinkslocalipaddrtype', 'cospfshamlinkslocalipaddr', 'cospfshamlinknbrarea', 'cospfshamlinknbripaddrtype', 'cospfshamlinknbripaddr', 'cospfshamlinknbrrtrid', 'cospfshamlinknbroptions', 'cospfshamlinknbrstate', 'cospfshamlinknbrevents', 'cospfshamlinknbrlsretransqlen', 'cospfshamlinknbrhellosuppressed'], name, value)
+                self._perform_setattr(CISCOOSPFMIB.CospfShamLinkNbrTable.CospfShamLinkNbrEntry, ['cospfshamlinkslocalipaddrtype', 'cospfshamlinkslocalipaddr', 'cospfshamlinknbrarea', 'cospfshamlinknbripaddrtype', 'cospfshamlinknbripaddr', 'cospfshamlinknbrrtrid', 'cospfshamlinknbroptions', 'cospfshamlinknbrstate', 'cospfshamlinknbrevents', 'cospfshamlinknbrlsretransqlen', 'cospfshamlinknbrhellosuppressed'], name, value)
 
-            class Cospfshamlinknbrstate(Enum):
+            class CospfShamLinkNbrState(Enum):
                 """
-                Cospfshamlinknbrstate (Enum Class)
+                CospfShamLinkNbrState (Enum Class)
 
                 The state of this sham link neighbor relation\-
 
@@ -1052,14 +1036,14 @@ class CISCOOSPFMIB(Entity):
 
 
 
-    class Cospfshamlinkstable(Entity):
+    class CospfShamLinksTable(Entity):
         """
         Information about this router's sham links.
         
         .. attribute:: cospfshamlinksentry
         
         	Information about a single sham link
-        	**type**\: list of  		 :py:class:`Cospfshamlinksentry <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinkstable.Cospfshamlinksentry>`
+        	**type**\: list of  		 :py:class:`CospfShamLinksEntry <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.CospfShamLinksTable.CospfShamLinksEntry>`
         
         
 
@@ -1069,15 +1053,14 @@ class CISCOOSPFMIB(Entity):
         _revision = '2003-07-18'
 
         def __init__(self):
-            super(CISCOOSPFMIB.Cospfshamlinkstable, self).__init__()
+            super(CISCOOSPFMIB.CospfShamLinksTable, self).__init__()
 
             self.yang_name = "cospfShamLinksTable"
             self.yang_parent_name = "CISCO-OSPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cospfShamLinksEntry", ("cospfshamlinksentry", CISCOOSPFMIB.Cospfshamlinkstable.Cospfshamlinksentry))])
+            self._child_classes = OrderedDict([("cospfShamLinksEntry", ("cospfshamlinksentry", CISCOOSPFMIB.CospfShamLinksTable.CospfShamLinksEntry))])
             self._leafs = OrderedDict()
 
             self.cospfshamlinksentry = YList(self)
@@ -1085,10 +1068,10 @@ class CISCOOSPFMIB(Entity):
             self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOOSPFMIB.Cospfshamlinkstable, [], name, value)
+            self._perform_setattr(CISCOOSPFMIB.CospfShamLinksTable, [], name, value)
 
 
-        class Cospfshamlinksentry(Entity):
+        class CospfShamLinksEntry(Entity):
             """
             Information about a single sham link.
             
@@ -1147,7 +1130,7 @@ class CISCOOSPFMIB(Entity):
             .. attribute:: cospfshamlinksstate
             
             	OSPF sham link states
-            	**type**\:  :py:class:`Cospfshamlinksstate <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinkstable.Cospfshamlinksentry.Cospfshamlinksstate>`
+            	**type**\:  :py:class:`CospfShamLinksState <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.CospfShamLinksTable.CospfShamLinksEntry.CospfShamLinksState>`
             
             .. attribute:: cospfshamlinksevents
             
@@ -1171,15 +1154,14 @@ class CISCOOSPFMIB(Entity):
             _revision = '2003-07-18'
 
             def __init__(self):
-                super(CISCOOSPFMIB.Cospfshamlinkstable.Cospfshamlinksentry, self).__init__()
+                super(CISCOOSPFMIB.CospfShamLinksTable.CospfShamLinksEntry, self).__init__()
 
                 self.yang_name = "cospfShamLinksEntry"
                 self.yang_parent_name = "cospfShamLinksTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cospfshamlinksareaid','cospfshamlinkslocalipaddrtype','cospfshamlinkslocalipaddr','cospfshamlinksremoteipaddrtype','cospfshamlinksremoteipaddr']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cospfshamlinksareaid', YLeaf(YType.str, 'cospfShamLinksAreaId')),
                     ('cospfshamlinkslocalipaddrtype', YLeaf(YType.enumeration, 'cospfShamLinksLocalIpAddrType')),
@@ -1208,11 +1190,11 @@ class CISCOOSPFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/cospfShamLinksTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOOSPFMIB.Cospfshamlinkstable.Cospfshamlinksentry, ['cospfshamlinksareaid', 'cospfshamlinkslocalipaddrtype', 'cospfshamlinkslocalipaddr', 'cospfshamlinksremoteipaddrtype', 'cospfshamlinksremoteipaddr', 'cospfshamlinksretransinterval', 'cospfshamlinkshellointerval', 'cospfshamlinksrtrdeadinterval', 'cospfshamlinksstate', 'cospfshamlinksevents', 'cospfshamlinksmetric'], name, value)
+                self._perform_setattr(CISCOOSPFMIB.CospfShamLinksTable.CospfShamLinksEntry, ['cospfshamlinksareaid', 'cospfshamlinkslocalipaddrtype', 'cospfshamlinkslocalipaddr', 'cospfshamlinksremoteipaddrtype', 'cospfshamlinksremoteipaddr', 'cospfshamlinksretransinterval', 'cospfshamlinkshellointerval', 'cospfshamlinksrtrdeadinterval', 'cospfshamlinksstate', 'cospfshamlinksevents', 'cospfshamlinksmetric'], name, value)
 
-            class Cospfshamlinksstate(Enum):
+            class CospfShamLinksState(Enum):
                 """
-                Cospfshamlinksstate (Enum Class)
+                CospfShamLinksState (Enum Class)
 
                 OSPF sham link states.
 

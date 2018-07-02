@@ -21,32 +21,32 @@ class IPMROUTESTDMIB(Entity):
     .. attribute:: ipmroute
     
     	
-    	**type**\:  :py:class:`Ipmroute <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmroute>`
+    	**type**\:  :py:class:`IpMRoute <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRoute>`
     
     .. attribute:: ipmroutetable
     
     	The (conceptual) table containing multicast routing information for IP datagrams sent by particular sources to the IP multicast groups known to this router
-    	**type**\:  :py:class:`Ipmroutetable <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmroutetable>`
+    	**type**\:  :py:class:`IpMRouteTable <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteTable>`
     
     .. attribute:: ipmroutenexthoptable
     
     	The (conceptual) table containing information on the next\- hops on outgoing interfaces for routing IP multicast datagrams.  Each entry is one of a list of next\-hops on outgoing interfaces for particular sources sending to a particular multicast group address
-    	**type**\:  :py:class:`Ipmroutenexthoptable <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmroutenexthoptable>`
+    	**type**\:  :py:class:`IpMRouteNextHopTable <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteNextHopTable>`
     
     .. attribute:: ipmrouteinterfacetable
     
     	The (conceptual) table containing multicast routing information specific to interfaces
-    	**type**\:  :py:class:`Ipmrouteinterfacetable <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmrouteinterfacetable>`
+    	**type**\:  :py:class:`IpMRouteInterfaceTable <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteInterfaceTable>`
     
     .. attribute:: ipmrouteboundarytable
     
     	The (conceptual) table listing the router's scoped multicast address boundaries
-    	**type**\:  :py:class:`Ipmrouteboundarytable <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmrouteboundarytable>`
+    	**type**\:  :py:class:`IpMRouteBoundaryTable <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteBoundaryTable>`
     
     .. attribute:: ipmroutescopenametable
     
     	The (conceptual) table listing the multicast scope names
-    	**type**\:  :py:class:`Ipmroutescopenametable <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmroutescopenametable>`
+    	**type**\:  :py:class:`IpMRouteScopeNameTable <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteScopeNameTable>`
     
     
 
@@ -64,50 +64,46 @@ class IPMROUTESTDMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ipMRoute", ("ipmroute", IPMROUTESTDMIB.Ipmroute)), ("ipMRouteTable", ("ipmroutetable", IPMROUTESTDMIB.Ipmroutetable)), ("ipMRouteNextHopTable", ("ipmroutenexthoptable", IPMROUTESTDMIB.Ipmroutenexthoptable)), ("ipMRouteInterfaceTable", ("ipmrouteinterfacetable", IPMROUTESTDMIB.Ipmrouteinterfacetable)), ("ipMRouteBoundaryTable", ("ipmrouteboundarytable", IPMROUTESTDMIB.Ipmrouteboundarytable)), ("ipMRouteScopeNameTable", ("ipmroutescopenametable", IPMROUTESTDMIB.Ipmroutescopenametable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ipMRoute", ("ipmroute", IPMROUTESTDMIB.IpMRoute)), ("ipMRouteTable", ("ipmroutetable", IPMROUTESTDMIB.IpMRouteTable)), ("ipMRouteNextHopTable", ("ipmroutenexthoptable", IPMROUTESTDMIB.IpMRouteNextHopTable)), ("ipMRouteInterfaceTable", ("ipmrouteinterfacetable", IPMROUTESTDMIB.IpMRouteInterfaceTable)), ("ipMRouteBoundaryTable", ("ipmrouteboundarytable", IPMROUTESTDMIB.IpMRouteBoundaryTable)), ("ipMRouteScopeNameTable", ("ipmroutescopenametable", IPMROUTESTDMIB.IpMRouteScopeNameTable))])
         self._leafs = OrderedDict()
 
-        self.ipmroute = IPMROUTESTDMIB.Ipmroute()
+        self.ipmroute = IPMROUTESTDMIB.IpMRoute()
         self.ipmroute.parent = self
         self._children_name_map["ipmroute"] = "ipMRoute"
-        self._children_yang_names.add("ipMRoute")
 
-        self.ipmroutetable = IPMROUTESTDMIB.Ipmroutetable()
+        self.ipmroutetable = IPMROUTESTDMIB.IpMRouteTable()
         self.ipmroutetable.parent = self
         self._children_name_map["ipmroutetable"] = "ipMRouteTable"
-        self._children_yang_names.add("ipMRouteTable")
 
-        self.ipmroutenexthoptable = IPMROUTESTDMIB.Ipmroutenexthoptable()
+        self.ipmroutenexthoptable = IPMROUTESTDMIB.IpMRouteNextHopTable()
         self.ipmroutenexthoptable.parent = self
         self._children_name_map["ipmroutenexthoptable"] = "ipMRouteNextHopTable"
-        self._children_yang_names.add("ipMRouteNextHopTable")
 
-        self.ipmrouteinterfacetable = IPMROUTESTDMIB.Ipmrouteinterfacetable()
+        self.ipmrouteinterfacetable = IPMROUTESTDMIB.IpMRouteInterfaceTable()
         self.ipmrouteinterfacetable.parent = self
         self._children_name_map["ipmrouteinterfacetable"] = "ipMRouteInterfaceTable"
-        self._children_yang_names.add("ipMRouteInterfaceTable")
 
-        self.ipmrouteboundarytable = IPMROUTESTDMIB.Ipmrouteboundarytable()
+        self.ipmrouteboundarytable = IPMROUTESTDMIB.IpMRouteBoundaryTable()
         self.ipmrouteboundarytable.parent = self
         self._children_name_map["ipmrouteboundarytable"] = "ipMRouteBoundaryTable"
-        self._children_yang_names.add("ipMRouteBoundaryTable")
 
-        self.ipmroutescopenametable = IPMROUTESTDMIB.Ipmroutescopenametable()
+        self.ipmroutescopenametable = IPMROUTESTDMIB.IpMRouteScopeNameTable()
         self.ipmroutescopenametable.parent = self
         self._children_name_map["ipmroutescopenametable"] = "ipMRouteScopeNameTable"
-        self._children_yang_names.add("ipMRouteScopeNameTable")
         self._segment_path = lambda: "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(IPMROUTESTDMIB, [], name, value)
 
-    class Ipmroute(Entity):
+
+    class IpMRoute(Entity):
         """
         
         
         .. attribute:: ipmrouteenable
         
         	The enabled status of IP Multicast routing on this router
-        	**type**\:  :py:class:`Ipmrouteenable <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmroute.Ipmrouteenable>`
+        	**type**\:  :py:class:`IpMRouteEnable <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRoute.IpMRouteEnable>`
         
         .. attribute:: ipmrouteentrycount
         
@@ -124,15 +120,14 @@ class IPMROUTESTDMIB(Entity):
         _revision = '2000-09-22'
 
         def __init__(self):
-            super(IPMROUTESTDMIB.Ipmroute, self).__init__()
+            super(IPMROUTESTDMIB.IpMRoute, self).__init__()
 
             self.yang_name = "ipMRoute"
             self.yang_parent_name = "IPMROUTE-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ipmrouteenable', YLeaf(YType.enumeration, 'ipMRouteEnable')),
                 ('ipmrouteentrycount', YLeaf(YType.uint32, 'ipMRouteEntryCount')),
@@ -143,11 +138,11 @@ class IPMROUTESTDMIB(Entity):
             self._absolute_path = lambda: "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IPMROUTESTDMIB.Ipmroute, ['ipmrouteenable', 'ipmrouteentrycount'], name, value)
+            self._perform_setattr(IPMROUTESTDMIB.IpMRoute, [u'ipmrouteenable', u'ipmrouteentrycount'], name, value)
 
-        class Ipmrouteenable(Enum):
+        class IpMRouteEnable(Enum):
             """
-            Ipmrouteenable (Enum Class)
+            IpMRouteEnable (Enum Class)
 
             The enabled status of IP Multicast routing on this router.
 
@@ -163,7 +158,7 @@ class IPMROUTESTDMIB(Entity):
 
 
 
-    class Ipmroutetable(Entity):
+    class IpMRouteTable(Entity):
         """
         The (conceptual) table containing multicast routing
         information for IP datagrams sent by particular sources to
@@ -172,7 +167,7 @@ class IPMROUTESTDMIB(Entity):
         .. attribute:: ipmrouteentry
         
         	An entry (conceptual row) containing the multicast routing information for IP datagrams from a particular source and addressed to a particular IP multicast group address. Discontinuities in counters in this entry can be detected by observing the value of ipMRouteUpTime
-        	**type**\: list of  		 :py:class:`Ipmrouteentry <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmroutetable.Ipmrouteentry>`
+        	**type**\: list of  		 :py:class:`IpMRouteEntry <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteTable.IpMRouteEntry>`
         
         
 
@@ -182,15 +177,14 @@ class IPMROUTESTDMIB(Entity):
         _revision = '2000-09-22'
 
         def __init__(self):
-            super(IPMROUTESTDMIB.Ipmroutetable, self).__init__()
+            super(IPMROUTESTDMIB.IpMRouteTable, self).__init__()
 
             self.yang_name = "ipMRouteTable"
             self.yang_parent_name = "IPMROUTE-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ipMRouteEntry", ("ipmrouteentry", IPMROUTESTDMIB.Ipmroutetable.Ipmrouteentry))])
+            self._child_classes = OrderedDict([("ipMRouteEntry", ("ipmrouteentry", IPMROUTESTDMIB.IpMRouteTable.IpMRouteEntry))])
             self._leafs = OrderedDict()
 
             self.ipmrouteentry = YList(self)
@@ -198,10 +192,10 @@ class IPMROUTESTDMIB(Entity):
             self._absolute_path = lambda: "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IPMROUTESTDMIB.Ipmroutetable, [], name, value)
+            self._perform_setattr(IPMROUTESTDMIB.IpMRouteTable, [], name, value)
 
 
-        class Ipmrouteentry(Entity):
+        class IpMRouteEntry(Entity):
             """
             An entry (conceptual row) containing the multicast routing
             information for IP datagrams from a particular source and
@@ -306,7 +300,7 @@ class IPMROUTESTDMIB(Entity):
             .. attribute:: ipmrouterttype
             
             	The reason the given route was placed in the (logical) multicast Routing Information Base (RIB).  A value of unicast means that the route would normally be placed only in the unicast RIB, but was placed in the multicast RIB (instead or in addition) due to local configuration, such as when running PIM over RIP.  A value of multicast means that      the route was explicitly added to the multicast RIB by the routing protocol, such as DVMRP or Multiprotocol BGP
-            	**type**\:  :py:class:`Ipmrouterttype <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmroutetable.Ipmrouteentry.Ipmrouterttype>`
+            	**type**\:  :py:class:`IpMRouteRtType <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteTable.IpMRouteEntry.IpMRouteRtType>`
             
             .. attribute:: ipmroutehcoctets
             
@@ -460,15 +454,14 @@ class IPMROUTESTDMIB(Entity):
             _revision = '2000-09-22'
 
             def __init__(self):
-                super(IPMROUTESTDMIB.Ipmroutetable.Ipmrouteentry, self).__init__()
+                super(IPMROUTESTDMIB.IpMRouteTable.IpMRouteEntry, self).__init__()
 
                 self.yang_name = "ipMRouteEntry"
                 self.yang_parent_name = "ipMRouteTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ipmroutegroup','ipmroutesource','ipmroutesourcemask']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ipmroutegroup', YLeaf(YType.str, 'ipMRouteGroup')),
                     ('ipmroutesource', YLeaf(YType.str, 'ipMRouteSource')),
@@ -549,11 +542,11 @@ class IPMROUTESTDMIB(Entity):
                 self._absolute_path = lambda: "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/ipMRouteTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IPMROUTESTDMIB.Ipmroutetable.Ipmrouteentry, ['ipmroutegroup', 'ipmroutesource', 'ipmroutesourcemask', 'ipmrouteupstreamneighbor', 'ipmrouteinifindex', 'ipmrouteuptime', 'ipmrouteexpirytime', 'ipmroutepkts', 'ipmroutedifferentinifpackets', 'ipmrouteoctets', 'ipmrouteprotocol', 'ipmroutertproto', 'ipmroutertaddress', 'ipmroutertmask', 'ipmrouterttype', 'ipmroutehcoctets', 'ciscoipmroutepruneflag', 'ciscoipmroutesparseflag', 'ciscoipmrouteconnectedflag', 'ciscoipmroutelocalflag', 'ciscoipmrouteregisterflag', 'ciscoipmrouterpflag', 'ciscoipmroutesptflag', 'ciscoipmroutebps', 'ciscoipmroutemetric', 'ciscoipmroutemetricpreference', 'ciscoipmrouteinlimit', 'ciscoipmroutelastused', 'ciscoipmrouteinlimit2', 'ciscoipmroutejoinflag', 'ciscoipmroutemsdpflag', 'ciscoipmrouteproxyjoinflag', 'ciscoipmroutepkts', 'ciscoipmroutedifferentinifpkts', 'ciscoipmrouteoctets', 'ciscoipmroutebps2', 'ciscoipmroutemetric2'], name, value)
+                self._perform_setattr(IPMROUTESTDMIB.IpMRouteTable.IpMRouteEntry, [u'ipmroutegroup', u'ipmroutesource', u'ipmroutesourcemask', u'ipmrouteupstreamneighbor', u'ipmrouteinifindex', u'ipmrouteuptime', u'ipmrouteexpirytime', u'ipmroutepkts', u'ipmroutedifferentinifpackets', u'ipmrouteoctets', u'ipmrouteprotocol', u'ipmroutertproto', u'ipmroutertaddress', u'ipmroutertmask', u'ipmrouterttype', u'ipmroutehcoctets', 'ciscoipmroutepruneflag', 'ciscoipmroutesparseflag', 'ciscoipmrouteconnectedflag', 'ciscoipmroutelocalflag', 'ciscoipmrouteregisterflag', 'ciscoipmrouterpflag', 'ciscoipmroutesptflag', 'ciscoipmroutebps', 'ciscoipmroutemetric', 'ciscoipmroutemetricpreference', 'ciscoipmrouteinlimit', 'ciscoipmroutelastused', 'ciscoipmrouteinlimit2', 'ciscoipmroutejoinflag', 'ciscoipmroutemsdpflag', 'ciscoipmrouteproxyjoinflag', 'ciscoipmroutepkts', 'ciscoipmroutedifferentinifpkts', 'ciscoipmrouteoctets', 'ciscoipmroutebps2', 'ciscoipmroutemetric2'], name, value)
 
-            class Ipmrouterttype(Enum):
+            class IpMRouteRtType(Enum):
                 """
-                Ipmrouterttype (Enum Class)
+                IpMRouteRtType (Enum Class)
 
                 The reason the given route was placed in the (logical)
 
@@ -583,7 +576,7 @@ class IPMROUTESTDMIB(Entity):
 
 
 
-    class Ipmroutenexthoptable(Entity):
+    class IpMRouteNextHopTable(Entity):
         """
         The (conceptual) table containing information on the next\-
         hops on outgoing interfaces for routing IP multicast
@@ -594,7 +587,7 @@ class IPMROUTESTDMIB(Entity):
         .. attribute:: ipmroutenexthopentry
         
         	An entry (conceptual row) in the list of next\-hops on outgoing interfaces to which IP multicast datagrams from particular sources to a IP multicast group address are routed.  Discontinuities in counters in this entry can be detected by observing the value of ipMRouteUpTime
-        	**type**\: list of  		 :py:class:`Ipmroutenexthopentry <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmroutenexthoptable.Ipmroutenexthopentry>`
+        	**type**\: list of  		 :py:class:`IpMRouteNextHopEntry <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteNextHopTable.IpMRouteNextHopEntry>`
         
         
 
@@ -604,15 +597,14 @@ class IPMROUTESTDMIB(Entity):
         _revision = '2000-09-22'
 
         def __init__(self):
-            super(IPMROUTESTDMIB.Ipmroutenexthoptable, self).__init__()
+            super(IPMROUTESTDMIB.IpMRouteNextHopTable, self).__init__()
 
             self.yang_name = "ipMRouteNextHopTable"
             self.yang_parent_name = "IPMROUTE-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ipMRouteNextHopEntry", ("ipmroutenexthopentry", IPMROUTESTDMIB.Ipmroutenexthoptable.Ipmroutenexthopentry))])
+            self._child_classes = OrderedDict([("ipMRouteNextHopEntry", ("ipmroutenexthopentry", IPMROUTESTDMIB.IpMRouteNextHopTable.IpMRouteNextHopEntry))])
             self._leafs = OrderedDict()
 
             self.ipmroutenexthopentry = YList(self)
@@ -620,10 +612,10 @@ class IPMROUTESTDMIB(Entity):
             self._absolute_path = lambda: "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IPMROUTESTDMIB.Ipmroutenexthoptable, [], name, value)
+            self._perform_setattr(IPMROUTESTDMIB.IpMRouteNextHopTable, [], name, value)
 
 
-        class Ipmroutenexthopentry(Entity):
+        class IpMRouteNextHopEntry(Entity):
             """
             An entry (conceptual row) in the list of next\-hops on
             outgoing interfaces to which IP multicast datagrams from
@@ -669,7 +661,7 @@ class IPMROUTESTDMIB(Entity):
             .. attribute:: ipmroutenexthopstate
             
             	An indication of whether the outgoing interface and next\- hop represented by this entry is currently being used to forward IP datagrams.  The value 'forwarding' indicates it is currently being used; the value 'pruned' indicates it is not
-            	**type**\:  :py:class:`Ipmroutenexthopstate <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmroutenexthoptable.Ipmroutenexthopentry.Ipmroutenexthopstate>`
+            	**type**\:  :py:class:`IpMRouteNextHopState <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteNextHopTable.IpMRouteNextHopEntry.IpMRouteNextHopState>`
             
             .. attribute:: ipmroutenexthopuptime
             
@@ -733,15 +725,14 @@ class IPMROUTESTDMIB(Entity):
             _revision = '2000-09-22'
 
             def __init__(self):
-                super(IPMROUTESTDMIB.Ipmroutenexthoptable.Ipmroutenexthopentry, self).__init__()
+                super(IPMROUTESTDMIB.IpMRouteNextHopTable.IpMRouteNextHopEntry, self).__init__()
 
                 self.yang_name = "ipMRouteNextHopEntry"
                 self.yang_parent_name = "ipMRouteNextHopTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ipmroutenexthopgroup','ipmroutenexthopsource','ipmroutenexthopsourcemask','ipmroutenexthopifindex','ipmroutenexthopaddress']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ipmroutenexthopgroup', YLeaf(YType.str, 'ipMRouteNextHopGroup')),
                     ('ipmroutenexthopsource', YLeaf(YType.str, 'ipMRouteNextHopSource')),
@@ -776,11 +767,11 @@ class IPMROUTESTDMIB(Entity):
                 self._absolute_path = lambda: "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/ipMRouteNextHopTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IPMROUTESTDMIB.Ipmroutenexthoptable.Ipmroutenexthopentry, ['ipmroutenexthopgroup', 'ipmroutenexthopsource', 'ipmroutenexthopsourcemask', 'ipmroutenexthopifindex', 'ipmroutenexthopaddress', 'ipmroutenexthopstate', 'ipmroutenexthopuptime', 'ipmroutenexthopexpirytime', 'ipmroutenexthopclosestmemberhops', 'ipmroutenexthopprotocol', 'ipmroutenexthoppkts', 'ciscoipmroutenexthopoutlimit', 'ciscoipmroutenexthopmachdr', 'ciscoipmroutenexthoppkts'], name, value)
+                self._perform_setattr(IPMROUTESTDMIB.IpMRouteNextHopTable.IpMRouteNextHopEntry, [u'ipmroutenexthopgroup', u'ipmroutenexthopsource', u'ipmroutenexthopsourcemask', u'ipmroutenexthopifindex', u'ipmroutenexthopaddress', u'ipmroutenexthopstate', u'ipmroutenexthopuptime', u'ipmroutenexthopexpirytime', u'ipmroutenexthopclosestmemberhops', u'ipmroutenexthopprotocol', u'ipmroutenexthoppkts', 'ciscoipmroutenexthopoutlimit', 'ciscoipmroutenexthopmachdr', 'ciscoipmroutenexthoppkts'], name, value)
 
-            class Ipmroutenexthopstate(Enum):
+            class IpMRouteNextHopState(Enum):
                 """
-                Ipmroutenexthopstate (Enum Class)
+                IpMRouteNextHopState (Enum Class)
 
                 An indication of whether the outgoing interface and next\-
 
@@ -804,7 +795,7 @@ class IPMROUTESTDMIB(Entity):
 
 
 
-    class Ipmrouteinterfacetable(Entity):
+    class IpMRouteInterfaceTable(Entity):
         """
         The (conceptual) table containing multicast routing
         information specific to interfaces.
@@ -812,7 +803,7 @@ class IPMROUTESTDMIB(Entity):
         .. attribute:: ipmrouteinterfaceentry
         
         	An entry (conceptual row) containing the multicast routing information for a particular interface
-        	**type**\: list of  		 :py:class:`Ipmrouteinterfaceentry <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmrouteinterfacetable.Ipmrouteinterfaceentry>`
+        	**type**\: list of  		 :py:class:`IpMRouteInterfaceEntry <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteInterfaceTable.IpMRouteInterfaceEntry>`
         
         
 
@@ -822,15 +813,14 @@ class IPMROUTESTDMIB(Entity):
         _revision = '2000-09-22'
 
         def __init__(self):
-            super(IPMROUTESTDMIB.Ipmrouteinterfacetable, self).__init__()
+            super(IPMROUTESTDMIB.IpMRouteInterfaceTable, self).__init__()
 
             self.yang_name = "ipMRouteInterfaceTable"
             self.yang_parent_name = "IPMROUTE-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ipMRouteInterfaceEntry", ("ipmrouteinterfaceentry", IPMROUTESTDMIB.Ipmrouteinterfacetable.Ipmrouteinterfaceentry))])
+            self._child_classes = OrderedDict([("ipMRouteInterfaceEntry", ("ipmrouteinterfaceentry", IPMROUTESTDMIB.IpMRouteInterfaceTable.IpMRouteInterfaceEntry))])
             self._leafs = OrderedDict()
 
             self.ipmrouteinterfaceentry = YList(self)
@@ -838,10 +828,10 @@ class IPMROUTESTDMIB(Entity):
             self._absolute_path = lambda: "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IPMROUTESTDMIB.Ipmrouteinterfacetable, [], name, value)
+            self._perform_setattr(IPMROUTESTDMIB.IpMRouteInterfaceTable, [], name, value)
 
 
-        class Ipmrouteinterfaceentry(Entity):
+        class IpMRouteInterfaceEntry(Entity):
             """
             An entry (conceptual row) containing the multicast routing
             information for a particular interface.
@@ -950,15 +940,14 @@ class IPMROUTESTDMIB(Entity):
             _revision = '2000-09-22'
 
             def __init__(self):
-                super(IPMROUTESTDMIB.Ipmrouteinterfacetable.Ipmrouteinterfaceentry, self).__init__()
+                super(IPMROUTESTDMIB.IpMRouteInterfaceTable.IpMRouteInterfaceEntry, self).__init__()
 
                 self.yang_name = "ipMRouteInterfaceEntry"
                 self.yang_parent_name = "ipMRouteInterfaceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ipmrouteinterfaceifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ipmrouteinterfaceifindex', YLeaf(YType.int32, 'ipMRouteInterfaceIfIndex')),
                     ('ipmrouteinterfacettl', YLeaf(YType.int32, 'ipMRouteInterfaceTtl')),
@@ -993,10 +982,10 @@ class IPMROUTESTDMIB(Entity):
                 self._absolute_path = lambda: "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/ipMRouteInterfaceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IPMROUTESTDMIB.Ipmrouteinterfacetable.Ipmrouteinterfaceentry, ['ipmrouteinterfaceifindex', 'ipmrouteinterfacettl', 'ipmrouteinterfaceprotocol', 'ipmrouteinterfaceratelimit', 'ipmrouteinterfaceinmcastoctets', 'ipmrouteinterfaceoutmcastoctets', 'ipmrouteinterfacehcinmcastoctets', 'ipmrouteinterfacehcoutmcastoctets', 'ciscoipmrouteifinmcastoctets', 'ciscoipmrouteifoutmcastoctets', 'ciscoipmrouteifinmcastpkts', 'ciscoipmrouteifhcinmcastpkts', 'ciscoipmrouteifoutmcastpkts', 'ciscoipmrouteifhcoutmcastpkts'], name, value)
+                self._perform_setattr(IPMROUTESTDMIB.IpMRouteInterfaceTable.IpMRouteInterfaceEntry, [u'ipmrouteinterfaceifindex', u'ipmrouteinterfacettl', u'ipmrouteinterfaceprotocol', u'ipmrouteinterfaceratelimit', u'ipmrouteinterfaceinmcastoctets', u'ipmrouteinterfaceoutmcastoctets', u'ipmrouteinterfacehcinmcastoctets', u'ipmrouteinterfacehcoutmcastoctets', 'ciscoipmrouteifinmcastoctets', 'ciscoipmrouteifoutmcastoctets', 'ciscoipmrouteifinmcastpkts', 'ciscoipmrouteifhcinmcastpkts', 'ciscoipmrouteifoutmcastpkts', 'ciscoipmrouteifhcoutmcastpkts'], name, value)
 
 
-    class Ipmrouteboundarytable(Entity):
+    class IpMRouteBoundaryTable(Entity):
         """
         The (conceptual) table listing the router's scoped
         multicast address boundaries.
@@ -1004,7 +993,7 @@ class IPMROUTESTDMIB(Entity):
         .. attribute:: ipmrouteboundaryentry
         
         	An entry (conceptual row) in the ipMRouteBoundaryTable representing a scoped boundary
-        	**type**\: list of  		 :py:class:`Ipmrouteboundaryentry <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmrouteboundarytable.Ipmrouteboundaryentry>`
+        	**type**\: list of  		 :py:class:`IpMRouteBoundaryEntry <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteBoundaryTable.IpMRouteBoundaryEntry>`
         
         
 
@@ -1014,15 +1003,14 @@ class IPMROUTESTDMIB(Entity):
         _revision = '2000-09-22'
 
         def __init__(self):
-            super(IPMROUTESTDMIB.Ipmrouteboundarytable, self).__init__()
+            super(IPMROUTESTDMIB.IpMRouteBoundaryTable, self).__init__()
 
             self.yang_name = "ipMRouteBoundaryTable"
             self.yang_parent_name = "IPMROUTE-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ipMRouteBoundaryEntry", ("ipmrouteboundaryentry", IPMROUTESTDMIB.Ipmrouteboundarytable.Ipmrouteboundaryentry))])
+            self._child_classes = OrderedDict([("ipMRouteBoundaryEntry", ("ipmrouteboundaryentry", IPMROUTESTDMIB.IpMRouteBoundaryTable.IpMRouteBoundaryEntry))])
             self._leafs = OrderedDict()
 
             self.ipmrouteboundaryentry = YList(self)
@@ -1030,10 +1018,10 @@ class IPMROUTESTDMIB(Entity):
             self._absolute_path = lambda: "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IPMROUTESTDMIB.Ipmrouteboundarytable, [], name, value)
+            self._perform_setattr(IPMROUTESTDMIB.IpMRouteBoundaryTable, [], name, value)
 
 
-        class Ipmrouteboundaryentry(Entity):
+        class IpMRouteBoundaryEntry(Entity):
             """
             An entry (conceptual row) in the ipMRouteBoundaryTable
             representing a scoped boundary.
@@ -1072,15 +1060,14 @@ class IPMROUTESTDMIB(Entity):
             _revision = '2000-09-22'
 
             def __init__(self):
-                super(IPMROUTESTDMIB.Ipmrouteboundarytable.Ipmrouteboundaryentry, self).__init__()
+                super(IPMROUTESTDMIB.IpMRouteBoundaryTable.IpMRouteBoundaryEntry, self).__init__()
 
                 self.yang_name = "ipMRouteBoundaryEntry"
                 self.yang_parent_name = "ipMRouteBoundaryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ipmrouteboundaryifindex','ipmrouteboundaryaddress','ipmrouteboundaryaddressmask']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ipmrouteboundaryifindex', YLeaf(YType.int32, 'ipMRouteBoundaryIfIndex')),
                     ('ipmrouteboundaryaddress', YLeaf(YType.str, 'ipMRouteBoundaryAddress')),
@@ -1095,17 +1082,17 @@ class IPMROUTESTDMIB(Entity):
                 self._absolute_path = lambda: "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/ipMRouteBoundaryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IPMROUTESTDMIB.Ipmrouteboundarytable.Ipmrouteboundaryentry, ['ipmrouteboundaryifindex', 'ipmrouteboundaryaddress', 'ipmrouteboundaryaddressmask', 'ipmrouteboundarystatus'], name, value)
+                self._perform_setattr(IPMROUTESTDMIB.IpMRouteBoundaryTable.IpMRouteBoundaryEntry, [u'ipmrouteboundaryifindex', u'ipmrouteboundaryaddress', u'ipmrouteboundaryaddressmask', u'ipmrouteboundarystatus'], name, value)
 
 
-    class Ipmroutescopenametable(Entity):
+    class IpMRouteScopeNameTable(Entity):
         """
         The (conceptual) table listing the multicast scope names.
         
         .. attribute:: ipmroutescopenameentry
         
         	An entry (conceptual row) in the ipMRouteScopeNameTable representing a multicast scope name
-        	**type**\: list of  		 :py:class:`Ipmroutescopenameentry <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.Ipmroutescopenametable.Ipmroutescopenameentry>`
+        	**type**\: list of  		 :py:class:`IpMRouteScopeNameEntry <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteScopeNameTable.IpMRouteScopeNameEntry>`
         
         
 
@@ -1115,15 +1102,14 @@ class IPMROUTESTDMIB(Entity):
         _revision = '2000-09-22'
 
         def __init__(self):
-            super(IPMROUTESTDMIB.Ipmroutescopenametable, self).__init__()
+            super(IPMROUTESTDMIB.IpMRouteScopeNameTable, self).__init__()
 
             self.yang_name = "ipMRouteScopeNameTable"
             self.yang_parent_name = "IPMROUTE-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ipMRouteScopeNameEntry", ("ipmroutescopenameentry", IPMROUTESTDMIB.Ipmroutescopenametable.Ipmroutescopenameentry))])
+            self._child_classes = OrderedDict([("ipMRouteScopeNameEntry", ("ipmroutescopenameentry", IPMROUTESTDMIB.IpMRouteScopeNameTable.IpMRouteScopeNameEntry))])
             self._leafs = OrderedDict()
 
             self.ipmroutescopenameentry = YList(self)
@@ -1131,10 +1117,10 @@ class IPMROUTESTDMIB(Entity):
             self._absolute_path = lambda: "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IPMROUTESTDMIB.Ipmroutescopenametable, [], name, value)
+            self._perform_setattr(IPMROUTESTDMIB.IpMRouteScopeNameTable, [], name, value)
 
 
-        class Ipmroutescopenameentry(Entity):
+        class IpMRouteScopeNameEntry(Entity):
             """
             An entry (conceptual row) in the ipMRouteScopeNameTable
             representing a multicast scope name.
@@ -1181,15 +1167,14 @@ class IPMROUTESTDMIB(Entity):
             _revision = '2000-09-22'
 
             def __init__(self):
-                super(IPMROUTESTDMIB.Ipmroutescopenametable.Ipmroutescopenameentry, self).__init__()
+                super(IPMROUTESTDMIB.IpMRouteScopeNameTable.IpMRouteScopeNameEntry, self).__init__()
 
                 self.yang_name = "ipMRouteScopeNameEntry"
                 self.yang_parent_name = "ipMRouteScopeNameTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ipmroutescopenameaddress','ipmroutescopenameaddressmask','ipmroutescopenamelanguage']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ipmroutescopenameaddress', YLeaf(YType.str, 'ipMRouteScopeNameAddress')),
                     ('ipmroutescopenameaddressmask', YLeaf(YType.str, 'ipMRouteScopeNameAddressMask')),
@@ -1208,7 +1193,7 @@ class IPMROUTESTDMIB(Entity):
                 self._absolute_path = lambda: "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/ipMRouteScopeNameTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IPMROUTESTDMIB.Ipmroutescopenametable.Ipmroutescopenameentry, ['ipmroutescopenameaddress', 'ipmroutescopenameaddressmask', 'ipmroutescopenamelanguage', 'ipmroutescopenamestring', 'ipmroutescopenamedefault', 'ipmroutescopenamestatus'], name, value)
+                self._perform_setattr(IPMROUTESTDMIB.IpMRouteScopeNameTable.IpMRouteScopeNameEntry, [u'ipmroutescopenameaddress', u'ipmroutescopenameaddressmask', u'ipmroutescopenamelanguage', u'ipmroutescopenamestring', u'ipmroutescopenamedefault', u'ipmroutescopenamestatus'], name, value)
 
     def clone_ptr(self):
         self._top_entity = IPMROUTESTDMIB()

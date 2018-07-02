@@ -23,7 +23,7 @@ class EsAclGrantEnum(Enum):
     """
     EsAclGrantEnum (Enum Class)
 
-    ES acl grant enum
+    ES acl forwarding action.
 
     .. data:: deny = 0
 
@@ -55,7 +55,7 @@ class EsAcl(Entity):
     """
 
     _prefix = 'es-acl-cfg'
-    _revision = '2017-05-01'
+    _revision = '2018-01-03'
 
     def __init__(self):
         super(EsAcl, self).__init__()
@@ -66,15 +66,16 @@ class EsAcl(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("accesses", ("accesses", EsAcl.Accesses))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("accesses", ("accesses", EsAcl.Accesses))])
         self._leafs = OrderedDict()
 
         self.accesses = EsAcl.Accesses()
         self.accesses.parent = self
         self._children_name_map["accesses"] = "accesses"
-        self._children_yang_names.add("accesses")
         self._segment_path = lambda: "Cisco-IOS-XR-es-acl-cfg:es-acl"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(EsAcl, [], name, value)
 
 
     class Accesses(Entity):
@@ -91,7 +92,7 @@ class EsAcl(Entity):
         """
 
         _prefix = 'es-acl-cfg'
-        _revision = '2017-05-01'
+        _revision = '2018-01-03'
 
         def __init__(self):
             super(EsAcl.Accesses, self).__init__()
@@ -101,8 +102,7 @@ class EsAcl(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("access", ("access", EsAcl.Accesses.Access))])
+            self._child_classes = OrderedDict([("access", ("access", EsAcl.Accesses.Access))])
             self._leafs = OrderedDict()
 
             self.access = YList(self)
@@ -122,7 +122,7 @@ class EsAcl(Entity):
             	Name of the access list
             	**type**\: str
             
-            	**length:** 1..65
+            	**length:** 1..64
             
             .. attribute:: access_list_entries
             
@@ -134,7 +134,7 @@ class EsAcl(Entity):
             """
 
             _prefix = 'es-acl-cfg'
-            _revision = '2017-05-01'
+            _revision = '2018-01-03'
 
             def __init__(self):
                 super(EsAcl.Accesses.Access, self).__init__()
@@ -144,8 +144,7 @@ class EsAcl(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([("access-list-entries", ("access_list_entries", EsAcl.Accesses.Access.AccessListEntries))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("access-list-entries", ("access_list_entries", EsAcl.Accesses.Access.AccessListEntries))])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                 ])
@@ -154,7 +153,6 @@ class EsAcl(Entity):
                 self.access_list_entries = EsAcl.Accesses.Access.AccessListEntries()
                 self.access_list_entries.parent = self
                 self._children_name_map["access_list_entries"] = "access-list-entries"
-                self._children_yang_names.add("access-list-entries")
                 self._segment_path = lambda: "access" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-cfg:es-acl/accesses/%s" % self._segment_path()
 
@@ -177,7 +175,7 @@ class EsAcl(Entity):
                 """
 
                 _prefix = 'es-acl-cfg'
-                _revision = '2017-05-01'
+                _revision = '2018-01-03'
 
                 def __init__(self):
                     super(EsAcl.Accesses.Access.AccessListEntries, self).__init__()
@@ -187,8 +185,7 @@ class EsAcl(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("access-list-entry", ("access_list_entry", EsAcl.Accesses.Access.AccessListEntries.AccessListEntry))])
+                    self._child_classes = OrderedDict([("access-list-entry", ("access_list_entry", EsAcl.Accesses.Access.AccessListEntries.AccessListEntry))])
                     self._leafs = OrderedDict()
 
                     self.access_list_entry = YList(self)
@@ -212,7 +209,7 @@ class EsAcl(Entity):
                     
                     .. attribute:: grant
                     
-                    	Whether to forward or drop packets matching the ACE
+                    	Forwarding action for the packet. This is required for any non\-remark ACE. Leave unspecified otherwise
                     	**type**\:  :py:class:`EsAclGrantEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAclGrantEnum>`
                     
                     .. attribute:: source_network
@@ -227,80 +224,82 @@ class EsAcl(Entity):
                     
                     .. attribute:: vlan1
                     
-                    	VLAN ID/range lower limit
+                    	This 12\-bit VLAN\-ID in the VLAN Tag header uniquely identifies the VLAN. It can be used for the lower bound (in range) or single value. Any value not in the permissible range will be rejected
                     	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: vlan2
                     
-                    	VLAN ID range higher limit
+                    	This 12 bit VLAN\-ID in the VLAN Tag header uniquely identifies the VLAN. It is used in the upper bound (in range). Any value not in the permissible range will be rejected
                     	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: cos
                     
-                    	COS value
+                    	Class of Service value. Any value not in the permissible range will be rejected
                     	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: dei
                     
-                    	DEI bit
+                    	Discard Eligibility Indication bit. User can specify 1 to indicate the bit is set. Leave unspecified otherwise
                     	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: inner_vlan1
                     
-                    	Inner VLAN ID/range lower limit
+                    	This represents the QinQ vlan identifier. It can be used for the lower bound (in range) or single value. Any value not in the permissible range will be rejected
                     	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: inner_vlan2
                     
-                    	Inner VLAN ID range higher limit
+                    	This represents the QinQ vlan identifier. It is used in the upper bound (in range). Any value not in the permissible range will be rejected
                     	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: inner_cos
                     
-                    	Inner COS value
+                    	Class of Service of Inner Header. Range from 0 to 7. Any value beyond this range will be rejected by ACL verifier
                     	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: inner_dei
                     
-                    	Inner DEI bit
+                    	Class of Service of Inner Header. Any value not in the permissible range will be rejected
                     	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: remark
                     
-                    	Comments or a description for the access list
+                    	Description for the access\-list\-entry/rule
                     	**type**\: str
+                    
+                    	**length:** 0..255
                     
                     .. attribute:: ether_type_number
                     
-                    	Ethernet type Number
+                    	Ethernet type Number in Hex. Any value not in the permissible range will be rejected
                     	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: capture
                     
-                    	Enable capture
+                    	Enable capture if set to TRUE
                     	**type**\: bool
                     
                     .. attribute:: log_option
                     
-                    	Whether and how to log matches against this entry
+                    	Log the packet on this access\-list\-entry/rule. User can specify 1 to enable logging the match, leave unspecified otherwise
                     	**type**\: int
                     
                     	**range:** 0..255
@@ -317,7 +316,7 @@ class EsAcl(Entity):
                     """
 
                     _prefix = 'es-acl-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2018-01-03'
 
                     def __init__(self):
                         super(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry, self).__init__()
@@ -327,8 +326,7 @@ class EsAcl(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['sequence_number']
-                        self._child_container_classes = OrderedDict([("source-network", ("source_network", EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork)), ("destination-network", ("destination_network", EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("source-network", ("source_network", EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork)), ("destination-network", ("destination_network", EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork))])
                         self._leafs = OrderedDict([
                             ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
                             ('grant', YLeaf(YType.enumeration, 'grant')),
@@ -365,12 +363,10 @@ class EsAcl(Entity):
                         self.source_network = EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork()
                         self.source_network.parent = self
                         self._children_name_map["source_network"] = "source-network"
-                        self._children_yang_names.add("source-network")
 
                         self.destination_network = EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork()
                         self.destination_network.parent = self
                         self._children_name_map["destination_network"] = "destination-network"
-                        self._children_yang_names.add("destination-network")
                         self._segment_path = lambda: "access-list-entry" + "[sequence-number='" + str(self.sequence_number) + "']"
 
                     def __setattr__(self, name, value):
@@ -400,7 +396,7 @@ class EsAcl(Entity):
                         """
 
                         _prefix = 'es-acl-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2018-01-03'
 
                         def __init__(self):
                             super(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork, self).__init__()
@@ -410,8 +406,7 @@ class EsAcl(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('source_address', YLeaf(YType.str, 'source-address')),
                                 ('source_wild_card_bits', YLeaf(YType.str, 'source-wild-card-bits')),
@@ -447,7 +442,7 @@ class EsAcl(Entity):
                         """
 
                         _prefix = 'es-acl-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2018-01-03'
 
                         def __init__(self):
                             super(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, self).__init__()
@@ -457,8 +452,7 @@ class EsAcl(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('destination_address', YLeaf(YType.str, 'destination-address')),
                                 ('destination_wild_card_bits', YLeaf(YType.str, 'destination-wild-card-bits')),

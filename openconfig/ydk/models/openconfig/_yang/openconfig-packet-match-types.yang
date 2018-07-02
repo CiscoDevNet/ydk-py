@@ -3,8 +3,8 @@ module openconfig-packet-match-types {
   namespace "http://openconfig.net/yang/packet-match-types";
   prefix oc-pkt-match-types;
 
-  import ietf-inet-types {
-    prefix inet;
+  import openconfig-inet-types {
+    prefix oc-inet;
   }
   import openconfig-extensions {
     prefix oc-ext;
@@ -19,6 +19,11 @@ module openconfig-packet-match-types {
     "This module defines common types for use in models requiring
      data definitions related to packet matches.";
 
+  revision 2017-05-26 {
+    description
+      "Separated IP matches into AFs";
+    reference "1.0.0";
+  }
   revision 2016-08-08 {
     description
       "OpenConfig public release";
@@ -209,7 +214,7 @@ module openconfig-packet-match-types {
       type string {
         pattern "^(6[0-5][0-5][0-3][0-5]|[0-5]?[0-9]?[0-9]?[0-9]?[0-9]?)\\.\\.(6[0-5][0-5][0-3][0-5]|[0-5]?[0-9]?[0-9]?[0-9]?[0-9]?)$";
       }
-      type inet:port-number;
+      type oc-inet:port-number;
       type enumeration {
         enum "ANY" {
           description
@@ -252,5 +257,5 @@ module openconfig-packet-match-types {
        hexadecimal notation, or using a type defined by the
        ETHERTYPE identity";
   }
-  oc-ext:openconfig-version "0.2.0";
+  oc-ext:openconfig-version "1.0.0";
 }

@@ -25,7 +25,7 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
     .. attribute:: cmplsxcexttable
     
     	This table sparse augments the mplsXCTable of MPLS\-LSR\-STD\-MIB [RFC3813] to provide MPLS\-TP specific information about associated tunnel information
-    	**type**\:  :py:class:`Cmplsxcexttable <ydk.models.cisco_ios_xe.CISCO_MPLS_LSR_EXT_STD_MIB.CISCOMPLSLSREXTSTDMIB.Cmplsxcexttable>`
+    	**type**\:  :py:class:`CmplsXCExtTable <ydk.models.cisco_ios_xe.CISCO_MPLS_LSR_EXT_STD_MIB.CISCOMPLSLSREXTSTDMIB.CmplsXCExtTable>`
     
     
 
@@ -43,18 +43,19 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cmplsXCExtTable", ("cmplsxcexttable", CISCOMPLSLSREXTSTDMIB.Cmplsxcexttable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cmplsXCExtTable", ("cmplsxcexttable", CISCOMPLSLSREXTSTDMIB.CmplsXCExtTable))])
         self._leafs = OrderedDict()
 
-        self.cmplsxcexttable = CISCOMPLSLSREXTSTDMIB.Cmplsxcexttable()
+        self.cmplsxcexttable = CISCOMPLSLSREXTSTDMIB.CmplsXCExtTable()
         self.cmplsxcexttable.parent = self
         self._children_name_map["cmplsxcexttable"] = "cmplsXCExtTable"
-        self._children_yang_names.add("cmplsXCExtTable")
         self._segment_path = lambda: "CISCO-MPLS-LSR-EXT-STD-MIB:CISCO-MPLS-LSR-EXT-STD-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOMPLSLSREXTSTDMIB, [], name, value)
 
-    class Cmplsxcexttable(Entity):
+
+    class CmplsXCExtTable(Entity):
         """
         This table sparse augments the mplsXCTable of
         MPLS\-LSR\-STD\-MIB [RFC3813] to provide MPLS\-TP specific
@@ -63,7 +64,7 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
         .. attribute:: cmplsxcextentry
         
         	An entry in this table extends the cross connect information represented by an entry in the mplsXCTable in MPLS\-LSR\-STD\-MIB [RFC3813] through a sparse augmentation.  An entry can be created by a network administrator via SNMP SET commands, or in response to signaling protocol events
-        	**type**\: list of  		 :py:class:`Cmplsxcextentry <ydk.models.cisco_ios_xe.CISCO_MPLS_LSR_EXT_STD_MIB.CISCOMPLSLSREXTSTDMIB.Cmplsxcexttable.Cmplsxcextentry>`
+        	**type**\: list of  		 :py:class:`CmplsXCExtEntry <ydk.models.cisco_ios_xe.CISCO_MPLS_LSR_EXT_STD_MIB.CISCOMPLSLSREXTSTDMIB.CmplsXCExtTable.CmplsXCExtEntry>`
         
         
 
@@ -73,15 +74,14 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
         _revision = '2012-04-30'
 
         def __init__(self):
-            super(CISCOMPLSLSREXTSTDMIB.Cmplsxcexttable, self).__init__()
+            super(CISCOMPLSLSREXTSTDMIB.CmplsXCExtTable, self).__init__()
 
             self.yang_name = "cmplsXCExtTable"
             self.yang_parent_name = "CISCO-MPLS-LSR-EXT-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cmplsXCExtEntry", ("cmplsxcextentry", CISCOMPLSLSREXTSTDMIB.Cmplsxcexttable.Cmplsxcextentry))])
+            self._child_classes = OrderedDict([("cmplsXCExtEntry", ("cmplsxcextentry", CISCOMPLSLSREXTSTDMIB.CmplsXCExtTable.CmplsXCExtEntry))])
             self._leafs = OrderedDict()
 
             self.cmplsxcextentry = YList(self)
@@ -89,10 +89,10 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
             self._absolute_path = lambda: "CISCO-MPLS-LSR-EXT-STD-MIB:CISCO-MPLS-LSR-EXT-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOMPLSLSREXTSTDMIB.Cmplsxcexttable, [], name, value)
+            self._perform_setattr(CISCOMPLSLSREXTSTDMIB.CmplsXCExtTable, [], name, value)
 
 
-        class Cmplsxcextentry(Entity):
+        class CmplsXCExtEntry(Entity):
             """
             An entry in this table extends the cross connect
             information represented by an entry in
@@ -108,7 +108,7 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
             
             	**length:** 1..24
             
-            	**refers to**\:  :py:class:`mplsxcindex <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsxctable.Mplsxcentry>`
+            	**refers to**\:  :py:class:`mplsxcindex <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.MplsXCTable.MplsXCEntry>`
             
             .. attribute:: mplsxcinsegmentindex  (key)
             
@@ -117,7 +117,7 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
             
             	**length:** 1..24
             
-            	**refers to**\:  :py:class:`mplsxcinsegmentindex <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsxctable.Mplsxcentry>`
+            	**refers to**\:  :py:class:`mplsxcinsegmentindex <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.MplsXCTable.MplsXCEntry>`
             
             .. attribute:: mplsxcoutsegmentindex  (key)
             
@@ -126,7 +126,7 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
             
             	**length:** 1..24
             
-            	**refers to**\:  :py:class:`mplsxcoutsegmentindex <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsxctable.Mplsxcentry>`
+            	**refers to**\:  :py:class:`mplsxcoutsegmentindex <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.MplsXCTable.MplsXCEntry>`
             
             .. attribute:: cmplsxcexttunnelpointer
             
@@ -150,15 +150,14 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
             _revision = '2012-04-30'
 
             def __init__(self):
-                super(CISCOMPLSLSREXTSTDMIB.Cmplsxcexttable.Cmplsxcextentry, self).__init__()
+                super(CISCOMPLSLSREXTSTDMIB.CmplsXCExtTable.CmplsXCExtEntry, self).__init__()
 
                 self.yang_name = "cmplsXCExtEntry"
                 self.yang_parent_name = "cmplsXCExtTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplsxcindex','mplsxcinsegmentindex','mplsxcoutsegmentindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplsxcindex', YLeaf(YType.str, 'mplsXCIndex')),
                     ('mplsxcinsegmentindex', YLeaf(YType.str, 'mplsXCInSegmentIndex')),
@@ -175,7 +174,7 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
                 self._absolute_path = lambda: "CISCO-MPLS-LSR-EXT-STD-MIB:CISCO-MPLS-LSR-EXT-STD-MIB/cmplsXCExtTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOMPLSLSREXTSTDMIB.Cmplsxcexttable.Cmplsxcextentry, ['mplsxcindex', 'mplsxcinsegmentindex', 'mplsxcoutsegmentindex', 'cmplsxcexttunnelpointer', 'cmplsxcoppositedirxcptr'], name, value)
+                self._perform_setattr(CISCOMPLSLSREXTSTDMIB.CmplsXCExtTable.CmplsXCExtEntry, ['mplsxcindex', 'mplsxcinsegmentindex', 'mplsxcoutsegmentindex', 'cmplsxcexttunnelpointer', 'cmplsxcoppositedirxcptr'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOMPLSLSREXTSTDMIB()

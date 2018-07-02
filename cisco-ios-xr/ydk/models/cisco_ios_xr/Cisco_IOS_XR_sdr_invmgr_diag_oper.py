@@ -45,15 +45,16 @@ class Diag(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("racks", ("racks", Diag.Racks))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("racks", ("racks", Diag.Racks))])
         self._leafs = OrderedDict()
 
         self.racks = Diag.Racks()
         self.racks.parent = self
         self._children_name_map["racks"] = "racks"
-        self._children_yang_names.add("racks")
         self._segment_path = lambda: "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Diag, [], name, value)
 
 
     class Racks(Entity):
@@ -80,8 +81,7 @@ class Diag(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rack", ("rack", Diag.Racks.Rack))])
+            self._child_classes = OrderedDict([("rack", ("rack", Diag.Racks.Rack))])
             self._leafs = OrderedDict()
 
             self.rack = YList(self)
@@ -138,8 +138,7 @@ class Diag(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rack_name']
-                self._child_container_classes = OrderedDict([("power-shelfs", ("power_shelfs", Diag.Racks.Rack.PowerShelfs)), ("fan-traies", ("fan_traies", Diag.Racks.Rack.FanTraies)), ("slots", ("slots", Diag.Racks.Rack.Slots)), ("chassis", ("chassis", Diag.Racks.Rack.Chassis))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("power-shelfs", ("power_shelfs", Diag.Racks.Rack.PowerShelfs)), ("fan-traies", ("fan_traies", Diag.Racks.Rack.FanTraies)), ("slots", ("slots", Diag.Racks.Rack.Slots)), ("chassis", ("chassis", Diag.Racks.Rack.Chassis))])
                 self._leafs = OrderedDict([
                     ('rack_name', YLeaf(YType.str, 'rack-name')),
                 ])
@@ -148,22 +147,18 @@ class Diag(Entity):
                 self.power_shelfs = Diag.Racks.Rack.PowerShelfs()
                 self.power_shelfs.parent = self
                 self._children_name_map["power_shelfs"] = "power-shelfs"
-                self._children_yang_names.add("power-shelfs")
 
                 self.fan_traies = Diag.Racks.Rack.FanTraies()
                 self.fan_traies.parent = self
                 self._children_name_map["fan_traies"] = "fan-traies"
-                self._children_yang_names.add("fan-traies")
 
                 self.slots = Diag.Racks.Rack.Slots()
                 self.slots.parent = self
                 self._children_name_map["slots"] = "slots"
-                self._children_yang_names.add("slots")
 
                 self.chassis = Diag.Racks.Rack.Chassis()
                 self.chassis.parent = self
                 self._children_name_map["chassis"] = "chassis"
-                self._children_yang_names.add("chassis")
                 self._segment_path = lambda: "rack" + "[rack-name='" + str(self.rack_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/racks/%s" % self._segment_path()
 
@@ -195,8 +190,7 @@ class Diag(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("power-shelf", ("power_shelf", Diag.Racks.Rack.PowerShelfs.PowerShelf))])
+                    self._child_classes = OrderedDict([("power-shelf", ("power_shelf", Diag.Racks.Rack.PowerShelfs.PowerShelf))])
                     self._leafs = OrderedDict()
 
                     self.power_shelf = YList(self)
@@ -237,8 +231,7 @@ class Diag(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['power_shelf_name']
-                        self._child_container_classes = OrderedDict([("power-supplies", ("power_supplies", Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("power-supplies", ("power_supplies", Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies))])
                         self._leafs = OrderedDict([
                             ('power_shelf_name', YLeaf(YType.str, 'power-shelf-name')),
                         ])
@@ -247,7 +240,6 @@ class Diag(Entity):
                         self.power_supplies = Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies()
                         self.power_supplies.parent = self
                         self._children_name_map["power_supplies"] = "power-supplies"
-                        self._children_yang_names.add("power-supplies")
                         self._segment_path = lambda: "power-shelf" + "[power-shelf-name='" + str(self.power_shelf_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -278,8 +270,7 @@ class Diag(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("power-supply", ("power_supply", Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply))])
+                            self._child_classes = OrderedDict([("power-supply", ("power_supply", Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply))])
                             self._leafs = OrderedDict()
 
                             self.power_supply = YList(self)
@@ -320,8 +311,7 @@ class Diag(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['power_supply_name']
-                                self._child_container_classes = OrderedDict([("information", ("information", Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("information", ("information", Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information))])
                                 self._leafs = OrderedDict([
                                     ('power_supply_name', YLeaf(YType.str, 'power-supply-name')),
                                 ])
@@ -330,7 +320,6 @@ class Diag(Entity):
                                 self.information = Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information()
                                 self.information.parent = self
                                 self._children_name_map["information"] = "information"
-                                self._children_yang_names.add("information")
                                 self._segment_path = lambda: "power-supply" + "[power-supply-name='" + str(self.power_supply_name) + "']"
 
                             def __setattr__(self, name, value):
@@ -753,8 +742,7 @@ class Diag(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("rma", ("rma", Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information.Rma))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("rma", ("rma", Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information.Rma))])
                                     self._leafs = OrderedDict([
                                         ('description', YLeaf(YType.str, 'description')),
                                         ('idprom_format_rev', YLeaf(YType.str, 'idprom-format-rev')),
@@ -873,7 +861,6 @@ class Diag(Entity):
                                     self.rma = Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information.Rma()
                                     self.rma.parent = self
                                     self._children_name_map["rma"] = "rma"
-                                    self._children_yang_names.add("rma")
                                     self._segment_path = lambda: "information"
 
                                 def __setattr__(self, name, value):
@@ -920,8 +907,7 @@ class Diag(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('test_history', YLeaf(YType.str, 'test-history')),
                                             ('rma_number', YLeaf(YType.str, 'rma-number')),
@@ -960,8 +946,7 @@ class Diag(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("fan-tray", ("fan_tray", Diag.Racks.Rack.FanTraies.FanTray))])
+                    self._child_classes = OrderedDict([("fan-tray", ("fan_tray", Diag.Racks.Rack.FanTraies.FanTray))])
                     self._leafs = OrderedDict()
 
                     self.fan_tray = YList(self)
@@ -1002,8 +987,7 @@ class Diag(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['fan_tray_name']
-                        self._child_container_classes = OrderedDict([("fanses", ("fanses", Diag.Racks.Rack.FanTraies.FanTray.Fanses))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("fanses", ("fanses", Diag.Racks.Rack.FanTraies.FanTray.Fanses))])
                         self._leafs = OrderedDict([
                             ('fan_tray_name', YLeaf(YType.str, 'fan-tray-name')),
                         ])
@@ -1012,7 +996,6 @@ class Diag(Entity):
                         self.fanses = Diag.Racks.Rack.FanTraies.FanTray.Fanses()
                         self.fanses.parent = self
                         self._children_name_map["fanses"] = "fanses"
-                        self._children_yang_names.add("fanses")
                         self._segment_path = lambda: "fan-tray" + "[fan-tray-name='" + str(self.fan_tray_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -1043,8 +1026,7 @@ class Diag(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("fans", ("fans", Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans))])
+                            self._child_classes = OrderedDict([("fans", ("fans", Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans))])
                             self._leafs = OrderedDict()
 
                             self.fans = YList(self)
@@ -1085,8 +1067,7 @@ class Diag(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['fans_name']
-                                self._child_container_classes = OrderedDict([("information", ("information", Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans.Information))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("information", ("information", Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans.Information))])
                                 self._leafs = OrderedDict([
                                     ('fans_name', YLeaf(YType.str, 'fans-name')),
                                 ])
@@ -1095,7 +1076,6 @@ class Diag(Entity):
                                 self.information = Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans.Information()
                                 self.information.parent = self
                                 self._children_name_map["information"] = "information"
-                                self._children_yang_names.add("information")
                                 self._segment_path = lambda: "fans" + "[fans-name='" + str(self.fans_name) + "']"
 
                             def __setattr__(self, name, value):
@@ -1518,8 +1498,7 @@ class Diag(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("rma", ("rma", Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans.Information.Rma))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("rma", ("rma", Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans.Information.Rma))])
                                     self._leafs = OrderedDict([
                                         ('description', YLeaf(YType.str, 'description')),
                                         ('idprom_format_rev', YLeaf(YType.str, 'idprom-format-rev')),
@@ -1638,7 +1617,6 @@ class Diag(Entity):
                                     self.rma = Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans.Information.Rma()
                                     self.rma.parent = self
                                     self._children_name_map["rma"] = "rma"
-                                    self._children_yang_names.add("rma")
                                     self._segment_path = lambda: "information"
 
                                 def __setattr__(self, name, value):
@@ -1685,8 +1663,7 @@ class Diag(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('test_history', YLeaf(YType.str, 'test-history')),
                                             ('rma_number', YLeaf(YType.str, 'rma-number')),
@@ -1725,8 +1702,7 @@ class Diag(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("slot", ("slot", Diag.Racks.Rack.Slots.Slot))])
+                    self._child_classes = OrderedDict([("slot", ("slot", Diag.Racks.Rack.Slots.Slot))])
                     self._leafs = OrderedDict()
 
                     self.slot = YList(self)
@@ -1767,8 +1743,7 @@ class Diag(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['slot_name']
-                        self._child_container_classes = OrderedDict([("instances", ("instances", Diag.Racks.Rack.Slots.Slot.Instances))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("instances", ("instances", Diag.Racks.Rack.Slots.Slot.Instances))])
                         self._leafs = OrderedDict([
                             ('slot_name', YLeaf(YType.str, 'slot-name')),
                         ])
@@ -1777,7 +1752,6 @@ class Diag(Entity):
                         self.instances = Diag.Racks.Rack.Slots.Slot.Instances()
                         self.instances.parent = self
                         self._children_name_map["instances"] = "instances"
-                        self._children_yang_names.add("instances")
                         self._segment_path = lambda: "slot" + "[slot-name='" + str(self.slot_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -1808,8 +1782,7 @@ class Diag(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("instance", ("instance", Diag.Racks.Rack.Slots.Slot.Instances.Instance))])
+                            self._child_classes = OrderedDict([("instance", ("instance", Diag.Racks.Rack.Slots.Slot.Instances.Instance))])
                             self._leafs = OrderedDict()
 
                             self.instance = YList(self)
@@ -1850,8 +1823,7 @@ class Diag(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['name']
-                                self._child_container_classes = OrderedDict([("detail", ("detail", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("detail", ("detail", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail))])
                                 self._leafs = OrderedDict([
                                     ('name', YLeaf(YType.str, 'name')),
                                 ])
@@ -1860,7 +1832,6 @@ class Diag(Entity):
                                 self.detail = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail()
                                 self.detail.parent = self
                                 self._children_name_map["detail"] = "detail"
-                                self._children_yang_names.add("detail")
                                 self._segment_path = lambda: "instance" + "[name='" + str(self.name) + "']"
 
                             def __setattr__(self, name, value):
@@ -1898,8 +1869,7 @@ class Diag(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("card-instance", ("card_instance", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("card-instance", ("card_instance", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance))])
                                     self._leafs = OrderedDict([
                                         ('node_operational_state', YLeaf(YType.str, 'node-operational-state')),
                                     ])
@@ -1908,7 +1878,6 @@ class Diag(Entity):
                                     self.card_instance = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance()
                                     self.card_instance.parent = self
                                     self._children_name_map["card_instance"] = "card-instance"
-                                    self._children_yang_names.add("card-instance")
                                     self._segment_path = lambda: "detail"
 
                                 def __setattr__(self, name, value):
@@ -2331,8 +2300,7 @@ class Diag(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("rma", ("rma", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance.Rma))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("rma", ("rma", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance.Rma))])
                                         self._leafs = OrderedDict([
                                             ('description', YLeaf(YType.str, 'description')),
                                             ('idprom_format_rev', YLeaf(YType.str, 'idprom-format-rev')),
@@ -2451,7 +2419,6 @@ class Diag(Entity):
                                         self.rma = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance.Rma()
                                         self.rma.parent = self
                                         self._children_name_map["rma"] = "rma"
-                                        self._children_yang_names.add("rma")
                                         self._segment_path = lambda: "card-instance"
 
                                     def __setattr__(self, name, value):
@@ -2498,8 +2465,7 @@ class Diag(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('test_history', YLeaf(YType.str, 'test-history')),
                                                 ('rma_number', YLeaf(YType.str, 'rma-number')),
@@ -2930,8 +2896,7 @@ class Diag(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("rma", ("rma", Diag.Racks.Rack.Chassis.Rma))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("rma", ("rma", Diag.Racks.Rack.Chassis.Rma))])
                     self._leafs = OrderedDict([
                         ('description', YLeaf(YType.str, 'description')),
                         ('idprom_format_rev', YLeaf(YType.str, 'idprom-format-rev')),
@@ -3050,7 +3015,6 @@ class Diag(Entity):
                     self.rma = Diag.Racks.Rack.Chassis.Rma()
                     self.rma.parent = self
                     self._children_name_map["rma"] = "rma"
-                    self._children_yang_names.add("rma")
                     self._segment_path = lambda: "chassis"
 
                 def __setattr__(self, name, value):
@@ -3097,8 +3061,7 @@ class Diag(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('test_history', YLeaf(YType.str, 'test-history')),
                             ('rma_number', YLeaf(YType.str, 'rma-number')),

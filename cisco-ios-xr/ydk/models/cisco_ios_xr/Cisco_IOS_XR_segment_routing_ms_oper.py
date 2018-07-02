@@ -168,7 +168,7 @@ class Srms(Entity):
     """
 
     _prefix = 'segment-routing-ms-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(Srms, self).__init__()
@@ -179,25 +179,24 @@ class Srms(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("mapping", ("mapping", Srms.Mapping)), ("adjacency-sid", ("adjacency_sid", Srms.AdjacencySid)), ("policy", ("policy", Srms.Policy))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("mapping", ("mapping", Srms.Mapping)), ("adjacency-sid", ("adjacency_sid", Srms.AdjacencySid)), ("policy", ("policy", Srms.Policy))])
         self._leafs = OrderedDict()
 
         self.mapping = Srms.Mapping()
         self.mapping.parent = self
         self._children_name_map["mapping"] = "mapping"
-        self._children_yang_names.add("mapping")
 
         self.adjacency_sid = Srms.AdjacencySid()
         self.adjacency_sid.parent = self
         self._children_name_map["adjacency_sid"] = "adjacency-sid"
-        self._children_yang_names.add("adjacency-sid")
 
         self.policy = Srms.Policy()
         self.policy.parent = self
         self._children_name_map["policy"] = "policy"
-        self._children_yang_names.add("policy")
         self._segment_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Srms, [], name, value)
 
 
     class Mapping(Entity):
@@ -219,7 +218,7 @@ class Srms(Entity):
         """
 
         _prefix = 'segment-routing-ms-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Srms.Mapping, self).__init__()
@@ -229,21 +228,21 @@ class Srms(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("mapping-ipv4", ("mapping_ipv4", Srms.Mapping.MappingIpv4)), ("mapping-ipv6", ("mapping_ipv6", Srms.Mapping.MappingIpv6))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("mapping-ipv4", ("mapping_ipv4", Srms.Mapping.MappingIpv4)), ("mapping-ipv6", ("mapping_ipv6", Srms.Mapping.MappingIpv6))])
             self._leafs = OrderedDict()
 
             self.mapping_ipv4 = Srms.Mapping.MappingIpv4()
             self.mapping_ipv4.parent = self
             self._children_name_map["mapping_ipv4"] = "mapping-ipv4"
-            self._children_yang_names.add("mapping-ipv4")
 
             self.mapping_ipv6 = Srms.Mapping.MappingIpv6()
             self.mapping_ipv6.parent = self
             self._children_name_map["mapping_ipv6"] = "mapping-ipv6"
-            self._children_yang_names.add("mapping-ipv6")
             self._segment_path = lambda: "mapping"
             self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Srms.Mapping, [], name, value)
 
 
         class MappingIpv4(Entity):
@@ -260,7 +259,7 @@ class Srms(Entity):
             """
 
             _prefix = 'segment-routing-ms-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Srms.Mapping.MappingIpv4, self).__init__()
@@ -270,8 +269,7 @@ class Srms(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("mapping-mi", ("mapping_mi", Srms.Mapping.MappingIpv4.MappingMi))])
+                self._child_classes = OrderedDict([("mapping-mi", ("mapping_mi", Srms.Mapping.MappingIpv4.MappingMi))])
                 self._leafs = OrderedDict()
 
                 self.mapping_mi = YList(self)
@@ -302,7 +300,7 @@ class Srms(Entity):
                 	Prefix
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: addr
                 
@@ -373,7 +371,7 @@ class Srms(Entity):
                 """
 
                 _prefix = 'segment-routing-ms-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Srms.Mapping.MappingIpv4.MappingMi, self).__init__()
@@ -383,11 +381,10 @@ class Srms(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("addr", ("addr", Srms.Mapping.MappingIpv4.MappingMi.Addr))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("addr", ("addr", Srms.Mapping.MappingIpv4.MappingMi.Addr))])
                     self._leafs = OrderedDict([
                         ('ip', YLeaf(YType.str, 'ip')),
-                        ('prefix', YLeaf(YType.int32, 'prefix')),
+                        ('prefix', YLeaf(YType.uint32, 'prefix')),
                         ('src', YLeaf(YType.enumeration, 'src')),
                         ('router', YLeaf(YType.str, 'router')),
                         ('area', YLeaf(YType.str, 'area')),
@@ -413,7 +410,6 @@ class Srms(Entity):
                     self.addr = Srms.Mapping.MappingIpv4.MappingMi.Addr()
                     self.addr.parent = self
                     self._children_name_map["addr"] = "addr"
-                    self._children_yang_names.add("addr")
                     self._segment_path = lambda: "mapping-mi"
                     self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv4/%s" % self._segment_path()
 
@@ -449,7 +445,7 @@ class Srms(Entity):
                     """
 
                     _prefix = 'segment-routing-ms-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Srms.Mapping.MappingIpv4.MappingMi.Addr, self).__init__()
@@ -459,8 +455,7 @@ class Srms(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('af', YLeaf(YType.enumeration, 'af')),
                             ('ipv4', YLeaf(YType.str, 'ipv4')),
@@ -490,7 +485,7 @@ class Srms(Entity):
             """
 
             _prefix = 'segment-routing-ms-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Srms.Mapping.MappingIpv6, self).__init__()
@@ -500,8 +495,7 @@ class Srms(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("mapping-mi", ("mapping_mi", Srms.Mapping.MappingIpv6.MappingMi))])
+                self._child_classes = OrderedDict([("mapping-mi", ("mapping_mi", Srms.Mapping.MappingIpv6.MappingMi))])
                 self._leafs = OrderedDict()
 
                 self.mapping_mi = YList(self)
@@ -532,7 +526,7 @@ class Srms(Entity):
                 	Prefix
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: addr
                 
@@ -603,7 +597,7 @@ class Srms(Entity):
                 """
 
                 _prefix = 'segment-routing-ms-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Srms.Mapping.MappingIpv6.MappingMi, self).__init__()
@@ -613,11 +607,10 @@ class Srms(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("addr", ("addr", Srms.Mapping.MappingIpv6.MappingMi.Addr))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("addr", ("addr", Srms.Mapping.MappingIpv6.MappingMi.Addr))])
                     self._leafs = OrderedDict([
                         ('ip', YLeaf(YType.str, 'ip')),
-                        ('prefix', YLeaf(YType.int32, 'prefix')),
+                        ('prefix', YLeaf(YType.uint32, 'prefix')),
                         ('src', YLeaf(YType.enumeration, 'src')),
                         ('router', YLeaf(YType.str, 'router')),
                         ('area', YLeaf(YType.str, 'area')),
@@ -643,7 +636,6 @@ class Srms(Entity):
                     self.addr = Srms.Mapping.MappingIpv6.MappingMi.Addr()
                     self.addr.parent = self
                     self._children_name_map["addr"] = "addr"
-                    self._children_yang_names.add("addr")
                     self._segment_path = lambda: "mapping-mi"
                     self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv6/%s" % self._segment_path()
 
@@ -679,7 +671,7 @@ class Srms(Entity):
                     """
 
                     _prefix = 'segment-routing-ms-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Srms.Mapping.MappingIpv6.MappingMi.Addr, self).__init__()
@@ -689,8 +681,7 @@ class Srms(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('af', YLeaf(YType.enumeration, 'af')),
                             ('ipv4', YLeaf(YType.str, 'ipv4')),
@@ -720,7 +711,7 @@ class Srms(Entity):
         """
 
         _prefix = 'segment-routing-ms-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Srms.AdjacencySid, self).__init__()
@@ -730,16 +721,17 @@ class Srms(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("l2-adjacency", ("l2_adjacency", Srms.AdjacencySid.L2Adjacency))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("l2-adjacency", ("l2_adjacency", Srms.AdjacencySid.L2Adjacency))])
             self._leafs = OrderedDict()
 
             self.l2_adjacency = Srms.AdjacencySid.L2Adjacency()
             self.l2_adjacency.parent = self
             self._children_name_map["l2_adjacency"] = "l2-adjacency"
-            self._children_yang_names.add("l2-adjacency")
             self._segment_path = lambda: "adjacency-sid"
             self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Srms.AdjacencySid, [], name, value)
 
 
         class L2Adjacency(Entity):
@@ -756,7 +748,7 @@ class Srms(Entity):
             """
 
             _prefix = 'segment-routing-ms-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Srms.AdjacencySid.L2Adjacency, self).__init__()
@@ -766,16 +758,17 @@ class Srms(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("interfaces", ("interfaces", Srms.AdjacencySid.L2Adjacency.Interfaces))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("interfaces", ("interfaces", Srms.AdjacencySid.L2Adjacency.Interfaces))])
                 self._leafs = OrderedDict()
 
                 self.interfaces = Srms.AdjacencySid.L2Adjacency.Interfaces()
                 self.interfaces.parent = self
                 self._children_name_map["interfaces"] = "interfaces"
-                self._children_yang_names.add("interfaces")
                 self._segment_path = lambda: "l2-adjacency"
                 self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/adjacency-sid/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Srms.AdjacencySid.L2Adjacency, [], name, value)
 
 
             class Interfaces(Entity):
@@ -792,7 +785,7 @@ class Srms(Entity):
                 """
 
                 _prefix = 'segment-routing-ms-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Srms.AdjacencySid.L2Adjacency.Interfaces, self).__init__()
@@ -802,8 +795,7 @@ class Srms(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface", ("interface", Srms.AdjacencySid.L2Adjacency.Interfaces.Interface))])
+                    self._child_classes = OrderedDict([("interface", ("interface", Srms.AdjacencySid.L2Adjacency.Interfaces.Interface))])
                     self._leafs = OrderedDict()
 
                     self.interface = YList(self)
@@ -835,7 +827,7 @@ class Srms(Entity):
                     """
 
                     _prefix = 'segment-routing-ms-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface, self).__init__()
@@ -845,8 +837,7 @@ class Srms(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("address-family", ("address_family", Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("address-family", ("address_family", Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ])
@@ -855,7 +846,6 @@ class Srms(Entity):
                         self.address_family = Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily()
                         self.address_family.parent = self
                         self._children_name_map["address_family"] = "address-family"
-                        self._children_yang_names.add("address-family")
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/adjacency-sid/l2-adjacency/interfaces/%s" % self._segment_path()
 
@@ -882,7 +872,7 @@ class Srms(Entity):
                         """
 
                         _prefix = 'segment-routing-ms-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily, self).__init__()
@@ -892,20 +882,20 @@ class Srms(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("ipv4", ("ipv4", Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4)), ("ipv6", ("ipv6", Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("ipv4", ("ipv4", Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4)), ("ipv6", ("ipv6", Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6))])
                             self._leafs = OrderedDict()
 
                             self.ipv4 = Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4()
                             self.ipv4.parent = self
                             self._children_name_map["ipv4"] = "ipv4"
-                            self._children_yang_names.add("ipv4")
 
                             self.ipv6 = Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6()
                             self.ipv6.parent = self
                             self._children_name_map["ipv6"] = "ipv6"
-                            self._children_yang_names.add("ipv6")
                             self._segment_path = lambda: "address-family"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily, [], name, value)
 
 
                         class Ipv4(Entity):
@@ -922,7 +912,7 @@ class Srms(Entity):
                             """
 
                             _prefix = 'segment-routing-ms-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4, self).__init__()
@@ -932,8 +922,7 @@ class Srms(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("sid-record", ("sid_record", Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord))])
+                                self._child_classes = OrderedDict([("sid-record", ("sid_record", Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord))])
                                 self._leafs = OrderedDict()
 
                                 self.sid_record = YList(self)
@@ -957,7 +946,7 @@ class Srms(Entity):
                                 	SID value
                                 	**type**\: int
                                 
-                                	**range:** \-2147483648..2147483647
+                                	**range:** 0..4294967295
                                 
                                 .. attribute:: nexthop_address
                                 
@@ -1016,7 +1005,7 @@ class Srms(Entity):
                                 """
 
                                 _prefix = 'segment-routing-ms-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord, self).__init__()
@@ -1026,11 +1015,10 @@ class Srms(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("nexthop-address", ("nexthop_address", Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord.NexthopAddress))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("nexthop-address", ("nexthop_address", Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord.NexthopAddress))])
                                     self._leafs = OrderedDict([
                                         ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
-                                        ('sid_value', YLeaf(YType.int32, 'sid-value')),
+                                        ('sid_value', YLeaf(YType.uint32, 'sid-value')),
                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                         ('sid_value_xr', YLeaf(YType.uint32, 'sid-value-xr')),
                                         ('sid_type_xr', YLeaf(YType.uint32, 'sid-type-xr')),
@@ -1052,7 +1040,6 @@ class Srms(Entity):
                                     self.nexthop_address = Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord.NexthopAddress()
                                     self.nexthop_address.parent = self
                                     self._children_name_map["nexthop_address"] = "nexthop-address"
-                                    self._children_yang_names.add("nexthop-address")
                                     self._segment_path = lambda: "sid-record"
 
                                 def __setattr__(self, name, value):
@@ -1087,7 +1074,7 @@ class Srms(Entity):
                                     """
 
                                     _prefix = 'segment-routing-ms-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord.NexthopAddress, self).__init__()
@@ -1097,8 +1084,7 @@ class Srms(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('af', YLeaf(YType.enumeration, 'af')),
                                             ('ipv4', YLeaf(YType.str, 'ipv4')),
@@ -1127,7 +1113,7 @@ class Srms(Entity):
                             """
 
                             _prefix = 'segment-routing-ms-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6, self).__init__()
@@ -1137,8 +1123,7 @@ class Srms(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("sid-record", ("sid_record", Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord))])
+                                self._child_classes = OrderedDict([("sid-record", ("sid_record", Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord))])
                                 self._leafs = OrderedDict()
 
                                 self.sid_record = YList(self)
@@ -1162,7 +1147,7 @@ class Srms(Entity):
                                 	SID value
                                 	**type**\: int
                                 
-                                	**range:** \-2147483648..2147483647
+                                	**range:** 0..4294967295
                                 
                                 .. attribute:: nexthop_address
                                 
@@ -1221,7 +1206,7 @@ class Srms(Entity):
                                 """
 
                                 _prefix = 'segment-routing-ms-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord, self).__init__()
@@ -1231,11 +1216,10 @@ class Srms(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("nexthop-address", ("nexthop_address", Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord.NexthopAddress))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("nexthop-address", ("nexthop_address", Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord.NexthopAddress))])
                                     self._leafs = OrderedDict([
                                         ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
-                                        ('sid_value', YLeaf(YType.int32, 'sid-value')),
+                                        ('sid_value', YLeaf(YType.uint32, 'sid-value')),
                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                         ('sid_value_xr', YLeaf(YType.uint32, 'sid-value-xr')),
                                         ('sid_type_xr', YLeaf(YType.uint32, 'sid-type-xr')),
@@ -1257,7 +1241,6 @@ class Srms(Entity):
                                     self.nexthop_address = Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord.NexthopAddress()
                                     self.nexthop_address.parent = self
                                     self._children_name_map["nexthop_address"] = "nexthop-address"
-                                    self._children_yang_names.add("nexthop-address")
                                     self._segment_path = lambda: "sid-record"
 
                                 def __setattr__(self, name, value):
@@ -1292,7 +1275,7 @@ class Srms(Entity):
                                     """
 
                                     _prefix = 'segment-routing-ms-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord.NexthopAddress, self).__init__()
@@ -1302,8 +1285,7 @@ class Srms(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('af', YLeaf(YType.enumeration, 'af')),
                                             ('ipv4', YLeaf(YType.str, 'ipv4')),
@@ -1337,7 +1319,7 @@ class Srms(Entity):
         """
 
         _prefix = 'segment-routing-ms-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Srms.Policy, self).__init__()
@@ -1347,21 +1329,21 @@ class Srms(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("policy-ipv4", ("policy_ipv4", Srms.Policy.PolicyIpv4)), ("policy-ipv6", ("policy_ipv6", Srms.Policy.PolicyIpv6))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("policy-ipv4", ("policy_ipv4", Srms.Policy.PolicyIpv4)), ("policy-ipv6", ("policy_ipv6", Srms.Policy.PolicyIpv6))])
             self._leafs = OrderedDict()
 
             self.policy_ipv4 = Srms.Policy.PolicyIpv4()
             self.policy_ipv4.parent = self
             self._children_name_map["policy_ipv4"] = "policy-ipv4"
-            self._children_yang_names.add("policy-ipv4")
 
             self.policy_ipv6 = Srms.Policy.PolicyIpv6()
             self.policy_ipv6.parent = self
             self._children_name_map["policy_ipv6"] = "policy-ipv6"
-            self._children_yang_names.add("policy-ipv6")
             self._segment_path = lambda: "policy"
             self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Srms.Policy, [], name, value)
 
 
         class PolicyIpv4(Entity):
@@ -1383,7 +1365,7 @@ class Srms(Entity):
             """
 
             _prefix = 'segment-routing-ms-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Srms.Policy.PolicyIpv4, self).__init__()
@@ -1393,21 +1375,21 @@ class Srms(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("policy-ipv4-backup", ("policy_ipv4_backup", Srms.Policy.PolicyIpv4.PolicyIpv4Backup)), ("policy-ipv4-active", ("policy_ipv4_active", Srms.Policy.PolicyIpv4.PolicyIpv4Active))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("policy-ipv4-backup", ("policy_ipv4_backup", Srms.Policy.PolicyIpv4.PolicyIpv4Backup)), ("policy-ipv4-active", ("policy_ipv4_active", Srms.Policy.PolicyIpv4.PolicyIpv4Active))])
                 self._leafs = OrderedDict()
 
                 self.policy_ipv4_backup = Srms.Policy.PolicyIpv4.PolicyIpv4Backup()
                 self.policy_ipv4_backup.parent = self
                 self._children_name_map["policy_ipv4_backup"] = "policy-ipv4-backup"
-                self._children_yang_names.add("policy-ipv4-backup")
 
                 self.policy_ipv4_active = Srms.Policy.PolicyIpv4.PolicyIpv4Active()
                 self.policy_ipv4_active.parent = self
                 self._children_name_map["policy_ipv4_active"] = "policy-ipv4-active"
-                self._children_yang_names.add("policy-ipv4-active")
                 self._segment_path = lambda: "policy-ipv4"
                 self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Srms.Policy.PolicyIpv4, [], name, value)
 
 
             class PolicyIpv4Backup(Entity):
@@ -1424,7 +1406,7 @@ class Srms(Entity):
                 """
 
                 _prefix = 'segment-routing-ms-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Srms.Policy.PolicyIpv4.PolicyIpv4Backup, self).__init__()
@@ -1434,8 +1416,7 @@ class Srms(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("policy-mi", ("policy_mi", Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi))])
+                    self._child_classes = OrderedDict([("policy-mi", ("policy_mi", Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi))])
                     self._leafs = OrderedDict()
 
                     self.policy_mi = YList(self)
@@ -1526,7 +1507,7 @@ class Srms(Entity):
                     """
 
                     _prefix = 'segment-routing-ms-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi, self).__init__()
@@ -1536,8 +1517,7 @@ class Srms(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['mi_id']
-                        self._child_container_classes = OrderedDict([("addr", ("addr", Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("addr", ("addr", Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr))])
                         self._leafs = OrderedDict([
                             ('mi_id', YLeaf(YType.str, 'mi-id')),
                             ('src', YLeaf(YType.enumeration, 'src')),
@@ -1564,7 +1544,6 @@ class Srms(Entity):
                         self.addr = Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr()
                         self.addr.parent = self
                         self._children_name_map["addr"] = "addr"
-                        self._children_yang_names.add("addr")
                         self._segment_path = lambda: "policy-mi" + "[mi-id='" + str(self.mi_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv4/policy-ipv4-backup/%s" % self._segment_path()
 
@@ -1600,7 +1579,7 @@ class Srms(Entity):
                         """
 
                         _prefix = 'segment-routing-ms-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr, self).__init__()
@@ -1610,8 +1589,7 @@ class Srms(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('af', YLeaf(YType.enumeration, 'af')),
                                 ('ipv4', YLeaf(YType.str, 'ipv4')),
@@ -1640,7 +1618,7 @@ class Srms(Entity):
                 """
 
                 _prefix = 'segment-routing-ms-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Srms.Policy.PolicyIpv4.PolicyIpv4Active, self).__init__()
@@ -1650,8 +1628,7 @@ class Srms(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("policy-mi", ("policy_mi", Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi))])
+                    self._child_classes = OrderedDict([("policy-mi", ("policy_mi", Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi))])
                     self._leafs = OrderedDict()
 
                     self.policy_mi = YList(self)
@@ -1742,7 +1719,7 @@ class Srms(Entity):
                     """
 
                     _prefix = 'segment-routing-ms-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi, self).__init__()
@@ -1752,8 +1729,7 @@ class Srms(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['mi_id']
-                        self._child_container_classes = OrderedDict([("addr", ("addr", Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("addr", ("addr", Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr))])
                         self._leafs = OrderedDict([
                             ('mi_id', YLeaf(YType.str, 'mi-id')),
                             ('src', YLeaf(YType.enumeration, 'src')),
@@ -1780,7 +1756,6 @@ class Srms(Entity):
                         self.addr = Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr()
                         self.addr.parent = self
                         self._children_name_map["addr"] = "addr"
-                        self._children_yang_names.add("addr")
                         self._segment_path = lambda: "policy-mi" + "[mi-id='" + str(self.mi_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv4/policy-ipv4-active/%s" % self._segment_path()
 
@@ -1816,7 +1791,7 @@ class Srms(Entity):
                         """
 
                         _prefix = 'segment-routing-ms-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr, self).__init__()
@@ -1826,8 +1801,7 @@ class Srms(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('af', YLeaf(YType.enumeration, 'af')),
                                 ('ipv4', YLeaf(YType.str, 'ipv4')),
@@ -1861,7 +1835,7 @@ class Srms(Entity):
             """
 
             _prefix = 'segment-routing-ms-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Srms.Policy.PolicyIpv6, self).__init__()
@@ -1871,21 +1845,21 @@ class Srms(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("policy-ipv6-backup", ("policy_ipv6_backup", Srms.Policy.PolicyIpv6.PolicyIpv6Backup)), ("policy-ipv6-active", ("policy_ipv6_active", Srms.Policy.PolicyIpv6.PolicyIpv6Active))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("policy-ipv6-backup", ("policy_ipv6_backup", Srms.Policy.PolicyIpv6.PolicyIpv6Backup)), ("policy-ipv6-active", ("policy_ipv6_active", Srms.Policy.PolicyIpv6.PolicyIpv6Active))])
                 self._leafs = OrderedDict()
 
                 self.policy_ipv6_backup = Srms.Policy.PolicyIpv6.PolicyIpv6Backup()
                 self.policy_ipv6_backup.parent = self
                 self._children_name_map["policy_ipv6_backup"] = "policy-ipv6-backup"
-                self._children_yang_names.add("policy-ipv6-backup")
 
                 self.policy_ipv6_active = Srms.Policy.PolicyIpv6.PolicyIpv6Active()
                 self.policy_ipv6_active.parent = self
                 self._children_name_map["policy_ipv6_active"] = "policy-ipv6-active"
-                self._children_yang_names.add("policy-ipv6-active")
                 self._segment_path = lambda: "policy-ipv6"
                 self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Srms.Policy.PolicyIpv6, [], name, value)
 
 
             class PolicyIpv6Backup(Entity):
@@ -1902,7 +1876,7 @@ class Srms(Entity):
                 """
 
                 _prefix = 'segment-routing-ms-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Srms.Policy.PolicyIpv6.PolicyIpv6Backup, self).__init__()
@@ -1912,8 +1886,7 @@ class Srms(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("policy-mi", ("policy_mi", Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi))])
+                    self._child_classes = OrderedDict([("policy-mi", ("policy_mi", Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi))])
                     self._leafs = OrderedDict()
 
                     self.policy_mi = YList(self)
@@ -2004,7 +1977,7 @@ class Srms(Entity):
                     """
 
                     _prefix = 'segment-routing-ms-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi, self).__init__()
@@ -2014,8 +1987,7 @@ class Srms(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['mi_id']
-                        self._child_container_classes = OrderedDict([("addr", ("addr", Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("addr", ("addr", Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr))])
                         self._leafs = OrderedDict([
                             ('mi_id', YLeaf(YType.str, 'mi-id')),
                             ('src', YLeaf(YType.enumeration, 'src')),
@@ -2042,7 +2014,6 @@ class Srms(Entity):
                         self.addr = Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr()
                         self.addr.parent = self
                         self._children_name_map["addr"] = "addr"
-                        self._children_yang_names.add("addr")
                         self._segment_path = lambda: "policy-mi" + "[mi-id='" + str(self.mi_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv6/policy-ipv6-backup/%s" % self._segment_path()
 
@@ -2078,7 +2049,7 @@ class Srms(Entity):
                         """
 
                         _prefix = 'segment-routing-ms-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr, self).__init__()
@@ -2088,8 +2059,7 @@ class Srms(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('af', YLeaf(YType.enumeration, 'af')),
                                 ('ipv4', YLeaf(YType.str, 'ipv4')),
@@ -2118,7 +2088,7 @@ class Srms(Entity):
                 """
 
                 _prefix = 'segment-routing-ms-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Srms.Policy.PolicyIpv6.PolicyIpv6Active, self).__init__()
@@ -2128,8 +2098,7 @@ class Srms(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("policy-mi", ("policy_mi", Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi))])
+                    self._child_classes = OrderedDict([("policy-mi", ("policy_mi", Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi))])
                     self._leafs = OrderedDict()
 
                     self.policy_mi = YList(self)
@@ -2220,7 +2189,7 @@ class Srms(Entity):
                     """
 
                     _prefix = 'segment-routing-ms-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi, self).__init__()
@@ -2230,8 +2199,7 @@ class Srms(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['mi_id']
-                        self._child_container_classes = OrderedDict([("addr", ("addr", Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("addr", ("addr", Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr))])
                         self._leafs = OrderedDict([
                             ('mi_id', YLeaf(YType.str, 'mi-id')),
                             ('src', YLeaf(YType.enumeration, 'src')),
@@ -2258,7 +2226,6 @@ class Srms(Entity):
                         self.addr = Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr()
                         self.addr.parent = self
                         self._children_name_map["addr"] = "addr"
-                        self._children_yang_names.add("addr")
                         self._segment_path = lambda: "policy-mi" + "[mi-id='" + str(self.mi_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv6/policy-ipv6-active/%s" % self._segment_path()
 
@@ -2294,7 +2261,7 @@ class Srms(Entity):
                         """
 
                         _prefix = 'segment-routing-ms-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr, self).__init__()
@@ -2304,8 +2271,7 @@ class Srms(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('af', YLeaf(YType.enumeration, 'af')),
                                 ('ipv4', YLeaf(YType.str, 'ipv4')),
@@ -2337,7 +2303,7 @@ class Srlb(Entity):
     """
 
     _prefix = 'segment-routing-ms-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(Srlb, self).__init__()
@@ -2348,15 +2314,16 @@ class Srlb(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("srlb-inconsistency", ("srlb_inconsistency", Srlb.SrlbInconsistency))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("srlb-inconsistency", ("srlb_inconsistency", Srlb.SrlbInconsistency))])
         self._leafs = OrderedDict()
 
         self.srlb_inconsistency = Srlb.SrlbInconsistency()
         self.srlb_inconsistency.parent = self
         self._children_name_map["srlb_inconsistency"] = "srlb-inconsistency"
-        self._children_yang_names.add("srlb-inconsistency")
         self._segment_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srlb"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Srlb, [], name, value)
 
 
     class SrlbInconsistency(Entity):
@@ -2382,7 +2349,7 @@ class Srlb(Entity):
         """
 
         _prefix = 'segment-routing-ms-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Srlb.SrlbInconsistency, self).__init__()
@@ -2392,8 +2359,7 @@ class Srlb(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('start_srlb_range', YLeaf(YType.uint32, 'start-srlb-range')),
                 ('end_srlb_range', YLeaf(YType.uint32, 'end-srlb-range')),

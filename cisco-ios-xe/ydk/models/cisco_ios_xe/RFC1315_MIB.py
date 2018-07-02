@@ -23,17 +23,17 @@ class RFC1315MIB(Entity):
     .. attribute:: frdlcmitable
     
     	The Parameters for the Data Link Connection Management Interface for the frame relay service on this interface
-    	**type**\:  :py:class:`Frdlcmitable <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frdlcmitable>`
+    	**type**\:  :py:class:`FrDlcmiTable <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.FrDlcmiTable>`
     
     .. attribute:: frcircuittable
     
     	A table containing information about specific Data Link Connection Identifiers and corresponding virtual circuits
-    	**type**\:  :py:class:`Frcircuittable <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frcircuittable>`
+    	**type**\:  :py:class:`FrCircuitTable <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.FrCircuitTable>`
     
     .. attribute:: frerrtable
     
     	A table containing information about Errors on the Frame Relay interface
-    	**type**\:  :py:class:`Frerrtable <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frerrtable>`
+    	**type**\:  :py:class:`FrErrTable <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.FrErrTable>`
     
     
 
@@ -50,30 +50,28 @@ class RFC1315MIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("frame-relay-globals", ("frame_relay_globals", RFC1315MIB.FrameRelayGlobals)), ("frDlcmiTable", ("frdlcmitable", RFC1315MIB.Frdlcmitable)), ("frCircuitTable", ("frcircuittable", RFC1315MIB.Frcircuittable)), ("frErrTable", ("frerrtable", RFC1315MIB.Frerrtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("frame-relay-globals", ("frame_relay_globals", RFC1315MIB.FrameRelayGlobals)), ("frDlcmiTable", ("frdlcmitable", RFC1315MIB.FrDlcmiTable)), ("frCircuitTable", ("frcircuittable", RFC1315MIB.FrCircuitTable)), ("frErrTable", ("frerrtable", RFC1315MIB.FrErrTable))])
         self._leafs = OrderedDict()
 
         self.frame_relay_globals = RFC1315MIB.FrameRelayGlobals()
         self.frame_relay_globals.parent = self
         self._children_name_map["frame_relay_globals"] = "frame-relay-globals"
-        self._children_yang_names.add("frame-relay-globals")
 
-        self.frdlcmitable = RFC1315MIB.Frdlcmitable()
+        self.frdlcmitable = RFC1315MIB.FrDlcmiTable()
         self.frdlcmitable.parent = self
         self._children_name_map["frdlcmitable"] = "frDlcmiTable"
-        self._children_yang_names.add("frDlcmiTable")
 
-        self.frcircuittable = RFC1315MIB.Frcircuittable()
+        self.frcircuittable = RFC1315MIB.FrCircuitTable()
         self.frcircuittable.parent = self
         self._children_name_map["frcircuittable"] = "frCircuitTable"
-        self._children_yang_names.add("frCircuitTable")
 
-        self.frerrtable = RFC1315MIB.Frerrtable()
+        self.frerrtable = RFC1315MIB.FrErrTable()
         self.frerrtable.parent = self
         self._children_name_map["frerrtable"] = "frErrTable"
-        self._children_yang_names.add("frErrTable")
         self._segment_path = lambda: "RFC1315-MIB:RFC1315-MIB"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(RFC1315MIB, [], name, value)
 
 
     class FrameRelayGlobals(Entity):
@@ -83,7 +81,7 @@ class RFC1315MIB(Entity):
         .. attribute:: frtrapstate
         
         	This variable  indicates  whether  the  system produces the frDLCIStatusChange trap
-        	**type**\:  :py:class:`Frtrapstate <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.FrameRelayGlobals.Frtrapstate>`
+        	**type**\:  :py:class:`FrTrapState <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.FrameRelayGlobals.FrTrapState>`
         
         
 
@@ -99,8 +97,7 @@ class RFC1315MIB(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('frtrapstate', YLeaf(YType.enumeration, 'frTrapState')),
             ])
@@ -111,9 +108,9 @@ class RFC1315MIB(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RFC1315MIB.FrameRelayGlobals, ['frtrapstate'], name, value)
 
-        class Frtrapstate(Enum):
+        class FrTrapState(Enum):
             """
-            Frtrapstate (Enum Class)
+            FrTrapState (Enum Class)
 
             This variable  indicates  whether  the  system
 
@@ -131,7 +128,7 @@ class RFC1315MIB(Entity):
 
 
 
-    class Frdlcmitable(Entity):
+    class FrDlcmiTable(Entity):
         """
         The Parameters for the Data Link Connection Management
         Interface for the frame relay service on this
@@ -140,7 +137,7 @@ class RFC1315MIB(Entity):
         .. attribute:: frdlcmientry
         
         	The Parameters for a particular Data Link Con\- nection Management Interface
-        	**type**\: list of  		 :py:class:`Frdlcmientry <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frdlcmitable.Frdlcmientry>`
+        	**type**\: list of  		 :py:class:`FrDlcmiEntry <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.FrDlcmiTable.FrDlcmiEntry>`
         
         
 
@@ -149,15 +146,14 @@ class RFC1315MIB(Entity):
         _prefix = 'RFC1315-MIB'
 
         def __init__(self):
-            super(RFC1315MIB.Frdlcmitable, self).__init__()
+            super(RFC1315MIB.FrDlcmiTable, self).__init__()
 
             self.yang_name = "frDlcmiTable"
             self.yang_parent_name = "RFC1315-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("frDlcmiEntry", ("frdlcmientry", RFC1315MIB.Frdlcmitable.Frdlcmientry))])
+            self._child_classes = OrderedDict([("frDlcmiEntry", ("frdlcmientry", RFC1315MIB.FrDlcmiTable.FrDlcmiEntry))])
             self._leafs = OrderedDict()
 
             self.frdlcmientry = YList(self)
@@ -165,10 +161,10 @@ class RFC1315MIB(Entity):
             self._absolute_path = lambda: "RFC1315-MIB:RFC1315-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1315MIB.Frdlcmitable, [], name, value)
+            self._perform_setattr(RFC1315MIB.FrDlcmiTable, [], name, value)
 
 
-        class Frdlcmientry(Entity):
+        class FrDlcmiEntry(Entity):
             """
             The Parameters for a particular Data Link Con\-
             nection Management Interface.
@@ -183,17 +179,17 @@ class RFC1315MIB(Entity):
             .. attribute:: frdlcmistate
             
             	This variable states which Data  Link  Connec\- tion Management scheme is active (and by impli\- cation, what DLCI it uses) on the  Frame  Relay interface
-            	**type**\:  :py:class:`Frdlcmistate <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frdlcmitable.Frdlcmientry.Frdlcmistate>`
+            	**type**\:  :py:class:`FrDlcmiState <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.FrDlcmiTable.FrDlcmiEntry.FrDlcmiState>`
             
             .. attribute:: frdlcmiaddress
             
             	This variable states which address  format  is in use on the Frame Relay interface
-            	**type**\:  :py:class:`Frdlcmiaddress <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frdlcmitable.Frdlcmientry.Frdlcmiaddress>`
+            	**type**\:  :py:class:`FrDlcmiAddress <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.FrDlcmiTable.FrDlcmiEntry.FrDlcmiAddress>`
             
             .. attribute:: frdlcmiaddresslen
             
             	This variable states which address  length  in octets.  In the case of Q922 format, the length indicates the entire length of the address  in\- cluding the control portion
-            	**type**\:  :py:class:`Frdlcmiaddresslen <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frdlcmitable.Frdlcmientry.Frdlcmiaddresslen>`
+            	**type**\:  :py:class:`FrDlcmiAddressLen <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.FrDlcmiTable.FrDlcmiEntry.FrDlcmiAddressLen>`
             
             .. attribute:: frdlcmipollinginterval
             
@@ -233,7 +229,7 @@ class RFC1315MIB(Entity):
             .. attribute:: frdlcmimulticast
             
             	This indicates whether the Frame Relay  inter\- face is using a multicast service
-            	**type**\:  :py:class:`Frdlcmimulticast <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frdlcmitable.Frdlcmientry.Frdlcmimulticast>`
+            	**type**\:  :py:class:`FrDlcmiMulticast <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.FrDlcmiTable.FrDlcmiEntry.FrDlcmiMulticast>`
             
             
 
@@ -242,15 +238,14 @@ class RFC1315MIB(Entity):
             _prefix = 'RFC1315-MIB'
 
             def __init__(self):
-                super(RFC1315MIB.Frdlcmitable.Frdlcmientry, self).__init__()
+                super(RFC1315MIB.FrDlcmiTable.FrDlcmiEntry, self).__init__()
 
                 self.yang_name = "frDlcmiEntry"
                 self.yang_parent_name = "frDlcmiTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['frdlcmiifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('frdlcmiifindex', YLeaf(YType.int32, 'frDlcmiIfIndex')),
                     ('frdlcmistate', YLeaf(YType.enumeration, 'frDlcmiState')),
@@ -277,11 +272,11 @@ class RFC1315MIB(Entity):
                 self._absolute_path = lambda: "RFC1315-MIB:RFC1315-MIB/frDlcmiTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RFC1315MIB.Frdlcmitable.Frdlcmientry, ['frdlcmiifindex', 'frdlcmistate', 'frdlcmiaddress', 'frdlcmiaddresslen', 'frdlcmipollinginterval', 'frdlcmifullenquiryinterval', 'frdlcmierrorthreshold', 'frdlcmimonitoredevents', 'frdlcmimaxsupportedvcs', 'frdlcmimulticast'], name, value)
+                self._perform_setattr(RFC1315MIB.FrDlcmiTable.FrDlcmiEntry, ['frdlcmiifindex', 'frdlcmistate', 'frdlcmiaddress', 'frdlcmiaddresslen', 'frdlcmipollinginterval', 'frdlcmifullenquiryinterval', 'frdlcmierrorthreshold', 'frdlcmimonitoredevents', 'frdlcmimaxsupportedvcs', 'frdlcmimulticast'], name, value)
 
-            class Frdlcmiaddress(Enum):
+            class FrDlcmiAddress(Enum):
                 """
-                Frdlcmiaddress (Enum Class)
+                FrDlcmiAddress (Enum Class)
 
                 This variable states which address  format  is
 
@@ -306,9 +301,9 @@ class RFC1315MIB(Entity):
                 q922 = Enum.YLeaf(4, "q922")
 
 
-            class Frdlcmiaddresslen(Enum):
+            class FrDlcmiAddressLen(Enum):
                 """
-                Frdlcmiaddresslen (Enum Class)
+                FrDlcmiAddressLen (Enum Class)
 
                 This variable states which address  length  in
 
@@ -333,9 +328,9 @@ class RFC1315MIB(Entity):
                 four_octets = Enum.YLeaf(4, "four-octets")
 
 
-            class Frdlcmimulticast(Enum):
+            class FrDlcmiMulticast(Enum):
                 """
-                Frdlcmimulticast (Enum Class)
+                FrDlcmiMulticast (Enum Class)
 
                 This indicates whether the Frame Relay  inter\-
 
@@ -352,9 +347,9 @@ class RFC1315MIB(Entity):
                 broadcast = Enum.YLeaf(2, "broadcast")
 
 
-            class Frdlcmistate(Enum):
+            class FrDlcmiState(Enum):
                 """
-                Frdlcmistate (Enum Class)
+                FrDlcmiState (Enum Class)
 
                 This variable states which Data  Link  Connec\-
 
@@ -384,7 +379,7 @@ class RFC1315MIB(Entity):
 
 
 
-    class Frcircuittable(Entity):
+    class FrCircuitTable(Entity):
         """
         A table containing information about specific Data
         Link Connection Identifiers and corresponding virtual
@@ -393,7 +388,7 @@ class RFC1315MIB(Entity):
         .. attribute:: frcircuitentry
         
         	The information regarding a single  Data  Link Connection Identifier
-        	**type**\: list of  		 :py:class:`Frcircuitentry <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frcircuittable.Frcircuitentry>`
+        	**type**\: list of  		 :py:class:`FrCircuitEntry <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.FrCircuitTable.FrCircuitEntry>`
         
         
 
@@ -402,15 +397,14 @@ class RFC1315MIB(Entity):
         _prefix = 'RFC1315-MIB'
 
         def __init__(self):
-            super(RFC1315MIB.Frcircuittable, self).__init__()
+            super(RFC1315MIB.FrCircuitTable, self).__init__()
 
             self.yang_name = "frCircuitTable"
             self.yang_parent_name = "RFC1315-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("frCircuitEntry", ("frcircuitentry", RFC1315MIB.Frcircuittable.Frcircuitentry))])
+            self._child_classes = OrderedDict([("frCircuitEntry", ("frcircuitentry", RFC1315MIB.FrCircuitTable.FrCircuitEntry))])
             self._leafs = OrderedDict()
 
             self.frcircuitentry = YList(self)
@@ -418,10 +412,10 @@ class RFC1315MIB(Entity):
             self._absolute_path = lambda: "RFC1315-MIB:RFC1315-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1315MIB.Frcircuittable, [], name, value)
+            self._perform_setattr(RFC1315MIB.FrCircuitTable, [], name, value)
 
 
-        class Frcircuitentry(Entity):
+        class FrCircuitEntry(Entity):
             """
             The information regarding a single  Data  Link
             Connection Identifier.
@@ -443,7 +437,7 @@ class RFC1315MIB(Entity):
             .. attribute:: frcircuitstate
             
             	Indicates whether the particular virtual  cir\- cuit  is operational.  In the absence of a Data Link Connection Management  Interface,  virtual circuit  entries  (rows) may be created by set\- ting virtual  circuit  state  to  'active',  or deleted by changing Circuit state to 'invalid'. Whether or not the row actually  disappears  is left  to the implementation, so this object may actually read as 'invalid' for  some  arbitrary length  of  time.   It is also legal to set the state of a virtual  circuit  to  'inactive'  to temporarily disable a given circuit
-            	**type**\:  :py:class:`Frcircuitstate <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frcircuittable.Frcircuitentry.Frcircuitstate>`
+            	**type**\:  :py:class:`FrCircuitState <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.FrCircuitTable.FrCircuitEntry.FrCircuitState>`
             
             .. attribute:: frcircuitreceivedfecns
             
@@ -529,15 +523,14 @@ class RFC1315MIB(Entity):
             _prefix = 'RFC1315-MIB'
 
             def __init__(self):
-                super(RFC1315MIB.Frcircuittable.Frcircuitentry, self).__init__()
+                super(RFC1315MIB.FrCircuitTable.FrCircuitEntry, self).__init__()
 
                 self.yang_name = "frCircuitEntry"
                 self.yang_parent_name = "frCircuitTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['frcircuitifindex','frcircuitdlci']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('frcircuitifindex', YLeaf(YType.int32, 'frCircuitIfIndex')),
                     ('frcircuitdlci', YLeaf(YType.int32, 'frCircuitDlci')),
@@ -572,11 +565,11 @@ class RFC1315MIB(Entity):
                 self._absolute_path = lambda: "RFC1315-MIB:RFC1315-MIB/frCircuitTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RFC1315MIB.Frcircuittable.Frcircuitentry, ['frcircuitifindex', 'frcircuitdlci', 'frcircuitstate', 'frcircuitreceivedfecns', 'frcircuitreceivedbecns', 'frcircuitsentframes', 'frcircuitsentoctets', 'frcircuitreceivedframes', 'frcircuitreceivedoctets', 'frcircuitcreationtime', 'frcircuitlasttimechange', 'frcircuitcommittedburst', 'frcircuitexcessburst', 'frcircuitthroughput'], name, value)
+                self._perform_setattr(RFC1315MIB.FrCircuitTable.FrCircuitEntry, ['frcircuitifindex', 'frcircuitdlci', 'frcircuitstate', 'frcircuitreceivedfecns', 'frcircuitreceivedbecns', 'frcircuitsentframes', 'frcircuitsentoctets', 'frcircuitreceivedframes', 'frcircuitreceivedoctets', 'frcircuitcreationtime', 'frcircuitlasttimechange', 'frcircuitcommittedburst', 'frcircuitexcessburst', 'frcircuitthroughput'], name, value)
 
-            class Frcircuitstate(Enum):
+            class FrCircuitState(Enum):
                 """
-                Frcircuitstate (Enum Class)
+                FrCircuitState (Enum Class)
 
                 Indicates whether the particular virtual  cir\-
 
@@ -618,7 +611,7 @@ class RFC1315MIB(Entity):
 
 
 
-    class Frerrtable(Entity):
+    class FrErrTable(Entity):
         """
         A table containing information about Errors on the
         Frame Relay interface.
@@ -626,7 +619,7 @@ class RFC1315MIB(Entity):
         .. attribute:: frerrentry
         
         	The error information for a single frame relay interface
-        	**type**\: list of  		 :py:class:`Frerrentry <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frerrtable.Frerrentry>`
+        	**type**\: list of  		 :py:class:`FrErrEntry <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.FrErrTable.FrErrEntry>`
         
         
 
@@ -635,15 +628,14 @@ class RFC1315MIB(Entity):
         _prefix = 'RFC1315-MIB'
 
         def __init__(self):
-            super(RFC1315MIB.Frerrtable, self).__init__()
+            super(RFC1315MIB.FrErrTable, self).__init__()
 
             self.yang_name = "frErrTable"
             self.yang_parent_name = "RFC1315-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("frErrEntry", ("frerrentry", RFC1315MIB.Frerrtable.Frerrentry))])
+            self._child_classes = OrderedDict([("frErrEntry", ("frerrentry", RFC1315MIB.FrErrTable.FrErrEntry))])
             self._leafs = OrderedDict()
 
             self.frerrentry = YList(self)
@@ -651,10 +643,10 @@ class RFC1315MIB(Entity):
             self._absolute_path = lambda: "RFC1315-MIB:RFC1315-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RFC1315MIB.Frerrtable, [], name, value)
+            self._perform_setattr(RFC1315MIB.FrErrTable, [], name, value)
 
 
-        class Frerrentry(Entity):
+        class FrErrEntry(Entity):
             """
             The error information for a single frame relay
             interface.
@@ -669,7 +661,7 @@ class RFC1315MIB(Entity):
             .. attribute:: frerrtype
             
             	The type of error that was last seen  on  this interface
-            	**type**\:  :py:class:`Frerrtype <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frerrtable.Frerrentry.Frerrtype>`
+            	**type**\:  :py:class:`FrErrType <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.FrErrTable.FrErrEntry.FrErrType>`
             
             .. attribute:: frerrdata
             
@@ -690,15 +682,14 @@ class RFC1315MIB(Entity):
             _prefix = 'RFC1315-MIB'
 
             def __init__(self):
-                super(RFC1315MIB.Frerrtable.Frerrentry, self).__init__()
+                super(RFC1315MIB.FrErrTable.FrErrEntry, self).__init__()
 
                 self.yang_name = "frErrEntry"
                 self.yang_parent_name = "frErrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['frerrifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('frerrifindex', YLeaf(YType.int32, 'frErrIfIndex')),
                     ('frerrtype', YLeaf(YType.enumeration, 'frErrType')),
@@ -713,11 +704,11 @@ class RFC1315MIB(Entity):
                 self._absolute_path = lambda: "RFC1315-MIB:RFC1315-MIB/frErrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RFC1315MIB.Frerrtable.Frerrentry, ['frerrifindex', 'frerrtype', 'frerrdata', 'frerrtime'], name, value)
+                self._perform_setattr(RFC1315MIB.FrErrTable.FrErrEntry, ['frerrifindex', 'frerrtype', 'frerrdata', 'frerrtime'], name, value)
 
-            class Frerrtype(Enum):
+            class FrErrType(Enum):
                 """
-                Frerrtype (Enum Class)
+                FrErrType (Enum Class)
 
                 The type of error that was last seen  on  this
 

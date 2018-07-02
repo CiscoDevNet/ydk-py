@@ -45,15 +45,16 @@ class PppoeEa(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", PppoeEa.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", PppoeEa.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = PppoeEa.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-pppoe-ea-oper:pppoe-ea"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(PppoeEa, [], name, value)
 
 
     class Nodes(Entity):
@@ -80,8 +81,7 @@ class PppoeEa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", PppoeEa.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", PppoeEa.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -128,8 +128,7 @@ class PppoeEa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("parent-interface-ids", ("parent_interface_ids", PppoeEa.Nodes.Node.ParentInterfaceIds)), ("interface-ids", ("interface_ids", PppoeEa.Nodes.Node.InterfaceIds))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("parent-interface-ids", ("parent_interface_ids", PppoeEa.Nodes.Node.ParentInterfaceIds)), ("interface-ids", ("interface_ids", PppoeEa.Nodes.Node.InterfaceIds))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -138,12 +137,10 @@ class PppoeEa(Entity):
                 self.parent_interface_ids = PppoeEa.Nodes.Node.ParentInterfaceIds()
                 self.parent_interface_ids.parent = self
                 self._children_name_map["parent_interface_ids"] = "parent-interface-ids"
-                self._children_yang_names.add("parent-interface-ids")
 
                 self.interface_ids = PppoeEa.Nodes.Node.InterfaceIds()
                 self.interface_ids.parent = self
                 self._children_name_map["interface_ids"] = "interface-ids"
-                self._children_yang_names.add("interface-ids")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-pppoe-ea-oper:pppoe-ea/nodes/%s" % self._segment_path()
 
@@ -175,8 +172,7 @@ class PppoeEa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("parent-interface-id", ("parent_interface_id", PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId))])
+                    self._child_classes = OrderedDict([("parent-interface-id", ("parent_interface_id", PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId))])
                     self._leafs = OrderedDict()
 
                     self.parent_interface_id = YList(self)
@@ -229,8 +225,7 @@ class PppoeEa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['parent_interface_name']
-                        self._child_container_classes = OrderedDict([("srgv-mac", ("srgv_mac", PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId.SrgvMac))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("srgv-mac", ("srgv_mac", PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId.SrgvMac))])
                         self._leafs = OrderedDict([
                             ('parent_interface_name', YLeaf(YType.str, 'parent-interface-name')),
                             ('interface', YLeaf(YType.str, 'interface')),
@@ -243,7 +238,6 @@ class PppoeEa(Entity):
                         self.srgv_mac = PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId.SrgvMac()
                         self.srgv_mac.parent = self
                         self._children_name_map["srgv_mac"] = "srgv-mac"
-                        self._children_yang_names.add("srgv-mac")
                         self._segment_path = lambda: "parent-interface-id" + "[parent-interface-name='" + str(self.parent_interface_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -276,8 +270,7 @@ class PppoeEa(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('macaddr', YLeaf(YType.str, 'macaddr')),
                             ])
@@ -312,8 +305,7 @@ class PppoeEa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface-id", ("interface_id", PppoeEa.Nodes.Node.InterfaceIds.InterfaceId))])
+                    self._child_classes = OrderedDict([("interface-id", ("interface_id", PppoeEa.Nodes.Node.InterfaceIds.InterfaceId))])
                     self._leafs = OrderedDict()
 
                     self.interface_id = YList(self)
@@ -414,8 +406,7 @@ class PppoeEa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("peer-mac", ("peer_mac", PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.PeerMac)), ("local-mac", ("local_mac", PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.LocalMac)), ("srgv-mac", ("srgv_mac", PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.SrgvMac))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("peer-mac", ("peer_mac", PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.PeerMac)), ("local-mac", ("local_mac", PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.LocalMac)), ("srgv-mac", ("srgv_mac", PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.SrgvMac))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('interface', YLeaf(YType.str, 'interface')),
@@ -440,17 +431,14 @@ class PppoeEa(Entity):
                         self.peer_mac = PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.PeerMac()
                         self.peer_mac.parent = self
                         self._children_name_map["peer_mac"] = "peer-mac"
-                        self._children_yang_names.add("peer-mac")
 
                         self.local_mac = PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.LocalMac()
                         self.local_mac.parent = self
                         self._children_name_map["local_mac"] = "local-mac"
-                        self._children_yang_names.add("local-mac")
 
                         self.srgv_mac = PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.SrgvMac()
                         self.srgv_mac.parent = self
                         self._children_name_map["srgv_mac"] = "srgv-mac"
-                        self._children_yang_names.add("srgv-mac")
                         self._segment_path = lambda: "interface-id" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -483,8 +471,7 @@ class PppoeEa(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('macaddr', YLeaf(YType.str, 'macaddr')),
                             ])
@@ -521,8 +508,7 @@ class PppoeEa(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('macaddr', YLeaf(YType.str, 'macaddr')),
                             ])
@@ -559,8 +545,7 @@ class PppoeEa(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('macaddr', YLeaf(YType.str, 'macaddr')),
                             ])

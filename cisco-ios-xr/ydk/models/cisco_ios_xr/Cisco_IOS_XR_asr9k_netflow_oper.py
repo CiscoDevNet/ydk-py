@@ -45,15 +45,16 @@ class NetFlow(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("statistics", ("statistics", NetFlow.Statistics))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("statistics", ("statistics", NetFlow.Statistics))])
         self._leafs = OrderedDict()
 
         self.statistics = NetFlow.Statistics()
         self.statistics.parent = self
         self._children_name_map["statistics"] = "statistics"
-        self._children_yang_names.add("statistics")
         self._segment_path = lambda: "Cisco-IOS-XR-asr9k-netflow-oper:net-flow"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(NetFlow, [], name, value)
 
 
     class Statistics(Entity):
@@ -80,8 +81,7 @@ class NetFlow(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("statistic", ("statistic", NetFlow.Statistics.Statistic))])
+            self._child_classes = OrderedDict([("statistic", ("statistic", NetFlow.Statistics.Statistic))])
             self._leafs = OrderedDict()
 
             self.statistic = YList(self)
@@ -129,8 +129,7 @@ class NetFlow(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node']
-                self._child_container_classes = OrderedDict([("producer", ("producer", NetFlow.Statistics.Statistic.Producer)), ("server", ("server", NetFlow.Statistics.Statistic.Server))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("producer", ("producer", NetFlow.Statistics.Statistic.Producer)), ("server", ("server", NetFlow.Statistics.Statistic.Server))])
                 self._leafs = OrderedDict([
                     ('node', YLeaf(YType.str, 'node')),
                 ])
@@ -139,12 +138,10 @@ class NetFlow(Entity):
                 self.producer = NetFlow.Statistics.Statistic.Producer()
                 self.producer.parent = self
                 self._children_name_map["producer"] = "producer"
-                self._children_yang_names.add("producer")
 
                 self.server = NetFlow.Statistics.Statistic.Server()
                 self.server.parent = self
                 self._children_name_map["server"] = "server"
-                self._children_yang_names.add("server")
                 self._segment_path = lambda: "statistic" + "[node='" + str(self.node) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-netflow-oper:net-flow/statistics/%s" % self._segment_path()
 
@@ -176,15 +173,16 @@ class NetFlow(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("statistics", ("statistics", NetFlow.Statistics.Statistic.Producer.Statistics_))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("statistics", ("statistics", NetFlow.Statistics.Statistic.Producer.Statistics_))])
                     self._leafs = OrderedDict()
 
                     self.statistics = NetFlow.Statistics.Statistic.Producer.Statistics_()
                     self.statistics.parent = self
                     self._children_name_map["statistics"] = "statistics"
-                    self._children_yang_names.add("statistics")
                     self._segment_path = lambda: "producer"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(NetFlow.Statistics.Statistic.Producer, [], name, value)
 
 
                 class Statistics_(Entity):
@@ -302,8 +300,7 @@ class NetFlow(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('ipv4_ingress_flows', YLeaf(YType.uint64, 'ipv4-ingress-flows')),
                             ('ipv4_egress_flows', YLeaf(YType.uint64, 'ipv4-egress-flows')),
@@ -364,15 +361,16 @@ class NetFlow(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("flow-exporters", ("flow_exporters", NetFlow.Statistics.Statistic.Server.FlowExporters))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("flow-exporters", ("flow_exporters", NetFlow.Statistics.Statistic.Server.FlowExporters))])
                     self._leafs = OrderedDict()
 
                     self.flow_exporters = NetFlow.Statistics.Statistic.Server.FlowExporters()
                     self.flow_exporters.parent = self
                     self._children_name_map["flow_exporters"] = "flow-exporters"
-                    self._children_yang_names.add("flow-exporters")
                     self._segment_path = lambda: "server"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(NetFlow.Statistics.Statistic.Server, [], name, value)
 
 
                 class FlowExporters(Entity):
@@ -399,8 +397,7 @@ class NetFlow(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("flow-exporter", ("flow_exporter", NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter))])
+                        self._child_classes = OrderedDict([("flow-exporter", ("flow_exporter", NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter))])
                         self._leafs = OrderedDict()
 
                         self.flow_exporter = YList(self)
@@ -441,8 +438,7 @@ class NetFlow(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['exporter_name']
-                            self._child_container_classes = OrderedDict([("exporter", ("exporter", NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("exporter", ("exporter", NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter))])
                             self._leafs = OrderedDict([
                                 ('exporter_name', YLeaf(YType.str, 'exporter-name')),
                             ])
@@ -451,7 +447,6 @@ class NetFlow(Entity):
                             self.exporter = NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter()
                             self.exporter.parent = self
                             self._children_name_map["exporter"] = "exporter"
-                            self._children_yang_names.add("exporter")
                             self._segment_path = lambda: "flow-exporter" + "[exporter-name='" + str(self.exporter_name) + "']"
 
                         def __setattr__(self, name, value):
@@ -482,8 +477,7 @@ class NetFlow(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("statistic", ("statistic", NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_))])
+                                self._child_classes = OrderedDict([("statistic", ("statistic", NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_))])
                                 self._leafs = OrderedDict()
 
                                 self.statistic = YList(self)
@@ -534,8 +528,7 @@ class NetFlow(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("collector", ("collector", NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_.Collector))])
+                                    self._child_classes = OrderedDict([("collector", ("collector", NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_.Collector))])
                                     self._leafs = OrderedDict([
                                         ('name', YLeaf(YType.str, 'name')),
                                         ('memory_usage', YLeaf(YType.uint32, 'memory-usage')),
@@ -837,8 +830,7 @@ class NetFlow(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('exporter_state', YLeaf(YType.str, 'exporter-state')),
                                             ('destination_address', YLeaf(YType.str, 'destination-address')),

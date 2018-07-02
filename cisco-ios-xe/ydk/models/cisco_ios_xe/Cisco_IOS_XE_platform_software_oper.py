@@ -68,14 +68,12 @@ class CiscoPlatformSoftware(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("control-processes", ("control_processes", CiscoPlatformSoftware.ControlProcesses))])
-        self._child_list_classes = OrderedDict([("q-filesystem", ("q_filesystem", CiscoPlatformSoftware.QFilesystem))])
+        self._child_classes = OrderedDict([("control-processes", ("control_processes", CiscoPlatformSoftware.ControlProcesses)), ("q-filesystem", ("q_filesystem", CiscoPlatformSoftware.QFilesystem))])
         self._leafs = OrderedDict()
 
         self.control_processes = CiscoPlatformSoftware.ControlProcesses()
         self.control_processes.parent = self
         self._children_name_map["control_processes"] = "control-processes"
-        self._children_yang_names.add("control-processes")
 
         self.q_filesystem = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-platform-software-oper:cisco-platform-software"
@@ -108,8 +106,7 @@ class CiscoPlatformSoftware(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("control-process", ("control_process", CiscoPlatformSoftware.ControlProcesses.ControlProcess))])
+            self._child_classes = OrderedDict([("control-process", ("control_process", CiscoPlatformSoftware.ControlProcesses.ControlProcess))])
             self._leafs = OrderedDict()
 
             self.control_process = YList(self)
@@ -197,8 +194,7 @@ class CiscoPlatformSoftware(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['fru','slotnum','baynum','chassisnum']
-                self._child_container_classes = OrderedDict([("load-average-stats", ("load_average_stats", CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAverageStats)), ("load-avg-minutes", ("load_avg_minutes", CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes)), ("memory-stats", ("memory_stats", CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats)), ("per-core-stats", ("per_core_stats", CiscoPlatformSoftware.ControlProcesses.ControlProcess.PerCoreStats))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("load-average-stats", ("load_average_stats", CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAverageStats)), ("load-avg-minutes", ("load_avg_minutes", CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes)), ("memory-stats", ("memory_stats", CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats)), ("per-core-stats", ("per_core_stats", CiscoPlatformSoftware.ControlProcesses.ControlProcess.PerCoreStats))])
                 self._leafs = OrderedDict([
                     ('fru', YLeaf(YType.enumeration, 'fru')),
                     ('slotnum', YLeaf(YType.int16, 'slotnum')),
@@ -217,22 +213,18 @@ class CiscoPlatformSoftware(Entity):
                 self.load_average_stats = CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAverageStats()
                 self.load_average_stats.parent = self
                 self._children_name_map["load_average_stats"] = "load-average-stats"
-                self._children_yang_names.add("load-average-stats")
 
                 self.load_avg_minutes = CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes()
                 self.load_avg_minutes.parent = self
                 self._children_name_map["load_avg_minutes"] = "load-avg-minutes"
-                self._children_yang_names.add("load-avg-minutes")
 
                 self.memory_stats = CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats()
                 self.memory_stats.parent = self
                 self._children_name_map["memory_stats"] = "memory-stats"
-                self._children_yang_names.add("memory-stats")
 
                 self.per_core_stats = CiscoPlatformSoftware.ControlProcesses.ControlProcess.PerCoreStats()
                 self.per_core_stats.parent = self
                 self._children_name_map["per_core_stats"] = "per-core-stats"
-                self._children_yang_names.add("per-core-stats")
                 self._segment_path = lambda: "control-process" + "[fru='" + str(self.fru) + "']" + "[slotnum='" + str(self.slotnum) + "']" + "[baynum='" + str(self.baynum) + "']" + "[chassisnum='" + str(self.chassisnum) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-platform-software-oper:cisco-platform-software/control-processes/%s" % self._segment_path()
 
@@ -264,8 +256,7 @@ class CiscoPlatformSoftware(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('load_average_status', YLeaf(YType.str, 'load-average-status')),
                     ])
@@ -300,8 +291,7 @@ class CiscoPlatformSoftware(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("load-avg-minute", ("load_avg_minute", CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes.LoadAvgMinute))])
+                    self._child_classes = OrderedDict([("load-avg-minute", ("load_avg_minute", CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes.LoadAvgMinute))])
                     self._leafs = OrderedDict()
 
                     self.load_avg_minute = YList(self)
@@ -349,8 +339,7 @@ class CiscoPlatformSoftware(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['number']
-                        self._child_container_classes = OrderedDict([("status", ("status", CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes.LoadAvgMinute.Status))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("status", ("status", CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes.LoadAvgMinute.Status))])
                         self._leafs = OrderedDict([
                             ('number', YLeaf(YType.uint64, 'number')),
                             ('average', YLeaf(YType.str, 'average')),
@@ -361,7 +350,6 @@ class CiscoPlatformSoftware(Entity):
                         self.status = CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes.LoadAvgMinute.Status()
                         self.status.parent = self
                         self._children_name_map["status"] = "status"
-                        self._children_yang_names.add("status")
                         self._segment_path = lambda: "load-avg-minute" + "[number='" + str(self.number) + "']"
 
                     def __setattr__(self, name, value):
@@ -404,8 +392,7 @@ class CiscoPlatformSoftware(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('condition', YLeaf(YType.str, 'condition')),
                                 ('threshold_status', YLeaf(YType.str, 'threshold-status')),
@@ -512,8 +499,7 @@ class CiscoPlatformSoftware(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("status", ("status", CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats.Status))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("status", ("status", CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats.Status))])
                     self._leafs = OrderedDict([
                         ('memory_status', YLeaf(YType.str, 'memory-status')),
                         ('total', YLeaf(YType.uint64, 'total')),
@@ -540,7 +526,6 @@ class CiscoPlatformSoftware(Entity):
                     self.status = CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats.Status()
                     self.status.parent = self
                     self._children_name_map["status"] = "status"
-                    self._children_yang_names.add("status")
                     self._segment_path = lambda: "memory-stats"
 
                 def __setattr__(self, name, value):
@@ -580,8 +565,7 @@ class CiscoPlatformSoftware(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('warning_threshold_percent', YLeaf(YType.uint32, 'warning-threshold-percent')),
                             ('critical_threshold_percent', YLeaf(YType.uint32, 'critical-threshold-percent')),
@@ -618,8 +602,7 @@ class CiscoPlatformSoftware(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("per-core-stat", ("per_core_stat", CiscoPlatformSoftware.ControlProcesses.ControlProcess.PerCoreStats.PerCoreStat))])
+                    self._child_classes = OrderedDict([("per-core-stat", ("per_core_stat", CiscoPlatformSoftware.ControlProcesses.ControlProcess.PerCoreStats.PerCoreStat))])
                     self._leafs = OrderedDict()
 
                     self.per_core_stat = YList(self)
@@ -704,8 +687,7 @@ class CiscoPlatformSoftware(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('name', YLeaf(YType.uint32, 'name')),
                             ('user', YLeaf(YType.str, 'user')),
@@ -785,8 +767,7 @@ class CiscoPlatformSoftware(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['fru','slotnum','baynum','chassisnum']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("partitions", ("partitions", CiscoPlatformSoftware.QFilesystem.Partitions)), ("core-files", ("core_files", CiscoPlatformSoftware.QFilesystem.CoreFiles))])
+            self._child_classes = OrderedDict([("partitions", ("partitions", CiscoPlatformSoftware.QFilesystem.Partitions)), ("core-files", ("core_files", CiscoPlatformSoftware.QFilesystem.CoreFiles))])
             self._leafs = OrderedDict([
                 ('fru', YLeaf(YType.enumeration, 'fru')),
                 ('slotnum', YLeaf(YType.int16, 'slotnum')),
@@ -845,8 +826,7 @@ class CiscoPlatformSoftware(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('total_size', YLeaf(YType.uint64, 'total-size')),
@@ -892,8 +872,7 @@ class CiscoPlatformSoftware(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['filename']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('filename', YLeaf(YType.str, 'filename')),
                     ('time', YLeaf(YType.str, 'time')),

@@ -210,8 +210,7 @@ class Bfd(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("flap-damp", ("flap_damp", Bfd.FlapDamp)), ("echo-latency", ("echo_latency", Bfd.EchoLatency)), ("echo-startup", ("echo_startup", Bfd.EchoStartup)), ("interfaces", ("interfaces", Bfd.Interfaces)), ("multi-path-includes", ("multi_path_includes", Bfd.MultiPathIncludes)), ("bundle", ("bundle", Bfd.Bundle))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("flap-damp", ("flap_damp", Bfd.FlapDamp)), ("echo-latency", ("echo_latency", Bfd.EchoLatency)), ("echo-startup", ("echo_startup", Bfd.EchoStartup)), ("interfaces", ("interfaces", Bfd.Interfaces)), ("multi-path-includes", ("multi_path_includes", Bfd.MultiPathIncludes)), ("bundle", ("bundle", Bfd.Bundle))])
         self._leafs = OrderedDict([
             ('global_echo_usage', YLeaf(YType.empty, 'global-echo-usage')),
             ('ipv6_checksum_disable', YLeaf(YType.empty, 'ipv6-checksum-disable')),
@@ -230,32 +229,26 @@ class Bfd(Entity):
         self.flap_damp = Bfd.FlapDamp()
         self.flap_damp.parent = self
         self._children_name_map["flap_damp"] = "flap-damp"
-        self._children_yang_names.add("flap-damp")
 
         self.echo_latency = Bfd.EchoLatency()
         self.echo_latency.parent = self
         self._children_name_map["echo_latency"] = "echo-latency"
-        self._children_yang_names.add("echo-latency")
 
         self.echo_startup = Bfd.EchoStartup()
         self.echo_startup.parent = self
         self._children_name_map["echo_startup"] = "echo-startup"
-        self._children_yang_names.add("echo-startup")
 
         self.interfaces = Bfd.Interfaces()
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
-        self._children_yang_names.add("interfaces")
 
         self.multi_path_includes = Bfd.MultiPathIncludes()
         self.multi_path_includes.parent = self
         self._children_name_map["multi_path_includes"] = "multi-path-includes"
-        self._children_yang_names.add("multi-path-includes")
 
         self.bundle = Bfd.Bundle()
         self.bundle.parent = self
         self._children_name_map["bundle"] = "bundle"
-        self._children_yang_names.add("bundle")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-bfd-cfg:bfd"
 
     def __setattr__(self, name, value):
@@ -340,8 +333,7 @@ class Bfd(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("bundle-member", ("bundle_member", Bfd.FlapDamp.BundleMember)), ("extensions", ("extensions", Bfd.FlapDamp.Extensions))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("bundle-member", ("bundle_member", Bfd.FlapDamp.BundleMember)), ("extensions", ("extensions", Bfd.FlapDamp.Extensions))])
             self._leafs = OrderedDict([
                 ('threshold', YLeaf(YType.uint32, 'threshold')),
                 ('initial_delay', YLeaf(YType.uint32, 'initial-delay')),
@@ -358,12 +350,10 @@ class Bfd(Entity):
             self.bundle_member = Bfd.FlapDamp.BundleMember()
             self.bundle_member.parent = self
             self._children_name_map["bundle_member"] = "bundle-member"
-            self._children_yang_names.add("bundle-member")
 
             self.extensions = Bfd.FlapDamp.Extensions()
             self.extensions.parent = self
             self._children_name_map["extensions"] = "extensions"
-            self._children_yang_names.add("extensions")
             self._segment_path = lambda: "flap-damp"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-cfg:bfd/%s" % self._segment_path()
 
@@ -428,8 +418,7 @@ class Bfd(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('initial_delay', YLeaf(YType.uint32, 'initial-delay')),
                     ('maximum_delay', YLeaf(YType.uint32, 'maximum-delay')),
@@ -471,8 +460,7 @@ class Bfd(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('down_monitor', YLeaf(YType.empty, 'down-monitor')),
                 ])
@@ -508,16 +496,17 @@ class Bfd(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("detect", ("detect", Bfd.EchoLatency.Detect))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("detect", ("detect", Bfd.EchoLatency.Detect))])
             self._leafs = OrderedDict()
 
             self.detect = Bfd.EchoLatency.Detect()
             self.detect.parent = self
             self._children_name_map["detect"] = "detect"
-            self._children_yang_names.add("detect")
             self._segment_path = lambda: "echo-latency"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-cfg:bfd/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Bfd.EchoLatency, [], name, value)
 
 
         class Detect(Entity):
@@ -560,8 +549,7 @@ class Bfd(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('latency_detect_enabled', YLeaf(YType.boolean, 'latency-detect-enabled')),
                     ('latency_detect_percentage', YLeaf(YType.uint32, 'latency-detect-percentage')),
@@ -603,8 +591,7 @@ class Bfd(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('validate', YLeaf(YType.enumeration, 'validate')),
             ])
@@ -640,8 +627,7 @@ class Bfd(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("interface", ("interface", Bfd.Interfaces.Interface))])
+            self._child_classes = OrderedDict([("interface", ("interface", Bfd.Interfaces.Interface))])
             self._leafs = OrderedDict()
 
             self.interface = YList(self)
@@ -705,8 +691,7 @@ class Bfd(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                     ('interface_echo_usage', YLeaf(YType.enumeration, 'interface-echo-usage')),
@@ -748,8 +733,7 @@ class Bfd(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("multi-path-include", ("multi_path_include", Bfd.MultiPathIncludes.MultiPathInclude))])
+            self._child_classes = OrderedDict([("multi-path-include", ("multi_path_include", Bfd.MultiPathIncludes.MultiPathInclude))])
             self._leafs = OrderedDict()
 
             self.multi_path_include = YList(self)
@@ -769,8 +753,6 @@ class Bfd(Entity):
             	Location
             	**type**\: str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
             
 
             """
@@ -786,8 +768,7 @@ class Bfd(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['location']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('location', YLeaf(YType.str, 'location')),
                 ])
@@ -823,16 +804,17 @@ class Bfd(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("coexistence", ("coexistence", Bfd.Bundle.Coexistence))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("coexistence", ("coexistence", Bfd.Bundle.Coexistence))])
             self._leafs = OrderedDict()
 
             self.coexistence = Bfd.Bundle.Coexistence()
             self.coexistence.parent = self
             self._children_name_map["coexistence"] = "coexistence"
-            self._children_yang_names.add("coexistence")
             self._segment_path = lambda: "bundle"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-cfg:bfd/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Bfd.Bundle, [], name, value)
 
 
         class Coexistence(Entity):
@@ -859,8 +841,7 @@ class Bfd(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('bob_blb', YLeaf(YType.enumeration, 'bob-blb')),
                 ])

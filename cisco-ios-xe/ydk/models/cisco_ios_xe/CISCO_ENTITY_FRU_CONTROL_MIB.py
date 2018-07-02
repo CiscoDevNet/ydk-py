@@ -823,92 +823,92 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
     .. attribute:: cefcfrupower
     
     	
-    	**type**\:  :py:class:`Cefcfrupower <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcfrupower>`
+    	**type**\:  :py:class:`CefcFRUPower <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFRUPower>`
     
     .. attribute:: cefcmibnotificationenables
     
     	
-    	**type**\:  :py:class:`Cefcmibnotificationenables <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcmibnotificationenables>`
+    	**type**\:  :py:class:`CefcMIBNotificationEnables <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcMIBNotificationEnables>`
     
     .. attribute:: cefcfrupowersupplygrouptable
     
     	This table lists the redundancy mode and the operational status of the power supply groups in the system
-    	**type**\:  :py:class:`Cefcfrupowersupplygrouptable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcfrupowersupplygrouptable>`
+    	**type**\:  :py:class:`CefcFRUPowerSupplyGroupTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyGroupTable>`
     
     .. attribute:: cefcfrupowerstatustable
     
     	This table lists the power\-related administrative status and operational status of the manageable components in the system
-    	**type**\:  :py:class:`Cefcfrupowerstatustable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcfrupowerstatustable>`
+    	**type**\:  :py:class:`CefcFRUPowerStatusTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFRUPowerStatusTable>`
     
     .. attribute:: cefcfrupowersupplyvaluetable
     
     	This table lists the power capacity of a power FRU in the system if it provides variable power. Power supplies usually provide either system or inline power. They cannot be  controlled by software to dictate how they distribute power. We can also have what are known as variable power supplies. They can provide both system and inline power and can be  varied within hardware defined ranges for system and inline limited by a total maximum combined output. They could be configured by the user via CLI or SNMP or be controlled by software internally. This table supplements the information in the cefcFRUPowerStatusTable for power supply FRUs. The  cefcFRUCurrent attribute in that table provides the overall current the power supply FRU can provide while this table  gives us the individual contribution towards system and  inline power
-    	**type**\:  :py:class:`Cefcfrupowersupplyvaluetable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcfrupowersupplyvaluetable>`
+    	**type**\:  :py:class:`CefcFRUPowerSupplyValueTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyValueTable>`
     
     .. attribute:: cefcmoduletable
     
     	A cefcModuleTable entry lists the operational and administrative status information for ENTITY\-MIB entPhysicalTable entries for manageable components of type PhysicalClass module(9)
-    	**type**\:  :py:class:`Cefcmoduletable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcmoduletable>`
+    	**type**\:  :py:class:`CefcModuleTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcModuleTable>`
     
     .. attribute:: cefcintellimoduletable
     
     	This table sparsely augments the cefcModuleTable (i.e., every row in this table corresponds to a row in the cefcModuleTable but not necessarily vice\-versa).  A cefcIntelliModuleTable entry lists the information specific to intelligent modules which cannot be provided by the cefcModuleTable
-    	**type**\:  :py:class:`Cefcintellimoduletable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcintellimoduletable>`
+    	**type**\:  :py:class:`CefcIntelliModuleTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcIntelliModuleTable>`
     
     .. attribute:: cefcmodulelocalswitchingtable
     
     	This table sparsely augments the cefcModuleTable (i.e., every row in this table corresponds to a row in the cefcModuleTable but not necessarily vice\-versa).  A cefcModuleLocalSwitchingTable entry lists the information specific to local switching capable modules which cannot be provided by the cefcModuleTable
-    	**type**\:  :py:class:`Cefcmodulelocalswitchingtable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcmodulelocalswitchingtable>`
+    	**type**\:  :py:class:`CefcModuleLocalSwitchingTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcModuleLocalSwitchingTable>`
     
     .. attribute:: cefcfantraystatustable
     
     	This table contains the operational status information for all ENTITY\-MIB entPhysicalTable entries which have  an entPhysicalClass of 'fan'; specifically, all   entPhysicalTable entries which represent either\: one  physical fan, or a single physical 'fan tray' which is a manufactured (inseparable in the field) combination of  multiple fans
-    	**type**\:  :py:class:`Cefcfantraystatustable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcfantraystatustable>`
+    	**type**\:  :py:class:`CefcFanTrayStatusTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFanTrayStatusTable>`
     
     .. attribute:: cefcphysicaltable
     
     	This table contains one row per physical entity
-    	**type**\:  :py:class:`Cefcphysicaltable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcphysicaltable>`
+    	**type**\:  :py:class:`CefcPhysicalTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcPhysicalTable>`
     
     .. attribute:: cefcpowersupplyinputtable
     
     	This table contains the power input information for all the power supplies that have entPhysicalTable entries with 'powerSupply' in the entPhysicalClass.   The entries are created by the agent at the system power\-up or power supply insertion.  Entries are deleted by the agent upon power supply removal.  The number of entries is determined by the number of power supplies and number of power inputs on the power  supply
-    	**type**\:  :py:class:`Cefcpowersupplyinputtable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcpowersupplyinputtable>`
+    	**type**\:  :py:class:`CefcPowerSupplyInputTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyInputTable>`
     
     .. attribute:: cefcpowersupplyoutputtable
     
     	This table contains a list of possible output mode for the power supplies, whose ENTITY\-MIB entPhysicalTable entries have an entPhysicalClass of 'powerSupply'. It also indicate which mode is the operational mode within the system
-    	**type**\:  :py:class:`Cefcpowersupplyoutputtable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcpowersupplyoutputtable>`
+    	**type**\:  :py:class:`CefcPowerSupplyOutputTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyOutputTable>`
     
     .. attribute:: cefcchassiscoolingtable
     
     	This table contains the cooling capacity information of the chassis whose ENTITY\-MIB entPhysicalTable entries have an entPhysicalClass of 'chassis'
-    	**type**\:  :py:class:`Cefcchassiscoolingtable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcchassiscoolingtable>`
+    	**type**\:  :py:class:`CefcChassisCoolingTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcChassisCoolingTable>`
     
     .. attribute:: cefcfancoolingtable
     
     	This table contains the cooling capacity information of the fans whose ENTITY\-MIB entPhysicalTable entries have an entPhysicalClass of 'fan'
-    	**type**\:  :py:class:`Cefcfancoolingtable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcfancoolingtable>`
+    	**type**\:  :py:class:`CefcFanCoolingTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFanCoolingTable>`
     
     .. attribute:: cefcmodulecoolingtable
     
     	This table contains the cooling requirement for all the manageable components of type entPhysicalClass 'module'
-    	**type**\:  :py:class:`Cefcmodulecoolingtable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcmodulecoolingtable>`
+    	**type**\:  :py:class:`CefcModuleCoolingTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcModuleCoolingTable>`
     
     .. attribute:: cefcfancoolingcaptable
     
     	This table contains a list of the possible cooling capacity modes and properties of the fans, whose  ENTITY\-MIB entPhysicalTable entries have an  entPhysicalClass of 'fan'
-    	**type**\:  :py:class:`Cefcfancoolingcaptable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcfancoolingcaptable>`
+    	**type**\:  :py:class:`CefcFanCoolingCapTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFanCoolingCapTable>`
     
     .. attribute:: cefcconnectorratingtable
     
     	This table contains the connector power ratings of FRUs.   Only components with power connector rating  management are listed in this table
-    	**type**\:  :py:class:`Cefcconnectorratingtable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcconnectorratingtable>`
+    	**type**\:  :py:class:`CefcConnectorRatingTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcConnectorRatingTable>`
     
     .. attribute:: cefcmodulepowerconsumptiontable
     
     	This table contains the total power consumption information for modules whose ENTITY\-MIB  entPhysicalTable entries have an entPhysicalClass  of 'module'
-    	**type**\:  :py:class:`Cefcmodulepowerconsumptiontable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcmodulepowerconsumptiontable>`
+    	**type**\:  :py:class:`CefcModulePowerConsumptionTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcModulePowerConsumptionTable>`
     
     
 
@@ -926,103 +926,87 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cefcFRUPower", ("cefcfrupower", CISCOENTITYFRUCONTROLMIB.Cefcfrupower)), ("cefcMIBNotificationEnables", ("cefcmibnotificationenables", CISCOENTITYFRUCONTROLMIB.Cefcmibnotificationenables)), ("cefcFRUPowerSupplyGroupTable", ("cefcfrupowersupplygrouptable", CISCOENTITYFRUCONTROLMIB.Cefcfrupowersupplygrouptable)), ("cefcFRUPowerStatusTable", ("cefcfrupowerstatustable", CISCOENTITYFRUCONTROLMIB.Cefcfrupowerstatustable)), ("cefcFRUPowerSupplyValueTable", ("cefcfrupowersupplyvaluetable", CISCOENTITYFRUCONTROLMIB.Cefcfrupowersupplyvaluetable)), ("cefcModuleTable", ("cefcmoduletable", CISCOENTITYFRUCONTROLMIB.Cefcmoduletable)), ("cefcIntelliModuleTable", ("cefcintellimoduletable", CISCOENTITYFRUCONTROLMIB.Cefcintellimoduletable)), ("cefcModuleLocalSwitchingTable", ("cefcmodulelocalswitchingtable", CISCOENTITYFRUCONTROLMIB.Cefcmodulelocalswitchingtable)), ("cefcFanTrayStatusTable", ("cefcfantraystatustable", CISCOENTITYFRUCONTROLMIB.Cefcfantraystatustable)), ("cefcPhysicalTable", ("cefcphysicaltable", CISCOENTITYFRUCONTROLMIB.Cefcphysicaltable)), ("cefcPowerSupplyInputTable", ("cefcpowersupplyinputtable", CISCOENTITYFRUCONTROLMIB.Cefcpowersupplyinputtable)), ("cefcPowerSupplyOutputTable", ("cefcpowersupplyoutputtable", CISCOENTITYFRUCONTROLMIB.Cefcpowersupplyoutputtable)), ("cefcChassisCoolingTable", ("cefcchassiscoolingtable", CISCOENTITYFRUCONTROLMIB.Cefcchassiscoolingtable)), ("cefcFanCoolingTable", ("cefcfancoolingtable", CISCOENTITYFRUCONTROLMIB.Cefcfancoolingtable)), ("cefcModuleCoolingTable", ("cefcmodulecoolingtable", CISCOENTITYFRUCONTROLMIB.Cefcmodulecoolingtable)), ("cefcFanCoolingCapTable", ("cefcfancoolingcaptable", CISCOENTITYFRUCONTROLMIB.Cefcfancoolingcaptable)), ("cefcConnectorRatingTable", ("cefcconnectorratingtable", CISCOENTITYFRUCONTROLMIB.Cefcconnectorratingtable)), ("cefcModulePowerConsumptionTable", ("cefcmodulepowerconsumptiontable", CISCOENTITYFRUCONTROLMIB.Cefcmodulepowerconsumptiontable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cefcFRUPower", ("cefcfrupower", CISCOENTITYFRUCONTROLMIB.CefcFRUPower)), ("cefcMIBNotificationEnables", ("cefcmibnotificationenables", CISCOENTITYFRUCONTROLMIB.CefcMIBNotificationEnables)), ("cefcFRUPowerSupplyGroupTable", ("cefcfrupowersupplygrouptable", CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyGroupTable)), ("cefcFRUPowerStatusTable", ("cefcfrupowerstatustable", CISCOENTITYFRUCONTROLMIB.CefcFRUPowerStatusTable)), ("cefcFRUPowerSupplyValueTable", ("cefcfrupowersupplyvaluetable", CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyValueTable)), ("cefcModuleTable", ("cefcmoduletable", CISCOENTITYFRUCONTROLMIB.CefcModuleTable)), ("cefcIntelliModuleTable", ("cefcintellimoduletable", CISCOENTITYFRUCONTROLMIB.CefcIntelliModuleTable)), ("cefcModuleLocalSwitchingTable", ("cefcmodulelocalswitchingtable", CISCOENTITYFRUCONTROLMIB.CefcModuleLocalSwitchingTable)), ("cefcFanTrayStatusTable", ("cefcfantraystatustable", CISCOENTITYFRUCONTROLMIB.CefcFanTrayStatusTable)), ("cefcPhysicalTable", ("cefcphysicaltable", CISCOENTITYFRUCONTROLMIB.CefcPhysicalTable)), ("cefcPowerSupplyInputTable", ("cefcpowersupplyinputtable", CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyInputTable)), ("cefcPowerSupplyOutputTable", ("cefcpowersupplyoutputtable", CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyOutputTable)), ("cefcChassisCoolingTable", ("cefcchassiscoolingtable", CISCOENTITYFRUCONTROLMIB.CefcChassisCoolingTable)), ("cefcFanCoolingTable", ("cefcfancoolingtable", CISCOENTITYFRUCONTROLMIB.CefcFanCoolingTable)), ("cefcModuleCoolingTable", ("cefcmodulecoolingtable", CISCOENTITYFRUCONTROLMIB.CefcModuleCoolingTable)), ("cefcFanCoolingCapTable", ("cefcfancoolingcaptable", CISCOENTITYFRUCONTROLMIB.CefcFanCoolingCapTable)), ("cefcConnectorRatingTable", ("cefcconnectorratingtable", CISCOENTITYFRUCONTROLMIB.CefcConnectorRatingTable)), ("cefcModulePowerConsumptionTable", ("cefcmodulepowerconsumptiontable", CISCOENTITYFRUCONTROLMIB.CefcModulePowerConsumptionTable))])
         self._leafs = OrderedDict()
 
-        self.cefcfrupower = CISCOENTITYFRUCONTROLMIB.Cefcfrupower()
+        self.cefcfrupower = CISCOENTITYFRUCONTROLMIB.CefcFRUPower()
         self.cefcfrupower.parent = self
         self._children_name_map["cefcfrupower"] = "cefcFRUPower"
-        self._children_yang_names.add("cefcFRUPower")
 
-        self.cefcmibnotificationenables = CISCOENTITYFRUCONTROLMIB.Cefcmibnotificationenables()
+        self.cefcmibnotificationenables = CISCOENTITYFRUCONTROLMIB.CefcMIBNotificationEnables()
         self.cefcmibnotificationenables.parent = self
         self._children_name_map["cefcmibnotificationenables"] = "cefcMIBNotificationEnables"
-        self._children_yang_names.add("cefcMIBNotificationEnables")
 
-        self.cefcfrupowersupplygrouptable = CISCOENTITYFRUCONTROLMIB.Cefcfrupowersupplygrouptable()
+        self.cefcfrupowersupplygrouptable = CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyGroupTable()
         self.cefcfrupowersupplygrouptable.parent = self
         self._children_name_map["cefcfrupowersupplygrouptable"] = "cefcFRUPowerSupplyGroupTable"
-        self._children_yang_names.add("cefcFRUPowerSupplyGroupTable")
 
-        self.cefcfrupowerstatustable = CISCOENTITYFRUCONTROLMIB.Cefcfrupowerstatustable()
+        self.cefcfrupowerstatustable = CISCOENTITYFRUCONTROLMIB.CefcFRUPowerStatusTable()
         self.cefcfrupowerstatustable.parent = self
         self._children_name_map["cefcfrupowerstatustable"] = "cefcFRUPowerStatusTable"
-        self._children_yang_names.add("cefcFRUPowerStatusTable")
 
-        self.cefcfrupowersupplyvaluetable = CISCOENTITYFRUCONTROLMIB.Cefcfrupowersupplyvaluetable()
+        self.cefcfrupowersupplyvaluetable = CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyValueTable()
         self.cefcfrupowersupplyvaluetable.parent = self
         self._children_name_map["cefcfrupowersupplyvaluetable"] = "cefcFRUPowerSupplyValueTable"
-        self._children_yang_names.add("cefcFRUPowerSupplyValueTable")
 
-        self.cefcmoduletable = CISCOENTITYFRUCONTROLMIB.Cefcmoduletable()
+        self.cefcmoduletable = CISCOENTITYFRUCONTROLMIB.CefcModuleTable()
         self.cefcmoduletable.parent = self
         self._children_name_map["cefcmoduletable"] = "cefcModuleTable"
-        self._children_yang_names.add("cefcModuleTable")
 
-        self.cefcintellimoduletable = CISCOENTITYFRUCONTROLMIB.Cefcintellimoduletable()
+        self.cefcintellimoduletable = CISCOENTITYFRUCONTROLMIB.CefcIntelliModuleTable()
         self.cefcintellimoduletable.parent = self
         self._children_name_map["cefcintellimoduletable"] = "cefcIntelliModuleTable"
-        self._children_yang_names.add("cefcIntelliModuleTable")
 
-        self.cefcmodulelocalswitchingtable = CISCOENTITYFRUCONTROLMIB.Cefcmodulelocalswitchingtable()
+        self.cefcmodulelocalswitchingtable = CISCOENTITYFRUCONTROLMIB.CefcModuleLocalSwitchingTable()
         self.cefcmodulelocalswitchingtable.parent = self
         self._children_name_map["cefcmodulelocalswitchingtable"] = "cefcModuleLocalSwitchingTable"
-        self._children_yang_names.add("cefcModuleLocalSwitchingTable")
 
-        self.cefcfantraystatustable = CISCOENTITYFRUCONTROLMIB.Cefcfantraystatustable()
+        self.cefcfantraystatustable = CISCOENTITYFRUCONTROLMIB.CefcFanTrayStatusTable()
         self.cefcfantraystatustable.parent = self
         self._children_name_map["cefcfantraystatustable"] = "cefcFanTrayStatusTable"
-        self._children_yang_names.add("cefcFanTrayStatusTable")
 
-        self.cefcphysicaltable = CISCOENTITYFRUCONTROLMIB.Cefcphysicaltable()
+        self.cefcphysicaltable = CISCOENTITYFRUCONTROLMIB.CefcPhysicalTable()
         self.cefcphysicaltable.parent = self
         self._children_name_map["cefcphysicaltable"] = "cefcPhysicalTable"
-        self._children_yang_names.add("cefcPhysicalTable")
 
-        self.cefcpowersupplyinputtable = CISCOENTITYFRUCONTROLMIB.Cefcpowersupplyinputtable()
+        self.cefcpowersupplyinputtable = CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyInputTable()
         self.cefcpowersupplyinputtable.parent = self
         self._children_name_map["cefcpowersupplyinputtable"] = "cefcPowerSupplyInputTable"
-        self._children_yang_names.add("cefcPowerSupplyInputTable")
 
-        self.cefcpowersupplyoutputtable = CISCOENTITYFRUCONTROLMIB.Cefcpowersupplyoutputtable()
+        self.cefcpowersupplyoutputtable = CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyOutputTable()
         self.cefcpowersupplyoutputtable.parent = self
         self._children_name_map["cefcpowersupplyoutputtable"] = "cefcPowerSupplyOutputTable"
-        self._children_yang_names.add("cefcPowerSupplyOutputTable")
 
-        self.cefcchassiscoolingtable = CISCOENTITYFRUCONTROLMIB.Cefcchassiscoolingtable()
+        self.cefcchassiscoolingtable = CISCOENTITYFRUCONTROLMIB.CefcChassisCoolingTable()
         self.cefcchassiscoolingtable.parent = self
         self._children_name_map["cefcchassiscoolingtable"] = "cefcChassisCoolingTable"
-        self._children_yang_names.add("cefcChassisCoolingTable")
 
-        self.cefcfancoolingtable = CISCOENTITYFRUCONTROLMIB.Cefcfancoolingtable()
+        self.cefcfancoolingtable = CISCOENTITYFRUCONTROLMIB.CefcFanCoolingTable()
         self.cefcfancoolingtable.parent = self
         self._children_name_map["cefcfancoolingtable"] = "cefcFanCoolingTable"
-        self._children_yang_names.add("cefcFanCoolingTable")
 
-        self.cefcmodulecoolingtable = CISCOENTITYFRUCONTROLMIB.Cefcmodulecoolingtable()
+        self.cefcmodulecoolingtable = CISCOENTITYFRUCONTROLMIB.CefcModuleCoolingTable()
         self.cefcmodulecoolingtable.parent = self
         self._children_name_map["cefcmodulecoolingtable"] = "cefcModuleCoolingTable"
-        self._children_yang_names.add("cefcModuleCoolingTable")
 
-        self.cefcfancoolingcaptable = CISCOENTITYFRUCONTROLMIB.Cefcfancoolingcaptable()
+        self.cefcfancoolingcaptable = CISCOENTITYFRUCONTROLMIB.CefcFanCoolingCapTable()
         self.cefcfancoolingcaptable.parent = self
         self._children_name_map["cefcfancoolingcaptable"] = "cefcFanCoolingCapTable"
-        self._children_yang_names.add("cefcFanCoolingCapTable")
 
-        self.cefcconnectorratingtable = CISCOENTITYFRUCONTROLMIB.Cefcconnectorratingtable()
+        self.cefcconnectorratingtable = CISCOENTITYFRUCONTROLMIB.CefcConnectorRatingTable()
         self.cefcconnectorratingtable.parent = self
         self._children_name_map["cefcconnectorratingtable"] = "cefcConnectorRatingTable"
-        self._children_yang_names.add("cefcConnectorRatingTable")
 
-        self.cefcmodulepowerconsumptiontable = CISCOENTITYFRUCONTROLMIB.Cefcmodulepowerconsumptiontable()
+        self.cefcmodulepowerconsumptiontable = CISCOENTITYFRUCONTROLMIB.CefcModulePowerConsumptionTable()
         self.cefcmodulepowerconsumptiontable.parent = self
         self._children_name_map["cefcmodulepowerconsumptiontable"] = "cefcModulePowerConsumptionTable"
-        self._children_yang_names.add("cefcModulePowerConsumptionTable")
         self._segment_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOENTITYFRUCONTROLMIB, [], name, value)
 
-    class Cefcfrupower(Entity):
+
+    class CefcFRUPower(Entity):
         """
         
         
@@ -1054,15 +1038,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2013-08-19'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.Cefcfrupower, self).__init__()
+            super(CISCOENTITYFRUCONTROLMIB.CefcFRUPower, self).__init__()
 
             self.yang_name = "cefcFRUPower"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cefcmaxdefaultinlinepower', YLeaf(YType.int32, 'cefcMaxDefaultInLinePower')),
                 ('cefcmaxdefaulthighinlinepower', YLeaf(YType.uint32, 'cefcMaxDefaultHighInLinePower')),
@@ -1073,10 +1056,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcfrupower, ['cefcmaxdefaultinlinepower', 'cefcmaxdefaulthighinlinepower'], name, value)
+            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFRUPower, ['cefcmaxdefaultinlinepower', 'cefcmaxdefaulthighinlinepower'], name, value)
 
 
-    class Cefcmibnotificationenables(Entity):
+    class CefcMIBNotificationEnables(Entity):
         """
         
         
@@ -1098,15 +1081,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2013-08-19'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.Cefcmibnotificationenables, self).__init__()
+            super(CISCOENTITYFRUCONTROLMIB.CefcMIBNotificationEnables, self).__init__()
 
             self.yang_name = "cefcMIBNotificationEnables"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cefcmibenablestatusnotification', YLeaf(YType.boolean, 'cefcMIBEnableStatusNotification')),
                 ('cefcenablepsoutputchangenotif', YLeaf(YType.boolean, 'cefcEnablePSOutputChangeNotif')),
@@ -1117,10 +1099,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcmibnotificationenables, ['cefcmibenablestatusnotification', 'cefcenablepsoutputchangenotif'], name, value)
+            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcMIBNotificationEnables, ['cefcmibenablestatusnotification', 'cefcenablepsoutputchangenotif'], name, value)
 
 
-    class Cefcfrupowersupplygrouptable(Entity):
+    class CefcFRUPowerSupplyGroupTable(Entity):
         """
         This table lists the redundancy mode and the
         operational status of the power supply groups
@@ -1129,7 +1111,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         .. attribute:: cefcfrupowersupplygroupentry
         
         	An cefcFRUPowerSupplyGroupTable entry lists the desired redundancy mode, the units of the power outputs and the  available and drawn current for the power supply group.  Entries are created by the agent when a power supply group is added to the entPhysicalTable. Entries are deleted by  the agent at power supply group removal
-        	**type**\: list of  		 :py:class:`Cefcfrupowersupplygroupentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcfrupowersupplygrouptable.Cefcfrupowersupplygroupentry>`
+        	**type**\: list of  		 :py:class:`CefcFRUPowerSupplyGroupEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyGroupTable.CefcFRUPowerSupplyGroupEntry>`
         
         
 
@@ -1139,15 +1121,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2013-08-19'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.Cefcfrupowersupplygrouptable, self).__init__()
+            super(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyGroupTable, self).__init__()
 
             self.yang_name = "cefcFRUPowerSupplyGroupTable"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefcFRUPowerSupplyGroupEntry", ("cefcfrupowersupplygroupentry", CISCOENTITYFRUCONTROLMIB.Cefcfrupowersupplygrouptable.Cefcfrupowersupplygroupentry))])
+            self._child_classes = OrderedDict([("cefcFRUPowerSupplyGroupEntry", ("cefcfrupowersupplygroupentry", CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyGroupTable.CefcFRUPowerSupplyGroupEntry))])
             self._leafs = OrderedDict()
 
             self.cefcfrupowersupplygroupentry = YList(self)
@@ -1155,10 +1136,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcfrupowersupplygrouptable, [], name, value)
+            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyGroupTable, [], name, value)
 
 
-        class Cefcfrupowersupplygroupentry(Entity):
+        class CefcFRUPowerSupplyGroupEntry(Entity):
             """
             An cefcFRUPowerSupplyGroupTable entry lists the desired
             redundancy mode, the units of the power outputs and the 
@@ -1175,7 +1156,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cefcpowerredundancymode
             
@@ -1209,7 +1190,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             .. attribute:: cefcpowernonredundantreason
             
             	This object has the value of notApplicable(1) when cefcPowerRedundancyOperMode of the instance does not have the value of nonRedundant(4).  The other values explain the reason why  cefcPowerRedundancyOperMode is nonRedundant(4), e.g.  unknown(2)             the reason is not identified.  singleSupply(3)        There is only one power supply                        in the group.  mismatchedSupplies(4)  There are more than one power                        supplies in the groups. However                        they are mismatched and can not                        work redundantly.  supplyError(5)         Some power supply or supplies                        does or do not working properly
-            	**type**\:  :py:class:`Cefcpowernonredundantreason <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcfrupowersupplygrouptable.Cefcfrupowersupplygroupentry.Cefcpowernonredundantreason>`
+            	**type**\:  :py:class:`CefcPowerNonRedundantReason <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyGroupTable.CefcFRUPowerSupplyGroupEntry.CefcPowerNonRedundantReason>`
             
             .. attribute:: cefctotaldrawninlinecurrent
             
@@ -1226,15 +1207,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             _revision = '2013-08-19'
 
             def __init__(self):
-                super(CISCOENTITYFRUCONTROLMIB.Cefcfrupowersupplygrouptable.Cefcfrupowersupplygroupentry, self).__init__()
+                super(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyGroupTable.CefcFRUPowerSupplyGroupEntry, self).__init__()
 
                 self.yang_name = "cefcFRUPowerSupplyGroupEntry"
                 self.yang_parent_name = "cefcFRUPowerSupplyGroupTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cefcpowerredundancymode', YLeaf(YType.enumeration, 'cefcPowerRedundancyMode')),
@@ -1257,11 +1237,11 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcFRUPowerSupplyGroupTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcfrupowersupplygrouptable.Cefcfrupowersupplygroupentry, ['entphysicalindex', 'cefcpowerredundancymode', 'cefcpowerunits', 'cefctotalavailablecurrent', 'cefctotaldrawncurrent', 'cefcpowerredundancyopermode', 'cefcpowernonredundantreason', 'cefctotaldrawninlinecurrent'], name, value)
+                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyGroupTable.CefcFRUPowerSupplyGroupEntry, ['entphysicalindex', 'cefcpowerredundancymode', 'cefcpowerunits', 'cefctotalavailablecurrent', 'cefctotaldrawncurrent', 'cefcpowerredundancyopermode', 'cefcpowernonredundantreason', 'cefctotaldrawninlinecurrent'], name, value)
 
-            class Cefcpowernonredundantreason(Enum):
+            class CefcPowerNonRedundantReason(Enum):
                 """
-                Cefcpowernonredundantreason (Enum Class)
+                CefcPowerNonRedundantReason (Enum Class)
 
                 This object has the value of notApplicable(1) when
 
@@ -1315,7 +1295,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
 
 
 
-    class Cefcfrupowerstatustable(Entity):
+    class CefcFRUPowerStatusTable(Entity):
         """
         This table lists the power\-related administrative status
         and operational status of the manageable components
@@ -1324,7 +1304,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         .. attribute:: cefcfrupowerstatusentry
         
         	An cefcFRUPowerStatusTable entry lists the desired administrative status, the operational status of the  power manageable component, and the current required by  the component for operation.  Entries are created by the agent at system power\-up or  the insertion of the component.  Entries are deleted by the agent at the removal of the component.  Only components with power control are listed in the  table
-        	**type**\: list of  		 :py:class:`Cefcfrupowerstatusentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcfrupowerstatustable.Cefcfrupowerstatusentry>`
+        	**type**\: list of  		 :py:class:`CefcFRUPowerStatusEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFRUPowerStatusTable.CefcFRUPowerStatusEntry>`
         
         
 
@@ -1334,15 +1314,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2013-08-19'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.Cefcfrupowerstatustable, self).__init__()
+            super(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerStatusTable, self).__init__()
 
             self.yang_name = "cefcFRUPowerStatusTable"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefcFRUPowerStatusEntry", ("cefcfrupowerstatusentry", CISCOENTITYFRUCONTROLMIB.Cefcfrupowerstatustable.Cefcfrupowerstatusentry))])
+            self._child_classes = OrderedDict([("cefcFRUPowerStatusEntry", ("cefcfrupowerstatusentry", CISCOENTITYFRUCONTROLMIB.CefcFRUPowerStatusTable.CefcFRUPowerStatusEntry))])
             self._leafs = OrderedDict()
 
             self.cefcfrupowerstatusentry = YList(self)
@@ -1350,10 +1329,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcfrupowerstatustable, [], name, value)
+            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerStatusTable, [], name, value)
 
 
-        class Cefcfrupowerstatusentry(Entity):
+        class CefcFRUPowerStatusEntry(Entity):
             """
             An cefcFRUPowerStatusTable entry lists the desired
             administrative status, the operational status of the 
@@ -1374,7 +1353,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cefcfrupoweradminstatus
             
@@ -1396,7 +1375,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             .. attribute:: cefcfrupowercapability
             
             	This object indicates the set of supported power capabilities of the FRU.  realTimeCurrent(0) \-     cefcFRURealTimeCurrent is supported by the FRU
-            	**type**\:  :py:class:`Cefcfrupowercapability <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcfrupowerstatustable.Cefcfrupowerstatusentry.Cefcfrupowercapability>`
+            	**type**\:  :py:class:`CefcFRUPowerCapability <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFRUPowerStatusTable.CefcFRUPowerStatusEntry.CefcFRUPowerCapability>`
             
             .. attribute:: cefcfrurealtimecurrent
             
@@ -1413,15 +1392,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             _revision = '2013-08-19'
 
             def __init__(self):
-                super(CISCOENTITYFRUCONTROLMIB.Cefcfrupowerstatustable.Cefcfrupowerstatusentry, self).__init__()
+                super(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerStatusTable.CefcFRUPowerStatusEntry, self).__init__()
 
                 self.yang_name = "cefcFRUPowerStatusEntry"
                 self.yang_parent_name = "cefcFRUPowerStatusTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cefcfrupoweradminstatus', YLeaf(YType.enumeration, 'cefcFRUPowerAdminStatus')),
@@ -1440,10 +1418,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcFRUPowerStatusTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcfrupowerstatustable.Cefcfrupowerstatusentry, ['entphysicalindex', 'cefcfrupoweradminstatus', 'cefcfrupoweroperstatus', 'cefcfrucurrent', 'cefcfrupowercapability', 'cefcfrurealtimecurrent'], name, value)
+                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerStatusTable.CefcFRUPowerStatusEntry, ['entphysicalindex', 'cefcfrupoweradminstatus', 'cefcfrupoweroperstatus', 'cefcfrucurrent', 'cefcfrupowercapability', 'cefcfrurealtimecurrent'], name, value)
 
 
-    class Cefcfrupowersupplyvaluetable(Entity):
+    class CefcFRUPowerSupplyValueTable(Entity):
         """
         This table lists the power capacity of a power FRU in the
         system if it provides variable power. Power supplies usually
@@ -1465,7 +1443,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         .. attribute:: cefcfrupowersupplyvalueentry
         
         	An cefcFRUPowerSupplyValueTable entry lists the current provided by the FRU for operation.  Entries are created by the agent at system power\-up or  FRU insertion.  Entries are deleted by the agent at FRU removal.  Only power supply FRUs are listed in the table
-        	**type**\: list of  		 :py:class:`Cefcfrupowersupplyvalueentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcfrupowersupplyvaluetable.Cefcfrupowersupplyvalueentry>`
+        	**type**\: list of  		 :py:class:`CefcFRUPowerSupplyValueEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyValueTable.CefcFRUPowerSupplyValueEntry>`
         
         
 
@@ -1475,15 +1453,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2013-08-19'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.Cefcfrupowersupplyvaluetable, self).__init__()
+            super(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyValueTable, self).__init__()
 
             self.yang_name = "cefcFRUPowerSupplyValueTable"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefcFRUPowerSupplyValueEntry", ("cefcfrupowersupplyvalueentry", CISCOENTITYFRUCONTROLMIB.Cefcfrupowersupplyvaluetable.Cefcfrupowersupplyvalueentry))])
+            self._child_classes = OrderedDict([("cefcFRUPowerSupplyValueEntry", ("cefcfrupowersupplyvalueentry", CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyValueTable.CefcFRUPowerSupplyValueEntry))])
             self._leafs = OrderedDict()
 
             self.cefcfrupowersupplyvalueentry = YList(self)
@@ -1491,10 +1468,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcfrupowersupplyvaluetable, [], name, value)
+            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyValueTable, [], name, value)
 
 
-        class Cefcfrupowersupplyvalueentry(Entity):
+        class CefcFRUPowerSupplyValueEntry(Entity):
             """
             An cefcFRUPowerSupplyValueTable entry lists the current
             provided by the FRU for operation.
@@ -1512,7 +1489,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cefcfrutotalsystemcurrent
             
@@ -1550,15 +1527,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             _revision = '2013-08-19'
 
             def __init__(self):
-                super(CISCOENTITYFRUCONTROLMIB.Cefcfrupowersupplyvaluetable.Cefcfrupowersupplyvalueentry, self).__init__()
+                super(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyValueTable.CefcFRUPowerSupplyValueEntry, self).__init__()
 
                 self.yang_name = "cefcFRUPowerSupplyValueEntry"
                 self.yang_parent_name = "cefcFRUPowerSupplyValueTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cefcfrutotalsystemcurrent', YLeaf(YType.int32, 'cefcFRUTotalSystemCurrent')),
@@ -1575,10 +1551,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcFRUPowerSupplyValueTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcfrupowersupplyvaluetable.Cefcfrupowersupplyvalueentry, ['entphysicalindex', 'cefcfrutotalsystemcurrent', 'cefcfrudrawnsystemcurrent', 'cefcfrutotalinlinecurrent', 'cefcfrudrawninlinecurrent'], name, value)
+                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyValueTable.CefcFRUPowerSupplyValueEntry, ['entphysicalindex', 'cefcfrutotalsystemcurrent', 'cefcfrudrawnsystemcurrent', 'cefcfrutotalinlinecurrent', 'cefcfrudrawninlinecurrent'], name, value)
 
 
-    class Cefcmoduletable(Entity):
+    class CefcModuleTable(Entity):
         """
         A cefcModuleTable entry lists the operational and
         administrative status information for ENTITY\-MIB
@@ -1588,7 +1564,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         .. attribute:: cefcmoduleentry
         
         	A cefcModuleStatusTable entry lists the operational and administrative status information for ENTITY\-MIB entPhysicalTable entries for manageable components  of type PhysicalClass module(9).  Entries are created by the agent at the system power\-up or module insertion.  Entries are deleted by the agent upon module removal
-        	**type**\: list of  		 :py:class:`Cefcmoduleentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcmoduletable.Cefcmoduleentry>`
+        	**type**\: list of  		 :py:class:`CefcModuleEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcModuleTable.CefcModuleEntry>`
         
         
 
@@ -1598,15 +1574,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2013-08-19'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.Cefcmoduletable, self).__init__()
+            super(CISCOENTITYFRUCONTROLMIB.CefcModuleTable, self).__init__()
 
             self.yang_name = "cefcModuleTable"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefcModuleEntry", ("cefcmoduleentry", CISCOENTITYFRUCONTROLMIB.Cefcmoduletable.Cefcmoduleentry))])
+            self._child_classes = OrderedDict([("cefcModuleEntry", ("cefcmoduleentry", CISCOENTITYFRUCONTROLMIB.CefcModuleTable.CefcModuleEntry))])
             self._leafs = OrderedDict()
 
             self.cefcmoduleentry = YList(self)
@@ -1614,10 +1589,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcmoduletable, [], name, value)
+            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcModuleTable, [], name, value)
 
 
-        class Cefcmoduleentry(Entity):
+        class CefcModuleEntry(Entity):
             """
             A cefcModuleStatusTable entry lists the operational and
             administrative status information for ENTITY\-MIB
@@ -1636,7 +1611,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cefcmoduleadminstatus
             
@@ -1692,15 +1667,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             _revision = '2013-08-19'
 
             def __init__(self):
-                super(CISCOENTITYFRUCONTROLMIB.Cefcmoduletable.Cefcmoduleentry, self).__init__()
+                super(CISCOENTITYFRUCONTROLMIB.CefcModuleTable.CefcModuleEntry, self).__init__()
 
                 self.yang_name = "cefcModuleEntry"
                 self.yang_parent_name = "cefcModuleTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cefcmoduleadminstatus', YLeaf(YType.enumeration, 'cefcModuleAdminStatus')),
@@ -1725,10 +1699,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcModuleTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcmoduletable.Cefcmoduleentry, ['entphysicalindex', 'cefcmoduleadminstatus', 'cefcmoduleoperstatus', 'cefcmoduleresetreason', 'cefcmodulestatuslastchangetime', 'cefcmodulelastclearconfigtime', 'cefcmoduleresetreasondescription', 'cefcmodulestatechangereasondescr', 'cefcmoduleuptime'], name, value)
+                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcModuleTable.CefcModuleEntry, ['entphysicalindex', 'cefcmoduleadminstatus', 'cefcmoduleoperstatus', 'cefcmoduleresetreason', 'cefcmodulestatuslastchangetime', 'cefcmodulelastclearconfigtime', 'cefcmoduleresetreasondescription', 'cefcmodulestatechangereasondescr', 'cefcmoduleuptime'], name, value)
 
 
-    class Cefcintellimoduletable(Entity):
+    class CefcIntelliModuleTable(Entity):
         """
         This table sparsely augments the
         cefcModuleTable (i.e., every row in
@@ -1744,7 +1718,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         .. attribute:: cefcintellimoduleentry
         
         	A cefcIntelliModuleTable entry lists the information specific to an intelligent module which cannot be provided by this module's corresponding instance in the cefcModuleTable. Only an intelligent module with Internet address configured has its entry here.  An entry of this table is created if an  intelligent module is detected by the  managed system and its management Internet address is configured on the intelligent  module.  An entry of this table is deleted if the  removal of Internet address configuration of  this module or the module itself
-        	**type**\: list of  		 :py:class:`Cefcintellimoduleentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcintellimoduletable.Cefcintellimoduleentry>`
+        	**type**\: list of  		 :py:class:`CefcIntelliModuleEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcIntelliModuleTable.CefcIntelliModuleEntry>`
         
         
 
@@ -1754,15 +1728,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2013-08-19'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.Cefcintellimoduletable, self).__init__()
+            super(CISCOENTITYFRUCONTROLMIB.CefcIntelliModuleTable, self).__init__()
 
             self.yang_name = "cefcIntelliModuleTable"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefcIntelliModuleEntry", ("cefcintellimoduleentry", CISCOENTITYFRUCONTROLMIB.Cefcintellimoduletable.Cefcintellimoduleentry))])
+            self._child_classes = OrderedDict([("cefcIntelliModuleEntry", ("cefcintellimoduleentry", CISCOENTITYFRUCONTROLMIB.CefcIntelliModuleTable.CefcIntelliModuleEntry))])
             self._leafs = OrderedDict()
 
             self.cefcintellimoduleentry = YList(self)
@@ -1770,10 +1743,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcintellimoduletable, [], name, value)
+            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcIntelliModuleTable, [], name, value)
 
 
-        class Cefcintellimoduleentry(Entity):
+        class CefcIntelliModuleEntry(Entity):
             """
             A cefcIntelliModuleTable entry lists the
             information specific to an intelligent
@@ -1800,7 +1773,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cefcintellimoduleipaddrtype
             
@@ -1822,15 +1795,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             _revision = '2013-08-19'
 
             def __init__(self):
-                super(CISCOENTITYFRUCONTROLMIB.Cefcintellimoduletable.Cefcintellimoduleentry, self).__init__()
+                super(CISCOENTITYFRUCONTROLMIB.CefcIntelliModuleTable.CefcIntelliModuleEntry, self).__init__()
 
                 self.yang_name = "cefcIntelliModuleEntry"
                 self.yang_parent_name = "cefcIntelliModuleTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cefcintellimoduleipaddrtype', YLeaf(YType.enumeration, 'cefcIntelliModuleIPAddrType')),
@@ -1843,10 +1815,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcIntelliModuleTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcintellimoduletable.Cefcintellimoduleentry, ['entphysicalindex', 'cefcintellimoduleipaddrtype', 'cefcintellimoduleipaddr'], name, value)
+                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcIntelliModuleTable.CefcIntelliModuleEntry, ['entphysicalindex', 'cefcintellimoduleipaddrtype', 'cefcintellimoduleipaddr'], name, value)
 
 
-    class Cefcmodulelocalswitchingtable(Entity):
+    class CefcModuleLocalSwitchingTable(Entity):
         """
         This table sparsely augments the cefcModuleTable
         (i.e., every row in this table corresponds to a row in
@@ -1860,7 +1832,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         .. attribute:: cefcmodulelocalswitchingentry
         
         	A cefcModuleLocalSwitchingTable entry lists the information specific to a local switching capable module which cannot be provided by this module's corresponding instance in the cefcModuleTable. Only a module which is capable of local switching has its entry here.  An entry of this table is created if a module which is capable of local switching is detected by the managed system.  An entry of this table is deleted if the removal of this module
-        	**type**\: list of  		 :py:class:`Cefcmodulelocalswitchingentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcmodulelocalswitchingtable.Cefcmodulelocalswitchingentry>`
+        	**type**\: list of  		 :py:class:`CefcModuleLocalSwitchingEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcModuleLocalSwitchingTable.CefcModuleLocalSwitchingEntry>`
         
         
 
@@ -1870,15 +1842,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2013-08-19'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.Cefcmodulelocalswitchingtable, self).__init__()
+            super(CISCOENTITYFRUCONTROLMIB.CefcModuleLocalSwitchingTable, self).__init__()
 
             self.yang_name = "cefcModuleLocalSwitchingTable"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefcModuleLocalSwitchingEntry", ("cefcmodulelocalswitchingentry", CISCOENTITYFRUCONTROLMIB.Cefcmodulelocalswitchingtable.Cefcmodulelocalswitchingentry))])
+            self._child_classes = OrderedDict([("cefcModuleLocalSwitchingEntry", ("cefcmodulelocalswitchingentry", CISCOENTITYFRUCONTROLMIB.CefcModuleLocalSwitchingTable.CefcModuleLocalSwitchingEntry))])
             self._leafs = OrderedDict()
 
             self.cefcmodulelocalswitchingentry = YList(self)
@@ -1886,10 +1857,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcmodulelocalswitchingtable, [], name, value)
+            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcModuleLocalSwitchingTable, [], name, value)
 
 
-        class Cefcmodulelocalswitchingentry(Entity):
+        class CefcModuleLocalSwitchingEntry(Entity):
             """
             A cefcModuleLocalSwitchingTable entry lists the
             information specific to a local switching capable
@@ -1912,12 +1883,12 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cefcmodulelocalswitchingmode
             
             	This object specifies the mode of local switching.  enabled(1)  \- local switching is enabled. disabled(2) \- local switching is disabled
-            	**type**\:  :py:class:`Cefcmodulelocalswitchingmode <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcmodulelocalswitchingtable.Cefcmodulelocalswitchingentry.Cefcmodulelocalswitchingmode>`
+            	**type**\:  :py:class:`CefcModuleLocalSwitchingMode <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcModuleLocalSwitchingTable.CefcModuleLocalSwitchingEntry.CefcModuleLocalSwitchingMode>`
             
             
 
@@ -1927,15 +1898,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             _revision = '2013-08-19'
 
             def __init__(self):
-                super(CISCOENTITYFRUCONTROLMIB.Cefcmodulelocalswitchingtable.Cefcmodulelocalswitchingentry, self).__init__()
+                super(CISCOENTITYFRUCONTROLMIB.CefcModuleLocalSwitchingTable.CefcModuleLocalSwitchingEntry, self).__init__()
 
                 self.yang_name = "cefcModuleLocalSwitchingEntry"
                 self.yang_parent_name = "cefcModuleLocalSwitchingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cefcmodulelocalswitchingmode', YLeaf(YType.enumeration, 'cefcModuleLocalSwitchingMode')),
@@ -1946,11 +1916,11 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcModuleLocalSwitchingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcmodulelocalswitchingtable.Cefcmodulelocalswitchingentry, ['entphysicalindex', 'cefcmodulelocalswitchingmode'], name, value)
+                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcModuleLocalSwitchingTable.CefcModuleLocalSwitchingEntry, ['entphysicalindex', 'cefcmodulelocalswitchingmode'], name, value)
 
-            class Cefcmodulelocalswitchingmode(Enum):
+            class CefcModuleLocalSwitchingMode(Enum):
                 """
-                Cefcmodulelocalswitchingmode (Enum Class)
+                CefcModuleLocalSwitchingMode (Enum Class)
 
                 This object specifies the mode of local switching.
 
@@ -1970,7 +1940,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
 
 
 
-    class Cefcfantraystatustable(Entity):
+    class CefcFanTrayStatusTable(Entity):
         """
         This table contains the operational status information
         for all ENTITY\-MIB entPhysicalTable entries which have 
@@ -1983,7 +1953,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         .. attribute:: cefcfantraystatusentry
         
         	An cefcFanTrayStatusTable entry lists the operational status information for the ENTITY\-MIB entPhysicalTable  entry which is identified by the value of entPhysicalIndex. The value of entPhysicalClass for the identified entry will be 'fan', and the represented physical entity will be  either\: one physical fan, or a single physical 'fan tray'  which is a manufactured (inseparable in the field)  combination of multiple fans.  Entries are created by the agent at system power\-up or  fan or fan tray insertion.  Entries are deleted  by the agent at the fan or fan tray removal
-        	**type**\: list of  		 :py:class:`Cefcfantraystatusentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcfantraystatustable.Cefcfantraystatusentry>`
+        	**type**\: list of  		 :py:class:`CefcFanTrayStatusEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFanTrayStatusTable.CefcFanTrayStatusEntry>`
         
         
 
@@ -1993,15 +1963,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2013-08-19'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.Cefcfantraystatustable, self).__init__()
+            super(CISCOENTITYFRUCONTROLMIB.CefcFanTrayStatusTable, self).__init__()
 
             self.yang_name = "cefcFanTrayStatusTable"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefcFanTrayStatusEntry", ("cefcfantraystatusentry", CISCOENTITYFRUCONTROLMIB.Cefcfantraystatustable.Cefcfantraystatusentry))])
+            self._child_classes = OrderedDict([("cefcFanTrayStatusEntry", ("cefcfantraystatusentry", CISCOENTITYFRUCONTROLMIB.CefcFanTrayStatusTable.CefcFanTrayStatusEntry))])
             self._leafs = OrderedDict()
 
             self.cefcfantraystatusentry = YList(self)
@@ -2009,10 +1978,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcfantraystatustable, [], name, value)
+            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFanTrayStatusTable, [], name, value)
 
 
-        class Cefcfantraystatusentry(Entity):
+        class CefcFanTrayStatusEntry(Entity):
             """
             An cefcFanTrayStatusTable entry lists the operational
             status information for the ENTITY\-MIB entPhysicalTable 
@@ -2034,12 +2003,12 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cefcfantrayoperstatus
             
             	The operational state of the fan or fan tray. unknown(1) \- unknown. up(2) \- powered on. down(3) \- powered down. warning(4) \- partial failure, needs replacement               as soon as possible
-            	**type**\:  :py:class:`Cefcfantrayoperstatus <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcfantraystatustable.Cefcfantraystatusentry.Cefcfantrayoperstatus>`
+            	**type**\:  :py:class:`CefcFanTrayOperStatus <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFanTrayStatusTable.CefcFanTrayStatusEntry.CefcFanTrayOperStatus>`
             
             
 
@@ -2049,15 +2018,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             _revision = '2013-08-19'
 
             def __init__(self):
-                super(CISCOENTITYFRUCONTROLMIB.Cefcfantraystatustable.Cefcfantraystatusentry, self).__init__()
+                super(CISCOENTITYFRUCONTROLMIB.CefcFanTrayStatusTable.CefcFanTrayStatusEntry, self).__init__()
 
                 self.yang_name = "cefcFanTrayStatusEntry"
                 self.yang_parent_name = "cefcFanTrayStatusTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cefcfantrayoperstatus', YLeaf(YType.enumeration, 'cefcFanTrayOperStatus')),
@@ -2068,11 +2036,11 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcFanTrayStatusTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcfantraystatustable.Cefcfantraystatusentry, ['entphysicalindex', 'cefcfantrayoperstatus'], name, value)
+                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFanTrayStatusTable.CefcFanTrayStatusEntry, ['entphysicalindex', 'cefcfantrayoperstatus'], name, value)
 
-            class Cefcfantrayoperstatus(Enum):
+            class CefcFanTrayOperStatus(Enum):
                 """
-                Cefcfantrayoperstatus (Enum Class)
+                CefcFanTrayOperStatus (Enum Class)
 
                 The operational state of the fan or fan tray.
 
@@ -2106,14 +2074,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
 
 
 
-    class Cefcphysicaltable(Entity):
+    class CefcPhysicalTable(Entity):
         """
         This table contains one row per physical entity.
         
         .. attribute:: cefcphysicalentry
         
         	Information about a particular physical entity
-        	**type**\: list of  		 :py:class:`Cefcphysicalentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcphysicaltable.Cefcphysicalentry>`
+        	**type**\: list of  		 :py:class:`CefcPhysicalEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcPhysicalTable.CefcPhysicalEntry>`
         
         
 
@@ -2123,15 +2091,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2013-08-19'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.Cefcphysicaltable, self).__init__()
+            super(CISCOENTITYFRUCONTROLMIB.CefcPhysicalTable, self).__init__()
 
             self.yang_name = "cefcPhysicalTable"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefcPhysicalEntry", ("cefcphysicalentry", CISCOENTITYFRUCONTROLMIB.Cefcphysicaltable.Cefcphysicalentry))])
+            self._child_classes = OrderedDict([("cefcPhysicalEntry", ("cefcphysicalentry", CISCOENTITYFRUCONTROLMIB.CefcPhysicalTable.CefcPhysicalEntry))])
             self._leafs = OrderedDict()
 
             self.cefcphysicalentry = YList(self)
@@ -2139,10 +2106,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcphysicaltable, [], name, value)
+            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcPhysicalTable, [], name, value)
 
 
-        class Cefcphysicalentry(Entity):
+        class CefcPhysicalEntry(Entity):
             """
             Information about a particular physical entity.
             
@@ -2153,12 +2120,12 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cefcphysicalstatus
             
             	The status of this physical entity. other(1) \- the status is not any of the listed below. supported(2) \- this entity is supported. unsupported(3) \- this entity is unsupported. incompatible(4) \- this entity is incompatible. It would be unsupported(3), if the ID read from Serial EPROM is not supported. It would be incompatible(4), if in the present configuration this FRU is not supported
-            	**type**\:  :py:class:`Cefcphysicalstatus <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcphysicaltable.Cefcphysicalentry.Cefcphysicalstatus>`
+            	**type**\:  :py:class:`CefcPhysicalStatus <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcPhysicalTable.CefcPhysicalEntry.CefcPhysicalStatus>`
             
             
 
@@ -2168,15 +2135,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             _revision = '2013-08-19'
 
             def __init__(self):
-                super(CISCOENTITYFRUCONTROLMIB.Cefcphysicaltable.Cefcphysicalentry, self).__init__()
+                super(CISCOENTITYFRUCONTROLMIB.CefcPhysicalTable.CefcPhysicalEntry, self).__init__()
 
                 self.yang_name = "cefcPhysicalEntry"
                 self.yang_parent_name = "cefcPhysicalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cefcphysicalstatus', YLeaf(YType.enumeration, 'cefcPhysicalStatus')),
@@ -2187,11 +2153,11 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcPhysicalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcphysicaltable.Cefcphysicalentry, ['entphysicalindex', 'cefcphysicalstatus'], name, value)
+                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcPhysicalTable.CefcPhysicalEntry, ['entphysicalindex', 'cefcphysicalstatus'], name, value)
 
-            class Cefcphysicalstatus(Enum):
+            class CefcPhysicalStatus(Enum):
                 """
-                Cefcphysicalstatus (Enum Class)
+                CefcPhysicalStatus (Enum Class)
 
                 The status of this physical entity.
 
@@ -2229,7 +2195,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
 
 
 
-    class Cefcpowersupplyinputtable(Entity):
+    class CefcPowerSupplyInputTable(Entity):
         """
         This table contains the power input information
         for all the power supplies that have entPhysicalTable
@@ -2248,7 +2214,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         .. attribute:: cefcpowersupplyinputentry
         
         	An entry containing power input management information applicable to a particular power supply and input
-        	**type**\: list of  		 :py:class:`Cefcpowersupplyinputentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcpowersupplyinputtable.Cefcpowersupplyinputentry>`
+        	**type**\: list of  		 :py:class:`CefcPowerSupplyInputEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyInputTable.CefcPowerSupplyInputEntry>`
         
         
 
@@ -2258,15 +2224,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2013-08-19'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.Cefcpowersupplyinputtable, self).__init__()
+            super(CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyInputTable, self).__init__()
 
             self.yang_name = "cefcPowerSupplyInputTable"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefcPowerSupplyInputEntry", ("cefcpowersupplyinputentry", CISCOENTITYFRUCONTROLMIB.Cefcpowersupplyinputtable.Cefcpowersupplyinputentry))])
+            self._child_classes = OrderedDict([("cefcPowerSupplyInputEntry", ("cefcpowersupplyinputentry", CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyInputTable.CefcPowerSupplyInputEntry))])
             self._leafs = OrderedDict()
 
             self.cefcpowersupplyinputentry = YList(self)
@@ -2274,10 +2239,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcpowersupplyinputtable, [], name, value)
+            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyInputTable, [], name, value)
 
 
-        class Cefcpowersupplyinputentry(Entity):
+        class CefcPowerSupplyInputEntry(Entity):
             """
             An entry containing power input management information
             applicable to a particular power supply and input.
@@ -2289,7 +2254,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cefcpowersupplyinputindex  (key)
             
@@ -2301,7 +2266,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             .. attribute:: cefcpowersupplyinputtype
             
             	The type of an input power detected on the power supply.  unknown(1)\: No input power is detected.  acLow(2)\: Lower rating AC input power is detected.  acHigh(3)\: Higher rating AC input power is detected.  dcLow(4)\: Lower rating DC input power is detected.  dcHigh(5)\: Higher rating DC input power is detected
-            	**type**\:  :py:class:`Cefcpowersupplyinputtype <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcpowersupplyinputtable.Cefcpowersupplyinputentry.Cefcpowersupplyinputtype>`
+            	**type**\:  :py:class:`CefcPowerSupplyInputType <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyInputTable.CefcPowerSupplyInputEntry.CefcPowerSupplyInputType>`
             
             
 
@@ -2311,15 +2276,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             _revision = '2013-08-19'
 
             def __init__(self):
-                super(CISCOENTITYFRUCONTROLMIB.Cefcpowersupplyinputtable.Cefcpowersupplyinputentry, self).__init__()
+                super(CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyInputTable.CefcPowerSupplyInputEntry, self).__init__()
 
                 self.yang_name = "cefcPowerSupplyInputEntry"
                 self.yang_parent_name = "cefcPowerSupplyInputTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','cefcpowersupplyinputindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cefcpowersupplyinputindex', YLeaf(YType.uint32, 'cefcPowerSupplyInputIndex')),
@@ -2332,11 +2296,11 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcPowerSupplyInputTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcpowersupplyinputtable.Cefcpowersupplyinputentry, ['entphysicalindex', 'cefcpowersupplyinputindex', 'cefcpowersupplyinputtype'], name, value)
+                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyInputTable.CefcPowerSupplyInputEntry, ['entphysicalindex', 'cefcpowersupplyinputindex', 'cefcpowersupplyinputtype'], name, value)
 
-            class Cefcpowersupplyinputtype(Enum):
+            class CefcPowerSupplyInputType(Enum):
                 """
-                Cefcpowersupplyinputtype (Enum Class)
+                CefcPowerSupplyInputType (Enum Class)
 
                 The type of an input power detected on the power
 
@@ -2376,7 +2340,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
 
 
 
-    class Cefcpowersupplyoutputtable(Entity):
+    class CefcPowerSupplyOutputTable(Entity):
         """
         This table contains a list of possible output
         mode for the power supplies, whose ENTITY\-MIB
@@ -2387,7 +2351,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         .. attribute:: cefcpowersupplyoutputentry
         
         	A cefcPowerSupplyOutputTable entry lists the power output capacity and its operational status for manageable components of type PhysicalClass 'powerSupply'.  Entries are created by the agent at the system power\-up or power supply insertion.  Entries are deleted by the agent upon power supply removal.  The number of entries of a power supply is determined by the power supply
-        	**type**\: list of  		 :py:class:`Cefcpowersupplyoutputentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcpowersupplyoutputtable.Cefcpowersupplyoutputentry>`
+        	**type**\: list of  		 :py:class:`CefcPowerSupplyOutputEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyOutputTable.CefcPowerSupplyOutputEntry>`
         
         
 
@@ -2397,15 +2361,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2013-08-19'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.Cefcpowersupplyoutputtable, self).__init__()
+            super(CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyOutputTable, self).__init__()
 
             self.yang_name = "cefcPowerSupplyOutputTable"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefcPowerSupplyOutputEntry", ("cefcpowersupplyoutputentry", CISCOENTITYFRUCONTROLMIB.Cefcpowersupplyoutputtable.Cefcpowersupplyoutputentry))])
+            self._child_classes = OrderedDict([("cefcPowerSupplyOutputEntry", ("cefcpowersupplyoutputentry", CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyOutputTable.CefcPowerSupplyOutputEntry))])
             self._leafs = OrderedDict()
 
             self.cefcpowersupplyoutputentry = YList(self)
@@ -2413,10 +2376,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcpowersupplyoutputtable, [], name, value)
+            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyOutputTable, [], name, value)
 
 
-        class Cefcpowersupplyoutputentry(Entity):
+        class CefcPowerSupplyOutputEntry(Entity):
             """
             A cefcPowerSupplyOutputTable entry lists the
             power output capacity and its operational status
@@ -2439,7 +2402,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cefcpsoutputmodeindex  (key)
             
@@ -2468,15 +2431,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             _revision = '2013-08-19'
 
             def __init__(self):
-                super(CISCOENTITYFRUCONTROLMIB.Cefcpowersupplyoutputtable.Cefcpowersupplyoutputentry, self).__init__()
+                super(CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyOutputTable.CefcPowerSupplyOutputEntry, self).__init__()
 
                 self.yang_name = "cefcPowerSupplyOutputEntry"
                 self.yang_parent_name = "cefcPowerSupplyOutputTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','cefcpsoutputmodeindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cefcpsoutputmodeindex', YLeaf(YType.uint32, 'cefcPSOutputModeIndex')),
@@ -2491,10 +2453,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcPowerSupplyOutputTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcpowersupplyoutputtable.Cefcpowersupplyoutputentry, ['entphysicalindex', 'cefcpsoutputmodeindex', 'cefcpsoutputmodecurrent', 'cefcpsoutputmodeinoperation'], name, value)
+                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyOutputTable.CefcPowerSupplyOutputEntry, ['entphysicalindex', 'cefcpsoutputmodeindex', 'cefcpsoutputmodecurrent', 'cefcpsoutputmodeinoperation'], name, value)
 
 
-    class Cefcchassiscoolingtable(Entity):
+    class CefcChassisCoolingTable(Entity):
         """
         This table contains the cooling capacity
         information of the chassis whose ENTITY\-MIB
@@ -2504,7 +2466,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         .. attribute:: cefcchassiscoolingentry
         
         	A cefcChassisCoolingEntry lists the maximum cooling capacity that could be provided  for one slot on the manageable components of type PhysicalClass 'chassis'.  Entries are created by the agent if the corresponding entry is created in ENTITY\-MIB entPhysicalTable.  Entries are deleted by the agent if the corresponding entry is deleted in ENTITY\-MIB entPhysicalTable
-        	**type**\: list of  		 :py:class:`Cefcchassiscoolingentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcchassiscoolingtable.Cefcchassiscoolingentry>`
+        	**type**\: list of  		 :py:class:`CefcChassisCoolingEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcChassisCoolingTable.CefcChassisCoolingEntry>`
         
         
 
@@ -2514,15 +2476,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2013-08-19'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.Cefcchassiscoolingtable, self).__init__()
+            super(CISCOENTITYFRUCONTROLMIB.CefcChassisCoolingTable, self).__init__()
 
             self.yang_name = "cefcChassisCoolingTable"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefcChassisCoolingEntry", ("cefcchassiscoolingentry", CISCOENTITYFRUCONTROLMIB.Cefcchassiscoolingtable.Cefcchassiscoolingentry))])
+            self._child_classes = OrderedDict([("cefcChassisCoolingEntry", ("cefcchassiscoolingentry", CISCOENTITYFRUCONTROLMIB.CefcChassisCoolingTable.CefcChassisCoolingEntry))])
             self._leafs = OrderedDict()
 
             self.cefcchassiscoolingentry = YList(self)
@@ -2530,10 +2491,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcchassiscoolingtable, [], name, value)
+            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcChassisCoolingTable, [], name, value)
 
 
-        class Cefcchassiscoolingentry(Entity):
+        class CefcChassisCoolingEntry(Entity):
             """
             A cefcChassisCoolingEntry lists the maximum
             cooling capacity that could be provided 
@@ -2553,7 +2514,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cefcchassisperslotcoolingcap
             
@@ -2575,15 +2536,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             _revision = '2013-08-19'
 
             def __init__(self):
-                super(CISCOENTITYFRUCONTROLMIB.Cefcchassiscoolingtable.Cefcchassiscoolingentry, self).__init__()
+                super(CISCOENTITYFRUCONTROLMIB.CefcChassisCoolingTable.CefcChassisCoolingEntry, self).__init__()
 
                 self.yang_name = "cefcChassisCoolingEntry"
                 self.yang_parent_name = "cefcChassisCoolingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cefcchassisperslotcoolingcap', YLeaf(YType.uint32, 'cefcChassisPerSlotCoolingCap')),
@@ -2596,10 +2556,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcChassisCoolingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcchassiscoolingtable.Cefcchassiscoolingentry, ['entphysicalindex', 'cefcchassisperslotcoolingcap', 'cefcchassisperslotcoolingunit'], name, value)
+                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcChassisCoolingTable.CefcChassisCoolingEntry, ['entphysicalindex', 'cefcchassisperslotcoolingcap', 'cefcchassisperslotcoolingunit'], name, value)
 
 
-    class Cefcfancoolingtable(Entity):
+    class CefcFanCoolingTable(Entity):
         """
         This table contains the cooling capacity
         information of the fans whose ENTITY\-MIB
@@ -2609,7 +2569,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         .. attribute:: cefcfancoolingentry
         
         	A cefcFanCoolingEntry lists the cooling capacity that is provided by the  manageable components of type PhysicalClass  'fan'.  Entries are created by the agent if the corresponding entry is created in ENTITY\-MIB entPhysicalTable.  Entries are deleted by the agent if the corresponding entry is deleted in ENTITY\-MIB entPhysicalTable
-        	**type**\: list of  		 :py:class:`Cefcfancoolingentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcfancoolingtable.Cefcfancoolingentry>`
+        	**type**\: list of  		 :py:class:`CefcFanCoolingEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFanCoolingTable.CefcFanCoolingEntry>`
         
         
 
@@ -2619,15 +2579,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2013-08-19'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.Cefcfancoolingtable, self).__init__()
+            super(CISCOENTITYFRUCONTROLMIB.CefcFanCoolingTable, self).__init__()
 
             self.yang_name = "cefcFanCoolingTable"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefcFanCoolingEntry", ("cefcfancoolingentry", CISCOENTITYFRUCONTROLMIB.Cefcfancoolingtable.Cefcfancoolingentry))])
+            self._child_classes = OrderedDict([("cefcFanCoolingEntry", ("cefcfancoolingentry", CISCOENTITYFRUCONTROLMIB.CefcFanCoolingTable.CefcFanCoolingEntry))])
             self._leafs = OrderedDict()
 
             self.cefcfancoolingentry = YList(self)
@@ -2635,10 +2594,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcfancoolingtable, [], name, value)
+            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFanCoolingTable, [], name, value)
 
 
-        class Cefcfancoolingentry(Entity):
+        class CefcFanCoolingEntry(Entity):
             """
             A cefcFanCoolingEntry lists the cooling
             capacity that is provided by the 
@@ -2658,7 +2617,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cefcfancoolingcapacity
             
@@ -2680,15 +2639,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             _revision = '2013-08-19'
 
             def __init__(self):
-                super(CISCOENTITYFRUCONTROLMIB.Cefcfancoolingtable.Cefcfancoolingentry, self).__init__()
+                super(CISCOENTITYFRUCONTROLMIB.CefcFanCoolingTable.CefcFanCoolingEntry, self).__init__()
 
                 self.yang_name = "cefcFanCoolingEntry"
                 self.yang_parent_name = "cefcFanCoolingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cefcfancoolingcapacity', YLeaf(YType.uint32, 'cefcFanCoolingCapacity')),
@@ -2701,10 +2659,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcFanCoolingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcfancoolingtable.Cefcfancoolingentry, ['entphysicalindex', 'cefcfancoolingcapacity', 'cefcfancoolingcapacityunit'], name, value)
+                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFanCoolingTable.CefcFanCoolingEntry, ['entphysicalindex', 'cefcfancoolingcapacity', 'cefcfancoolingcapacityunit'], name, value)
 
 
-    class Cefcmodulecoolingtable(Entity):
+    class CefcModuleCoolingTable(Entity):
         """
         This table contains the cooling requirement for
         all the manageable components of type entPhysicalClass
@@ -2713,7 +2671,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         .. attribute:: cefcmodulecoolingentry
         
         	A cefcModuleCoolingEntry lists the cooling requirement for a manageable components of type entPhysicalClass 'module'.  Entries are created by the agent at the system power\-up or module insertion.  Entries are deleted by the agent upon module removal
-        	**type**\: list of  		 :py:class:`Cefcmodulecoolingentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcmodulecoolingtable.Cefcmodulecoolingentry>`
+        	**type**\: list of  		 :py:class:`CefcModuleCoolingEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcModuleCoolingTable.CefcModuleCoolingEntry>`
         
         
 
@@ -2723,15 +2681,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2013-08-19'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.Cefcmodulecoolingtable, self).__init__()
+            super(CISCOENTITYFRUCONTROLMIB.CefcModuleCoolingTable, self).__init__()
 
             self.yang_name = "cefcModuleCoolingTable"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefcModuleCoolingEntry", ("cefcmodulecoolingentry", CISCOENTITYFRUCONTROLMIB.Cefcmodulecoolingtable.Cefcmodulecoolingentry))])
+            self._child_classes = OrderedDict([("cefcModuleCoolingEntry", ("cefcmodulecoolingentry", CISCOENTITYFRUCONTROLMIB.CefcModuleCoolingTable.CefcModuleCoolingEntry))])
             self._leafs = OrderedDict()
 
             self.cefcmodulecoolingentry = YList(self)
@@ -2739,10 +2696,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcmodulecoolingtable, [], name, value)
+            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcModuleCoolingTable, [], name, value)
 
 
-        class Cefcmodulecoolingentry(Entity):
+        class CefcModuleCoolingEntry(Entity):
             """
             A cefcModuleCoolingEntry lists the cooling
             requirement for a manageable components of type
@@ -2761,7 +2718,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cefcmodulecooling
             
@@ -2783,15 +2740,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             _revision = '2013-08-19'
 
             def __init__(self):
-                super(CISCOENTITYFRUCONTROLMIB.Cefcmodulecoolingtable.Cefcmodulecoolingentry, self).__init__()
+                super(CISCOENTITYFRUCONTROLMIB.CefcModuleCoolingTable.CefcModuleCoolingEntry, self).__init__()
 
                 self.yang_name = "cefcModuleCoolingEntry"
                 self.yang_parent_name = "cefcModuleCoolingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cefcmodulecooling', YLeaf(YType.uint32, 'cefcModuleCooling')),
@@ -2804,10 +2760,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcModuleCoolingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcmodulecoolingtable.Cefcmodulecoolingentry, ['entphysicalindex', 'cefcmodulecooling', 'cefcmodulecoolingunit'], name, value)
+                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcModuleCoolingTable.CefcModuleCoolingEntry, ['entphysicalindex', 'cefcmodulecooling', 'cefcmodulecoolingunit'], name, value)
 
 
-    class Cefcfancoolingcaptable(Entity):
+    class CefcFanCoolingCapTable(Entity):
         """
         This table contains a list of the possible cooling
         capacity modes and properties of the fans, whose 
@@ -2817,7 +2773,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         .. attribute:: cefcfancoolingcapentry
         
         	A cefcFanCoolingCapacityEntry lists the cooling capacity mode of a manageable components of type entPhysicalClass 'fan'. It also lists the corresponding cooling capacity provided and the power consumed by the fan on this mode.   Entries are created by the agent if the corresponding entry is created in ENTITY\-MIB entPhysicalTable.  Entries are deleted by the agent if the corresponding entry is deleted in ENTITY\-MIB entPhysicalTable
-        	**type**\: list of  		 :py:class:`Cefcfancoolingcapentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcfancoolingcaptable.Cefcfancoolingcapentry>`
+        	**type**\: list of  		 :py:class:`CefcFanCoolingCapEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFanCoolingCapTable.CefcFanCoolingCapEntry>`
         
         
 
@@ -2827,15 +2783,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2013-08-19'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.Cefcfancoolingcaptable, self).__init__()
+            super(CISCOENTITYFRUCONTROLMIB.CefcFanCoolingCapTable, self).__init__()
 
             self.yang_name = "cefcFanCoolingCapTable"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefcFanCoolingCapEntry", ("cefcfancoolingcapentry", CISCOENTITYFRUCONTROLMIB.Cefcfancoolingcaptable.Cefcfancoolingcapentry))])
+            self._child_classes = OrderedDict([("cefcFanCoolingCapEntry", ("cefcfancoolingcapentry", CISCOENTITYFRUCONTROLMIB.CefcFanCoolingCapTable.CefcFanCoolingCapEntry))])
             self._leafs = OrderedDict()
 
             self.cefcfancoolingcapentry = YList(self)
@@ -2843,10 +2798,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcfancoolingcaptable, [], name, value)
+            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFanCoolingCapTable, [], name, value)
 
 
-        class Cefcfancoolingcapentry(Entity):
+        class CefcFanCoolingCapEntry(Entity):
             """
             A cefcFanCoolingCapacityEntry lists the cooling
             capacity mode of a manageable components of type
@@ -2868,7 +2823,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cefcfancoolingcapindex  (key)
             
@@ -2909,15 +2864,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             _revision = '2013-08-19'
 
             def __init__(self):
-                super(CISCOENTITYFRUCONTROLMIB.Cefcfancoolingcaptable.Cefcfancoolingcapentry, self).__init__()
+                super(CISCOENTITYFRUCONTROLMIB.CefcFanCoolingCapTable.CefcFanCoolingCapEntry, self).__init__()
 
                 self.yang_name = "cefcFanCoolingCapEntry"
                 self.yang_parent_name = "cefcFanCoolingCapTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','cefcfancoolingcapindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cefcfancoolingcapindex', YLeaf(YType.uint32, 'cefcFanCoolingCapIndex')),
@@ -2936,10 +2890,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcFanCoolingCapTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcfancoolingcaptable.Cefcfancoolingcapentry, ['entphysicalindex', 'cefcfancoolingcapindex', 'cefcfancoolingcapmodedescr', 'cefcfancoolingcapcapacity', 'cefcfancoolingcapcurrent', 'cefcfancoolingcapcapacityunit'], name, value)
+                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFanCoolingCapTable.CefcFanCoolingCapEntry, ['entphysicalindex', 'cefcfancoolingcapindex', 'cefcfancoolingcapmodedescr', 'cefcfancoolingcapcapacity', 'cefcfancoolingcapcurrent', 'cefcfancoolingcapcapacityunit'], name, value)
 
 
-    class Cefcconnectorratingtable(Entity):
+    class CefcConnectorRatingTable(Entity):
         """
         This table contains the connector power
         ratings of FRUs. 
@@ -2950,7 +2904,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         .. attribute:: cefcconnectorratingentry
         
         	A cefcConnectorRatingEntry lists the power connector rating information of a  component in the system.  An entry or entries are created by the agent when an physical entity with connector rating  management is added to the ENTITY\-MIB  entPhysicalTable. An entry is deleted  by the agent at the entity removal
-        	**type**\: list of  		 :py:class:`Cefcconnectorratingentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcconnectorratingtable.Cefcconnectorratingentry>`
+        	**type**\: list of  		 :py:class:`CefcConnectorRatingEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcConnectorRatingTable.CefcConnectorRatingEntry>`
         
         
 
@@ -2960,15 +2914,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2013-08-19'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.Cefcconnectorratingtable, self).__init__()
+            super(CISCOENTITYFRUCONTROLMIB.CefcConnectorRatingTable, self).__init__()
 
             self.yang_name = "cefcConnectorRatingTable"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefcConnectorRatingEntry", ("cefcconnectorratingentry", CISCOENTITYFRUCONTROLMIB.Cefcconnectorratingtable.Cefcconnectorratingentry))])
+            self._child_classes = OrderedDict([("cefcConnectorRatingEntry", ("cefcconnectorratingentry", CISCOENTITYFRUCONTROLMIB.CefcConnectorRatingTable.CefcConnectorRatingEntry))])
             self._leafs = OrderedDict()
 
             self.cefcconnectorratingentry = YList(self)
@@ -2976,10 +2929,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcconnectorratingtable, [], name, value)
+            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcConnectorRatingTable, [], name, value)
 
 
-        class Cefcconnectorratingentry(Entity):
+        class CefcConnectorRatingEntry(Entity):
             """
             A cefcConnectorRatingEntry lists the
             power connector rating information of a 
@@ -2998,7 +2951,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cefcconnectorrating
             
@@ -3015,15 +2968,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             _revision = '2013-08-19'
 
             def __init__(self):
-                super(CISCOENTITYFRUCONTROLMIB.Cefcconnectorratingtable.Cefcconnectorratingentry, self).__init__()
+                super(CISCOENTITYFRUCONTROLMIB.CefcConnectorRatingTable.CefcConnectorRatingEntry, self).__init__()
 
                 self.yang_name = "cefcConnectorRatingEntry"
                 self.yang_parent_name = "cefcConnectorRatingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cefcconnectorrating', YLeaf(YType.int32, 'cefcConnectorRating')),
@@ -3034,10 +2986,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcConnectorRatingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcconnectorratingtable.Cefcconnectorratingentry, ['entphysicalindex', 'cefcconnectorrating'], name, value)
+                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcConnectorRatingTable.CefcConnectorRatingEntry, ['entphysicalindex', 'cefcconnectorrating'], name, value)
 
 
-    class Cefcmodulepowerconsumptiontable(Entity):
+    class CefcModulePowerConsumptionTable(Entity):
         """
         This table contains the total power consumption
         information for modules whose ENTITY\-MIB 
@@ -3047,7 +2999,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         .. attribute:: cefcmodulepowerconsumptionentry
         
         	A cefcModulePowerConsumptionEntry lists the total power consumption of a manageable components of type entPhysicalClass 'module'.  Entries are created by the agent at the system power\-up or module insertion.  Entries are deleted by the agent upon module removal
-        	**type**\: list of  		 :py:class:`Cefcmodulepowerconsumptionentry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.Cefcmodulepowerconsumptiontable.Cefcmodulepowerconsumptionentry>`
+        	**type**\: list of  		 :py:class:`CefcModulePowerConsumptionEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcModulePowerConsumptionTable.CefcModulePowerConsumptionEntry>`
         
         
 
@@ -3057,15 +3009,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         _revision = '2013-08-19'
 
         def __init__(self):
-            super(CISCOENTITYFRUCONTROLMIB.Cefcmodulepowerconsumptiontable, self).__init__()
+            super(CISCOENTITYFRUCONTROLMIB.CefcModulePowerConsumptionTable, self).__init__()
 
             self.yang_name = "cefcModulePowerConsumptionTable"
             self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefcModulePowerConsumptionEntry", ("cefcmodulepowerconsumptionentry", CISCOENTITYFRUCONTROLMIB.Cefcmodulepowerconsumptiontable.Cefcmodulepowerconsumptionentry))])
+            self._child_classes = OrderedDict([("cefcModulePowerConsumptionEntry", ("cefcmodulepowerconsumptionentry", CISCOENTITYFRUCONTROLMIB.CefcModulePowerConsumptionTable.CefcModulePowerConsumptionEntry))])
             self._leafs = OrderedDict()
 
             self.cefcmodulepowerconsumptionentry = YList(self)
@@ -3073,10 +3024,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcmodulepowerconsumptiontable, [], name, value)
+            self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcModulePowerConsumptionTable, [], name, value)
 
 
-        class Cefcmodulepowerconsumptionentry(Entity):
+        class CefcModulePowerConsumptionEntry(Entity):
             """
             A cefcModulePowerConsumptionEntry lists the total
             power consumption of a manageable components of type
@@ -3095,7 +3046,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cefcmodulepowerconsumption
             
@@ -3112,15 +3063,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             _revision = '2013-08-19'
 
             def __init__(self):
-                super(CISCOENTITYFRUCONTROLMIB.Cefcmodulepowerconsumptiontable.Cefcmodulepowerconsumptionentry, self).__init__()
+                super(CISCOENTITYFRUCONTROLMIB.CefcModulePowerConsumptionTable.CefcModulePowerConsumptionEntry, self).__init__()
 
                 self.yang_name = "cefcModulePowerConsumptionEntry"
                 self.yang_parent_name = "cefcModulePowerConsumptionTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cefcmodulepowerconsumption', YLeaf(YType.int32, 'cefcModulePowerConsumption')),
@@ -3131,7 +3081,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcModulePowerConsumptionTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.Cefcmodulepowerconsumptiontable.Cefcmodulepowerconsumptionentry, ['entphysicalindex', 'cefcmodulepowerconsumption'], name, value)
+                self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcModulePowerConsumptionTable.CefcModulePowerConsumptionEntry, ['entphysicalindex', 'cefcmodulepowerconsumption'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOENTITYFRUCONTROLMIB()

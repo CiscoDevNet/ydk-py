@@ -44,15 +44,16 @@ class ExternalUsb(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("config", ("config", ExternalUsb.Config))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("config", ("config", ExternalUsb.Config))])
         self._leafs = OrderedDict()
 
         self.config = ExternalUsb.Config()
         self.config.parent = self
         self._children_name_map["config"] = "config"
-        self._children_yang_names.add("config")
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-external-usb:external-usb"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(ExternalUsb, [], name, value)
 
 
     class Config(Entity):
@@ -79,8 +80,7 @@ class ExternalUsb(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('disable', YLeaf(YType.empty, 'disable')),
             ])

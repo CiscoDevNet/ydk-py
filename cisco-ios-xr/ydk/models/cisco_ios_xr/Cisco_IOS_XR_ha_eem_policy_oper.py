@@ -65,35 +65,32 @@ class Eem(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("dir-user", ("dir_user", Eem.DirUser)), ("env-variables", ("env_variables", Eem.EnvVariables)), ("refresh-time", ("refresh_time", Eem.RefreshTime)), ("reg-policies", ("reg_policies", Eem.RegPolicies)), ("avl-policies", ("avl_policies", Eem.AvlPolicies))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("dir-user", ("dir_user", Eem.DirUser)), ("env-variables", ("env_variables", Eem.EnvVariables)), ("refresh-time", ("refresh_time", Eem.RefreshTime)), ("reg-policies", ("reg_policies", Eem.RegPolicies)), ("avl-policies", ("avl_policies", Eem.AvlPolicies))])
         self._leafs = OrderedDict()
 
         self.dir_user = Eem.DirUser()
         self.dir_user.parent = self
         self._children_name_map["dir_user"] = "dir-user"
-        self._children_yang_names.add("dir-user")
 
         self.env_variables = Eem.EnvVariables()
         self.env_variables.parent = self
         self._children_name_map["env_variables"] = "env-variables"
-        self._children_yang_names.add("env-variables")
 
         self.refresh_time = Eem.RefreshTime()
         self.refresh_time.parent = self
         self._children_name_map["refresh_time"] = "refresh-time"
-        self._children_yang_names.add("refresh-time")
 
         self.reg_policies = Eem.RegPolicies()
         self.reg_policies.parent = self
         self._children_name_map["reg_policies"] = "reg-policies"
-        self._children_yang_names.add("reg-policies")
 
         self.avl_policies = Eem.AvlPolicies()
         self.avl_policies.parent = self
         self._children_name_map["avl_policies"] = "avl-policies"
-        self._children_yang_names.add("avl-policies")
         self._segment_path = lambda: "Cisco-IOS-XR-ha-eem-policy-oper:eem"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Eem, [], name, value)
 
 
     class DirUser(Entity):
@@ -125,21 +122,21 @@ class Eem(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("library", ("library", Eem.DirUser.Library)), ("policy", ("policy", Eem.DirUser.Policy))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("library", ("library", Eem.DirUser.Library)), ("policy", ("policy", Eem.DirUser.Policy))])
             self._leafs = OrderedDict()
 
             self.library = Eem.DirUser.Library()
             self.library.parent = self
             self._children_name_map["library"] = "library"
-            self._children_yang_names.add("library")
 
             self.policy = Eem.DirUser.Policy()
             self.policy.parent = self
             self._children_name_map["policy"] = "policy"
-            self._children_yang_names.add("policy")
             self._segment_path = lambda: "dir-user"
             self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-policy-oper:eem/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Eem.DirUser, [], name, value)
 
 
         class Library(Entity):
@@ -171,8 +168,7 @@ class Eem(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('policy', YLeaf(YType.str, 'policy')),
                     ('library', YLeaf(YType.str, 'library')),
@@ -215,8 +211,7 @@ class Eem(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('policy', YLeaf(YType.str, 'policy')),
                     ('library', YLeaf(YType.str, 'library')),
@@ -254,8 +249,7 @@ class Eem(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("env-variable", ("env_variable", Eem.EnvVariables.EnvVariable))])
+            self._child_classes = OrderedDict([("env-variable", ("env_variable", Eem.EnvVariables.EnvVariable))])
             self._leafs = OrderedDict()
 
             self.env_variable = YList(self)
@@ -302,8 +296,7 @@ class Eem(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('name_xr', YLeaf(YType.str, 'name-xr')),
@@ -345,8 +338,7 @@ class Eem(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('refreshtime', YLeaf(YType.uint32, 'refreshtime')),
             ])
@@ -382,8 +374,7 @@ class Eem(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("reg-policy", ("reg_policy", Eem.RegPolicies.RegPolicy))])
+            self._child_classes = OrderedDict([("reg-policy", ("reg_policy", Eem.RegPolicies.RegPolicy))])
             self._leafs = OrderedDict()
 
             self.reg_policy = YList(self)
@@ -467,8 +458,7 @@ class Eem(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('type', YLeaf(YType.str, 'type')),
@@ -522,8 +512,7 @@ class Eem(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("avl-policy", ("avl_policy", Eem.AvlPolicies.AvlPolicy))])
+            self._child_classes = OrderedDict([("avl-policy", ("avl_policy", Eem.AvlPolicies.AvlPolicy))])
             self._leafs = OrderedDict()
 
             self.avl_policy = YList(self)
@@ -575,8 +564,7 @@ class Eem(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('type', YLeaf(YType.str, 'type')),

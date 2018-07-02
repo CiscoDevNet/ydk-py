@@ -90,8 +90,7 @@ class Banners(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("banner", ("banner", Banners.Banner))])
+        self._child_classes = OrderedDict([("banner", ("banner", Banners.Banner))])
         self._leafs = OrderedDict()
 
         self.banner = YList(self)
@@ -132,8 +131,7 @@ class Banners(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['banner_name']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('banner_name', YLeaf(YType.enumeration, 'banner-name')),
                 ('banner_text', YLeaf(YType.str, 'banner-text')),

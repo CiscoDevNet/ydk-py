@@ -20,47 +20,47 @@ class DS3MIB(Entity):
     .. attribute:: dsx3configtable
     
     	The DS3/E3 Configuration table
-    	**type**\:  :py:class:`Dsx3Configtable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Configtable>`
+    	**type**\:  :py:class:`Dsx3ConfigTable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3ConfigTable>`
     
     .. attribute:: dsx3currenttable
     
     	The DS3/E3 current table contains various statistics being collected for the current 15 minute interval
-    	**type**\:  :py:class:`Dsx3Currenttable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Currenttable>`
+    	**type**\:  :py:class:`Dsx3CurrentTable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3CurrentTable>`
     
     .. attribute:: dsx3intervaltable
     
     	The DS3/E3 Interval Table contains various statistics collected by each DS3/E3 Interface over the previous 24 hours of operation.  The past 24 hours are broken into 96 completed 15 minute intervals.  Each row in this table represents one such interval (identified by dsx3IntervalNumber) and for one specific interface (identifed by dsx3IntervalIndex)
-    	**type**\:  :py:class:`Dsx3Intervaltable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Intervaltable>`
+    	**type**\:  :py:class:`Dsx3IntervalTable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3IntervalTable>`
     
     .. attribute:: dsx3totaltable
     
     	The DS3/E3 Total Table contains the cumulative sum of the various statistics for the 24 hour period preceding the current interval
-    	**type**\:  :py:class:`Dsx3Totaltable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Totaltable>`
+    	**type**\:  :py:class:`Dsx3TotalTable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3TotalTable>`
     
     .. attribute:: dsx3farendconfigtable
     
     	The DS3 Far End Configuration Table contains configuration information reported in the C\-bits from the remote end
-    	**type**\:  :py:class:`Dsx3Farendconfigtable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Farendconfigtable>`
+    	**type**\:  :py:class:`Dsx3FarEndConfigTable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3FarEndConfigTable>`
     
     .. attribute:: dsx3farendcurrenttable
     
     	The DS3 Far End Current table contains various statistics being collected for the current 15 minute interval.  The statistics are collected from the far end block error code within the C\- bits
-    	**type**\:  :py:class:`Dsx3Farendcurrenttable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Farendcurrenttable>`
+    	**type**\:  :py:class:`Dsx3FarEndCurrentTable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3FarEndCurrentTable>`
     
     .. attribute:: dsx3farendintervaltable
     
     	The DS3 Far End Interval Table contains various statistics collected by each DS3 interface over the previous 24 hours of operation.  The past 24 hours are broken into 96 completed 15 minute intervals
-    	**type**\:  :py:class:`Dsx3Farendintervaltable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Farendintervaltable>`
+    	**type**\:  :py:class:`Dsx3FarEndIntervalTable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3FarEndIntervalTable>`
     
     .. attribute:: dsx3farendtotaltable
     
     	The DS3 Far End Total Table contains the cumulative sum of the various statistics for the 24 hour period preceding the current interval
-    	**type**\:  :py:class:`Dsx3Farendtotaltable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Farendtotaltable>`
+    	**type**\:  :py:class:`Dsx3FarEndTotalTable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3FarEndTotalTable>`
     
     .. attribute:: dsx3fractable
     
     	This table is deprecated in favour of using ifStackTable.  Implementation of this table was optional.  It was designed for those systems dividing a DS3/E3 into channels containing different data streams that are of local interest.  The DS3/E3 fractional table identifies which DS3/E3 channels associated with a CSU are being used to support a logical interface, i.e., an entry in the interfaces table from the Internet\- standard MIB.  For example, consider a DS3 device with 4 high speed links carrying router traffic, a feed for voice, a feed for video, and a synchronous channel for a non\-routed protocol.  We might describe the allocation of channels, in the dsx3FracTable, as follows\: dsx3FracIfIndex.2. 1 = 3  dsx3FracIfIndex.2.15 = 4 dsx3FracIfIndex.2. 2 = 3  dsx3FracIfIndex.2.16 = 6 dsx3FracIfIndex.2. 3 = 3  dsx3FracIfIndex.2.17 = 6 dsx3FracIfIndex.2. 4 = 3  dsx3FracIfIndex.2.18 = 6 dsx3FracIfIndex.2. 5 = 3  dsx3FracIfIndex.2.19 = 6 dsx3FracIfIndex.2. 6 = 3  dsx3FracIfIndex.2.20 = 6 dsx3FracIfIndex.2. 7 = 4  dsx3FracIfIndex.2.21 = 6 dsx3FracIfIndex.2. 8 = 4  dsx3FracIfIndex.2.22 = 6 dsx3FracIfIndex.2. 9 = 4  dsx3FracIfIndex.2.23 = 6 dsx3FracIfIndex.2.10 = 4  dsx3FracIfIndex.2.24 = 6 dsx3FracIfIndex.2.11 = 4  dsx3FracIfIndex.2.25 = 6 dsx3FracIfIndex.2.12 = 5  dsx3FracIfIndex.2.26 = 6 dsx3FracIfIndex.2.13 = 5  dsx3FracIfIndex.2.27 = 6 dsx3FracIfIndex.2.14 = 5  dsx3FracIfIndex.2.28 = 6 For dsx3M23, dsx3 SYNTRAN, dsx3CbitParity, and dsx3ClearChannel  there are 28 legal channels, numbered 1 throug h 28.  For e3Framed there are 16 legal channels, numbered 1 through 16.  The channels (1..16) correspond directly to the equivalently numbered time\-slots
-    	**type**\:  :py:class:`Dsx3Fractable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Fractable>`
+    	**type**\:  :py:class:`Dsx3FracTable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3FracTable>`
     
     	**status**\: deprecated
     
@@ -80,65 +80,58 @@ class DS3MIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("dsx3ConfigTable", ("dsx3configtable", DS3MIB.Dsx3Configtable)), ("dsx3CurrentTable", ("dsx3currenttable", DS3MIB.Dsx3Currenttable)), ("dsx3IntervalTable", ("dsx3intervaltable", DS3MIB.Dsx3Intervaltable)), ("dsx3TotalTable", ("dsx3totaltable", DS3MIB.Dsx3Totaltable)), ("dsx3FarEndConfigTable", ("dsx3farendconfigtable", DS3MIB.Dsx3Farendconfigtable)), ("dsx3FarEndCurrentTable", ("dsx3farendcurrenttable", DS3MIB.Dsx3Farendcurrenttable)), ("dsx3FarEndIntervalTable", ("dsx3farendintervaltable", DS3MIB.Dsx3Farendintervaltable)), ("dsx3FarEndTotalTable", ("dsx3farendtotaltable", DS3MIB.Dsx3Farendtotaltable)), ("dsx3FracTable", ("dsx3fractable", DS3MIB.Dsx3Fractable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("dsx3ConfigTable", ("dsx3configtable", DS3MIB.Dsx3ConfigTable)), ("dsx3CurrentTable", ("dsx3currenttable", DS3MIB.Dsx3CurrentTable)), ("dsx3IntervalTable", ("dsx3intervaltable", DS3MIB.Dsx3IntervalTable)), ("dsx3TotalTable", ("dsx3totaltable", DS3MIB.Dsx3TotalTable)), ("dsx3FarEndConfigTable", ("dsx3farendconfigtable", DS3MIB.Dsx3FarEndConfigTable)), ("dsx3FarEndCurrentTable", ("dsx3farendcurrenttable", DS3MIB.Dsx3FarEndCurrentTable)), ("dsx3FarEndIntervalTable", ("dsx3farendintervaltable", DS3MIB.Dsx3FarEndIntervalTable)), ("dsx3FarEndTotalTable", ("dsx3farendtotaltable", DS3MIB.Dsx3FarEndTotalTable)), ("dsx3FracTable", ("dsx3fractable", DS3MIB.Dsx3FracTable))])
         self._leafs = OrderedDict()
 
-        self.dsx3configtable = DS3MIB.Dsx3Configtable()
+        self.dsx3configtable = DS3MIB.Dsx3ConfigTable()
         self.dsx3configtable.parent = self
         self._children_name_map["dsx3configtable"] = "dsx3ConfigTable"
-        self._children_yang_names.add("dsx3ConfigTable")
 
-        self.dsx3currenttable = DS3MIB.Dsx3Currenttable()
+        self.dsx3currenttable = DS3MIB.Dsx3CurrentTable()
         self.dsx3currenttable.parent = self
         self._children_name_map["dsx3currenttable"] = "dsx3CurrentTable"
-        self._children_yang_names.add("dsx3CurrentTable")
 
-        self.dsx3intervaltable = DS3MIB.Dsx3Intervaltable()
+        self.dsx3intervaltable = DS3MIB.Dsx3IntervalTable()
         self.dsx3intervaltable.parent = self
         self._children_name_map["dsx3intervaltable"] = "dsx3IntervalTable"
-        self._children_yang_names.add("dsx3IntervalTable")
 
-        self.dsx3totaltable = DS3MIB.Dsx3Totaltable()
+        self.dsx3totaltable = DS3MIB.Dsx3TotalTable()
         self.dsx3totaltable.parent = self
         self._children_name_map["dsx3totaltable"] = "dsx3TotalTable"
-        self._children_yang_names.add("dsx3TotalTable")
 
-        self.dsx3farendconfigtable = DS3MIB.Dsx3Farendconfigtable()
+        self.dsx3farendconfigtable = DS3MIB.Dsx3FarEndConfigTable()
         self.dsx3farendconfigtable.parent = self
         self._children_name_map["dsx3farendconfigtable"] = "dsx3FarEndConfigTable"
-        self._children_yang_names.add("dsx3FarEndConfigTable")
 
-        self.dsx3farendcurrenttable = DS3MIB.Dsx3Farendcurrenttable()
+        self.dsx3farendcurrenttable = DS3MIB.Dsx3FarEndCurrentTable()
         self.dsx3farendcurrenttable.parent = self
         self._children_name_map["dsx3farendcurrenttable"] = "dsx3FarEndCurrentTable"
-        self._children_yang_names.add("dsx3FarEndCurrentTable")
 
-        self.dsx3farendintervaltable = DS3MIB.Dsx3Farendintervaltable()
+        self.dsx3farendintervaltable = DS3MIB.Dsx3FarEndIntervalTable()
         self.dsx3farendintervaltable.parent = self
         self._children_name_map["dsx3farendintervaltable"] = "dsx3FarEndIntervalTable"
-        self._children_yang_names.add("dsx3FarEndIntervalTable")
 
-        self.dsx3farendtotaltable = DS3MIB.Dsx3Farendtotaltable()
+        self.dsx3farendtotaltable = DS3MIB.Dsx3FarEndTotalTable()
         self.dsx3farendtotaltable.parent = self
         self._children_name_map["dsx3farendtotaltable"] = "dsx3FarEndTotalTable"
-        self._children_yang_names.add("dsx3FarEndTotalTable")
 
-        self.dsx3fractable = DS3MIB.Dsx3Fractable()
+        self.dsx3fractable = DS3MIB.Dsx3FracTable()
         self.dsx3fractable.parent = self
         self._children_name_map["dsx3fractable"] = "dsx3FracTable"
-        self._children_yang_names.add("dsx3FracTable")
         self._segment_path = lambda: "DS3-MIB:DS3-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(DS3MIB, [], name, value)
 
-    class Dsx3Configtable(Entity):
+
+    class Dsx3ConfigTable(Entity):
         """
         The DS3/E3 Configuration table.
         
         .. attribute:: dsx3configentry
         
         	An entry in the DS3/E3 Configuration table
-        	**type**\: list of  		 :py:class:`Dsx3Configentry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Configtable.Dsx3Configentry>`
+        	**type**\: list of  		 :py:class:`Dsx3ConfigEntry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3ConfigTable.Dsx3ConfigEntry>`
         
         
 
@@ -148,15 +141,14 @@ class DS3MIB(Entity):
         _revision = '1998-08-01'
 
         def __init__(self):
-            super(DS3MIB.Dsx3Configtable, self).__init__()
+            super(DS3MIB.Dsx3ConfigTable, self).__init__()
 
             self.yang_name = "dsx3ConfigTable"
             self.yang_parent_name = "DS3-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dsx3ConfigEntry", ("dsx3configentry", DS3MIB.Dsx3Configtable.Dsx3Configentry))])
+            self._child_classes = OrderedDict([("dsx3ConfigEntry", ("dsx3configentry", DS3MIB.Dsx3ConfigTable.Dsx3ConfigEntry))])
             self._leafs = OrderedDict()
 
             self.dsx3configentry = YList(self)
@@ -164,10 +156,10 @@ class DS3MIB(Entity):
             self._absolute_path = lambda: "DS3-MIB:DS3-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DS3MIB.Dsx3Configtable, [], name, value)
+            self._perform_setattr(DS3MIB.Dsx3ConfigTable, [], name, value)
 
 
-        class Dsx3Configentry(Entity):
+        class Dsx3ConfigEntry(Entity):
             """
             An entry in the DS3/E3 Configuration table.
             
@@ -204,17 +196,17 @@ class DS3MIB(Entity):
             .. attribute:: dsx3linetype
             
             	This variable indicates the variety of DS3 C\-bit or E3 application implementing this interface. The type of interface affects the interpretation of the usage and error statistics.  The rate of DS3 is 44.736 Mbps and E3 is 34.368 Mbps.  The dsx3ClearChannel value means that the C\-bits are not used except for sending/receiving AIS. The values, in sequence, describe\:  TITLE\:            SPECIFICATION\: dsx3M23            ANSI T1.107\-1988 [9] dsx3SYNTRAN        ANSI T1.107\-1988 [9] dsx3CbitParity     ANSI T1.107a\-1990 [9a] dsx3ClearChannel   ANSI T1.102\-1987 [8] e3Framed           CCITT G.751 [12] e3Plcp             ETSI T/NA(91)18 [13]
-            	**type**\:  :py:class:`Dsx3Linetype <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Configtable.Dsx3Configentry.Dsx3Linetype>`
+            	**type**\:  :py:class:`Dsx3LineType <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3ConfigTable.Dsx3ConfigEntry.Dsx3LineType>`
             
             .. attribute:: dsx3linecoding
             
             	This variable describes the variety of Zero Code Suppression used on this interface, which in turn affects a number of its characteristics.  dsx3B3ZS and e3HDB3 refer to the use of specified patterns of normal bits and bipolar violations which are used to replace sequences of zero bits of a specified length
-            	**type**\:  :py:class:`Dsx3Linecoding <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Configtable.Dsx3Configentry.Dsx3Linecoding>`
+            	**type**\:  :py:class:`Dsx3LineCoding <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3ConfigTable.Dsx3ConfigEntry.Dsx3LineCoding>`
             
             .. attribute:: dsx3sendcode
             
             	This variable indicates what type of code is being sent across the DS3/E3 interface by the device.  (These are optional for E3 interfaces.) Setting this variable causes the interface to begin sending the code requested. The values mean\:     dsx3SendNoCode        sending looped or normal data     dsx3SendLineCode        sending a request for a line loopback     dsx3SendPayloadCode        sending a request for a payload loopback        (i.e., all DS1/E1s in a DS3/E3 frame)     dsx3SendResetCode        sending a loopback deactivation request     dsx3SendDS1LoopCode        requesting to loopback a particular DS1/E1        within a DS3/E3 frame.  The DS1/E1 is        indicated in dsx3Ds1ForRemoteLoop.     dsx3SendTestPattern        sending a test pattern
-            	**type**\:  :py:class:`Dsx3Sendcode <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Configtable.Dsx3Configentry.Dsx3Sendcode>`
+            	**type**\:  :py:class:`Dsx3SendCode <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3ConfigTable.Dsx3ConfigEntry.Dsx3SendCode>`
             
             .. attribute:: dsx3circuitidentifier
             
@@ -226,7 +218,7 @@ class DS3MIB(Entity):
             .. attribute:: dsx3loopbackconfig
             
             	This variable represents the desired loopback configuration of the DS3/E3 interface.  The values mean\:  dsx3NoLoop   Not in the loopback state.  A device that is   not capable of performing a loopback on   the interface shall always return this as   its value.  dsx3PayloadLoop   The received signal at this interface is looped   through the device.  Typically the received signal   is looped back for retransmission after it has   passed through the device's framing function.  dsx3LineLoop   The received signal at this interface does not   go through the device (minimum penetration) but   is looped back out.  dsx3OtherLoop   Loopbacks that are not defined here.  dsx3InwardLoop   The sent signal at this interface is looped back   through the device.  dsx3DualLoop   Both dsx1LineLoop and dsx1InwardLoop will be   active simultaneously
-            	**type**\:  :py:class:`Dsx3Loopbackconfig <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Configtable.Dsx3Configentry.Dsx3Loopbackconfig>`
+            	**type**\:  :py:class:`Dsx3LoopbackConfig <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3ConfigTable.Dsx3ConfigEntry.Dsx3LoopbackConfig>`
             
             .. attribute:: dsx3linestatus
             
@@ -238,7 +230,7 @@ class DS3MIB(Entity):
             .. attribute:: dsx3transmitclocksource
             
             	The source of Transmit Clock.  loopTiming indicates that the recovered receive clock is used as the transmit clock.  localTiming indicates that a local clock source is used or that an external clock is attached to the box containing the interface.  throughTiming indicates that transmit clock is derived from the recovered receive clock of another DS3 interface
-            	**type**\:  :py:class:`Dsx3Transmitclocksource <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Configtable.Dsx3Configentry.Dsx3Transmitclocksource>`
+            	**type**\:  :py:class:`Dsx3TransmitClockSource <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3ConfigTable.Dsx3ConfigEntry.Dsx3TransmitClockSource>`
             
             .. attribute:: dsx3invalidintervals
             
@@ -266,7 +258,7 @@ class DS3MIB(Entity):
             .. attribute:: dsx3linestatuschangetrapenable
             
             	Indicates whether dsx3LineStatusChange traps should be generated for this interface
-            	**type**\:  :py:class:`Dsx3Linestatuschangetrapenable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Configtable.Dsx3Configentry.Dsx3Linestatuschangetrapenable>`
+            	**type**\:  :py:class:`Dsx3LineStatusChangeTrapEnable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3ConfigTable.Dsx3ConfigEntry.Dsx3LineStatusChangeTrapEnable>`
             
             .. attribute:: dsx3loopbackstatus
             
@@ -278,7 +270,7 @@ class DS3MIB(Entity):
             .. attribute:: dsx3channelization
             
             	Indicates whether this ds3/e3 is channelized or unchannelized.  The value of enabledDs1 indicates that this is a DS3 channelized into DS1s.  The value of enabledDs3 indicated that this is a DS3 channelized into DS2s.  Setting this object will cause the creation or deletion of DS2 or DS1 entries in the ifTable.  
-            	**type**\:  :py:class:`Dsx3Channelization <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Configtable.Dsx3Configentry.Dsx3Channelization>`
+            	**type**\:  :py:class:`Dsx3Channelization <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3ConfigTable.Dsx3ConfigEntry.Dsx3Channelization>`
             
             .. attribute:: dsx3ds1forremoteloop
             
@@ -295,15 +287,14 @@ class DS3MIB(Entity):
             _revision = '1998-08-01'
 
             def __init__(self):
-                super(DS3MIB.Dsx3Configtable.Dsx3Configentry, self).__init__()
+                super(DS3MIB.Dsx3ConfigTable.Dsx3ConfigEntry, self).__init__()
 
                 self.yang_name = "dsx3ConfigEntry"
                 self.yang_parent_name = "dsx3ConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dsx3lineindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dsx3lineindex', YLeaf(YType.int32, 'dsx3LineIndex')),
                     ('dsx3ifindex', YLeaf(YType.int32, 'dsx3IfIndex')),
@@ -346,7 +337,7 @@ class DS3MIB(Entity):
                 self._absolute_path = lambda: "DS3-MIB:DS3-MIB/dsx3ConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DS3MIB.Dsx3Configtable.Dsx3Configentry, ['dsx3lineindex', 'dsx3ifindex', 'dsx3timeelapsed', 'dsx3validintervals', 'dsx3linetype', 'dsx3linecoding', 'dsx3sendcode', 'dsx3circuitidentifier', 'dsx3loopbackconfig', 'dsx3linestatus', 'dsx3transmitclocksource', 'dsx3invalidintervals', 'dsx3linelength', 'dsx3linestatuslastchange', 'dsx3linestatuschangetrapenable', 'dsx3loopbackstatus', 'dsx3channelization', 'dsx3ds1forremoteloop'], name, value)
+                self._perform_setattr(DS3MIB.Dsx3ConfigTable.Dsx3ConfigEntry, ['dsx3lineindex', 'dsx3ifindex', 'dsx3timeelapsed', 'dsx3validintervals', 'dsx3linetype', 'dsx3linecoding', 'dsx3sendcode', 'dsx3circuitidentifier', 'dsx3loopbackconfig', 'dsx3linestatus', 'dsx3transmitclocksource', 'dsx3invalidintervals', 'dsx3linelength', 'dsx3linestatuslastchange', 'dsx3linestatuschangetrapenable', 'dsx3loopbackstatus', 'dsx3channelization', 'dsx3ds1forremoteloop'], name, value)
 
             class Dsx3Channelization(Enum):
                 """
@@ -381,9 +372,9 @@ class DS3MIB(Entity):
                 enabledDs2 = Enum.YLeaf(3, "enabledDs2")
 
 
-            class Dsx3Linecoding(Enum):
+            class Dsx3LineCoding(Enum):
                 """
-                Dsx3Linecoding (Enum Class)
+                Dsx3LineCoding (Enum Class)
 
                 This variable describes the variety of Zero Code
 
@@ -414,9 +405,9 @@ class DS3MIB(Entity):
                 e3HDB3 = Enum.YLeaf(3, "e3HDB3")
 
 
-            class Dsx3Linestatuschangetrapenable(Enum):
+            class Dsx3LineStatusChangeTrapEnable(Enum):
                 """
-                Dsx3Linestatuschangetrapenable (Enum Class)
+                Dsx3LineStatusChangeTrapEnable (Enum Class)
 
                 Indicates whether dsx3LineStatusChange traps
 
@@ -433,9 +424,9 @@ class DS3MIB(Entity):
                 disabled = Enum.YLeaf(2, "disabled")
 
 
-            class Dsx3Linetype(Enum):
+            class Dsx3LineType(Enum):
                 """
-                Dsx3Linetype (Enum Class)
+                Dsx3LineType (Enum Class)
 
                 This variable indicates the variety of DS3 C\-bit
 
@@ -502,9 +493,9 @@ class DS3MIB(Entity):
                 e3Plcp = Enum.YLeaf(8, "e3Plcp")
 
 
-            class Dsx3Loopbackconfig(Enum):
+            class Dsx3LoopbackConfig(Enum):
                 """
-                Dsx3Loopbackconfig (Enum Class)
+                Dsx3LoopbackConfig (Enum Class)
 
                 This variable represents the desired loopback
 
@@ -583,9 +574,9 @@ class DS3MIB(Entity):
                 dsx3DualLoop = Enum.YLeaf(6, "dsx3DualLoop")
 
 
-            class Dsx3Sendcode(Enum):
+            class Dsx3SendCode(Enum):
                 """
-                Dsx3Sendcode (Enum Class)
+                Dsx3SendCode (Enum Class)
 
                 This variable indicates what type of code is
 
@@ -656,9 +647,9 @@ class DS3MIB(Entity):
                 dsx3SendTestPattern = Enum.YLeaf(6, "dsx3SendTestPattern")
 
 
-            class Dsx3Transmitclocksource(Enum):
+            class Dsx3TransmitClockSource(Enum):
                 """
-                Dsx3Transmitclocksource (Enum Class)
+                Dsx3TransmitClockSource (Enum Class)
 
                 The source of Transmit Clock.
 
@@ -694,7 +685,7 @@ class DS3MIB(Entity):
 
 
 
-    class Dsx3Currenttable(Entity):
+    class Dsx3CurrentTable(Entity):
         """
         The DS3/E3 current table contains various
         statistics being collected for the current 15
@@ -703,7 +694,7 @@ class DS3MIB(Entity):
         .. attribute:: dsx3currententry
         
         	An entry in the DS3/E3 Current table
-        	**type**\: list of  		 :py:class:`Dsx3Currententry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Currenttable.Dsx3Currententry>`
+        	**type**\: list of  		 :py:class:`Dsx3CurrentEntry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3CurrentTable.Dsx3CurrentEntry>`
         
         
 
@@ -713,15 +704,14 @@ class DS3MIB(Entity):
         _revision = '1998-08-01'
 
         def __init__(self):
-            super(DS3MIB.Dsx3Currenttable, self).__init__()
+            super(DS3MIB.Dsx3CurrentTable, self).__init__()
 
             self.yang_name = "dsx3CurrentTable"
             self.yang_parent_name = "DS3-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dsx3CurrentEntry", ("dsx3currententry", DS3MIB.Dsx3Currenttable.Dsx3Currententry))])
+            self._child_classes = OrderedDict([("dsx3CurrentEntry", ("dsx3currententry", DS3MIB.Dsx3CurrentTable.Dsx3CurrentEntry))])
             self._leafs = OrderedDict()
 
             self.dsx3currententry = YList(self)
@@ -729,10 +719,10 @@ class DS3MIB(Entity):
             self._absolute_path = lambda: "DS3-MIB:DS3-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DS3MIB.Dsx3Currenttable, [], name, value)
+            self._perform_setattr(DS3MIB.Dsx3CurrentTable, [], name, value)
 
 
-        class Dsx3Currententry(Entity):
+        class Dsx3CurrentEntry(Entity):
             """
             An entry in the DS3/E3 Current table.
             
@@ -821,15 +811,14 @@ class DS3MIB(Entity):
             _revision = '1998-08-01'
 
             def __init__(self):
-                super(DS3MIB.Dsx3Currenttable.Dsx3Currententry, self).__init__()
+                super(DS3MIB.Dsx3CurrentTable.Dsx3CurrentEntry, self).__init__()
 
                 self.yang_name = "dsx3CurrentEntry"
                 self.yang_parent_name = "dsx3CurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dsx3currentindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dsx3currentindex', YLeaf(YType.int32, 'dsx3CurrentIndex')),
                     ('dsx3currentpess', YLeaf(YType.uint32, 'dsx3CurrentPESs')),
@@ -858,10 +847,10 @@ class DS3MIB(Entity):
                 self._absolute_path = lambda: "DS3-MIB:DS3-MIB/dsx3CurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DS3MIB.Dsx3Currenttable.Dsx3Currententry, ['dsx3currentindex', 'dsx3currentpess', 'dsx3currentpsess', 'dsx3currentsefss', 'dsx3currentuass', 'dsx3currentlcvs', 'dsx3currentpcvs', 'dsx3currentless', 'dsx3currentccvs', 'dsx3currentcess', 'dsx3currentcsess'], name, value)
+                self._perform_setattr(DS3MIB.Dsx3CurrentTable.Dsx3CurrentEntry, ['dsx3currentindex', 'dsx3currentpess', 'dsx3currentpsess', 'dsx3currentsefss', 'dsx3currentuass', 'dsx3currentlcvs', 'dsx3currentpcvs', 'dsx3currentless', 'dsx3currentccvs', 'dsx3currentcess', 'dsx3currentcsess'], name, value)
 
 
-    class Dsx3Intervaltable(Entity):
+    class Dsx3IntervalTable(Entity):
         """
         The DS3/E3 Interval Table contains various
         statistics collected by each DS3/E3 Interface over
@@ -875,7 +864,7 @@ class DS3MIB(Entity):
         .. attribute:: dsx3intervalentry
         
         	An entry in the DS3/E3 Interval table
-        	**type**\: list of  		 :py:class:`Dsx3Intervalentry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Intervaltable.Dsx3Intervalentry>`
+        	**type**\: list of  		 :py:class:`Dsx3IntervalEntry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3IntervalTable.Dsx3IntervalEntry>`
         
         
 
@@ -885,15 +874,14 @@ class DS3MIB(Entity):
         _revision = '1998-08-01'
 
         def __init__(self):
-            super(DS3MIB.Dsx3Intervaltable, self).__init__()
+            super(DS3MIB.Dsx3IntervalTable, self).__init__()
 
             self.yang_name = "dsx3IntervalTable"
             self.yang_parent_name = "DS3-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dsx3IntervalEntry", ("dsx3intervalentry", DS3MIB.Dsx3Intervaltable.Dsx3Intervalentry))])
+            self._child_classes = OrderedDict([("dsx3IntervalEntry", ("dsx3intervalentry", DS3MIB.Dsx3IntervalTable.Dsx3IntervalEntry))])
             self._leafs = OrderedDict()
 
             self.dsx3intervalentry = YList(self)
@@ -901,10 +889,10 @@ class DS3MIB(Entity):
             self._absolute_path = lambda: "DS3-MIB:DS3-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DS3MIB.Dsx3Intervaltable, [], name, value)
+            self._perform_setattr(DS3MIB.Dsx3IntervalTable, [], name, value)
 
 
-        class Dsx3Intervalentry(Entity):
+        class Dsx3IntervalEntry(Entity):
             """
             An entry in the DS3/E3 Interval table.
             
@@ -1005,15 +993,14 @@ class DS3MIB(Entity):
             _revision = '1998-08-01'
 
             def __init__(self):
-                super(DS3MIB.Dsx3Intervaltable.Dsx3Intervalentry, self).__init__()
+                super(DS3MIB.Dsx3IntervalTable.Dsx3IntervalEntry, self).__init__()
 
                 self.yang_name = "dsx3IntervalEntry"
                 self.yang_parent_name = "dsx3IntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dsx3intervalindex','dsx3intervalnumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dsx3intervalindex', YLeaf(YType.int32, 'dsx3IntervalIndex')),
                     ('dsx3intervalnumber', YLeaf(YType.int32, 'dsx3IntervalNumber')),
@@ -1046,10 +1033,10 @@ class DS3MIB(Entity):
                 self._absolute_path = lambda: "DS3-MIB:DS3-MIB/dsx3IntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DS3MIB.Dsx3Intervaltable.Dsx3Intervalentry, ['dsx3intervalindex', 'dsx3intervalnumber', 'dsx3intervalpess', 'dsx3intervalpsess', 'dsx3intervalsefss', 'dsx3intervaluass', 'dsx3intervallcvs', 'dsx3intervalpcvs', 'dsx3intervalless', 'dsx3intervalccvs', 'dsx3intervalcess', 'dsx3intervalcsess', 'dsx3intervalvaliddata'], name, value)
+                self._perform_setattr(DS3MIB.Dsx3IntervalTable.Dsx3IntervalEntry, ['dsx3intervalindex', 'dsx3intervalnumber', 'dsx3intervalpess', 'dsx3intervalpsess', 'dsx3intervalsefss', 'dsx3intervaluass', 'dsx3intervallcvs', 'dsx3intervalpcvs', 'dsx3intervalless', 'dsx3intervalccvs', 'dsx3intervalcess', 'dsx3intervalcsess', 'dsx3intervalvaliddata'], name, value)
 
 
-    class Dsx3Totaltable(Entity):
+    class Dsx3TotalTable(Entity):
         """
         The DS3/E3 Total Table contains the cumulative
         sum of the various statistics for the 24 hour
@@ -1058,7 +1045,7 @@ class DS3MIB(Entity):
         .. attribute:: dsx3totalentry
         
         	An entry in the DS3/E3 Total table
-        	**type**\: list of  		 :py:class:`Dsx3Totalentry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Totaltable.Dsx3Totalentry>`
+        	**type**\: list of  		 :py:class:`Dsx3TotalEntry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3TotalTable.Dsx3TotalEntry>`
         
         
 
@@ -1068,15 +1055,14 @@ class DS3MIB(Entity):
         _revision = '1998-08-01'
 
         def __init__(self):
-            super(DS3MIB.Dsx3Totaltable, self).__init__()
+            super(DS3MIB.Dsx3TotalTable, self).__init__()
 
             self.yang_name = "dsx3TotalTable"
             self.yang_parent_name = "DS3-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dsx3TotalEntry", ("dsx3totalentry", DS3MIB.Dsx3Totaltable.Dsx3Totalentry))])
+            self._child_classes = OrderedDict([("dsx3TotalEntry", ("dsx3totalentry", DS3MIB.Dsx3TotalTable.Dsx3TotalEntry))])
             self._leafs = OrderedDict()
 
             self.dsx3totalentry = YList(self)
@@ -1084,10 +1070,10 @@ class DS3MIB(Entity):
             self._absolute_path = lambda: "DS3-MIB:DS3-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DS3MIB.Dsx3Totaltable, [], name, value)
+            self._perform_setattr(DS3MIB.Dsx3TotalTable, [], name, value)
 
 
-        class Dsx3Totalentry(Entity):
+        class Dsx3TotalEntry(Entity):
             """
             An entry in the DS3/E3 Total table.
             
@@ -1176,15 +1162,14 @@ class DS3MIB(Entity):
             _revision = '1998-08-01'
 
             def __init__(self):
-                super(DS3MIB.Dsx3Totaltable.Dsx3Totalentry, self).__init__()
+                super(DS3MIB.Dsx3TotalTable.Dsx3TotalEntry, self).__init__()
 
                 self.yang_name = "dsx3TotalEntry"
                 self.yang_parent_name = "dsx3TotalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dsx3totalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dsx3totalindex', YLeaf(YType.int32, 'dsx3TotalIndex')),
                     ('dsx3totalpess', YLeaf(YType.uint32, 'dsx3TotalPESs')),
@@ -1213,10 +1198,10 @@ class DS3MIB(Entity):
                 self._absolute_path = lambda: "DS3-MIB:DS3-MIB/dsx3TotalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DS3MIB.Dsx3Totaltable.Dsx3Totalentry, ['dsx3totalindex', 'dsx3totalpess', 'dsx3totalpsess', 'dsx3totalsefss', 'dsx3totaluass', 'dsx3totallcvs', 'dsx3totalpcvs', 'dsx3totalless', 'dsx3totalccvs', 'dsx3totalcess', 'dsx3totalcsess'], name, value)
+                self._perform_setattr(DS3MIB.Dsx3TotalTable.Dsx3TotalEntry, ['dsx3totalindex', 'dsx3totalpess', 'dsx3totalpsess', 'dsx3totalsefss', 'dsx3totaluass', 'dsx3totallcvs', 'dsx3totalpcvs', 'dsx3totalless', 'dsx3totalccvs', 'dsx3totalcess', 'dsx3totalcsess'], name, value)
 
 
-    class Dsx3Farendconfigtable(Entity):
+    class Dsx3FarEndConfigTable(Entity):
         """
         The DS3 Far End Configuration Table contains
         configuration information reported in the C\-bits
@@ -1225,7 +1210,7 @@ class DS3MIB(Entity):
         .. attribute:: dsx3farendconfigentry
         
         	An entry in the DS3 Far End Configuration table
-        	**type**\: list of  		 :py:class:`Dsx3Farendconfigentry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Farendconfigtable.Dsx3Farendconfigentry>`
+        	**type**\: list of  		 :py:class:`Dsx3FarEndConfigEntry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3FarEndConfigTable.Dsx3FarEndConfigEntry>`
         
         
 
@@ -1235,15 +1220,14 @@ class DS3MIB(Entity):
         _revision = '1998-08-01'
 
         def __init__(self):
-            super(DS3MIB.Dsx3Farendconfigtable, self).__init__()
+            super(DS3MIB.Dsx3FarEndConfigTable, self).__init__()
 
             self.yang_name = "dsx3FarEndConfigTable"
             self.yang_parent_name = "DS3-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dsx3FarEndConfigEntry", ("dsx3farendconfigentry", DS3MIB.Dsx3Farendconfigtable.Dsx3Farendconfigentry))])
+            self._child_classes = OrderedDict([("dsx3FarEndConfigEntry", ("dsx3farendconfigentry", DS3MIB.Dsx3FarEndConfigTable.Dsx3FarEndConfigEntry))])
             self._leafs = OrderedDict()
 
             self.dsx3farendconfigentry = YList(self)
@@ -1251,10 +1235,10 @@ class DS3MIB(Entity):
             self._absolute_path = lambda: "DS3-MIB:DS3-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DS3MIB.Dsx3Farendconfigtable, [], name, value)
+            self._perform_setattr(DS3MIB.Dsx3FarEndConfigTable, [], name, value)
 
 
-        class Dsx3Farendconfigentry(Entity):
+        class Dsx3FarEndConfigEntry(Entity):
             """
             An entry in the DS3 Far End Configuration table.
             
@@ -1308,15 +1292,14 @@ class DS3MIB(Entity):
             _revision = '1998-08-01'
 
             def __init__(self):
-                super(DS3MIB.Dsx3Farendconfigtable.Dsx3Farendconfigentry, self).__init__()
+                super(DS3MIB.Dsx3FarEndConfigTable.Dsx3FarEndConfigEntry, self).__init__()
 
                 self.yang_name = "dsx3FarEndConfigEntry"
                 self.yang_parent_name = "dsx3FarEndConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dsx3farendlineindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dsx3farendlineindex', YLeaf(YType.int32, 'dsx3FarEndLineIndex')),
                     ('dsx3farendequipcode', YLeaf(YType.str, 'dsx3FarEndEquipCode')),
@@ -1335,10 +1318,10 @@ class DS3MIB(Entity):
                 self._absolute_path = lambda: "DS3-MIB:DS3-MIB/dsx3FarEndConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DS3MIB.Dsx3Farendconfigtable.Dsx3Farendconfigentry, ['dsx3farendlineindex', 'dsx3farendequipcode', 'dsx3farendlocationidcode', 'dsx3farendframeidcode', 'dsx3farendunitcode', 'dsx3farendfacilityidcode'], name, value)
+                self._perform_setattr(DS3MIB.Dsx3FarEndConfigTable.Dsx3FarEndConfigEntry, ['dsx3farendlineindex', 'dsx3farendequipcode', 'dsx3farendlocationidcode', 'dsx3farendframeidcode', 'dsx3farendunitcode', 'dsx3farendfacilityidcode'], name, value)
 
 
-    class Dsx3Farendcurrenttable(Entity):
+    class Dsx3FarEndCurrentTable(Entity):
         """
         The DS3 Far End Current table contains various
         statistics being collected for the current 15
@@ -1349,7 +1332,7 @@ class DS3MIB(Entity):
         .. attribute:: dsx3farendcurrententry
         
         	An entry in the DS3 Far End Current table
-        	**type**\: list of  		 :py:class:`Dsx3Farendcurrententry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Farendcurrenttable.Dsx3Farendcurrententry>`
+        	**type**\: list of  		 :py:class:`Dsx3FarEndCurrentEntry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3FarEndCurrentTable.Dsx3FarEndCurrentEntry>`
         
         
 
@@ -1359,15 +1342,14 @@ class DS3MIB(Entity):
         _revision = '1998-08-01'
 
         def __init__(self):
-            super(DS3MIB.Dsx3Farendcurrenttable, self).__init__()
+            super(DS3MIB.Dsx3FarEndCurrentTable, self).__init__()
 
             self.yang_name = "dsx3FarEndCurrentTable"
             self.yang_parent_name = "DS3-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dsx3FarEndCurrentEntry", ("dsx3farendcurrententry", DS3MIB.Dsx3Farendcurrenttable.Dsx3Farendcurrententry))])
+            self._child_classes = OrderedDict([("dsx3FarEndCurrentEntry", ("dsx3farendcurrententry", DS3MIB.Dsx3FarEndCurrentTable.Dsx3FarEndCurrentEntry))])
             self._leafs = OrderedDict()
 
             self.dsx3farendcurrententry = YList(self)
@@ -1375,10 +1357,10 @@ class DS3MIB(Entity):
             self._absolute_path = lambda: "DS3-MIB:DS3-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DS3MIB.Dsx3Farendcurrenttable, [], name, value)
+            self._perform_setattr(DS3MIB.Dsx3FarEndCurrentTable, [], name, value)
 
 
-        class Dsx3Farendcurrententry(Entity):
+        class Dsx3FarEndCurrentEntry(Entity):
             """
             An entry in the DS3 Far End Current table.
             
@@ -1446,15 +1428,14 @@ class DS3MIB(Entity):
             _revision = '1998-08-01'
 
             def __init__(self):
-                super(DS3MIB.Dsx3Farendcurrenttable.Dsx3Farendcurrententry, self).__init__()
+                super(DS3MIB.Dsx3FarEndCurrentTable.Dsx3FarEndCurrentEntry, self).__init__()
 
                 self.yang_name = "dsx3FarEndCurrentEntry"
                 self.yang_parent_name = "dsx3FarEndCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dsx3farendcurrentindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dsx3farendcurrentindex', YLeaf(YType.int32, 'dsx3FarEndCurrentIndex')),
                     ('dsx3farendtimeelapsed', YLeaf(YType.int32, 'dsx3FarEndTimeElapsed')),
@@ -1477,10 +1458,10 @@ class DS3MIB(Entity):
                 self._absolute_path = lambda: "DS3-MIB:DS3-MIB/dsx3FarEndCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DS3MIB.Dsx3Farendcurrenttable.Dsx3Farendcurrententry, ['dsx3farendcurrentindex', 'dsx3farendtimeelapsed', 'dsx3farendvalidintervals', 'dsx3farendcurrentcess', 'dsx3farendcurrentcsess', 'dsx3farendcurrentccvs', 'dsx3farendcurrentuass', 'dsx3farendinvalidintervals'], name, value)
+                self._perform_setattr(DS3MIB.Dsx3FarEndCurrentTable.Dsx3FarEndCurrentEntry, ['dsx3farendcurrentindex', 'dsx3farendtimeelapsed', 'dsx3farendvalidintervals', 'dsx3farendcurrentcess', 'dsx3farendcurrentcsess', 'dsx3farendcurrentccvs', 'dsx3farendcurrentuass', 'dsx3farendinvalidintervals'], name, value)
 
 
-    class Dsx3Farendintervaltable(Entity):
+    class Dsx3FarEndIntervalTable(Entity):
         """
         The DS3 Far End Interval Table contains various
         statistics collected by each DS3 interface over
@@ -1491,7 +1472,7 @@ class DS3MIB(Entity):
         .. attribute:: dsx3farendintervalentry
         
         	An entry in the DS3 Far End Interval table
-        	**type**\: list of  		 :py:class:`Dsx3Farendintervalentry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Farendintervaltable.Dsx3Farendintervalentry>`
+        	**type**\: list of  		 :py:class:`Dsx3FarEndIntervalEntry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3FarEndIntervalTable.Dsx3FarEndIntervalEntry>`
         
         
 
@@ -1501,15 +1482,14 @@ class DS3MIB(Entity):
         _revision = '1998-08-01'
 
         def __init__(self):
-            super(DS3MIB.Dsx3Farendintervaltable, self).__init__()
+            super(DS3MIB.Dsx3FarEndIntervalTable, self).__init__()
 
             self.yang_name = "dsx3FarEndIntervalTable"
             self.yang_parent_name = "DS3-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dsx3FarEndIntervalEntry", ("dsx3farendintervalentry", DS3MIB.Dsx3Farendintervaltable.Dsx3Farendintervalentry))])
+            self._child_classes = OrderedDict([("dsx3FarEndIntervalEntry", ("dsx3farendintervalentry", DS3MIB.Dsx3FarEndIntervalTable.Dsx3FarEndIntervalEntry))])
             self._leafs = OrderedDict()
 
             self.dsx3farendintervalentry = YList(self)
@@ -1517,10 +1497,10 @@ class DS3MIB(Entity):
             self._absolute_path = lambda: "DS3-MIB:DS3-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DS3MIB.Dsx3Farendintervaltable, [], name, value)
+            self._perform_setattr(DS3MIB.Dsx3FarEndIntervalTable, [], name, value)
 
 
-        class Dsx3Farendintervalentry(Entity):
+        class Dsx3FarEndIntervalEntry(Entity):
             """
             An entry in the DS3 Far End Interval table.
             
@@ -1579,15 +1559,14 @@ class DS3MIB(Entity):
             _revision = '1998-08-01'
 
             def __init__(self):
-                super(DS3MIB.Dsx3Farendintervaltable.Dsx3Farendintervalentry, self).__init__()
+                super(DS3MIB.Dsx3FarEndIntervalTable.Dsx3FarEndIntervalEntry, self).__init__()
 
                 self.yang_name = "dsx3FarEndIntervalEntry"
                 self.yang_parent_name = "dsx3FarEndIntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dsx3farendintervalindex','dsx3farendintervalnumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dsx3farendintervalindex', YLeaf(YType.int32, 'dsx3FarEndIntervalIndex')),
                     ('dsx3farendintervalnumber', YLeaf(YType.int32, 'dsx3FarEndIntervalNumber')),
@@ -1608,10 +1587,10 @@ class DS3MIB(Entity):
                 self._absolute_path = lambda: "DS3-MIB:DS3-MIB/dsx3FarEndIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DS3MIB.Dsx3Farendintervaltable.Dsx3Farendintervalentry, ['dsx3farendintervalindex', 'dsx3farendintervalnumber', 'dsx3farendintervalcess', 'dsx3farendintervalcsess', 'dsx3farendintervalccvs', 'dsx3farendintervaluass', 'dsx3farendintervalvaliddata'], name, value)
+                self._perform_setattr(DS3MIB.Dsx3FarEndIntervalTable.Dsx3FarEndIntervalEntry, ['dsx3farendintervalindex', 'dsx3farendintervalnumber', 'dsx3farendintervalcess', 'dsx3farendintervalcsess', 'dsx3farendintervalccvs', 'dsx3farendintervaluass', 'dsx3farendintervalvaliddata'], name, value)
 
 
-    class Dsx3Farendtotaltable(Entity):
+    class Dsx3FarEndTotalTable(Entity):
         """
         The DS3 Far End Total Table contains the
         cumulative sum of the various statistics for the
@@ -1620,7 +1599,7 @@ class DS3MIB(Entity):
         .. attribute:: dsx3farendtotalentry
         
         	An entry in the DS3 Far End Total table
-        	**type**\: list of  		 :py:class:`Dsx3Farendtotalentry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Farendtotaltable.Dsx3Farendtotalentry>`
+        	**type**\: list of  		 :py:class:`Dsx3FarEndTotalEntry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3FarEndTotalTable.Dsx3FarEndTotalEntry>`
         
         
 
@@ -1630,15 +1609,14 @@ class DS3MIB(Entity):
         _revision = '1998-08-01'
 
         def __init__(self):
-            super(DS3MIB.Dsx3Farendtotaltable, self).__init__()
+            super(DS3MIB.Dsx3FarEndTotalTable, self).__init__()
 
             self.yang_name = "dsx3FarEndTotalTable"
             self.yang_parent_name = "DS3-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dsx3FarEndTotalEntry", ("dsx3farendtotalentry", DS3MIB.Dsx3Farendtotaltable.Dsx3Farendtotalentry))])
+            self._child_classes = OrderedDict([("dsx3FarEndTotalEntry", ("dsx3farendtotalentry", DS3MIB.Dsx3FarEndTotalTable.Dsx3FarEndTotalEntry))])
             self._leafs = OrderedDict()
 
             self.dsx3farendtotalentry = YList(self)
@@ -1646,10 +1624,10 @@ class DS3MIB(Entity):
             self._absolute_path = lambda: "DS3-MIB:DS3-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DS3MIB.Dsx3Farendtotaltable, [], name, value)
+            self._perform_setattr(DS3MIB.Dsx3FarEndTotalTable, [], name, value)
 
 
-        class Dsx3Farendtotalentry(Entity):
+        class Dsx3FarEndTotalEntry(Entity):
             """
             An entry in the DS3 Far End Total table.
             
@@ -1696,15 +1674,14 @@ class DS3MIB(Entity):
             _revision = '1998-08-01'
 
             def __init__(self):
-                super(DS3MIB.Dsx3Farendtotaltable.Dsx3Farendtotalentry, self).__init__()
+                super(DS3MIB.Dsx3FarEndTotalTable.Dsx3FarEndTotalEntry, self).__init__()
 
                 self.yang_name = "dsx3FarEndTotalEntry"
                 self.yang_parent_name = "dsx3FarEndTotalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dsx3farendtotalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dsx3farendtotalindex', YLeaf(YType.int32, 'dsx3FarEndTotalIndex')),
                     ('dsx3farendtotalcess', YLeaf(YType.uint32, 'dsx3FarEndTotalCESs')),
@@ -1721,10 +1698,10 @@ class DS3MIB(Entity):
                 self._absolute_path = lambda: "DS3-MIB:DS3-MIB/dsx3FarEndTotalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DS3MIB.Dsx3Farendtotaltable.Dsx3Farendtotalentry, ['dsx3farendtotalindex', 'dsx3farendtotalcess', 'dsx3farendtotalcsess', 'dsx3farendtotalccvs', 'dsx3farendtotaluass'], name, value)
+                self._perform_setattr(DS3MIB.Dsx3FarEndTotalTable.Dsx3FarEndTotalEntry, ['dsx3farendtotalindex', 'dsx3farendtotalcess', 'dsx3farendtotalcsess', 'dsx3farendtotalccvs', 'dsx3farendtotaluass'], name, value)
 
 
-    class Dsx3Fractable(Entity):
+    class Dsx3FracTable(Entity):
         """
         This table is deprecated in favour of using
         ifStackTable.
@@ -1771,7 +1748,7 @@ class DS3MIB(Entity):
         .. attribute:: dsx3fracentry
         
         	An entry in the DS3 Fractional table
-        	**type**\: list of  		 :py:class:`Dsx3Fracentry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Fractable.Dsx3Fracentry>`
+        	**type**\: list of  		 :py:class:`Dsx3FracEntry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3FracTable.Dsx3FracEntry>`
         
         	**status**\: deprecated
         
@@ -1783,15 +1760,14 @@ class DS3MIB(Entity):
         _revision = '1998-08-01'
 
         def __init__(self):
-            super(DS3MIB.Dsx3Fractable, self).__init__()
+            super(DS3MIB.Dsx3FracTable, self).__init__()
 
             self.yang_name = "dsx3FracTable"
             self.yang_parent_name = "DS3-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dsx3FracEntry", ("dsx3fracentry", DS3MIB.Dsx3Fractable.Dsx3Fracentry))])
+            self._child_classes = OrderedDict([("dsx3FracEntry", ("dsx3fracentry", DS3MIB.Dsx3FracTable.Dsx3FracEntry))])
             self._leafs = OrderedDict()
 
             self.dsx3fracentry = YList(self)
@@ -1799,10 +1775,10 @@ class DS3MIB(Entity):
             self._absolute_path = lambda: "DS3-MIB:DS3-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DS3MIB.Dsx3Fractable, [], name, value)
+            self._perform_setattr(DS3MIB.Dsx3FracTable, [], name, value)
 
 
-        class Dsx3Fracentry(Entity):
+        class Dsx3FracEntry(Entity):
             """
             An entry in the DS3 Fractional table.
             
@@ -1841,15 +1817,14 @@ class DS3MIB(Entity):
             _revision = '1998-08-01'
 
             def __init__(self):
-                super(DS3MIB.Dsx3Fractable.Dsx3Fracentry, self).__init__()
+                super(DS3MIB.Dsx3FracTable.Dsx3FracEntry, self).__init__()
 
                 self.yang_name = "dsx3FracEntry"
                 self.yang_parent_name = "dsx3FracTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dsx3fracindex','dsx3fracnumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dsx3fracindex', YLeaf(YType.int32, 'dsx3FracIndex')),
                     ('dsx3fracnumber', YLeaf(YType.int32, 'dsx3FracNumber')),
@@ -1862,7 +1837,7 @@ class DS3MIB(Entity):
                 self._absolute_path = lambda: "DS3-MIB:DS3-MIB/dsx3FracTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DS3MIB.Dsx3Fractable.Dsx3Fracentry, ['dsx3fracindex', 'dsx3fracnumber', 'dsx3fracifindex'], name, value)
+                self._perform_setattr(DS3MIB.Dsx3FracTable.Dsx3FracEntry, ['dsx3fracindex', 'dsx3fracnumber', 'dsx3fracifindex'], name, value)
 
     def clone_ptr(self):
         self._top_entity = DS3MIB()

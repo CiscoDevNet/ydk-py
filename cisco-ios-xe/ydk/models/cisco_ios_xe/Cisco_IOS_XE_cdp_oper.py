@@ -149,8 +149,7 @@ class CdpNeighborDetails(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("cdp-neighbor-detail", ("cdp_neighbor_detail", CdpNeighborDetails.CdpNeighborDetail))])
+        self._child_classes = OrderedDict([("cdp-neighbor-detail", ("cdp_neighbor_detail", CdpNeighborDetails.CdpNeighborDetail))])
         self._leafs = OrderedDict()
 
         self.cdp_neighbor_detail = YList(self)
@@ -350,8 +349,7 @@ class CdpNeighborDetails(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['device_id']
-            self._child_container_classes = OrderedDict([("hello-message", ("hello_message", CdpNeighborDetails.CdpNeighborDetail.HelloMessage)), ("power-request", ("power_request", CdpNeighborDetails.CdpNeighborDetail.PowerRequest)), ("power-available", ("power_available", CdpNeighborDetails.CdpNeighborDetail.PowerAvailable)), ("spare-pair", ("spare_pair", CdpNeighborDetails.CdpNeighborDetail.SparePair))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("hello-message", ("hello_message", CdpNeighborDetails.CdpNeighborDetail.HelloMessage)), ("power-request", ("power_request", CdpNeighborDetails.CdpNeighborDetail.PowerRequest)), ("power-available", ("power_available", CdpNeighborDetails.CdpNeighborDetail.PowerAvailable)), ("spare-pair", ("spare_pair", CdpNeighborDetails.CdpNeighborDetail.SparePair))])
             self._leafs = OrderedDict([
                 ('device_id', YLeaf(YType.uint32, 'device-id')),
                 ('device_name', YLeaf(YType.str, 'device-name')),
@@ -404,22 +402,18 @@ class CdpNeighborDetails(Entity):
             self.hello_message = CdpNeighborDetails.CdpNeighborDetail.HelloMessage()
             self.hello_message.parent = self
             self._children_name_map["hello_message"] = "hello-message"
-            self._children_yang_names.add("hello-message")
 
             self.power_request = CdpNeighborDetails.CdpNeighborDetail.PowerRequest()
             self.power_request.parent = self
             self._children_name_map["power_request"] = "power-request"
-            self._children_yang_names.add("power-request")
 
             self.power_available = CdpNeighborDetails.CdpNeighborDetail.PowerAvailable()
             self.power_available.parent = self
             self._children_name_map["power_available"] = "power-available"
-            self._children_yang_names.add("power-available")
 
             self.spare_pair = CdpNeighborDetails.CdpNeighborDetail.SparePair()
             self.spare_pair.parent = self
             self._children_name_map["spare_pair"] = "spare-pair"
-            self._children_yang_names.add("spare-pair")
             self._segment_path = lambda: "cdp-neighbor-detail" + "[device-id='" + str(self.device_id) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-cdp-oper:cdp-neighbor-details/%s" % self._segment_path()
 
@@ -468,8 +462,7 @@ class CdpNeighborDetails(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('oui', YLeaf(YType.str, 'oui')),
                     ('protocol_id', YLeaf(YType.str, 'protocol-id')),
@@ -524,8 +517,7 @@ class CdpNeighborDetails(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('power_request_id', YLeaf(YType.uint16, 'power-request-id')),
                     ('power_man_id', YLeaf(YType.uint16, 'power-man-id')),
@@ -587,8 +579,7 @@ class CdpNeighborDetails(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('power_request_id', YLeaf(YType.uint16, 'power-request-id')),
                     ('power_man_id', YLeaf(YType.uint16, 'power-man-id')),
@@ -652,8 +643,7 @@ class CdpNeighborDetails(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('spare_pair_poe', YLeaf(YType.enumeration, 'spare-pair-poe')),
                     ('spare_pair_detection_required', YLeaf(YType.enumeration, 'spare-pair-detection-required')),

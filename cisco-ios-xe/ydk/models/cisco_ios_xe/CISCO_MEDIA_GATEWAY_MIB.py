@@ -192,42 +192,42 @@ class CISCOMEDIAGATEWAYMIB(Entity):
     .. attribute:: cmediagwtable
     
     	This table contains the global media gateway parameters information. It supports the modification of the global media gateway  parameters
-    	**type**\:  :py:class:`Cmediagwtable <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwtable>`
+    	**type**\:  :py:class:`CMediaGwTable <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwTable>`
     
     .. attribute:: cmgwsignalprotocoltable
     
     	This table contains the available signaling protocols that are supported by the media gateway for communication with MGCs
-    	**type**\:  :py:class:`Cmgwsignalprotocoltable <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmgwsignalprotocoltable>`
+    	**type**\:  :py:class:`CmgwSignalProtocolTable <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CmgwSignalProtocolTable>`
     
     .. attribute:: cmediagwipconfigtable
     
     	This table contains a list of media gateway IP address and the IP address associated interface information.  If IP address associated interface is PVC, only  aal5 control PVC or aal5 bearer PVC are valid.        When the PVC is aal5 control, the IP address is used to  communicate to MGC; when the PVC is aal5 bearer, the IP address is used to communicate to other gateway. The PVC information is kept in cwAtmChanExtConfigTable\:  cwacChanPvcType\:      aal5/aal2/aal1  cwacChanApplication\:  control/bearer/signaling  If IP address associated interface is not PVC, refer to the  IP addresses associated interface table for the usage of IP address
-    	**type**\:  :py:class:`Cmediagwipconfigtable <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwipconfigtable>`
+    	**type**\:  :py:class:`CMediaGwIpConfigTable <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwIpConfigTable>`
     
     .. attribute:: cmediagwdomainnameconfigtable
     
     	This table provides the domain names which are configured by  users.  The domain names can be used to represent IP addresses  for\:     gateway     External DNS name server     MGC (call agent) 
-    	**type**\:  :py:class:`Cmediagwdomainnameconfigtable <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwdomainnameconfigtable>`
+    	**type**\:  :py:class:`CMediaGwDomainNameConfigTable <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwDomainNameConfigTable>`
     
     .. attribute:: cmediagwdnsipconfigtable
     
     	There is only one DNS name server on a gateway and the domain name of the DNS name server is put on  cMediaGwDomainNameConfigTable with 'dnsServer (2)'.  There could be multi IP addresses are associated with the DNS name server, this table is used to store these IP  addresses.  If any domain name using external resolution, the last entry of this table is not allowed to be deleted
-    	**type**\:  :py:class:`Cmediagwdnsipconfigtable <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwdnsipconfigtable>`
+    	**type**\:  :py:class:`CMediaGwDnsIpConfigTable <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwDnsIpConfigTable>`
     
     .. attribute:: cmgwliftable
     
     	This table is for managing LIF (Logical Interface)  in a media gateway.   LIF is a logical interface which groups the TDM  DSx1s associated with a set of packet resource partitions  (PVCs) in a media gateway.  LIF is used for\: 1. VoIP switching  2. VoATM switching 
-    	**type**\:  :py:class:`Cmgwliftable <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmgwliftable>`
+    	**type**\:  :py:class:`CmgwLifTable <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CmgwLifTable>`
     
     .. attribute:: cmediagwcallcontrolconfigtable
     
     	This table defines general call control attributes for the media gateway
-    	**type**\:  :py:class:`Cmediagwcallcontrolconfigtable <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwcallcontrolconfigtable>`
+    	**type**\:  :py:class:`CMediaGwCallControlConfigTable <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwCallControlConfigTable>`
     
     .. attribute:: cmediagwrscstatstable
     
     	This table stores the gateway resource statistics information
-    	**type**\:  :py:class:`Cmediagwrscstatstable <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwrscstatstable>`
+    	**type**\:  :py:class:`CMediaGwRscStatsTable <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwRscStatsTable>`
     
     
 
@@ -245,53 +245,47 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cMediaGwTable", ("cmediagwtable", CISCOMEDIAGATEWAYMIB.Cmediagwtable)), ("cmgwSignalProtocolTable", ("cmgwsignalprotocoltable", CISCOMEDIAGATEWAYMIB.Cmgwsignalprotocoltable)), ("cMediaGwIpConfigTable", ("cmediagwipconfigtable", CISCOMEDIAGATEWAYMIB.Cmediagwipconfigtable)), ("cMediaGwDomainNameConfigTable", ("cmediagwdomainnameconfigtable", CISCOMEDIAGATEWAYMIB.Cmediagwdomainnameconfigtable)), ("cMediaGwDnsIpConfigTable", ("cmediagwdnsipconfigtable", CISCOMEDIAGATEWAYMIB.Cmediagwdnsipconfigtable)), ("cmgwLifTable", ("cmgwliftable", CISCOMEDIAGATEWAYMIB.Cmgwliftable)), ("cMediaGwCallControlConfigTable", ("cmediagwcallcontrolconfigtable", CISCOMEDIAGATEWAYMIB.Cmediagwcallcontrolconfigtable)), ("cMediaGwRscStatsTable", ("cmediagwrscstatstable", CISCOMEDIAGATEWAYMIB.Cmediagwrscstatstable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cMediaGwTable", ("cmediagwtable", CISCOMEDIAGATEWAYMIB.CMediaGwTable)), ("cmgwSignalProtocolTable", ("cmgwsignalprotocoltable", CISCOMEDIAGATEWAYMIB.CmgwSignalProtocolTable)), ("cMediaGwIpConfigTable", ("cmediagwipconfigtable", CISCOMEDIAGATEWAYMIB.CMediaGwIpConfigTable)), ("cMediaGwDomainNameConfigTable", ("cmediagwdomainnameconfigtable", CISCOMEDIAGATEWAYMIB.CMediaGwDomainNameConfigTable)), ("cMediaGwDnsIpConfigTable", ("cmediagwdnsipconfigtable", CISCOMEDIAGATEWAYMIB.CMediaGwDnsIpConfigTable)), ("cmgwLifTable", ("cmgwliftable", CISCOMEDIAGATEWAYMIB.CmgwLifTable)), ("cMediaGwCallControlConfigTable", ("cmediagwcallcontrolconfigtable", CISCOMEDIAGATEWAYMIB.CMediaGwCallControlConfigTable)), ("cMediaGwRscStatsTable", ("cmediagwrscstatstable", CISCOMEDIAGATEWAYMIB.CMediaGwRscStatsTable))])
         self._leafs = OrderedDict()
 
-        self.cmediagwtable = CISCOMEDIAGATEWAYMIB.Cmediagwtable()
+        self.cmediagwtable = CISCOMEDIAGATEWAYMIB.CMediaGwTable()
         self.cmediagwtable.parent = self
         self._children_name_map["cmediagwtable"] = "cMediaGwTable"
-        self._children_yang_names.add("cMediaGwTable")
 
-        self.cmgwsignalprotocoltable = CISCOMEDIAGATEWAYMIB.Cmgwsignalprotocoltable()
+        self.cmgwsignalprotocoltable = CISCOMEDIAGATEWAYMIB.CmgwSignalProtocolTable()
         self.cmgwsignalprotocoltable.parent = self
         self._children_name_map["cmgwsignalprotocoltable"] = "cmgwSignalProtocolTable"
-        self._children_yang_names.add("cmgwSignalProtocolTable")
 
-        self.cmediagwipconfigtable = CISCOMEDIAGATEWAYMIB.Cmediagwipconfigtable()
+        self.cmediagwipconfigtable = CISCOMEDIAGATEWAYMIB.CMediaGwIpConfigTable()
         self.cmediagwipconfigtable.parent = self
         self._children_name_map["cmediagwipconfigtable"] = "cMediaGwIpConfigTable"
-        self._children_yang_names.add("cMediaGwIpConfigTable")
 
-        self.cmediagwdomainnameconfigtable = CISCOMEDIAGATEWAYMIB.Cmediagwdomainnameconfigtable()
+        self.cmediagwdomainnameconfigtable = CISCOMEDIAGATEWAYMIB.CMediaGwDomainNameConfigTable()
         self.cmediagwdomainnameconfigtable.parent = self
         self._children_name_map["cmediagwdomainnameconfigtable"] = "cMediaGwDomainNameConfigTable"
-        self._children_yang_names.add("cMediaGwDomainNameConfigTable")
 
-        self.cmediagwdnsipconfigtable = CISCOMEDIAGATEWAYMIB.Cmediagwdnsipconfigtable()
+        self.cmediagwdnsipconfigtable = CISCOMEDIAGATEWAYMIB.CMediaGwDnsIpConfigTable()
         self.cmediagwdnsipconfigtable.parent = self
         self._children_name_map["cmediagwdnsipconfigtable"] = "cMediaGwDnsIpConfigTable"
-        self._children_yang_names.add("cMediaGwDnsIpConfigTable")
 
-        self.cmgwliftable = CISCOMEDIAGATEWAYMIB.Cmgwliftable()
+        self.cmgwliftable = CISCOMEDIAGATEWAYMIB.CmgwLifTable()
         self.cmgwliftable.parent = self
         self._children_name_map["cmgwliftable"] = "cmgwLifTable"
-        self._children_yang_names.add("cmgwLifTable")
 
-        self.cmediagwcallcontrolconfigtable = CISCOMEDIAGATEWAYMIB.Cmediagwcallcontrolconfigtable()
+        self.cmediagwcallcontrolconfigtable = CISCOMEDIAGATEWAYMIB.CMediaGwCallControlConfigTable()
         self.cmediagwcallcontrolconfigtable.parent = self
         self._children_name_map["cmediagwcallcontrolconfigtable"] = "cMediaGwCallControlConfigTable"
-        self._children_yang_names.add("cMediaGwCallControlConfigTable")
 
-        self.cmediagwrscstatstable = CISCOMEDIAGATEWAYMIB.Cmediagwrscstatstable()
+        self.cmediagwrscstatstable = CISCOMEDIAGATEWAYMIB.CMediaGwRscStatsTable()
         self.cmediagwrscstatstable.parent = self
         self._children_name_map["cmediagwrscstatstable"] = "cMediaGwRscStatsTable"
-        self._children_yang_names.add("cMediaGwRscStatsTable")
         self._segment_path = lambda: "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOMEDIAGATEWAYMIB, [], name, value)
 
-    class Cmediagwtable(Entity):
+
+    class CMediaGwTable(Entity):
         """
         This table contains the global media gateway parameters
         information.
@@ -301,7 +295,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         .. attribute:: cmediagwentry
         
         	A Media Gateway Entry.   At system power\-up, an entry is created by the agent  if the system detects a media gateway module has been added  to the system, and an entry is deleted if the entry associated media gateway module has been removed from the system
-        	**type**\: list of  		 :py:class:`Cmediagwentry <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwtable.Cmediagwentry>`
+        	**type**\: list of  		 :py:class:`CMediaGwEntry <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry>`
         
         
 
@@ -311,15 +305,14 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         _revision = '2009-02-25'
 
         def __init__(self):
-            super(CISCOMEDIAGATEWAYMIB.Cmediagwtable, self).__init__()
+            super(CISCOMEDIAGATEWAYMIB.CMediaGwTable, self).__init__()
 
             self.yang_name = "cMediaGwTable"
             self.yang_parent_name = "CISCO-MEDIA-GATEWAY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cMediaGwEntry", ("cmediagwentry", CISCOMEDIAGATEWAYMIB.Cmediagwtable.Cmediagwentry))])
+            self._child_classes = OrderedDict([("cMediaGwEntry", ("cmediagwentry", CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry))])
             self._leafs = OrderedDict()
 
             self.cmediagwentry = YList(self)
@@ -327,10 +320,10 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             self._absolute_path = lambda: "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOMEDIAGATEWAYMIB.Cmediagwtable, [], name, value)
+            self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwTable, [], name, value)
 
 
-        class Cmediagwentry(Entity):
+        class CMediaGwEntry(Entity):
             """
             A Media Gateway Entry.  
             At system power\-up, an entry is created by the agent 
@@ -381,7 +374,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             .. attribute:: cmgwvtmappingmode
             
             	This object is used to represent the VT (sonet Virtual Tributary) counting.  standard \- standard counting (based on Bellcore TR253) titan    \- TITAN5500 counting (based on Tellabs TITAN 5500)  Note\: 'titan' is valid only if sonet line medium type        (sonetMediumType of SONET\-MIB) is 'sonet' and        sonet path payload type (cspSonetPathPayload of       CISCO\-SONET\-MIB) is 'vt15vc11'
-            	**type**\:  :py:class:`Cmgwvtmappingmode <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwtable.Cmediagwentry.Cmgwvtmappingmode>`
+            	**type**\:  :py:class:`CmgwVtMappingMode <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry.CmgwVtMappingMode>`
             
             .. attribute:: cmgwsrcfilterenabled
             
@@ -406,15 +399,14 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             _revision = '2009-02-25'
 
             def __init__(self):
-                super(CISCOMEDIAGATEWAYMIB.Cmediagwtable.Cmediagwentry, self).__init__()
+                super(CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry, self).__init__()
 
                 self.yang_name = "cMediaGwEntry"
                 self.yang_parent_name = "cMediaGwTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cmgwindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cmgwindex', YLeaf(YType.int32, 'cmgwIndex')),
                     ('cmgwdomainname', YLeaf(YType.str, 'cmgwDomainName')),
@@ -441,11 +433,11 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self._absolute_path = lambda: "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/cMediaGwTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOMEDIAGATEWAYMIB.Cmediagwtable.Cmediagwentry, ['cmgwindex', 'cmgwdomainname', 'cmgwphysicalindex', 'cmgwservicestate', 'cmgwadminstate', 'cmgwgracetime', 'cmgwvtmappingmode', 'cmgwsrcfilterenabled', 'cmgwlawinterceptenabled', 'cmgwv23enabled'], name, value)
+                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry, ['cmgwindex', 'cmgwdomainname', 'cmgwphysicalindex', 'cmgwservicestate', 'cmgwadminstate', 'cmgwgracetime', 'cmgwvtmappingmode', 'cmgwsrcfilterenabled', 'cmgwlawinterceptenabled', 'cmgwv23enabled'], name, value)
 
-            class Cmgwvtmappingmode(Enum):
+            class CmgwVtMappingMode(Enum):
                 """
-                Cmgwvtmappingmode (Enum Class)
+                CmgwVtMappingMode (Enum Class)
 
                 This object is used to represent the VT (sonet Virtual
 
@@ -475,7 +467,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
 
 
 
-    class Cmgwsignalprotocoltable(Entity):
+    class CmgwSignalProtocolTable(Entity):
         """
         This table contains the available signaling protocols that
         are supported by the media gateway for communication with
@@ -484,7 +476,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         .. attribute:: cmgwsignalprotocolentry
         
         	Each entry represents an signaling protocol supported by the media gateway
-        	**type**\: list of  		 :py:class:`Cmgwsignalprotocolentry <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmgwsignalprotocoltable.Cmgwsignalprotocolentry>`
+        	**type**\: list of  		 :py:class:`CmgwSignalProtocolEntry <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CmgwSignalProtocolTable.CmgwSignalProtocolEntry>`
         
         
 
@@ -494,15 +486,14 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         _revision = '2009-02-25'
 
         def __init__(self):
-            super(CISCOMEDIAGATEWAYMIB.Cmgwsignalprotocoltable, self).__init__()
+            super(CISCOMEDIAGATEWAYMIB.CmgwSignalProtocolTable, self).__init__()
 
             self.yang_name = "cmgwSignalProtocolTable"
             self.yang_parent_name = "CISCO-MEDIA-GATEWAY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cmgwSignalProtocolEntry", ("cmgwsignalprotocolentry", CISCOMEDIAGATEWAYMIB.Cmgwsignalprotocoltable.Cmgwsignalprotocolentry))])
+            self._child_classes = OrderedDict([("cmgwSignalProtocolEntry", ("cmgwsignalprotocolentry", CISCOMEDIAGATEWAYMIB.CmgwSignalProtocolTable.CmgwSignalProtocolEntry))])
             self._leafs = OrderedDict()
 
             self.cmgwsignalprotocolentry = YList(self)
@@ -510,10 +501,10 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             self._absolute_path = lambda: "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOMEDIAGATEWAYMIB.Cmgwsignalprotocoltable, [], name, value)
+            self._perform_setattr(CISCOMEDIAGATEWAYMIB.CmgwSignalProtocolTable, [], name, value)
 
 
-        class Cmgwsignalprotocolentry(Entity):
+        class CmgwSignalProtocolEntry(Entity):
             """
             Each entry represents an signaling protocol supported
             by the media gateway.
@@ -525,7 +516,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwtable.Cmediagwentry>`
+            	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry>`
             
             .. attribute:: cmgwsignalprotocolindex  (key)
             
@@ -537,7 +528,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             .. attribute:: cmgwsignalprotocol
             
             	This object is used to represent the protocol type. other \- None of the following types. mgcp  \- Media Gateway Control Protocol h248 \- Media Gateway Control (ITU H.248) tgcp \- Trunking Gateway Control Protocol
-            	**type**\:  :py:class:`Cmgwsignalprotocol <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmgwsignalprotocoltable.Cmgwsignalprotocolentry.Cmgwsignalprotocol>`
+            	**type**\:  :py:class:`CmgwSignalProtocol <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CmgwSignalProtocolTable.CmgwSignalProtocolEntry.CmgwSignalProtocol>`
             
             .. attribute:: cmgwsignalprotocolversion
             
@@ -582,15 +573,14 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             _revision = '2009-02-25'
 
             def __init__(self):
-                super(CISCOMEDIAGATEWAYMIB.Cmgwsignalprotocoltable.Cmgwsignalprotocolentry, self).__init__()
+                super(CISCOMEDIAGATEWAYMIB.CmgwSignalProtocolTable.CmgwSignalProtocolEntry, self).__init__()
 
                 self.yang_name = "cmgwSignalProtocolEntry"
                 self.yang_parent_name = "cmgwSignalProtocolTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cmgwindex','cmgwsignalprotocolindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cmgwindex', YLeaf(YType.str, 'cmgwIndex')),
                     ('cmgwsignalprotocolindex', YLeaf(YType.int32, 'cmgwSignalProtocolIndex')),
@@ -613,11 +603,11 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self._absolute_path = lambda: "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/cmgwSignalProtocolTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOMEDIAGATEWAYMIB.Cmgwsignalprotocoltable.Cmgwsignalprotocolentry, ['cmgwindex', 'cmgwsignalprotocolindex', 'cmgwsignalprotocol', 'cmgwsignalprotocolversion', 'cmgwsignalprotocolport', 'cmgwsignalmgcprotocolport', 'cmgwsignalprotocolpreference', 'cmgwsignalprotocolconfigver'], name, value)
+                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CmgwSignalProtocolTable.CmgwSignalProtocolEntry, ['cmgwindex', 'cmgwsignalprotocolindex', 'cmgwsignalprotocol', 'cmgwsignalprotocolversion', 'cmgwsignalprotocolport', 'cmgwsignalmgcprotocolport', 'cmgwsignalprotocolpreference', 'cmgwsignalprotocolconfigver'], name, value)
 
-            class Cmgwsignalprotocol(Enum):
+            class CmgwSignalProtocol(Enum):
                 """
-                Cmgwsignalprotocol (Enum Class)
+                CmgwSignalProtocol (Enum Class)
 
                 This object is used to represent the protocol type.
 
@@ -649,7 +639,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
 
 
 
-    class Cmediagwipconfigtable(Entity):
+    class CMediaGwIpConfigTable(Entity):
         """
         This table contains a list of media gateway IP address and
         the IP address associated interface information.
@@ -670,7 +660,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         .. attribute:: cmediagwipconfigentry
         
         	A Media Gateway IP configuration entry.  Each entry represents a media gateway IP address for MGCs to communicate with the media gateway
-        	**type**\: list of  		 :py:class:`Cmediagwipconfigentry <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwipconfigtable.Cmediagwipconfigentry>`
+        	**type**\: list of  		 :py:class:`CMediaGwIpConfigEntry <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwIpConfigTable.CMediaGwIpConfigEntry>`
         
         
 
@@ -680,15 +670,14 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         _revision = '2009-02-25'
 
         def __init__(self):
-            super(CISCOMEDIAGATEWAYMIB.Cmediagwipconfigtable, self).__init__()
+            super(CISCOMEDIAGATEWAYMIB.CMediaGwIpConfigTable, self).__init__()
 
             self.yang_name = "cMediaGwIpConfigTable"
             self.yang_parent_name = "CISCO-MEDIA-GATEWAY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cMediaGwIpConfigEntry", ("cmediagwipconfigentry", CISCOMEDIAGATEWAYMIB.Cmediagwipconfigtable.Cmediagwipconfigentry))])
+            self._child_classes = OrderedDict([("cMediaGwIpConfigEntry", ("cmediagwipconfigentry", CISCOMEDIAGATEWAYMIB.CMediaGwIpConfigTable.CMediaGwIpConfigEntry))])
             self._leafs = OrderedDict()
 
             self.cmediagwipconfigentry = YList(self)
@@ -696,10 +685,10 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             self._absolute_path = lambda: "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOMEDIAGATEWAYMIB.Cmediagwipconfigtable, [], name, value)
+            self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwIpConfigTable, [], name, value)
 
 
-        class Cmediagwipconfigentry(Entity):
+        class CMediaGwIpConfigEntry(Entity):
             """
             A Media Gateway IP configuration entry. 
             Each entry represents a media gateway IP address for MGCs
@@ -712,7 +701,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwtable.Cmediagwentry>`
+            	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry>`
             
             .. attribute:: cmgwipconfigindex  (key)
             
@@ -784,15 +773,14 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             _revision = '2009-02-25'
 
             def __init__(self):
-                super(CISCOMEDIAGATEWAYMIB.Cmediagwipconfigtable.Cmediagwipconfigentry, self).__init__()
+                super(CISCOMEDIAGATEWAYMIB.CMediaGwIpConfigTable.CMediaGwIpConfigEntry, self).__init__()
 
                 self.yang_name = "cMediaGwIpConfigEntry"
                 self.yang_parent_name = "cMediaGwIpConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cmgwindex','cmgwipconfigindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cmgwindex', YLeaf(YType.str, 'cmgwIndex')),
                     ('cmgwipconfigindex', YLeaf(YType.int32, 'cmgwIpConfigIndex')),
@@ -821,10 +809,10 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self._absolute_path = lambda: "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/cMediaGwIpConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOMEDIAGATEWAYMIB.Cmediagwipconfigtable.Cmediagwipconfigentry, ['cmgwindex', 'cmgwipconfigindex', 'cmgwipconfigifindex', 'cmgwipconfigvpi', 'cmgwipconfigvci', 'cmgwipconfigaddrtype', 'cmgwipconfigaddress', 'cmgwipconfigsubnetmask', 'cmgwipconfigdefaultgwip', 'cmgwipconfigforremotemapping', 'cmgwipconfigrowstatus'], name, value)
+                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwIpConfigTable.CMediaGwIpConfigEntry, ['cmgwindex', 'cmgwipconfigindex', 'cmgwipconfigifindex', 'cmgwipconfigvpi', 'cmgwipconfigvci', 'cmgwipconfigaddrtype', 'cmgwipconfigaddress', 'cmgwipconfigsubnetmask', 'cmgwipconfigdefaultgwip', 'cmgwipconfigforremotemapping', 'cmgwipconfigrowstatus'], name, value)
 
 
-    class Cmediagwdomainnameconfigtable(Entity):
+    class CMediaGwDomainNameConfigTable(Entity):
         """
         This table provides the domain names which are configured by 
         users. 
@@ -837,7 +825,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         .. attribute:: cmediagwdomainnameconfigentry
         
         	Each entry represents a domain name used in the system.  Creation and deletion are supported. Modification is prohibited
-        	**type**\: list of  		 :py:class:`Cmediagwdomainnameconfigentry <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwdomainnameconfigtable.Cmediagwdomainnameconfigentry>`
+        	**type**\: list of  		 :py:class:`CMediaGwDomainNameConfigEntry <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwDomainNameConfigTable.CMediaGwDomainNameConfigEntry>`
         
         
 
@@ -847,15 +835,14 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         _revision = '2009-02-25'
 
         def __init__(self):
-            super(CISCOMEDIAGATEWAYMIB.Cmediagwdomainnameconfigtable, self).__init__()
+            super(CISCOMEDIAGATEWAYMIB.CMediaGwDomainNameConfigTable, self).__init__()
 
             self.yang_name = "cMediaGwDomainNameConfigTable"
             self.yang_parent_name = "CISCO-MEDIA-GATEWAY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cMediaGwDomainNameConfigEntry", ("cmediagwdomainnameconfigentry", CISCOMEDIAGATEWAYMIB.Cmediagwdomainnameconfigtable.Cmediagwdomainnameconfigentry))])
+            self._child_classes = OrderedDict([("cMediaGwDomainNameConfigEntry", ("cmediagwdomainnameconfigentry", CISCOMEDIAGATEWAYMIB.CMediaGwDomainNameConfigTable.CMediaGwDomainNameConfigEntry))])
             self._leafs = OrderedDict()
 
             self.cmediagwdomainnameconfigentry = YList(self)
@@ -863,10 +850,10 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             self._absolute_path = lambda: "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOMEDIAGATEWAYMIB.Cmediagwdomainnameconfigtable, [], name, value)
+            self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwDomainNameConfigTable, [], name, value)
 
 
-        class Cmediagwdomainnameconfigentry(Entity):
+        class CMediaGwDomainNameConfigEntry(Entity):
             """
             Each entry represents a domain name used in the system.
             
@@ -880,7 +867,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwtable.Cmediagwentry>`
+            	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry>`
             
             .. attribute:: cmgwconfigdomainnameindex  (key)
             
@@ -892,7 +879,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             .. attribute:: cmgwconfigdomainnameentity
             
             	This object indicates which entity to use this domain name.  gateway(1)   \- The domain name of media gateway.                With the same cmgwIndex, there is one and                 only one entry allowed with the value                 'gateway(1)' of this object.  dnsServer(2) \- The domain name of DNS name server that is used                 by Media gateway to find Internet Network                 Address from a DNS name.  mgc(3)       \- The domain name of a MGC (Media Gateway                Controller) associated with the media                 gateway. 
-            	**type**\:  :py:class:`Cmgwconfigdomainnameentity <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwdomainnameconfigtable.Cmediagwdomainnameconfigentry.Cmgwconfigdomainnameentity>`
+            	**type**\:  :py:class:`CmgwConfigDomainNameEntity <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwDomainNameConfigTable.CMediaGwDomainNameConfigEntry.CmgwConfigDomainNameEntity>`
             
             .. attribute:: cmgwconfigdomainname
             
@@ -914,15 +901,14 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             _revision = '2009-02-25'
 
             def __init__(self):
-                super(CISCOMEDIAGATEWAYMIB.Cmediagwdomainnameconfigtable.Cmediagwdomainnameconfigentry, self).__init__()
+                super(CISCOMEDIAGATEWAYMIB.CMediaGwDomainNameConfigTable.CMediaGwDomainNameConfigEntry, self).__init__()
 
                 self.yang_name = "cMediaGwDomainNameConfigEntry"
                 self.yang_parent_name = "cMediaGwDomainNameConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cmgwindex','cmgwconfigdomainnameindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cmgwindex', YLeaf(YType.str, 'cmgwIndex')),
                     ('cmgwconfigdomainnameindex', YLeaf(YType.int32, 'cmgwConfigDomainNameIndex')),
@@ -939,11 +925,11 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self._absolute_path = lambda: "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/cMediaGwDomainNameConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOMEDIAGATEWAYMIB.Cmediagwdomainnameconfigtable.Cmediagwdomainnameconfigentry, ['cmgwindex', 'cmgwconfigdomainnameindex', 'cmgwconfigdomainnameentity', 'cmgwconfigdomainname', 'cmgwconfigdomainnamerowstatus'], name, value)
+                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwDomainNameConfigTable.CMediaGwDomainNameConfigEntry, ['cmgwindex', 'cmgwconfigdomainnameindex', 'cmgwconfigdomainnameentity', 'cmgwconfigdomainname', 'cmgwconfigdomainnamerowstatus'], name, value)
 
-            class Cmgwconfigdomainnameentity(Enum):
+            class CmgwConfigDomainNameEntity(Enum):
                 """
-                Cmgwconfigdomainnameentity (Enum Class)
+                CmgwConfigDomainNameEntity (Enum Class)
 
                 This object indicates which entity to use this domain name.
 
@@ -983,7 +969,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
 
 
 
-    class Cmediagwdnsipconfigtable(Entity):
+    class CMediaGwDnsIpConfigTable(Entity):
         """
         There is only one DNS name server on a gateway
         and the domain name of the DNS name server is put on 
@@ -999,7 +985,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         .. attribute:: cmediagwdnsipconfigentry
         
         	Each entry represents an IP address of the DNS name  server
-        	**type**\: list of  		 :py:class:`Cmediagwdnsipconfigentry <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwdnsipconfigtable.Cmediagwdnsipconfigentry>`
+        	**type**\: list of  		 :py:class:`CMediaGwDnsIpConfigEntry <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwDnsIpConfigTable.CMediaGwDnsIpConfigEntry>`
         
         
 
@@ -1009,15 +995,14 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         _revision = '2009-02-25'
 
         def __init__(self):
-            super(CISCOMEDIAGATEWAYMIB.Cmediagwdnsipconfigtable, self).__init__()
+            super(CISCOMEDIAGATEWAYMIB.CMediaGwDnsIpConfigTable, self).__init__()
 
             self.yang_name = "cMediaGwDnsIpConfigTable"
             self.yang_parent_name = "CISCO-MEDIA-GATEWAY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cMediaGwDnsIpConfigEntry", ("cmediagwdnsipconfigentry", CISCOMEDIAGATEWAYMIB.Cmediagwdnsipconfigtable.Cmediagwdnsipconfigentry))])
+            self._child_classes = OrderedDict([("cMediaGwDnsIpConfigEntry", ("cmediagwdnsipconfigentry", CISCOMEDIAGATEWAYMIB.CMediaGwDnsIpConfigTable.CMediaGwDnsIpConfigEntry))])
             self._leafs = OrderedDict()
 
             self.cmediagwdnsipconfigentry = YList(self)
@@ -1025,10 +1010,10 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             self._absolute_path = lambda: "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOMEDIAGATEWAYMIB.Cmediagwdnsipconfigtable, [], name, value)
+            self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwDnsIpConfigTable, [], name, value)
 
 
-        class Cmediagwdnsipconfigentry(Entity):
+        class CMediaGwDnsIpConfigEntry(Entity):
             """
             Each entry represents an IP address of the DNS name 
             server.
@@ -1040,7 +1025,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwtable.Cmediagwentry>`
+            	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry>`
             
             .. attribute:: cmgwdnsipindex  (key)
             
@@ -1081,15 +1066,14 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             _revision = '2009-02-25'
 
             def __init__(self):
-                super(CISCOMEDIAGATEWAYMIB.Cmediagwdnsipconfigtable.Cmediagwdnsipconfigentry, self).__init__()
+                super(CISCOMEDIAGATEWAYMIB.CMediaGwDnsIpConfigTable.CMediaGwDnsIpConfigEntry, self).__init__()
 
                 self.yang_name = "cMediaGwDnsIpConfigEntry"
                 self.yang_parent_name = "cMediaGwDnsIpConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cmgwindex','cmgwdnsipindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cmgwindex', YLeaf(YType.str, 'cmgwIndex')),
                     ('cmgwdnsipindex', YLeaf(YType.int32, 'cmgwDnsIpIndex')),
@@ -1108,10 +1092,10 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self._absolute_path = lambda: "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/cMediaGwDnsIpConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOMEDIAGATEWAYMIB.Cmediagwdnsipconfigtable.Cmediagwdnsipconfigentry, ['cmgwindex', 'cmgwdnsipindex', 'cmgwdnsdomainname', 'cmgwdnsiptype', 'cmgwdnsip', 'cmgwdnsiprowstatus'], name, value)
+                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwDnsIpConfigTable.CMediaGwDnsIpConfigEntry, ['cmgwindex', 'cmgwdnsipindex', 'cmgwdnsdomainname', 'cmgwdnsiptype', 'cmgwdnsip', 'cmgwdnsiprowstatus'], name, value)
 
 
-    class Cmgwliftable(Entity):
+    class CmgwLifTable(Entity):
         """
         This table is for managing LIF (Logical Interface) 
         in a media gateway. 
@@ -1127,7 +1111,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         .. attribute:: cmgwlifentry
         
         	An entry of this table is created by the media gateway when it supports the VoIP/VoATM application
-        	**type**\: list of  		 :py:class:`Cmgwlifentry <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmgwliftable.Cmgwlifentry>`
+        	**type**\: list of  		 :py:class:`CmgwLifEntry <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CmgwLifTable.CmgwLifEntry>`
         
         
 
@@ -1137,15 +1121,14 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         _revision = '2009-02-25'
 
         def __init__(self):
-            super(CISCOMEDIAGATEWAYMIB.Cmgwliftable, self).__init__()
+            super(CISCOMEDIAGATEWAYMIB.CmgwLifTable, self).__init__()
 
             self.yang_name = "cmgwLifTable"
             self.yang_parent_name = "CISCO-MEDIA-GATEWAY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cmgwLifEntry", ("cmgwlifentry", CISCOMEDIAGATEWAYMIB.Cmgwliftable.Cmgwlifentry))])
+            self._child_classes = OrderedDict([("cmgwLifEntry", ("cmgwlifentry", CISCOMEDIAGATEWAYMIB.CmgwLifTable.CmgwLifEntry))])
             self._leafs = OrderedDict()
 
             self.cmgwlifentry = YList(self)
@@ -1153,10 +1136,10 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             self._absolute_path = lambda: "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOMEDIAGATEWAYMIB.Cmgwliftable, [], name, value)
+            self._perform_setattr(CISCOMEDIAGATEWAYMIB.CmgwLifTable, [], name, value)
 
 
-        class Cmgwlifentry(Entity):
+        class CmgwLifEntry(Entity):
             """
             An entry of this table is created by the media gateway
             when it supports the VoIP/VoATM application.
@@ -1168,7 +1151,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwtable.Cmediagwentry>`
+            	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry>`
             
             .. attribute:: cmgwlifnumber  (key)
             
@@ -1199,15 +1182,14 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             _revision = '2009-02-25'
 
             def __init__(self):
-                super(CISCOMEDIAGATEWAYMIB.Cmgwliftable.Cmgwlifentry, self).__init__()
+                super(CISCOMEDIAGATEWAYMIB.CmgwLifTable.CmgwLifEntry, self).__init__()
 
                 self.yang_name = "cmgwLifEntry"
                 self.yang_parent_name = "cmgwLifTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cmgwindex','cmgwlifnumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cmgwindex', YLeaf(YType.str, 'cmgwIndex')),
                     ('cmgwlifnumber', YLeaf(YType.uint32, 'cmgwLifNumber')),
@@ -1222,10 +1204,10 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self._absolute_path = lambda: "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/cmgwLifTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOMEDIAGATEWAYMIB.Cmgwliftable.Cmgwlifentry, ['cmgwindex', 'cmgwlifnumber', 'cmgwlifpvccount', 'cmgwlifvoiceifcount'], name, value)
+                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CmgwLifTable.CmgwLifEntry, ['cmgwindex', 'cmgwlifnumber', 'cmgwlifpvccount', 'cmgwlifvoiceifcount'], name, value)
 
 
-    class Cmediagwcallcontrolconfigtable(Entity):
+    class CMediaGwCallControlConfigTable(Entity):
         """
         This table defines general call control attributes for
         the media gateway.
@@ -1233,7 +1215,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         .. attribute:: cmediagwcallcontrolconfigentry
         
         	One entry for each media gateway which supports call control  protocol
-        	**type**\: list of  		 :py:class:`Cmediagwcallcontrolconfigentry <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwcallcontrolconfigtable.Cmediagwcallcontrolconfigentry>`
+        	**type**\: list of  		 :py:class:`CMediaGwCallControlConfigEntry <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwCallControlConfigTable.CMediaGwCallControlConfigEntry>`
         
         
 
@@ -1243,15 +1225,14 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         _revision = '2009-02-25'
 
         def __init__(self):
-            super(CISCOMEDIAGATEWAYMIB.Cmediagwcallcontrolconfigtable, self).__init__()
+            super(CISCOMEDIAGATEWAYMIB.CMediaGwCallControlConfigTable, self).__init__()
 
             self.yang_name = "cMediaGwCallControlConfigTable"
             self.yang_parent_name = "CISCO-MEDIA-GATEWAY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cMediaGwCallControlConfigEntry", ("cmediagwcallcontrolconfigentry", CISCOMEDIAGATEWAYMIB.Cmediagwcallcontrolconfigtable.Cmediagwcallcontrolconfigentry))])
+            self._child_classes = OrderedDict([("cMediaGwCallControlConfigEntry", ("cmediagwcallcontrolconfigentry", CISCOMEDIAGATEWAYMIB.CMediaGwCallControlConfigTable.CMediaGwCallControlConfigEntry))])
             self._leafs = OrderedDict()
 
             self.cmediagwcallcontrolconfigentry = YList(self)
@@ -1259,10 +1240,10 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             self._absolute_path = lambda: "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOMEDIAGATEWAYMIB.Cmediagwcallcontrolconfigtable, [], name, value)
+            self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwCallControlConfigTable, [], name, value)
 
 
-        class Cmediagwcallcontrolconfigentry(Entity):
+        class CMediaGwCallControlConfigEntry(Entity):
             """
             One entry for each media gateway which supports call control 
             protocol.
@@ -1274,7 +1255,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwtable.Cmediagwentry>`
+            	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry>`
             
             .. attribute:: cmediagwcccfgcontroltos
             
@@ -1388,12 +1369,12 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             .. attribute:: cmediagwcccfgclusterenabled
             
             	This object specifies the condition of the cluster generation in the call control.  A cluster is a group of endpoints that share a particular bearer possibility for connections among each other.  disabled(1) \- The generation of the cluster attribute               is disabled. enabled(2) \- Unconditionally generate the cluster              attribute. conditionalEnabled(3) \- The generation of the cluster                attribute is upon MGC request
-            	**type**\:  :py:class:`Cmediagwcccfgclusterenabled <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwcallcontrolconfigtable.Cmediagwcallcontrolconfigentry.Cmediagwcccfgclusterenabled>`
+            	**type**\:  :py:class:`CMediaGwCcCfgClusterEnabled <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwCallControlConfigTable.CMediaGwCallControlConfigEntry.CMediaGwCcCfgClusterEnabled>`
             
             .. attribute:: cmediagwcccfgdefbearertraffic
             
             	This object specifies the combination of the network type (IP/ATM), virtual circuit type (PVC/SVC) and ATM adaptation layer type (AAL1/AAL2/AAL5) for the connection used in transporting bearer traffic.      ipPvcAal5 (1) \- The bearer traffic is transported in                     IP network, through Permanent Virtual                     Circuit(PVC) over AAL5 adaptation layer.     atmPvcAal2 (2) \- The bearer traffic is transported in                      ATM network, through Permanent Virtual                      Circuit(PVC) over AAL2 adaptation layer.     atmSvcAal2 (3) \- The bearer traffic is transported in                      ATM network, through Switching Virtual                      Circuit(SVC) over AAL2 adaptation layer.     atmSvcAal1 (4) \- The bearer traffic is transported in                      ATM network, through Switching Virtual                      Circuit(SVC) over AAL1 adaptation layer.  In MGCP, if the call agent specifies the bear traffic type  in the local connection options (CRCX request),  configuration of this object will have no effect,  otherwise the value of this object will be used when  media gateway sending CRCX response
-            	**type**\:  :py:class:`Cmediagwcccfgdefbearertraffic <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwcallcontrolconfigtable.Cmediagwcallcontrolconfigentry.Cmediagwcccfgdefbearertraffic>`
+            	**type**\:  :py:class:`CMediaGwCcCfgDefBearerTraffic <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwCallControlConfigTable.CMediaGwCallControlConfigEntry.CMediaGwCcCfgDefBearerTraffic>`
             
             .. attribute:: cmediagwcccfgdefrtpnameprefix
             
@@ -1410,15 +1391,14 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             _revision = '2009-02-25'
 
             def __init__(self):
-                super(CISCOMEDIAGATEWAYMIB.Cmediagwcallcontrolconfigtable.Cmediagwcallcontrolconfigentry, self).__init__()
+                super(CISCOMEDIAGATEWAYMIB.CMediaGwCallControlConfigTable.CMediaGwCallControlConfigEntry, self).__init__()
 
                 self.yang_name = "cMediaGwCallControlConfigEntry"
                 self.yang_parent_name = "cMediaGwCallControlConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cmgwindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cmgwindex', YLeaf(YType.str, 'cmgwIndex')),
                     ('cmediagwcccfgcontroltos', YLeaf(YType.uint32, 'cMediaGwCcCfgControlTos')),
@@ -1463,11 +1443,11 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self._absolute_path = lambda: "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/cMediaGwCallControlConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOMEDIAGATEWAYMIB.Cmediagwcallcontrolconfigtable.Cmediagwcallcontrolconfigentry, ['cmgwindex', 'cmediagwcccfgcontroltos', 'cmediagwcccfgbearertos', 'cmediagwcccfgntepayload', 'cmediagwcccfgnsepayload', 'cmediagwcccfgnseresptimer', 'cmediagwcccfgvbdjitterdelaymode', 'cmediagwcccfgvbdjittermaxdelay', 'cmediagwcccfgvbdjitternomdelay', 'cmediagwcccfgvbdjittermindelay', 'cmediagwcccfgdefaulttoneplanid', 'cmediagwcccfgdescrinfoenabled', 'cmediagwcccfgdsnameprefix', 'cmediagwcccfgrtpnameprefix', 'cmediagwcccfgaal1svcnameprefix', 'cmediagwcccfgaal2svcnameprefix', 'cmediagwcccfgclusterenabled', 'cmediagwcccfgdefbearertraffic', 'cmediagwcccfgdefrtpnameprefix'], name, value)
+                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwCallControlConfigTable.CMediaGwCallControlConfigEntry, ['cmgwindex', 'cmediagwcccfgcontroltos', 'cmediagwcccfgbearertos', 'cmediagwcccfgntepayload', 'cmediagwcccfgnsepayload', 'cmediagwcccfgnseresptimer', 'cmediagwcccfgvbdjitterdelaymode', 'cmediagwcccfgvbdjittermaxdelay', 'cmediagwcccfgvbdjitternomdelay', 'cmediagwcccfgvbdjittermindelay', 'cmediagwcccfgdefaulttoneplanid', 'cmediagwcccfgdescrinfoenabled', 'cmediagwcccfgdsnameprefix', 'cmediagwcccfgrtpnameprefix', 'cmediagwcccfgaal1svcnameprefix', 'cmediagwcccfgaal2svcnameprefix', 'cmediagwcccfgclusterenabled', 'cmediagwcccfgdefbearertraffic', 'cmediagwcccfgdefrtpnameprefix'], name, value)
 
-            class Cmediagwcccfgclusterenabled(Enum):
+            class CMediaGwCcCfgClusterEnabled(Enum):
                 """
-                Cmediagwcccfgclusterenabled (Enum Class)
+                CMediaGwCcCfgClusterEnabled (Enum Class)
 
                 This object specifies the condition of the cluster generation
 
@@ -1504,9 +1484,9 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 conditionalEnabled = Enum.YLeaf(3, "conditionalEnabled")
 
 
-            class Cmediagwcccfgdefbearertraffic(Enum):
+            class CMediaGwCcCfgDefBearerTraffic(Enum):
                 """
-                Cmediagwcccfgdefbearertraffic (Enum Class)
+                CMediaGwCcCfgDefBearerTraffic (Enum Class)
 
                 This object specifies the combination of the network
 
@@ -1570,7 +1550,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
 
 
 
-    class Cmediagwrscstatstable(Entity):
+    class CMediaGwRscStatsTable(Entity):
         """
         This table stores the gateway resource statistics
         information.
@@ -1578,7 +1558,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         .. attribute:: cmediagwrscstatsentry
         
         	Each entry stores the statistics information for a specific resource
-        	**type**\: list of  		 :py:class:`Cmediagwrscstatsentry <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwrscstatstable.Cmediagwrscstatsentry>`
+        	**type**\: list of  		 :py:class:`CMediaGwRscStatsEntry <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwRscStatsTable.CMediaGwRscStatsEntry>`
         
         
 
@@ -1588,15 +1568,14 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         _revision = '2009-02-25'
 
         def __init__(self):
-            super(CISCOMEDIAGATEWAYMIB.Cmediagwrscstatstable, self).__init__()
+            super(CISCOMEDIAGATEWAYMIB.CMediaGwRscStatsTable, self).__init__()
 
             self.yang_name = "cMediaGwRscStatsTable"
             self.yang_parent_name = "CISCO-MEDIA-GATEWAY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cMediaGwRscStatsEntry", ("cmediagwrscstatsentry", CISCOMEDIAGATEWAYMIB.Cmediagwrscstatstable.Cmediagwrscstatsentry))])
+            self._child_classes = OrderedDict([("cMediaGwRscStatsEntry", ("cmediagwrscstatsentry", CISCOMEDIAGATEWAYMIB.CMediaGwRscStatsTable.CMediaGwRscStatsEntry))])
             self._leafs = OrderedDict()
 
             self.cmediagwrscstatsentry = YList(self)
@@ -1604,10 +1583,10 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             self._absolute_path = lambda: "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOMEDIAGATEWAYMIB.Cmediagwrscstatstable, [], name, value)
+            self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwRscStatsTable, [], name, value)
 
 
-        class Cmediagwrscstatsentry(Entity):
+        class CMediaGwRscStatsEntry(Entity):
             """
             Each entry stores the statistics
             information for a specific resource.
@@ -1619,12 +1598,12 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwtable.Cmediagwentry>`
+            	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry>`
             
             .. attribute:: cmgwrscstatsindex  (key)
             
             	An index that uniquely identifies a specific gateway resource
-            	**type**\:  :py:class:`Cmgwrscstatsindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwrscstatstable.Cmediagwrscstatsentry.Cmgwrscstatsindex>`
+            	**type**\:  :py:class:`CmgwRscStatsIndex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwRscStatsTable.CMediaGwRscStatsEntry.CmgwRscStatsIndex>`
             
             .. attribute:: cmgwrscmaximumutilization
             
@@ -1664,15 +1643,14 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             _revision = '2009-02-25'
 
             def __init__(self):
-                super(CISCOMEDIAGATEWAYMIB.Cmediagwrscstatstable.Cmediagwrscstatsentry, self).__init__()
+                super(CISCOMEDIAGATEWAYMIB.CMediaGwRscStatsTable.CMediaGwRscStatsEntry, self).__init__()
 
                 self.yang_name = "cMediaGwRscStatsEntry"
                 self.yang_parent_name = "cMediaGwRscStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cmgwindex','cmgwrscstatsindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cmgwindex', YLeaf(YType.str, 'cmgwIndex')),
                     ('cmgwrscstatsindex', YLeaf(YType.enumeration, 'cmgwRscStatsIndex')),
@@ -1691,11 +1669,11 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self._absolute_path = lambda: "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/cMediaGwRscStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOMEDIAGATEWAYMIB.Cmediagwrscstatstable.Cmediagwrscstatsentry, ['cmgwindex', 'cmgwrscstatsindex', 'cmgwrscmaximumutilization', 'cmgwrscminimumutilization', 'cmgwrscaverageutilization', 'cmgwrscsincelastreset'], name, value)
+                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwRscStatsTable.CMediaGwRscStatsEntry, ['cmgwindex', 'cmgwrscstatsindex', 'cmgwrscmaximumutilization', 'cmgwrscminimumutilization', 'cmgwrscaverageutilization', 'cmgwrscsincelastreset'], name, value)
 
-            class Cmgwrscstatsindex(Enum):
+            class CmgwRscStatsIndex(Enum):
                 """
-                Cmgwrscstatsindex (Enum Class)
+                CmgwRscStatsIndex (Enum Class)
 
                 An index that uniquely identifies a specific gateway
 

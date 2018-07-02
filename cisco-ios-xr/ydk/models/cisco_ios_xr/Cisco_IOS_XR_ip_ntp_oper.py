@@ -270,15 +270,16 @@ class Ntp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", Ntp.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", Ntp.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = Ntp.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-ntp-oper:ntp"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Ntp, [], name, value)
 
 
     class Nodes(Entity):
@@ -305,8 +306,7 @@ class Ntp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", Ntp.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", Ntp.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -358,8 +358,7 @@ class Ntp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node']
-                self._child_container_classes = OrderedDict([("associations-detail", ("associations_detail", Ntp.Nodes.Node.AssociationsDetail)), ("status", ("status", Ntp.Nodes.Node.Status)), ("associations", ("associations", Ntp.Nodes.Node.Associations))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("associations-detail", ("associations_detail", Ntp.Nodes.Node.AssociationsDetail)), ("status", ("status", Ntp.Nodes.Node.Status)), ("associations", ("associations", Ntp.Nodes.Node.Associations))])
                 self._leafs = OrderedDict([
                     ('node', YLeaf(YType.str, 'node')),
                 ])
@@ -368,17 +367,14 @@ class Ntp(Entity):
                 self.associations_detail = Ntp.Nodes.Node.AssociationsDetail()
                 self.associations_detail.parent = self
                 self._children_name_map["associations_detail"] = "associations-detail"
-                self._children_yang_names.add("associations-detail")
 
                 self.status = Ntp.Nodes.Node.Status()
                 self.status.parent = self
                 self._children_name_map["status"] = "status"
-                self._children_yang_names.add("status")
 
                 self.associations = Ntp.Nodes.Node.Associations()
                 self.associations.parent = self
                 self._children_name_map["associations"] = "associations"
-                self._children_yang_names.add("associations")
                 self._segment_path = lambda: "node" + "[node='" + str(self.node) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/%s" % self._segment_path()
 
@@ -420,8 +416,7 @@ class Ntp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("peer-detail-info", ("peer_detail_info", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo))])
+                    self._child_classes = OrderedDict([("peer-detail-info", ("peer_detail_info", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo))])
                     self._leafs = OrderedDict([
                         ('is_ntp_enabled', YLeaf(YType.boolean, 'is-ntp-enabled')),
                         ('sys_leap', YLeaf(YType.enumeration, 'sys-leap')),
@@ -548,8 +543,7 @@ class Ntp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("peer-info-common", ("peer_info_common", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.PeerInfoCommon)), ("ref-time", ("ref_time", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime)), ("originate-time", ("originate_time", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime)), ("receive-time", ("receive_time", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime)), ("transmit-time", ("transmit_time", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime))])
-                        self._child_list_classes = OrderedDict([("filter-detail", ("filter_detail", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.FilterDetail))])
+                        self._child_classes = OrderedDict([("peer-info-common", ("peer_info_common", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.PeerInfoCommon)), ("ref-time", ("ref_time", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime)), ("originate-time", ("originate_time", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime)), ("receive-time", ("receive_time", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime)), ("transmit-time", ("transmit_time", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime)), ("filter-detail", ("filter_detail", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.FilterDetail))])
                         self._leafs = OrderedDict([
                             ('leap', YLeaf(YType.enumeration, 'leap')),
                             ('peer_mode', YLeaf(YType.enumeration, 'peer-mode')),
@@ -578,27 +572,22 @@ class Ntp(Entity):
                         self.peer_info_common = Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.PeerInfoCommon()
                         self.peer_info_common.parent = self
                         self._children_name_map["peer_info_common"] = "peer-info-common"
-                        self._children_yang_names.add("peer-info-common")
 
                         self.ref_time = Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime()
                         self.ref_time.parent = self
                         self._children_name_map["ref_time"] = "ref-time"
-                        self._children_yang_names.add("ref-time")
 
                         self.originate_time = Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime()
                         self.originate_time.parent = self
                         self._children_name_map["originate_time"] = "originate-time"
-                        self._children_yang_names.add("originate-time")
 
                         self.receive_time = Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime()
                         self.receive_time.parent = self
                         self._children_name_map["receive_time"] = "receive-time"
-                        self._children_yang_names.add("receive-time")
 
                         self.transmit_time = Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime()
                         self.transmit_time.parent = self
                         self._children_name_map["transmit_time"] = "transmit-time"
-                        self._children_yang_names.add("transmit-time")
 
                         self.filter_detail = YList(self)
                         self._segment_path = lambda: "peer-detail-info"
@@ -694,8 +683,7 @@ class Ntp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('host_mode', YLeaf(YType.enumeration, 'host-mode')),
                                 ('is_configured', YLeaf(YType.boolean, 'is-configured')),
@@ -757,20 +745,20 @@ class Ntp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("sec", ("sec", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime.Sec)), ("frac-secs", ("frac_secs", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("sec", ("sec", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime.Sec)), ("frac-secs", ("frac_secs", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs))])
                             self._leafs = OrderedDict()
 
                             self.sec = Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime.Sec()
                             self.sec.parent = self
                             self._children_name_map["sec"] = "sec"
-                            self._children_yang_names.add("sec")
 
                             self.frac_secs = Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs()
                             self.frac_secs.parent = self
                             self._children_name_map["frac_secs"] = "frac-secs"
-                            self._children_yang_names.add("frac-secs")
                             self._segment_path = lambda: "ref-time"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime, [], name, value)
 
 
                         class Sec(Entity):
@@ -799,8 +787,7 @@ class Ntp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('int', YLeaf(YType.uint32, 'int')),
                                 ])
@@ -837,8 +824,7 @@ class Ntp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('frac', YLeaf(YType.uint32, 'frac')),
                                 ])
@@ -878,20 +864,20 @@ class Ntp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("sec", ("sec", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec)), ("frac-secs", ("frac_secs", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("sec", ("sec", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec)), ("frac-secs", ("frac_secs", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs))])
                             self._leafs = OrderedDict()
 
                             self.sec = Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec()
                             self.sec.parent = self
                             self._children_name_map["sec"] = "sec"
-                            self._children_yang_names.add("sec")
 
                             self.frac_secs = Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs()
                             self.frac_secs.parent = self
                             self._children_name_map["frac_secs"] = "frac-secs"
-                            self._children_yang_names.add("frac-secs")
                             self._segment_path = lambda: "originate-time"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime, [], name, value)
 
 
                         class Sec(Entity):
@@ -920,8 +906,7 @@ class Ntp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('int', YLeaf(YType.uint32, 'int')),
                                 ])
@@ -958,8 +943,7 @@ class Ntp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('frac', YLeaf(YType.uint32, 'frac')),
                                 ])
@@ -999,20 +983,20 @@ class Ntp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("sec", ("sec", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec)), ("frac-secs", ("frac_secs", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("sec", ("sec", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec)), ("frac-secs", ("frac_secs", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs))])
                             self._leafs = OrderedDict()
 
                             self.sec = Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec()
                             self.sec.parent = self
                             self._children_name_map["sec"] = "sec"
-                            self._children_yang_names.add("sec")
 
                             self.frac_secs = Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs()
                             self.frac_secs.parent = self
                             self._children_name_map["frac_secs"] = "frac-secs"
-                            self._children_yang_names.add("frac-secs")
                             self._segment_path = lambda: "receive-time"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime, [], name, value)
 
 
                         class Sec(Entity):
@@ -1041,8 +1025,7 @@ class Ntp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('int', YLeaf(YType.uint32, 'int')),
                                 ])
@@ -1079,8 +1062,7 @@ class Ntp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('frac', YLeaf(YType.uint32, 'frac')),
                                 ])
@@ -1120,20 +1102,20 @@ class Ntp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("sec", ("sec", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec)), ("frac-secs", ("frac_secs", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("sec", ("sec", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec)), ("frac-secs", ("frac_secs", Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs))])
                             self._leafs = OrderedDict()
 
                             self.sec = Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec()
                             self.sec.parent = self
                             self._children_name_map["sec"] = "sec"
-                            self._children_yang_names.add("sec")
 
                             self.frac_secs = Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs()
                             self.frac_secs.parent = self
                             self._children_name_map["frac_secs"] = "frac-secs"
-                            self._children_yang_names.add("frac-secs")
                             self._segment_path = lambda: "transmit-time"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime, [], name, value)
 
 
                         class Sec(Entity):
@@ -1162,8 +1144,7 @@ class Ntp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('int', YLeaf(YType.uint32, 'int')),
                                 ])
@@ -1200,8 +1181,7 @@ class Ntp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('frac', YLeaf(YType.uint32, 'frac')),
                                 ])
@@ -1246,8 +1226,7 @@ class Ntp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('filter_delay', YLeaf(YType.str, 'filter-delay')),
                                 ('filter_offset', YLeaf(YType.str, 'filter-offset')),
@@ -1360,6 +1339,11 @@ class Ntp(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                .. attribute:: is_auth_enabled
+                
+                	Is NTP Authenticate enabled
+                	**type**\: bool
+                
                 
 
                 """
@@ -1375,8 +1359,7 @@ class Ntp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("sys-ref-time", ("sys_ref_time", Ntp.Nodes.Node.Status.SysRefTime)), ("sys-drift", ("sys_drift", Ntp.Nodes.Node.Status.SysDrift))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("sys-ref-time", ("sys_ref_time", Ntp.Nodes.Node.Status.SysRefTime)), ("sys-drift", ("sys_drift", Ntp.Nodes.Node.Status.SysDrift))])
                     self._leafs = OrderedDict([
                         ('is_ntp_enabled', YLeaf(YType.boolean, 'is-ntp-enabled')),
                         ('sys_dispersion', YLeaf(YType.str, 'sys-dispersion')),
@@ -1392,6 +1375,7 @@ class Ntp(Entity):
                         ('poll_interval', YLeaf(YType.uint8, 'poll-interval')),
                         ('is_updated', YLeaf(YType.enumeration, 'is-updated')),
                         ('last_update', YLeaf(YType.int32, 'last-update')),
+                        ('is_auth_enabled', YLeaf(YType.boolean, 'is-auth-enabled')),
                     ])
                     self.is_ntp_enabled = None
                     self.sys_dispersion = None
@@ -1407,20 +1391,19 @@ class Ntp(Entity):
                     self.poll_interval = None
                     self.is_updated = None
                     self.last_update = None
+                    self.is_auth_enabled = None
 
                     self.sys_ref_time = Ntp.Nodes.Node.Status.SysRefTime()
                     self.sys_ref_time.parent = self
                     self._children_name_map["sys_ref_time"] = "sys-ref-time"
-                    self._children_yang_names.add("sys-ref-time")
 
                     self.sys_drift = Ntp.Nodes.Node.Status.SysDrift()
                     self.sys_drift.parent = self
                     self._children_name_map["sys_drift"] = "sys-drift"
-                    self._children_yang_names.add("sys-drift")
                     self._segment_path = lambda: "status"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ntp.Nodes.Node.Status, ['is_ntp_enabled', 'sys_dispersion', 'sys_offset', 'clock_period', 'sys_leap', 'sys_precision', 'sys_stratum', 'sys_ref_id', 'sys_root_delay', 'sys_root_dispersion', 'loop_filter_state', 'poll_interval', 'is_updated', 'last_update'], name, value)
+                    self._perform_setattr(Ntp.Nodes.Node.Status, ['is_ntp_enabled', 'sys_dispersion', 'sys_offset', 'clock_period', 'sys_leap', 'sys_precision', 'sys_stratum', 'sys_ref_id', 'sys_root_delay', 'sys_root_dispersion', 'loop_filter_state', 'poll_interval', 'is_updated', 'last_update', 'is_auth_enabled'], name, value)
 
 
                 class SysRefTime(Entity):
@@ -1452,20 +1435,20 @@ class Ntp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("sec", ("sec", Ntp.Nodes.Node.Status.SysRefTime.Sec)), ("frac-secs", ("frac_secs", Ntp.Nodes.Node.Status.SysRefTime.FracSecs))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("sec", ("sec", Ntp.Nodes.Node.Status.SysRefTime.Sec)), ("frac-secs", ("frac_secs", Ntp.Nodes.Node.Status.SysRefTime.FracSecs))])
                         self._leafs = OrderedDict()
 
                         self.sec = Ntp.Nodes.Node.Status.SysRefTime.Sec()
                         self.sec.parent = self
                         self._children_name_map["sec"] = "sec"
-                        self._children_yang_names.add("sec")
 
                         self.frac_secs = Ntp.Nodes.Node.Status.SysRefTime.FracSecs()
                         self.frac_secs.parent = self
                         self._children_name_map["frac_secs"] = "frac-secs"
-                        self._children_yang_names.add("frac-secs")
                         self._segment_path = lambda: "sys-ref-time"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ntp.Nodes.Node.Status.SysRefTime, [], name, value)
 
 
                     class Sec(Entity):
@@ -1494,8 +1477,7 @@ class Ntp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('int', YLeaf(YType.uint32, 'int')),
                             ])
@@ -1532,8 +1514,7 @@ class Ntp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('frac', YLeaf(YType.uint32, 'frac')),
                             ])
@@ -1573,20 +1554,20 @@ class Ntp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("sec", ("sec", Ntp.Nodes.Node.Status.SysDrift.Sec)), ("frac-secs", ("frac_secs", Ntp.Nodes.Node.Status.SysDrift.FracSecs))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("sec", ("sec", Ntp.Nodes.Node.Status.SysDrift.Sec)), ("frac-secs", ("frac_secs", Ntp.Nodes.Node.Status.SysDrift.FracSecs))])
                         self._leafs = OrderedDict()
 
                         self.sec = Ntp.Nodes.Node.Status.SysDrift.Sec()
                         self.sec.parent = self
                         self._children_name_map["sec"] = "sec"
-                        self._children_yang_names.add("sec")
 
                         self.frac_secs = Ntp.Nodes.Node.Status.SysDrift.FracSecs()
                         self.frac_secs.parent = self
                         self._children_name_map["frac_secs"] = "frac-secs"
-                        self._children_yang_names.add("frac-secs")
                         self._segment_path = lambda: "sys-drift"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ntp.Nodes.Node.Status.SysDrift, [], name, value)
 
 
                     class Sec(Entity):
@@ -1615,8 +1596,7 @@ class Ntp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('int', YLeaf(YType.uint32, 'int')),
                             ])
@@ -1653,8 +1633,7 @@ class Ntp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('frac', YLeaf(YType.uint32, 'frac')),
                             ])
@@ -1699,8 +1678,7 @@ class Ntp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("peer-summary-info", ("peer_summary_info", Ntp.Nodes.Node.Associations.PeerSummaryInfo))])
+                    self._child_classes = OrderedDict([("peer-summary-info", ("peer_summary_info", Ntp.Nodes.Node.Associations.PeerSummaryInfo))])
                     self._leafs = OrderedDict([
                         ('is_ntp_enabled', YLeaf(YType.boolean, 'is-ntp-enabled')),
                         ('sys_leap', YLeaf(YType.enumeration, 'sys-leap')),
@@ -1746,8 +1724,7 @@ class Ntp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("peer-info-common", ("peer_info_common", Ntp.Nodes.Node.Associations.PeerSummaryInfo.PeerInfoCommon))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("peer-info-common", ("peer_info_common", Ntp.Nodes.Node.Associations.PeerSummaryInfo.PeerInfoCommon))])
                         self._leafs = OrderedDict([
                             ('time_since', YLeaf(YType.int32, 'time-since')),
                         ])
@@ -1756,7 +1733,6 @@ class Ntp(Entity):
                         self.peer_info_common = Ntp.Nodes.Node.Associations.PeerSummaryInfo.PeerInfoCommon()
                         self.peer_info_common.parent = self
                         self._children_name_map["peer_info_common"] = "peer-info-common"
-                        self._children_yang_names.add("peer-info-common")
                         self._segment_path = lambda: "peer-summary-info"
 
                     def __setattr__(self, name, value):
@@ -1850,8 +1826,7 @@ class Ntp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('host_mode', YLeaf(YType.enumeration, 'host-mode')),
                                 ('is_configured', YLeaf(YType.boolean, 'is-configured')),

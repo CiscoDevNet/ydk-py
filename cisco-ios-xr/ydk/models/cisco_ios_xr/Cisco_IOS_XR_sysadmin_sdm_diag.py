@@ -1,5 +1,10 @@
 """ Cisco_IOS_XR_sysadmin_sdm_diag 
 
+This module contains definitions
+for the Calvados model objects.
+
+Copyright (c) 2012\-2017 by Cisco Systems, Inc.
+All rights reserved.
 
 """
 from collections import OrderedDict
@@ -66,45 +71,40 @@ class Diagnostic(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("monitor", ("monitor", Diagnostic.Monitor)), ("schedule", ("schedule", Diagnostic.Schedule)), ("status", ("status", Diagnostic.Status)), ("diag_start", ("diag_start", Diagnostic.DiagStart)), ("diag_stop", ("diag_stop", Diagnostic.DiagStop)), ("content", ("content", Diagnostic.Content)), ("result", ("result", Diagnostic.Result))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("monitor", ("monitor", Diagnostic.Monitor)), ("schedule", ("schedule", Diagnostic.Schedule)), ("status", ("status", Diagnostic.Status)), ("diag_start", ("diag_start", Diagnostic.DiagStart)), ("diag_stop", ("diag_stop", Diagnostic.DiagStop)), ("content", ("content", Diagnostic.Content)), ("result", ("result", Diagnostic.Result))])
         self._leafs = OrderedDict()
 
         self.monitor = Diagnostic.Monitor()
         self.monitor.parent = self
         self._children_name_map["monitor"] = "monitor"
-        self._children_yang_names.add("monitor")
 
         self.schedule = Diagnostic.Schedule()
         self.schedule.parent = self
         self._children_name_map["schedule"] = "schedule"
-        self._children_yang_names.add("schedule")
 
         self.status = Diagnostic.Status()
         self.status.parent = self
         self._children_name_map["status"] = "status"
-        self._children_yang_names.add("status")
 
         self.diag_start = Diagnostic.DiagStart()
         self.diag_start.parent = self
         self._children_name_map["diag_start"] = "diag_start"
-        self._children_yang_names.add("diag_start")
 
         self.diag_stop = Diagnostic.DiagStop()
         self.diag_stop.parent = self
         self._children_name_map["diag_stop"] = "diag_stop"
-        self._children_yang_names.add("diag_stop")
 
         self.content = Diagnostic.Content()
         self.content.parent = self
         self._children_name_map["content"] = "content"
-        self._children_yang_names.add("content")
 
         self.result = Diagnostic.Result()
         self.result.parent = self
         self._children_name_map["result"] = "result"
-        self._children_yang_names.add("result")
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-sdm-diag:diagnostic"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Diagnostic, [], name, value)
 
 
     class Monitor(Entity):
@@ -141,26 +141,25 @@ class Diagnostic(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("rejected", ("rejected", Diagnostic.Monitor.Rejected)), ("interval", ("interval", Diagnostic.Monitor.Interval)), ("threshold", ("threshold", Diagnostic.Monitor.Threshold))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("rejected", ("rejected", Diagnostic.Monitor.Rejected)), ("interval", ("interval", Diagnostic.Monitor.Interval)), ("threshold", ("threshold", Diagnostic.Monitor.Threshold))])
             self._leafs = OrderedDict()
 
             self.rejected = Diagnostic.Monitor.Rejected()
             self.rejected.parent = self
             self._children_name_map["rejected"] = "rejected"
-            self._children_yang_names.add("rejected")
 
             self.interval = Diagnostic.Monitor.Interval()
             self.interval.parent = self
             self._children_name_map["interval"] = "interval"
-            self._children_yang_names.add("interval")
 
             self.threshold = Diagnostic.Monitor.Threshold()
             self.threshold.parent = self
             self._children_name_map["threshold"] = "threshold"
-            self._children_yang_names.add("threshold")
             self._segment_path = lambda: "monitor"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sdm-diag:diagnostic/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Diagnostic.Monitor, [], name, value)
 
 
         class Rejected(Entity):
@@ -187,8 +186,7 @@ class Diagnostic(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", Diagnostic.Monitor.Rejected.Location))])
+                self._child_classes = OrderedDict([("location", ("location", Diagnostic.Monitor.Rejected.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -228,8 +226,7 @@ class Diagnostic(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['loc']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("test", ("test", Diagnostic.Monitor.Rejected.Location.Test))])
+                    self._child_classes = OrderedDict([("test", ("test", Diagnostic.Monitor.Rejected.Location.Test))])
                     self._leafs = OrderedDict([
                         ('loc', YLeaf(YType.str, 'loc')),
                     ])
@@ -272,8 +269,7 @@ class Diagnostic(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['test_id','run']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('test_id', YLeaf(YType.str, 'test_id')),
                             ('run', YLeaf(YType.enumeration, 'run')),
@@ -321,8 +317,7 @@ class Diagnostic(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", Diagnostic.Monitor.Interval.Location))])
+                self._child_classes = OrderedDict([("location", ("location", Diagnostic.Monitor.Interval.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -362,8 +357,7 @@ class Diagnostic(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['loc']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("test", ("test", Diagnostic.Monitor.Interval.Location.Test))])
+                    self._child_classes = OrderedDict([("test", ("test", Diagnostic.Monitor.Interval.Location.Test))])
                     self._leafs = OrderedDict([
                         ('loc', YLeaf(YType.str, 'loc')),
                     ])
@@ -419,8 +413,7 @@ class Diagnostic(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['test_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('test_id', YLeaf(YType.str, 'test_id')),
                             ('days', YLeaf(YType.int32, 'days')),
@@ -459,8 +452,7 @@ class Diagnostic(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", Diagnostic.Monitor.Threshold.Location))])
+                self._child_classes = OrderedDict([("location", ("location", Diagnostic.Monitor.Threshold.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -500,8 +492,7 @@ class Diagnostic(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['loc']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("test", ("test", Diagnostic.Monitor.Threshold.Location.Test))])
+                    self._child_classes = OrderedDict([("test", ("test", Diagnostic.Monitor.Threshold.Location.Test))])
                     self._leafs = OrderedDict([
                         ('loc', YLeaf(YType.str, 'loc')),
                     ])
@@ -548,8 +539,7 @@ class Diagnostic(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['test_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('test_id', YLeaf(YType.str, 'test_id')),
                             ('failure_count', YLeaf(YType.int32, 'failure-count')),
@@ -586,16 +576,17 @@ class Diagnostic(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("start", ("start", Diagnostic.Schedule.Start))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("start", ("start", Diagnostic.Schedule.Start))])
             self._leafs = OrderedDict()
 
             self.start = Diagnostic.Schedule.Start()
             self.start.parent = self
             self._children_name_map["start"] = "start"
-            self._children_yang_names.add("start")
             self._segment_path = lambda: "schedule"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sdm-diag:diagnostic/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Diagnostic.Schedule, [], name, value)
 
 
         class Start(Entity):
@@ -622,8 +613,7 @@ class Diagnostic(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", Diagnostic.Schedule.Start.Location))])
+                self._child_classes = OrderedDict([("location", ("location", Diagnostic.Schedule.Start.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -663,8 +653,7 @@ class Diagnostic(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['loc']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("test", ("test", Diagnostic.Schedule.Start.Location.Test))])
+                    self._child_classes = OrderedDict([("test", ("test", Diagnostic.Schedule.Start.Location.Test))])
                     self._leafs = OrderedDict([
                         ('loc', YLeaf(YType.str, 'loc')),
                     ])
@@ -717,8 +706,7 @@ class Diagnostic(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['test_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("daily", ("daily", Diagnostic.Schedule.Start.Location.Test.Daily)), ("on", ("on", Diagnostic.Schedule.Start.Location.Test.On)), ("weekly", ("weekly", Diagnostic.Schedule.Start.Location.Test.Weekly))])
+                        self._child_classes = OrderedDict([("daily", ("daily", Diagnostic.Schedule.Start.Location.Test.Daily)), ("on", ("on", Diagnostic.Schedule.Start.Location.Test.On)), ("weekly", ("weekly", Diagnostic.Schedule.Start.Location.Test.Weekly))])
                         self._leafs = OrderedDict([
                             ('test_id', YLeaf(YType.str, 'test_id')),
                         ])
@@ -759,8 +747,7 @@ class Diagnostic(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['hour_min']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('hour_min', YLeaf(YType.str, 'hour_min')),
                             ])
@@ -816,8 +803,7 @@ class Diagnostic(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['month','day_of_month','year','hour_min']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('month', YLeaf(YType.enumeration, 'month')),
                                 ('day_of_month', YLeaf(YType.int32, 'day_of_month')),
@@ -920,8 +906,7 @@ class Diagnostic(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['daysofweek','hour_min']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('daysofweek', YLeaf(YType.enumeration, 'daysofweek')),
                                 ('hour_min', YLeaf(YType.str, 'hour_min')),
@@ -993,8 +978,7 @@ class Diagnostic(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("location_index", ("location_index", Diagnostic.Status.LocationIndex))])
+            self._child_classes = OrderedDict([("location_index", ("location_index", Diagnostic.Status.LocationIndex))])
             self._leafs = OrderedDict()
 
             self.location_index = YList(self)
@@ -1041,8 +1025,7 @@ class Diagnostic(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['data_idx']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('data_idx', YLeaf(YType.int32, 'data_idx')),
                     ('description', YLeaf(YType.str, 'description')),
@@ -1082,8 +1065,7 @@ class Diagnostic(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("location", ("location", Diagnostic.DiagStart.Location))])
+            self._child_classes = OrderedDict([("location", ("location", Diagnostic.DiagStart.Location))])
             self._leafs = OrderedDict()
 
             self.location = YList(self)
@@ -1130,8 +1112,7 @@ class Diagnostic(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['loc']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("test", ("test", Diagnostic.DiagStart.Location.Test))])
+                self._child_classes = OrderedDict([("test", ("test", Diagnostic.DiagStart.Location.Test))])
                 self._leafs = OrderedDict([
                     ('loc', YLeaf(YType.str, 'loc')),
                     ('description', YLeaf(YType.str, 'description')),
@@ -1178,8 +1159,7 @@ class Diagnostic(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['test_type']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('test_type', YLeaf(YType.str, 'test_type')),
                         ('description', YLeaf(YType.str, 'description')),
@@ -1216,8 +1196,7 @@ class Diagnostic(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("location", ("location", Diagnostic.DiagStop.Location))])
+            self._child_classes = OrderedDict([("location", ("location", Diagnostic.DiagStop.Location))])
             self._leafs = OrderedDict()
 
             self.location = YList(self)
@@ -1264,8 +1243,7 @@ class Diagnostic(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['loc']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("test", ("test", Diagnostic.DiagStop.Location.Test))])
+                self._child_classes = OrderedDict([("test", ("test", Diagnostic.DiagStop.Location.Test))])
                 self._leafs = OrderedDict([
                     ('loc', YLeaf(YType.str, 'loc')),
                     ('description', YLeaf(YType.str, 'description')),
@@ -1312,8 +1290,7 @@ class Diagnostic(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['test_type']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('test_type', YLeaf(YType.str, 'test_type')),
                         ('description', YLeaf(YType.str, 'description')),
@@ -1350,8 +1327,7 @@ class Diagnostic(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("location", ("location", Diagnostic.Content.Location))])
+            self._child_classes = OrderedDict([("location", ("location", Diagnostic.Content.Location))])
             self._leafs = OrderedDict()
 
             self.location = YList(self)
@@ -1398,8 +1374,7 @@ class Diagnostic(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['loc']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("data_list", ("data_list", Diagnostic.Content.Location.DataList))])
+                self._child_classes = OrderedDict([("data_list", ("data_list", Diagnostic.Content.Location.DataList))])
                 self._leafs = OrderedDict([
                     ('loc', YLeaf(YType.str, 'loc')),
                     ('description', YLeaf(YType.str, 'description')),
@@ -1470,8 +1445,7 @@ class Diagnostic(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['data_idx']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('data_idx', YLeaf(YType.int32, 'data_idx')),
                         ('id', YLeaf(YType.int32, 'id')),
@@ -1516,8 +1490,7 @@ class Diagnostic(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("location", ("location", Diagnostic.Result.Location))])
+            self._child_classes = OrderedDict([("location", ("location", Diagnostic.Result.Location))])
             self._leafs = OrderedDict()
 
             self.location = YList(self)
@@ -1564,8 +1537,7 @@ class Diagnostic(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['loc']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("test", ("test", Diagnostic.Result.Location.Test))])
+                self._child_classes = OrderedDict([("test", ("test", Diagnostic.Result.Location.Test))])
                 self._leafs = OrderedDict([
                     ('loc', YLeaf(YType.str, 'loc')),
                     ('description', YLeaf(YType.str, 'description')),
@@ -1617,8 +1589,7 @@ class Diagnostic(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['test_type']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("detail", ("detail", Diagnostic.Result.Location.Test.Detail))])
+                    self._child_classes = OrderedDict([("detail", ("detail", Diagnostic.Result.Location.Test.Detail))])
                     self._leafs = OrderedDict([
                         ('test_type', YLeaf(YType.str, 'test_type')),
                         ('description', YLeaf(YType.str, 'description')),
@@ -1662,8 +1633,7 @@ class Diagnostic(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['det']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("data_list", ("data_list", Diagnostic.Result.Location.Test.Detail.DataList))])
+                        self._child_classes = OrderedDict([("data_list", ("data_list", Diagnostic.Result.Location.Test.Detail.DataList))])
                         self._leafs = OrderedDict([
                             ('det', YLeaf(YType.str, 'det')),
                         ])
@@ -1810,8 +1780,7 @@ class Diagnostic(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['data_idx']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('data_idx', YLeaf(YType.int32, 'data_idx')),
                                 ('detail_flag', YLeaf(YType.int32, 'detail_flag')),

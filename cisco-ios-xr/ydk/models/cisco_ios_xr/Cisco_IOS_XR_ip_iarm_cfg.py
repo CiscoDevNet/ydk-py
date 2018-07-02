@@ -85,20 +85,20 @@ class IpArm(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ipv4", ("ipv4", IpArm.Ipv4)), ("ipv6", ("ipv6", IpArm.Ipv6))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ipv4", ("ipv4", IpArm.Ipv4)), ("ipv6", ("ipv6", IpArm.Ipv6))])
         self._leafs = OrderedDict()
 
         self.ipv4 = IpArm.Ipv4()
         self.ipv4.parent = self
         self._children_name_map["ipv4"] = "ipv4"
-        self._children_yang_names.add("ipv4")
 
         self.ipv6 = IpArm.Ipv6()
         self.ipv6.parent = self
         self._children_name_map["ipv6"] = "ipv6"
-        self._children_yang_names.add("ipv6")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-iarm-cfg:ip-arm"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(IpArm, [], name, value)
 
 
     class Ipv4(Entity):
@@ -130,21 +130,21 @@ class IpArm(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("conflict-policy-table", ("conflict_policy_table", IpArm.Ipv4.ConflictPolicyTable)), ("multicast-host", ("multicast_host", IpArm.Ipv4.MulticastHost))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("conflict-policy-table", ("conflict_policy_table", IpArm.Ipv4.ConflictPolicyTable)), ("multicast-host", ("multicast_host", IpArm.Ipv4.MulticastHost))])
             self._leafs = OrderedDict()
 
             self.conflict_policy_table = IpArm.Ipv4.ConflictPolicyTable()
             self.conflict_policy_table.parent = self
             self._children_name_map["conflict_policy_table"] = "conflict-policy-table"
-            self._children_yang_names.add("conflict-policy-table")
 
             self.multicast_host = IpArm.Ipv4.MulticastHost()
             self.multicast_host.parent = self
             self._children_name_map["multicast_host"] = "multicast-host"
-            self._children_yang_names.add("multicast-host")
             self._segment_path = lambda: "ipv4"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-cfg:ip-arm/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(IpArm.Ipv4, [], name, value)
 
 
         class ConflictPolicyTable(Entity):
@@ -171,8 +171,7 @@ class IpArm(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('conflict_policy', YLeaf(YType.enumeration, 'conflict-policy')),
                 ])
@@ -210,8 +209,7 @@ class IpArm(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('multicast_host_interface', YLeaf(YType.str, 'multicast-host-interface')),
                 ])
@@ -252,21 +250,21 @@ class IpArm(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("conflict-policy-table", ("conflict_policy_table", IpArm.Ipv6.ConflictPolicyTable)), ("multicast-host", ("multicast_host", IpArm.Ipv6.MulticastHost))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("conflict-policy-table", ("conflict_policy_table", IpArm.Ipv6.ConflictPolicyTable)), ("multicast-host", ("multicast_host", IpArm.Ipv6.MulticastHost))])
             self._leafs = OrderedDict()
 
             self.conflict_policy_table = IpArm.Ipv6.ConflictPolicyTable()
             self.conflict_policy_table.parent = self
             self._children_name_map["conflict_policy_table"] = "conflict-policy-table"
-            self._children_yang_names.add("conflict-policy-table")
 
             self.multicast_host = IpArm.Ipv6.MulticastHost()
             self.multicast_host.parent = self
             self._children_name_map["multicast_host"] = "multicast-host"
-            self._children_yang_names.add("multicast-host")
             self._segment_path = lambda: "ipv6"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-cfg:ip-arm/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(IpArm.Ipv6, [], name, value)
 
 
         class ConflictPolicyTable(Entity):
@@ -293,8 +291,7 @@ class IpArm(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('conflict_policy', YLeaf(YType.enumeration, 'conflict-policy')),
                 ])
@@ -332,8 +329,7 @@ class IpArm(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('multicast_host_interface', YLeaf(YType.str, 'multicast-host-interface')),
                 ])

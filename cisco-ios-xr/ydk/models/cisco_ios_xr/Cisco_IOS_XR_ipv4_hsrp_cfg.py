@@ -72,7 +72,7 @@ class Hsrp(Entity):
     """
 
     _prefix = 'ipv4-hsrp-cfg'
-    _revision = '2017-10-04'
+    _revision = '2017-11-05'
 
     def __init__(self):
         super(Hsrp, self).__init__()
@@ -83,20 +83,20 @@ class Hsrp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("interfaces", ("interfaces", Hsrp.Interfaces)), ("logging", ("logging", Hsrp.Logging))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("interfaces", ("interfaces", Hsrp.Interfaces)), ("logging", ("logging", Hsrp.Logging))])
         self._leafs = OrderedDict()
 
         self.interfaces = Hsrp.Interfaces()
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
-        self._children_yang_names.add("interfaces")
 
         self.logging = Hsrp.Logging()
         self.logging.parent = self
         self._children_name_map["logging"] = "logging"
-        self._children_yang_names.add("logging")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Hsrp, [], name, value)
 
 
     class Interfaces(Entity):
@@ -113,7 +113,7 @@ class Hsrp(Entity):
         """
 
         _prefix = 'ipv4-hsrp-cfg'
-        _revision = '2017-10-04'
+        _revision = '2017-11-05'
 
         def __init__(self):
             super(Hsrp.Interfaces, self).__init__()
@@ -123,8 +123,7 @@ class Hsrp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("interface", ("interface", Hsrp.Interfaces.Interface))])
+            self._child_classes = OrderedDict([("interface", ("interface", Hsrp.Interfaces.Interface))])
             self._leafs = OrderedDict()
 
             self.interface = YList(self)
@@ -192,7 +191,7 @@ class Hsrp(Entity):
             """
 
             _prefix = 'ipv4-hsrp-cfg'
-            _revision = '2017-10-04'
+            _revision = '2017-11-05'
 
             def __init__(self):
                 super(Hsrp.Interfaces.Interface, self).__init__()
@@ -202,8 +201,7 @@ class Hsrp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface_name']
-                self._child_container_classes = OrderedDict([("ipv6", ("ipv6", Hsrp.Interfaces.Interface.Ipv6)), ("bfd", ("bfd", Hsrp.Interfaces.Interface.Bfd)), ("delay", ("delay", Hsrp.Interfaces.Interface.Delay)), ("ipv4", ("ipv4", Hsrp.Interfaces.Interface.Ipv4))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("ipv6", ("ipv6", Hsrp.Interfaces.Interface.Ipv6)), ("bfd", ("bfd", Hsrp.Interfaces.Interface.Bfd)), ("delay", ("delay", Hsrp.Interfaces.Interface.Delay)), ("ipv4", ("ipv4", Hsrp.Interfaces.Interface.Ipv4))])
                 self._leafs = OrderedDict([
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                     ('mac_refresh', YLeaf(YType.uint32, 'mac-refresh')),
@@ -218,21 +216,17 @@ class Hsrp(Entity):
                 self.ipv6 = Hsrp.Interfaces.Interface.Ipv6()
                 self.ipv6.parent = self
                 self._children_name_map["ipv6"] = "ipv6"
-                self._children_yang_names.add("ipv6")
 
                 self.bfd = Hsrp.Interfaces.Interface.Bfd()
                 self.bfd.parent = self
                 self._children_name_map["bfd"] = "bfd"
-                self._children_yang_names.add("bfd")
 
                 self.delay = None
                 self._children_name_map["delay"] = "delay"
-                self._children_yang_names.add("delay")
 
                 self.ipv4 = Hsrp.Interfaces.Interface.Ipv4()
                 self.ipv4.parent = self
                 self._children_name_map["ipv4"] = "ipv4"
-                self._children_yang_names.add("ipv4")
                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/%s" % self._segment_path()
 
@@ -259,7 +253,7 @@ class Hsrp(Entity):
                 """
 
                 _prefix = 'ipv4-hsrp-cfg'
-                _revision = '2017-10-04'
+                _revision = '2017-11-05'
 
                 def __init__(self):
                     super(Hsrp.Interfaces.Interface.Ipv6, self).__init__()
@@ -269,20 +263,20 @@ class Hsrp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("version2", ("version2", Hsrp.Interfaces.Interface.Ipv6.Version2)), ("slave-groups", ("slave_groups", Hsrp.Interfaces.Interface.Ipv6.SlaveGroups))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("version2", ("version2", Hsrp.Interfaces.Interface.Ipv6.Version2)), ("slave-groups", ("slave_groups", Hsrp.Interfaces.Interface.Ipv6.SlaveGroups))])
                     self._leafs = OrderedDict()
 
                     self.version2 = Hsrp.Interfaces.Interface.Ipv6.Version2()
                     self.version2.parent = self
                     self._children_name_map["version2"] = "version2"
-                    self._children_yang_names.add("version2")
 
                     self.slave_groups = Hsrp.Interfaces.Interface.Ipv6.SlaveGroups()
                     self.slave_groups.parent = self
                     self._children_name_map["slave_groups"] = "slave-groups"
-                    self._children_yang_names.add("slave-groups")
                     self._segment_path = lambda: "ipv6"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6, [], name, value)
 
 
                 class Version2(Entity):
@@ -299,7 +293,7 @@ class Hsrp(Entity):
                     """
 
                     _prefix = 'ipv4-hsrp-cfg'
-                    _revision = '2017-10-04'
+                    _revision = '2017-11-05'
 
                     def __init__(self):
                         super(Hsrp.Interfaces.Interface.Ipv6.Version2, self).__init__()
@@ -309,15 +303,16 @@ class Hsrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("groups", ("groups", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("groups", ("groups", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups))])
                         self._leafs = OrderedDict()
 
                         self.groups = Hsrp.Interfaces.Interface.Ipv6.Version2.Groups()
                         self.groups.parent = self
                         self._children_name_map["groups"] = "groups"
-                        self._children_yang_names.add("groups")
                         self._segment_path = lambda: "version2"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.Version2, [], name, value)
 
 
                     class Groups(Entity):
@@ -334,7 +329,7 @@ class Hsrp(Entity):
                         """
 
                         _prefix = 'ipv4-hsrp-cfg'
-                        _revision = '2017-10-04'
+                        _revision = '2017-11-05'
 
                         def __init__(self):
                             super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups, self).__init__()
@@ -344,8 +339,7 @@ class Hsrp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("group", ("group", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group))])
+                            self._child_classes = OrderedDict([("group", ("group", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group))])
                             self._leafs = OrderedDict()
 
                             self.group = YList(self)
@@ -410,7 +404,7 @@ class Hsrp(Entity):
                             	Force active if higher priority
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             	**default value**\: 0
                             
@@ -433,7 +427,7 @@ class Hsrp(Entity):
                             """
 
                             _prefix = 'ipv4-hsrp-cfg'
-                            _revision = '2017-10-04'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group, self).__init__()
@@ -443,12 +437,11 @@ class Hsrp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['group_number']
-                                self._child_container_classes = OrderedDict([("bfd", ("bfd", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Bfd)), ("tracked-interfaces", ("tracked_interfaces", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces)), ("tracked-objects", ("tracked_objects", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects)), ("timers", ("timers", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Timers)), ("link-local-ipv6-address", ("link_local_ipv6_address", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.LinkLocalIpv6Address)), ("global-ipv6-addresses", ("global_ipv6_addresses", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("bfd", ("bfd", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Bfd)), ("tracked-interfaces", ("tracked_interfaces", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces)), ("tracked-objects", ("tracked_objects", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects)), ("timers", ("timers", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Timers)), ("link-local-ipv6-address", ("link_local_ipv6_address", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.LinkLocalIpv6Address)), ("global-ipv6-addresses", ("global_ipv6_addresses", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses))])
                                 self._leafs = OrderedDict([
                                     ('group_number', YLeaf(YType.uint32, 'group-number')),
                                     ('priority', YLeaf(YType.uint32, 'priority')),
-                                    ('preempt', YLeaf(YType.int32, 'preempt')),
+                                    ('preempt', YLeaf(YType.uint32, 'preempt')),
                                     ('session_name', YLeaf(YType.str, 'session-name')),
                                     ('virtual_mac_address', YLeaf(YType.str, 'virtual-mac-address')),
                                 ])
@@ -461,32 +454,26 @@ class Hsrp(Entity):
                                 self.bfd = Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Bfd()
                                 self.bfd.parent = self
                                 self._children_name_map["bfd"] = "bfd"
-                                self._children_yang_names.add("bfd")
 
                                 self.tracked_interfaces = Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces()
                                 self.tracked_interfaces.parent = self
                                 self._children_name_map["tracked_interfaces"] = "tracked-interfaces"
-                                self._children_yang_names.add("tracked-interfaces")
 
                                 self.tracked_objects = Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects()
                                 self.tracked_objects.parent = self
                                 self._children_name_map["tracked_objects"] = "tracked-objects"
-                                self._children_yang_names.add("tracked-objects")
 
                                 self.timers = Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Timers()
                                 self.timers.parent = self
                                 self._children_name_map["timers"] = "timers"
-                                self._children_yang_names.add("timers")
 
                                 self.link_local_ipv6_address = Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.LinkLocalIpv6Address()
                                 self.link_local_ipv6_address.parent = self
                                 self._children_name_map["link_local_ipv6_address"] = "link-local-ipv6-address"
-                                self._children_yang_names.add("link-local-ipv6-address")
 
                                 self.global_ipv6_addresses = Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses()
                                 self.global_ipv6_addresses.parent = self
                                 self._children_name_map["global_ipv6_addresses"] = "global-ipv6-addresses"
-                                self._children_yang_names.add("global-ipv6-addresses")
                                 self._segment_path = lambda: "group" + "[group-number='" + str(self.group_number) + "']"
 
                             def __setattr__(self, name, value):
@@ -517,7 +504,7 @@ class Hsrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-hsrp-cfg'
-                                _revision = '2017-10-04'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Bfd, self).__init__()
@@ -527,8 +514,7 @@ class Hsrp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('address', YLeaf(YType.str, 'address')),
                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
@@ -556,7 +542,7 @@ class Hsrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-hsrp-cfg'
-                                _revision = '2017-10-04'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces, self).__init__()
@@ -566,8 +552,7 @@ class Hsrp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("tracked-interface", ("tracked_interface", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces.TrackedInterface))])
+                                    self._child_classes = OrderedDict([("tracked-interface", ("tracked_interface", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces.TrackedInterface))])
                                     self._leafs = OrderedDict()
 
                                     self.tracked_interface = YList(self)
@@ -602,7 +587,7 @@ class Hsrp(Entity):
                                     """
 
                                     _prefix = 'ipv4-hsrp-cfg'
-                                    _revision = '2017-10-04'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces.TrackedInterface, self).__init__()
@@ -612,8 +597,7 @@ class Hsrp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['interface_name']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                             ('priority_decrement', YLeaf(YType.uint32, 'priority-decrement')),
@@ -641,7 +625,7 @@ class Hsrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-hsrp-cfg'
-                                _revision = '2017-10-04'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects, self).__init__()
@@ -651,8 +635,7 @@ class Hsrp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("tracked-object", ("tracked_object", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects.TrackedObject))])
+                                    self._child_classes = OrderedDict([("tracked-object", ("tracked_object", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects.TrackedObject))])
                                     self._leafs = OrderedDict()
 
                                     self.tracked_object = YList(self)
@@ -687,7 +670,7 @@ class Hsrp(Entity):
                                     """
 
                                     _prefix = 'ipv4-hsrp-cfg'
-                                    _revision = '2017-10-04'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects.TrackedObject, self).__init__()
@@ -697,8 +680,7 @@ class Hsrp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['object_name']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('object_name', YLeaf(YType.str, 'object-name')),
                                             ('priority_decrement', YLeaf(YType.uint32, 'priority-decrement')),
@@ -774,7 +756,7 @@ class Hsrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-hsrp-cfg'
-                                _revision = '2017-10-04'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Timers, self).__init__()
@@ -784,8 +766,7 @@ class Hsrp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('hello_msec_flag', YLeaf(YType.boolean, 'hello-msec-flag')),
                                         ('hello_msec', YLeaf(YType.uint32, 'hello-msec')),
@@ -829,7 +810,7 @@ class Hsrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-hsrp-cfg'
-                                _revision = '2017-10-04'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.LinkLocalIpv6Address, self).__init__()
@@ -839,8 +820,7 @@ class Hsrp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('address', YLeaf(YType.str, 'address')),
                                         ('auto_configure', YLeaf(YType.enumeration, 'auto-configure')),
@@ -868,7 +848,7 @@ class Hsrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-hsrp-cfg'
-                                _revision = '2017-10-04'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses, self).__init__()
@@ -878,8 +858,7 @@ class Hsrp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("global-ipv6-address", ("global_ipv6_address", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses.GlobalIpv6Address))])
+                                    self._child_classes = OrderedDict([("global-ipv6-address", ("global_ipv6_address", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses.GlobalIpv6Address))])
                                     self._leafs = OrderedDict()
 
                                     self.global_ipv6_address = YList(self)
@@ -905,7 +884,7 @@ class Hsrp(Entity):
                                     """
 
                                     _prefix = 'ipv4-hsrp-cfg'
-                                    _revision = '2017-10-04'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses.GlobalIpv6Address, self).__init__()
@@ -915,8 +894,7 @@ class Hsrp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['address']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('address', YLeaf(YType.str, 'address')),
                                         ])
@@ -941,7 +919,7 @@ class Hsrp(Entity):
                     """
 
                     _prefix = 'ipv4-hsrp-cfg'
-                    _revision = '2017-10-04'
+                    _revision = '2017-11-05'
 
                     def __init__(self):
                         super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups, self).__init__()
@@ -951,8 +929,7 @@ class Hsrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("slave-group", ("slave_group", Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup))])
+                        self._child_classes = OrderedDict([("slave-group", ("slave_group", Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup))])
                         self._leafs = OrderedDict()
 
                         self.slave_group = YList(self)
@@ -1000,7 +977,7 @@ class Hsrp(Entity):
                         """
 
                         _prefix = 'ipv4-hsrp-cfg'
-                        _revision = '2017-10-04'
+                        _revision = '2017-11-05'
 
                         def __init__(self):
                             super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup, self).__init__()
@@ -1010,8 +987,7 @@ class Hsrp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['slave_group_number']
-                            self._child_container_classes = OrderedDict([("link-local-ipv6-address", ("link_local_ipv6_address", Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.LinkLocalIpv6Address)), ("global-ipv6-addresses", ("global_ipv6_addresses", Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("link-local-ipv6-address", ("link_local_ipv6_address", Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.LinkLocalIpv6Address)), ("global-ipv6-addresses", ("global_ipv6_addresses", Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses))])
                             self._leafs = OrderedDict([
                                 ('slave_group_number', YLeaf(YType.uint32, 'slave-group-number')),
                                 ('follow', YLeaf(YType.str, 'follow')),
@@ -1024,12 +1000,10 @@ class Hsrp(Entity):
                             self.link_local_ipv6_address = Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.LinkLocalIpv6Address()
                             self.link_local_ipv6_address.parent = self
                             self._children_name_map["link_local_ipv6_address"] = "link-local-ipv6-address"
-                            self._children_yang_names.add("link-local-ipv6-address")
 
                             self.global_ipv6_addresses = Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses()
                             self.global_ipv6_addresses.parent = self
                             self._children_name_map["global_ipv6_addresses"] = "global-ipv6-addresses"
-                            self._children_yang_names.add("global-ipv6-addresses")
                             self._segment_path = lambda: "slave-group" + "[slave-group-number='" + str(self.slave_group_number) + "']"
 
                         def __setattr__(self, name, value):
@@ -1059,7 +1033,7 @@ class Hsrp(Entity):
                             """
 
                             _prefix = 'ipv4-hsrp-cfg'
-                            _revision = '2017-10-04'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.LinkLocalIpv6Address, self).__init__()
@@ -1069,8 +1043,7 @@ class Hsrp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('address', YLeaf(YType.str, 'address')),
                                     ('auto_configure', YLeaf(YType.enumeration, 'auto-configure')),
@@ -1098,7 +1071,7 @@ class Hsrp(Entity):
                             """
 
                             _prefix = 'ipv4-hsrp-cfg'
-                            _revision = '2017-10-04'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses, self).__init__()
@@ -1108,8 +1081,7 @@ class Hsrp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("global-ipv6-address", ("global_ipv6_address", Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses.GlobalIpv6Address))])
+                                self._child_classes = OrderedDict([("global-ipv6-address", ("global_ipv6_address", Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses.GlobalIpv6Address))])
                                 self._leafs = OrderedDict()
 
                                 self.global_ipv6_address = YList(self)
@@ -1135,7 +1107,7 @@ class Hsrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-hsrp-cfg'
-                                _revision = '2017-10-04'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses.GlobalIpv6Address, self).__init__()
@@ -1145,8 +1117,7 @@ class Hsrp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['address']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('address', YLeaf(YType.str, 'address')),
                                     ])
@@ -1182,7 +1153,7 @@ class Hsrp(Entity):
                 """
 
                 _prefix = 'ipv4-hsrp-cfg'
-                _revision = '2017-10-04'
+                _revision = '2017-11-05'
 
                 def __init__(self):
                     super(Hsrp.Interfaces.Interface.Bfd, self).__init__()
@@ -1192,8 +1163,7 @@ class Hsrp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
                         ('interval', YLeaf(YType.uint32, 'interval')),
@@ -1239,7 +1209,7 @@ class Hsrp(Entity):
                 """
 
                 _prefix = 'ipv4-hsrp-cfg'
-                _revision = '2017-10-04'
+                _revision = '2017-11-05'
 
                 def __init__(self):
                     super(Hsrp.Interfaces.Interface.Delay, self).__init__()
@@ -1249,8 +1219,7 @@ class Hsrp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('minimum_delay', YLeaf(YType.uint32, 'minimum-delay')),
@@ -1288,7 +1257,7 @@ class Hsrp(Entity):
                 """
 
                 _prefix = 'ipv4-hsrp-cfg'
-                _revision = '2017-10-04'
+                _revision = '2017-11-05'
 
                 def __init__(self):
                     super(Hsrp.Interfaces.Interface.Ipv4, self).__init__()
@@ -1298,25 +1267,24 @@ class Hsrp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("slave-groups", ("slave_groups", Hsrp.Interfaces.Interface.Ipv4.SlaveGroups)), ("version1", ("version1", Hsrp.Interfaces.Interface.Ipv4.Version1)), ("version2", ("version2", Hsrp.Interfaces.Interface.Ipv4.Version2))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("slave-groups", ("slave_groups", Hsrp.Interfaces.Interface.Ipv4.SlaveGroups)), ("version1", ("version1", Hsrp.Interfaces.Interface.Ipv4.Version1)), ("version2", ("version2", Hsrp.Interfaces.Interface.Ipv4.Version2))])
                     self._leafs = OrderedDict()
 
                     self.slave_groups = Hsrp.Interfaces.Interface.Ipv4.SlaveGroups()
                     self.slave_groups.parent = self
                     self._children_name_map["slave_groups"] = "slave-groups"
-                    self._children_yang_names.add("slave-groups")
 
                     self.version1 = Hsrp.Interfaces.Interface.Ipv4.Version1()
                     self.version1.parent = self
                     self._children_name_map["version1"] = "version1"
-                    self._children_yang_names.add("version1")
 
                     self.version2 = Hsrp.Interfaces.Interface.Ipv4.Version2()
                     self.version2.parent = self
                     self._children_name_map["version2"] = "version2"
-                    self._children_yang_names.add("version2")
                     self._segment_path = lambda: "ipv4"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4, [], name, value)
 
 
                 class SlaveGroups(Entity):
@@ -1333,7 +1301,7 @@ class Hsrp(Entity):
                     """
 
                     _prefix = 'ipv4-hsrp-cfg'
-                    _revision = '2017-10-04'
+                    _revision = '2017-11-05'
 
                     def __init__(self):
                         super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups, self).__init__()
@@ -1343,8 +1311,7 @@ class Hsrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("slave-group", ("slave_group", Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup))])
+                        self._child_classes = OrderedDict([("slave-group", ("slave_group", Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup))])
                         self._leafs = OrderedDict()
 
                         self.slave_group = YList(self)
@@ -1394,7 +1361,7 @@ class Hsrp(Entity):
                         """
 
                         _prefix = 'ipv4-hsrp-cfg'
-                        _revision = '2017-10-04'
+                        _revision = '2017-11-05'
 
                         def __init__(self):
                             super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup, self).__init__()
@@ -1404,8 +1371,7 @@ class Hsrp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['slave_group_number']
-                            self._child_container_classes = OrderedDict([("secondary-ipv4-addresses", ("secondary_ipv4_addresses", Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("secondary-ipv4-addresses", ("secondary_ipv4_addresses", Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses))])
                             self._leafs = OrderedDict([
                                 ('slave_group_number', YLeaf(YType.uint32, 'slave-group-number')),
                                 ('follow', YLeaf(YType.str, 'follow')),
@@ -1420,7 +1386,6 @@ class Hsrp(Entity):
                             self.secondary_ipv4_addresses = Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses()
                             self.secondary_ipv4_addresses.parent = self
                             self._children_name_map["secondary_ipv4_addresses"] = "secondary-ipv4-addresses"
-                            self._children_yang_names.add("secondary-ipv4-addresses")
                             self._segment_path = lambda: "slave-group" + "[slave-group-number='" + str(self.slave_group_number) + "']"
 
                         def __setattr__(self, name, value):
@@ -1441,7 +1406,7 @@ class Hsrp(Entity):
                             """
 
                             _prefix = 'ipv4-hsrp-cfg'
-                            _revision = '2017-10-04'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses, self).__init__()
@@ -1451,8 +1416,7 @@ class Hsrp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("secondary-ipv4-address", ("secondary_ipv4_address", Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses.SecondaryIpv4Address))])
+                                self._child_classes = OrderedDict([("secondary-ipv4-address", ("secondary_ipv4_address", Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses.SecondaryIpv4Address))])
                                 self._leafs = OrderedDict()
 
                                 self.secondary_ipv4_address = YList(self)
@@ -1478,7 +1442,7 @@ class Hsrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-hsrp-cfg'
-                                _revision = '2017-10-04'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__init__()
@@ -1488,8 +1452,7 @@ class Hsrp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['address']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('address', YLeaf(YType.str, 'address')),
                                     ])
@@ -1514,7 +1477,7 @@ class Hsrp(Entity):
                     """
 
                     _prefix = 'ipv4-hsrp-cfg'
-                    _revision = '2017-10-04'
+                    _revision = '2017-11-05'
 
                     def __init__(self):
                         super(Hsrp.Interfaces.Interface.Ipv4.Version1, self).__init__()
@@ -1524,15 +1487,16 @@ class Hsrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("groups", ("groups", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("groups", ("groups", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups))])
                         self._leafs = OrderedDict()
 
                         self.groups = Hsrp.Interfaces.Interface.Ipv4.Version1.Groups()
                         self.groups.parent = self
                         self._children_name_map["groups"] = "groups"
-                        self._children_yang_names.add("groups")
                         self._segment_path = lambda: "version1"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version1, [], name, value)
 
 
                     class Groups(Entity):
@@ -1549,7 +1513,7 @@ class Hsrp(Entity):
                         """
 
                         _prefix = 'ipv4-hsrp-cfg'
-                        _revision = '2017-10-04'
+                        _revision = '2017-11-05'
 
                         def __init__(self):
                             super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups, self).__init__()
@@ -1559,8 +1523,7 @@ class Hsrp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("group", ("group", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group))])
+                            self._child_classes = OrderedDict([("group", ("group", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group))])
                             self._leafs = OrderedDict()
 
                             self.group = YList(self)
@@ -1641,7 +1604,7 @@ class Hsrp(Entity):
                             	Force active if higher priority
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             	**default value**\: 0
                             
@@ -1657,7 +1620,7 @@ class Hsrp(Entity):
                             """
 
                             _prefix = 'ipv4-hsrp-cfg'
-                            _revision = '2017-10-04'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group, self).__init__()
@@ -1667,14 +1630,13 @@ class Hsrp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['group_number']
-                                self._child_container_classes = OrderedDict([("tracked-interfaces", ("tracked_interfaces", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces)), ("bfd", ("bfd", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Bfd)), ("tracked-objects", ("tracked_objects", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects)), ("timers", ("timers", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Timers)), ("primary-ipv4-address", ("primary_ipv4_address", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.PrimaryIpv4Address)), ("secondary-ipv4-addresses", ("secondary_ipv4_addresses", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("tracked-interfaces", ("tracked_interfaces", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces)), ("bfd", ("bfd", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Bfd)), ("tracked-objects", ("tracked_objects", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects)), ("timers", ("timers", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Timers)), ("primary-ipv4-address", ("primary_ipv4_address", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.PrimaryIpv4Address)), ("secondary-ipv4-addresses", ("secondary_ipv4_addresses", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses))])
                                 self._leafs = OrderedDict([
                                     ('group_number', YLeaf(YType.uint32, 'group-number')),
                                     ('authentication', YLeaf(YType.str, 'authentication')),
                                     ('session_name', YLeaf(YType.str, 'session-name')),
                                     ('priority', YLeaf(YType.uint32, 'priority')),
-                                    ('preempt', YLeaf(YType.int32, 'preempt')),
+                                    ('preempt', YLeaf(YType.uint32, 'preempt')),
                                     ('virtual_mac_address', YLeaf(YType.str, 'virtual-mac-address')),
                                 ])
                                 self.group_number = None
@@ -1687,32 +1649,26 @@ class Hsrp(Entity):
                                 self.tracked_interfaces = Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces()
                                 self.tracked_interfaces.parent = self
                                 self._children_name_map["tracked_interfaces"] = "tracked-interfaces"
-                                self._children_yang_names.add("tracked-interfaces")
 
                                 self.bfd = Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Bfd()
                                 self.bfd.parent = self
                                 self._children_name_map["bfd"] = "bfd"
-                                self._children_yang_names.add("bfd")
 
                                 self.tracked_objects = Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects()
                                 self.tracked_objects.parent = self
                                 self._children_name_map["tracked_objects"] = "tracked-objects"
-                                self._children_yang_names.add("tracked-objects")
 
                                 self.timers = Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Timers()
                                 self.timers.parent = self
                                 self._children_name_map["timers"] = "timers"
-                                self._children_yang_names.add("timers")
 
                                 self.primary_ipv4_address = Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.PrimaryIpv4Address()
                                 self.primary_ipv4_address.parent = self
                                 self._children_name_map["primary_ipv4_address"] = "primary-ipv4-address"
-                                self._children_yang_names.add("primary-ipv4-address")
 
                                 self.secondary_ipv4_addresses = Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses()
                                 self.secondary_ipv4_addresses.parent = self
                                 self._children_name_map["secondary_ipv4_addresses"] = "secondary-ipv4-addresses"
-                                self._children_yang_names.add("secondary-ipv4-addresses")
                                 self._segment_path = lambda: "group" + "[group-number='" + str(self.group_number) + "']"
 
                             def __setattr__(self, name, value):
@@ -1734,7 +1690,7 @@ class Hsrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-hsrp-cfg'
-                                _revision = '2017-10-04'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces, self).__init__()
@@ -1744,8 +1700,7 @@ class Hsrp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("tracked-interface", ("tracked_interface", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces.TrackedInterface))])
+                                    self._child_classes = OrderedDict([("tracked-interface", ("tracked_interface", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces.TrackedInterface))])
                                     self._leafs = OrderedDict()
 
                                     self.tracked_interface = YList(self)
@@ -1780,7 +1735,7 @@ class Hsrp(Entity):
                                     """
 
                                     _prefix = 'ipv4-hsrp-cfg'
-                                    _revision = '2017-10-04'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces.TrackedInterface, self).__init__()
@@ -1790,8 +1745,7 @@ class Hsrp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['interface_name']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                             ('priority_decrement', YLeaf(YType.uint32, 'priority-decrement')),
@@ -1828,7 +1782,7 @@ class Hsrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-hsrp-cfg'
-                                _revision = '2017-10-04'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Bfd, self).__init__()
@@ -1838,8 +1792,7 @@ class Hsrp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('address', YLeaf(YType.str, 'address')),
                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
@@ -1867,7 +1820,7 @@ class Hsrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-hsrp-cfg'
-                                _revision = '2017-10-04'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects, self).__init__()
@@ -1877,8 +1830,7 @@ class Hsrp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("tracked-object", ("tracked_object", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects.TrackedObject))])
+                                    self._child_classes = OrderedDict([("tracked-object", ("tracked_object", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects.TrackedObject))])
                                     self._leafs = OrderedDict()
 
                                     self.tracked_object = YList(self)
@@ -1913,7 +1865,7 @@ class Hsrp(Entity):
                                     """
 
                                     _prefix = 'ipv4-hsrp-cfg'
-                                    _revision = '2017-10-04'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects.TrackedObject, self).__init__()
@@ -1923,8 +1875,7 @@ class Hsrp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['object_name']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('object_name', YLeaf(YType.str, 'object-name')),
                                             ('priority_decrement', YLeaf(YType.uint32, 'priority-decrement')),
@@ -2000,7 +1951,7 @@ class Hsrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-hsrp-cfg'
-                                _revision = '2017-10-04'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Timers, self).__init__()
@@ -2010,8 +1961,7 @@ class Hsrp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('hello_msec_flag', YLeaf(YType.boolean, 'hello-msec-flag')),
                                         ('hello_msec', YLeaf(YType.uint32, 'hello-msec')),
@@ -2053,7 +2003,7 @@ class Hsrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-hsrp-cfg'
-                                _revision = '2017-10-04'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.PrimaryIpv4Address, self).__init__()
@@ -2063,8 +2013,7 @@ class Hsrp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('virtual_ip_learn', YLeaf(YType.boolean, 'virtual-ip-learn')),
                                         ('address', YLeaf(YType.str, 'address')),
@@ -2091,7 +2040,7 @@ class Hsrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-hsrp-cfg'
-                                _revision = '2017-10-04'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses, self).__init__()
@@ -2101,8 +2050,7 @@ class Hsrp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("secondary-ipv4-address", ("secondary_ipv4_address", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses.SecondaryIpv4Address))])
+                                    self._child_classes = OrderedDict([("secondary-ipv4-address", ("secondary_ipv4_address", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses.SecondaryIpv4Address))])
                                     self._leafs = OrderedDict()
 
                                     self.secondary_ipv4_address = YList(self)
@@ -2128,7 +2076,7 @@ class Hsrp(Entity):
                                     """
 
                                     _prefix = 'ipv4-hsrp-cfg'
-                                    _revision = '2017-10-04'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__init__()
@@ -2138,8 +2086,7 @@ class Hsrp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['address']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('address', YLeaf(YType.str, 'address')),
                                         ])
@@ -2164,7 +2111,7 @@ class Hsrp(Entity):
                     """
 
                     _prefix = 'ipv4-hsrp-cfg'
-                    _revision = '2017-10-04'
+                    _revision = '2017-11-05'
 
                     def __init__(self):
                         super(Hsrp.Interfaces.Interface.Ipv4.Version2, self).__init__()
@@ -2174,15 +2121,16 @@ class Hsrp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("groups", ("groups", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("groups", ("groups", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups))])
                         self._leafs = OrderedDict()
 
                         self.groups = Hsrp.Interfaces.Interface.Ipv4.Version2.Groups()
                         self.groups.parent = self
                         self._children_name_map["groups"] = "groups"
-                        self._children_yang_names.add("groups")
                         self._segment_path = lambda: "version2"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version2, [], name, value)
 
 
                     class Groups(Entity):
@@ -2199,7 +2147,7 @@ class Hsrp(Entity):
                         """
 
                         _prefix = 'ipv4-hsrp-cfg'
-                        _revision = '2017-10-04'
+                        _revision = '2017-11-05'
 
                         def __init__(self):
                             super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups, self).__init__()
@@ -2209,8 +2157,7 @@ class Hsrp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("group", ("group", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group))])
+                            self._child_classes = OrderedDict([("group", ("group", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group))])
                             self._leafs = OrderedDict()
 
                             self.group = YList(self)
@@ -2266,7 +2213,7 @@ class Hsrp(Entity):
                             	Force active if higher priority
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             	**default value**\: 0
                             
@@ -2298,7 +2245,7 @@ class Hsrp(Entity):
                             """
 
                             _prefix = 'ipv4-hsrp-cfg'
-                            _revision = '2017-10-04'
+                            _revision = '2017-11-05'
 
                             def __init__(self):
                                 super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group, self).__init__()
@@ -2308,11 +2255,10 @@ class Hsrp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['group_number']
-                                self._child_container_classes = OrderedDict([("secondary-ipv4-addresses", ("secondary_ipv4_addresses", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses)), ("bfd", ("bfd", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Bfd)), ("primary-ipv4-address", ("primary_ipv4_address", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.PrimaryIpv4Address)), ("tracked-objects", ("tracked_objects", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects)), ("tracked-interfaces", ("tracked_interfaces", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces)), ("timers", ("timers", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Timers))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("secondary-ipv4-addresses", ("secondary_ipv4_addresses", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses)), ("bfd", ("bfd", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Bfd)), ("primary-ipv4-address", ("primary_ipv4_address", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.PrimaryIpv4Address)), ("tracked-objects", ("tracked_objects", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects)), ("tracked-interfaces", ("tracked_interfaces", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces)), ("timers", ("timers", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Timers))])
                                 self._leafs = OrderedDict([
                                     ('group_number', YLeaf(YType.uint32, 'group-number')),
-                                    ('preempt', YLeaf(YType.int32, 'preempt')),
+                                    ('preempt', YLeaf(YType.uint32, 'preempt')),
                                     ('priority', YLeaf(YType.uint32, 'priority')),
                                     ('virtual_mac_address', YLeaf(YType.str, 'virtual-mac-address')),
                                     ('session_name', YLeaf(YType.str, 'session-name')),
@@ -2326,32 +2272,26 @@ class Hsrp(Entity):
                                 self.secondary_ipv4_addresses = Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses()
                                 self.secondary_ipv4_addresses.parent = self
                                 self._children_name_map["secondary_ipv4_addresses"] = "secondary-ipv4-addresses"
-                                self._children_yang_names.add("secondary-ipv4-addresses")
 
                                 self.bfd = Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Bfd()
                                 self.bfd.parent = self
                                 self._children_name_map["bfd"] = "bfd"
-                                self._children_yang_names.add("bfd")
 
                                 self.primary_ipv4_address = Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.PrimaryIpv4Address()
                                 self.primary_ipv4_address.parent = self
                                 self._children_name_map["primary_ipv4_address"] = "primary-ipv4-address"
-                                self._children_yang_names.add("primary-ipv4-address")
 
                                 self.tracked_objects = Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects()
                                 self.tracked_objects.parent = self
                                 self._children_name_map["tracked_objects"] = "tracked-objects"
-                                self._children_yang_names.add("tracked-objects")
 
                                 self.tracked_interfaces = Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces()
                                 self.tracked_interfaces.parent = self
                                 self._children_name_map["tracked_interfaces"] = "tracked-interfaces"
-                                self._children_yang_names.add("tracked-interfaces")
 
                                 self.timers = Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Timers()
                                 self.timers.parent = self
                                 self._children_name_map["timers"] = "timers"
-                                self._children_yang_names.add("timers")
                                 self._segment_path = lambda: "group" + "[group-number='" + str(self.group_number) + "']"
 
                             def __setattr__(self, name, value):
@@ -2372,7 +2312,7 @@ class Hsrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-hsrp-cfg'
-                                _revision = '2017-10-04'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses, self).__init__()
@@ -2382,8 +2322,7 @@ class Hsrp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("secondary-ipv4-address", ("secondary_ipv4_address", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses.SecondaryIpv4Address))])
+                                    self._child_classes = OrderedDict([("secondary-ipv4-address", ("secondary_ipv4_address", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses.SecondaryIpv4Address))])
                                     self._leafs = OrderedDict()
 
                                     self.secondary_ipv4_address = YList(self)
@@ -2409,7 +2348,7 @@ class Hsrp(Entity):
                                     """
 
                                     _prefix = 'ipv4-hsrp-cfg'
-                                    _revision = '2017-10-04'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__init__()
@@ -2419,8 +2358,7 @@ class Hsrp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['address']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('address', YLeaf(YType.str, 'address')),
                                         ])
@@ -2455,7 +2393,7 @@ class Hsrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-hsrp-cfg'
-                                _revision = '2017-10-04'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Bfd, self).__init__()
@@ -2465,8 +2403,7 @@ class Hsrp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('address', YLeaf(YType.str, 'address')),
                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
@@ -2500,7 +2437,7 @@ class Hsrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-hsrp-cfg'
-                                _revision = '2017-10-04'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.PrimaryIpv4Address, self).__init__()
@@ -2510,8 +2447,7 @@ class Hsrp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('virtual_ip_learn', YLeaf(YType.boolean, 'virtual-ip-learn')),
                                         ('address', YLeaf(YType.str, 'address')),
@@ -2539,7 +2475,7 @@ class Hsrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-hsrp-cfg'
-                                _revision = '2017-10-04'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects, self).__init__()
@@ -2549,8 +2485,7 @@ class Hsrp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("tracked-object", ("tracked_object", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects.TrackedObject))])
+                                    self._child_classes = OrderedDict([("tracked-object", ("tracked_object", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects.TrackedObject))])
                                     self._leafs = OrderedDict()
 
                                     self.tracked_object = YList(self)
@@ -2585,7 +2520,7 @@ class Hsrp(Entity):
                                     """
 
                                     _prefix = 'ipv4-hsrp-cfg'
-                                    _revision = '2017-10-04'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects.TrackedObject, self).__init__()
@@ -2595,8 +2530,7 @@ class Hsrp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['object_name']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('object_name', YLeaf(YType.str, 'object-name')),
                                             ('priority_decrement', YLeaf(YType.uint32, 'priority-decrement')),
@@ -2624,7 +2558,7 @@ class Hsrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-hsrp-cfg'
-                                _revision = '2017-10-04'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces, self).__init__()
@@ -2634,8 +2568,7 @@ class Hsrp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("tracked-interface", ("tracked_interface", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces.TrackedInterface))])
+                                    self._child_classes = OrderedDict([("tracked-interface", ("tracked_interface", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces.TrackedInterface))])
                                     self._leafs = OrderedDict()
 
                                     self.tracked_interface = YList(self)
@@ -2670,7 +2603,7 @@ class Hsrp(Entity):
                                     """
 
                                     _prefix = 'ipv4-hsrp-cfg'
-                                    _revision = '2017-10-04'
+                                    _revision = '2017-11-05'
 
                                     def __init__(self):
                                         super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces.TrackedInterface, self).__init__()
@@ -2680,8 +2613,7 @@ class Hsrp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['interface_name']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                             ('priority_decrement', YLeaf(YType.uint32, 'priority-decrement')),
@@ -2757,7 +2689,7 @@ class Hsrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-hsrp-cfg'
-                                _revision = '2017-10-04'
+                                _revision = '2017-11-05'
 
                                 def __init__(self):
                                     super(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Timers, self).__init__()
@@ -2767,8 +2699,7 @@ class Hsrp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('hello_msec_flag', YLeaf(YType.boolean, 'hello-msec-flag')),
                                         ('hello_msec', YLeaf(YType.uint32, 'hello-msec')),
@@ -2803,7 +2734,7 @@ class Hsrp(Entity):
         """
 
         _prefix = 'ipv4-hsrp-cfg'
-        _revision = '2017-10-04'
+        _revision = '2017-11-05'
 
         def __init__(self):
             super(Hsrp.Logging, self).__init__()
@@ -2813,8 +2744,7 @@ class Hsrp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('state_change_disable', YLeaf(YType.empty, 'state-change-disable')),
             ])

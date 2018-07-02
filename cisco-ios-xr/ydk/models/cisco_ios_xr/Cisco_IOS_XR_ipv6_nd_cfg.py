@@ -188,8 +188,7 @@ class Ipv6Neighbor(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("neighbors", ("neighbors", Ipv6Neighbor.Neighbors))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("neighbors", ("neighbors", Ipv6Neighbor.Neighbors))])
         self._leafs = OrderedDict([
             ('scavenge_timeout', YLeaf(YType.uint32, 'scavenge-timeout')),
         ])
@@ -198,7 +197,6 @@ class Ipv6Neighbor(Entity):
         self.neighbors = Ipv6Neighbor.Neighbors()
         self.neighbors.parent = self
         self._children_name_map["neighbors"] = "neighbors"
-        self._children_yang_names.add("neighbors")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv6-nd-cfg:ipv6-neighbor"
 
     def __setattr__(self, name, value):
@@ -229,8 +227,7 @@ class Ipv6Neighbor(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Ipv6Neighbor.Neighbors.Neighbor))])
+            self._child_classes = OrderedDict([("neighbor", ("neighbor", Ipv6Neighbor.Neighbors.Neighbor))])
             self._leafs = OrderedDict()
 
             self.neighbor = YList(self)
@@ -295,8 +292,7 @@ class Ipv6Neighbor(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['neighbor_address','interface_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
                     ('interface_name', YLeaf(YType.str, 'interface-name')),

@@ -159,102 +159,102 @@ class CISCOCEFMIB(Entity):
     .. attribute:: ceffib
     
     	
-    	**type**\:  :py:class:`Ceffib <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Ceffib>`
+    	**type**\:  :py:class:`CefFIB <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefFIB>`
     
     .. attribute:: cefcc
     
     	
-    	**type**\:  :py:class:`Cefcc <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefcc>`
+    	**type**\:  :py:class:`CefCC <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefCC>`
     
     .. attribute:: cefnotifcntl
     
     	
-    	**type**\:  :py:class:`Cefnotifcntl <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefnotifcntl>`
+    	**type**\:  :py:class:`CefNotifCntl <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefNotifCntl>`
     
     .. attribute:: ceffibsummarytable
     
     	This table contains the summary information for the cefPrefixTable
-    	**type**\:  :py:class:`Ceffibsummarytable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Ceffibsummarytable>`
+    	**type**\:  :py:class:`CefFIBSummaryTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefFIBSummaryTable>`
     
     .. attribute:: cefprefixtable
     
     	A list of CEF forwarding prefixes
-    	**type**\:  :py:class:`Cefprefixtable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefprefixtable>`
+    	**type**\:  :py:class:`CefPrefixTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPrefixTable>`
     
     .. attribute:: ceflmprefixtable
     
     	A table of Longest Match Prefix Query requests.  Generator application should utilize the cefLMPrefixSpinLock to try to avoid collisions. See DESCRIPTION clause of cefLMPrefixSpinLock
-    	**type**\:  :py:class:`Ceflmprefixtable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Ceflmprefixtable>`
+    	**type**\:  :py:class:`CefLMPrefixTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefLMPrefixTable>`
     
     .. attribute:: cefpathtable
     
     	CEF prefix path is a valid route to reach to a  destination IP prefix. Multiple paths may exist  out of a router to the same destination prefix.  This table specify lists of CEF paths
-    	**type**\:  :py:class:`Cefpathtable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefpathtable>`
+    	**type**\:  :py:class:`CefPathTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPathTable>`
     
     .. attribute:: cefadjsummarytable
     
     	This table contains the summary information for the cefAdjTable
-    	**type**\:  :py:class:`Cefadjsummarytable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefadjsummarytable>`
+    	**type**\:  :py:class:`CefAdjSummaryTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefAdjSummaryTable>`
     
     .. attribute:: cefadjtable
     
     	A list of CEF adjacencies
-    	**type**\:  :py:class:`Cefadjtable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefadjtable>`
+    	**type**\:  :py:class:`CefAdjTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefAdjTable>`
     
     .. attribute:: ceffeselectiontable
     
     	A list of forwarding element selection entries
-    	**type**\:  :py:class:`Ceffeselectiontable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Ceffeselectiontable>`
+    	**type**\:  :py:class:`CefFESelectionTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefFESelectionTable>`
     
     .. attribute:: cefcfgtable
     
     	This table contains global config parameter  of CEF on the Managed device
-    	**type**\:  :py:class:`Cefcfgtable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefcfgtable>`
+    	**type**\:  :py:class:`CefCfgTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefCfgTable>`
     
     .. attribute:: cefresourcetable
     
     	This table contains global resource  information of CEF on the Managed device
-    	**type**\:  :py:class:`Cefresourcetable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefresourcetable>`
+    	**type**\:  :py:class:`CefResourceTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefResourceTable>`
     
     .. attribute:: cefinttable
     
     	This Table contains interface specific information of CEF on the Managed device
-    	**type**\:  :py:class:`Cefinttable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefinttable>`
+    	**type**\:  :py:class:`CefIntTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefIntTable>`
     
     .. attribute:: cefpeertable
     
     	Entity acting as RP (Routing Processor) keeps the CEF states for the line card entities and communicates with the line card entities using XDR. This Table contains the CEF information  related to peer entities on the managed device
-    	**type**\:  :py:class:`Cefpeertable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefpeertable>`
+    	**type**\:  :py:class:`CefPeerTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPeerTable>`
     
     .. attribute:: cefpeerfibtable
     
     	Entity acting as RP (Routing Processor) keep the CEF FIB states for the line card entities and communicate with the line card entities using XDR. This Table contains the CEF FIB State  related to peer entities on the managed device
-    	**type**\:  :py:class:`Cefpeerfibtable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefpeerfibtable>`
+    	**type**\:  :py:class:`CefPeerFIBTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPeerFIBTable>`
     
     .. attribute:: cefccglobaltable
     
     	This table contains CEF consistency checker (CC) global parameters for the managed device
-    	**type**\:  :py:class:`Cefccglobaltable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefccglobaltable>`
+    	**type**\:  :py:class:`CefCCGlobalTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefCCGlobalTable>`
     
     .. attribute:: cefcctypetable
     
     	This table contains CEF consistency checker types specific parameters on the managed device.  All detected inconsistency are signaled to the Management Station via cefInconsistencyDetection notification
-    	**type**\:  :py:class:`Cefcctypetable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefcctypetable>`
+    	**type**\:  :py:class:`CefCCTypeTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefCCTypeTable>`
     
     .. attribute:: cefinconsistencyrecordtable
     
     	This table contains CEF inconsistency records
-    	**type**\:  :py:class:`Cefinconsistencyrecordtable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefinconsistencyrecordtable>`
+    	**type**\:  :py:class:`CefInconsistencyRecordTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefInconsistencyRecordTable>`
     
     .. attribute:: cefstatsprefixlentable
     
     	This table specifies the CEF stats based on the Prefix Length
-    	**type**\:  :py:class:`Cefstatsprefixlentable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefstatsprefixlentable>`
+    	**type**\:  :py:class:`CefStatsPrefixLenTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefStatsPrefixLenTable>`
     
     .. attribute:: cefswitchingstatstable
     
     	This table specifies the CEF switch stats
-    	**type**\:  :py:class:`Cefswitchingstatstable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefswitchingstatstable>`
+    	**type**\:  :py:class:`CefSwitchingStatsTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefSwitchingStatsTable>`
     
     
 
@@ -272,113 +272,95 @@ class CISCOCEFMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cefFIB", ("ceffib", CISCOCEFMIB.Ceffib)), ("cefCC", ("cefcc", CISCOCEFMIB.Cefcc)), ("cefNotifCntl", ("cefnotifcntl", CISCOCEFMIB.Cefnotifcntl)), ("cefFIBSummaryTable", ("ceffibsummarytable", CISCOCEFMIB.Ceffibsummarytable)), ("cefPrefixTable", ("cefprefixtable", CISCOCEFMIB.Cefprefixtable)), ("cefLMPrefixTable", ("ceflmprefixtable", CISCOCEFMIB.Ceflmprefixtable)), ("cefPathTable", ("cefpathtable", CISCOCEFMIB.Cefpathtable)), ("cefAdjSummaryTable", ("cefadjsummarytable", CISCOCEFMIB.Cefadjsummarytable)), ("cefAdjTable", ("cefadjtable", CISCOCEFMIB.Cefadjtable)), ("cefFESelectionTable", ("ceffeselectiontable", CISCOCEFMIB.Ceffeselectiontable)), ("cefCfgTable", ("cefcfgtable", CISCOCEFMIB.Cefcfgtable)), ("cefResourceTable", ("cefresourcetable", CISCOCEFMIB.Cefresourcetable)), ("cefIntTable", ("cefinttable", CISCOCEFMIB.Cefinttable)), ("cefPeerTable", ("cefpeertable", CISCOCEFMIB.Cefpeertable)), ("cefPeerFIBTable", ("cefpeerfibtable", CISCOCEFMIB.Cefpeerfibtable)), ("cefCCGlobalTable", ("cefccglobaltable", CISCOCEFMIB.Cefccglobaltable)), ("cefCCTypeTable", ("cefcctypetable", CISCOCEFMIB.Cefcctypetable)), ("cefInconsistencyRecordTable", ("cefinconsistencyrecordtable", CISCOCEFMIB.Cefinconsistencyrecordtable)), ("cefStatsPrefixLenTable", ("cefstatsprefixlentable", CISCOCEFMIB.Cefstatsprefixlentable)), ("cefSwitchingStatsTable", ("cefswitchingstatstable", CISCOCEFMIB.Cefswitchingstatstable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cefFIB", ("ceffib", CISCOCEFMIB.CefFIB)), ("cefCC", ("cefcc", CISCOCEFMIB.CefCC)), ("cefNotifCntl", ("cefnotifcntl", CISCOCEFMIB.CefNotifCntl)), ("cefFIBSummaryTable", ("ceffibsummarytable", CISCOCEFMIB.CefFIBSummaryTable)), ("cefPrefixTable", ("cefprefixtable", CISCOCEFMIB.CefPrefixTable)), ("cefLMPrefixTable", ("ceflmprefixtable", CISCOCEFMIB.CefLMPrefixTable)), ("cefPathTable", ("cefpathtable", CISCOCEFMIB.CefPathTable)), ("cefAdjSummaryTable", ("cefadjsummarytable", CISCOCEFMIB.CefAdjSummaryTable)), ("cefAdjTable", ("cefadjtable", CISCOCEFMIB.CefAdjTable)), ("cefFESelectionTable", ("ceffeselectiontable", CISCOCEFMIB.CefFESelectionTable)), ("cefCfgTable", ("cefcfgtable", CISCOCEFMIB.CefCfgTable)), ("cefResourceTable", ("cefresourcetable", CISCOCEFMIB.CefResourceTable)), ("cefIntTable", ("cefinttable", CISCOCEFMIB.CefIntTable)), ("cefPeerTable", ("cefpeertable", CISCOCEFMIB.CefPeerTable)), ("cefPeerFIBTable", ("cefpeerfibtable", CISCOCEFMIB.CefPeerFIBTable)), ("cefCCGlobalTable", ("cefccglobaltable", CISCOCEFMIB.CefCCGlobalTable)), ("cefCCTypeTable", ("cefcctypetable", CISCOCEFMIB.CefCCTypeTable)), ("cefInconsistencyRecordTable", ("cefinconsistencyrecordtable", CISCOCEFMIB.CefInconsistencyRecordTable)), ("cefStatsPrefixLenTable", ("cefstatsprefixlentable", CISCOCEFMIB.CefStatsPrefixLenTable)), ("cefSwitchingStatsTable", ("cefswitchingstatstable", CISCOCEFMIB.CefSwitchingStatsTable))])
         self._leafs = OrderedDict()
 
-        self.ceffib = CISCOCEFMIB.Ceffib()
+        self.ceffib = CISCOCEFMIB.CefFIB()
         self.ceffib.parent = self
         self._children_name_map["ceffib"] = "cefFIB"
-        self._children_yang_names.add("cefFIB")
 
-        self.cefcc = CISCOCEFMIB.Cefcc()
+        self.cefcc = CISCOCEFMIB.CefCC()
         self.cefcc.parent = self
         self._children_name_map["cefcc"] = "cefCC"
-        self._children_yang_names.add("cefCC")
 
-        self.cefnotifcntl = CISCOCEFMIB.Cefnotifcntl()
+        self.cefnotifcntl = CISCOCEFMIB.CefNotifCntl()
         self.cefnotifcntl.parent = self
         self._children_name_map["cefnotifcntl"] = "cefNotifCntl"
-        self._children_yang_names.add("cefNotifCntl")
 
-        self.ceffibsummarytable = CISCOCEFMIB.Ceffibsummarytable()
+        self.ceffibsummarytable = CISCOCEFMIB.CefFIBSummaryTable()
         self.ceffibsummarytable.parent = self
         self._children_name_map["ceffibsummarytable"] = "cefFIBSummaryTable"
-        self._children_yang_names.add("cefFIBSummaryTable")
 
-        self.cefprefixtable = CISCOCEFMIB.Cefprefixtable()
+        self.cefprefixtable = CISCOCEFMIB.CefPrefixTable()
         self.cefprefixtable.parent = self
         self._children_name_map["cefprefixtable"] = "cefPrefixTable"
-        self._children_yang_names.add("cefPrefixTable")
 
-        self.ceflmprefixtable = CISCOCEFMIB.Ceflmprefixtable()
+        self.ceflmprefixtable = CISCOCEFMIB.CefLMPrefixTable()
         self.ceflmprefixtable.parent = self
         self._children_name_map["ceflmprefixtable"] = "cefLMPrefixTable"
-        self._children_yang_names.add("cefLMPrefixTable")
 
-        self.cefpathtable = CISCOCEFMIB.Cefpathtable()
+        self.cefpathtable = CISCOCEFMIB.CefPathTable()
         self.cefpathtable.parent = self
         self._children_name_map["cefpathtable"] = "cefPathTable"
-        self._children_yang_names.add("cefPathTable")
 
-        self.cefadjsummarytable = CISCOCEFMIB.Cefadjsummarytable()
+        self.cefadjsummarytable = CISCOCEFMIB.CefAdjSummaryTable()
         self.cefadjsummarytable.parent = self
         self._children_name_map["cefadjsummarytable"] = "cefAdjSummaryTable"
-        self._children_yang_names.add("cefAdjSummaryTable")
 
-        self.cefadjtable = CISCOCEFMIB.Cefadjtable()
+        self.cefadjtable = CISCOCEFMIB.CefAdjTable()
         self.cefadjtable.parent = self
         self._children_name_map["cefadjtable"] = "cefAdjTable"
-        self._children_yang_names.add("cefAdjTable")
 
-        self.ceffeselectiontable = CISCOCEFMIB.Ceffeselectiontable()
+        self.ceffeselectiontable = CISCOCEFMIB.CefFESelectionTable()
         self.ceffeselectiontable.parent = self
         self._children_name_map["ceffeselectiontable"] = "cefFESelectionTable"
-        self._children_yang_names.add("cefFESelectionTable")
 
-        self.cefcfgtable = CISCOCEFMIB.Cefcfgtable()
+        self.cefcfgtable = CISCOCEFMIB.CefCfgTable()
         self.cefcfgtable.parent = self
         self._children_name_map["cefcfgtable"] = "cefCfgTable"
-        self._children_yang_names.add("cefCfgTable")
 
-        self.cefresourcetable = CISCOCEFMIB.Cefresourcetable()
+        self.cefresourcetable = CISCOCEFMIB.CefResourceTable()
         self.cefresourcetable.parent = self
         self._children_name_map["cefresourcetable"] = "cefResourceTable"
-        self._children_yang_names.add("cefResourceTable")
 
-        self.cefinttable = CISCOCEFMIB.Cefinttable()
+        self.cefinttable = CISCOCEFMIB.CefIntTable()
         self.cefinttable.parent = self
         self._children_name_map["cefinttable"] = "cefIntTable"
-        self._children_yang_names.add("cefIntTable")
 
-        self.cefpeertable = CISCOCEFMIB.Cefpeertable()
+        self.cefpeertable = CISCOCEFMIB.CefPeerTable()
         self.cefpeertable.parent = self
         self._children_name_map["cefpeertable"] = "cefPeerTable"
-        self._children_yang_names.add("cefPeerTable")
 
-        self.cefpeerfibtable = CISCOCEFMIB.Cefpeerfibtable()
+        self.cefpeerfibtable = CISCOCEFMIB.CefPeerFIBTable()
         self.cefpeerfibtable.parent = self
         self._children_name_map["cefpeerfibtable"] = "cefPeerFIBTable"
-        self._children_yang_names.add("cefPeerFIBTable")
 
-        self.cefccglobaltable = CISCOCEFMIB.Cefccglobaltable()
+        self.cefccglobaltable = CISCOCEFMIB.CefCCGlobalTable()
         self.cefccglobaltable.parent = self
         self._children_name_map["cefccglobaltable"] = "cefCCGlobalTable"
-        self._children_yang_names.add("cefCCGlobalTable")
 
-        self.cefcctypetable = CISCOCEFMIB.Cefcctypetable()
+        self.cefcctypetable = CISCOCEFMIB.CefCCTypeTable()
         self.cefcctypetable.parent = self
         self._children_name_map["cefcctypetable"] = "cefCCTypeTable"
-        self._children_yang_names.add("cefCCTypeTable")
 
-        self.cefinconsistencyrecordtable = CISCOCEFMIB.Cefinconsistencyrecordtable()
+        self.cefinconsistencyrecordtable = CISCOCEFMIB.CefInconsistencyRecordTable()
         self.cefinconsistencyrecordtable.parent = self
         self._children_name_map["cefinconsistencyrecordtable"] = "cefInconsistencyRecordTable"
-        self._children_yang_names.add("cefInconsistencyRecordTable")
 
-        self.cefstatsprefixlentable = CISCOCEFMIB.Cefstatsprefixlentable()
+        self.cefstatsprefixlentable = CISCOCEFMIB.CefStatsPrefixLenTable()
         self.cefstatsprefixlentable.parent = self
         self._children_name_map["cefstatsprefixlentable"] = "cefStatsPrefixLenTable"
-        self._children_yang_names.add("cefStatsPrefixLenTable")
 
-        self.cefswitchingstatstable = CISCOCEFMIB.Cefswitchingstatstable()
+        self.cefswitchingstatstable = CISCOCEFMIB.CefSwitchingStatsTable()
         self.cefswitchingstatstable.parent = self
         self._children_name_map["cefswitchingstatstable"] = "cefSwitchingStatsTable"
-        self._children_yang_names.add("cefSwitchingStatsTable")
         self._segment_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOCEFMIB, [], name, value)
 
-    class Ceffib(Entity):
+
+    class CefFIB(Entity):
         """
         
         
@@ -397,15 +379,14 @@ class CISCOCEFMIB(Entity):
         _revision = '2006-01-30'
 
         def __init__(self):
-            super(CISCOCEFMIB.Ceffib, self).__init__()
+            super(CISCOCEFMIB.CefFIB, self).__init__()
 
             self.yang_name = "cefFIB"
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ceflmprefixspinlock', YLeaf(YType.int32, 'cefLMPrefixSpinLock')),
             ])
@@ -414,10 +395,10 @@ class CISCOCEFMIB(Entity):
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCEFMIB.Ceffib, ['ceflmprefixspinlock'], name, value)
+            self._perform_setattr(CISCOCEFMIB.CefFIB, ['ceflmprefixspinlock'], name, value)
 
 
-    class Cefcc(Entity):
+    class CefCC(Entity):
         """
         
         
@@ -446,15 +427,14 @@ class CISCOCEFMIB(Entity):
         _revision = '2006-01-30'
 
         def __init__(self):
-            super(CISCOCEFMIB.Cefcc, self).__init__()
+            super(CISCOCEFMIB.CefCC, self).__init__()
 
             self.yang_name = "cefCC"
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('entlastinconsistencydetecttime', YLeaf(YType.uint32, 'entLastInconsistencyDetectTime')),
                 ('cefinconsistencyreset', YLeaf(YType.enumeration, 'cefInconsistencyReset')),
@@ -467,10 +447,10 @@ class CISCOCEFMIB(Entity):
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCEFMIB.Cefcc, ['entlastinconsistencydetecttime', 'cefinconsistencyreset', 'cefinconsistencyresetstatus'], name, value)
+            self._perform_setattr(CISCOCEFMIB.CefCC, ['entlastinconsistencydetecttime', 'cefinconsistencyreset', 'cefinconsistencyresetstatus'], name, value)
 
 
-    class Cefnotifcntl(Entity):
+    class CefNotifCntl(Entity):
         """
         
         
@@ -511,15 +491,14 @@ class CISCOCEFMIB(Entity):
         _revision = '2006-01-30'
 
         def __init__(self):
-            super(CISCOCEFMIB.Cefnotifcntl, self).__init__()
+            super(CISCOCEFMIB.CefNotifCntl, self).__init__()
 
             self.yang_name = "cefNotifCntl"
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cefresourcefailurenotifenable', YLeaf(YType.boolean, 'cefResourceFailureNotifEnable')),
                 ('cefpeerstatechangenotifenable', YLeaf(YType.boolean, 'cefPeerStateChangeNotifEnable')),
@@ -536,10 +515,10 @@ class CISCOCEFMIB(Entity):
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCEFMIB.Cefnotifcntl, ['cefresourcefailurenotifenable', 'cefpeerstatechangenotifenable', 'cefpeerfibstatechangenotifenable', 'cefnotifthrottlinginterval', 'cefinconsistencynotifenable'], name, value)
+            self._perform_setattr(CISCOCEFMIB.CefNotifCntl, ['cefresourcefailurenotifenable', 'cefpeerstatechangenotifenable', 'cefpeerfibstatechangenotifenable', 'cefnotifthrottlinginterval', 'cefinconsistencynotifenable'], name, value)
 
 
-    class Ceffibsummarytable(Entity):
+    class CefFIBSummaryTable(Entity):
         """
         This table contains the summary information
         for the cefPrefixTable.
@@ -547,7 +526,7 @@ class CISCOCEFMIB(Entity):
         .. attribute:: ceffibsummaryentry
         
         	If CEF is enabled on the Managed device, each entry contains the FIB summary related attributes for the managed entity.  A row may exist for each IP version type (v4 and v6) depending upon the IP version supported on the device.  entPhysicalIndex is also an index for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
-        	**type**\: list of  		 :py:class:`Ceffibsummaryentry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Ceffibsummarytable.Ceffibsummaryentry>`
+        	**type**\: list of  		 :py:class:`CefFIBSummaryEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefFIBSummaryTable.CefFIBSummaryEntry>`
         
         
 
@@ -557,15 +536,14 @@ class CISCOCEFMIB(Entity):
         _revision = '2006-01-30'
 
         def __init__(self):
-            super(CISCOCEFMIB.Ceffibsummarytable, self).__init__()
+            super(CISCOCEFMIB.CefFIBSummaryTable, self).__init__()
 
             self.yang_name = "cefFIBSummaryTable"
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefFIBSummaryEntry", ("ceffibsummaryentry", CISCOCEFMIB.Ceffibsummarytable.Ceffibsummaryentry))])
+            self._child_classes = OrderedDict([("cefFIBSummaryEntry", ("ceffibsummaryentry", CISCOCEFMIB.CefFIBSummaryTable.CefFIBSummaryEntry))])
             self._leafs = OrderedDict()
 
             self.ceffibsummaryentry = YList(self)
@@ -573,10 +551,10 @@ class CISCOCEFMIB(Entity):
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCEFMIB.Ceffibsummarytable, [], name, value)
+            self._perform_setattr(CISCOCEFMIB.CefFIBSummaryTable, [], name, value)
 
 
-        class Ceffibsummaryentry(Entity):
+        class CefFIBSummaryEntry(Entity):
             """
             If CEF is enabled on the Managed device,
             each entry contains the FIB summary related
@@ -598,7 +576,7 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: ceffibipversion  (key)
             
@@ -620,15 +598,14 @@ class CISCOCEFMIB(Entity):
             _revision = '2006-01-30'
 
             def __init__(self):
-                super(CISCOCEFMIB.Ceffibsummarytable.Ceffibsummaryentry, self).__init__()
+                super(CISCOCEFMIB.CefFIBSummaryTable.CefFIBSummaryEntry, self).__init__()
 
                 self.yang_name = "cefFIBSummaryEntry"
                 self.yang_parent_name = "cefFIBSummaryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','ceffibipversion']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
@@ -641,17 +618,17 @@ class CISCOCEFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefFIBSummaryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCEFMIB.Ceffibsummarytable.Ceffibsummaryentry, ['entphysicalindex', 'ceffibipversion', 'ceffibsummaryfwdprefixes'], name, value)
+                self._perform_setattr(CISCOCEFMIB.CefFIBSummaryTable.CefFIBSummaryEntry, ['entphysicalindex', 'ceffibipversion', 'ceffibsummaryfwdprefixes'], name, value)
 
 
-    class Cefprefixtable(Entity):
+    class CefPrefixTable(Entity):
         """
         A list of CEF forwarding prefixes.
         
         .. attribute:: cefprefixentry
         
         	If CEF is enabled on the Managed device, each entry contains the forwarding  prefix attributes.   CEF prefix based non\-recursive stats are maintained in internal and external buckets (depending upon the  value of cefIntNonrecursiveAccouting object in the  CefIntEntry).  entPhysicalIndex is also an index for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
-        	**type**\: list of  		 :py:class:`Cefprefixentry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefprefixtable.Cefprefixentry>`
+        	**type**\: list of  		 :py:class:`CefPrefixEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPrefixTable.CefPrefixEntry>`
         
         
 
@@ -661,15 +638,14 @@ class CISCOCEFMIB(Entity):
         _revision = '2006-01-30'
 
         def __init__(self):
-            super(CISCOCEFMIB.Cefprefixtable, self).__init__()
+            super(CISCOCEFMIB.CefPrefixTable, self).__init__()
 
             self.yang_name = "cefPrefixTable"
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefPrefixEntry", ("cefprefixentry", CISCOCEFMIB.Cefprefixtable.Cefprefixentry))])
+            self._child_classes = OrderedDict([("cefPrefixEntry", ("cefprefixentry", CISCOCEFMIB.CefPrefixTable.CefPrefixEntry))])
             self._leafs = OrderedDict()
 
             self.cefprefixentry = YList(self)
@@ -677,10 +653,10 @@ class CISCOCEFMIB(Entity):
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCEFMIB.Cefprefixtable, [], name, value)
+            self._perform_setattr(CISCOCEFMIB.CefPrefixTable, [], name, value)
 
 
-        class Cefprefixentry(Entity):
+        class CefPrefixEntry(Entity):
             """
             If CEF is enabled on the Managed device,
             each entry contains the forwarding 
@@ -703,7 +679,7 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cefprefixtype  (key)
             
@@ -845,15 +821,14 @@ class CISCOCEFMIB(Entity):
             _revision = '2006-01-30'
 
             def __init__(self):
-                super(CISCOCEFMIB.Cefprefixtable.Cefprefixentry, self).__init__()
+                super(CISCOCEFMIB.CefPrefixTable.CefPrefixEntry, self).__init__()
 
                 self.yang_name = "cefPrefixEntry"
                 self.yang_parent_name = "cefPrefixTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','cefprefixtype','cefprefixaddr','cefprefixlen']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cefprefixtype', YLeaf(YType.enumeration, 'cefPrefixType')),
@@ -894,10 +869,10 @@ class CISCOCEFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefPrefixTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCEFMIB.Cefprefixtable.Cefprefixentry, ['entphysicalindex', 'cefprefixtype', 'cefprefixaddr', 'cefprefixlen', 'cefprefixforwardinginfo', 'cefprefixpkts', 'cefprefixhcpkts', 'cefprefixbytes', 'cefprefixhcbytes', 'cefprefixinternalnrpkts', 'cefprefixinternalnrhcpkts', 'cefprefixinternalnrbytes', 'cefprefixinternalnrhcbytes', 'cefprefixexternalnrpkts', 'cefprefixexternalnrhcpkts', 'cefprefixexternalnrbytes', 'cefprefixexternalnrhcbytes'], name, value)
+                self._perform_setattr(CISCOCEFMIB.CefPrefixTable.CefPrefixEntry, ['entphysicalindex', 'cefprefixtype', 'cefprefixaddr', 'cefprefixlen', 'cefprefixforwardinginfo', 'cefprefixpkts', 'cefprefixhcpkts', 'cefprefixbytes', 'cefprefixhcbytes', 'cefprefixinternalnrpkts', 'cefprefixinternalnrhcpkts', 'cefprefixinternalnrbytes', 'cefprefixinternalnrhcbytes', 'cefprefixexternalnrpkts', 'cefprefixexternalnrhcpkts', 'cefprefixexternalnrbytes', 'cefprefixexternalnrhcbytes'], name, value)
 
 
-    class Ceflmprefixtable(Entity):
+    class CefLMPrefixTable(Entity):
         """
         A table of Longest Match Prefix Query requests.
         
@@ -908,7 +883,7 @@ class CISCOCEFMIB(Entity):
         .. attribute:: ceflmprefixentry
         
         	If CEF is enabled on the managed device, then each entry represents a longest Match Prefix request.  A management station wishing to get the longest Match prefix for a given destination address should create the associate instance of the row status. The row status should be set to active(1) to initiate the request. Note that  this entire procedure may be initiated via a  single set request which specifies a row status  of createAndGo(4).  Once the request completes, the management station  should retrieve the values of the objects of  interest, and should then delete the entry.  In order  to prevent old entries from clogging the table,  entries will be aged out, but an entry will never be  deleted within 5 minutes of completion. Entries are lost after an agent restart.  I.e. to find out the longest prefix match for  destination address of A.B.C.D on entity whose entityPhysicalIndex is 1, the Management station will create an entry in cefLMPrefixTable with cefLMPrefixRowStatus.1(entPhysicalIndex).1(ipv4).A.B.C.D set to createAndGo(4). Management Station may query the value of objects cefLMPrefix and cefLMPrefixLen to find out the corresponding prefix entry from the cefPrefixTable once the value of cefLMPrefixState is set to matchFound(2).  entPhysicalIndex is also an index for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
-        	**type**\: list of  		 :py:class:`Ceflmprefixentry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Ceflmprefixtable.Ceflmprefixentry>`
+        	**type**\: list of  		 :py:class:`CefLMPrefixEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefLMPrefixTable.CefLMPrefixEntry>`
         
         
 
@@ -918,15 +893,14 @@ class CISCOCEFMIB(Entity):
         _revision = '2006-01-30'
 
         def __init__(self):
-            super(CISCOCEFMIB.Ceflmprefixtable, self).__init__()
+            super(CISCOCEFMIB.CefLMPrefixTable, self).__init__()
 
             self.yang_name = "cefLMPrefixTable"
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefLMPrefixEntry", ("ceflmprefixentry", CISCOCEFMIB.Ceflmprefixtable.Ceflmprefixentry))])
+            self._child_classes = OrderedDict([("cefLMPrefixEntry", ("ceflmprefixentry", CISCOCEFMIB.CefLMPrefixTable.CefLMPrefixEntry))])
             self._leafs = OrderedDict()
 
             self.ceflmprefixentry = YList(self)
@@ -934,10 +908,10 @@ class CISCOCEFMIB(Entity):
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCEFMIB.Ceflmprefixtable, [], name, value)
+            self._perform_setattr(CISCOCEFMIB.CefLMPrefixTable, [], name, value)
 
 
-        class Ceflmprefixentry(Entity):
+        class CefLMPrefixEntry(Entity):
             """
             If CEF is enabled on the managed device, then each
             entry represents a longest Match Prefix request.
@@ -982,7 +956,7 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: ceflmprefixdestaddrtype  (key)
             
@@ -1028,15 +1002,14 @@ class CISCOCEFMIB(Entity):
             _revision = '2006-01-30'
 
             def __init__(self):
-                super(CISCOCEFMIB.Ceflmprefixtable.Ceflmprefixentry, self).__init__()
+                super(CISCOCEFMIB.CefLMPrefixTable.CefLMPrefixEntry, self).__init__()
 
                 self.yang_name = "cefLMPrefixEntry"
                 self.yang_parent_name = "cefLMPrefixTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','ceflmprefixdestaddrtype','ceflmprefixdestaddr']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('ceflmprefixdestaddrtype', YLeaf(YType.enumeration, 'cefLMPrefixDestAddrType')),
@@ -1057,10 +1030,10 @@ class CISCOCEFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefLMPrefixTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCEFMIB.Ceflmprefixtable.Ceflmprefixentry, ['entphysicalindex', 'ceflmprefixdestaddrtype', 'ceflmprefixdestaddr', 'ceflmprefixstate', 'ceflmprefixaddr', 'ceflmprefixlen', 'ceflmprefixrowstatus'], name, value)
+                self._perform_setattr(CISCOCEFMIB.CefLMPrefixTable.CefLMPrefixEntry, ['entphysicalindex', 'ceflmprefixdestaddrtype', 'ceflmprefixdestaddr', 'ceflmprefixstate', 'ceflmprefixaddr', 'ceflmprefixlen', 'ceflmprefixrowstatus'], name, value)
 
 
-    class Cefpathtable(Entity):
+    class CefPathTable(Entity):
         """
         CEF prefix path is a valid route to reach to a 
         destination IP prefix. Multiple paths may exist 
@@ -1070,7 +1043,7 @@ class CISCOCEFMIB(Entity):
         .. attribute:: cefpathentry
         
         	If CEF is enabled on the Managed device, each entry contain a CEF prefix path.  entPhysicalIndex is also an index for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
-        	**type**\: list of  		 :py:class:`Cefpathentry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefpathtable.Cefpathentry>`
+        	**type**\: list of  		 :py:class:`CefPathEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPathTable.CefPathEntry>`
         
         
 
@@ -1080,15 +1053,14 @@ class CISCOCEFMIB(Entity):
         _revision = '2006-01-30'
 
         def __init__(self):
-            super(CISCOCEFMIB.Cefpathtable, self).__init__()
+            super(CISCOCEFMIB.CefPathTable, self).__init__()
 
             self.yang_name = "cefPathTable"
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefPathEntry", ("cefpathentry", CISCOCEFMIB.Cefpathtable.Cefpathentry))])
+            self._child_classes = OrderedDict([("cefPathEntry", ("cefpathentry", CISCOCEFMIB.CefPathTable.CefPathEntry))])
             self._leafs = OrderedDict()
 
             self.cefpathentry = YList(self)
@@ -1096,10 +1068,10 @@ class CISCOCEFMIB(Entity):
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCEFMIB.Cefpathtable, [], name, value)
+            self._perform_setattr(CISCOCEFMIB.CefPathTable, [], name, value)
 
 
-        class Cefpathentry(Entity):
+        class CefPathEntry(Entity):
             """
             If CEF is enabled on the Managed device,
             each entry contain a CEF prefix path.
@@ -1116,7 +1088,7 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cefprefixtype  (key)
             
@@ -1130,7 +1102,7 @@ class CISCOCEFMIB(Entity):
             
             	**length:** 0..255
             
-            	**refers to**\:  :py:class:`cefprefixaddr <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefprefixtable.Cefprefixentry>`
+            	**refers to**\:  :py:class:`cefprefixaddr <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPrefixTable.CefPrefixEntry>`
             
             .. attribute:: cefprefixlen  (key)
             
@@ -1139,7 +1111,7 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..2040
             
-            	**refers to**\:  :py:class:`cefprefixlen <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefprefixtable.Cefprefixentry>`
+            	**refers to**\:  :py:class:`cefprefixlen <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPrefixTable.CefPrefixEntry>`
             
             .. attribute:: cefpathid  (key)
             
@@ -1182,15 +1154,14 @@ class CISCOCEFMIB(Entity):
             _revision = '2006-01-30'
 
             def __init__(self):
-                super(CISCOCEFMIB.Cefpathtable.Cefpathentry, self).__init__()
+                super(CISCOCEFMIB.CefPathTable.CefPathEntry, self).__init__()
 
                 self.yang_name = "cefPathEntry"
                 self.yang_parent_name = "cefPathTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','cefprefixtype','cefprefixaddr','cefprefixlen','cefpathid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cefprefixtype', YLeaf(YType.enumeration, 'cefPrefixType')),
@@ -1215,10 +1186,10 @@ class CISCOCEFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefPathTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCEFMIB.Cefpathtable.Cefpathentry, ['entphysicalindex', 'cefprefixtype', 'cefprefixaddr', 'cefprefixlen', 'cefpathid', 'cefpathtype', 'cefpathinterface', 'cefpathnexthopaddr', 'cefpathrecursevrfname'], name, value)
+                self._perform_setattr(CISCOCEFMIB.CefPathTable.CefPathEntry, ['entphysicalindex', 'cefprefixtype', 'cefprefixaddr', 'cefprefixlen', 'cefpathid', 'cefpathtype', 'cefpathinterface', 'cefpathnexthopaddr', 'cefpathrecursevrfname'], name, value)
 
 
-    class Cefadjsummarytable(Entity):
+    class CefAdjSummaryTable(Entity):
         """
         This table contains the summary information
         for the cefAdjTable.
@@ -1226,7 +1197,7 @@ class CISCOCEFMIB(Entity):
         .. attribute:: cefadjsummaryentry
         
         	If CEF is enabled on the Managed device, each entry contains the CEF Adjacency   summary related attributes for the Managed entity. A row exists for each adjacency link type.  entPhysicalIndex is also an index for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
-        	**type**\: list of  		 :py:class:`Cefadjsummaryentry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefadjsummarytable.Cefadjsummaryentry>`
+        	**type**\: list of  		 :py:class:`CefAdjSummaryEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefAdjSummaryTable.CefAdjSummaryEntry>`
         
         
 
@@ -1236,15 +1207,14 @@ class CISCOCEFMIB(Entity):
         _revision = '2006-01-30'
 
         def __init__(self):
-            super(CISCOCEFMIB.Cefadjsummarytable, self).__init__()
+            super(CISCOCEFMIB.CefAdjSummaryTable, self).__init__()
 
             self.yang_name = "cefAdjSummaryTable"
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefAdjSummaryEntry", ("cefadjsummaryentry", CISCOCEFMIB.Cefadjsummarytable.Cefadjsummaryentry))])
+            self._child_classes = OrderedDict([("cefAdjSummaryEntry", ("cefadjsummaryentry", CISCOCEFMIB.CefAdjSummaryTable.CefAdjSummaryEntry))])
             self._leafs = OrderedDict()
 
             self.cefadjsummaryentry = YList(self)
@@ -1252,10 +1222,10 @@ class CISCOCEFMIB(Entity):
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCEFMIB.Cefadjsummarytable, [], name, value)
+            self._perform_setattr(CISCOCEFMIB.CefAdjSummaryTable, [], name, value)
 
 
-        class Cefadjsummaryentry(Entity):
+        class CefAdjSummaryEntry(Entity):
             """
             If CEF is enabled on the Managed device,
             each entry contains the CEF Adjacency  
@@ -1275,7 +1245,7 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cefadjsummarylinktype  (key)
             
@@ -1318,15 +1288,14 @@ class CISCOCEFMIB(Entity):
             _revision = '2006-01-30'
 
             def __init__(self):
-                super(CISCOCEFMIB.Cefadjsummarytable.Cefadjsummaryentry, self).__init__()
+                super(CISCOCEFMIB.CefAdjSummaryTable.CefAdjSummaryEntry, self).__init__()
 
                 self.yang_name = "cefAdjSummaryEntry"
                 self.yang_parent_name = "cefAdjSummaryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','cefadjsummarylinktype']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cefadjsummarylinktype', YLeaf(YType.enumeration, 'cefAdjSummaryLinkType')),
@@ -1345,17 +1314,17 @@ class CISCOCEFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefAdjSummaryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCEFMIB.Cefadjsummarytable.Cefadjsummaryentry, ['entphysicalindex', 'cefadjsummarylinktype', 'cefadjsummarycomplete', 'cefadjsummaryincomplete', 'cefadjsummaryfixup', 'cefadjsummaryredirect'], name, value)
+                self._perform_setattr(CISCOCEFMIB.CefAdjSummaryTable.CefAdjSummaryEntry, ['entphysicalindex', 'cefadjsummarylinktype', 'cefadjsummarycomplete', 'cefadjsummaryincomplete', 'cefadjsummaryfixup', 'cefadjsummaryredirect'], name, value)
 
 
-    class Cefadjtable(Entity):
+    class CefAdjTable(Entity):
         """
         A list of CEF adjacencies.
         
         .. attribute:: cefadjentry
         
         	If CEF is enabled on the Managed device, each entry contains the adjacency  attributes. Adjacency entries may exist for all the interfaces on which packets can be switched out of the device. The interface is instantiated by ifIndex.   Therefore, the interface index must have been assigned, according to the applicable procedures, before it can be meaningfully used. Generally, this means that the interface must exist.  entPhysicalIndex is also an index for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
-        	**type**\: list of  		 :py:class:`Cefadjentry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefadjtable.Cefadjentry>`
+        	**type**\: list of  		 :py:class:`CefAdjEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefAdjTable.CefAdjEntry>`
         
         
 
@@ -1365,15 +1334,14 @@ class CISCOCEFMIB(Entity):
         _revision = '2006-01-30'
 
         def __init__(self):
-            super(CISCOCEFMIB.Cefadjtable, self).__init__()
+            super(CISCOCEFMIB.CefAdjTable, self).__init__()
 
             self.yang_name = "cefAdjTable"
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefAdjEntry", ("cefadjentry", CISCOCEFMIB.Cefadjtable.Cefadjentry))])
+            self._child_classes = OrderedDict([("cefAdjEntry", ("cefadjentry", CISCOCEFMIB.CefAdjTable.CefAdjEntry))])
             self._leafs = OrderedDict()
 
             self.cefadjentry = YList(self)
@@ -1381,10 +1349,10 @@ class CISCOCEFMIB(Entity):
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCEFMIB.Cefadjtable, [], name, value)
+            self._perform_setattr(CISCOCEFMIB.CefAdjTable, [], name, value)
 
 
-        class Cefadjentry(Entity):
+        class CefAdjEntry(Entity):
             """
             If CEF is enabled on the Managed device,
             each entry contains the adjacency 
@@ -1409,7 +1377,7 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: ifindex  (key)
             
@@ -1418,7 +1386,7 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: cefadjnexthopaddrtype  (key)
             
@@ -1517,15 +1485,14 @@ class CISCOCEFMIB(Entity):
             _revision = '2006-01-30'
 
             def __init__(self):
-                super(CISCOCEFMIB.Cefadjtable.Cefadjentry, self).__init__()
+                super(CISCOCEFMIB.CefAdjTable.CefAdjEntry, self).__init__()
 
                 self.yang_name = "cefAdjEntry"
                 self.yang_parent_name = "cefAdjTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','ifindex','cefadjnexthopaddrtype','cefadjnexthopaddr','cefadjconnid','cefadjsummarylinktype']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
@@ -1562,17 +1529,17 @@ class CISCOCEFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefAdjTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCEFMIB.Cefadjtable.Cefadjentry, ['entphysicalindex', 'ifindex', 'cefadjnexthopaddrtype', 'cefadjnexthopaddr', 'cefadjconnid', 'cefadjsummarylinktype', 'cefadjsource', 'cefadjencap', 'cefadjfixup', 'cefadjmtu', 'cefadjforwardinginfo', 'cefadjpkts', 'cefadjhcpkts', 'cefadjbytes', 'cefadjhcbytes'], name, value)
+                self._perform_setattr(CISCOCEFMIB.CefAdjTable.CefAdjEntry, ['entphysicalindex', 'ifindex', 'cefadjnexthopaddrtype', 'cefadjnexthopaddr', 'cefadjconnid', 'cefadjsummarylinktype', 'cefadjsource', 'cefadjencap', 'cefadjfixup', 'cefadjmtu', 'cefadjforwardinginfo', 'cefadjpkts', 'cefadjhcpkts', 'cefadjbytes', 'cefadjhcbytes'], name, value)
 
 
-    class Ceffeselectiontable(Entity):
+    class CefFESelectionTable(Entity):
         """
         A list of forwarding element selection entries.
         
         .. attribute:: ceffeselectionentry
         
         	If CEF is enabled on the Managed device, each entry contain a CEF forwarding element selection list.  entPhysicalIndex is also an index for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
-        	**type**\: list of  		 :py:class:`Ceffeselectionentry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Ceffeselectiontable.Ceffeselectionentry>`
+        	**type**\: list of  		 :py:class:`CefFESelectionEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefFESelectionTable.CefFESelectionEntry>`
         
         
 
@@ -1582,15 +1549,14 @@ class CISCOCEFMIB(Entity):
         _revision = '2006-01-30'
 
         def __init__(self):
-            super(CISCOCEFMIB.Ceffeselectiontable, self).__init__()
+            super(CISCOCEFMIB.CefFESelectionTable, self).__init__()
 
             self.yang_name = "cefFESelectionTable"
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefFESelectionEntry", ("ceffeselectionentry", CISCOCEFMIB.Ceffeselectiontable.Ceffeselectionentry))])
+            self._child_classes = OrderedDict([("cefFESelectionEntry", ("ceffeselectionentry", CISCOCEFMIB.CefFESelectionTable.CefFESelectionEntry))])
             self._leafs = OrderedDict()
 
             self.ceffeselectionentry = YList(self)
@@ -1598,10 +1564,10 @@ class CISCOCEFMIB(Entity):
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCEFMIB.Ceffeselectiontable, [], name, value)
+            self._perform_setattr(CISCOCEFMIB.CefFESelectionTable, [], name, value)
 
 
-        class Ceffeselectionentry(Entity):
+        class CefFESelectionEntry(Entity):
             """
             If CEF is enabled on the Managed device,
             each entry contain a CEF forwarding element
@@ -1619,7 +1585,7 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: ceffeselectionname  (key)
             
@@ -1700,15 +1666,14 @@ class CISCOCEFMIB(Entity):
             _revision = '2006-01-30'
 
             def __init__(self):
-                super(CISCOCEFMIB.Ceffeselectiontable.Ceffeselectionentry, self).__init__()
+                super(CISCOCEFMIB.CefFESelectionTable.CefFESelectionEntry, self).__init__()
 
                 self.yang_name = "cefFESelectionEntry"
                 self.yang_parent_name = "cefFESelectionTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','ceffeselectionname','ceffeselectionid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('ceffeselectionname', YLeaf(YType.str, 'cefFESelectionName')),
@@ -1739,10 +1704,10 @@ class CISCOCEFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefFESelectionTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCEFMIB.Ceffeselectiontable.Ceffeselectionentry, ['entphysicalindex', 'ceffeselectionname', 'ceffeselectionid', 'ceffeselectionspecial', 'ceffeselectionlabels', 'ceffeselectionadjlinktype', 'ceffeselectionadjinterface', 'ceffeselectionadjnexthopaddrtype', 'ceffeselectionadjnexthopaddr', 'ceffeselectionadjconnid', 'ceffeselectionvrfname', 'ceffeselectionweight'], name, value)
+                self._perform_setattr(CISCOCEFMIB.CefFESelectionTable.CefFESelectionEntry, ['entphysicalindex', 'ceffeselectionname', 'ceffeselectionid', 'ceffeselectionspecial', 'ceffeselectionlabels', 'ceffeselectionadjlinktype', 'ceffeselectionadjinterface', 'ceffeselectionadjnexthopaddrtype', 'ceffeselectionadjnexthopaddr', 'ceffeselectionadjconnid', 'ceffeselectionvrfname', 'ceffeselectionweight'], name, value)
 
 
-    class Cefcfgtable(Entity):
+    class CefCfgTable(Entity):
         """
         This table contains global config parameter 
         of CEF on the Managed device.
@@ -1750,7 +1715,7 @@ class CISCOCEFMIB(Entity):
         .. attribute:: cefcfgentry
         
         	If the Managed device supports CEF,  each entry contains the CEF config  parameter for the managed entity. A row may exist for each IP version type (v4 and v6) depending upon the IP version supported on the device.  entPhysicalIndex is also an index for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
-        	**type**\: list of  		 :py:class:`Cefcfgentry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefcfgtable.Cefcfgentry>`
+        	**type**\: list of  		 :py:class:`CefCfgEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefCfgTable.CefCfgEntry>`
         
         
 
@@ -1760,15 +1725,14 @@ class CISCOCEFMIB(Entity):
         _revision = '2006-01-30'
 
         def __init__(self):
-            super(CISCOCEFMIB.Cefcfgtable, self).__init__()
+            super(CISCOCEFMIB.CefCfgTable, self).__init__()
 
             self.yang_name = "cefCfgTable"
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefCfgEntry", ("cefcfgentry", CISCOCEFMIB.Cefcfgtable.Cefcfgentry))])
+            self._child_classes = OrderedDict([("cefCfgEntry", ("cefcfgentry", CISCOCEFMIB.CefCfgTable.CefCfgEntry))])
             self._leafs = OrderedDict()
 
             self.cefcfgentry = YList(self)
@@ -1776,10 +1740,10 @@ class CISCOCEFMIB(Entity):
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCEFMIB.Cefcfgtable, [], name, value)
+            self._perform_setattr(CISCOCEFMIB.CefCfgTable, [], name, value)
 
 
-        class Cefcfgentry(Entity):
+        class CefCfgEntry(Entity):
             """
             If the Managed device supports CEF, 
             each entry contains the CEF config 
@@ -1800,7 +1764,7 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: ceffibipversion  (key)
             
@@ -1830,12 +1794,12 @@ class CISCOCEFMIB(Entity):
             .. attribute:: cefcfgaccountingmap
             
             	This object represents a bitmap of network accounting options.  CEF network accounting is disabled by default.  CEF network accounting can be enabled  by selecting one or more of the following CEF accounting option for the value of this object.    nonRecursive(0)\:  enables accounting through                     nonrecursive prefixes.   perPrefix(1)\:     enables the collection of the numbers                     of pkts and bytes express forwarded                    to a destination (prefix)   prefixLength(2)\:  enables accounting through                     prefixlength.           Once the accounting is enabled, the corresponding stats  can be retrieved from the cefPrefixTable and  cefStatsPrefixLenTable.  
-            	**type**\:  :py:class:`Cefcfgaccountingmap <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefcfgtable.Cefcfgentry.Cefcfgaccountingmap>`
+            	**type**\:  :py:class:`CefCfgAccountingMap <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefCfgTable.CefCfgEntry.CefCfgAccountingMap>`
             
             .. attribute:: cefcfgloadsharingalgorithm
             
             	Indicates the CEF Load balancing algorithm.  Setting this object to none(1) will disable the Load sharing for the specified entry.  CEF load balancing can be enabled by setting  this object to one of following Algorithms\:   original(2)  \: This algorithm is based on a                  source and destination hash    tunnel(3)    \: This algorithm is used in                  tunnels environments or in                 environments where there are                 only a few source                      universal(4)  \: This algorithm uses a source and                   destination and ID hash  If the value of this object is set to 'tunnel' or 'universal', then the FIXED ID for these algorithms may be specified by the managed  object cefLoadSharingID. 
-            	**type**\:  :py:class:`Cefcfgloadsharingalgorithm <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefcfgtable.Cefcfgentry.Cefcfgloadsharingalgorithm>`
+            	**type**\:  :py:class:`CefCfgLoadSharingAlgorithm <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefCfgTable.CefCfgEntry.CefCfgLoadSharingAlgorithm>`
             
             .. attribute:: cefcfgloadsharingid
             
@@ -1870,15 +1834,14 @@ class CISCOCEFMIB(Entity):
             _revision = '2006-01-30'
 
             def __init__(self):
-                super(CISCOCEFMIB.Cefcfgtable.Cefcfgentry, self).__init__()
+                super(CISCOCEFMIB.CefCfgTable.CefCfgEntry, self).__init__()
 
                 self.yang_name = "cefCfgEntry"
                 self.yang_parent_name = "cefCfgTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','ceffibipversion']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
@@ -1907,11 +1870,11 @@ class CISCOCEFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefCfgTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCEFMIB.Cefcfgtable.Cefcfgentry, ['entphysicalindex', 'ceffibipversion', 'cefcfgadminstate', 'cefcfgoperstate', 'cefcfgdistributionadminstate', 'cefcfgdistributionoperstate', 'cefcfgaccountingmap', 'cefcfgloadsharingalgorithm', 'cefcfgloadsharingid', 'cefcfgtrafficstatsloadinterval', 'cefcfgtrafficstatsupdaterate'], name, value)
+                self._perform_setattr(CISCOCEFMIB.CefCfgTable.CefCfgEntry, ['entphysicalindex', 'ceffibipversion', 'cefcfgadminstate', 'cefcfgoperstate', 'cefcfgdistributionadminstate', 'cefcfgdistributionoperstate', 'cefcfgaccountingmap', 'cefcfgloadsharingalgorithm', 'cefcfgloadsharingid', 'cefcfgtrafficstatsloadinterval', 'cefcfgtrafficstatsupdaterate'], name, value)
 
-            class Cefcfgloadsharingalgorithm(Enum):
+            class CefCfgLoadSharingAlgorithm(Enum):
                 """
-                Cefcfgloadsharingalgorithm (Enum Class)
+                CefCfgLoadSharingAlgorithm (Enum Class)
 
                 Indicates the CEF Load balancing algorithm.
 
@@ -1967,7 +1930,7 @@ class CISCOCEFMIB(Entity):
 
 
 
-    class Cefresourcetable(Entity):
+    class CefResourceTable(Entity):
         """
         This table contains global resource 
         information of CEF on the Managed device.
@@ -1975,7 +1938,7 @@ class CISCOCEFMIB(Entity):
         .. attribute:: cefresourceentry
         
         	If the Managed device supports CEF, each entry contains the CEF Resource  parameters for the managed entity.  entPhysicalIndex is also an index for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
-        	**type**\: list of  		 :py:class:`Cefresourceentry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefresourcetable.Cefresourceentry>`
+        	**type**\: list of  		 :py:class:`CefResourceEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefResourceTable.CefResourceEntry>`
         
         
 
@@ -1985,15 +1948,14 @@ class CISCOCEFMIB(Entity):
         _revision = '2006-01-30'
 
         def __init__(self):
-            super(CISCOCEFMIB.Cefresourcetable, self).__init__()
+            super(CISCOCEFMIB.CefResourceTable, self).__init__()
 
             self.yang_name = "cefResourceTable"
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefResourceEntry", ("cefresourceentry", CISCOCEFMIB.Cefresourcetable.Cefresourceentry))])
+            self._child_classes = OrderedDict([("cefResourceEntry", ("cefresourceentry", CISCOCEFMIB.CefResourceTable.CefResourceEntry))])
             self._leafs = OrderedDict()
 
             self.cefresourceentry = YList(self)
@@ -2001,10 +1963,10 @@ class CISCOCEFMIB(Entity):
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCEFMIB.Cefresourcetable, [], name, value)
+            self._perform_setattr(CISCOCEFMIB.CefResourceTable, [], name, value)
 
 
-        class Cefresourceentry(Entity):
+        class CefResourceEntry(Entity):
             """
             If the Managed device supports CEF,
             each entry contains the CEF Resource 
@@ -2022,7 +1984,7 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cefresourcememoryused
             
@@ -2046,15 +2008,14 @@ class CISCOCEFMIB(Entity):
             _revision = '2006-01-30'
 
             def __init__(self):
-                super(CISCOCEFMIB.Cefresourcetable.Cefresourceentry, self).__init__()
+                super(CISCOCEFMIB.CefResourceTable.CefResourceEntry, self).__init__()
 
                 self.yang_name = "cefResourceEntry"
                 self.yang_parent_name = "cefResourceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cefresourcememoryused', YLeaf(YType.uint32, 'cefResourceMemoryUsed')),
@@ -2067,10 +2028,10 @@ class CISCOCEFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefResourceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCEFMIB.Cefresourcetable.Cefresourceentry, ['entphysicalindex', 'cefresourcememoryused', 'cefresourcefailurereason'], name, value)
+                self._perform_setattr(CISCOCEFMIB.CefResourceTable.CefResourceEntry, ['entphysicalindex', 'cefresourcememoryused', 'cefresourcefailurereason'], name, value)
 
 
-    class Cefinttable(Entity):
+    class CefIntTable(Entity):
         """
         This Table contains interface specific
         information of CEF on the Managed
@@ -2079,7 +2040,7 @@ class CISCOCEFMIB(Entity):
         .. attribute:: cefintentry
         
         	If CEF is enabled on the Managed device,  each entry contains the CEF attributes  associated with an interface. The interface is instantiated by ifIndex.   Therefore, the interface index must have been assigned, according to the applicable procedures, before it can be meaningfully used. Generally, this means that the interface must exist.  A row may exist for each IP version type (v4 and v6) depending upon the IP version supported on the device.  entPhysicalIndex is also an index for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
-        	**type**\: list of  		 :py:class:`Cefintentry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefinttable.Cefintentry>`
+        	**type**\: list of  		 :py:class:`CefIntEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefIntTable.CefIntEntry>`
         
         
 
@@ -2089,15 +2050,14 @@ class CISCOCEFMIB(Entity):
         _revision = '2006-01-30'
 
         def __init__(self):
-            super(CISCOCEFMIB.Cefinttable, self).__init__()
+            super(CISCOCEFMIB.CefIntTable, self).__init__()
 
             self.yang_name = "cefIntTable"
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefIntEntry", ("cefintentry", CISCOCEFMIB.Cefinttable.Cefintentry))])
+            self._child_classes = OrderedDict([("cefIntEntry", ("cefintentry", CISCOCEFMIB.CefIntTable.CefIntEntry))])
             self._leafs = OrderedDict()
 
             self.cefintentry = YList(self)
@@ -2105,10 +2065,10 @@ class CISCOCEFMIB(Entity):
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCEFMIB.Cefinttable, [], name, value)
+            self._perform_setattr(CISCOCEFMIB.CefIntTable, [], name, value)
 
 
-        class Cefintentry(Entity):
+        class CefIntEntry(Entity):
             """
             If CEF is enabled on the Managed device, 
             each entry contains the CEF attributes 
@@ -2135,7 +2095,7 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: ceffibipversion  (key)
             
@@ -2149,22 +2109,22 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: cefintswitchingstate
             
             	The CEF switching State for the interface.  If CEF is enabled but distributed CEF(dCEF) is disabled then CEF is in cefEnabled(1) state.  If distributed CEF is enabled, then CEF is in  distCefEnabled(2) state. The cefDisabled(3) state indicates that CEF is disabled.  The CEF switching state is only applicable to the received packet on the interface
-            	**type**\:  :py:class:`Cefintswitchingstate <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefinttable.Cefintentry.Cefintswitchingstate>`
+            	**type**\:  :py:class:`CefIntSwitchingState <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefIntTable.CefIntEntry.CefIntSwitchingState>`
             
             .. attribute:: cefintloadsharing
             
             	The status of load sharing on the interface.  perPacket(1) \: Router to send data packets                over successive equal\-cost paths                without regard to individual hosts                or user sessions.  perDestination(2) \: Router to use multiple, equal\-cost                     paths to achieve load sharing  Load sharing is enabled by default  for an interface when CEF is enabled
-            	**type**\:  :py:class:`Cefintloadsharing <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefinttable.Cefintentry.Cefintloadsharing>`
+            	**type**\:  :py:class:`CefIntLoadSharing <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefIntTable.CefIntEntry.CefIntLoadSharing>`
             
             .. attribute:: cefintnonrecursiveaccouting
             
             	The CEF accounting mode for the interface. CEF prefix based non\-recursive accounting  on an interface can be configured to store  the stats for non\-recursive prefixes in a internal  or external bucket.  internal(1)  \:  Count input traffic in the nonrecursive                 internal bucket  external(2)  \:  Count input traffic in the nonrecursive                 external bucket  The value of this object will only be effective if  value of the object cefAccountingMap is set to enable nonRecursive(1) accounting
-            	**type**\:  :py:class:`Cefintnonrecursiveaccouting <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefinttable.Cefintentry.Cefintnonrecursiveaccouting>`
+            	**type**\:  :py:class:`CefIntNonrecursiveAccouting <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefIntTable.CefIntEntry.CefIntNonrecursiveAccouting>`
             
             
 
@@ -2174,15 +2134,14 @@ class CISCOCEFMIB(Entity):
             _revision = '2006-01-30'
 
             def __init__(self):
-                super(CISCOCEFMIB.Cefinttable.Cefintentry, self).__init__()
+                super(CISCOCEFMIB.CefIntTable.CefIntEntry, self).__init__()
 
                 self.yang_name = "cefIntEntry"
                 self.yang_parent_name = "cefIntTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','ceffibipversion','ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
@@ -2201,11 +2160,11 @@ class CISCOCEFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefIntTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCEFMIB.Cefinttable.Cefintentry, ['entphysicalindex', 'ceffibipversion', 'ifindex', 'cefintswitchingstate', 'cefintloadsharing', 'cefintnonrecursiveaccouting'], name, value)
+                self._perform_setattr(CISCOCEFMIB.CefIntTable.CefIntEntry, ['entphysicalindex', 'ceffibipversion', 'ifindex', 'cefintswitchingstate', 'cefintloadsharing', 'cefintnonrecursiveaccouting'], name, value)
 
-            class Cefintloadsharing(Enum):
+            class CefIntLoadSharing(Enum):
                 """
-                Cefintloadsharing (Enum Class)
+                CefIntLoadSharing (Enum Class)
 
                 The status of load sharing on the
 
@@ -2238,9 +2197,9 @@ class CISCOCEFMIB(Entity):
                 perDestination = Enum.YLeaf(2, "perDestination")
 
 
-            class Cefintnonrecursiveaccouting(Enum):
+            class CefIntNonrecursiveAccouting(Enum):
                 """
-                Cefintnonrecursiveaccouting (Enum Class)
+                CefIntNonrecursiveAccouting (Enum Class)
 
                 The CEF accounting mode for the interface.
 
@@ -2277,9 +2236,9 @@ class CISCOCEFMIB(Entity):
                 external = Enum.YLeaf(2, "external")
 
 
-            class Cefintswitchingstate(Enum):
+            class CefIntSwitchingState(Enum):
                 """
-                Cefintswitchingstate (Enum Class)
+                CefIntSwitchingState (Enum Class)
 
                 The CEF switching State for the interface. 
 
@@ -2313,7 +2272,7 @@ class CISCOCEFMIB(Entity):
 
 
 
-    class Cefpeertable(Entity):
+    class CefPeerTable(Entity):
         """
         Entity acting as RP (Routing Processor) keeps
         the CEF states for the line card entities and
@@ -2324,7 +2283,7 @@ class CISCOCEFMIB(Entity):
         .. attribute:: cefpeerentry
         
         	If CEF is enabled on the Managed device, each entry contains the CEF related attributes  associated with a CEF peer entity.  entPhysicalIndex and entPeerPhysicalIndex are also indexes for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
-        	**type**\: list of  		 :py:class:`Cefpeerentry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefpeertable.Cefpeerentry>`
+        	**type**\: list of  		 :py:class:`CefPeerEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPeerTable.CefPeerEntry>`
         
         
 
@@ -2334,15 +2293,14 @@ class CISCOCEFMIB(Entity):
         _revision = '2006-01-30'
 
         def __init__(self):
-            super(CISCOCEFMIB.Cefpeertable, self).__init__()
+            super(CISCOCEFMIB.CefPeerTable, self).__init__()
 
             self.yang_name = "cefPeerTable"
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefPeerEntry", ("cefpeerentry", CISCOCEFMIB.Cefpeertable.Cefpeerentry))])
+            self._child_classes = OrderedDict([("cefPeerEntry", ("cefpeerentry", CISCOCEFMIB.CefPeerTable.CefPeerEntry))])
             self._leafs = OrderedDict()
 
             self.cefpeerentry = YList(self)
@@ -2350,10 +2308,10 @@ class CISCOCEFMIB(Entity):
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCEFMIB.Cefpeertable, [], name, value)
+            self._perform_setattr(CISCOCEFMIB.CefPeerTable, [], name, value)
 
 
-        class Cefpeerentry(Entity):
+        class CefPeerEntry(Entity):
             """
             If CEF is enabled on the Managed device,
             each entry contains the CEF related attributes 
@@ -2371,7 +2329,7 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: entpeerphysicalindex  (key)
             
@@ -2383,7 +2341,7 @@ class CISCOCEFMIB(Entity):
             .. attribute:: cefpeeroperstate
             
             	The current CEF operational state of the CEF peer entity.  Cef peer entity oper state will be peerDisabled(1) in  the following condition\:     \: Cef Peer entity encounters fatal error i.e. resource      allocation failure, ipc failure etc     \: When a reload/delete request is received from the Cef       Peer Entity  Once the peer entity is up and no fatal error is encountered, then the value of this object will transits to the peerUp(3)  state.  If the Cef Peer entity is in held stage, then the value of this object will be peerHold(3). Cef peer entity can only transit to peerDisabled(1) state from the peerHold(3) state
-            	**type**\:  :py:class:`Cefpeeroperstate <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefpeertable.Cefpeerentry.Cefpeeroperstate>`
+            	**type**\:  :py:class:`CefPeerOperState <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPeerTable.CefPeerEntry.CefPeerOperState>`
             
             .. attribute:: cefpeernumberofresets
             
@@ -2400,15 +2358,14 @@ class CISCOCEFMIB(Entity):
             _revision = '2006-01-30'
 
             def __init__(self):
-                super(CISCOCEFMIB.Cefpeertable.Cefpeerentry, self).__init__()
+                super(CISCOCEFMIB.CefPeerTable.CefPeerEntry, self).__init__()
 
                 self.yang_name = "cefPeerEntry"
                 self.yang_parent_name = "cefPeerTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','entpeerphysicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('entpeerphysicalindex', YLeaf(YType.int32, 'entPeerPhysicalIndex')),
@@ -2423,11 +2380,11 @@ class CISCOCEFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefPeerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCEFMIB.Cefpeertable.Cefpeerentry, ['entphysicalindex', 'entpeerphysicalindex', 'cefpeeroperstate', 'cefpeernumberofresets'], name, value)
+                self._perform_setattr(CISCOCEFMIB.CefPeerTable.CefPeerEntry, ['entphysicalindex', 'entpeerphysicalindex', 'cefpeeroperstate', 'cefpeernumberofresets'], name, value)
 
-            class Cefpeeroperstate(Enum):
+            class CefPeerOperState(Enum):
                 """
-                Cefpeeroperstate (Enum Class)
+                CefPeerOperState (Enum Class)
 
                 The current CEF operational state of the CEF peer entity.
 
@@ -2471,7 +2428,7 @@ class CISCOCEFMIB(Entity):
 
 
 
-    class Cefpeerfibtable(Entity):
+    class CefPeerFIBTable(Entity):
         """
         Entity acting as RP (Routing Processor) keep
         the CEF FIB states for the line card entities and
@@ -2482,7 +2439,7 @@ class CISCOCEFMIB(Entity):
         .. attribute:: cefpeerfibentry
         
         	If CEF is enabled on the Managed device, each entry contains the CEF FIB State  associated a CEF peer entity.  entPhysicalIndex and entPeerPhysicalIndex are also indexes for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
-        	**type**\: list of  		 :py:class:`Cefpeerfibentry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefpeerfibtable.Cefpeerfibentry>`
+        	**type**\: list of  		 :py:class:`CefPeerFIBEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPeerFIBTable.CefPeerFIBEntry>`
         
         
 
@@ -2492,15 +2449,14 @@ class CISCOCEFMIB(Entity):
         _revision = '2006-01-30'
 
         def __init__(self):
-            super(CISCOCEFMIB.Cefpeerfibtable, self).__init__()
+            super(CISCOCEFMIB.CefPeerFIBTable, self).__init__()
 
             self.yang_name = "cefPeerFIBTable"
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefPeerFIBEntry", ("cefpeerfibentry", CISCOCEFMIB.Cefpeerfibtable.Cefpeerfibentry))])
+            self._child_classes = OrderedDict([("cefPeerFIBEntry", ("cefpeerfibentry", CISCOCEFMIB.CefPeerFIBTable.CefPeerFIBEntry))])
             self._leafs = OrderedDict()
 
             self.cefpeerfibentry = YList(self)
@@ -2508,10 +2464,10 @@ class CISCOCEFMIB(Entity):
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCEFMIB.Cefpeerfibtable, [], name, value)
+            self._perform_setattr(CISCOCEFMIB.CefPeerFIBTable, [], name, value)
 
 
-        class Cefpeerfibentry(Entity):
+        class CefPeerFIBEntry(Entity):
             """
             If CEF is enabled on the Managed device,
             each entry contains the CEF FIB State 
@@ -2529,7 +2485,7 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: entpeerphysicalindex  (key)
             
@@ -2538,7 +2494,7 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entpeerphysicalindex <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefpeertable.Cefpeerentry>`
+            	**refers to**\:  :py:class:`entpeerphysicalindex <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPeerTable.CefPeerEntry>`
             
             .. attribute:: ceffibipversion  (key)
             
@@ -2548,7 +2504,7 @@ class CISCOCEFMIB(Entity):
             .. attribute:: cefpeerfiboperstate
             
             	The current CEF FIB Operational State for the  CEF peer entity
-            	**type**\:  :py:class:`Cefpeerfiboperstate <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefpeerfibtable.Cefpeerfibentry.Cefpeerfiboperstate>`
+            	**type**\:  :py:class:`CefPeerFIBOperState <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPeerFIBTable.CefPeerFIBEntry.CefPeerFIBOperState>`
             
             
 
@@ -2558,15 +2514,14 @@ class CISCOCEFMIB(Entity):
             _revision = '2006-01-30'
 
             def __init__(self):
-                super(CISCOCEFMIB.Cefpeerfibtable.Cefpeerfibentry, self).__init__()
+                super(CISCOCEFMIB.CefPeerFIBTable.CefPeerFIBEntry, self).__init__()
 
                 self.yang_name = "cefPeerFIBEntry"
                 self.yang_parent_name = "cefPeerFIBTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','entpeerphysicalindex','ceffibipversion']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('entpeerphysicalindex', YLeaf(YType.str, 'entPeerPhysicalIndex')),
@@ -2581,11 +2536,11 @@ class CISCOCEFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefPeerFIBTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCEFMIB.Cefpeerfibtable.Cefpeerfibentry, ['entphysicalindex', 'entpeerphysicalindex', 'ceffibipversion', 'cefpeerfiboperstate'], name, value)
+                self._perform_setattr(CISCOCEFMIB.CefPeerFIBTable.CefPeerFIBEntry, ['entphysicalindex', 'entpeerphysicalindex', 'ceffibipversion', 'cefpeerfiboperstate'], name, value)
 
-            class Cefpeerfiboperstate(Enum):
+            class CefPeerFIBOperState(Enum):
                 """
-                Cefpeerfiboperstate (Enum Class)
+                CefPeerFIBOperState (Enum Class)
 
                 The current CEF FIB Operational State for the 
 
@@ -2615,7 +2570,7 @@ class CISCOCEFMIB(Entity):
 
 
 
-    class Cefccglobaltable(Entity):
+    class CefCCGlobalTable(Entity):
         """
         This table contains CEF consistency checker
         (CC) global parameters for the managed device.
@@ -2623,7 +2578,7 @@ class CISCOCEFMIB(Entity):
         .. attribute:: cefccglobalentry
         
         	If the managed device supports CEF, each entry contains the global consistency  checker parameter for the managed device. A row may exist for each IP version type (v4 and v6) depending upon the IP version supported on the device
-        	**type**\: list of  		 :py:class:`Cefccglobalentry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefccglobaltable.Cefccglobalentry>`
+        	**type**\: list of  		 :py:class:`CefCCGlobalEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefCCGlobalTable.CefCCGlobalEntry>`
         
         
 
@@ -2633,15 +2588,14 @@ class CISCOCEFMIB(Entity):
         _revision = '2006-01-30'
 
         def __init__(self):
-            super(CISCOCEFMIB.Cefccglobaltable, self).__init__()
+            super(CISCOCEFMIB.CefCCGlobalTable, self).__init__()
 
             self.yang_name = "cefCCGlobalTable"
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefCCGlobalEntry", ("cefccglobalentry", CISCOCEFMIB.Cefccglobaltable.Cefccglobalentry))])
+            self._child_classes = OrderedDict([("cefCCGlobalEntry", ("cefccglobalentry", CISCOCEFMIB.CefCCGlobalTable.CefCCGlobalEntry))])
             self._leafs = OrderedDict()
 
             self.cefccglobalentry = YList(self)
@@ -2649,10 +2603,10 @@ class CISCOCEFMIB(Entity):
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCEFMIB.Cefccglobaltable, [], name, value)
+            self._perform_setattr(CISCOCEFMIB.CefCCGlobalTable, [], name, value)
 
 
-        class Cefccglobalentry(Entity):
+        class CefCCGlobalEntry(Entity):
             """
             If the managed device supports CEF,
             each entry contains the global consistency 
@@ -2712,15 +2666,14 @@ class CISCOCEFMIB(Entity):
             _revision = '2006-01-30'
 
             def __init__(self):
-                super(CISCOCEFMIB.Cefccglobaltable.Cefccglobalentry, self).__init__()
+                super(CISCOCEFMIB.CefCCGlobalTable.CefCCGlobalEntry, self).__init__()
 
                 self.yang_name = "cefCCGlobalEntry"
                 self.yang_parent_name = "cefCCGlobalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ceffibipversion']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
                     ('cefccglobalautorepairenabled', YLeaf(YType.boolean, 'cefCCGlobalAutoRepairEnabled')),
@@ -2741,10 +2694,10 @@ class CISCOCEFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefCCGlobalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCEFMIB.Cefccglobaltable.Cefccglobalentry, ['ceffibipversion', 'cefccglobalautorepairenabled', 'cefccglobalautorepairdelay', 'cefccglobalautorepairholddown', 'cefccglobalerrormsgenabled', 'cefccglobalfullscanaction', 'cefccglobalfullscanstatus'], name, value)
+                self._perform_setattr(CISCOCEFMIB.CefCCGlobalTable.CefCCGlobalEntry, ['ceffibipversion', 'cefccglobalautorepairenabled', 'cefccglobalautorepairdelay', 'cefccglobalautorepairholddown', 'cefccglobalerrormsgenabled', 'cefccglobalfullscanaction', 'cefccglobalfullscanstatus'], name, value)
 
 
-    class Cefcctypetable(Entity):
+    class CefCCTypeTable(Entity):
         """
         This table contains CEF consistency
         checker types specific parameters on the managed device.
@@ -2756,7 +2709,7 @@ class CISCOCEFMIB(Entity):
         .. attribute:: cefcctypeentry
         
         	If the managed device supports CEF, each entry contains the consistency  checker statistics for a consistency  checker type. A row may exist for each IP version type (v4 and v6) depending upon the IP version supported on the device
-        	**type**\: list of  		 :py:class:`Cefcctypeentry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefcctypetable.Cefcctypeentry>`
+        	**type**\: list of  		 :py:class:`CefCCTypeEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefCCTypeTable.CefCCTypeEntry>`
         
         
 
@@ -2766,15 +2719,14 @@ class CISCOCEFMIB(Entity):
         _revision = '2006-01-30'
 
         def __init__(self):
-            super(CISCOCEFMIB.Cefcctypetable, self).__init__()
+            super(CISCOCEFMIB.CefCCTypeTable, self).__init__()
 
             self.yang_name = "cefCCTypeTable"
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefCCTypeEntry", ("cefcctypeentry", CISCOCEFMIB.Cefcctypetable.Cefcctypeentry))])
+            self._child_classes = OrderedDict([("cefCCTypeEntry", ("cefcctypeentry", CISCOCEFMIB.CefCCTypeTable.CefCCTypeEntry))])
             self._leafs = OrderedDict()
 
             self.cefcctypeentry = YList(self)
@@ -2782,10 +2734,10 @@ class CISCOCEFMIB(Entity):
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCEFMIB.Cefcctypetable, [], name, value)
+            self._perform_setattr(CISCOCEFMIB.CefCCTypeTable, [], name, value)
 
 
-        class Cefcctypeentry(Entity):
+        class CefCCTypeEntry(Entity):
             """
             If the managed device supports CEF,
             each entry contains the consistency 
@@ -2862,15 +2814,14 @@ class CISCOCEFMIB(Entity):
             _revision = '2006-01-30'
 
             def __init__(self):
-                super(CISCOCEFMIB.Cefcctypetable.Cefcctypeentry, self).__init__()
+                super(CISCOCEFMIB.CefCCTypeTable.CefCCTypeEntry, self).__init__()
 
                 self.yang_name = "cefCCTypeEntry"
                 self.yang_parent_name = "cefCCTypeTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ceffibipversion','cefcctype']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
                     ('cefcctype', YLeaf(YType.enumeration, 'cefCCType')),
@@ -2895,10 +2846,10 @@ class CISCOCEFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefCCTypeTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCEFMIB.Cefcctypetable.Cefcctypeentry, ['ceffibipversion', 'cefcctype', 'cefccenabled', 'cefcccount', 'cefccperiod', 'cefccqueriessent', 'cefccqueriesignored', 'cefccquerieschecked', 'cefccqueriesiterated'], name, value)
+                self._perform_setattr(CISCOCEFMIB.CefCCTypeTable.CefCCTypeEntry, ['ceffibipversion', 'cefcctype', 'cefccenabled', 'cefcccount', 'cefccperiod', 'cefccqueriessent', 'cefccqueriesignored', 'cefccquerieschecked', 'cefccqueriesiterated'], name, value)
 
 
-    class Cefinconsistencyrecordtable(Entity):
+    class CefInconsistencyRecordTable(Entity):
         """
         This table contains CEF inconsistency
         records.
@@ -2906,7 +2857,7 @@ class CISCOCEFMIB(Entity):
         .. attribute:: cefinconsistencyrecordentry
         
         	If the managed device supports CEF, each entry contains the inconsistency  record
-        	**type**\: list of  		 :py:class:`Cefinconsistencyrecordentry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefinconsistencyrecordtable.Cefinconsistencyrecordentry>`
+        	**type**\: list of  		 :py:class:`CefInconsistencyRecordEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefInconsistencyRecordTable.CefInconsistencyRecordEntry>`
         
         
 
@@ -2916,15 +2867,14 @@ class CISCOCEFMIB(Entity):
         _revision = '2006-01-30'
 
         def __init__(self):
-            super(CISCOCEFMIB.Cefinconsistencyrecordtable, self).__init__()
+            super(CISCOCEFMIB.CefInconsistencyRecordTable, self).__init__()
 
             self.yang_name = "cefInconsistencyRecordTable"
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefInconsistencyRecordEntry", ("cefinconsistencyrecordentry", CISCOCEFMIB.Cefinconsistencyrecordtable.Cefinconsistencyrecordentry))])
+            self._child_classes = OrderedDict([("cefInconsistencyRecordEntry", ("cefinconsistencyrecordentry", CISCOCEFMIB.CefInconsistencyRecordTable.CefInconsistencyRecordEntry))])
             self._leafs = OrderedDict()
 
             self.cefinconsistencyrecordentry = YList(self)
@@ -2932,10 +2882,10 @@ class CISCOCEFMIB(Entity):
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCEFMIB.Cefinconsistencyrecordtable, [], name, value)
+            self._perform_setattr(CISCOCEFMIB.CefInconsistencyRecordTable, [], name, value)
 
 
-        class Cefinconsistencyrecordentry(Entity):
+        class CefInconsistencyRecordEntry(Entity):
             """
             If the managed device supports CEF,
             each entry contains the inconsistency 
@@ -2994,7 +2944,7 @@ class CISCOCEFMIB(Entity):
             .. attribute:: cefinconsistencyreason
             
             	The reason for generating this inconsistency record.   missing(1)\:        the prefix is missing  checksumErr(2)\:    checksum error was found  unknown(3)\:        reason is unknown
-            	**type**\:  :py:class:`Cefinconsistencyreason <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefinconsistencyrecordtable.Cefinconsistencyrecordentry.Cefinconsistencyreason>`
+            	**type**\:  :py:class:`CefInconsistencyReason <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefInconsistencyRecordTable.CefInconsistencyRecordEntry.CefInconsistencyReason>`
             
             
 
@@ -3004,15 +2954,14 @@ class CISCOCEFMIB(Entity):
             _revision = '2006-01-30'
 
             def __init__(self):
-                super(CISCOCEFMIB.Cefinconsistencyrecordtable.Cefinconsistencyrecordentry, self).__init__()
+                super(CISCOCEFMIB.CefInconsistencyRecordTable.CefInconsistencyRecordEntry, self).__init__()
 
                 self.yang_name = "cefInconsistencyRecordEntry"
                 self.yang_parent_name = "cefInconsistencyRecordTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ceffibipversion','cefinconsistencyrecid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
                     ('cefinconsistencyrecid', YLeaf(YType.int32, 'cefInconsistencyRecId')),
@@ -3037,11 +2986,11 @@ class CISCOCEFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefInconsistencyRecordTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCEFMIB.Cefinconsistencyrecordtable.Cefinconsistencyrecordentry, ['ceffibipversion', 'cefinconsistencyrecid', 'cefinconsistencyprefixtype', 'cefinconsistencyprefixaddr', 'cefinconsistencyprefixlen', 'cefinconsistencyvrfname', 'cefinconsistencycctype', 'cefinconsistencyentity', 'cefinconsistencyreason'], name, value)
+                self._perform_setattr(CISCOCEFMIB.CefInconsistencyRecordTable.CefInconsistencyRecordEntry, ['ceffibipversion', 'cefinconsistencyrecid', 'cefinconsistencyprefixtype', 'cefinconsistencyprefixaddr', 'cefinconsistencyprefixlen', 'cefinconsistencyvrfname', 'cefinconsistencycctype', 'cefinconsistencyentity', 'cefinconsistencyreason'], name, value)
 
-            class Cefinconsistencyreason(Enum):
+            class CefInconsistencyReason(Enum):
                 """
-                Cefinconsistencyreason (Enum Class)
+                CefInconsistencyReason (Enum Class)
 
                 The reason for generating this inconsistency record. 
 
@@ -3067,7 +3016,7 @@ class CISCOCEFMIB(Entity):
 
 
 
-    class Cefstatsprefixlentable(Entity):
+    class CefStatsPrefixLenTable(Entity):
         """
         This table specifies the CEF stats based
         on the Prefix Length.
@@ -3075,7 +3024,7 @@ class CISCOCEFMIB(Entity):
         .. attribute:: cefstatsprefixlenentry
         
         	If CEF is enabled on the Managed device and if CEF accounting is set to enable  prefix length based accounting (value of  cefCfgAccountingMap object in the  cefCfgEntry is set to enable 'prefixLength'  accounting), each entry contains the traffic  statistics for a prefix length. A row may exist for each IP version type (v4 and v6) depending upon the IP version supported on the device.  entPhysicalIndex is also an index for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
-        	**type**\: list of  		 :py:class:`Cefstatsprefixlenentry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefstatsprefixlentable.Cefstatsprefixlenentry>`
+        	**type**\: list of  		 :py:class:`CefStatsPrefixLenEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefStatsPrefixLenTable.CefStatsPrefixLenEntry>`
         
         
 
@@ -3085,15 +3034,14 @@ class CISCOCEFMIB(Entity):
         _revision = '2006-01-30'
 
         def __init__(self):
-            super(CISCOCEFMIB.Cefstatsprefixlentable, self).__init__()
+            super(CISCOCEFMIB.CefStatsPrefixLenTable, self).__init__()
 
             self.yang_name = "cefStatsPrefixLenTable"
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefStatsPrefixLenEntry", ("cefstatsprefixlenentry", CISCOCEFMIB.Cefstatsprefixlentable.Cefstatsprefixlenentry))])
+            self._child_classes = OrderedDict([("cefStatsPrefixLenEntry", ("cefstatsprefixlenentry", CISCOCEFMIB.CefStatsPrefixLenTable.CefStatsPrefixLenEntry))])
             self._leafs = OrderedDict()
 
             self.cefstatsprefixlenentry = YList(self)
@@ -3101,10 +3049,10 @@ class CISCOCEFMIB(Entity):
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCEFMIB.Cefstatsprefixlentable, [], name, value)
+            self._perform_setattr(CISCOCEFMIB.CefStatsPrefixLenTable, [], name, value)
 
 
-        class Cefstatsprefixlenentry(Entity):
+        class CefStatsPrefixLenEntry(Entity):
             """
             If CEF is enabled on the Managed device
             and if CEF accounting is set to enable 
@@ -3129,7 +3077,7 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: ceffibipversion  (key)
             
@@ -3207,15 +3155,14 @@ class CISCOCEFMIB(Entity):
             _revision = '2006-01-30'
 
             def __init__(self):
-                super(CISCOCEFMIB.Cefstatsprefixlentable.Cefstatsprefixlenentry, self).__init__()
+                super(CISCOCEFMIB.CefStatsPrefixLenTable.CefStatsPrefixLenEntry, self).__init__()
 
                 self.yang_name = "cefStatsPrefixLenEntry"
                 self.yang_parent_name = "cefStatsPrefixLenTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','ceffibipversion','cefstatsprefixlen']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
@@ -3244,17 +3191,17 @@ class CISCOCEFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefStatsPrefixLenTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCEFMIB.Cefstatsprefixlentable.Cefstatsprefixlenentry, ['entphysicalindex', 'ceffibipversion', 'cefstatsprefixlen', 'cefstatsprefixqueries', 'cefstatsprefixhcqueries', 'cefstatsprefixinserts', 'cefstatsprefixhcinserts', 'cefstatsprefixdeletes', 'cefstatsprefixhcdeletes', 'cefstatsprefixelements', 'cefstatsprefixhcelements'], name, value)
+                self._perform_setattr(CISCOCEFMIB.CefStatsPrefixLenTable.CefStatsPrefixLenEntry, ['entphysicalindex', 'ceffibipversion', 'cefstatsprefixlen', 'cefstatsprefixqueries', 'cefstatsprefixhcqueries', 'cefstatsprefixinserts', 'cefstatsprefixhcinserts', 'cefstatsprefixdeletes', 'cefstatsprefixhcdeletes', 'cefstatsprefixelements', 'cefstatsprefixhcelements'], name, value)
 
 
-    class Cefswitchingstatstable(Entity):
+    class CefSwitchingStatsTable(Entity):
         """
         This table specifies the CEF switch stats.
         
         .. attribute:: cefswitchingstatsentry
         
         	If CEF is enabled on the Managed device, each entry specifies the switching stats. A row may exist for each IP version type (v4 and v6) depending upon the IP version supported on the device.  entPhysicalIndex is also an index for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
-        	**type**\: list of  		 :py:class:`Cefswitchingstatsentry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefswitchingstatstable.Cefswitchingstatsentry>`
+        	**type**\: list of  		 :py:class:`CefSwitchingStatsEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefSwitchingStatsTable.CefSwitchingStatsEntry>`
         
         
 
@@ -3264,15 +3211,14 @@ class CISCOCEFMIB(Entity):
         _revision = '2006-01-30'
 
         def __init__(self):
-            super(CISCOCEFMIB.Cefswitchingstatstable, self).__init__()
+            super(CISCOCEFMIB.CefSwitchingStatsTable, self).__init__()
 
             self.yang_name = "cefSwitchingStatsTable"
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cefSwitchingStatsEntry", ("cefswitchingstatsentry", CISCOCEFMIB.Cefswitchingstatstable.Cefswitchingstatsentry))])
+            self._child_classes = OrderedDict([("cefSwitchingStatsEntry", ("cefswitchingstatsentry", CISCOCEFMIB.CefSwitchingStatsTable.CefSwitchingStatsEntry))])
             self._leafs = OrderedDict()
 
             self.cefswitchingstatsentry = YList(self)
@@ -3280,10 +3226,10 @@ class CISCOCEFMIB(Entity):
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCEFMIB.Cefswitchingstatstable, [], name, value)
+            self._perform_setattr(CISCOCEFMIB.CefSwitchingStatsTable, [], name, value)
 
 
-        class Cefswitchingstatsentry(Entity):
+        class CefSwitchingStatsEntry(Entity):
             """
             If CEF is enabled on the Managed device,
             each entry specifies the switching stats.
@@ -3303,7 +3249,7 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: ceffibipversion  (key)
             
@@ -3386,15 +3332,14 @@ class CISCOCEFMIB(Entity):
             _revision = '2006-01-30'
 
             def __init__(self):
-                super(CISCOCEFMIB.Cefswitchingstatstable.Cefswitchingstatsentry, self).__init__()
+                super(CISCOCEFMIB.CefSwitchingStatsTable.CefSwitchingStatsEntry, self).__init__()
 
                 self.yang_name = "cefSwitchingStatsEntry"
                 self.yang_parent_name = "cefSwitchingStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','ceffibipversion','cefswitchingindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
@@ -3421,7 +3366,7 @@ class CISCOCEFMIB(Entity):
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefSwitchingStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCEFMIB.Cefswitchingstatstable.Cefswitchingstatsentry, ['entphysicalindex', 'ceffibipversion', 'cefswitchingindex', 'cefswitchingpath', 'cefswitchingdrop', 'cefswitchinghcdrop', 'cefswitchingpunt', 'cefswitchinghcpunt', 'cefswitchingpunt2host', 'cefswitchinghcpunt2host'], name, value)
+                self._perform_setattr(CISCOCEFMIB.CefSwitchingStatsTable.CefSwitchingStatsEntry, ['entphysicalindex', 'ceffibipversion', 'cefswitchingindex', 'cefswitchingpath', 'cefswitchingdrop', 'cefswitchinghcdrop', 'cefswitchingpunt', 'cefswitchinghcpunt', 'cefswitchingpunt2host', 'cefswitchinghcpunt2host'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOCEFMIB()

@@ -41,8 +41,7 @@ class Location(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = ['loc']
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("fpd2", ("fpd2", Location.Fpd2))])
+        self._child_classes = OrderedDict([("fpd2", ("fpd2", Location.Fpd2))])
         self._leafs = OrderedDict([
             ('loc', YLeaf(YType.str, 'loc')),
         ])
@@ -79,8 +78,7 @@ class Location(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = True
             self.ylist_key_names = ['name']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('name', YLeaf(YType.str, 'name')),
             ])

@@ -129,7 +129,7 @@ class AlarmLogger(Entity):
     """
 
     _prefix = 'infra-alarm-logger-oper'
-    _revision = '2015-01-07'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(AlarmLogger, self).__init__()
@@ -140,20 +140,20 @@ class AlarmLogger(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("buffer-status", ("buffer_status", AlarmLogger.BufferStatus)), ("alarms", ("alarms", AlarmLogger.Alarms))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("buffer-status", ("buffer_status", AlarmLogger.BufferStatus)), ("alarms", ("alarms", AlarmLogger.Alarms))])
         self._leafs = OrderedDict()
 
         self.buffer_status = AlarmLogger.BufferStatus()
         self.buffer_status.parent = self
         self._children_name_map["buffer_status"] = "buffer-status"
-        self._children_yang_names.add("buffer-status")
 
         self.alarms = AlarmLogger.Alarms()
         self.alarms.parent = self
         self._children_name_map["alarms"] = "alarms"
-        self._children_yang_names.add("alarms")
         self._segment_path = lambda: "Cisco-IOS-XR-infra-alarm-logger-oper:alarm-logger"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(AlarmLogger, [], name, value)
 
 
     class BufferStatus(Entity):
@@ -205,7 +205,7 @@ class AlarmLogger(Entity):
         """
 
         _prefix = 'infra-alarm-logger-oper'
-        _revision = '2015-01-07'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(AlarmLogger.BufferStatus, self).__init__()
@@ -215,8 +215,7 @@ class AlarmLogger(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('log_buffer_size', YLeaf(YType.uint32, 'log-buffer-size')),
                 ('max_log_buffer_size', YLeaf(YType.uint32, 'max-log-buffer-size')),
@@ -251,7 +250,7 @@ class AlarmLogger(Entity):
         """
 
         _prefix = 'infra-alarm-logger-oper'
-        _revision = '2015-01-07'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(AlarmLogger.Alarms, self).__init__()
@@ -261,8 +260,7 @@ class AlarmLogger(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("alarm", ("alarm", AlarmLogger.Alarms.Alarm))])
+            self._child_classes = OrderedDict([("alarm", ("alarm", AlarmLogger.Alarms.Alarm))])
             self._leafs = OrderedDict()
 
             self.alarm = YList(self)
@@ -282,7 +280,7 @@ class AlarmLogger(Entity):
             	Event ID
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: source_id
             
@@ -345,7 +343,7 @@ class AlarmLogger(Entity):
             """
 
             _prefix = 'infra-alarm-logger-oper'
-            _revision = '2015-01-07'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(AlarmLogger.Alarms.Alarm, self).__init__()
@@ -355,10 +353,9 @@ class AlarmLogger(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['event_id']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('event_id', YLeaf(YType.int32, 'event-id')),
+                    ('event_id', YLeaf(YType.uint32, 'event-id')),
                     ('source_id', YLeaf(YType.str, 'source-id')),
                     ('timestamp', YLeaf(YType.uint64, 'timestamp')),
                     ('category', YLeaf(YType.str, 'category')),

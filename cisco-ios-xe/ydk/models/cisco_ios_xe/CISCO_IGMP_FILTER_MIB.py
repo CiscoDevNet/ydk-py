@@ -23,22 +23,22 @@ class CISCOIGMPFILTERMIB(Entity):
     .. attribute:: cigmpfiltergeneral
     
     	
-    	**type**\:  :py:class:`Cigmpfiltergeneral <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.Cigmpfiltergeneral>`
+    	**type**\:  :py:class:`CIgmpFilterGeneral <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.CIgmpFilterGeneral>`
     
     .. attribute:: cigmpfiltereditor
     
     	
-    	**type**\:  :py:class:`Cigmpfiltereditor <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.Cigmpfiltereditor>`
+    	**type**\:  :py:class:`CIgmpFilterEditor <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.CIgmpFilterEditor>`
     
     .. attribute:: cigmpfiltertable
     
     	This table contains entries that identify lists of IP Multicast groups for each profile configured on the device.   Each entry contains a range of contiguous IP Multicast groups associated to a profile index. Multiple cIgmpFilterEntry may be associated with the same cIgmpFilterProfileIndex.  All the cIgmpFilterEntry with  the same profile index  are subjected to the same IGMP filtering action as  defined in cIgmpFilterProfileAction.  Each profile index may be associated with zero or more  interfaces through cIgmpFilterInterfaceIfIndex object in cIgmpFilterInterfaceTable. The maximum number of entries is determined by cIgmpFilterMaxProfiles
-    	**type**\:  :py:class:`Cigmpfiltertable <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.Cigmpfiltertable>`
+    	**type**\:  :py:class:`CIgmpFilterTable <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.CIgmpFilterTable>`
     
     .. attribute:: cigmpfilterinterfacetable
     
     	This table contains the list of interfaces that can support IGMP filter feature
-    	**type**\:  :py:class:`Cigmpfilterinterfacetable <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.Cigmpfilterinterfacetable>`
+    	**type**\:  :py:class:`CIgmpFilterInterfaceTable <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.CIgmpFilterInterfaceTable>`
     
     
 
@@ -56,33 +56,31 @@ class CISCOIGMPFILTERMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cIgmpFilterGeneral", ("cigmpfiltergeneral", CISCOIGMPFILTERMIB.Cigmpfiltergeneral)), ("cIgmpFilterEditor", ("cigmpfiltereditor", CISCOIGMPFILTERMIB.Cigmpfiltereditor)), ("cIgmpFilterTable", ("cigmpfiltertable", CISCOIGMPFILTERMIB.Cigmpfiltertable)), ("cIgmpFilterInterfaceTable", ("cigmpfilterinterfacetable", CISCOIGMPFILTERMIB.Cigmpfilterinterfacetable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cIgmpFilterGeneral", ("cigmpfiltergeneral", CISCOIGMPFILTERMIB.CIgmpFilterGeneral)), ("cIgmpFilterEditor", ("cigmpfiltereditor", CISCOIGMPFILTERMIB.CIgmpFilterEditor)), ("cIgmpFilterTable", ("cigmpfiltertable", CISCOIGMPFILTERMIB.CIgmpFilterTable)), ("cIgmpFilterInterfaceTable", ("cigmpfilterinterfacetable", CISCOIGMPFILTERMIB.CIgmpFilterInterfaceTable))])
         self._leafs = OrderedDict()
 
-        self.cigmpfiltergeneral = CISCOIGMPFILTERMIB.Cigmpfiltergeneral()
+        self.cigmpfiltergeneral = CISCOIGMPFILTERMIB.CIgmpFilterGeneral()
         self.cigmpfiltergeneral.parent = self
         self._children_name_map["cigmpfiltergeneral"] = "cIgmpFilterGeneral"
-        self._children_yang_names.add("cIgmpFilterGeneral")
 
-        self.cigmpfiltereditor = CISCOIGMPFILTERMIB.Cigmpfiltereditor()
+        self.cigmpfiltereditor = CISCOIGMPFILTERMIB.CIgmpFilterEditor()
         self.cigmpfiltereditor.parent = self
         self._children_name_map["cigmpfiltereditor"] = "cIgmpFilterEditor"
-        self._children_yang_names.add("cIgmpFilterEditor")
 
-        self.cigmpfiltertable = CISCOIGMPFILTERMIB.Cigmpfiltertable()
+        self.cigmpfiltertable = CISCOIGMPFILTERMIB.CIgmpFilterTable()
         self.cigmpfiltertable.parent = self
         self._children_name_map["cigmpfiltertable"] = "cIgmpFilterTable"
-        self._children_yang_names.add("cIgmpFilterTable")
 
-        self.cigmpfilterinterfacetable = CISCOIGMPFILTERMIB.Cigmpfilterinterfacetable()
+        self.cigmpfilterinterfacetable = CISCOIGMPFILTERMIB.CIgmpFilterInterfaceTable()
         self.cigmpfilterinterfacetable.parent = self
         self._children_name_map["cigmpfilterinterfacetable"] = "cIgmpFilterInterfaceTable"
-        self._children_yang_names.add("cIgmpFilterInterfaceTable")
         self._segment_path = lambda: "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOIGMPFILTERMIB, [], name, value)
 
-    class Cigmpfiltergeneral(Entity):
+
+    class CIgmpFilterGeneral(Entity):
         """
         
         
@@ -108,15 +106,14 @@ class CISCOIGMPFILTERMIB(Entity):
         _revision = '2005-11-29'
 
         def __init__(self):
-            super(CISCOIGMPFILTERMIB.Cigmpfiltergeneral, self).__init__()
+            super(CISCOIGMPFILTERMIB.CIgmpFilterGeneral, self).__init__()
 
             self.yang_name = "cIgmpFilterGeneral"
             self.yang_parent_name = "CISCO-IGMP-FILTER-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cigmpfilterenable', YLeaf(YType.boolean, 'cIgmpFilterEnable')),
                 ('cigmpfiltermaxprofiles', YLeaf(YType.uint32, 'cIgmpFilterMaxProfiles')),
@@ -127,10 +124,10 @@ class CISCOIGMPFILTERMIB(Entity):
             self._absolute_path = lambda: "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIGMPFILTERMIB.Cigmpfiltergeneral, ['cigmpfilterenable', 'cigmpfiltermaxprofiles'], name, value)
+            self._perform_setattr(CISCOIGMPFILTERMIB.CIgmpFilterGeneral, ['cigmpfilterenable', 'cigmpfiltermaxprofiles'], name, value)
 
 
-    class Cigmpfiltereditor(Entity):
+    class CIgmpFilterEditor(Entity):
         """
         
         
@@ -175,17 +172,17 @@ class CISCOIGMPFILTERMIB(Entity):
         .. attribute:: cigmpfiltereditprofileaction
         
         	Buffer object to edit corresponding object in cIgmpFilterTable to determine filtering action of each profile
-        	**type**\:  :py:class:`Cigmpfiltereditprofileaction <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.Cigmpfiltereditor.Cigmpfiltereditprofileaction>`
+        	**type**\:  :py:class:`CIgmpFilterEditProfileAction <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.CIgmpFilterEditor.CIgmpFilterEditProfileAction>`
         
         .. attribute:: cigmpfiltereditoperation
         
         	The function of this object is to allow user to apply the changes in cIgmpFilterEditor objects to  cIgmpFilterTable.   This object always has the value 'none' when read. When written each value causes the appropriate action\:  'add' \- tries to insert the information contained  in cIgmpFilterEditor objects into  cIgmpFilterTable. If the entry already exists in the table the 'add'  fails.          'delete' \- tries to delete corresponding entry from cIgmpFilterTable. If a user completely deletes a profile that has corresponding entries in the cIgmpFilterInterfaceTable, then all the interfaces mapped to corresponding profile will be cleared and set to zero.  'modify' \- Mode of operation used to edit an entry in  cIgmpFilterTable. If the corresponding entry does not   exist, modify operation fails. This mode allows user to  extend/truncate a contiguous filtered range, type of  Internet addressing and filtering action for a profile.   'none' \- no operation is performed
-        	**type**\:  :py:class:`Cigmpfiltereditoperation <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.Cigmpfiltereditor.Cigmpfiltereditoperation>`
+        	**type**\:  :py:class:`CIgmpFilterEditOperation <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.CIgmpFilterEditor.CIgmpFilterEditOperation>`
         
         .. attribute:: cigmpfilterapplystatus
         
         	The current status of an 'add', 'delete' or 'modify' operation. If no apply is currently active, the status  represented is that of the most recently completed 'add',  'delete' or 'modify' operation.  The value of this objects indicates succeeded(2) state  initially when no 'add', 'delete', 'modify' operation has been carried out.  The possible values are\:    someOtherError \- the 'add', 'delete' or 'modify' failed     due to undefined error(s) in apply operation.    (e.g., insufficient memory).      succeeded \- the 'add', 'delete' or 'modify' operation    was successful. (This value is also used when no    apply has been invoked since the last time the local     system restarted.)     inconsistentEdit \- the 'add', 'delete' or 'modify' failed    due to inconsistency of the data.     entryPresentError \- the 'add' operation failed  as the     corresponding entry already exists in cIgmpFilterTable.     entryNotPresentError \- the 'modify' operation failed     as no corresponding entry exists in cIgmpFilterTable
-        	**type**\:  :py:class:`Cigmpfilterapplystatus <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.Cigmpfiltereditor.Cigmpfilterapplystatus>`
+        	**type**\:  :py:class:`CIgmpFilterApplyStatus <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.CIgmpFilterEditor.CIgmpFilterApplyStatus>`
         
         
 
@@ -195,15 +192,14 @@ class CISCOIGMPFILTERMIB(Entity):
         _revision = '2005-11-29'
 
         def __init__(self):
-            super(CISCOIGMPFILTERMIB.Cigmpfiltereditor, self).__init__()
+            super(CISCOIGMPFILTERMIB.CIgmpFilterEditor, self).__init__()
 
             self.yang_name = "cIgmpFilterEditor"
             self.yang_parent_name = "CISCO-IGMP-FILTER-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cigmpfiltereditspinlock', YLeaf(YType.int32, 'cIgmpFilterEditSpinLock')),
                 ('cigmpfiltereditprofileindex', YLeaf(YType.uint32, 'cIgmpFilterEditProfileIndex')),
@@ -228,11 +224,11 @@ class CISCOIGMPFILTERMIB(Entity):
             self._absolute_path = lambda: "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIGMPFILTERMIB.Cigmpfiltereditor, ['cigmpfiltereditspinlock', 'cigmpfiltereditprofileindex', 'cigmpfiltereditstartaddresstype', 'cigmpfiltereditstartaddress', 'cigmpfiltereditendaddresstype', 'cigmpfiltereditendaddress', 'cigmpfiltereditprofileaction', 'cigmpfiltereditoperation', 'cigmpfilterapplystatus'], name, value)
+            self._perform_setattr(CISCOIGMPFILTERMIB.CIgmpFilterEditor, ['cigmpfiltereditspinlock', 'cigmpfiltereditprofileindex', 'cigmpfiltereditstartaddresstype', 'cigmpfiltereditstartaddress', 'cigmpfiltereditendaddresstype', 'cigmpfiltereditendaddress', 'cigmpfiltereditprofileaction', 'cigmpfiltereditoperation', 'cigmpfilterapplystatus'], name, value)
 
-        class Cigmpfilterapplystatus(Enum):
+        class CIgmpFilterApplyStatus(Enum):
             """
-            Cigmpfilterapplystatus (Enum Class)
+            CIgmpFilterApplyStatus (Enum Class)
 
             The current status of an 'add', 'delete' or 'modify'
 
@@ -299,9 +295,9 @@ class CISCOIGMPFILTERMIB(Entity):
             entryNotPresentError = Enum.YLeaf(5, "entryNotPresentError")
 
 
-        class Cigmpfiltereditoperation(Enum):
+        class CIgmpFilterEditOperation(Enum):
             """
-            Cigmpfiltereditoperation (Enum Class)
+            CIgmpFilterEditOperation (Enum Class)
 
             The function of this object is to allow user to
 
@@ -362,9 +358,9 @@ class CISCOIGMPFILTERMIB(Entity):
             modify = Enum.YLeaf(4, "modify")
 
 
-        class Cigmpfiltereditprofileaction(Enum):
+        class CIgmpFilterEditProfileAction(Enum):
             """
-            Cigmpfiltereditprofileaction (Enum Class)
+            CIgmpFilterEditProfileAction (Enum Class)
 
             Buffer object to edit corresponding object in
 
@@ -388,7 +384,7 @@ class CISCOIGMPFILTERMIB(Entity):
 
 
 
-    class Cigmpfiltertable(Entity):
+    class CIgmpFilterTable(Entity):
         """
         This table contains entries that identify lists of
         IP Multicast groups for each profile configured on
@@ -412,7 +408,7 @@ class CISCOIGMPFILTERMIB(Entity):
         .. attribute:: cigmpfilterentry
         
         	An entry (conceptual row) in the cIgmpFilterTable.  The creation, deletion or modification of an entry is controlled through the MIB objects defined under cIgmpFilterEditor group
-        	**type**\: list of  		 :py:class:`Cigmpfilterentry <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.Cigmpfiltertable.Cigmpfilterentry>`
+        	**type**\: list of  		 :py:class:`CIgmpFilterEntry <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.CIgmpFilterTable.CIgmpFilterEntry>`
         
         
 
@@ -422,15 +418,14 @@ class CISCOIGMPFILTERMIB(Entity):
         _revision = '2005-11-29'
 
         def __init__(self):
-            super(CISCOIGMPFILTERMIB.Cigmpfiltertable, self).__init__()
+            super(CISCOIGMPFILTERMIB.CIgmpFilterTable, self).__init__()
 
             self.yang_name = "cIgmpFilterTable"
             self.yang_parent_name = "CISCO-IGMP-FILTER-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cIgmpFilterEntry", ("cigmpfilterentry", CISCOIGMPFILTERMIB.Cigmpfiltertable.Cigmpfilterentry))])
+            self._child_classes = OrderedDict([("cIgmpFilterEntry", ("cigmpfilterentry", CISCOIGMPFILTERMIB.CIgmpFilterTable.CIgmpFilterEntry))])
             self._leafs = OrderedDict()
 
             self.cigmpfilterentry = YList(self)
@@ -438,10 +433,10 @@ class CISCOIGMPFILTERMIB(Entity):
             self._absolute_path = lambda: "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIGMPFILTERMIB.Cigmpfiltertable, [], name, value)
+            self._perform_setattr(CISCOIGMPFILTERMIB.CIgmpFilterTable, [], name, value)
 
 
-        class Cigmpfilterentry(Entity):
+        class CIgmpFilterEntry(Entity):
             """
             An entry (conceptual row) in the cIgmpFilterTable.
             
@@ -483,7 +478,7 @@ class CISCOIGMPFILTERMIB(Entity):
             .. attribute:: cigmpfilterprofileaction
             
             	This object defines the action for filtering IGMP reports for this profile.  If the object is set to deny(2)\: then all IGMP reports associated to IP multicast groups included in the profile identified by cIgmpFilterInterfaceProfileIndex will be dropped.  If the object is set to permit(1)\: then all IGMP reports associated to IP multicast groups not included in the profile identified by cIgmpFilterInterfaceProfileIndex will be dropped
-            	**type**\:  :py:class:`Cigmpfilterprofileaction <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.Cigmpfiltertable.Cigmpfilterentry.Cigmpfilterprofileaction>`
+            	**type**\:  :py:class:`CIgmpFilterProfileAction <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.CIgmpFilterTable.CIgmpFilterEntry.CIgmpFilterProfileAction>`
             
             
 
@@ -493,15 +488,14 @@ class CISCOIGMPFILTERMIB(Entity):
             _revision = '2005-11-29'
 
             def __init__(self):
-                super(CISCOIGMPFILTERMIB.Cigmpfiltertable.Cigmpfilterentry, self).__init__()
+                super(CISCOIGMPFILTERMIB.CIgmpFilterTable.CIgmpFilterEntry, self).__init__()
 
                 self.yang_name = "cIgmpFilterEntry"
                 self.yang_parent_name = "cIgmpFilterTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cigmpfilterprofileindex','cigmpfilterstartaddresstype','cigmpfilterstartaddress']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cigmpfilterprofileindex', YLeaf(YType.uint32, 'cIgmpFilterProfileIndex')),
                     ('cigmpfilterstartaddresstype', YLeaf(YType.enumeration, 'cIgmpFilterStartAddressType')),
@@ -520,11 +514,11 @@ class CISCOIGMPFILTERMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB/cIgmpFilterTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIGMPFILTERMIB.Cigmpfiltertable.Cigmpfilterentry, ['cigmpfilterprofileindex', 'cigmpfilterstartaddresstype', 'cigmpfilterstartaddress', 'cigmpfilterendaddresstype', 'cigmpfilterendaddress', 'cigmpfilterprofileaction'], name, value)
+                self._perform_setattr(CISCOIGMPFILTERMIB.CIgmpFilterTable.CIgmpFilterEntry, ['cigmpfilterprofileindex', 'cigmpfilterstartaddresstype', 'cigmpfilterstartaddress', 'cigmpfilterendaddresstype', 'cigmpfilterendaddress', 'cigmpfilterprofileaction'], name, value)
 
-            class Cigmpfilterprofileaction(Enum):
+            class CIgmpFilterProfileAction(Enum):
                 """
-                Cigmpfilterprofileaction (Enum Class)
+                CIgmpFilterProfileAction (Enum Class)
 
                 This object defines the action for
 
@@ -558,7 +552,7 @@ class CISCOIGMPFILTERMIB(Entity):
 
 
 
-    class Cigmpfilterinterfacetable(Entity):
+    class CIgmpFilterInterfaceTable(Entity):
         """
         This table contains the list of interfaces that can
         support IGMP filter feature.
@@ -566,7 +560,7 @@ class CISCOIGMPFILTERMIB(Entity):
         .. attribute:: cigmpfilterinterfaceentry
         
         	Each entry contains the configuration for associating the IGMP filter profile index with the interface.  An entry is created for each of the IGMP filter capable  interface on the system.  The entry is removed on removal of corresponding  interface from system
-        	**type**\: list of  		 :py:class:`Cigmpfilterinterfaceentry <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.Cigmpfilterinterfacetable.Cigmpfilterinterfaceentry>`
+        	**type**\: list of  		 :py:class:`CIgmpFilterInterfaceEntry <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.CIgmpFilterInterfaceTable.CIgmpFilterInterfaceEntry>`
         
         
 
@@ -576,15 +570,14 @@ class CISCOIGMPFILTERMIB(Entity):
         _revision = '2005-11-29'
 
         def __init__(self):
-            super(CISCOIGMPFILTERMIB.Cigmpfilterinterfacetable, self).__init__()
+            super(CISCOIGMPFILTERMIB.CIgmpFilterInterfaceTable, self).__init__()
 
             self.yang_name = "cIgmpFilterInterfaceTable"
             self.yang_parent_name = "CISCO-IGMP-FILTER-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cIgmpFilterInterfaceEntry", ("cigmpfilterinterfaceentry", CISCOIGMPFILTERMIB.Cigmpfilterinterfacetable.Cigmpfilterinterfaceentry))])
+            self._child_classes = OrderedDict([("cIgmpFilterInterfaceEntry", ("cigmpfilterinterfaceentry", CISCOIGMPFILTERMIB.CIgmpFilterInterfaceTable.CIgmpFilterInterfaceEntry))])
             self._leafs = OrderedDict()
 
             self.cigmpfilterinterfaceentry = YList(self)
@@ -592,10 +585,10 @@ class CISCOIGMPFILTERMIB(Entity):
             self._absolute_path = lambda: "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIGMPFILTERMIB.Cigmpfilterinterfacetable, [], name, value)
+            self._perform_setattr(CISCOIGMPFILTERMIB.CIgmpFilterInterfaceTable, [], name, value)
 
 
-        class Cigmpfilterinterfaceentry(Entity):
+        class CIgmpFilterInterfaceEntry(Entity):
             """
             Each entry contains the configuration for associating
             the IGMP filter profile index with the interface.
@@ -613,7 +606,7 @@ class CISCOIGMPFILTERMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: cigmpfilterinterfaceprofileindex
             
@@ -630,15 +623,14 @@ class CISCOIGMPFILTERMIB(Entity):
             _revision = '2005-11-29'
 
             def __init__(self):
-                super(CISCOIGMPFILTERMIB.Cigmpfilterinterfacetable.Cigmpfilterinterfaceentry, self).__init__()
+                super(CISCOIGMPFILTERMIB.CIgmpFilterInterfaceTable.CIgmpFilterInterfaceEntry, self).__init__()
 
                 self.yang_name = "cIgmpFilterInterfaceEntry"
                 self.yang_parent_name = "cIgmpFilterInterfaceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('cigmpfilterinterfaceprofileindex', YLeaf(YType.uint32, 'cIgmpFilterInterfaceProfileIndex')),
@@ -649,7 +641,7 @@ class CISCOIGMPFILTERMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB/cIgmpFilterInterfaceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIGMPFILTERMIB.Cigmpfilterinterfacetable.Cigmpfilterinterfaceentry, ['ifindex', 'cigmpfilterinterfaceprofileindex'], name, value)
+                self._perform_setattr(CISCOIGMPFILTERMIB.CIgmpFilterInterfaceTable.CIgmpFilterInterfaceEntry, ['ifindex', 'cigmpfilterinterfaceprofileindex'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOIGMPFILTERMIB()

@@ -519,7 +519,7 @@ class Fpd_(Entity):
     """
 
     _prefix = 'upgrade-fpd-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(Fpd_, self).__init__()
@@ -530,20 +530,20 @@ class Fpd_(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", Fpd_.Nodes)), ("packages", ("packages", Fpd_.Packages))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", Fpd_.Nodes)), ("packages", ("packages", Fpd_.Packages))])
         self._leafs = OrderedDict()
 
         self.nodes = Fpd_.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
 
         self.packages = Fpd_.Packages()
         self.packages.parent = self
         self._children_name_map["packages"] = "packages"
-        self._children_yang_names.add("packages")
         self._segment_path = lambda: "Cisco-IOS-XR-upgrade-fpd-oper:fpd"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Fpd_, [], name, value)
 
 
     class Nodes(Entity):
@@ -560,7 +560,7 @@ class Fpd_(Entity):
         """
 
         _prefix = 'upgrade-fpd-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Fpd_.Nodes, self).__init__()
@@ -570,8 +570,7 @@ class Fpd_(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", Fpd_.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", Fpd_.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -603,7 +602,7 @@ class Fpd_(Entity):
             """
 
             _prefix = 'upgrade-fpd-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Fpd_.Nodes.Node, self).__init__()
@@ -613,8 +612,7 @@ class Fpd_(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("devices", ("devices", Fpd_.Nodes.Node.Devices))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("devices", ("devices", Fpd_.Nodes.Node.Devices))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -623,7 +621,6 @@ class Fpd_(Entity):
                 self.devices = Fpd_.Nodes.Node.Devices()
                 self.devices.parent = self
                 self._children_name_map["devices"] = "devices"
-                self._children_yang_names.add("devices")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-upgrade-fpd-oper:fpd/nodes/%s" % self._segment_path()
 
@@ -645,7 +642,7 @@ class Fpd_(Entity):
                 """
 
                 _prefix = 'upgrade-fpd-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Fpd_.Nodes.Node.Devices, self).__init__()
@@ -655,8 +652,7 @@ class Fpd_(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("device", ("device", Fpd_.Nodes.Node.Devices.Device))])
+                    self._child_classes = OrderedDict([("device", ("device", Fpd_.Nodes.Node.Devices.Device))])
                     self._leafs = OrderedDict()
 
                     self.device = YList(self)
@@ -680,7 +676,7 @@ class Fpd_(Entity):
                     	Instance
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     .. attribute:: sub_type
                     
@@ -712,7 +708,7 @@ class Fpd_(Entity):
                     """
 
                     _prefix = 'upgrade-fpd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Fpd_.Nodes.Node.Devices.Device, self).__init__()
@@ -722,11 +718,10 @@ class Fpd_(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('fpd_type', YLeaf(YType.enumeration, 'fpd-type')),
-                            ('instance', YLeaf(YType.int32, 'instance')),
+                            ('instance', YLeaf(YType.uint32, 'instance')),
                             ('sub_type', YLeaf(YType.enumeration, 'sub-type')),
                             ('card_type', YLeaf(YType.str, 'card-type')),
                             ('hardware_version', YLeaf(YType.str, 'hardware-version')),
@@ -760,7 +755,7 @@ class Fpd_(Entity):
         """
 
         _prefix = 'upgrade-fpd-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Fpd_.Packages, self).__init__()
@@ -770,8 +765,7 @@ class Fpd_(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("all-package", ("all_package", Fpd_.Packages.AllPackage))])
+            self._child_classes = OrderedDict([("all-package", ("all_package", Fpd_.Packages.AllPackage))])
             self._leafs = OrderedDict()
 
             self.all_package = YList(self)
@@ -826,7 +820,7 @@ class Fpd_(Entity):
             """
 
             _prefix = 'upgrade-fpd-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Fpd_.Packages.AllPackage, self).__init__()
@@ -836,8 +830,7 @@ class Fpd_(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('card_type', YLeaf(YType.str, 'card-type')),
                     ('card_description', YLeaf(YType.str, 'card-description')),

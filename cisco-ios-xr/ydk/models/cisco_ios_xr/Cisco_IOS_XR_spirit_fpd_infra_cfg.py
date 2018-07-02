@@ -66,8 +66,7 @@ class Fpd(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict([
             ('auto_upgrade', YLeaf(YType.enumeration, 'auto-upgrade')),
         ])

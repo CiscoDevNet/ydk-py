@@ -148,30 +148,28 @@ class BgpStateData(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("neighbors", ("neighbors", BgpStateData.Neighbors)), ("address-families", ("address_families", BgpStateData.AddressFamilies)), ("bgp-route-vrfs", ("bgp_route_vrfs", BgpStateData.BgpRouteVrfs)), ("bgp-route-rds", ("bgp_route_rds", BgpStateData.BgpRouteRds))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("neighbors", ("neighbors", BgpStateData.Neighbors)), ("address-families", ("address_families", BgpStateData.AddressFamilies)), ("bgp-route-vrfs", ("bgp_route_vrfs", BgpStateData.BgpRouteVrfs)), ("bgp-route-rds", ("bgp_route_rds", BgpStateData.BgpRouteRds))])
         self._leafs = OrderedDict()
 
         self.neighbors = BgpStateData.Neighbors()
         self.neighbors.parent = self
         self._children_name_map["neighbors"] = "neighbors"
-        self._children_yang_names.add("neighbors")
 
         self.address_families = BgpStateData.AddressFamilies()
         self.address_families.parent = self
         self._children_name_map["address_families"] = "address-families"
-        self._children_yang_names.add("address-families")
 
         self.bgp_route_vrfs = BgpStateData.BgpRouteVrfs()
         self.bgp_route_vrfs.parent = self
         self._children_name_map["bgp_route_vrfs"] = "bgp-route-vrfs"
-        self._children_yang_names.add("bgp-route-vrfs")
 
         self.bgp_route_rds = BgpStateData.BgpRouteRds()
         self.bgp_route_rds.parent = self
         self._children_name_map["bgp_route_rds"] = "bgp-route-rds"
-        self._children_yang_names.add("bgp-route-rds")
         self._segment_path = lambda: "Cisco-IOS-XE-bgp-oper:bgp-state-data"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(BgpStateData, [], name, value)
 
 
     class Neighbors(Entity):
@@ -198,8 +196,7 @@ class BgpStateData(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("neighbor", ("neighbor", BgpStateData.Neighbors.Neighbor))])
+            self._child_classes = OrderedDict([("neighbor", ("neighbor", BgpStateData.Neighbors.Neighbor))])
             self._leafs = OrderedDict()
 
             self.neighbor = YList(self)
@@ -325,8 +322,7 @@ class BgpStateData(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['afi_safi','vrf_name','neighbor_id']
-                self._child_container_classes = OrderedDict([("negotiated-keepalive-timers", ("negotiated_keepalive_timers", BgpStateData.Neighbors.Neighbor.NegotiatedKeepaliveTimers)), ("bgp-neighbor-counters", ("bgp_neighbor_counters", BgpStateData.Neighbors.Neighbor.BgpNeighborCounters)), ("connection", ("connection", BgpStateData.Neighbors.Neighbor.Connection)), ("transport", ("transport", BgpStateData.Neighbors.Neighbor.Transport)), ("prefix-activity", ("prefix_activity", BgpStateData.Neighbors.Neighbor.PrefixActivity))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("negotiated-keepalive-timers", ("negotiated_keepalive_timers", BgpStateData.Neighbors.Neighbor.NegotiatedKeepaliveTimers)), ("bgp-neighbor-counters", ("bgp_neighbor_counters", BgpStateData.Neighbors.Neighbor.BgpNeighborCounters)), ("connection", ("connection", BgpStateData.Neighbors.Neighbor.Connection)), ("transport", ("transport", BgpStateData.Neighbors.Neighbor.Transport)), ("prefix-activity", ("prefix_activity", BgpStateData.Neighbors.Neighbor.PrefixActivity))])
                 self._leafs = OrderedDict([
                     ('afi_safi', YLeaf(YType.enumeration, 'afi-safi')),
                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
@@ -359,27 +355,22 @@ class BgpStateData(Entity):
                 self.negotiated_keepalive_timers = BgpStateData.Neighbors.Neighbor.NegotiatedKeepaliveTimers()
                 self.negotiated_keepalive_timers.parent = self
                 self._children_name_map["negotiated_keepalive_timers"] = "negotiated-keepalive-timers"
-                self._children_yang_names.add("negotiated-keepalive-timers")
 
                 self.bgp_neighbor_counters = BgpStateData.Neighbors.Neighbor.BgpNeighborCounters()
                 self.bgp_neighbor_counters.parent = self
                 self._children_name_map["bgp_neighbor_counters"] = "bgp-neighbor-counters"
-                self._children_yang_names.add("bgp-neighbor-counters")
 
                 self.connection = BgpStateData.Neighbors.Neighbor.Connection()
                 self.connection.parent = self
                 self._children_name_map["connection"] = "connection"
-                self._children_yang_names.add("connection")
 
                 self.transport = BgpStateData.Neighbors.Neighbor.Transport()
                 self.transport.parent = self
                 self._children_name_map["transport"] = "transport"
-                self._children_yang_names.add("transport")
 
                 self.prefix_activity = BgpStateData.Neighbors.Neighbor.PrefixActivity()
                 self.prefix_activity.parent = self
                 self._children_name_map["prefix_activity"] = "prefix-activity"
-                self._children_yang_names.add("prefix-activity")
                 self._segment_path = lambda: "neighbor" + "[afi-safi='" + str(self.afi_safi) + "']" + "[vrf-name='" + str(self.vrf_name) + "']" + "[neighbor-id='" + str(self.neighbor_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-bgp-oper:bgp-state-data/neighbors/%s" % self._segment_path()
 
@@ -420,8 +411,7 @@ class BgpStateData(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('hold_time', YLeaf(YType.uint16, 'hold-time')),
                         ('keepalive_interval', YLeaf(YType.uint16, 'keepalive-interval')),
@@ -477,8 +467,7 @@ class BgpStateData(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("sent", ("sent", BgpStateData.Neighbors.Neighbor.BgpNeighborCounters.Sent)), ("received", ("received", BgpStateData.Neighbors.Neighbor.BgpNeighborCounters.Received))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("sent", ("sent", BgpStateData.Neighbors.Neighbor.BgpNeighborCounters.Sent)), ("received", ("received", BgpStateData.Neighbors.Neighbor.BgpNeighborCounters.Received))])
                     self._leafs = OrderedDict([
                         ('inq_depth', YLeaf(YType.uint32, 'inq-depth')),
                         ('outq_depth', YLeaf(YType.uint32, 'outq-depth')),
@@ -489,12 +478,10 @@ class BgpStateData(Entity):
                     self.sent = BgpStateData.Neighbors.Neighbor.BgpNeighborCounters.Sent()
                     self.sent.parent = self
                     self._children_name_map["sent"] = "sent"
-                    self._children_yang_names.add("sent")
 
                     self.received = BgpStateData.Neighbors.Neighbor.BgpNeighborCounters.Received()
                     self.received.parent = self
                     self._children_name_map["received"] = "received"
-                    self._children_yang_names.add("received")
                     self._segment_path = lambda: "bgp-neighbor-counters"
 
                 def __setattr__(self, name, value):
@@ -555,8 +542,7 @@ class BgpStateData(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('opens', YLeaf(YType.uint32, 'opens')),
                             ('updates', YLeaf(YType.uint32, 'updates')),
@@ -629,8 +615,7 @@ class BgpStateData(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('opens', YLeaf(YType.uint32, 'opens')),
                             ('updates', YLeaf(YType.uint32, 'updates')),
@@ -702,8 +687,7 @@ class BgpStateData(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('state', YLeaf(YType.enumeration, 'state')),
                         ('mode', YLeaf(YType.enumeration, 'mode')),
@@ -795,8 +779,7 @@ class BgpStateData(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('path_mtu_discovery', YLeaf(YType.boolean, 'path-mtu-discovery')),
                         ('local_port', YLeaf(YType.uint32, 'local-port')),
@@ -846,20 +829,20 @@ class BgpStateData(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("sent", ("sent", BgpStateData.Neighbors.Neighbor.PrefixActivity.Sent)), ("received", ("received", BgpStateData.Neighbors.Neighbor.PrefixActivity.Received))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("sent", ("sent", BgpStateData.Neighbors.Neighbor.PrefixActivity.Sent)), ("received", ("received", BgpStateData.Neighbors.Neighbor.PrefixActivity.Received))])
                     self._leafs = OrderedDict()
 
                     self.sent = BgpStateData.Neighbors.Neighbor.PrefixActivity.Sent()
                     self.sent.parent = self
                     self._children_name_map["sent"] = "sent"
-                    self._children_yang_names.add("sent")
 
                     self.received = BgpStateData.Neighbors.Neighbor.PrefixActivity.Received()
                     self.received.parent = self
                     self._children_name_map["received"] = "received"
-                    self._children_yang_names.add("received")
                     self._segment_path = lambda: "prefix-activity"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(BgpStateData.Neighbors.Neighbor.PrefixActivity, [], name, value)
 
 
                 class Sent(Entity):
@@ -923,8 +906,7 @@ class BgpStateData(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('current_prefixes', YLeaf(YType.uint64, 'current-prefixes')),
                             ('total_prefixes', YLeaf(YType.uint64, 'total-prefixes')),
@@ -1006,8 +988,7 @@ class BgpStateData(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('current_prefixes', YLeaf(YType.uint64, 'current-prefixes')),
                             ('total_prefixes', YLeaf(YType.uint64, 'total-prefixes')),
@@ -1052,8 +1033,7 @@ class BgpStateData(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("address-family", ("address_family", BgpStateData.AddressFamilies.AddressFamily))])
+            self._child_classes = OrderedDict([("address-family", ("address_family", BgpStateData.AddressFamilies.AddressFamily))])
             self._leafs = OrderedDict()
 
             self.address_family = YList(self)
@@ -1169,8 +1149,7 @@ class BgpStateData(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['afi_safi','vrf_name']
-                self._child_container_classes = OrderedDict([("prefixes", ("prefixes", BgpStateData.AddressFamilies.AddressFamily.Prefixes)), ("path", ("path", BgpStateData.AddressFamilies.AddressFamily.Path)), ("as-path", ("as_path", BgpStateData.AddressFamilies.AddressFamily.AsPath)), ("route-map", ("route_map", BgpStateData.AddressFamilies.AddressFamily.RouteMap)), ("filter-list", ("filter_list", BgpStateData.AddressFamilies.AddressFamily.FilterList)), ("activities", ("activities", BgpStateData.AddressFamilies.AddressFamily.Activities)), ("bgp-neighbor-summaries", ("bgp_neighbor_summaries", BgpStateData.AddressFamilies.AddressFamily.BgpNeighborSummaries))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("prefixes", ("prefixes", BgpStateData.AddressFamilies.AddressFamily.Prefixes)), ("path", ("path", BgpStateData.AddressFamilies.AddressFamily.Path)), ("as-path", ("as_path", BgpStateData.AddressFamilies.AddressFamily.AsPath)), ("route-map", ("route_map", BgpStateData.AddressFamilies.AddressFamily.RouteMap)), ("filter-list", ("filter_list", BgpStateData.AddressFamilies.AddressFamily.FilterList)), ("activities", ("activities", BgpStateData.AddressFamilies.AddressFamily.Activities)), ("bgp-neighbor-summaries", ("bgp_neighbor_summaries", BgpStateData.AddressFamilies.AddressFamily.BgpNeighborSummaries))])
                 self._leafs = OrderedDict([
                     ('afi_safi', YLeaf(YType.enumeration, 'afi-safi')),
                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
@@ -1191,37 +1170,30 @@ class BgpStateData(Entity):
                 self.prefixes = BgpStateData.AddressFamilies.AddressFamily.Prefixes()
                 self.prefixes.parent = self
                 self._children_name_map["prefixes"] = "prefixes"
-                self._children_yang_names.add("prefixes")
 
                 self.path = BgpStateData.AddressFamilies.AddressFamily.Path()
                 self.path.parent = self
                 self._children_name_map["path"] = "path"
-                self._children_yang_names.add("path")
 
                 self.as_path = BgpStateData.AddressFamilies.AddressFamily.AsPath()
                 self.as_path.parent = self
                 self._children_name_map["as_path"] = "as-path"
-                self._children_yang_names.add("as-path")
 
                 self.route_map = BgpStateData.AddressFamilies.AddressFamily.RouteMap()
                 self.route_map.parent = self
                 self._children_name_map["route_map"] = "route-map"
-                self._children_yang_names.add("route-map")
 
                 self.filter_list = BgpStateData.AddressFamilies.AddressFamily.FilterList()
                 self.filter_list.parent = self
                 self._children_name_map["filter_list"] = "filter-list"
-                self._children_yang_names.add("filter-list")
 
                 self.activities = BgpStateData.AddressFamilies.AddressFamily.Activities()
                 self.activities.parent = self
                 self._children_name_map["activities"] = "activities"
-                self._children_yang_names.add("activities")
 
                 self.bgp_neighbor_summaries = BgpStateData.AddressFamilies.AddressFamily.BgpNeighborSummaries()
                 self.bgp_neighbor_summaries.parent = self
                 self._children_name_map["bgp_neighbor_summaries"] = "bgp-neighbor-summaries"
-                self._children_yang_names.add("bgp-neighbor-summaries")
                 self._segment_path = lambda: "address-family" + "[afi-safi='" + str(self.afi_safi) + "']" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-bgp-oper:bgp-state-data/address-families/%s" % self._segment_path()
 
@@ -1262,8 +1234,7 @@ class BgpStateData(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('total_entries', YLeaf(YType.uint64, 'total-entries')),
                         ('memory_usage', YLeaf(YType.uint64, 'memory-usage')),
@@ -1309,8 +1280,7 @@ class BgpStateData(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('total_entries', YLeaf(YType.uint64, 'total-entries')),
                         ('memory_usage', YLeaf(YType.uint64, 'memory-usage')),
@@ -1356,8 +1326,7 @@ class BgpStateData(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('total_entries', YLeaf(YType.uint64, 'total-entries')),
                         ('memory_usage', YLeaf(YType.uint64, 'memory-usage')),
@@ -1403,8 +1372,7 @@ class BgpStateData(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('total_entries', YLeaf(YType.uint64, 'total-entries')),
                         ('memory_usage', YLeaf(YType.uint64, 'memory-usage')),
@@ -1450,8 +1418,7 @@ class BgpStateData(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('total_entries', YLeaf(YType.uint64, 'total-entries')),
                         ('memory_usage', YLeaf(YType.uint64, 'memory-usage')),
@@ -1502,8 +1469,7 @@ class BgpStateData(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('prefixes', YLeaf(YType.uint64, 'prefixes')),
                         ('paths', YLeaf(YType.uint64, 'paths')),
@@ -1542,8 +1508,7 @@ class BgpStateData(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("bgp-neighbor-summary", ("bgp_neighbor_summary", BgpStateData.AddressFamilies.AddressFamily.BgpNeighborSummaries.BgpNeighborSummary))])
+                    self._child_classes = OrderedDict([("bgp-neighbor-summary", ("bgp_neighbor_summary", BgpStateData.AddressFamilies.AddressFamily.BgpNeighborSummaries.BgpNeighborSummary))])
                     self._leafs = OrderedDict()
 
                     self.bgp_neighbor_summary = YList(self)
@@ -1648,8 +1613,7 @@ class BgpStateData(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('id', YLeaf(YType.str, 'id')),
                             ('bgp_version', YLeaf(YType.uint32, 'bgp-version')),
@@ -1706,8 +1670,7 @@ class BgpStateData(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("bgp-route-vrf", ("bgp_route_vrf", BgpStateData.BgpRouteVrfs.BgpRouteVrf))])
+            self._child_classes = OrderedDict([("bgp-route-vrf", ("bgp_route_vrf", BgpStateData.BgpRouteVrfs.BgpRouteVrf))])
             self._leafs = OrderedDict()
 
             self.bgp_route_vrf = YList(self)
@@ -1747,8 +1710,7 @@ class BgpStateData(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['vrf']
-                self._child_container_classes = OrderedDict([("bgp-route-afs", ("bgp_route_afs", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("bgp-route-afs", ("bgp_route_afs", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs))])
                 self._leafs = OrderedDict([
                     ('vrf', YLeaf(YType.str, 'vrf')),
                 ])
@@ -1757,7 +1719,6 @@ class BgpStateData(Entity):
                 self.bgp_route_afs = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs()
                 self.bgp_route_afs.parent = self
                 self._children_name_map["bgp_route_afs"] = "bgp-route-afs"
-                self._children_yang_names.add("bgp-route-afs")
                 self._segment_path = lambda: "bgp-route-vrf" + "[vrf='" + str(self.vrf) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-vrfs/%s" % self._segment_path()
 
@@ -1789,8 +1750,7 @@ class BgpStateData(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("bgp-route-af", ("bgp_route_af", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf))])
+                    self._child_classes = OrderedDict([("bgp-route-af", ("bgp_route_af", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf))])
                     self._leafs = OrderedDict()
 
                     self.bgp_route_af = YList(self)
@@ -1839,8 +1799,7 @@ class BgpStateData(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['afi_safi']
-                        self._child_container_classes = OrderedDict([("bgp-route-filters", ("bgp_route_filters", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters)), ("bgp-route-neighbors", ("bgp_route_neighbors", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors)), ("bgp-peer-groups", ("bgp_peer_groups", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpPeerGroups))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("bgp-route-filters", ("bgp_route_filters", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters)), ("bgp-route-neighbors", ("bgp_route_neighbors", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors)), ("bgp-peer-groups", ("bgp_peer_groups", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpPeerGroups))])
                         self._leafs = OrderedDict([
                             ('afi_safi', YLeaf(YType.enumeration, 'afi-safi')),
                         ])
@@ -1849,17 +1808,14 @@ class BgpStateData(Entity):
                         self.bgp_route_filters = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters()
                         self.bgp_route_filters.parent = self
                         self._children_name_map["bgp_route_filters"] = "bgp-route-filters"
-                        self._children_yang_names.add("bgp-route-filters")
 
                         self.bgp_route_neighbors = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors()
                         self.bgp_route_neighbors.parent = self
                         self._children_name_map["bgp_route_neighbors"] = "bgp-route-neighbors"
-                        self._children_yang_names.add("bgp-route-neighbors")
 
                         self.bgp_peer_groups = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpPeerGroups()
                         self.bgp_peer_groups.parent = self
                         self._children_name_map["bgp_peer_groups"] = "bgp-peer-groups"
-                        self._children_yang_names.add("bgp-peer-groups")
                         self._segment_path = lambda: "bgp-route-af" + "[afi-safi='" + str(self.afi_safi) + "']"
 
                     def __setattr__(self, name, value):
@@ -1890,8 +1846,7 @@ class BgpStateData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("bgp-route-filter", ("bgp_route_filter", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter))])
+                            self._child_classes = OrderedDict([("bgp-route-filter", ("bgp_route_filter", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter))])
                             self._leafs = OrderedDict()
 
                             self.bgp_route_filter = YList(self)
@@ -1930,8 +1885,7 @@ class BgpStateData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['route_filter']
-                                self._child_container_classes = OrderedDict([("bgp-route-entries", ("bgp_route_entries", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("bgp-route-entries", ("bgp_route_entries", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries))])
                                 self._leafs = OrderedDict([
                                     ('route_filter', YLeaf(YType.enumeration, 'route-filter')),
                                 ])
@@ -1940,7 +1894,6 @@ class BgpStateData(Entity):
                                 self.bgp_route_entries = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries()
                                 self.bgp_route_entries.parent = self
                                 self._children_name_map["bgp_route_entries"] = "bgp-route-entries"
-                                self._children_yang_names.add("bgp-route-entries")
                                 self._segment_path = lambda: "bgp-route-filter" + "[route-filter='" + str(self.route_filter) + "']"
 
                             def __setattr__(self, name, value):
@@ -1971,8 +1924,7 @@ class BgpStateData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("bgp-route-entry", ("bgp_route_entry", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry))])
+                                    self._child_classes = OrderedDict([("bgp-route-entry", ("bgp_route_entry", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry))])
                                     self._leafs = OrderedDict()
 
                                     self.bgp_route_entry = YList(self)
@@ -2030,8 +1982,7 @@ class BgpStateData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['prefix']
-                                        self._child_container_classes = OrderedDict([("bgp-path-entries", ("bgp_path_entries", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("bgp-path-entries", ("bgp_path_entries", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries))])
                                         self._leafs = OrderedDict([
                                             ('prefix', YLeaf(YType.str, 'prefix')),
                                             ('version', YLeaf(YType.uint32, 'version')),
@@ -2046,7 +1997,6 @@ class BgpStateData(Entity):
                                         self.bgp_path_entries = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries()
                                         self.bgp_path_entries.parent = self
                                         self._children_name_map["bgp_path_entries"] = "bgp-path-entries"
-                                        self._children_yang_names.add("bgp-path-entries")
                                         self._segment_path = lambda: "bgp-route-entry" + "[prefix='" + str(self.prefix) + "']"
 
                                     def __setattr__(self, name, value):
@@ -2077,8 +2027,7 @@ class BgpStateData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("bgp-path-entry", ("bgp_path_entry", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry))])
+                                            self._child_classes = OrderedDict([("bgp-path-entry", ("bgp_path_entry", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry))])
                                             self._leafs = OrderedDict()
 
                                             self.bgp_path_entry = YList(self)
@@ -2245,8 +2194,7 @@ class BgpStateData(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['nexthop']
-                                                self._child_container_classes = OrderedDict([("path-status", ("path_status", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry.PathStatus))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("path-status", ("path_status", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry.PathStatus))])
                                                 self._leafs = OrderedDict([
                                                     ('nexthop', YLeaf(YType.str, 'nexthop')),
                                                     ('metric', YLeaf(YType.uint32, 'metric')),
@@ -2299,7 +2247,6 @@ class BgpStateData(Entity):
                                                 self.path_status = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry.PathStatus()
                                                 self.path_status.parent = self
                                                 self._children_name_map["path_status"] = "path-status"
-                                                self._children_yang_names.add("path-status")
                                                 self._segment_path = lambda: "bgp-path-entry" + "[nexthop='" + str(self.nexthop) + "']"
 
                                             def __setattr__(self, name, value):
@@ -2400,8 +2347,7 @@ class BgpStateData(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('suppressed', YLeaf(YType.empty, 'suppressed')),
                                                         ('damped', YLeaf(YType.empty, 'damped')),
@@ -2464,8 +2410,7 @@ class BgpStateData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("bgp-route-neighbor", ("bgp_route_neighbor", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor))])
+                            self._child_classes = OrderedDict([("bgp-route-neighbor", ("bgp_route_neighbor", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor))])
                             self._leafs = OrderedDict()
 
                             self.bgp_route_neighbor = YList(self)
@@ -2504,8 +2449,7 @@ class BgpStateData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['nbr_id']
-                                self._child_container_classes = OrderedDict([("bgp-neighbor-route-filters", ("bgp_neighbor_route_filters", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("bgp-neighbor-route-filters", ("bgp_neighbor_route_filters", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters))])
                                 self._leafs = OrderedDict([
                                     ('nbr_id', YLeaf(YType.str, 'nbr-id')),
                                 ])
@@ -2514,7 +2458,6 @@ class BgpStateData(Entity):
                                 self.bgp_neighbor_route_filters = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters()
                                 self.bgp_neighbor_route_filters.parent = self
                                 self._children_name_map["bgp_neighbor_route_filters"] = "bgp-neighbor-route-filters"
-                                self._children_yang_names.add("bgp-neighbor-route-filters")
                                 self._segment_path = lambda: "bgp-route-neighbor" + "[nbr-id='" + str(self.nbr_id) + "']"
 
                             def __setattr__(self, name, value):
@@ -2545,8 +2488,7 @@ class BgpStateData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("bgp-neighbor-route-filter", ("bgp_neighbor_route_filter", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter))])
+                                    self._child_classes = OrderedDict([("bgp-neighbor-route-filter", ("bgp_neighbor_route_filter", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter))])
                                     self._leafs = OrderedDict()
 
                                     self.bgp_neighbor_route_filter = YList(self)
@@ -2585,8 +2527,7 @@ class BgpStateData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['nbr_fltr']
-                                        self._child_container_classes = OrderedDict([("bgp-neighbor-route-entries", ("bgp_neighbor_route_entries", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("bgp-neighbor-route-entries", ("bgp_neighbor_route_entries", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries))])
                                         self._leafs = OrderedDict([
                                             ('nbr_fltr', YLeaf(YType.enumeration, 'nbr-fltr')),
                                         ])
@@ -2595,7 +2536,6 @@ class BgpStateData(Entity):
                                         self.bgp_neighbor_route_entries = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries()
                                         self.bgp_neighbor_route_entries.parent = self
                                         self._children_name_map["bgp_neighbor_route_entries"] = "bgp-neighbor-route-entries"
-                                        self._children_yang_names.add("bgp-neighbor-route-entries")
                                         self._segment_path = lambda: "bgp-neighbor-route-filter" + "[nbr-fltr='" + str(self.nbr_fltr) + "']"
 
                                     def __setattr__(self, name, value):
@@ -2626,8 +2566,7 @@ class BgpStateData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("bgp-neighbor-route-entry", ("bgp_neighbor_route_entry", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry))])
+                                            self._child_classes = OrderedDict([("bgp-neighbor-route-entry", ("bgp_neighbor_route_entry", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry))])
                                             self._leafs = OrderedDict()
 
                                             self.bgp_neighbor_route_entry = YList(self)
@@ -2685,8 +2624,7 @@ class BgpStateData(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['prefix']
-                                                self._child_container_classes = OrderedDict([("bgp-neighbor-path-entries", ("bgp_neighbor_path_entries", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("bgp-neighbor-path-entries", ("bgp_neighbor_path_entries", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries))])
                                                 self._leafs = OrderedDict([
                                                     ('prefix', YLeaf(YType.str, 'prefix')),
                                                     ('version', YLeaf(YType.uint32, 'version')),
@@ -2701,7 +2639,6 @@ class BgpStateData(Entity):
                                                 self.bgp_neighbor_path_entries = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries()
                                                 self.bgp_neighbor_path_entries.parent = self
                                                 self._children_name_map["bgp_neighbor_path_entries"] = "bgp-neighbor-path-entries"
-                                                self._children_yang_names.add("bgp-neighbor-path-entries")
                                                 self._segment_path = lambda: "bgp-neighbor-route-entry" + "[prefix='" + str(self.prefix) + "']"
 
                                             def __setattr__(self, name, value):
@@ -2732,8 +2669,7 @@ class BgpStateData(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("bgp-neighbor-path-entry", ("bgp_neighbor_path_entry", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries.BgpNeighborPathEntry))])
+                                                    self._child_classes = OrderedDict([("bgp-neighbor-path-entry", ("bgp_neighbor_path_entry", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries.BgpNeighborPathEntry))])
                                                     self._leafs = OrderedDict()
 
                                                     self.bgp_neighbor_path_entry = YList(self)
@@ -2900,8 +2836,7 @@ class BgpStateData(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['nexthop']
-                                                        self._child_container_classes = OrderedDict([("path-status", ("path_status", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries.BgpNeighborPathEntry.PathStatus))])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([("path-status", ("path_status", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries.BgpNeighborPathEntry.PathStatus))])
                                                         self._leafs = OrderedDict([
                                                             ('nexthop', YLeaf(YType.str, 'nexthop')),
                                                             ('metric', YLeaf(YType.uint32, 'metric')),
@@ -2954,7 +2889,6 @@ class BgpStateData(Entity):
                                                         self.path_status = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries.BgpNeighborPathEntry.PathStatus()
                                                         self.path_status.parent = self
                                                         self._children_name_map["path_status"] = "path-status"
-                                                        self._children_yang_names.add("path-status")
                                                         self._segment_path = lambda: "bgp-neighbor-path-entry" + "[nexthop='" + str(self.nexthop) + "']"
 
                                                     def __setattr__(self, name, value):
@@ -3055,8 +2989,7 @@ class BgpStateData(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = []
-                                                            self._child_container_classes = OrderedDict([])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
                                                                 ('suppressed', YLeaf(YType.empty, 'suppressed')),
                                                                 ('damped', YLeaf(YType.empty, 'damped')),
@@ -3119,8 +3052,7 @@ class BgpStateData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("bgp-peer-group", ("bgp_peer_group", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpPeerGroups.BgpPeerGroup))])
+                            self._child_classes = OrderedDict([("bgp-peer-group", ("bgp_peer_group", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpPeerGroups.BgpPeerGroup))])
                             self._leafs = OrderedDict()
 
                             self.bgp_peer_group = YList(self)
@@ -3287,8 +3219,7 @@ class BgpStateData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['name']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('name', YLeaf(YType.str, 'name')),
                                     ('description', YLeaf(YType.str, 'description')),
@@ -3365,8 +3296,7 @@ class BgpStateData(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("bgp-route-rd", ("bgp_route_rd", BgpStateData.BgpRouteRds.BgpRouteRd))])
+            self._child_classes = OrderedDict([("bgp-route-rd", ("bgp_route_rd", BgpStateData.BgpRouteRds.BgpRouteRd))])
             self._leafs = OrderedDict()
 
             self.bgp_route_rd = YList(self)
@@ -3406,8 +3336,7 @@ class BgpStateData(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['rd_value']
-                self._child_container_classes = OrderedDict([("bgp-rd-route-afs", ("bgp_rd_route_afs", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("bgp-rd-route-afs", ("bgp_rd_route_afs", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs))])
                 self._leafs = OrderedDict([
                     ('rd_value', YLeaf(YType.str, 'rd-value')),
                 ])
@@ -3416,7 +3345,6 @@ class BgpStateData(Entity):
                 self.bgp_rd_route_afs = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs()
                 self.bgp_rd_route_afs.parent = self
                 self._children_name_map["bgp_rd_route_afs"] = "bgp-rd-route-afs"
-                self._children_yang_names.add("bgp-rd-route-afs")
                 self._segment_path = lambda: "bgp-route-rd" + "[rd-value='" + str(self.rd_value) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-rds/%s" % self._segment_path()
 
@@ -3448,8 +3376,7 @@ class BgpStateData(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("bgp-rd-route-af", ("bgp_rd_route_af", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf))])
+                    self._child_classes = OrderedDict([("bgp-rd-route-af", ("bgp_rd_route_af", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf))])
                     self._leafs = OrderedDict()
 
                     self.bgp_rd_route_af = YList(self)
@@ -3493,8 +3420,7 @@ class BgpStateData(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['afi_safi']
-                        self._child_container_classes = OrderedDict([("bgp-rd-route-filters", ("bgp_rd_route_filters", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters)), ("bgp-rd-route-neighbors", ("bgp_rd_route_neighbors", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("bgp-rd-route-filters", ("bgp_rd_route_filters", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters)), ("bgp-rd-route-neighbors", ("bgp_rd_route_neighbors", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors))])
                         self._leafs = OrderedDict([
                             ('afi_safi', YLeaf(YType.enumeration, 'afi-safi')),
                         ])
@@ -3503,12 +3429,10 @@ class BgpStateData(Entity):
                         self.bgp_rd_route_filters = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters()
                         self.bgp_rd_route_filters.parent = self
                         self._children_name_map["bgp_rd_route_filters"] = "bgp-rd-route-filters"
-                        self._children_yang_names.add("bgp-rd-route-filters")
 
                         self.bgp_rd_route_neighbors = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors()
                         self.bgp_rd_route_neighbors.parent = self
                         self._children_name_map["bgp_rd_route_neighbors"] = "bgp-rd-route-neighbors"
-                        self._children_yang_names.add("bgp-rd-route-neighbors")
                         self._segment_path = lambda: "bgp-rd-route-af" + "[afi-safi='" + str(self.afi_safi) + "']"
 
                     def __setattr__(self, name, value):
@@ -3539,8 +3463,7 @@ class BgpStateData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("bgp-rd-route-filter", ("bgp_rd_route_filter", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter))])
+                            self._child_classes = OrderedDict([("bgp-rd-route-filter", ("bgp_rd_route_filter", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter))])
                             self._leafs = OrderedDict()
 
                             self.bgp_rd_route_filter = YList(self)
@@ -3579,8 +3502,7 @@ class BgpStateData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['route_filter']
-                                self._child_container_classes = OrderedDict([("bgp-rd-route-entries", ("bgp_rd_route_entries", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("bgp-rd-route-entries", ("bgp_rd_route_entries", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries))])
                                 self._leafs = OrderedDict([
                                     ('route_filter', YLeaf(YType.enumeration, 'route-filter')),
                                 ])
@@ -3589,7 +3511,6 @@ class BgpStateData(Entity):
                                 self.bgp_rd_route_entries = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries()
                                 self.bgp_rd_route_entries.parent = self
                                 self._children_name_map["bgp_rd_route_entries"] = "bgp-rd-route-entries"
-                                self._children_yang_names.add("bgp-rd-route-entries")
                                 self._segment_path = lambda: "bgp-rd-route-filter" + "[route-filter='" + str(self.route_filter) + "']"
 
                             def __setattr__(self, name, value):
@@ -3620,8 +3541,7 @@ class BgpStateData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("bgp-rd-route-entry", ("bgp_rd_route_entry", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry))])
+                                    self._child_classes = OrderedDict([("bgp-rd-route-entry", ("bgp_rd_route_entry", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry))])
                                     self._leafs = OrderedDict()
 
                                     self.bgp_rd_route_entry = YList(self)
@@ -3679,8 +3599,7 @@ class BgpStateData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['prefix']
-                                        self._child_container_classes = OrderedDict([("bgp-rd-path-entries", ("bgp_rd_path_entries", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("bgp-rd-path-entries", ("bgp_rd_path_entries", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries))])
                                         self._leafs = OrderedDict([
                                             ('prefix', YLeaf(YType.str, 'prefix')),
                                             ('version', YLeaf(YType.uint32, 'version')),
@@ -3695,7 +3614,6 @@ class BgpStateData(Entity):
                                         self.bgp_rd_path_entries = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries()
                                         self.bgp_rd_path_entries.parent = self
                                         self._children_name_map["bgp_rd_path_entries"] = "bgp-rd-path-entries"
-                                        self._children_yang_names.add("bgp-rd-path-entries")
                                         self._segment_path = lambda: "bgp-rd-route-entry" + "[prefix='" + str(self.prefix) + "']"
 
                                     def __setattr__(self, name, value):
@@ -3726,8 +3644,7 @@ class BgpStateData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("bgp-rd-path-entry", ("bgp_rd_path_entry", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries.BgpRdPathEntry))])
+                                            self._child_classes = OrderedDict([("bgp-rd-path-entry", ("bgp_rd_path_entry", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries.BgpRdPathEntry))])
                                             self._leafs = OrderedDict()
 
                                             self.bgp_rd_path_entry = YList(self)
@@ -3894,8 +3811,7 @@ class BgpStateData(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['nexthop']
-                                                self._child_container_classes = OrderedDict([("path-status", ("path_status", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries.BgpRdPathEntry.PathStatus))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("path-status", ("path_status", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries.BgpRdPathEntry.PathStatus))])
                                                 self._leafs = OrderedDict([
                                                     ('nexthop', YLeaf(YType.str, 'nexthop')),
                                                     ('metric', YLeaf(YType.uint32, 'metric')),
@@ -3948,7 +3864,6 @@ class BgpStateData(Entity):
                                                 self.path_status = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries.BgpRdPathEntry.PathStatus()
                                                 self.path_status.parent = self
                                                 self._children_name_map["path_status"] = "path-status"
-                                                self._children_yang_names.add("path-status")
                                                 self._segment_path = lambda: "bgp-rd-path-entry" + "[nexthop='" + str(self.nexthop) + "']"
 
                                             def __setattr__(self, name, value):
@@ -4049,8 +3964,7 @@ class BgpStateData(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('suppressed', YLeaf(YType.empty, 'suppressed')),
                                                         ('damped', YLeaf(YType.empty, 'damped')),
@@ -4113,8 +4027,7 @@ class BgpStateData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("bgp-rd-route-neighbor", ("bgp_rd_route_neighbor", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor))])
+                            self._child_classes = OrderedDict([("bgp-rd-route-neighbor", ("bgp_rd_route_neighbor", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor))])
                             self._leafs = OrderedDict()
 
                             self.bgp_rd_route_neighbor = YList(self)
@@ -4153,8 +4066,7 @@ class BgpStateData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['neighbor_id']
-                                self._child_container_classes = OrderedDict([("bgp-rd-neighbor-route-filters", ("bgp_rd_neighbor_route_filters", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("bgp-rd-neighbor-route-filters", ("bgp_rd_neighbor_route_filters", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters))])
                                 self._leafs = OrderedDict([
                                     ('neighbor_id', YLeaf(YType.str, 'neighbor-id')),
                                 ])
@@ -4163,7 +4075,6 @@ class BgpStateData(Entity):
                                 self.bgp_rd_neighbor_route_filters = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters()
                                 self.bgp_rd_neighbor_route_filters.parent = self
                                 self._children_name_map["bgp_rd_neighbor_route_filters"] = "bgp-rd-neighbor-route-filters"
-                                self._children_yang_names.add("bgp-rd-neighbor-route-filters")
                                 self._segment_path = lambda: "bgp-rd-route-neighbor" + "[neighbor-id='" + str(self.neighbor_id) + "']"
 
                             def __setattr__(self, name, value):
@@ -4194,8 +4105,7 @@ class BgpStateData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("bgp-rd-neighbor-route-filter", ("bgp_rd_neighbor_route_filter", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter))])
+                                    self._child_classes = OrderedDict([("bgp-rd-neighbor-route-filter", ("bgp_rd_neighbor_route_filter", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter))])
                                     self._leafs = OrderedDict()
 
                                     self.bgp_rd_neighbor_route_filter = YList(self)
@@ -4234,8 +4144,7 @@ class BgpStateData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['neighbor_filter']
-                                        self._child_container_classes = OrderedDict([("bgp-rd-neighbor-route-entries", ("bgp_rd_neighbor_route_entries", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("bgp-rd-neighbor-route-entries", ("bgp_rd_neighbor_route_entries", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries))])
                                         self._leafs = OrderedDict([
                                             ('neighbor_filter', YLeaf(YType.enumeration, 'neighbor-filter')),
                                         ])
@@ -4244,7 +4153,6 @@ class BgpStateData(Entity):
                                         self.bgp_rd_neighbor_route_entries = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries()
                                         self.bgp_rd_neighbor_route_entries.parent = self
                                         self._children_name_map["bgp_rd_neighbor_route_entries"] = "bgp-rd-neighbor-route-entries"
-                                        self._children_yang_names.add("bgp-rd-neighbor-route-entries")
                                         self._segment_path = lambda: "bgp-rd-neighbor-route-filter" + "[neighbor-filter='" + str(self.neighbor_filter) + "']"
 
                                     def __setattr__(self, name, value):
@@ -4275,8 +4183,7 @@ class BgpStateData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("bgp-rd-neighbor-route-entry", ("bgp_rd_neighbor_route_entry", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry))])
+                                            self._child_classes = OrderedDict([("bgp-rd-neighbor-route-entry", ("bgp_rd_neighbor_route_entry", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry))])
                                             self._leafs = OrderedDict()
 
                                             self.bgp_rd_neighbor_route_entry = YList(self)
@@ -4334,8 +4241,7 @@ class BgpStateData(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['prefix']
-                                                self._child_container_classes = OrderedDict([("bgp-rd-neighbor-path-entries", ("bgp_rd_neighbor_path_entries", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("bgp-rd-neighbor-path-entries", ("bgp_rd_neighbor_path_entries", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries))])
                                                 self._leafs = OrderedDict([
                                                     ('prefix', YLeaf(YType.str, 'prefix')),
                                                     ('version', YLeaf(YType.uint32, 'version')),
@@ -4350,7 +4256,6 @@ class BgpStateData(Entity):
                                                 self.bgp_rd_neighbor_path_entries = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries()
                                                 self.bgp_rd_neighbor_path_entries.parent = self
                                                 self._children_name_map["bgp_rd_neighbor_path_entries"] = "bgp-rd-neighbor-path-entries"
-                                                self._children_yang_names.add("bgp-rd-neighbor-path-entries")
                                                 self._segment_path = lambda: "bgp-rd-neighbor-route-entry" + "[prefix='" + str(self.prefix) + "']"
 
                                             def __setattr__(self, name, value):
@@ -4381,8 +4286,7 @@ class BgpStateData(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("bgp-rd-neighbor-path-entry", ("bgp_rd_neighbor_path_entry", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries.BgpRdNeighborPathEntry))])
+                                                    self._child_classes = OrderedDict([("bgp-rd-neighbor-path-entry", ("bgp_rd_neighbor_path_entry", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries.BgpRdNeighborPathEntry))])
                                                     self._leafs = OrderedDict()
 
                                                     self.bgp_rd_neighbor_path_entry = YList(self)
@@ -4549,8 +4453,7 @@ class BgpStateData(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['nexthop']
-                                                        self._child_container_classes = OrderedDict([("path-status", ("path_status", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries.BgpRdNeighborPathEntry.PathStatus))])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([("path-status", ("path_status", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries.BgpRdNeighborPathEntry.PathStatus))])
                                                         self._leafs = OrderedDict([
                                                             ('nexthop', YLeaf(YType.str, 'nexthop')),
                                                             ('metric', YLeaf(YType.uint32, 'metric')),
@@ -4603,7 +4506,6 @@ class BgpStateData(Entity):
                                                         self.path_status = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries.BgpRdNeighborPathEntry.PathStatus()
                                                         self.path_status.parent = self
                                                         self._children_name_map["path_status"] = "path-status"
-                                                        self._children_yang_names.add("path-status")
                                                         self._segment_path = lambda: "bgp-rd-neighbor-path-entry" + "[nexthop='" + str(self.nexthop) + "']"
 
                                                     def __setattr__(self, name, value):
@@ -4704,8 +4606,7 @@ class BgpStateData(Entity):
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
                                                             self.ylist_key_names = []
-                                                            self._child_container_classes = OrderedDict([])
-                                                            self._child_list_classes = OrderedDict([])
+                                                            self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
                                                                 ('suppressed', YLeaf(YType.empty, 'suppressed')),
                                                                 ('damped', YLeaf(YType.empty, 'damped')),

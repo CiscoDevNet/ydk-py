@@ -15,6 +15,21 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+class SlaActionTypeEnum(Enum):
+    """
+    SlaActionTypeEnum (Enum Class)
+
+    Sla action type enum
+
+    .. data:: log = 0
+
+    	Emit a syslog when the threshold is crossed
+
+    """
+
+    log = Enum.YLeaf(0, "log")
+
+
 class SlaBucketsSizeUnitsEnum(Enum):
     """
     SlaBucketsSizeUnitsEnum (Enum Class)
@@ -561,6 +576,56 @@ class SlaStatisticTypeEnum(Enum):
     one_way_loss_sd = Enum.YLeaf(7, "one-way-loss-sd")
 
     one_way_loss_ds = Enum.YLeaf(8, "one-way-loss-ds")
+
+
+class SlaThresholdConditionEnum(Enum):
+    """
+    SlaThresholdConditionEnum (Enum Class)
+
+    Sla threshold condition enum
+
+    .. data:: max = 0
+
+    	Threshold is breached when the maximum value
+
+    	crosses the configured threshold value
+
+    .. data:: mean = 1
+
+    	Threshold is breached when the mean value
+
+    	crosses the configured threshold value
+
+    .. data:: sample_count = 2
+
+    	Threshold is breached when the sample count in
+
+    	bins in and above a certain bin number crosses
+
+    	the configured sample count
+
+    """
+
+    max = Enum.YLeaf(0, "max")
+
+    mean = Enum.YLeaf(1, "mean")
+
+    sample_count = Enum.YLeaf(2, "sample-count")
+
+
+class SlaThresholdTypeEnum(Enum):
+    """
+    SlaThresholdTypeEnum (Enum Class)
+
+    Sla threshold type enum
+
+    .. data:: stateless = 1
+
+    	Stateless threshold
+
+    """
+
+    stateless = Enum.YLeaf(1, "stateless")
 
 
 

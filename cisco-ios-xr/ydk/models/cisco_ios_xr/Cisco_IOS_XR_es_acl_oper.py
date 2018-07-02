@@ -144,15 +144,16 @@ class EsAcl(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("active", ("active", EsAcl.Active))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("active", ("active", EsAcl.Active))])
         self._leafs = OrderedDict()
 
         self.active = EsAcl.Active()
         self.active.parent = self
         self._children_name_map["active"] = "active"
-        self._children_yang_names.add("active")
         self._segment_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(EsAcl, [], name, value)
 
 
     class Active(Entity):
@@ -195,31 +196,29 @@ class EsAcl(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("oor", ("oor", EsAcl.Active.Oor)), ("list", ("list", EsAcl.Active.List)), ("oor-acls", ("oor_acls", EsAcl.Active.OorAcls)), ("usages", ("usages", EsAcl.Active.Usages))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("oor", ("oor", EsAcl.Active.Oor)), ("list", ("list", EsAcl.Active.List)), ("oor-acls", ("oor_acls", EsAcl.Active.OorAcls)), ("usages", ("usages", EsAcl.Active.Usages))])
             self._leafs = OrderedDict()
 
             self.oor = EsAcl.Active.Oor()
             self.oor.parent = self
             self._children_name_map["oor"] = "oor"
-            self._children_yang_names.add("oor")
 
             self.list = EsAcl.Active.List()
             self.list.parent = self
             self._children_name_map["list"] = "list"
-            self._children_yang_names.add("list")
 
             self.oor_acls = EsAcl.Active.OorAcls()
             self.oor_acls.parent = self
             self._children_name_map["oor_acls"] = "oor-acls"
-            self._children_yang_names.add("oor-acls")
 
             self.usages = EsAcl.Active.Usages()
             self.usages.parent = self
             self._children_name_map["usages"] = "usages"
-            self._children_yang_names.add("usages")
             self._segment_path = lambda: "active"
             self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(EsAcl.Active, [], name, value)
 
 
         class Oor(Entity):
@@ -247,16 +246,17 @@ class EsAcl(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("acl-summary", ("acl_summary", EsAcl.Active.Oor.AclSummary))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("acl-summary", ("acl_summary", EsAcl.Active.Oor.AclSummary))])
                 self._leafs = OrderedDict()
 
                 self.acl_summary = EsAcl.Active.Oor.AclSummary()
                 self.acl_summary.parent = self
                 self._children_name_map["acl_summary"] = "acl-summary"
-                self._children_yang_names.add("acl-summary")
                 self._segment_path = lambda: "oor"
                 self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl/active/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(EsAcl.Active.Oor, [], name, value)
 
 
             class AclSummary(Entity):
@@ -283,16 +283,17 @@ class EsAcl(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("details", ("details", EsAcl.Active.Oor.AclSummary.Details))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("details", ("details", EsAcl.Active.Oor.AclSummary.Details))])
                     self._leafs = OrderedDict()
 
                     self.details = EsAcl.Active.Oor.AclSummary.Details()
                     self.details.parent = self
                     self._children_name_map["details"] = "details"
-                    self._children_yang_names.add("details")
                     self._segment_path = lambda: "acl-summary"
                     self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl/active/oor/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(EsAcl.Active.Oor.AclSummary, [], name, value)
 
 
                 class Details(Entity):
@@ -343,8 +344,7 @@ class EsAcl(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('current_configured_ac_ls', YLeaf(YType.uint32, 'current-configured-ac-ls')),
                             ('current_configured_ac_es', YLeaf(YType.uint32, 'current-configured-ac-es')),
@@ -386,16 +386,17 @@ class EsAcl(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("acls", ("acls", EsAcl.Active.List.Acls))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("acls", ("acls", EsAcl.Active.List.Acls))])
                 self._leafs = OrderedDict()
 
                 self.acls = EsAcl.Active.List.Acls()
                 self.acls.parent = self
                 self._children_name_map["acls"] = "acls"
-                self._children_yang_names.add("acls")
                 self._segment_path = lambda: "list"
                 self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl/active/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(EsAcl.Active.List, [], name, value)
 
 
             class Acls(Entity):
@@ -422,8 +423,7 @@ class EsAcl(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("acl", ("acl", EsAcl.Active.List.Acls.Acl))])
+                    self._child_classes = OrderedDict([("acl", ("acl", EsAcl.Active.List.Acls.Acl))])
                     self._leafs = OrderedDict()
 
                     self.acl = YList(self)
@@ -443,7 +443,7 @@ class EsAcl(Entity):
                     	Name of the Access List
                     	**type**\: str
                     
-                    	**length:** 1..65
+                    	**length:** 1..64
                     
                     .. attribute:: acl_sequence_numbers
                     
@@ -465,8 +465,7 @@ class EsAcl(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['name']
-                        self._child_container_classes = OrderedDict([("acl-sequence-numbers", ("acl_sequence_numbers", EsAcl.Active.List.Acls.Acl.AclSequenceNumbers))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("acl-sequence-numbers", ("acl_sequence_numbers", EsAcl.Active.List.Acls.Acl.AclSequenceNumbers))])
                         self._leafs = OrderedDict([
                             ('name', YLeaf(YType.str, 'name')),
                         ])
@@ -475,7 +474,6 @@ class EsAcl(Entity):
                         self.acl_sequence_numbers = EsAcl.Active.List.Acls.Acl.AclSequenceNumbers()
                         self.acl_sequence_numbers.parent = self
                         self._children_name_map["acl_sequence_numbers"] = "acl-sequence-numbers"
-                        self._children_yang_names.add("acl-sequence-numbers")
                         self._segment_path = lambda: "acl" + "[name='" + str(self.name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl/active/list/acls/%s" % self._segment_path()
 
@@ -507,8 +505,7 @@ class EsAcl(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("acl-sequence-number", ("acl_sequence_number", EsAcl.Active.List.Acls.Acl.AclSequenceNumbers.AclSequenceNumber))])
+                            self._child_classes = OrderedDict([("acl-sequence-number", ("acl_sequence_number", EsAcl.Active.List.Acls.Acl.AclSequenceNumbers.AclSequenceNumber))])
                             self._leafs = OrderedDict()
 
                             self.acl_sequence_number = YList(self)
@@ -686,8 +683,7 @@ class EsAcl(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['sequence_number']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
                                     ('ace_type', YLeaf(YType.enumeration, 'ace-type')),
@@ -766,8 +762,7 @@ class EsAcl(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("oor-acl", ("oor_acl", EsAcl.Active.OorAcls.OorAcl))])
+                self._child_classes = OrderedDict([("oor-acl", ("oor_acl", EsAcl.Active.OorAcls.OorAcl))])
                 self._leafs = OrderedDict()
 
                 self.oor_acl = YList(self)
@@ -788,7 +783,7 @@ class EsAcl(Entity):
                 	Name of the Access List
                 	**type**\: str
                 
-                	**length:** 1..65
+                	**length:** 1..64
                 
                 .. attribute:: current_configured_ac_ls
                 
@@ -833,8 +828,7 @@ class EsAcl(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                         ('current_configured_ac_ls', YLeaf(YType.uint32, 'current-configured-ac-ls')),
@@ -879,8 +873,7 @@ class EsAcl(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("usage", ("usage", EsAcl.Active.Usages.Usage))])
+                self._child_classes = OrderedDict([("usage", ("usage", EsAcl.Active.Usages.Usage))])
                 self._leafs = OrderedDict()
 
                 self.usage = YList(self)
@@ -912,7 +905,7 @@ class EsAcl(Entity):
                 	Name of the ACL
                 	**type**\: str
                 
-                	**length:** 1..65
+                	**length:** 1..64
                 
                 .. attribute:: usage_details
                 
@@ -936,8 +929,7 @@ class EsAcl(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('location', YLeaf(YType.str, 'location')),
                         ('application_id', YLeaf(YType.enumeration, 'application-id')),

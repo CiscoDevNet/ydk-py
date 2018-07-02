@@ -48,25 +48,24 @@ class Lldp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("config", ("config", Lldp.Config)), ("state", ("state", Lldp.State)), ("interfaces", ("interfaces", Lldp.Interfaces))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("config", ("config", Lldp.Config)), ("state", ("state", Lldp.State)), ("interfaces", ("interfaces", Lldp.Interfaces))])
         self._leafs = OrderedDict()
 
         self.config = Lldp.Config()
         self.config.parent = self
         self._children_name_map["config"] = "config"
-        self._children_yang_names.add("config")
 
         self.state = Lldp.State()
         self.state.parent = self
         self._children_name_map["state"] = "state"
-        self._children_yang_names.add("state")
 
         self.interfaces = Lldp.Interfaces()
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
-        self._children_yang_names.add("interfaces")
         self._segment_path = lambda: "openconfig-lldp:lldp"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Lldp, [], name, value)
 
 
     class Config(Entity):
@@ -133,8 +132,7 @@ class Lldp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('enabled', YLeaf(YType.boolean, 'enabled')),
                 ('hello_timer', YLeaf(YType.uint64, 'hello-timer')),
@@ -227,8 +225,7 @@ class Lldp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("counters", ("counters", Lldp.State.Counters))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("counters", ("counters", Lldp.State.Counters))])
             self._leafs = OrderedDict([
                 ('enabled', YLeaf(YType.boolean, 'enabled')),
                 ('hello_timer', YLeaf(YType.uint64, 'hello-timer')),
@@ -249,7 +246,6 @@ class Lldp(Entity):
             self.counters = Lldp.State.Counters()
             self.counters.parent = self
             self._children_name_map["counters"] = "counters"
-            self._children_yang_names.add("counters")
             self._segment_path = lambda: "state"
             self._absolute_path = lambda: "openconfig-lldp:lldp/%s" % self._segment_path()
 
@@ -339,8 +335,7 @@ class Lldp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('frame_in', YLeaf(YType.uint64, 'frame-in')),
                     ('frame_out', YLeaf(YType.uint64, 'frame-out')),
@@ -392,8 +387,7 @@ class Lldp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("interface", ("interface", Lldp.Interfaces.Interface))])
+            self._child_classes = OrderedDict([("interface", ("interface", Lldp.Interfaces.Interface))])
             self._leafs = OrderedDict()
 
             self.interface = YList(self)
@@ -445,8 +439,7 @@ class Lldp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([("config", ("config", Lldp.Interfaces.Interface.Config)), ("state", ("state", Lldp.Interfaces.Interface.State)), ("neighbors", ("neighbors", Lldp.Interfaces.Interface.Neighbors))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("config", ("config", Lldp.Interfaces.Interface.Config)), ("state", ("state", Lldp.Interfaces.Interface.State)), ("neighbors", ("neighbors", Lldp.Interfaces.Interface.Neighbors))])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                 ])
@@ -455,17 +448,14 @@ class Lldp(Entity):
                 self.config = Lldp.Interfaces.Interface.Config()
                 self.config.parent = self
                 self._children_name_map["config"] = "config"
-                self._children_yang_names.add("config")
 
                 self.state = Lldp.Interfaces.Interface.State()
                 self.state.parent = self
                 self._children_name_map["state"] = "state"
-                self._children_yang_names.add("state")
 
                 self.neighbors = Lldp.Interfaces.Interface.Neighbors()
                 self.neighbors.parent = self
                 self._children_name_map["neighbors"] = "neighbors"
-                self._children_yang_names.add("neighbors")
                 self._segment_path = lambda: "interface" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "openconfig-lldp:lldp/interfaces/%s" % self._segment_path()
 
@@ -506,8 +496,7 @@ class Lldp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                         ('enabled', YLeaf(YType.boolean, 'enabled')),
@@ -558,8 +547,7 @@ class Lldp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("counters", ("counters", Lldp.Interfaces.Interface.State.Counters))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("counters", ("counters", Lldp.Interfaces.Interface.State.Counters))])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                         ('enabled', YLeaf(YType.boolean, 'enabled')),
@@ -570,7 +558,6 @@ class Lldp(Entity):
                     self.counters = Lldp.Interfaces.Interface.State.Counters()
                     self.counters.parent = self
                     self._children_name_map["counters"] = "counters"
-                    self._children_yang_names.add("counters")
                     self._segment_path = lambda: "state"
 
                 def __setattr__(self, name, value):
@@ -652,8 +639,7 @@ class Lldp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('frame_in', YLeaf(YType.uint64, 'frame-in')),
                             ('frame_out', YLeaf(YType.uint64, 'frame-out')),
@@ -703,8 +689,7 @@ class Lldp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Lldp.Interfaces.Interface.Neighbors.Neighbor))])
+                    self._child_classes = OrderedDict([("neighbor", ("neighbor", Lldp.Interfaces.Interface.Neighbors.Neighbor))])
                     self._leafs = OrderedDict()
 
                     self.neighbor = YList(self)
@@ -760,8 +745,7 @@ class Lldp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['id']
-                        self._child_container_classes = OrderedDict([("config", ("config", Lldp.Interfaces.Interface.Neighbors.Neighbor.Config)), ("state", ("state", Lldp.Interfaces.Interface.Neighbors.Neighbor.State)), ("custom-tlvs", ("custom_tlvs", Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs)), ("capabilities", ("capabilities", Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("config", ("config", Lldp.Interfaces.Interface.Neighbors.Neighbor.Config)), ("state", ("state", Lldp.Interfaces.Interface.Neighbors.Neighbor.State)), ("custom-tlvs", ("custom_tlvs", Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs)), ("capabilities", ("capabilities", Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities))])
                         self._leafs = OrderedDict([
                             ('id', YLeaf(YType.str, 'id')),
                         ])
@@ -770,22 +754,18 @@ class Lldp(Entity):
                         self.config = Lldp.Interfaces.Interface.Neighbors.Neighbor.Config()
                         self.config.parent = self
                         self._children_name_map["config"] = "config"
-                        self._children_yang_names.add("config")
 
                         self.state = Lldp.Interfaces.Interface.Neighbors.Neighbor.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
-                        self._children_yang_names.add("state")
 
                         self.custom_tlvs = Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs()
                         self.custom_tlvs.parent = self
                         self._children_name_map["custom_tlvs"] = "custom-tlvs"
-                        self._children_yang_names.add("custom-tlvs")
 
                         self.capabilities = Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities()
                         self.capabilities.parent = self
                         self._children_name_map["capabilities"] = "capabilities"
-                        self._children_yang_names.add("capabilities")
                         self._segment_path = lambda: "neighbor" + "[id='" + str(self.id) + "']"
 
                     def __setattr__(self, name, value):
@@ -811,8 +791,7 @@ class Lldp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict()
                             self._segment_path = lambda: "config"
 
@@ -906,8 +885,7 @@ class Lldp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('system_name', YLeaf(YType.str, 'system-name')),
                                 ('system_description', YLeaf(YType.str, 'system-description')),
@@ -965,8 +943,7 @@ class Lldp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("tlv", ("tlv", Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs.Tlv))])
+                            self._child_classes = OrderedDict([("tlv", ("tlv", Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs.Tlv))])
                             self._leafs = OrderedDict()
 
                             self.tlv = YList(self)
@@ -1028,8 +1005,7 @@ class Lldp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['type','oui','oui_subtype']
-                                self._child_container_classes = OrderedDict([("config", ("config", Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs.Tlv.Config)), ("state", ("state", Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs.Tlv.State))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("config", ("config", Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs.Tlv.Config)), ("state", ("state", Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs.Tlv.State))])
                                 self._leafs = OrderedDict([
                                     ('type', YLeaf(YType.str, 'type')),
                                     ('oui', YLeaf(YType.str, 'oui')),
@@ -1042,12 +1018,10 @@ class Lldp(Entity):
                                 self.config = Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs.Tlv.Config()
                                 self.config.parent = self
                                 self._children_name_map["config"] = "config"
-                                self._children_yang_names.add("config")
 
                                 self.state = Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs.Tlv.State()
                                 self.state.parent = self
                                 self._children_name_map["state"] = "state"
-                                self._children_yang_names.add("state")
                                 self._segment_path = lambda: "tlv" + "[type='" + str(self.type) + "']" + "[oui='" + str(self.oui) + "']" + "[oui-subtype='" + str(self.oui_subtype) + "']"
 
                             def __setattr__(self, name, value):
@@ -1073,8 +1047,7 @@ class Lldp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict()
                                     self._segment_path = lambda: "config"
 
@@ -1120,8 +1093,7 @@ class Lldp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('type', YLeaf(YType.int32, 'type')),
                                         ('oui', YLeaf(YType.str, 'oui')),
@@ -1162,8 +1134,7 @@ class Lldp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("capability", ("capability", Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities.Capability))])
+                            self._child_classes = OrderedDict([("capability", ("capability", Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities.Capability))])
                             self._leafs = OrderedDict()
 
                             self.capability = YList(self)
@@ -1208,8 +1179,7 @@ class Lldp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['name']
-                                self._child_container_classes = OrderedDict([("config", ("config", Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities.Capability.Config)), ("state", ("state", Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities.Capability.State))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("config", ("config", Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities.Capability.Config)), ("state", ("state", Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities.Capability.State))])
                                 self._leafs = OrderedDict([
                                     ('name', YLeaf(YType.identityref, 'name')),
                                 ])
@@ -1218,12 +1188,10 @@ class Lldp(Entity):
                                 self.config = Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities.Capability.Config()
                                 self.config.parent = self
                                 self._children_name_map["config"] = "config"
-                                self._children_yang_names.add("config")
 
                                 self.state = Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities.Capability.State()
                                 self.state.parent = self
                                 self._children_name_map["state"] = "state"
-                                self._children_yang_names.add("state")
                                 self._segment_path = lambda: "capability" + "[name='" + str(self.name) + "']"
 
                             def __setattr__(self, name, value):
@@ -1249,8 +1217,7 @@ class Lldp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict()
                                     self._segment_path = lambda: "config"
 
@@ -1284,8 +1251,7 @@ class Lldp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('name', YLeaf(YType.identityref, 'name')),
                                         ('enabled', YLeaf(YType.boolean, 'enabled')),

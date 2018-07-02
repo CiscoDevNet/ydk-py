@@ -74,91 +74,91 @@ class OSPFMIB(Entity):
     .. attribute:: ospfgeneralgroup
     
     	
-    	**type**\:  :py:class:`Ospfgeneralgroup <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfgeneralgroup>`
+    	**type**\:  :py:class:`OspfGeneralGroup <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfGeneralGroup>`
     
     .. attribute:: ospfareatable
     
     	Information describing the configured parameters and cumulative statistics of the router's attached areas. The interfaces and virtual links are configured as part of these areas.  Area 0.0.0.0, by definition, is the backbone area
-    	**type**\:  :py:class:`Ospfareatable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareatable>`
+    	**type**\:  :py:class:`OspfAreaTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaTable>`
     
     .. attribute:: ospfstubareatable
     
     	The set of metrics that will be advertised by a default Area Border Router into a stub area
-    	**type**\:  :py:class:`Ospfstubareatable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfstubareatable>`
+    	**type**\:  :py:class:`OspfStubAreaTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfStubAreaTable>`
     
     .. attribute:: ospflsdbtable
     
     	The OSPF Process's link state database (LSDB). The LSDB contains the link state advertisements from throughout the areas that the device is attached to
-    	**type**\:  :py:class:`Ospflsdbtable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospflsdbtable>`
+    	**type**\:  :py:class:`OspfLsdbTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfLsdbTable>`
     
     .. attribute:: ospfarearangetable
     
     	The Address Range Table acts as an adjunct to the Area Table.  It describes those Address Range Summaries that are configured to be propagated from an Area to reduce the amount of information about it that is known beyond its borders.  It contains a set of IP address ranges specified by an IP address/IP network mask pair. For example, class B address range of X.X.X.X with a network mask of 255.255.0.0 includes all IP addresses from X.X.0.0 to X.X.255.255.  Note that this table is obsoleted and is replaced by the Area Aggregate Table
-    	**type**\:  :py:class:`Ospfarearangetable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfarearangetable>`
+    	**type**\:  :py:class:`OspfAreaRangeTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaRangeTable>`
     
     	**status**\: obsolete
     
     .. attribute:: ospfhosttable
     
     	The Host/Metric Table indicates what hosts are directly  attached to the router, what metrics and types of service should be advertised for them, and what areas they are found within
-    	**type**\:  :py:class:`Ospfhosttable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfhosttable>`
+    	**type**\:  :py:class:`OspfHostTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfHostTable>`
     
     .. attribute:: ospfiftable
     
     	The OSPF Interface Table describes the interfaces from the viewpoint of OSPF. It augments the ipAddrTable with OSPF specific information
-    	**type**\:  :py:class:`Ospfiftable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfiftable>`
+    	**type**\:  :py:class:`OspfIfTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfIfTable>`
     
     .. attribute:: ospfifmetrictable
     
     	The Metric Table describes the metrics to be advertised for a specified interface at the various types of service. As such, this table is an adjunct of the OSPF Interface Table.  Types of service, as defined by RFC 791, have the ability to request low delay, high bandwidth, or reliable linkage.  For the purposes of this specification, the measure of bandwidth\:  Metric = referenceBandwidth / ifSpeed  is the default value. The default reference bandwidth is 10^8. For multiple link interfaces, note that ifSpeed is the sum of the individual link speeds.  This yields a number having the following typical values\:  Network Type/bit rate   Metric  >= 100 MBPS                 1 Ethernet/802.3             10 E1                         48 T1 (ESF)                   65 64 KBPS                    1562 56 KBPS                    1785 19.2 KBPS                  5208 9.6 KBPS                   10416  Routes that are not specified use the default (TOS 0) metric.  Note that the default reference bandwidth can be configured using the general group object ospfReferenceBandwidth
-    	**type**\:  :py:class:`Ospfifmetrictable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfifmetrictable>`
+    	**type**\:  :py:class:`OspfIfMetricTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfIfMetricTable>`
     
     .. attribute:: ospfvirtiftable
     
     	Information about this router's virtual interfaces that the OSPF Process is configured to carry on
-    	**type**\:  :py:class:`Ospfvirtiftable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtiftable>`
+    	**type**\:  :py:class:`OspfVirtIfTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfVirtIfTable>`
     
     .. attribute:: ospfnbrtable
     
     	A table describing all non\-virtual neighbors in the locality of the OSPF router
-    	**type**\:  :py:class:`Ospfnbrtable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfnbrtable>`
+    	**type**\:  :py:class:`OspfNbrTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfNbrTable>`
     
     .. attribute:: ospfvirtnbrtable
     
     	This table describes all virtual neighbors. Since virtual links are configured in the Virtual Interface Table, this table is read\-only
-    	**type**\:  :py:class:`Ospfvirtnbrtable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtnbrtable>`
+    	**type**\:  :py:class:`OspfVirtNbrTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfVirtNbrTable>`
     
     .. attribute:: ospfextlsdbtable
     
     	The OSPF Process's external LSA link state database.  This table is identical to the OSPF LSDB Table in format, but contains only external link state advertisements.  The purpose is to allow external  LSAs to be displayed once for the router rather than once in each non\-stub area.  Note that external LSAs are also in the AS\-scope link state database
-    	**type**\:  :py:class:`Ospfextlsdbtable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfextlsdbtable>`
+    	**type**\:  :py:class:`OspfExtLsdbTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfExtLsdbTable>`
     
     	**status**\: deprecated
     
     .. attribute:: ospfareaaggregatetable
     
     	The Area Aggregate Table acts as an adjunct to the Area Table.  It describes those address aggregates that are configured to be propagated from an area. Its purpose is to reduce the amount of information that is known beyond an Area's borders.  It contains a set of IP address ranges specified by an IP address/IP network mask pair. For example, a class B address range of X.X.X.X with a network mask of 255.255.0.0 includes all IP addresses from X.X.0.0 to X.X.255.255.  Note that if ranges are configured such that one range subsumes another range (e.g., 10.0.0.0 mask 255.0.0.0 and 10.1.0.0 mask 255.255.0.0), the most specific match is the preferred one
-    	**type**\:  :py:class:`Ospfareaaggregatetable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareaaggregatetable>`
+    	**type**\:  :py:class:`OspfAreaAggregateTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaAggregateTable>`
     
     .. attribute:: ospflocallsdbtable
     
     	The OSPF Process's link\-local link state database for non\-virtual links. This table is identical to the OSPF LSDB Table in format, but contains only link\-local Link State Advertisements for non\-virtual links.  The purpose is to allow link\-local LSAs to be displayed for each non\-virtual interface.  This table is implemented to support type\-9 LSAs that are defined in 'The OSPF Opaque LSA Option'
-    	**type**\:  :py:class:`Ospflocallsdbtable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospflocallsdbtable>`
+    	**type**\:  :py:class:`OspfLocalLsdbTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfLocalLsdbTable>`
     
     .. attribute:: ospfvirtlocallsdbtable
     
     	The OSPF Process's link\-local link state database for virtual links.  This table is identical to the OSPF LSDB Table in format, but contains only link\-local Link State Advertisements for virtual links.  The purpose is to allow link\-local LSAs to be displayed for each virtual interface.  This table is implemented to support type\-9 LSAs that are defined in 'The OSPF Opaque LSA Option'
-    	**type**\:  :py:class:`Ospfvirtlocallsdbtable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtlocallsdbtable>`
+    	**type**\:  :py:class:`OspfVirtLocalLsdbTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfVirtLocalLsdbTable>`
     
     .. attribute:: ospfaslsdbtable
     
     	The OSPF Process's AS\-scope LSA link state database. The database contains the AS\-scope Link State Advertisements from throughout the areas that the device is attached to.  This table is identical to the OSPF LSDB Table in format, but contains only AS\-scope Link State Advertisements.  The purpose is to allow AS\-scope LSAs to be displayed once for the router rather than once in each non\-stub area
-    	**type**\:  :py:class:`Ospfaslsdbtable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfaslsdbtable>`
+    	**type**\:  :py:class:`OspfAsLsdbTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAsLsdbTable>`
     
     .. attribute:: ospfarealsacounttable
     
     	This table maintains per\-area, per\-LSA\-type counters
-    	**type**\:  :py:class:`Ospfarealsacounttable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfarealsacounttable>`
+    	**type**\:  :py:class:`OspfAreaLsaCountTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaLsaCountTable>`
     
     
 
@@ -176,98 +176,83 @@ class OSPFMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ospfGeneralGroup", ("ospfgeneralgroup", OSPFMIB.Ospfgeneralgroup)), ("ospfAreaTable", ("ospfareatable", OSPFMIB.Ospfareatable)), ("ospfStubAreaTable", ("ospfstubareatable", OSPFMIB.Ospfstubareatable)), ("ospfLsdbTable", ("ospflsdbtable", OSPFMIB.Ospflsdbtable)), ("ospfAreaRangeTable", ("ospfarearangetable", OSPFMIB.Ospfarearangetable)), ("ospfHostTable", ("ospfhosttable", OSPFMIB.Ospfhosttable)), ("ospfIfTable", ("ospfiftable", OSPFMIB.Ospfiftable)), ("ospfIfMetricTable", ("ospfifmetrictable", OSPFMIB.Ospfifmetrictable)), ("ospfVirtIfTable", ("ospfvirtiftable", OSPFMIB.Ospfvirtiftable)), ("ospfNbrTable", ("ospfnbrtable", OSPFMIB.Ospfnbrtable)), ("ospfVirtNbrTable", ("ospfvirtnbrtable", OSPFMIB.Ospfvirtnbrtable)), ("ospfExtLsdbTable", ("ospfextlsdbtable", OSPFMIB.Ospfextlsdbtable)), ("ospfAreaAggregateTable", ("ospfareaaggregatetable", OSPFMIB.Ospfareaaggregatetable)), ("ospfLocalLsdbTable", ("ospflocallsdbtable", OSPFMIB.Ospflocallsdbtable)), ("ospfVirtLocalLsdbTable", ("ospfvirtlocallsdbtable", OSPFMIB.Ospfvirtlocallsdbtable)), ("ospfAsLsdbTable", ("ospfaslsdbtable", OSPFMIB.Ospfaslsdbtable)), ("ospfAreaLsaCountTable", ("ospfarealsacounttable", OSPFMIB.Ospfarealsacounttable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ospfGeneralGroup", ("ospfgeneralgroup", OSPFMIB.OspfGeneralGroup)), ("ospfAreaTable", ("ospfareatable", OSPFMIB.OspfAreaTable)), ("ospfStubAreaTable", ("ospfstubareatable", OSPFMIB.OspfStubAreaTable)), ("ospfLsdbTable", ("ospflsdbtable", OSPFMIB.OspfLsdbTable)), ("ospfAreaRangeTable", ("ospfarearangetable", OSPFMIB.OspfAreaRangeTable)), ("ospfHostTable", ("ospfhosttable", OSPFMIB.OspfHostTable)), ("ospfIfTable", ("ospfiftable", OSPFMIB.OspfIfTable)), ("ospfIfMetricTable", ("ospfifmetrictable", OSPFMIB.OspfIfMetricTable)), ("ospfVirtIfTable", ("ospfvirtiftable", OSPFMIB.OspfVirtIfTable)), ("ospfNbrTable", ("ospfnbrtable", OSPFMIB.OspfNbrTable)), ("ospfVirtNbrTable", ("ospfvirtnbrtable", OSPFMIB.OspfVirtNbrTable)), ("ospfExtLsdbTable", ("ospfextlsdbtable", OSPFMIB.OspfExtLsdbTable)), ("ospfAreaAggregateTable", ("ospfareaaggregatetable", OSPFMIB.OspfAreaAggregateTable)), ("ospfLocalLsdbTable", ("ospflocallsdbtable", OSPFMIB.OspfLocalLsdbTable)), ("ospfVirtLocalLsdbTable", ("ospfvirtlocallsdbtable", OSPFMIB.OspfVirtLocalLsdbTable)), ("ospfAsLsdbTable", ("ospfaslsdbtable", OSPFMIB.OspfAsLsdbTable)), ("ospfAreaLsaCountTable", ("ospfarealsacounttable", OSPFMIB.OspfAreaLsaCountTable))])
         self._leafs = OrderedDict()
 
-        self.ospfgeneralgroup = OSPFMIB.Ospfgeneralgroup()
+        self.ospfgeneralgroup = OSPFMIB.OspfGeneralGroup()
         self.ospfgeneralgroup.parent = self
         self._children_name_map["ospfgeneralgroup"] = "ospfGeneralGroup"
-        self._children_yang_names.add("ospfGeneralGroup")
 
-        self.ospfareatable = OSPFMIB.Ospfareatable()
+        self.ospfareatable = OSPFMIB.OspfAreaTable()
         self.ospfareatable.parent = self
         self._children_name_map["ospfareatable"] = "ospfAreaTable"
-        self._children_yang_names.add("ospfAreaTable")
 
-        self.ospfstubareatable = OSPFMIB.Ospfstubareatable()
+        self.ospfstubareatable = OSPFMIB.OspfStubAreaTable()
         self.ospfstubareatable.parent = self
         self._children_name_map["ospfstubareatable"] = "ospfStubAreaTable"
-        self._children_yang_names.add("ospfStubAreaTable")
 
-        self.ospflsdbtable = OSPFMIB.Ospflsdbtable()
+        self.ospflsdbtable = OSPFMIB.OspfLsdbTable()
         self.ospflsdbtable.parent = self
         self._children_name_map["ospflsdbtable"] = "ospfLsdbTable"
-        self._children_yang_names.add("ospfLsdbTable")
 
-        self.ospfarearangetable = OSPFMIB.Ospfarearangetable()
+        self.ospfarearangetable = OSPFMIB.OspfAreaRangeTable()
         self.ospfarearangetable.parent = self
         self._children_name_map["ospfarearangetable"] = "ospfAreaRangeTable"
-        self._children_yang_names.add("ospfAreaRangeTable")
 
-        self.ospfhosttable = OSPFMIB.Ospfhosttable()
+        self.ospfhosttable = OSPFMIB.OspfHostTable()
         self.ospfhosttable.parent = self
         self._children_name_map["ospfhosttable"] = "ospfHostTable"
-        self._children_yang_names.add("ospfHostTable")
 
-        self.ospfiftable = OSPFMIB.Ospfiftable()
+        self.ospfiftable = OSPFMIB.OspfIfTable()
         self.ospfiftable.parent = self
         self._children_name_map["ospfiftable"] = "ospfIfTable"
-        self._children_yang_names.add("ospfIfTable")
 
-        self.ospfifmetrictable = OSPFMIB.Ospfifmetrictable()
+        self.ospfifmetrictable = OSPFMIB.OspfIfMetricTable()
         self.ospfifmetrictable.parent = self
         self._children_name_map["ospfifmetrictable"] = "ospfIfMetricTable"
-        self._children_yang_names.add("ospfIfMetricTable")
 
-        self.ospfvirtiftable = OSPFMIB.Ospfvirtiftable()
+        self.ospfvirtiftable = OSPFMIB.OspfVirtIfTable()
         self.ospfvirtiftable.parent = self
         self._children_name_map["ospfvirtiftable"] = "ospfVirtIfTable"
-        self._children_yang_names.add("ospfVirtIfTable")
 
-        self.ospfnbrtable = OSPFMIB.Ospfnbrtable()
+        self.ospfnbrtable = OSPFMIB.OspfNbrTable()
         self.ospfnbrtable.parent = self
         self._children_name_map["ospfnbrtable"] = "ospfNbrTable"
-        self._children_yang_names.add("ospfNbrTable")
 
-        self.ospfvirtnbrtable = OSPFMIB.Ospfvirtnbrtable()
+        self.ospfvirtnbrtable = OSPFMIB.OspfVirtNbrTable()
         self.ospfvirtnbrtable.parent = self
         self._children_name_map["ospfvirtnbrtable"] = "ospfVirtNbrTable"
-        self._children_yang_names.add("ospfVirtNbrTable")
 
-        self.ospfextlsdbtable = OSPFMIB.Ospfextlsdbtable()
+        self.ospfextlsdbtable = OSPFMIB.OspfExtLsdbTable()
         self.ospfextlsdbtable.parent = self
         self._children_name_map["ospfextlsdbtable"] = "ospfExtLsdbTable"
-        self._children_yang_names.add("ospfExtLsdbTable")
 
-        self.ospfareaaggregatetable = OSPFMIB.Ospfareaaggregatetable()
+        self.ospfareaaggregatetable = OSPFMIB.OspfAreaAggregateTable()
         self.ospfareaaggregatetable.parent = self
         self._children_name_map["ospfareaaggregatetable"] = "ospfAreaAggregateTable"
-        self._children_yang_names.add("ospfAreaAggregateTable")
 
-        self.ospflocallsdbtable = OSPFMIB.Ospflocallsdbtable()
+        self.ospflocallsdbtable = OSPFMIB.OspfLocalLsdbTable()
         self.ospflocallsdbtable.parent = self
         self._children_name_map["ospflocallsdbtable"] = "ospfLocalLsdbTable"
-        self._children_yang_names.add("ospfLocalLsdbTable")
 
-        self.ospfvirtlocallsdbtable = OSPFMIB.Ospfvirtlocallsdbtable()
+        self.ospfvirtlocallsdbtable = OSPFMIB.OspfVirtLocalLsdbTable()
         self.ospfvirtlocallsdbtable.parent = self
         self._children_name_map["ospfvirtlocallsdbtable"] = "ospfVirtLocalLsdbTable"
-        self._children_yang_names.add("ospfVirtLocalLsdbTable")
 
-        self.ospfaslsdbtable = OSPFMIB.Ospfaslsdbtable()
+        self.ospfaslsdbtable = OSPFMIB.OspfAsLsdbTable()
         self.ospfaslsdbtable.parent = self
         self._children_name_map["ospfaslsdbtable"] = "ospfAsLsdbTable"
-        self._children_yang_names.add("ospfAsLsdbTable")
 
-        self.ospfarealsacounttable = OSPFMIB.Ospfarealsacounttable()
+        self.ospfarealsacounttable = OSPFMIB.OspfAreaLsaCountTable()
         self.ospfarealsacounttable.parent = self
         self._children_name_map["ospfarealsacounttable"] = "ospfAreaLsaCountTable"
-        self._children_yang_names.add("ospfAreaLsaCountTable")
         self._segment_path = lambda: "OSPF-MIB:OSPF-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(OSPFMIB, [], name, value)
 
-    class Ospfgeneralgroup(Entity):
+
+    class OspfGeneralGroup(Entity):
         """
         
         
@@ -286,7 +271,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfversionnumber
         
         	The current version number of the OSPF protocol is 2
-        	**type**\:  :py:class:`Ospfversionnumber <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfgeneralgroup.Ospfversionnumber>`
+        	**type**\:  :py:class:`OspfVersionNumber <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfGeneralGroup.OspfVersionNumber>`
         
         .. attribute:: ospfareabdrrtrstatus
         
@@ -379,7 +364,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfrestartsupport
         
         	The router's support for OSPF graceful restart. Options include\: no restart support, only planned restarts, or both planned and unplanned restarts.  This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
-        	**type**\:  :py:class:`Ospfrestartsupport <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfgeneralgroup.Ospfrestartsupport>`
+        	**type**\:  :py:class:`OspfRestartSupport <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfGeneralGroup.OspfRestartSupport>`
         
         .. attribute:: ospfrestartinterval
         
@@ -398,7 +383,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfrestartstatus
         
         	Current status of OSPF graceful restart
-        	**type**\:  :py:class:`Ospfrestartstatus <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfgeneralgroup.Ospfrestartstatus>`
+        	**type**\:  :py:class:`OspfRestartStatus <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfGeneralGroup.OspfRestartStatus>`
         
         .. attribute:: ospfrestartage
         
@@ -412,7 +397,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfrestartexitreason
         
         	Describes the outcome of the last attempt at a graceful restart.  If the value is 'none', no restart has yet been attempted.  If the value is 'inProgress', a restart attempt is currently underway
-        	**type**\:  :py:class:`Ospfrestartexitreason <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfgeneralgroup.Ospfrestartexitreason>`
+        	**type**\:  :py:class:`OspfRestartExitReason <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfGeneralGroup.OspfRestartExitReason>`
         
         .. attribute:: ospfaslsacount
         
@@ -436,7 +421,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfstubrouteradvertisement
         
         	This object controls the advertisement of stub router LSAs by the router.  The value doNotAdvertise will result in the advertisement of a standard router LSA and is the default value.  This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
-        	**type**\:  :py:class:`Ospfstubrouteradvertisement <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfgeneralgroup.Ospfstubrouteradvertisement>`
+        	**type**\:  :py:class:`OspfStubRouterAdvertisement <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfGeneralGroup.OspfStubRouterAdvertisement>`
         
         .. attribute:: ospfdiscontinuitytime
         
@@ -453,15 +438,14 @@ class OSPFMIB(Entity):
         _revision = '2006-11-10'
 
         def __init__(self):
-            super(OSPFMIB.Ospfgeneralgroup, self).__init__()
+            super(OSPFMIB.OspfGeneralGroup, self).__init__()
 
             self.yang_name = "ospfGeneralGroup"
             self.yang_parent_name = "OSPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ospfrouterid', YLeaf(YType.str, 'ospfRouterId')),
                 ('ospfadminstat', YLeaf(YType.enumeration, 'ospfAdminStat')),
@@ -524,11 +508,11 @@ class OSPFMIB(Entity):
             self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(OSPFMIB.Ospfgeneralgroup, ['ospfrouterid', 'ospfadminstat', 'ospfversionnumber', 'ospfareabdrrtrstatus', 'ospfasbdrrtrstatus', 'ospfexternlsacount', 'ospfexternlsacksumsum', 'ospftossupport', 'ospforiginatenewlsas', 'ospfrxnewlsas', 'ospfextlsdblimit', 'ospfmulticastextensions', 'ospfexitoverflowinterval', 'ospfdemandextensions', 'ospfrfc1583compatibility', 'ospfopaquelsasupport', 'ospfreferencebandwidth', 'ospfrestartsupport', 'ospfrestartinterval', 'ospfrestartstrictlsachecking', 'ospfrestartstatus', 'ospfrestartage', 'ospfrestartexitreason', 'ospfaslsacount', 'ospfaslsacksumsum', 'ospfstubroutersupport', 'ospfstubrouteradvertisement', 'ospfdiscontinuitytime'], name, value)
+            self._perform_setattr(OSPFMIB.OspfGeneralGroup, [u'ospfrouterid', u'ospfadminstat', u'ospfversionnumber', u'ospfareabdrrtrstatus', u'ospfasbdrrtrstatus', u'ospfexternlsacount', u'ospfexternlsacksumsum', u'ospftossupport', u'ospforiginatenewlsas', u'ospfrxnewlsas', u'ospfextlsdblimit', u'ospfmulticastextensions', u'ospfexitoverflowinterval', u'ospfdemandextensions', u'ospfrfc1583compatibility', u'ospfopaquelsasupport', u'ospfreferencebandwidth', u'ospfrestartsupport', u'ospfrestartinterval', u'ospfrestartstrictlsachecking', u'ospfrestartstatus', u'ospfrestartage', u'ospfrestartexitreason', u'ospfaslsacount', u'ospfaslsacksumsum', u'ospfstubroutersupport', u'ospfstubrouteradvertisement', u'ospfdiscontinuitytime'], name, value)
 
-        class Ospfrestartexitreason(Enum):
+        class OspfRestartExitReason(Enum):
             """
-            Ospfrestartexitreason (Enum Class)
+            OspfRestartExitReason (Enum Class)
 
             Describes the outcome of the last attempt at a
 
@@ -561,9 +545,9 @@ class OSPFMIB(Entity):
             topologyChanged = Enum.YLeaf(5, "topologyChanged")
 
 
-        class Ospfrestartstatus(Enum):
+        class OspfRestartStatus(Enum):
             """
-            Ospfrestartstatus (Enum Class)
+            OspfRestartStatus (Enum Class)
 
             Current status of OSPF graceful restart.
 
@@ -582,9 +566,9 @@ class OSPFMIB(Entity):
             unplannedRestart = Enum.YLeaf(3, "unplannedRestart")
 
 
-        class Ospfrestartsupport(Enum):
+        class OspfRestartSupport(Enum):
             """
-            Ospfrestartsupport (Enum Class)
+            OspfRestartSupport (Enum Class)
 
             The router's support for OSPF graceful restart.
 
@@ -613,9 +597,9 @@ class OSPFMIB(Entity):
             plannedAndUnplanned = Enum.YLeaf(3, "plannedAndUnplanned")
 
 
-        class Ospfstubrouteradvertisement(Enum):
+        class OspfStubRouterAdvertisement(Enum):
             """
-            Ospfstubrouteradvertisement (Enum Class)
+            OspfStubRouterAdvertisement (Enum Class)
 
             This object controls the advertisement of
 
@@ -642,9 +626,9 @@ class OSPFMIB(Entity):
             advertise = Enum.YLeaf(2, "advertise")
 
 
-        class Ospfversionnumber(Enum):
+        class OspfVersionNumber(Enum):
             """
-            Ospfversionnumber (Enum Class)
+            OspfVersionNumber (Enum Class)
 
             The current version number of the OSPF protocol is 2.
 
@@ -656,7 +640,7 @@ class OSPFMIB(Entity):
 
 
 
-    class Ospfareatable(Entity):
+    class OspfAreaTable(Entity):
         """
         Information describing the configured parameters and
         cumulative statistics of the router's attached areas.
@@ -667,7 +651,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfareaentry
         
         	Information describing the configured parameters and cumulative statistics of one of the router's attached areas. The interfaces and virtual links are configured as part of these areas.  Area 0.0.0.0, by definition, is the backbone area.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile storage
-        	**type**\: list of  		 :py:class:`Ospfareaentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareatable.Ospfareaentry>`
+        	**type**\: list of  		 :py:class:`OspfAreaEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaTable.OspfAreaEntry>`
         
         
 
@@ -677,15 +661,14 @@ class OSPFMIB(Entity):
         _revision = '2006-11-10'
 
         def __init__(self):
-            super(OSPFMIB.Ospfareatable, self).__init__()
+            super(OSPFMIB.OspfAreaTable, self).__init__()
 
             self.yang_name = "ospfAreaTable"
             self.yang_parent_name = "OSPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ospfAreaEntry", ("ospfareaentry", OSPFMIB.Ospfareatable.Ospfareaentry))])
+            self._child_classes = OrderedDict([("ospfAreaEntry", ("ospfareaentry", OSPFMIB.OspfAreaTable.OspfAreaEntry))])
             self._leafs = OrderedDict()
 
             self.ospfareaentry = YList(self)
@@ -693,10 +676,10 @@ class OSPFMIB(Entity):
             self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(OSPFMIB.Ospfareatable, [], name, value)
+            self._perform_setattr(OSPFMIB.OspfAreaTable, [], name, value)
 
 
-        class Ospfareaentry(Entity):
+        class OspfAreaEntry(Entity):
             """
             Information describing the configured parameters and
             cumulative statistics of one of the router's attached areas.
@@ -725,7 +708,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfimportasextern
             
             	Indicates if an area is a stub area, NSSA, or standard area.  Type\-5 AS\-external LSAs and type\-11 Opaque LSAs are not imported into stub areas or NSSAs.  NSSAs import AS\-external data as type\-7 LSAs
-            	**type**\:  :py:class:`Ospfimportasextern <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareatable.Ospfareaentry.Ospfimportasextern>`
+            	**type**\:  :py:class:`OspfImportAsExtern <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaTable.OspfAreaEntry.OspfImportAsExtern>`
             
             .. attribute:: ospfspfruns
             
@@ -765,7 +748,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfareasummary
             
             	The variable ospfAreaSummary controls the import of summary LSAs into stub and NSSA areas. It has no effect on other areas.  If it is noAreaSummary, the router will not originate summary LSAs into the stub or NSSA area. It will rely entirely on its default route.  If it is sendAreaSummary, the router will both summarize and propagate summary LSAs
-            	**type**\:  :py:class:`Ospfareasummary <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareatable.Ospfareaentry.Ospfareasummary>`
+            	**type**\:  :py:class:`OspfAreaSummary <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaTable.OspfAreaEntry.OspfAreaSummary>`
             
             .. attribute:: ospfareastatus
             
@@ -775,12 +758,12 @@ class OSPFMIB(Entity):
             .. attribute:: ospfareanssatranslatorrole
             
             	Indicates an NSSA border router's ability to perform NSSA translation of type\-7 LSAs into type\-5 LSAs
-            	**type**\:  :py:class:`Ospfareanssatranslatorrole <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareatable.Ospfareaentry.Ospfareanssatranslatorrole>`
+            	**type**\:  :py:class:`OspfAreaNssaTranslatorRole <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaTable.OspfAreaEntry.OspfAreaNssaTranslatorRole>`
             
             .. attribute:: ospfareanssatranslatorstate
             
             	Indicates if and how an NSSA border router is performing NSSA translation of type\-7 LSAs into type\-5  LSAs.  When this object is set to enabled, the NSSA Border router's OspfAreaNssaExtTranslatorRole has been set to always.  When this object is set to elected, a candidate NSSA Border router is Translating type\-7 LSAs into type\-5. When this object is set to disabled, a candidate NSSA border router is NOT translating type\-7 LSAs into type\-5
-            	**type**\:  :py:class:`Ospfareanssatranslatorstate <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareatable.Ospfareaentry.Ospfareanssatranslatorstate>`
+            	**type**\:  :py:class:`OspfAreaNssaTranslatorState <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaTable.OspfAreaEntry.OspfAreaNssaTranslatorState>`
             
             .. attribute:: ospfareanssatranslatorstabilityinterval
             
@@ -815,12 +798,12 @@ class OSPFMIB(Entity):
             .. attribute:: cospfareanssatranslatorrole
             
             	Indicates an NSSA Border router's ability to perform NSSA translation of type\-7 LSAs into type\-5 LSAs
-            	**type**\:  :py:class:`Cospfareanssatranslatorrole <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareatable.Ospfareaentry.Cospfareanssatranslatorrole>`
+            	**type**\:  :py:class:`CospfAreaNssaTranslatorRole <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaTable.OspfAreaEntry.CospfAreaNssaTranslatorRole>`
             
             .. attribute:: cospfareanssatranslatorstate
             
             	Indicates if and how an NSSA Border router is performing NSSA translation of type\-7 LSAs into type\-5 LSAs. When this object set to enabled, the NSSA Border router's cospfAreaNssaExtTranslatorRole has been set to always. When this object is set to elected, a candidate NSSA Border router is Translating type\-7 LSAs into type\-5. When this object is set to disabled, a candidate NSSA Border router is NOT translating type\-7 LSAs into type\-5
-            	**type**\:  :py:class:`Cospfareanssatranslatorstate <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareatable.Ospfareaentry.Cospfareanssatranslatorstate>`
+            	**type**\:  :py:class:`CospfAreaNssaTranslatorState <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaTable.OspfAreaEntry.CospfAreaNssaTranslatorState>`
             
             .. attribute:: cospfareanssatranslatorevents
             
@@ -837,15 +820,14 @@ class OSPFMIB(Entity):
             _revision = '2006-11-10'
 
             def __init__(self):
-                super(OSPFMIB.Ospfareatable.Ospfareaentry, self).__init__()
+                super(OSPFMIB.OspfAreaTable.OspfAreaEntry, self).__init__()
 
                 self.yang_name = "ospfAreaEntry"
                 self.yang_parent_name = "ospfAreaTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ospfareaid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ospfareaid', YLeaf(YType.str, 'ospfAreaId')),
                     ('ospfauthtype', YLeaf(YType.enumeration, 'ospfAuthType')),
@@ -890,11 +872,11 @@ class OSPFMIB(Entity):
                 self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/ospfAreaTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.Ospfareatable.Ospfareaentry, ['ospfareaid', 'ospfauthtype', 'ospfimportasextern', 'ospfspfruns', 'ospfareabdrrtrcount', 'ospfasbdrrtrcount', 'ospfarealsacount', 'ospfarealsacksumsum', 'ospfareasummary', 'ospfareastatus', 'ospfareanssatranslatorrole', 'ospfareanssatranslatorstate', 'ospfareanssatranslatorstabilityinterval', 'ospfareanssatranslatorevents', 'cospfopaquearealsacount', 'cospfopaquearealsacksumsum', 'cospfareanssatranslatorrole', 'cospfareanssatranslatorstate', 'cospfareanssatranslatorevents'], name, value)
+                self._perform_setattr(OSPFMIB.OspfAreaTable.OspfAreaEntry, [u'ospfareaid', u'ospfauthtype', u'ospfimportasextern', u'ospfspfruns', u'ospfareabdrrtrcount', u'ospfasbdrrtrcount', u'ospfarealsacount', u'ospfarealsacksumsum', u'ospfareasummary', u'ospfareastatus', u'ospfareanssatranslatorrole', u'ospfareanssatranslatorstate', u'ospfareanssatranslatorstabilityinterval', u'ospfareanssatranslatorevents', 'cospfopaquearealsacount', 'cospfopaquearealsacksumsum', 'cospfareanssatranslatorrole', 'cospfareanssatranslatorstate', 'cospfareanssatranslatorevents'], name, value)
 
-            class Cospfareanssatranslatorrole(Enum):
+            class CospfAreaNssaTranslatorRole(Enum):
                 """
-                Cospfareanssatranslatorrole (Enum Class)
+                CospfAreaNssaTranslatorRole (Enum Class)
 
                 Indicates an NSSA Border router's ability to
 
@@ -913,9 +895,9 @@ class OSPFMIB(Entity):
                 candidate = Enum.YLeaf(2, "candidate")
 
 
-            class Cospfareanssatranslatorstate(Enum):
+            class CospfAreaNssaTranslatorState(Enum):
                 """
-                Cospfareanssatranslatorstate (Enum Class)
+                CospfAreaNssaTranslatorState (Enum Class)
 
                 Indicates if and how an NSSA Border router is
 
@@ -948,9 +930,9 @@ class OSPFMIB(Entity):
                 disabled = Enum.YLeaf(3, "disabled")
 
 
-            class Ospfareanssatranslatorrole(Enum):
+            class OspfAreaNssaTranslatorRole(Enum):
                 """
-                Ospfareanssatranslatorrole (Enum Class)
+                OspfAreaNssaTranslatorRole (Enum Class)
 
                 Indicates an NSSA border router's ability to
 
@@ -969,9 +951,9 @@ class OSPFMIB(Entity):
                 candidate = Enum.YLeaf(2, "candidate")
 
 
-            class Ospfareanssatranslatorstate(Enum):
+            class OspfAreaNssaTranslatorState(Enum):
                 """
-                Ospfareanssatranslatorstate (Enum Class)
+                OspfAreaNssaTranslatorState (Enum Class)
 
                 Indicates if and how an NSSA border router is
 
@@ -1004,9 +986,9 @@ class OSPFMIB(Entity):
                 disabled = Enum.YLeaf(3, "disabled")
 
 
-            class Ospfareasummary(Enum):
+            class OspfAreaSummary(Enum):
                 """
-                Ospfareasummary (Enum Class)
+                OspfAreaSummary (Enum Class)
 
                 The variable ospfAreaSummary controls the
 
@@ -1035,9 +1017,9 @@ class OSPFMIB(Entity):
                 sendAreaSummary = Enum.YLeaf(2, "sendAreaSummary")
 
 
-            class Ospfimportasextern(Enum):
+            class OspfImportAsExtern(Enum):
                 """
-                Ospfimportasextern (Enum Class)
+                OspfImportAsExtern (Enum Class)
 
                 Indicates if an area is a stub area, NSSA, or standard
 
@@ -1063,7 +1045,7 @@ class OSPFMIB(Entity):
 
 
 
-    class Ospfstubareatable(Entity):
+    class OspfStubAreaTable(Entity):
         """
         The set of metrics that will be advertised
         by a default Area Border Router into a stub area.
@@ -1071,7 +1053,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfstubareaentry
         
         	The metric for a given Type of Service that will be advertised by a default Area Border Router into a stub area.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile storage
-        	**type**\: list of  		 :py:class:`Ospfstubareaentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfstubareatable.Ospfstubareaentry>`
+        	**type**\: list of  		 :py:class:`OspfStubAreaEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfStubAreaTable.OspfStubAreaEntry>`
         
         
 
@@ -1081,15 +1063,14 @@ class OSPFMIB(Entity):
         _revision = '2006-11-10'
 
         def __init__(self):
-            super(OSPFMIB.Ospfstubareatable, self).__init__()
+            super(OSPFMIB.OspfStubAreaTable, self).__init__()
 
             self.yang_name = "ospfStubAreaTable"
             self.yang_parent_name = "OSPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ospfStubAreaEntry", ("ospfstubareaentry", OSPFMIB.Ospfstubareatable.Ospfstubareaentry))])
+            self._child_classes = OrderedDict([("ospfStubAreaEntry", ("ospfstubareaentry", OSPFMIB.OspfStubAreaTable.OspfStubAreaEntry))])
             self._leafs = OrderedDict()
 
             self.ospfstubareaentry = YList(self)
@@ -1097,10 +1078,10 @@ class OSPFMIB(Entity):
             self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(OSPFMIB.Ospfstubareatable, [], name, value)
+            self._perform_setattr(OSPFMIB.OspfStubAreaTable, [], name, value)
 
 
-        class Ospfstubareaentry(Entity):
+        class OspfStubAreaEntry(Entity):
             """
             The metric for a given Type of Service that
             will be advertised by a default Area Border
@@ -1139,7 +1120,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfstubmetrictype
             
             	This variable displays the type of metric advertised as a default route
-            	**type**\:  :py:class:`Ospfstubmetrictype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfstubareatable.Ospfstubareaentry.Ospfstubmetrictype>`
+            	**type**\:  :py:class:`OspfStubMetricType <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfStubAreaTable.OspfStubAreaEntry.OspfStubMetricType>`
             
             
 
@@ -1149,15 +1130,14 @@ class OSPFMIB(Entity):
             _revision = '2006-11-10'
 
             def __init__(self):
-                super(OSPFMIB.Ospfstubareatable.Ospfstubareaentry, self).__init__()
+                super(OSPFMIB.OspfStubAreaTable.OspfStubAreaEntry, self).__init__()
 
                 self.yang_name = "ospfStubAreaEntry"
                 self.yang_parent_name = "ospfStubAreaTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ospfstubareaid','ospfstubtos']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ospfstubareaid', YLeaf(YType.str, 'ospfStubAreaId')),
                     ('ospfstubtos', YLeaf(YType.int32, 'ospfStubTOS')),
@@ -1174,11 +1154,11 @@ class OSPFMIB(Entity):
                 self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/ospfStubAreaTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.Ospfstubareatable.Ospfstubareaentry, ['ospfstubareaid', 'ospfstubtos', 'ospfstubmetric', 'ospfstubstatus', 'ospfstubmetrictype'], name, value)
+                self._perform_setattr(OSPFMIB.OspfStubAreaTable.OspfStubAreaEntry, [u'ospfstubareaid', u'ospfstubtos', u'ospfstubmetric', u'ospfstubstatus', u'ospfstubmetrictype'], name, value)
 
-            class Ospfstubmetrictype(Enum):
+            class OspfStubMetricType(Enum):
                 """
-                Ospfstubmetrictype (Enum Class)
+                OspfStubMetricType (Enum Class)
 
                 This variable displays the type of metric
 
@@ -1200,7 +1180,7 @@ class OSPFMIB(Entity):
 
 
 
-    class Ospflsdbtable(Entity):
+    class OspfLsdbTable(Entity):
         """
         The OSPF Process's link state database (LSDB).
         The LSDB contains the link state advertisements
@@ -1209,7 +1189,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospflsdbentry
         
         	A single link state advertisement
-        	**type**\: list of  		 :py:class:`Ospflsdbentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospflsdbtable.Ospflsdbentry>`
+        	**type**\: list of  		 :py:class:`OspfLsdbEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfLsdbTable.OspfLsdbEntry>`
         
         
 
@@ -1219,15 +1199,14 @@ class OSPFMIB(Entity):
         _revision = '2006-11-10'
 
         def __init__(self):
-            super(OSPFMIB.Ospflsdbtable, self).__init__()
+            super(OSPFMIB.OspfLsdbTable, self).__init__()
 
             self.yang_name = "ospfLsdbTable"
             self.yang_parent_name = "OSPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ospfLsdbEntry", ("ospflsdbentry", OSPFMIB.Ospflsdbtable.Ospflsdbentry))])
+            self._child_classes = OrderedDict([("ospfLsdbEntry", ("ospflsdbentry", OSPFMIB.OspfLsdbTable.OspfLsdbEntry))])
             self._leafs = OrderedDict()
 
             self.ospflsdbentry = YList(self)
@@ -1235,10 +1214,10 @@ class OSPFMIB(Entity):
             self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(OSPFMIB.Ospflsdbtable, [], name, value)
+            self._perform_setattr(OSPFMIB.OspfLsdbTable, [], name, value)
 
 
-        class Ospflsdbentry(Entity):
+        class OspfLsdbEntry(Entity):
             """
             A single link state advertisement.
             
@@ -1252,7 +1231,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospflsdbtype  (key)
             
             	The type of the link state advertisement. Each link state type has a separate advertisement format.  Note\: External link state advertisements are permitted for backward compatibility, but should be displayed in the ospfAsLsdbTable rather than here
-            	**type**\:  :py:class:`Ospflsdbtype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospflsdbtable.Ospflsdbentry.Ospflsdbtype>`
+            	**type**\:  :py:class:`OspfLsdbType <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfLsdbTable.OspfLsdbEntry.OspfLsdbType>`
             
             .. attribute:: ospflsdblsid  (key)
             
@@ -1306,15 +1285,14 @@ class OSPFMIB(Entity):
             _revision = '2006-11-10'
 
             def __init__(self):
-                super(OSPFMIB.Ospflsdbtable.Ospflsdbentry, self).__init__()
+                super(OSPFMIB.OspfLsdbTable.OspfLsdbEntry, self).__init__()
 
                 self.yang_name = "ospfLsdbEntry"
                 self.yang_parent_name = "ospfLsdbTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ospflsdbareaid','ospflsdbtype','ospflsdblsid','ospflsdbrouterid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ospflsdbareaid', YLeaf(YType.str, 'ospfLsdbAreaId')),
                     ('ospflsdbtype', YLeaf(YType.enumeration, 'ospfLsdbType')),
@@ -1337,11 +1315,11 @@ class OSPFMIB(Entity):
                 self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/ospfLsdbTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.Ospflsdbtable.Ospflsdbentry, ['ospflsdbareaid', 'ospflsdbtype', 'ospflsdblsid', 'ospflsdbrouterid', 'ospflsdbsequence', 'ospflsdbage', 'ospflsdbchecksum', 'ospflsdbadvertisement'], name, value)
+                self._perform_setattr(OSPFMIB.OspfLsdbTable.OspfLsdbEntry, [u'ospflsdbareaid', u'ospflsdbtype', u'ospflsdblsid', u'ospflsdbrouterid', u'ospflsdbsequence', u'ospflsdbage', u'ospflsdbchecksum', u'ospflsdbadvertisement'], name, value)
 
-            class Ospflsdbtype(Enum):
+            class OspfLsdbType(Enum):
                 """
-                Ospflsdbtype (Enum Class)
+                OspfLsdbType (Enum Class)
 
                 The type of the link state advertisement.
 
@@ -1391,7 +1369,7 @@ class OSPFMIB(Entity):
 
 
 
-    class Ospfarearangetable(Entity):
+    class OspfAreaRangeTable(Entity):
         """
         The Address Range Table acts as an adjunct to the Area
         Table.  It describes those Address Range Summaries that
@@ -1409,7 +1387,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfarearangeentry
         
         	A single area address range.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile storage
-        	**type**\: list of  		 :py:class:`Ospfarearangeentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfarearangetable.Ospfarearangeentry>`
+        	**type**\: list of  		 :py:class:`OspfAreaRangeEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaRangeTable.OspfAreaRangeEntry>`
         
         	**status**\: obsolete
         
@@ -1421,15 +1399,14 @@ class OSPFMIB(Entity):
         _revision = '2006-11-10'
 
         def __init__(self):
-            super(OSPFMIB.Ospfarearangetable, self).__init__()
+            super(OSPFMIB.OspfAreaRangeTable, self).__init__()
 
             self.yang_name = "ospfAreaRangeTable"
             self.yang_parent_name = "OSPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ospfAreaRangeEntry", ("ospfarearangeentry", OSPFMIB.Ospfarearangetable.Ospfarearangeentry))])
+            self._child_classes = OrderedDict([("ospfAreaRangeEntry", ("ospfarearangeentry", OSPFMIB.OspfAreaRangeTable.OspfAreaRangeEntry))])
             self._leafs = OrderedDict()
 
             self.ospfarearangeentry = YList(self)
@@ -1437,10 +1414,10 @@ class OSPFMIB(Entity):
             self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(OSPFMIB.Ospfarearangetable, [], name, value)
+            self._perform_setattr(OSPFMIB.OspfAreaRangeTable, [], name, value)
 
 
-        class Ospfarearangeentry(Entity):
+        class OspfAreaRangeEntry(Entity):
             """
             A single area address range.
             
@@ -1485,7 +1462,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfarearangeeffect
             
             	Subnets subsumed by ranges either trigger the advertisement of the indicated summary (advertiseMatching) or result in the subnet's not being advertised at all outside the area
-            	**type**\:  :py:class:`Ospfarearangeeffect <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfarearangetable.Ospfarearangeentry.Ospfarearangeeffect>`
+            	**type**\:  :py:class:`OspfAreaRangeEffect <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaRangeTable.OspfAreaRangeEntry.OspfAreaRangeEffect>`
             
             	**status**\: obsolete
             
@@ -1497,15 +1474,14 @@ class OSPFMIB(Entity):
             _revision = '2006-11-10'
 
             def __init__(self):
-                super(OSPFMIB.Ospfarearangetable.Ospfarearangeentry, self).__init__()
+                super(OSPFMIB.OspfAreaRangeTable.OspfAreaRangeEntry, self).__init__()
 
                 self.yang_name = "ospfAreaRangeEntry"
                 self.yang_parent_name = "ospfAreaRangeTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ospfarearangeareaid','ospfarearangenet']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ospfarearangeareaid', YLeaf(YType.str, 'ospfAreaRangeAreaId')),
                     ('ospfarearangenet', YLeaf(YType.str, 'ospfAreaRangeNet')),
@@ -1522,11 +1498,11 @@ class OSPFMIB(Entity):
                 self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/ospfAreaRangeTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.Ospfarearangetable.Ospfarearangeentry, ['ospfarearangeareaid', 'ospfarearangenet', 'ospfarearangemask', 'ospfarearangestatus', 'ospfarearangeeffect'], name, value)
+                self._perform_setattr(OSPFMIB.OspfAreaRangeTable.OspfAreaRangeEntry, [u'ospfarearangeareaid', u'ospfarearangenet', u'ospfarearangemask', u'ospfarearangestatus', u'ospfarearangeeffect'], name, value)
 
-            class Ospfarearangeeffect(Enum):
+            class OspfAreaRangeEffect(Enum):
                 """
-                Ospfarearangeeffect (Enum Class)
+                OspfAreaRangeEffect (Enum Class)
 
                 Subnets subsumed by ranges either trigger the
 
@@ -1548,7 +1524,7 @@ class OSPFMIB(Entity):
 
 
 
-    class Ospfhosttable(Entity):
+    class OspfHostTable(Entity):
         """
         The Host/Metric Table indicates what hosts are directly
         
@@ -1559,7 +1535,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfhostentry
         
         	A metric to be advertised, for a given type of service, when a given host is reachable.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile storage
-        	**type**\: list of  		 :py:class:`Ospfhostentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfhosttable.Ospfhostentry>`
+        	**type**\: list of  		 :py:class:`OspfHostEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfHostTable.OspfHostEntry>`
         
         
 
@@ -1569,15 +1545,14 @@ class OSPFMIB(Entity):
         _revision = '2006-11-10'
 
         def __init__(self):
-            super(OSPFMIB.Ospfhosttable, self).__init__()
+            super(OSPFMIB.OspfHostTable, self).__init__()
 
             self.yang_name = "ospfHostTable"
             self.yang_parent_name = "OSPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ospfHostEntry", ("ospfhostentry", OSPFMIB.Ospfhosttable.Ospfhostentry))])
+            self._child_classes = OrderedDict([("ospfHostEntry", ("ospfhostentry", OSPFMIB.OspfHostTable.OspfHostEntry))])
             self._leafs = OrderedDict()
 
             self.ospfhostentry = YList(self)
@@ -1585,10 +1560,10 @@ class OSPFMIB(Entity):
             self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(OSPFMIB.Ospfhosttable, [], name, value)
+            self._perform_setattr(OSPFMIB.OspfHostTable, [], name, value)
 
 
-        class Ospfhostentry(Entity):
+        class OspfHostEntry(Entity):
             """
             A metric to be advertised, for a given type of
             service, when a given host is reachable.
@@ -1647,15 +1622,14 @@ class OSPFMIB(Entity):
             _revision = '2006-11-10'
 
             def __init__(self):
-                super(OSPFMIB.Ospfhosttable.Ospfhostentry, self).__init__()
+                super(OSPFMIB.OspfHostTable.OspfHostEntry, self).__init__()
 
                 self.yang_name = "ospfHostEntry"
                 self.yang_parent_name = "ospfHostTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ospfhostipaddress','ospfhosttos']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ospfhostipaddress', YLeaf(YType.str, 'ospfHostIpAddress')),
                     ('ospfhosttos', YLeaf(YType.int32, 'ospfHostTOS')),
@@ -1674,10 +1648,10 @@ class OSPFMIB(Entity):
                 self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/ospfHostTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.Ospfhosttable.Ospfhostentry, ['ospfhostipaddress', 'ospfhosttos', 'ospfhostmetric', 'ospfhoststatus', 'ospfhostareaid', 'ospfhostcfgareaid'], name, value)
+                self._perform_setattr(OSPFMIB.OspfHostTable.OspfHostEntry, [u'ospfhostipaddress', u'ospfhosttos', u'ospfhostmetric', u'ospfhoststatus', u'ospfhostareaid', u'ospfhostcfgareaid'], name, value)
 
 
-    class Ospfiftable(Entity):
+    class OspfIfTable(Entity):
         """
         The OSPF Interface Table describes the interfaces
         from the viewpoint of OSPF.
@@ -1686,7 +1660,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfifentry
         
         	The OSPF interface entry describes one interface from the viewpoint of OSPF.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile storage
-        	**type**\: list of  		 :py:class:`Ospfifentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfiftable.Ospfifentry>`
+        	**type**\: list of  		 :py:class:`OspfIfEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfIfTable.OspfIfEntry>`
         
         
 
@@ -1696,15 +1670,14 @@ class OSPFMIB(Entity):
         _revision = '2006-11-10'
 
         def __init__(self):
-            super(OSPFMIB.Ospfiftable, self).__init__()
+            super(OSPFMIB.OspfIfTable, self).__init__()
 
             self.yang_name = "ospfIfTable"
             self.yang_parent_name = "OSPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ospfIfEntry", ("ospfifentry", OSPFMIB.Ospfiftable.Ospfifentry))])
+            self._child_classes = OrderedDict([("ospfIfEntry", ("ospfifentry", OSPFMIB.OspfIfTable.OspfIfEntry))])
             self._leafs = OrderedDict()
 
             self.ospfifentry = YList(self)
@@ -1712,10 +1685,10 @@ class OSPFMIB(Entity):
             self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(OSPFMIB.Ospfiftable, [], name, value)
+            self._perform_setattr(OSPFMIB.OspfIfTable, [], name, value)
 
 
-        class Ospfifentry(Entity):
+        class OspfIfEntry(Entity):
             """
             The OSPF interface entry describes one interface
             from the viewpoint of OSPF.
@@ -1748,7 +1721,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfiftype
             
             	The OSPF interface type. By way of a default, this field may be intuited from the corresponding value of ifType. Broadcast LANs, such as Ethernet and IEEE 802.5, take the value 'broadcast', X.25 and similar technologies take the value 'nbma', and links that are definitively point to point take the value 'pointToPoint'
-            	**type**\:  :py:class:`Ospfiftype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfiftable.Ospfifentry.Ospfiftype>`
+            	**type**\:  :py:class:`OspfIfType <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfIfTable.OspfIfEntry.OspfIfType>`
             
             .. attribute:: ospfifadminstat
             
@@ -1810,7 +1783,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfifstate
             
             	The OSPF Interface State
-            	**type**\:  :py:class:`Ospfifstate <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfiftable.Ospfifentry.Ospfifstate>`
+            	**type**\:  :py:class:`OspfIfState <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfIfTable.OspfIfEntry.OspfIfState>`
             
             .. attribute:: ospfifdesignatedrouter
             
@@ -1848,7 +1821,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfifmulticastforwarding
             
             	The way multicasts should be forwarded on this interface\: not forwarded, forwarded as data link multicasts, or forwarded as data link unicasts.  Data link multicasting is not meaningful on point\-to\-point and NBMA interfaces, and setting ospfMulticastForwarding to 0 effectively disables all multicast forwarding
-            	**type**\:  :py:class:`Ospfifmulticastforwarding <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfiftable.Ospfifentry.Ospfifmulticastforwarding>`
+            	**type**\:  :py:class:`OspfIfMulticastForwarding <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfIfTable.OspfIfEntry.OspfIfMulticastForwarding>`
             
             .. attribute:: ospfifdemand
             
@@ -1910,15 +1883,14 @@ class OSPFMIB(Entity):
             _revision = '2006-11-10'
 
             def __init__(self):
-                super(OSPFMIB.Ospfiftable.Ospfifentry, self).__init__()
+                super(OSPFMIB.OspfIfTable.OspfIfEntry, self).__init__()
 
                 self.yang_name = "ospfIfEntry"
                 self.yang_parent_name = "ospfIfTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ospfifipaddress','ospfaddresslessif']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ospfifipaddress', YLeaf(YType.str, 'ospfIfIpAddress')),
                     ('ospfaddresslessif', YLeaf(YType.int32, 'ospfAddressLessIf')),
@@ -1977,11 +1949,11 @@ class OSPFMIB(Entity):
                 self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/ospfIfTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.Ospfiftable.Ospfifentry, ['ospfifipaddress', 'ospfaddresslessif', 'ospfifareaid', 'ospfiftype', 'ospfifadminstat', 'ospfifrtrpriority', 'ospfiftransitdelay', 'ospfifretransinterval', 'ospfifhellointerval', 'ospfifrtrdeadinterval', 'ospfifpollinterval', 'ospfifstate', 'ospfifdesignatedrouter', 'ospfifbackupdesignatedrouter', 'ospfifevents', 'ospfifauthkey', 'ospfifstatus', 'ospfifmulticastforwarding', 'ospfifdemand', 'ospfifauthtype', 'ospfiflsacount', 'ospfiflsacksumsum', 'ospfifdesignatedrouterid', 'ospfifbackupdesignatedrouterid', 'cospfiflsacount', 'cospfiflsacksumsum'], name, value)
+                self._perform_setattr(OSPFMIB.OspfIfTable.OspfIfEntry, [u'ospfifipaddress', u'ospfaddresslessif', u'ospfifareaid', u'ospfiftype', u'ospfifadminstat', u'ospfifrtrpriority', u'ospfiftransitdelay', u'ospfifretransinterval', u'ospfifhellointerval', u'ospfifrtrdeadinterval', u'ospfifpollinterval', u'ospfifstate', u'ospfifdesignatedrouter', u'ospfifbackupdesignatedrouter', u'ospfifevents', u'ospfifauthkey', u'ospfifstatus', u'ospfifmulticastforwarding', u'ospfifdemand', u'ospfifauthtype', u'ospfiflsacount', u'ospfiflsacksumsum', u'ospfifdesignatedrouterid', u'ospfifbackupdesignatedrouterid', 'cospfiflsacount', 'cospfiflsacksumsum'], name, value)
 
-            class Ospfifmulticastforwarding(Enum):
+            class OspfIfMulticastForwarding(Enum):
                 """
-                Ospfifmulticastforwarding (Enum Class)
+                OspfIfMulticastForwarding (Enum Class)
 
                 The way multicasts should be forwarded on this
 
@@ -2012,9 +1984,9 @@ class OSPFMIB(Entity):
                 unicast = Enum.YLeaf(3, "unicast")
 
 
-            class Ospfifstate(Enum):
+            class OspfIfState(Enum):
                 """
-                Ospfifstate (Enum Class)
+                OspfIfState (Enum Class)
 
                 The OSPF Interface State.
 
@@ -2049,9 +2021,9 @@ class OSPFMIB(Entity):
                 otherDesignatedRouter = Enum.YLeaf(7, "otherDesignatedRouter")
 
 
-            class Ospfiftype(Enum):
+            class OspfIfType(Enum):
                 """
-                Ospfiftype (Enum Class)
+                OspfIfType (Enum Class)
 
                 The OSPF interface type.
 
@@ -2089,7 +2061,7 @@ class OSPFMIB(Entity):
 
 
 
-    class Ospfifmetrictable(Entity):
+    class OspfIfMetricTable(Entity):
         """
         The Metric Table describes the metrics to be advertised
         for a specified interface at the various types of service.
@@ -2130,7 +2102,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfifmetricentry
         
         	A particular TOS metric for a non\-virtual interface identified by the interface index.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile storage
-        	**type**\: list of  		 :py:class:`Ospfifmetricentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfifmetrictable.Ospfifmetricentry>`
+        	**type**\: list of  		 :py:class:`OspfIfMetricEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfIfMetricTable.OspfIfMetricEntry>`
         
         
 
@@ -2140,15 +2112,14 @@ class OSPFMIB(Entity):
         _revision = '2006-11-10'
 
         def __init__(self):
-            super(OSPFMIB.Ospfifmetrictable, self).__init__()
+            super(OSPFMIB.OspfIfMetricTable, self).__init__()
 
             self.yang_name = "ospfIfMetricTable"
             self.yang_parent_name = "OSPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ospfIfMetricEntry", ("ospfifmetricentry", OSPFMIB.Ospfifmetrictable.Ospfifmetricentry))])
+            self._child_classes = OrderedDict([("ospfIfMetricEntry", ("ospfifmetricentry", OSPFMIB.OspfIfMetricTable.OspfIfMetricEntry))])
             self._leafs = OrderedDict()
 
             self.ospfifmetricentry = YList(self)
@@ -2156,10 +2127,10 @@ class OSPFMIB(Entity):
             self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(OSPFMIB.Ospfifmetrictable, [], name, value)
+            self._perform_setattr(OSPFMIB.OspfIfMetricTable, [], name, value)
 
 
-        class Ospfifmetricentry(Entity):
+        class OspfIfMetricEntry(Entity):
             """
             A particular TOS metric for a non\-virtual interface
             identified by the interface index.
@@ -2209,15 +2180,14 @@ class OSPFMIB(Entity):
             _revision = '2006-11-10'
 
             def __init__(self):
-                super(OSPFMIB.Ospfifmetrictable.Ospfifmetricentry, self).__init__()
+                super(OSPFMIB.OspfIfMetricTable.OspfIfMetricEntry, self).__init__()
 
                 self.yang_name = "ospfIfMetricEntry"
                 self.yang_parent_name = "ospfIfMetricTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ospfifmetricipaddress','ospfifmetricaddresslessif','ospfifmetrictos']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ospfifmetricipaddress', YLeaf(YType.str, 'ospfIfMetricIpAddress')),
                     ('ospfifmetricaddresslessif', YLeaf(YType.int32, 'ospfIfMetricAddressLessIf')),
@@ -2234,10 +2204,10 @@ class OSPFMIB(Entity):
                 self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/ospfIfMetricTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.Ospfifmetrictable.Ospfifmetricentry, ['ospfifmetricipaddress', 'ospfifmetricaddresslessif', 'ospfifmetrictos', 'ospfifmetricvalue', 'ospfifmetricstatus'], name, value)
+                self._perform_setattr(OSPFMIB.OspfIfMetricTable.OspfIfMetricEntry, [u'ospfifmetricipaddress', u'ospfifmetricaddresslessif', u'ospfifmetrictos', u'ospfifmetricvalue', u'ospfifmetricstatus'], name, value)
 
 
-    class Ospfvirtiftable(Entity):
+    class OspfVirtIfTable(Entity):
         """
         Information about this router's virtual interfaces
         that the OSPF Process is configured to carry on.
@@ -2245,7 +2215,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfvirtifentry
         
         	Information about a single virtual interface.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile storage
-        	**type**\: list of  		 :py:class:`Ospfvirtifentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtiftable.Ospfvirtifentry>`
+        	**type**\: list of  		 :py:class:`OspfVirtIfEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfVirtIfTable.OspfVirtIfEntry>`
         
         
 
@@ -2255,15 +2225,14 @@ class OSPFMIB(Entity):
         _revision = '2006-11-10'
 
         def __init__(self):
-            super(OSPFMIB.Ospfvirtiftable, self).__init__()
+            super(OSPFMIB.OspfVirtIfTable, self).__init__()
 
             self.yang_name = "ospfVirtIfTable"
             self.yang_parent_name = "OSPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ospfVirtIfEntry", ("ospfvirtifentry", OSPFMIB.Ospfvirtiftable.Ospfvirtifentry))])
+            self._child_classes = OrderedDict([("ospfVirtIfEntry", ("ospfvirtifentry", OSPFMIB.OspfVirtIfTable.OspfVirtIfEntry))])
             self._leafs = OrderedDict()
 
             self.ospfvirtifentry = YList(self)
@@ -2271,10 +2240,10 @@ class OSPFMIB(Entity):
             self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(OSPFMIB.Ospfvirtiftable, [], name, value)
+            self._perform_setattr(OSPFMIB.OspfVirtIfTable, [], name, value)
 
 
-        class Ospfvirtifentry(Entity):
+        class OspfVirtIfEntry(Entity):
             """
             Information about a single virtual interface.
             
@@ -2335,7 +2304,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfvirtifstate
             
             	OSPF virtual interface states
-            	**type**\:  :py:class:`Ospfvirtifstate <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtiftable.Ospfvirtifentry.Ospfvirtifstate>`
+            	**type**\:  :py:class:`OspfVirtIfState <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfVirtIfTable.OspfVirtIfEntry.OspfVirtIfState>`
             
             .. attribute:: ospfvirtifevents
             
@@ -2397,15 +2366,14 @@ class OSPFMIB(Entity):
             _revision = '2006-11-10'
 
             def __init__(self):
-                super(OSPFMIB.Ospfvirtiftable.Ospfvirtifentry, self).__init__()
+                super(OSPFMIB.OspfVirtIfTable.OspfVirtIfEntry, self).__init__()
 
                 self.yang_name = "ospfVirtIfEntry"
                 self.yang_parent_name = "ospfVirtIfTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ospfvirtifareaid','ospfvirtifneighbor']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ospfvirtifareaid', YLeaf(YType.str, 'ospfVirtIfAreaId')),
                     ('ospfvirtifneighbor', YLeaf(YType.str, 'ospfVirtIfNeighbor')),
@@ -2442,11 +2410,11 @@ class OSPFMIB(Entity):
                 self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/ospfVirtIfTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.Ospfvirtiftable.Ospfvirtifentry, ['ospfvirtifareaid', 'ospfvirtifneighbor', 'ospfvirtiftransitdelay', 'ospfvirtifretransinterval', 'ospfvirtifhellointerval', 'ospfvirtifrtrdeadinterval', 'ospfvirtifstate', 'ospfvirtifevents', 'ospfvirtifauthkey', 'ospfvirtifstatus', 'ospfvirtifauthtype', 'ospfvirtiflsacount', 'ospfvirtiflsacksumsum', 'cospfvirtiflsacount', 'cospfvirtiflsacksumsum'], name, value)
+                self._perform_setattr(OSPFMIB.OspfVirtIfTable.OspfVirtIfEntry, [u'ospfvirtifareaid', u'ospfvirtifneighbor', u'ospfvirtiftransitdelay', u'ospfvirtifretransinterval', u'ospfvirtifhellointerval', u'ospfvirtifrtrdeadinterval', u'ospfvirtifstate', u'ospfvirtifevents', u'ospfvirtifauthkey', u'ospfvirtifstatus', u'ospfvirtifauthtype', u'ospfvirtiflsacount', u'ospfvirtiflsacksumsum', 'cospfvirtiflsacount', 'cospfvirtiflsacksumsum'], name, value)
 
-            class Ospfvirtifstate(Enum):
+            class OspfVirtIfState(Enum):
                 """
-                Ospfvirtifstate (Enum Class)
+                OspfVirtIfState (Enum Class)
 
                 OSPF virtual interface states.
 
@@ -2462,7 +2430,7 @@ class OSPFMIB(Entity):
 
 
 
-    class Ospfnbrtable(Entity):
+    class OspfNbrTable(Entity):
         """
         A table describing all non\-virtual neighbors
         in the locality of the OSPF router.
@@ -2470,7 +2438,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfnbrentry
         
         	The information regarding a single neighbor.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile  storage
-        	**type**\: list of  		 :py:class:`Ospfnbrentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfnbrtable.Ospfnbrentry>`
+        	**type**\: list of  		 :py:class:`OspfNbrEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfNbrTable.OspfNbrEntry>`
         
         
 
@@ -2480,15 +2448,14 @@ class OSPFMIB(Entity):
         _revision = '2006-11-10'
 
         def __init__(self):
-            super(OSPFMIB.Ospfnbrtable, self).__init__()
+            super(OSPFMIB.OspfNbrTable, self).__init__()
 
             self.yang_name = "ospfNbrTable"
             self.yang_parent_name = "OSPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ospfNbrEntry", ("ospfnbrentry", OSPFMIB.Ospfnbrtable.Ospfnbrentry))])
+            self._child_classes = OrderedDict([("ospfNbrEntry", ("ospfnbrentry", OSPFMIB.OspfNbrTable.OspfNbrEntry))])
             self._leafs = OrderedDict()
 
             self.ospfnbrentry = YList(self)
@@ -2496,10 +2463,10 @@ class OSPFMIB(Entity):
             self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(OSPFMIB.Ospfnbrtable, [], name, value)
+            self._perform_setattr(OSPFMIB.OspfNbrTable, [], name, value)
 
 
-        class Ospfnbrentry(Entity):
+        class OspfNbrEntry(Entity):
             """
             The information regarding a single neighbor.
             
@@ -2546,7 +2513,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfnbrstate
             
             	The state of the relationship with this neighbor
-            	**type**\:  :py:class:`Ospfnbrstate <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfnbrtable.Ospfnbrentry.Ospfnbrstate>`
+            	**type**\:  :py:class:`OspfNbrState <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfNbrTable.OspfNbrEntry.OspfNbrState>`
             
             .. attribute:: ospfnbrevents
             
@@ -2570,7 +2537,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfnbmanbrpermanence
             
             	This variable displays the status of the entry; 'dynamic' and 'permanent' refer to how the neighbor became known
-            	**type**\:  :py:class:`Ospfnbmanbrpermanence <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfnbrtable.Ospfnbrentry.Ospfnbmanbrpermanence>`
+            	**type**\:  :py:class:`OspfNbmaNbrPermanence <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfNbrTable.OspfNbrEntry.OspfNbmaNbrPermanence>`
             
             .. attribute:: ospfnbrhellosuppressed
             
@@ -2580,7 +2547,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfnbrrestarthelperstatus
             
             	Indicates whether the router is acting as a graceful restart helper for the neighbor
-            	**type**\:  :py:class:`Ospfnbrrestarthelperstatus <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfnbrtable.Ospfnbrentry.Ospfnbrrestarthelperstatus>`
+            	**type**\:  :py:class:`OspfNbrRestartHelperStatus <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfNbrTable.OspfNbrEntry.OspfNbrRestartHelperStatus>`
             
             .. attribute:: ospfnbrrestarthelperage
             
@@ -2594,7 +2561,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfnbrrestarthelperexitreason
             
             	Describes the outcome of the last attempt at acting as a graceful restart helper for the neighbor
-            	**type**\:  :py:class:`Ospfnbrrestarthelperexitreason <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfnbrtable.Ospfnbrentry.Ospfnbrrestarthelperexitreason>`
+            	**type**\:  :py:class:`OspfNbrRestartHelperExitReason <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfNbrTable.OspfNbrEntry.OspfNbrRestartHelperExitReason>`
             
             
 
@@ -2604,15 +2571,14 @@ class OSPFMIB(Entity):
             _revision = '2006-11-10'
 
             def __init__(self):
-                super(OSPFMIB.Ospfnbrtable.Ospfnbrentry, self).__init__()
+                super(OSPFMIB.OspfNbrTable.OspfNbrEntry, self).__init__()
 
                 self.yang_name = "ospfNbrEntry"
                 self.yang_parent_name = "ospfNbrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ospfnbripaddr','ospfnbraddresslessindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ospfnbripaddr', YLeaf(YType.str, 'ospfNbrIpAddr')),
                     ('ospfnbraddresslessindex', YLeaf(YType.int32, 'ospfNbrAddressLessIndex')),
@@ -2647,11 +2613,11 @@ class OSPFMIB(Entity):
                 self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/ospfNbrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.Ospfnbrtable.Ospfnbrentry, ['ospfnbripaddr', 'ospfnbraddresslessindex', 'ospfnbrrtrid', 'ospfnbroptions', 'ospfnbrpriority', 'ospfnbrstate', 'ospfnbrevents', 'ospfnbrlsretransqlen', 'ospfnbmanbrstatus', 'ospfnbmanbrpermanence', 'ospfnbrhellosuppressed', 'ospfnbrrestarthelperstatus', 'ospfnbrrestarthelperage', 'ospfnbrrestarthelperexitreason'], name, value)
+                self._perform_setattr(OSPFMIB.OspfNbrTable.OspfNbrEntry, [u'ospfnbripaddr', u'ospfnbraddresslessindex', u'ospfnbrrtrid', u'ospfnbroptions', u'ospfnbrpriority', u'ospfnbrstate', u'ospfnbrevents', u'ospfnbrlsretransqlen', u'ospfnbmanbrstatus', u'ospfnbmanbrpermanence', u'ospfnbrhellosuppressed', u'ospfnbrrestarthelperstatus', u'ospfnbrrestarthelperage', u'ospfnbrrestarthelperexitreason'], name, value)
 
-            class Ospfnbmanbrpermanence(Enum):
+            class OspfNbmaNbrPermanence(Enum):
                 """
-                Ospfnbmanbrpermanence (Enum Class)
+                OspfNbmaNbrPermanence (Enum Class)
 
                 This variable displays the status of the entry;
 
@@ -2670,9 +2636,9 @@ class OSPFMIB(Entity):
                 permanent = Enum.YLeaf(2, "permanent")
 
 
-            class Ospfnbrrestarthelperexitreason(Enum):
+            class OspfNbrRestartHelperExitReason(Enum):
                 """
-                Ospfnbrrestarthelperexitreason (Enum Class)
+                OspfNbrRestartHelperExitReason (Enum Class)
 
                 Describes the outcome of the last attempt at acting
 
@@ -2701,9 +2667,9 @@ class OSPFMIB(Entity):
                 topologyChanged = Enum.YLeaf(5, "topologyChanged")
 
 
-            class Ospfnbrrestarthelperstatus(Enum):
+            class OspfNbrRestartHelperStatus(Enum):
                 """
-                Ospfnbrrestarthelperstatus (Enum Class)
+                OspfNbrRestartHelperStatus (Enum Class)
 
                 Indicates whether the router is acting
 
@@ -2720,9 +2686,9 @@ class OSPFMIB(Entity):
                 helping = Enum.YLeaf(2, "helping")
 
 
-            class Ospfnbrstate(Enum):
+            class OspfNbrState(Enum):
                 """
-                Ospfnbrstate (Enum Class)
+                OspfNbrState (Enum Class)
 
                 The state of the relationship with this neighbor.
 
@@ -2762,7 +2728,7 @@ class OSPFMIB(Entity):
 
 
 
-    class Ospfvirtnbrtable(Entity):
+    class OspfVirtNbrTable(Entity):
         """
         This table describes all virtual neighbors.
         Since virtual links are configured
@@ -2771,7 +2737,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfvirtnbrentry
         
         	Virtual neighbor information
-        	**type**\: list of  		 :py:class:`Ospfvirtnbrentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtnbrtable.Ospfvirtnbrentry>`
+        	**type**\: list of  		 :py:class:`OspfVirtNbrEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfVirtNbrTable.OspfVirtNbrEntry>`
         
         
 
@@ -2781,15 +2747,14 @@ class OSPFMIB(Entity):
         _revision = '2006-11-10'
 
         def __init__(self):
-            super(OSPFMIB.Ospfvirtnbrtable, self).__init__()
+            super(OSPFMIB.OspfVirtNbrTable, self).__init__()
 
             self.yang_name = "ospfVirtNbrTable"
             self.yang_parent_name = "OSPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ospfVirtNbrEntry", ("ospfvirtnbrentry", OSPFMIB.Ospfvirtnbrtable.Ospfvirtnbrentry))])
+            self._child_classes = OrderedDict([("ospfVirtNbrEntry", ("ospfvirtnbrentry", OSPFMIB.OspfVirtNbrTable.OspfVirtNbrEntry))])
             self._leafs = OrderedDict()
 
             self.ospfvirtnbrentry = YList(self)
@@ -2797,10 +2762,10 @@ class OSPFMIB(Entity):
             self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(OSPFMIB.Ospfvirtnbrtable, [], name, value)
+            self._perform_setattr(OSPFMIB.OspfVirtNbrTable, [], name, value)
 
 
-        class Ospfvirtnbrentry(Entity):
+        class OspfVirtNbrEntry(Entity):
             """
             Virtual neighbor information.
             
@@ -2835,7 +2800,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfvirtnbrstate
             
             	The state of the virtual neighbor relationship
-            	**type**\:  :py:class:`Ospfvirtnbrstate <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtnbrtable.Ospfvirtnbrentry.Ospfvirtnbrstate>`
+            	**type**\:  :py:class:`OspfVirtNbrState <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfVirtNbrTable.OspfVirtNbrEntry.OspfVirtNbrState>`
             
             .. attribute:: ospfvirtnbrevents
             
@@ -2859,7 +2824,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfvirtnbrrestarthelperstatus
             
             	Indicates whether the router is acting as a graceful restart helper for the neighbor
-            	**type**\:  :py:class:`Ospfvirtnbrrestarthelperstatus <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtnbrtable.Ospfvirtnbrentry.Ospfvirtnbrrestarthelperstatus>`
+            	**type**\:  :py:class:`OspfVirtNbrRestartHelperStatus <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfVirtNbrTable.OspfVirtNbrEntry.OspfVirtNbrRestartHelperStatus>`
             
             .. attribute:: ospfvirtnbrrestarthelperage
             
@@ -2873,7 +2838,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfvirtnbrrestarthelperexitreason
             
             	Describes the outcome of the last attempt at acting as a graceful restart helper for the neighbor
-            	**type**\:  :py:class:`Ospfvirtnbrrestarthelperexitreason <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtnbrtable.Ospfvirtnbrentry.Ospfvirtnbrrestarthelperexitreason>`
+            	**type**\:  :py:class:`OspfVirtNbrRestartHelperExitReason <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfVirtNbrTable.OspfVirtNbrEntry.OspfVirtNbrRestartHelperExitReason>`
             
             
 
@@ -2883,15 +2848,14 @@ class OSPFMIB(Entity):
             _revision = '2006-11-10'
 
             def __init__(self):
-                super(OSPFMIB.Ospfvirtnbrtable.Ospfvirtnbrentry, self).__init__()
+                super(OSPFMIB.OspfVirtNbrTable.OspfVirtNbrEntry, self).__init__()
 
                 self.yang_name = "ospfVirtNbrEntry"
                 self.yang_parent_name = "ospfVirtNbrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ospfvirtnbrarea','ospfvirtnbrrtrid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ospfvirtnbrarea', YLeaf(YType.str, 'ospfVirtNbrArea')),
                     ('ospfvirtnbrrtrid', YLeaf(YType.str, 'ospfVirtNbrRtrId')),
@@ -2920,11 +2884,11 @@ class OSPFMIB(Entity):
                 self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/ospfVirtNbrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.Ospfvirtnbrtable.Ospfvirtnbrentry, ['ospfvirtnbrarea', 'ospfvirtnbrrtrid', 'ospfvirtnbripaddr', 'ospfvirtnbroptions', 'ospfvirtnbrstate', 'ospfvirtnbrevents', 'ospfvirtnbrlsretransqlen', 'ospfvirtnbrhellosuppressed', 'ospfvirtnbrrestarthelperstatus', 'ospfvirtnbrrestarthelperage', 'ospfvirtnbrrestarthelperexitreason'], name, value)
+                self._perform_setattr(OSPFMIB.OspfVirtNbrTable.OspfVirtNbrEntry, [u'ospfvirtnbrarea', u'ospfvirtnbrrtrid', u'ospfvirtnbripaddr', u'ospfvirtnbroptions', u'ospfvirtnbrstate', u'ospfvirtnbrevents', u'ospfvirtnbrlsretransqlen', u'ospfvirtnbrhellosuppressed', u'ospfvirtnbrrestarthelperstatus', u'ospfvirtnbrrestarthelperage', u'ospfvirtnbrrestarthelperexitreason'], name, value)
 
-            class Ospfvirtnbrrestarthelperexitreason(Enum):
+            class OspfVirtNbrRestartHelperExitReason(Enum):
                 """
-                Ospfvirtnbrrestarthelperexitreason (Enum Class)
+                OspfVirtNbrRestartHelperExitReason (Enum Class)
 
                 Describes the outcome of the last attempt at acting
 
@@ -2953,9 +2917,9 @@ class OSPFMIB(Entity):
                 topologyChanged = Enum.YLeaf(5, "topologyChanged")
 
 
-            class Ospfvirtnbrrestarthelperstatus(Enum):
+            class OspfVirtNbrRestartHelperStatus(Enum):
                 """
-                Ospfvirtnbrrestarthelperstatus (Enum Class)
+                OspfVirtNbrRestartHelperStatus (Enum Class)
 
                 Indicates whether the router is acting
 
@@ -2972,9 +2936,9 @@ class OSPFMIB(Entity):
                 helping = Enum.YLeaf(2, "helping")
 
 
-            class Ospfvirtnbrstate(Enum):
+            class OspfVirtNbrState(Enum):
                 """
-                Ospfvirtnbrstate (Enum Class)
+                OspfVirtNbrState (Enum Class)
 
                 The state of the virtual neighbor relationship.
 
@@ -3014,7 +2978,7 @@ class OSPFMIB(Entity):
 
 
 
-    class Ospfextlsdbtable(Entity):
+    class OspfExtLsdbTable(Entity):
         """
         The OSPF Process's external LSA link state database.
         
@@ -3031,7 +2995,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfextlsdbentry
         
         	A single link state advertisement
-        	**type**\: list of  		 :py:class:`Ospfextlsdbentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfextlsdbtable.Ospfextlsdbentry>`
+        	**type**\: list of  		 :py:class:`OspfExtLsdbEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfExtLsdbTable.OspfExtLsdbEntry>`
         
         	**status**\: deprecated
         
@@ -3043,15 +3007,14 @@ class OSPFMIB(Entity):
         _revision = '2006-11-10'
 
         def __init__(self):
-            super(OSPFMIB.Ospfextlsdbtable, self).__init__()
+            super(OSPFMIB.OspfExtLsdbTable, self).__init__()
 
             self.yang_name = "ospfExtLsdbTable"
             self.yang_parent_name = "OSPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ospfExtLsdbEntry", ("ospfextlsdbentry", OSPFMIB.Ospfextlsdbtable.Ospfextlsdbentry))])
+            self._child_classes = OrderedDict([("ospfExtLsdbEntry", ("ospfextlsdbentry", OSPFMIB.OspfExtLsdbTable.OspfExtLsdbEntry))])
             self._leafs = OrderedDict()
 
             self.ospfextlsdbentry = YList(self)
@@ -3059,17 +3022,17 @@ class OSPFMIB(Entity):
             self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(OSPFMIB.Ospfextlsdbtable, [], name, value)
+            self._perform_setattr(OSPFMIB.OspfExtLsdbTable, [], name, value)
 
 
-        class Ospfextlsdbentry(Entity):
+        class OspfExtLsdbEntry(Entity):
             """
             A single link state advertisement.
             
             .. attribute:: ospfextlsdbtype  (key)
             
             	The type of the link state advertisement. Each link state type has a separate advertisement format
-            	**type**\:  :py:class:`Ospfextlsdbtype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfextlsdbtable.Ospfextlsdbentry.Ospfextlsdbtype>`
+            	**type**\:  :py:class:`OspfExtLsdbType <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfExtLsdbTable.OspfExtLsdbEntry.OspfExtLsdbType>`
             
             	**status**\: deprecated
             
@@ -3137,15 +3100,14 @@ class OSPFMIB(Entity):
             _revision = '2006-11-10'
 
             def __init__(self):
-                super(OSPFMIB.Ospfextlsdbtable.Ospfextlsdbentry, self).__init__()
+                super(OSPFMIB.OspfExtLsdbTable.OspfExtLsdbEntry, self).__init__()
 
                 self.yang_name = "ospfExtLsdbEntry"
                 self.yang_parent_name = "ospfExtLsdbTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ospfextlsdbtype','ospfextlsdblsid','ospfextlsdbrouterid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ospfextlsdbtype', YLeaf(YType.enumeration, 'ospfExtLsdbType')),
                     ('ospfextlsdblsid', YLeaf(YType.str, 'ospfExtLsdbLsid')),
@@ -3166,11 +3128,11 @@ class OSPFMIB(Entity):
                 self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/ospfExtLsdbTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.Ospfextlsdbtable.Ospfextlsdbentry, ['ospfextlsdbtype', 'ospfextlsdblsid', 'ospfextlsdbrouterid', 'ospfextlsdbsequence', 'ospfextlsdbage', 'ospfextlsdbchecksum', 'ospfextlsdbadvertisement'], name, value)
+                self._perform_setattr(OSPFMIB.OspfExtLsdbTable.OspfExtLsdbEntry, [u'ospfextlsdbtype', u'ospfextlsdblsid', u'ospfextlsdbrouterid', u'ospfextlsdbsequence', u'ospfextlsdbage', u'ospfextlsdbchecksum', u'ospfextlsdbadvertisement'], name, value)
 
-            class Ospfextlsdbtype(Enum):
+            class OspfExtLsdbType(Enum):
                 """
-                Ospfextlsdbtype (Enum Class)
+                OspfExtLsdbType (Enum Class)
 
                 The type of the link state advertisement.
 
@@ -3186,7 +3148,7 @@ class OSPFMIB(Entity):
 
 
 
-    class Ospfareaaggregatetable(Entity):
+    class OspfAreaAggregateTable(Entity):
         """
         The Area Aggregate Table acts as an adjunct
         to the Area Table.  It describes those address aggregates
@@ -3208,7 +3170,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfareaaggregateentry
         
         	A single area aggregate entry.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile storage
-        	**type**\: list of  		 :py:class:`Ospfareaaggregateentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareaaggregatetable.Ospfareaaggregateentry>`
+        	**type**\: list of  		 :py:class:`OspfAreaAggregateEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaAggregateTable.OspfAreaAggregateEntry>`
         
         
 
@@ -3218,15 +3180,14 @@ class OSPFMIB(Entity):
         _revision = '2006-11-10'
 
         def __init__(self):
-            super(OSPFMIB.Ospfareaaggregatetable, self).__init__()
+            super(OSPFMIB.OspfAreaAggregateTable, self).__init__()
 
             self.yang_name = "ospfAreaAggregateTable"
             self.yang_parent_name = "OSPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ospfAreaAggregateEntry", ("ospfareaaggregateentry", OSPFMIB.Ospfareaaggregatetable.Ospfareaaggregateentry))])
+            self._child_classes = OrderedDict([("ospfAreaAggregateEntry", ("ospfareaaggregateentry", OSPFMIB.OspfAreaAggregateTable.OspfAreaAggregateEntry))])
             self._leafs = OrderedDict()
 
             self.ospfareaaggregateentry = YList(self)
@@ -3234,10 +3195,10 @@ class OSPFMIB(Entity):
             self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(OSPFMIB.Ospfareaaggregatetable, [], name, value)
+            self._perform_setattr(OSPFMIB.OspfAreaAggregateTable, [], name, value)
 
 
-        class Ospfareaaggregateentry(Entity):
+        class OspfAreaAggregateEntry(Entity):
             """
             A single area aggregate entry.
             
@@ -3255,7 +3216,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfareaaggregatelsdbtype  (key)
             
             	The type of the address aggregate.  This field specifies the Lsdb type that this address aggregate applies to
-            	**type**\:  :py:class:`Ospfareaaggregatelsdbtype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareaaggregatetable.Ospfareaaggregateentry.Ospfareaaggregatelsdbtype>`
+            	**type**\:  :py:class:`OspfAreaAggregateLsdbType <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaAggregateTable.OspfAreaAggregateEntry.OspfAreaAggregateLsdbType>`
             
             .. attribute:: ospfareaaggregatenet  (key)
             
@@ -3279,7 +3240,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfareaaggregateeffect
             
             	Subnets subsumed by ranges either trigger the advertisement of the indicated aggregate (advertiseMatching) or result in the subnet's not being advertised at all outside the area
-            	**type**\:  :py:class:`Ospfareaaggregateeffect <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareaaggregatetable.Ospfareaaggregateentry.Ospfareaaggregateeffect>`
+            	**type**\:  :py:class:`OspfAreaAggregateEffect <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaAggregateTable.OspfAreaAggregateEntry.OspfAreaAggregateEffect>`
             
             .. attribute:: ospfareaaggregateextroutetag
             
@@ -3296,15 +3257,14 @@ class OSPFMIB(Entity):
             _revision = '2006-11-10'
 
             def __init__(self):
-                super(OSPFMIB.Ospfareaaggregatetable.Ospfareaaggregateentry, self).__init__()
+                super(OSPFMIB.OspfAreaAggregateTable.OspfAreaAggregateEntry, self).__init__()
 
                 self.yang_name = "ospfAreaAggregateEntry"
                 self.yang_parent_name = "ospfAreaAggregateTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ospfareaaggregateareaid','ospfareaaggregatelsdbtype','ospfareaaggregatenet','ospfareaaggregatemask']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ospfareaaggregateareaid', YLeaf(YType.str, 'ospfAreaAggregateAreaID')),
                     ('ospfareaaggregatelsdbtype', YLeaf(YType.enumeration, 'ospfAreaAggregateLsdbType')),
@@ -3325,11 +3285,11 @@ class OSPFMIB(Entity):
                 self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/ospfAreaAggregateTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.Ospfareaaggregatetable.Ospfareaaggregateentry, ['ospfareaaggregateareaid', 'ospfareaaggregatelsdbtype', 'ospfareaaggregatenet', 'ospfareaaggregatemask', 'ospfareaaggregatestatus', 'ospfareaaggregateeffect', 'ospfareaaggregateextroutetag'], name, value)
+                self._perform_setattr(OSPFMIB.OspfAreaAggregateTable.OspfAreaAggregateEntry, [u'ospfareaaggregateareaid', u'ospfareaaggregatelsdbtype', u'ospfareaaggregatenet', u'ospfareaaggregatemask', u'ospfareaaggregatestatus', u'ospfareaaggregateeffect', u'ospfareaaggregateextroutetag'], name, value)
 
-            class Ospfareaaggregateeffect(Enum):
+            class OspfAreaAggregateEffect(Enum):
                 """
-                Ospfareaaggregateeffect (Enum Class)
+                OspfAreaAggregateEffect (Enum Class)
 
                 Subnets subsumed by ranges either trigger the
 
@@ -3350,9 +3310,9 @@ class OSPFMIB(Entity):
                 doNotAdvertiseMatching = Enum.YLeaf(2, "doNotAdvertiseMatching")
 
 
-            class Ospfareaaggregatelsdbtype(Enum):
+            class OspfAreaAggregateLsdbType(Enum):
                 """
-                Ospfareaaggregatelsdbtype (Enum Class)
+                OspfAreaAggregateLsdbType (Enum Class)
 
                 The type of the address aggregate.  This field
 
@@ -3372,7 +3332,7 @@ class OSPFMIB(Entity):
 
 
 
-    class Ospflocallsdbtable(Entity):
+    class OspfLocalLsdbTable(Entity):
         """
         The OSPF Process's link\-local link state database
         for non\-virtual links.
@@ -3387,7 +3347,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospflocallsdbentry
         
         	A single link state advertisement
-        	**type**\: list of  		 :py:class:`Ospflocallsdbentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospflocallsdbtable.Ospflocallsdbentry>`
+        	**type**\: list of  		 :py:class:`OspfLocalLsdbEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfLocalLsdbTable.OspfLocalLsdbEntry>`
         
         
 
@@ -3397,15 +3357,14 @@ class OSPFMIB(Entity):
         _revision = '2006-11-10'
 
         def __init__(self):
-            super(OSPFMIB.Ospflocallsdbtable, self).__init__()
+            super(OSPFMIB.OspfLocalLsdbTable, self).__init__()
 
             self.yang_name = "ospfLocalLsdbTable"
             self.yang_parent_name = "OSPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ospfLocalLsdbEntry", ("ospflocallsdbentry", OSPFMIB.Ospflocallsdbtable.Ospflocallsdbentry))])
+            self._child_classes = OrderedDict([("ospfLocalLsdbEntry", ("ospflocallsdbentry", OSPFMIB.OspfLocalLsdbTable.OspfLocalLsdbEntry))])
             self._leafs = OrderedDict()
 
             self.ospflocallsdbentry = YList(self)
@@ -3413,10 +3372,10 @@ class OSPFMIB(Entity):
             self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(OSPFMIB.Ospflocallsdbtable, [], name, value)
+            self._perform_setattr(OSPFMIB.OspfLocalLsdbTable, [], name, value)
 
 
-        class Ospflocallsdbentry(Entity):
+        class OspfLocalLsdbEntry(Entity):
             """
             A single link state advertisement.
             
@@ -3437,7 +3396,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospflocallsdbtype  (key)
             
             	The type of the link state advertisement. Each link state type has a separate advertisement format
-            	**type**\:  :py:class:`Ospflocallsdbtype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospflocallsdbtable.Ospflocallsdbentry.Ospflocallsdbtype>`
+            	**type**\:  :py:class:`OspfLocalLsdbType <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfLocalLsdbTable.OspfLocalLsdbEntry.OspfLocalLsdbType>`
             
             .. attribute:: ospflocallsdblsid  (key)
             
@@ -3491,15 +3450,14 @@ class OSPFMIB(Entity):
             _revision = '2006-11-10'
 
             def __init__(self):
-                super(OSPFMIB.Ospflocallsdbtable.Ospflocallsdbentry, self).__init__()
+                super(OSPFMIB.OspfLocalLsdbTable.OspfLocalLsdbEntry, self).__init__()
 
                 self.yang_name = "ospfLocalLsdbEntry"
                 self.yang_parent_name = "ospfLocalLsdbTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ospflocallsdbipaddress','ospflocallsdbaddresslessif','ospflocallsdbtype','ospflocallsdblsid','ospflocallsdbrouterid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ospflocallsdbipaddress', YLeaf(YType.str, 'ospfLocalLsdbIpAddress')),
                     ('ospflocallsdbaddresslessif', YLeaf(YType.int32, 'ospfLocalLsdbAddressLessIf')),
@@ -3524,11 +3482,11 @@ class OSPFMIB(Entity):
                 self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/ospfLocalLsdbTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.Ospflocallsdbtable.Ospflocallsdbentry, ['ospflocallsdbipaddress', 'ospflocallsdbaddresslessif', 'ospflocallsdbtype', 'ospflocallsdblsid', 'ospflocallsdbrouterid', 'ospflocallsdbsequence', 'ospflocallsdbage', 'ospflocallsdbchecksum', 'ospflocallsdbadvertisement'], name, value)
+                self._perform_setattr(OSPFMIB.OspfLocalLsdbTable.OspfLocalLsdbEntry, [u'ospflocallsdbipaddress', u'ospflocallsdbaddresslessif', u'ospflocallsdbtype', u'ospflocallsdblsid', u'ospflocallsdbrouterid', u'ospflocallsdbsequence', u'ospflocallsdbage', u'ospflocallsdbchecksum', u'ospflocallsdbadvertisement'], name, value)
 
-            class Ospflocallsdbtype(Enum):
+            class OspfLocalLsdbType(Enum):
                 """
-                Ospflocallsdbtype (Enum Class)
+                OspfLocalLsdbType (Enum Class)
 
                 The type of the link state advertisement.
 
@@ -3544,7 +3502,7 @@ class OSPFMIB(Entity):
 
 
 
-    class Ospfvirtlocallsdbtable(Entity):
+    class OspfVirtLocalLsdbTable(Entity):
         """
         The OSPF Process's link\-local link state database
         for virtual links.
@@ -3559,7 +3517,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfvirtlocallsdbentry
         
         	A single link state advertisement
-        	**type**\: list of  		 :py:class:`Ospfvirtlocallsdbentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry>`
+        	**type**\: list of  		 :py:class:`OspfVirtLocalLsdbEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfVirtLocalLsdbTable.OspfVirtLocalLsdbEntry>`
         
         
 
@@ -3569,15 +3527,14 @@ class OSPFMIB(Entity):
         _revision = '2006-11-10'
 
         def __init__(self):
-            super(OSPFMIB.Ospfvirtlocallsdbtable, self).__init__()
+            super(OSPFMIB.OspfVirtLocalLsdbTable, self).__init__()
 
             self.yang_name = "ospfVirtLocalLsdbTable"
             self.yang_parent_name = "OSPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ospfVirtLocalLsdbEntry", ("ospfvirtlocallsdbentry", OSPFMIB.Ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry))])
+            self._child_classes = OrderedDict([("ospfVirtLocalLsdbEntry", ("ospfvirtlocallsdbentry", OSPFMIB.OspfVirtLocalLsdbTable.OspfVirtLocalLsdbEntry))])
             self._leafs = OrderedDict()
 
             self.ospfvirtlocallsdbentry = YList(self)
@@ -3585,10 +3542,10 @@ class OSPFMIB(Entity):
             self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(OSPFMIB.Ospfvirtlocallsdbtable, [], name, value)
+            self._perform_setattr(OSPFMIB.OspfVirtLocalLsdbTable, [], name, value)
 
 
-        class Ospfvirtlocallsdbentry(Entity):
+        class OspfVirtLocalLsdbEntry(Entity):
             """
             A single link state advertisement.
             
@@ -3609,7 +3566,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfvirtlocallsdbtype  (key)
             
             	The type of the link state advertisement. Each link state type has a separate advertisement format
-            	**type**\:  :py:class:`Ospfvirtlocallsdbtype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry.Ospfvirtlocallsdbtype>`
+            	**type**\:  :py:class:`OspfVirtLocalLsdbType <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfVirtLocalLsdbTable.OspfVirtLocalLsdbEntry.OspfVirtLocalLsdbType>`
             
             .. attribute:: ospfvirtlocallsdblsid  (key)
             
@@ -3663,15 +3620,14 @@ class OSPFMIB(Entity):
             _revision = '2006-11-10'
 
             def __init__(self):
-                super(OSPFMIB.Ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry, self).__init__()
+                super(OSPFMIB.OspfVirtLocalLsdbTable.OspfVirtLocalLsdbEntry, self).__init__()
 
                 self.yang_name = "ospfVirtLocalLsdbEntry"
                 self.yang_parent_name = "ospfVirtLocalLsdbTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ospfvirtlocallsdbtransitarea','ospfvirtlocallsdbneighbor','ospfvirtlocallsdbtype','ospfvirtlocallsdblsid','ospfvirtlocallsdbrouterid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ospfvirtlocallsdbtransitarea', YLeaf(YType.str, 'ospfVirtLocalLsdbTransitArea')),
                     ('ospfvirtlocallsdbneighbor', YLeaf(YType.str, 'ospfVirtLocalLsdbNeighbor')),
@@ -3696,11 +3652,11 @@ class OSPFMIB(Entity):
                 self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/ospfVirtLocalLsdbTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.Ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry, ['ospfvirtlocallsdbtransitarea', 'ospfvirtlocallsdbneighbor', 'ospfvirtlocallsdbtype', 'ospfvirtlocallsdblsid', 'ospfvirtlocallsdbrouterid', 'ospfvirtlocallsdbsequence', 'ospfvirtlocallsdbage', 'ospfvirtlocallsdbchecksum', 'ospfvirtlocallsdbadvertisement'], name, value)
+                self._perform_setattr(OSPFMIB.OspfVirtLocalLsdbTable.OspfVirtLocalLsdbEntry, [u'ospfvirtlocallsdbtransitarea', u'ospfvirtlocallsdbneighbor', u'ospfvirtlocallsdbtype', u'ospfvirtlocallsdblsid', u'ospfvirtlocallsdbrouterid', u'ospfvirtlocallsdbsequence', u'ospfvirtlocallsdbage', u'ospfvirtlocallsdbchecksum', u'ospfvirtlocallsdbadvertisement'], name, value)
 
-            class Ospfvirtlocallsdbtype(Enum):
+            class OspfVirtLocalLsdbType(Enum):
                 """
-                Ospfvirtlocallsdbtype (Enum Class)
+                OspfVirtLocalLsdbType (Enum Class)
 
                 The type of the link state advertisement.
 
@@ -3716,7 +3672,7 @@ class OSPFMIB(Entity):
 
 
 
-    class Ospfaslsdbtable(Entity):
+    class OspfAsLsdbTable(Entity):
         """
         The OSPF Process's AS\-scope LSA link state database.
         The database contains the AS\-scope Link State
@@ -3732,7 +3688,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfaslsdbentry
         
         	A single link state advertisement
-        	**type**\: list of  		 :py:class:`Ospfaslsdbentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfaslsdbtable.Ospfaslsdbentry>`
+        	**type**\: list of  		 :py:class:`OspfAsLsdbEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAsLsdbTable.OspfAsLsdbEntry>`
         
         
 
@@ -3742,15 +3698,14 @@ class OSPFMIB(Entity):
         _revision = '2006-11-10'
 
         def __init__(self):
-            super(OSPFMIB.Ospfaslsdbtable, self).__init__()
+            super(OSPFMIB.OspfAsLsdbTable, self).__init__()
 
             self.yang_name = "ospfAsLsdbTable"
             self.yang_parent_name = "OSPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ospfAsLsdbEntry", ("ospfaslsdbentry", OSPFMIB.Ospfaslsdbtable.Ospfaslsdbentry))])
+            self._child_classes = OrderedDict([("ospfAsLsdbEntry", ("ospfaslsdbentry", OSPFMIB.OspfAsLsdbTable.OspfAsLsdbEntry))])
             self._leafs = OrderedDict()
 
             self.ospfaslsdbentry = YList(self)
@@ -3758,17 +3713,17 @@ class OSPFMIB(Entity):
             self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(OSPFMIB.Ospfaslsdbtable, [], name, value)
+            self._perform_setattr(OSPFMIB.OspfAsLsdbTable, [], name, value)
 
 
-        class Ospfaslsdbentry(Entity):
+        class OspfAsLsdbEntry(Entity):
             """
             A single link state advertisement.
             
             .. attribute:: ospfaslsdbtype  (key)
             
             	The type of the link state advertisement. Each link state type has a separate advertisement format
-            	**type**\:  :py:class:`Ospfaslsdbtype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfaslsdbtable.Ospfaslsdbentry.Ospfaslsdbtype>`
+            	**type**\:  :py:class:`OspfAsLsdbType <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAsLsdbTable.OspfAsLsdbEntry.OspfAsLsdbType>`
             
             .. attribute:: ospfaslsdblsid  (key)
             
@@ -3822,15 +3777,14 @@ class OSPFMIB(Entity):
             _revision = '2006-11-10'
 
             def __init__(self):
-                super(OSPFMIB.Ospfaslsdbtable.Ospfaslsdbentry, self).__init__()
+                super(OSPFMIB.OspfAsLsdbTable.OspfAsLsdbEntry, self).__init__()
 
                 self.yang_name = "ospfAsLsdbEntry"
                 self.yang_parent_name = "ospfAsLsdbTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ospfaslsdbtype','ospfaslsdblsid','ospfaslsdbrouterid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ospfaslsdbtype', YLeaf(YType.enumeration, 'ospfAsLsdbType')),
                     ('ospfaslsdblsid', YLeaf(YType.str, 'ospfAsLsdbLsid')),
@@ -3851,11 +3805,11 @@ class OSPFMIB(Entity):
                 self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/ospfAsLsdbTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.Ospfaslsdbtable.Ospfaslsdbentry, ['ospfaslsdbtype', 'ospfaslsdblsid', 'ospfaslsdbrouterid', 'ospfaslsdbsequence', 'ospfaslsdbage', 'ospfaslsdbchecksum', 'ospfaslsdbadvertisement'], name, value)
+                self._perform_setattr(OSPFMIB.OspfAsLsdbTable.OspfAsLsdbEntry, [u'ospfaslsdbtype', u'ospfaslsdblsid', u'ospfaslsdbrouterid', u'ospfaslsdbsequence', u'ospfaslsdbage', u'ospfaslsdbchecksum', u'ospfaslsdbadvertisement'], name, value)
 
-            class Ospfaslsdbtype(Enum):
+            class OspfAsLsdbType(Enum):
                 """
-                Ospfaslsdbtype (Enum Class)
+                OspfAsLsdbType (Enum Class)
 
                 The type of the link state advertisement.
 
@@ -3875,14 +3829,14 @@ class OSPFMIB(Entity):
 
 
 
-    class Ospfarealsacounttable(Entity):
+    class OspfAreaLsaCountTable(Entity):
         """
         This table maintains per\-area, per\-LSA\-type counters
         
         .. attribute:: ospfarealsacountentry
         
         	An entry with a number of link advertisements  of a given type for a given area
-        	**type**\: list of  		 :py:class:`Ospfarealsacountentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfarealsacounttable.Ospfarealsacountentry>`
+        	**type**\: list of  		 :py:class:`OspfAreaLsaCountEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaLsaCountTable.OspfAreaLsaCountEntry>`
         
         
 
@@ -3892,15 +3846,14 @@ class OSPFMIB(Entity):
         _revision = '2006-11-10'
 
         def __init__(self):
-            super(OSPFMIB.Ospfarealsacounttable, self).__init__()
+            super(OSPFMIB.OspfAreaLsaCountTable, self).__init__()
 
             self.yang_name = "ospfAreaLsaCountTable"
             self.yang_parent_name = "OSPF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ospfAreaLsaCountEntry", ("ospfarealsacountentry", OSPFMIB.Ospfarealsacounttable.Ospfarealsacountentry))])
+            self._child_classes = OrderedDict([("ospfAreaLsaCountEntry", ("ospfarealsacountentry", OSPFMIB.OspfAreaLsaCountTable.OspfAreaLsaCountEntry))])
             self._leafs = OrderedDict()
 
             self.ospfarealsacountentry = YList(self)
@@ -3908,10 +3861,10 @@ class OSPFMIB(Entity):
             self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(OSPFMIB.Ospfarealsacounttable, [], name, value)
+            self._perform_setattr(OSPFMIB.OspfAreaLsaCountTable, [], name, value)
 
 
-        class Ospfarealsacountentry(Entity):
+        class OspfAreaLsaCountEntry(Entity):
             """
             An entry with a number of link advertisements
             
@@ -3927,7 +3880,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfarealsacountlsatype  (key)
             
             	This entry LSA type
-            	**type**\:  :py:class:`Ospfarealsacountlsatype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfarealsacounttable.Ospfarealsacountentry.Ospfarealsacountlsatype>`
+            	**type**\:  :py:class:`OspfAreaLsaCountLsaType <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaLsaCountTable.OspfAreaLsaCountEntry.OspfAreaLsaCountLsaType>`
             
             .. attribute:: ospfarealsacountnumber
             
@@ -3944,15 +3897,14 @@ class OSPFMIB(Entity):
             _revision = '2006-11-10'
 
             def __init__(self):
-                super(OSPFMIB.Ospfarealsacounttable.Ospfarealsacountentry, self).__init__()
+                super(OSPFMIB.OspfAreaLsaCountTable.OspfAreaLsaCountEntry, self).__init__()
 
                 self.yang_name = "ospfAreaLsaCountEntry"
                 self.yang_parent_name = "ospfAreaLsaCountTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ospfarealsacountareaid','ospfarealsacountlsatype']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ospfarealsacountareaid', YLeaf(YType.str, 'ospfAreaLsaCountAreaId')),
                     ('ospfarealsacountlsatype', YLeaf(YType.enumeration, 'ospfAreaLsaCountLsaType')),
@@ -3965,11 +3917,11 @@ class OSPFMIB(Entity):
                 self._absolute_path = lambda: "OSPF-MIB:OSPF-MIB/ospfAreaLsaCountTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.Ospfarealsacounttable.Ospfarealsacountentry, ['ospfarealsacountareaid', 'ospfarealsacountlsatype', 'ospfarealsacountnumber'], name, value)
+                self._perform_setattr(OSPFMIB.OspfAreaLsaCountTable.OspfAreaLsaCountEntry, [u'ospfarealsacountareaid', u'ospfarealsacountlsatype', u'ospfarealsacountnumber'], name, value)
 
-            class Ospfarealsacountlsatype(Enum):
+            class OspfAreaLsaCountLsaType(Enum):
                 """
-                Ospfarealsacountlsatype (Enum Class)
+                OspfAreaLsaCountLsaType (Enum Class)
 
                 This entry LSA type.
 

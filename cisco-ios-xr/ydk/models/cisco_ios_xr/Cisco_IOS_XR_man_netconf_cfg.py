@@ -45,15 +45,16 @@ class NetconfYang(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("agent", ("agent", NetconfYang.Agent))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("agent", ("agent", NetconfYang.Agent))])
         self._leafs = OrderedDict()
 
         self.agent = NetconfYang.Agent()
         self.agent.parent = self
         self._children_name_map["agent"] = "agent"
-        self._children_yang_names.add("agent")
         self._segment_path = lambda: "Cisco-IOS-XR-man-netconf-cfg:netconf-yang"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(NetconfYang, [], name, value)
 
 
     class Agent(Entity):
@@ -94,8 +95,7 @@ class NetconfYang(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("ssh", ("ssh", NetconfYang.Agent.Ssh)), ("session", ("session", NetconfYang.Agent.Session))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("ssh", ("ssh", NetconfYang.Agent.Ssh)), ("session", ("session", NetconfYang.Agent.Session))])
             self._leafs = OrderedDict([
                 ('rate_limit', YLeaf(YType.uint32, 'rate-limit')),
             ])
@@ -104,12 +104,10 @@ class NetconfYang(Entity):
             self.ssh = NetconfYang.Agent.Ssh()
             self.ssh.parent = self
             self._children_name_map["ssh"] = "ssh"
-            self._children_yang_names.add("ssh")
 
             self.session = NetconfYang.Agent.Session()
             self.session.parent = self
             self._children_name_map["session"] = "session"
-            self._children_yang_names.add("session")
             self._segment_path = lambda: "agent"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-netconf-cfg:netconf-yang/%s" % self._segment_path()
 
@@ -141,8 +139,7 @@ class NetconfYang(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('enable', YLeaf(YType.empty, 'enable')),
                 ])
@@ -200,8 +197,7 @@ class NetconfYang(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('limit', YLeaf(YType.uint32, 'limit')),
                     ('absolute_timeout', YLeaf(YType.uint32, 'absolute-timeout')),

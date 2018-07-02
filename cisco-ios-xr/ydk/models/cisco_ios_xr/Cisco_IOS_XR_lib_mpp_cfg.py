@@ -34,7 +34,7 @@ class ControlPlane(Entity):
     """
 
     _prefix = 'lib-mpp-cfg'
-    _revision = '2017-07-28'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(ControlPlane, self).__init__()
@@ -45,15 +45,16 @@ class ControlPlane(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("management-plane-protection", ("management_plane_protection", ControlPlane.ManagementPlaneProtection))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("management-plane-protection", ("management_plane_protection", ControlPlane.ManagementPlaneProtection))])
         self._leafs = OrderedDict()
 
         self.management_plane_protection = ControlPlane.ManagementPlaneProtection()
         self.management_plane_protection.parent = self
         self._children_name_map["management_plane_protection"] = "management-plane-protection"
-        self._children_yang_names.add("management-plane-protection")
         self._segment_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(ControlPlane, [], name, value)
 
 
     class ManagementPlaneProtection(Entity):
@@ -80,7 +81,7 @@ class ControlPlane(Entity):
         """
 
         _prefix = 'lib-mpp-cfg'
-        _revision = '2017-07-28'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(ControlPlane.ManagementPlaneProtection, self).__init__()
@@ -90,26 +91,25 @@ class ControlPlane(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("outband", ("outband", ControlPlane.ManagementPlaneProtection.Outband)), ("inband", ("inband", ControlPlane.ManagementPlaneProtection.Inband)), ("tpa", ("tpa", ControlPlane.ManagementPlaneProtection.Tpa))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("outband", ("outband", ControlPlane.ManagementPlaneProtection.Outband)), ("inband", ("inband", ControlPlane.ManagementPlaneProtection.Inband)), ("tpa", ("tpa", ControlPlane.ManagementPlaneProtection.Tpa))])
             self._leafs = OrderedDict()
 
             self.outband = ControlPlane.ManagementPlaneProtection.Outband()
             self.outband.parent = self
             self._children_name_map["outband"] = "outband"
-            self._children_yang_names.add("outband")
 
             self.inband = ControlPlane.ManagementPlaneProtection.Inband()
             self.inband.parent = self
             self._children_name_map["inband"] = "inband"
-            self._children_yang_names.add("inband")
 
             self.tpa = ControlPlane.ManagementPlaneProtection.Tpa()
             self.tpa.parent = self
             self._children_name_map["tpa"] = "tpa"
-            self._children_yang_names.add("tpa")
             self._segment_path = lambda: "management-plane-protection"
             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(ControlPlane.ManagementPlaneProtection, [], name, value)
 
 
         class Outband(Entity):
@@ -131,7 +131,7 @@ class ControlPlane(Entity):
             """
 
             _prefix = 'lib-mpp-cfg'
-            _revision = '2017-07-28'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(ControlPlane.ManagementPlaneProtection.Outband, self).__init__()
@@ -141,8 +141,7 @@ class ControlPlane(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("interface-selection", ("interface_selection", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("interface-selection", ("interface_selection", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection))])
                 self._leafs = OrderedDict([
                     ('outband_vrf', YLeaf(YType.str, 'outband-vrf')),
                 ])
@@ -151,7 +150,6 @@ class ControlPlane(Entity):
                 self.interface_selection = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection()
                 self.interface_selection.parent = self
                 self._children_name_map["interface_selection"] = "interface-selection"
-                self._children_yang_names.add("interface-selection")
                 self._segment_path = lambda: "outband"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/%s" % self._segment_path()
 
@@ -178,7 +176,7 @@ class ControlPlane(Entity):
                 """
 
                 _prefix = 'lib-mpp-cfg'
-                _revision = '2017-07-28'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection, self).__init__()
@@ -188,21 +186,21 @@ class ControlPlane(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("interfaces", ("interfaces", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces)), ("all-interfaces", ("all_interfaces", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("interfaces", ("interfaces", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces)), ("all-interfaces", ("all_interfaces", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces))])
                     self._leafs = OrderedDict()
 
                     self.interfaces = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces()
                     self.interfaces.parent = self
                     self._children_name_map["interfaces"] = "interfaces"
-                    self._children_yang_names.add("interfaces")
 
                     self.all_interfaces = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces()
                     self.all_interfaces.parent = self
                     self._children_name_map["all_interfaces"] = "all-interfaces"
-                    self._children_yang_names.add("all-interfaces")
                     self._segment_path = lambda: "interface-selection"
                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection, [], name, value)
 
 
                 class Interfaces(Entity):
@@ -219,7 +217,7 @@ class ControlPlane(Entity):
                     """
 
                     _prefix = 'lib-mpp-cfg'
-                    _revision = '2017-07-28'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces, self).__init__()
@@ -229,8 +227,7 @@ class ControlPlane(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("interface", ("interface", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface))])
+                        self._child_classes = OrderedDict([("interface", ("interface", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface))])
                         self._leafs = OrderedDict()
 
                         self.interface = YList(self)
@@ -297,7 +294,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-07-28'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface, self).__init__()
@@ -307,8 +304,7 @@ class ControlPlane(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['interface_name']
-                            self._child_container_classes = OrderedDict([("http-protocol", ("http_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol)), ("tftp-protocol", ("tftp_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol)), ("netconf-protocol", ("netconf_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol)), ("xr-xml", ("xr_xml", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml)), ("ssh-protocol", ("ssh_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol)), ("snmp-protocol", ("snmp_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol)), ("telnet-protocol", ("telnet_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol)), ("all-protocols", ("all_protocols", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("http-protocol", ("http_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol)), ("tftp-protocol", ("tftp_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol)), ("netconf-protocol", ("netconf_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol)), ("xr-xml", ("xr_xml", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml)), ("ssh-protocol", ("ssh_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol)), ("snmp-protocol", ("snmp_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol)), ("telnet-protocol", ("telnet_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol)), ("all-protocols", ("all_protocols", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols))])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ])
@@ -317,42 +313,34 @@ class ControlPlane(Entity):
                             self.http_protocol = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol()
                             self.http_protocol.parent = self
                             self._children_name_map["http_protocol"] = "http-protocol"
-                            self._children_yang_names.add("http-protocol")
 
                             self.tftp_protocol = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol()
                             self.tftp_protocol.parent = self
                             self._children_name_map["tftp_protocol"] = "tftp-protocol"
-                            self._children_yang_names.add("tftp-protocol")
 
                             self.netconf_protocol = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol()
                             self.netconf_protocol.parent = self
                             self._children_name_map["netconf_protocol"] = "netconf-protocol"
-                            self._children_yang_names.add("netconf-protocol")
 
                             self.xr_xml = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml()
                             self.xr_xml.parent = self
                             self._children_name_map["xr_xml"] = "xr-xml"
-                            self._children_yang_names.add("xr-xml")
 
                             self.ssh_protocol = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol()
                             self.ssh_protocol.parent = self
                             self._children_name_map["ssh_protocol"] = "ssh-protocol"
-                            self._children_yang_names.add("ssh-protocol")
 
                             self.snmp_protocol = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol()
                             self.snmp_protocol.parent = self
                             self._children_name_map["snmp_protocol"] = "snmp-protocol"
-                            self._children_yang_names.add("snmp-protocol")
 
                             self.telnet_protocol = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol()
                             self.telnet_protocol.parent = self
                             self._children_name_map["telnet_protocol"] = "telnet-protocol"
-                            self._children_yang_names.add("telnet-protocol")
 
                             self.all_protocols = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols()
                             self.all_protocols.parent = self
                             self._children_name_map["all_protocols"] = "all-protocols"
-                            self._children_yang_names.add("all-protocols")
                             self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/%s" % self._segment_path()
 
@@ -374,7 +362,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol, self).__init__()
@@ -384,15 +372,16 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass))])
                                 self._leafs = OrderedDict()
 
                                 self.peer_class = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass()
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
-                                self._children_yang_names.add("peer-class")
                                 self._segment_path = lambda: "http-protocol"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol, [], name, value)
 
 
                             class PeerClass(Entity):
@@ -419,7 +408,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass, self).__init__()
@@ -429,8 +418,7 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
                                         ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                     ])
@@ -439,12 +427,10 @@ class ControlPlane(Entity):
                                     self.peer_v4 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4()
                                     self.peer_v4.parent = self
                                     self._children_name_map["peer_v4"] = "peer-v4"
-                                    self._children_yang_names.add("peer-v4")
 
                                     self.peer_v6 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6()
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
-                                    self._children_yang_names.add("peer-v6")
                                     self._segment_path = lambda: "peer-class"
 
                                 def __setattr__(self, name, value):
@@ -470,7 +456,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4, self).__init__()
@@ -480,20 +466,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v4"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4, [], name, value)
 
 
                                     class Peers(Entity):
@@ -510,7 +496,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -520,8 +506,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -553,7 +538,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -563,8 +548,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -589,7 +573,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -599,8 +583,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -632,7 +615,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -642,8 +625,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -673,7 +655,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6, self).__init__()
@@ -683,20 +665,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v6"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6, [], name, value)
 
 
                                     class Peers(Entity):
@@ -713,7 +695,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -723,8 +705,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -756,7 +737,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -766,8 +747,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -792,7 +772,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -802,8 +782,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -835,7 +814,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -845,8 +824,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -871,7 +849,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol, self).__init__()
@@ -881,15 +859,16 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass))])
                                 self._leafs = OrderedDict()
 
                                 self.peer_class = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass()
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
-                                self._children_yang_names.add("peer-class")
                                 self._segment_path = lambda: "tftp-protocol"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol, [], name, value)
 
 
                             class PeerClass(Entity):
@@ -916,7 +895,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass, self).__init__()
@@ -926,8 +905,7 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
                                         ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                     ])
@@ -936,12 +914,10 @@ class ControlPlane(Entity):
                                     self.peer_v4 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4()
                                     self.peer_v4.parent = self
                                     self._children_name_map["peer_v4"] = "peer-v4"
-                                    self._children_yang_names.add("peer-v4")
 
                                     self.peer_v6 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6()
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
-                                    self._children_yang_names.add("peer-v6")
                                     self._segment_path = lambda: "peer-class"
 
                                 def __setattr__(self, name, value):
@@ -967,7 +943,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4, self).__init__()
@@ -977,20 +953,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v4"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4, [], name, value)
 
 
                                     class Peers(Entity):
@@ -1007,7 +983,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -1017,8 +993,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -1050,7 +1025,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -1060,8 +1035,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -1086,7 +1060,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -1096,8 +1070,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -1129,7 +1102,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -1139,8 +1112,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -1170,7 +1142,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6, self).__init__()
@@ -1180,20 +1152,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v6"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6, [], name, value)
 
 
                                     class Peers(Entity):
@@ -1210,7 +1182,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -1220,8 +1192,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -1253,7 +1224,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -1263,8 +1234,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -1289,7 +1259,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -1299,8 +1269,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -1332,7 +1301,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -1342,8 +1311,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -1368,7 +1336,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol, self).__init__()
@@ -1378,15 +1346,16 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass))])
                                 self._leafs = OrderedDict()
 
                                 self.peer_class = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass()
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
-                                self._children_yang_names.add("peer-class")
                                 self._segment_path = lambda: "netconf-protocol"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol, [], name, value)
 
 
                             class PeerClass(Entity):
@@ -1413,7 +1382,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass, self).__init__()
@@ -1423,8 +1392,7 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
                                         ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                     ])
@@ -1433,12 +1401,10 @@ class ControlPlane(Entity):
                                     self.peer_v4 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4()
                                     self.peer_v4.parent = self
                                     self._children_name_map["peer_v4"] = "peer-v4"
-                                    self._children_yang_names.add("peer-v4")
 
                                     self.peer_v6 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6()
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
-                                    self._children_yang_names.add("peer-v6")
                                     self._segment_path = lambda: "peer-class"
 
                                 def __setattr__(self, name, value):
@@ -1464,7 +1430,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4, self).__init__()
@@ -1474,20 +1440,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v4"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4, [], name, value)
 
 
                                     class Peers(Entity):
@@ -1504,7 +1470,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -1514,8 +1480,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -1547,7 +1512,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -1557,8 +1522,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -1583,7 +1547,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -1593,8 +1557,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -1626,7 +1589,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -1636,8 +1599,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -1667,7 +1629,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6, self).__init__()
@@ -1677,20 +1639,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v6"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6, [], name, value)
 
 
                                     class Peers(Entity):
@@ -1707,7 +1669,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -1717,8 +1679,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -1750,7 +1711,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -1760,8 +1721,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -1786,7 +1746,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -1796,8 +1756,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -1829,7 +1788,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -1839,8 +1798,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -1865,7 +1823,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml, self).__init__()
@@ -1875,15 +1833,16 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass))])
                                 self._leafs = OrderedDict()
 
                                 self.peer_class = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass()
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
-                                self._children_yang_names.add("peer-class")
                                 self._segment_path = lambda: "xr-xml"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml, [], name, value)
 
 
                             class PeerClass(Entity):
@@ -1910,7 +1869,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass, self).__init__()
@@ -1920,8 +1879,7 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
                                         ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                     ])
@@ -1930,12 +1888,10 @@ class ControlPlane(Entity):
                                     self.peer_v4 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4()
                                     self.peer_v4.parent = self
                                     self._children_name_map["peer_v4"] = "peer-v4"
-                                    self._children_yang_names.add("peer-v4")
 
                                     self.peer_v6 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6()
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
-                                    self._children_yang_names.add("peer-v6")
                                     self._segment_path = lambda: "peer-class"
 
                                 def __setattr__(self, name, value):
@@ -1961,7 +1917,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4, self).__init__()
@@ -1971,20 +1927,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v4"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4, [], name, value)
 
 
                                     class Peers(Entity):
@@ -2001,7 +1957,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers, self).__init__()
@@ -2011,8 +1967,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -2044,7 +1999,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -2054,8 +2009,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -2080,7 +2034,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -2090,8 +2044,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -2123,7 +2076,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -2133,8 +2086,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -2164,7 +2116,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6, self).__init__()
@@ -2174,20 +2126,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v6"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6, [], name, value)
 
 
                                     class Peers(Entity):
@@ -2204,7 +2156,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers, self).__init__()
@@ -2214,8 +2166,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -2247,7 +2198,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -2257,8 +2208,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -2283,7 +2233,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -2293,8 +2243,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -2326,7 +2275,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -2336,8 +2285,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -2362,7 +2310,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol, self).__init__()
@@ -2372,15 +2320,16 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass))])
                                 self._leafs = OrderedDict()
 
                                 self.peer_class = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass()
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
-                                self._children_yang_names.add("peer-class")
                                 self._segment_path = lambda: "ssh-protocol"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol, [], name, value)
 
 
                             class PeerClass(Entity):
@@ -2407,7 +2356,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass, self).__init__()
@@ -2417,8 +2366,7 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
                                         ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                     ])
@@ -2427,12 +2375,10 @@ class ControlPlane(Entity):
                                     self.peer_v4 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4()
                                     self.peer_v4.parent = self
                                     self._children_name_map["peer_v4"] = "peer-v4"
-                                    self._children_yang_names.add("peer-v4")
 
                                     self.peer_v6 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6()
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
-                                    self._children_yang_names.add("peer-v6")
                                     self._segment_path = lambda: "peer-class"
 
                                 def __setattr__(self, name, value):
@@ -2458,7 +2404,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4, self).__init__()
@@ -2468,20 +2414,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v4"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4, [], name, value)
 
 
                                     class Peers(Entity):
@@ -2498,7 +2444,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -2508,8 +2454,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -2541,7 +2486,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -2551,8 +2496,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -2577,7 +2521,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -2587,8 +2531,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -2620,7 +2563,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -2630,8 +2573,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -2661,7 +2603,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6, self).__init__()
@@ -2671,20 +2613,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v6"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6, [], name, value)
 
 
                                     class Peers(Entity):
@@ -2701,7 +2643,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -2711,8 +2653,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -2744,7 +2685,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -2754,8 +2695,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -2780,7 +2720,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -2790,8 +2730,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -2823,7 +2762,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -2833,8 +2772,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -2859,7 +2797,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol, self).__init__()
@@ -2869,15 +2807,16 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass))])
                                 self._leafs = OrderedDict()
 
                                 self.peer_class = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass()
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
-                                self._children_yang_names.add("peer-class")
                                 self._segment_path = lambda: "snmp-protocol"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol, [], name, value)
 
 
                             class PeerClass(Entity):
@@ -2904,7 +2843,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass, self).__init__()
@@ -2914,8 +2853,7 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
                                         ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                     ])
@@ -2924,12 +2862,10 @@ class ControlPlane(Entity):
                                     self.peer_v4 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4()
                                     self.peer_v4.parent = self
                                     self._children_name_map["peer_v4"] = "peer-v4"
-                                    self._children_yang_names.add("peer-v4")
 
                                     self.peer_v6 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6()
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
-                                    self._children_yang_names.add("peer-v6")
                                     self._segment_path = lambda: "peer-class"
 
                                 def __setattr__(self, name, value):
@@ -2955,7 +2891,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4, self).__init__()
@@ -2965,20 +2901,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v4"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4, [], name, value)
 
 
                                     class Peers(Entity):
@@ -2995,7 +2931,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -3005,8 +2941,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -3038,7 +2973,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -3048,8 +2983,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -3074,7 +3008,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -3084,8 +3018,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -3117,7 +3050,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -3127,8 +3060,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -3158,7 +3090,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6, self).__init__()
@@ -3168,20 +3100,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v6"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6, [], name, value)
 
 
                                     class Peers(Entity):
@@ -3198,7 +3130,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -3208,8 +3140,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -3241,7 +3172,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -3251,8 +3182,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -3277,7 +3207,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -3287,8 +3217,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -3320,7 +3249,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -3330,8 +3259,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -3356,7 +3284,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol, self).__init__()
@@ -3366,15 +3294,16 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass))])
                                 self._leafs = OrderedDict()
 
                                 self.peer_class = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass()
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
-                                self._children_yang_names.add("peer-class")
                                 self._segment_path = lambda: "telnet-protocol"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol, [], name, value)
 
 
                             class PeerClass(Entity):
@@ -3401,7 +3330,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass, self).__init__()
@@ -3411,8 +3340,7 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
                                         ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                     ])
@@ -3421,12 +3349,10 @@ class ControlPlane(Entity):
                                     self.peer_v4 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4()
                                     self.peer_v4.parent = self
                                     self._children_name_map["peer_v4"] = "peer-v4"
-                                    self._children_yang_names.add("peer-v4")
 
                                     self.peer_v6 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6()
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
-                                    self._children_yang_names.add("peer-v6")
                                     self._segment_path = lambda: "peer-class"
 
                                 def __setattr__(self, name, value):
@@ -3452,7 +3378,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4, self).__init__()
@@ -3462,20 +3388,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v4"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4, [], name, value)
 
 
                                     class Peers(Entity):
@@ -3492,7 +3418,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -3502,8 +3428,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -3535,7 +3460,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -3545,8 +3470,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -3571,7 +3495,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -3581,8 +3505,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -3614,7 +3537,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -3624,8 +3547,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -3655,7 +3577,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6, self).__init__()
@@ -3665,20 +3587,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v6"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6, [], name, value)
 
 
                                     class Peers(Entity):
@@ -3695,7 +3617,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -3705,8 +3627,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -3738,7 +3659,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -3748,8 +3669,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -3774,7 +3694,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -3784,8 +3704,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -3817,7 +3736,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -3827,8 +3746,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -3853,7 +3771,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols, self).__init__()
@@ -3863,15 +3781,16 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass))])
                                 self._leafs = OrderedDict()
 
                                 self.peer_class = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass()
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
-                                self._children_yang_names.add("peer-class")
                                 self._segment_path = lambda: "all-protocols"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols, [], name, value)
 
 
                             class PeerClass(Entity):
@@ -3898,7 +3817,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass, self).__init__()
@@ -3908,8 +3827,7 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
                                         ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                     ])
@@ -3918,12 +3836,10 @@ class ControlPlane(Entity):
                                     self.peer_v4 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4()
                                     self.peer_v4.parent = self
                                     self._children_name_map["peer_v4"] = "peer-v4"
-                                    self._children_yang_names.add("peer-v4")
 
                                     self.peer_v6 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6()
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
-                                    self._children_yang_names.add("peer-v6")
                                     self._segment_path = lambda: "peer-class"
 
                                 def __setattr__(self, name, value):
@@ -3949,7 +3865,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4, self).__init__()
@@ -3959,20 +3875,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v4"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4, [], name, value)
 
 
                                     class Peers(Entity):
@@ -3989,7 +3905,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers, self).__init__()
@@ -3999,8 +3915,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -4032,7 +3947,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -4042,8 +3957,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -4068,7 +3982,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -4078,8 +3992,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -4111,7 +4024,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -4121,8 +4034,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -4152,7 +4064,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6, self).__init__()
@@ -4162,20 +4074,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v6"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6, [], name, value)
 
 
                                     class Peers(Entity):
@@ -4192,7 +4104,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers, self).__init__()
@@ -4202,8 +4114,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -4235,7 +4146,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -4245,8 +4156,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -4271,7 +4181,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -4281,8 +4191,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -4314,7 +4223,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -4324,8 +4233,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -4385,7 +4293,7 @@ class ControlPlane(Entity):
                     """
 
                     _prefix = 'lib-mpp-cfg'
-                    _revision = '2017-07-28'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces, self).__init__()
@@ -4395,51 +4303,45 @@ class ControlPlane(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("http-protocol", ("http_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol)), ("tftp-protocol", ("tftp_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol)), ("netconf-protocol", ("netconf_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol)), ("xr-xml", ("xr_xml", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml)), ("ssh-protocol", ("ssh_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol)), ("snmp-protocol", ("snmp_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol)), ("telnet-protocol", ("telnet_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol)), ("all-protocols", ("all_protocols", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("http-protocol", ("http_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol)), ("tftp-protocol", ("tftp_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol)), ("netconf-protocol", ("netconf_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol)), ("xr-xml", ("xr_xml", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml)), ("ssh-protocol", ("ssh_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol)), ("snmp-protocol", ("snmp_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol)), ("telnet-protocol", ("telnet_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol)), ("all-protocols", ("all_protocols", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols))])
                         self._leafs = OrderedDict()
 
                         self.http_protocol = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol()
                         self.http_protocol.parent = self
                         self._children_name_map["http_protocol"] = "http-protocol"
-                        self._children_yang_names.add("http-protocol")
 
                         self.tftp_protocol = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol()
                         self.tftp_protocol.parent = self
                         self._children_name_map["tftp_protocol"] = "tftp-protocol"
-                        self._children_yang_names.add("tftp-protocol")
 
                         self.netconf_protocol = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol()
                         self.netconf_protocol.parent = self
                         self._children_name_map["netconf_protocol"] = "netconf-protocol"
-                        self._children_yang_names.add("netconf-protocol")
 
                         self.xr_xml = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml()
                         self.xr_xml.parent = self
                         self._children_name_map["xr_xml"] = "xr-xml"
-                        self._children_yang_names.add("xr-xml")
 
                         self.ssh_protocol = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol()
                         self.ssh_protocol.parent = self
                         self._children_name_map["ssh_protocol"] = "ssh-protocol"
-                        self._children_yang_names.add("ssh-protocol")
 
                         self.snmp_protocol = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol()
                         self.snmp_protocol.parent = self
                         self._children_name_map["snmp_protocol"] = "snmp-protocol"
-                        self._children_yang_names.add("snmp-protocol")
 
                         self.telnet_protocol = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol()
                         self.telnet_protocol.parent = self
                         self._children_name_map["telnet_protocol"] = "telnet-protocol"
-                        self._children_yang_names.add("telnet-protocol")
 
                         self.all_protocols = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols()
                         self.all_protocols.parent = self
                         self._children_name_map["all_protocols"] = "all-protocols"
-                        self._children_yang_names.add("all-protocols")
                         self._segment_path = lambda: "all-interfaces"
                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces, [], name, value)
 
 
                     class HttpProtocol(Entity):
@@ -4456,7 +4358,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-07-28'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol, self).__init__()
@@ -4466,16 +4368,17 @@ class ControlPlane(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass))])
                             self._leafs = OrderedDict()
 
                             self.peer_class = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass()
                             self.peer_class.parent = self
                             self._children_name_map["peer_class"] = "peer-class"
-                            self._children_yang_names.add("peer-class")
                             self._segment_path = lambda: "http-protocol"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol, [], name, value)
 
 
                         class PeerClass(Entity):
@@ -4502,7 +4405,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass, self).__init__()
@@ -4512,8 +4415,7 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
                                     ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                 ])
@@ -4522,12 +4424,10 @@ class ControlPlane(Entity):
                                 self.peer_v4 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4()
                                 self.peer_v4.parent = self
                                 self._children_name_map["peer_v4"] = "peer-v4"
-                                self._children_yang_names.add("peer-v4")
 
                                 self.peer_v6 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6()
                                 self.peer_v6.parent = self
                                 self._children_name_map["peer_v6"] = "peer-v6"
-                                self._children_yang_names.add("peer-v6")
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/http-protocol/%s" % self._segment_path()
 
@@ -4554,7 +4454,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4, self).__init__()
@@ -4564,21 +4464,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/http-protocol/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4, [], name, value)
 
 
                                 class Peers(Entity):
@@ -4595,7 +4495,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -4605,8 +4505,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -4639,7 +4538,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -4649,8 +4548,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -4676,7 +4574,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -4686,8 +4584,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -4720,7 +4617,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -4730,8 +4627,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -4762,7 +4658,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6, self).__init__()
@@ -4772,21 +4668,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/http-protocol/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6, [], name, value)
 
 
                                 class Peers(Entity):
@@ -4803,7 +4699,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -4813,8 +4709,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -4847,7 +4742,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -4857,8 +4752,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -4884,7 +4778,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -4894,8 +4788,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -4928,7 +4821,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -4938,8 +4831,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -4965,7 +4857,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-07-28'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol, self).__init__()
@@ -4975,16 +4867,17 @@ class ControlPlane(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass))])
                             self._leafs = OrderedDict()
 
                             self.peer_class = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass()
                             self.peer_class.parent = self
                             self._children_name_map["peer_class"] = "peer-class"
-                            self._children_yang_names.add("peer-class")
                             self._segment_path = lambda: "tftp-protocol"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol, [], name, value)
 
 
                         class PeerClass(Entity):
@@ -5011,7 +4904,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass, self).__init__()
@@ -5021,8 +4914,7 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
                                     ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                 ])
@@ -5031,12 +4923,10 @@ class ControlPlane(Entity):
                                 self.peer_v4 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4()
                                 self.peer_v4.parent = self
                                 self._children_name_map["peer_v4"] = "peer-v4"
-                                self._children_yang_names.add("peer-v4")
 
                                 self.peer_v6 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6()
                                 self.peer_v6.parent = self
                                 self._children_name_map["peer_v6"] = "peer-v6"
-                                self._children_yang_names.add("peer-v6")
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/tftp-protocol/%s" % self._segment_path()
 
@@ -5063,7 +4953,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4, self).__init__()
@@ -5073,21 +4963,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/tftp-protocol/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4, [], name, value)
 
 
                                 class Peers(Entity):
@@ -5104,7 +4994,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -5114,8 +5004,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -5148,7 +5037,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -5158,8 +5047,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -5185,7 +5073,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -5195,8 +5083,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -5229,7 +5116,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -5239,8 +5126,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -5271,7 +5157,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6, self).__init__()
@@ -5281,21 +5167,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/tftp-protocol/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6, [], name, value)
 
 
                                 class Peers(Entity):
@@ -5312,7 +5198,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -5322,8 +5208,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -5356,7 +5241,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -5366,8 +5251,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -5393,7 +5277,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -5403,8 +5287,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -5437,7 +5320,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -5447,8 +5330,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -5474,7 +5356,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-07-28'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol, self).__init__()
@@ -5484,16 +5366,17 @@ class ControlPlane(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass))])
                             self._leafs = OrderedDict()
 
                             self.peer_class = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass()
                             self.peer_class.parent = self
                             self._children_name_map["peer_class"] = "peer-class"
-                            self._children_yang_names.add("peer-class")
                             self._segment_path = lambda: "netconf-protocol"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol, [], name, value)
 
 
                         class PeerClass(Entity):
@@ -5520,7 +5403,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass, self).__init__()
@@ -5530,8 +5413,7 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
                                     ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                 ])
@@ -5540,12 +5422,10 @@ class ControlPlane(Entity):
                                 self.peer_v4 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4()
                                 self.peer_v4.parent = self
                                 self._children_name_map["peer_v4"] = "peer-v4"
-                                self._children_yang_names.add("peer-v4")
 
                                 self.peer_v6 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6()
                                 self.peer_v6.parent = self
                                 self._children_name_map["peer_v6"] = "peer-v6"
-                                self._children_yang_names.add("peer-v6")
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/netconf-protocol/%s" % self._segment_path()
 
@@ -5572,7 +5452,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4, self).__init__()
@@ -5582,21 +5462,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/netconf-protocol/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4, [], name, value)
 
 
                                 class Peers(Entity):
@@ -5613,7 +5493,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -5623,8 +5503,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -5657,7 +5536,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -5667,8 +5546,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -5694,7 +5572,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -5704,8 +5582,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -5738,7 +5615,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -5748,8 +5625,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -5780,7 +5656,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6, self).__init__()
@@ -5790,21 +5666,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/netconf-protocol/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6, [], name, value)
 
 
                                 class Peers(Entity):
@@ -5821,7 +5697,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -5831,8 +5707,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -5865,7 +5740,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -5875,8 +5750,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -5902,7 +5776,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -5912,8 +5786,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -5946,7 +5819,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -5956,8 +5829,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -5983,7 +5855,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-07-28'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml, self).__init__()
@@ -5993,16 +5865,17 @@ class ControlPlane(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass))])
                             self._leafs = OrderedDict()
 
                             self.peer_class = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass()
                             self.peer_class.parent = self
                             self._children_name_map["peer_class"] = "peer-class"
-                            self._children_yang_names.add("peer-class")
                             self._segment_path = lambda: "xr-xml"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml, [], name, value)
 
 
                         class PeerClass(Entity):
@@ -6029,7 +5902,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass, self).__init__()
@@ -6039,8 +5912,7 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
                                     ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                 ])
@@ -6049,12 +5921,10 @@ class ControlPlane(Entity):
                                 self.peer_v4 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4()
                                 self.peer_v4.parent = self
                                 self._children_name_map["peer_v4"] = "peer-v4"
-                                self._children_yang_names.add("peer-v4")
 
                                 self.peer_v6 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6()
                                 self.peer_v6.parent = self
                                 self._children_name_map["peer_v6"] = "peer-v6"
-                                self._children_yang_names.add("peer-v6")
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/xr-xml/%s" % self._segment_path()
 
@@ -6081,7 +5951,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4, self).__init__()
@@ -6091,21 +5961,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/xr-xml/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4, [], name, value)
 
 
                                 class Peers(Entity):
@@ -6122,7 +5992,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers, self).__init__()
@@ -6132,8 +6002,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -6166,7 +6035,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -6176,8 +6045,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -6203,7 +6071,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -6213,8 +6081,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -6247,7 +6114,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -6257,8 +6124,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -6289,7 +6155,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6, self).__init__()
@@ -6299,21 +6165,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/xr-xml/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6, [], name, value)
 
 
                                 class Peers(Entity):
@@ -6330,7 +6196,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers, self).__init__()
@@ -6340,8 +6206,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -6374,7 +6239,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -6384,8 +6249,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -6411,7 +6275,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -6421,8 +6285,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -6455,7 +6318,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -6465,8 +6328,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -6492,7 +6354,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-07-28'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol, self).__init__()
@@ -6502,16 +6364,17 @@ class ControlPlane(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass))])
                             self._leafs = OrderedDict()
 
                             self.peer_class = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass()
                             self.peer_class.parent = self
                             self._children_name_map["peer_class"] = "peer-class"
-                            self._children_yang_names.add("peer-class")
                             self._segment_path = lambda: "ssh-protocol"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol, [], name, value)
 
 
                         class PeerClass(Entity):
@@ -6538,7 +6401,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass, self).__init__()
@@ -6548,8 +6411,7 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
                                     ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                 ])
@@ -6558,12 +6420,10 @@ class ControlPlane(Entity):
                                 self.peer_v4 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4()
                                 self.peer_v4.parent = self
                                 self._children_name_map["peer_v4"] = "peer-v4"
-                                self._children_yang_names.add("peer-v4")
 
                                 self.peer_v6 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6()
                                 self.peer_v6.parent = self
                                 self._children_name_map["peer_v6"] = "peer-v6"
-                                self._children_yang_names.add("peer-v6")
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/ssh-protocol/%s" % self._segment_path()
 
@@ -6590,7 +6450,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4, self).__init__()
@@ -6600,21 +6460,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/ssh-protocol/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4, [], name, value)
 
 
                                 class Peers(Entity):
@@ -6631,7 +6491,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -6641,8 +6501,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -6675,7 +6534,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -6685,8 +6544,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -6712,7 +6570,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -6722,8 +6580,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -6756,7 +6613,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -6766,8 +6623,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -6798,7 +6654,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6, self).__init__()
@@ -6808,21 +6664,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/ssh-protocol/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6, [], name, value)
 
 
                                 class Peers(Entity):
@@ -6839,7 +6695,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -6849,8 +6705,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -6883,7 +6738,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -6893,8 +6748,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -6920,7 +6774,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -6930,8 +6784,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -6964,7 +6817,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -6974,8 +6827,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -7001,7 +6853,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-07-28'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol, self).__init__()
@@ -7011,16 +6863,17 @@ class ControlPlane(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass))])
                             self._leafs = OrderedDict()
 
                             self.peer_class = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass()
                             self.peer_class.parent = self
                             self._children_name_map["peer_class"] = "peer-class"
-                            self._children_yang_names.add("peer-class")
                             self._segment_path = lambda: "snmp-protocol"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol, [], name, value)
 
 
                         class PeerClass(Entity):
@@ -7047,7 +6900,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass, self).__init__()
@@ -7057,8 +6910,7 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
                                     ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                 ])
@@ -7067,12 +6919,10 @@ class ControlPlane(Entity):
                                 self.peer_v4 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4()
                                 self.peer_v4.parent = self
                                 self._children_name_map["peer_v4"] = "peer-v4"
-                                self._children_yang_names.add("peer-v4")
 
                                 self.peer_v6 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6()
                                 self.peer_v6.parent = self
                                 self._children_name_map["peer_v6"] = "peer-v6"
-                                self._children_yang_names.add("peer-v6")
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/snmp-protocol/%s" % self._segment_path()
 
@@ -7099,7 +6949,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4, self).__init__()
@@ -7109,21 +6959,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/snmp-protocol/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4, [], name, value)
 
 
                                 class Peers(Entity):
@@ -7140,7 +6990,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -7150,8 +7000,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -7184,7 +7033,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -7194,8 +7043,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -7221,7 +7069,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -7231,8 +7079,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -7265,7 +7112,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -7275,8 +7122,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -7307,7 +7153,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6, self).__init__()
@@ -7317,21 +7163,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/snmp-protocol/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6, [], name, value)
 
 
                                 class Peers(Entity):
@@ -7348,7 +7194,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -7358,8 +7204,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -7392,7 +7237,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -7402,8 +7247,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -7429,7 +7273,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -7439,8 +7283,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -7473,7 +7316,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -7483,8 +7326,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -7510,7 +7352,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-07-28'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol, self).__init__()
@@ -7520,16 +7362,17 @@ class ControlPlane(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass))])
                             self._leafs = OrderedDict()
 
                             self.peer_class = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass()
                             self.peer_class.parent = self
                             self._children_name_map["peer_class"] = "peer-class"
-                            self._children_yang_names.add("peer-class")
                             self._segment_path = lambda: "telnet-protocol"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol, [], name, value)
 
 
                         class PeerClass(Entity):
@@ -7556,7 +7399,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass, self).__init__()
@@ -7566,8 +7409,7 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
                                     ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                 ])
@@ -7576,12 +7418,10 @@ class ControlPlane(Entity):
                                 self.peer_v4 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4()
                                 self.peer_v4.parent = self
                                 self._children_name_map["peer_v4"] = "peer-v4"
-                                self._children_yang_names.add("peer-v4")
 
                                 self.peer_v6 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6()
                                 self.peer_v6.parent = self
                                 self._children_name_map["peer_v6"] = "peer-v6"
-                                self._children_yang_names.add("peer-v6")
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/telnet-protocol/%s" % self._segment_path()
 
@@ -7608,7 +7448,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4, self).__init__()
@@ -7618,21 +7458,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/telnet-protocol/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4, [], name, value)
 
 
                                 class Peers(Entity):
@@ -7649,7 +7489,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -7659,8 +7499,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -7693,7 +7532,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -7703,8 +7542,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -7730,7 +7568,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -7740,8 +7578,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -7774,7 +7611,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -7784,8 +7621,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -7816,7 +7652,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6, self).__init__()
@@ -7826,21 +7662,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/telnet-protocol/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6, [], name, value)
 
 
                                 class Peers(Entity):
@@ -7857,7 +7693,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -7867,8 +7703,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -7901,7 +7736,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -7911,8 +7746,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -7938,7 +7772,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -7948,8 +7782,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -7982,7 +7815,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -7992,8 +7825,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -8019,7 +7851,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-07-28'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols, self).__init__()
@@ -8029,16 +7861,17 @@ class ControlPlane(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass))])
                             self._leafs = OrderedDict()
 
                             self.peer_class = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass()
                             self.peer_class.parent = self
                             self._children_name_map["peer_class"] = "peer-class"
-                            self._children_yang_names.add("peer-class")
                             self._segment_path = lambda: "all-protocols"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols, [], name, value)
 
 
                         class PeerClass(Entity):
@@ -8065,7 +7898,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass, self).__init__()
@@ -8075,8 +7908,7 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
                                     ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                 ])
@@ -8085,12 +7917,10 @@ class ControlPlane(Entity):
                                 self.peer_v4 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4()
                                 self.peer_v4.parent = self
                                 self._children_name_map["peer_v4"] = "peer-v4"
-                                self._children_yang_names.add("peer-v4")
 
                                 self.peer_v6 = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6()
                                 self.peer_v6.parent = self
                                 self._children_name_map["peer_v6"] = "peer-v6"
-                                self._children_yang_names.add("peer-v6")
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/all-protocols/%s" % self._segment_path()
 
@@ -8117,7 +7947,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4, self).__init__()
@@ -8127,21 +7957,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/all-protocols/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4, [], name, value)
 
 
                                 class Peers(Entity):
@@ -8158,7 +7988,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers, self).__init__()
@@ -8168,8 +7998,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -8202,7 +8031,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -8212,8 +8041,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -8239,7 +8067,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -8249,8 +8077,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -8283,7 +8110,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -8293,8 +8120,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -8325,7 +8151,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6, self).__init__()
@@ -8335,21 +8161,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/all-protocols/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6, [], name, value)
 
 
                                 class Peers(Entity):
@@ -8366,7 +8192,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers, self).__init__()
@@ -8376,8 +8202,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -8410,7 +8235,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -8420,8 +8245,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -8447,7 +8271,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -8457,8 +8281,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -8491,7 +8314,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -8501,8 +8324,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -8528,7 +8350,7 @@ class ControlPlane(Entity):
             """
 
             _prefix = 'lib-mpp-cfg'
-            _revision = '2017-07-28'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(ControlPlane.ManagementPlaneProtection.Inband, self).__init__()
@@ -8538,16 +8360,17 @@ class ControlPlane(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("interface-selection", ("interface_selection", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("interface-selection", ("interface_selection", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection))])
                 self._leafs = OrderedDict()
 
                 self.interface_selection = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection()
                 self.interface_selection.parent = self
                 self._children_name_map["interface_selection"] = "interface-selection"
-                self._children_yang_names.add("interface-selection")
                 self._segment_path = lambda: "inband"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband, [], name, value)
 
 
             class InterfaceSelection(Entity):
@@ -8569,7 +8392,7 @@ class ControlPlane(Entity):
                 """
 
                 _prefix = 'lib-mpp-cfg'
-                _revision = '2017-07-28'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection, self).__init__()
@@ -8579,21 +8402,21 @@ class ControlPlane(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("interfaces", ("interfaces", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces)), ("all-interfaces", ("all_interfaces", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("interfaces", ("interfaces", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces)), ("all-interfaces", ("all_interfaces", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces))])
                     self._leafs = OrderedDict()
 
                     self.interfaces = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces()
                     self.interfaces.parent = self
                     self._children_name_map["interfaces"] = "interfaces"
-                    self._children_yang_names.add("interfaces")
 
                     self.all_interfaces = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces()
                     self.all_interfaces.parent = self
                     self._children_name_map["all_interfaces"] = "all-interfaces"
-                    self._children_yang_names.add("all-interfaces")
                     self._segment_path = lambda: "interface-selection"
                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection, [], name, value)
 
 
                 class Interfaces(Entity):
@@ -8610,7 +8433,7 @@ class ControlPlane(Entity):
                     """
 
                     _prefix = 'lib-mpp-cfg'
-                    _revision = '2017-07-28'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces, self).__init__()
@@ -8620,8 +8443,7 @@ class ControlPlane(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("interface", ("interface", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface))])
+                        self._child_classes = OrderedDict([("interface", ("interface", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface))])
                         self._leafs = OrderedDict()
 
                         self.interface = YList(self)
@@ -8688,7 +8510,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-07-28'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface, self).__init__()
@@ -8698,8 +8520,7 @@ class ControlPlane(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['interface_name']
-                            self._child_container_classes = OrderedDict([("http-protocol", ("http_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol)), ("tftp-protocol", ("tftp_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol)), ("netconf-protocol", ("netconf_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol)), ("xr-xml", ("xr_xml", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml)), ("ssh-protocol", ("ssh_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol)), ("snmp-protocol", ("snmp_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol)), ("telnet-protocol", ("telnet_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol)), ("all-protocols", ("all_protocols", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("http-protocol", ("http_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol)), ("tftp-protocol", ("tftp_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol)), ("netconf-protocol", ("netconf_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol)), ("xr-xml", ("xr_xml", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml)), ("ssh-protocol", ("ssh_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol)), ("snmp-protocol", ("snmp_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol)), ("telnet-protocol", ("telnet_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol)), ("all-protocols", ("all_protocols", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols))])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ])
@@ -8708,42 +8529,34 @@ class ControlPlane(Entity):
                             self.http_protocol = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol()
                             self.http_protocol.parent = self
                             self._children_name_map["http_protocol"] = "http-protocol"
-                            self._children_yang_names.add("http-protocol")
 
                             self.tftp_protocol = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol()
                             self.tftp_protocol.parent = self
                             self._children_name_map["tftp_protocol"] = "tftp-protocol"
-                            self._children_yang_names.add("tftp-protocol")
 
                             self.netconf_protocol = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol()
                             self.netconf_protocol.parent = self
                             self._children_name_map["netconf_protocol"] = "netconf-protocol"
-                            self._children_yang_names.add("netconf-protocol")
 
                             self.xr_xml = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml()
                             self.xr_xml.parent = self
                             self._children_name_map["xr_xml"] = "xr-xml"
-                            self._children_yang_names.add("xr-xml")
 
                             self.ssh_protocol = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol()
                             self.ssh_protocol.parent = self
                             self._children_name_map["ssh_protocol"] = "ssh-protocol"
-                            self._children_yang_names.add("ssh-protocol")
 
                             self.snmp_protocol = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol()
                             self.snmp_protocol.parent = self
                             self._children_name_map["snmp_protocol"] = "snmp-protocol"
-                            self._children_yang_names.add("snmp-protocol")
 
                             self.telnet_protocol = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol()
                             self.telnet_protocol.parent = self
                             self._children_name_map["telnet_protocol"] = "telnet-protocol"
-                            self._children_yang_names.add("telnet-protocol")
 
                             self.all_protocols = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols()
                             self.all_protocols.parent = self
                             self._children_name_map["all_protocols"] = "all-protocols"
-                            self._children_yang_names.add("all-protocols")
                             self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/%s" % self._segment_path()
 
@@ -8765,7 +8578,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol, self).__init__()
@@ -8775,15 +8588,16 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass))])
                                 self._leafs = OrderedDict()
 
                                 self.peer_class = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass()
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
-                                self._children_yang_names.add("peer-class")
                                 self._segment_path = lambda: "http-protocol"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol, [], name, value)
 
 
                             class PeerClass(Entity):
@@ -8810,7 +8624,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass, self).__init__()
@@ -8820,8 +8634,7 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
                                         ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                     ])
@@ -8830,12 +8643,10 @@ class ControlPlane(Entity):
                                     self.peer_v4 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4()
                                     self.peer_v4.parent = self
                                     self._children_name_map["peer_v4"] = "peer-v4"
-                                    self._children_yang_names.add("peer-v4")
 
                                     self.peer_v6 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6()
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
-                                    self._children_yang_names.add("peer-v6")
                                     self._segment_path = lambda: "peer-class"
 
                                 def __setattr__(self, name, value):
@@ -8861,7 +8672,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4, self).__init__()
@@ -8871,20 +8682,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v4"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4, [], name, value)
 
 
                                     class Peers(Entity):
@@ -8901,7 +8712,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -8911,8 +8722,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -8944,7 +8754,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -8954,8 +8764,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -8980,7 +8789,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -8990,8 +8799,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -9023,7 +8831,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -9033,8 +8841,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -9064,7 +8871,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6, self).__init__()
@@ -9074,20 +8881,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v6"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6, [], name, value)
 
 
                                     class Peers(Entity):
@@ -9104,7 +8911,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -9114,8 +8921,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -9147,7 +8953,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -9157,8 +8963,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -9183,7 +8988,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -9193,8 +8998,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -9226,7 +9030,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -9236,8 +9040,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -9262,7 +9065,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol, self).__init__()
@@ -9272,15 +9075,16 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass))])
                                 self._leafs = OrderedDict()
 
                                 self.peer_class = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass()
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
-                                self._children_yang_names.add("peer-class")
                                 self._segment_path = lambda: "tftp-protocol"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol, [], name, value)
 
 
                             class PeerClass(Entity):
@@ -9307,7 +9111,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass, self).__init__()
@@ -9317,8 +9121,7 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
                                         ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                     ])
@@ -9327,12 +9130,10 @@ class ControlPlane(Entity):
                                     self.peer_v4 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4()
                                     self.peer_v4.parent = self
                                     self._children_name_map["peer_v4"] = "peer-v4"
-                                    self._children_yang_names.add("peer-v4")
 
                                     self.peer_v6 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6()
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
-                                    self._children_yang_names.add("peer-v6")
                                     self._segment_path = lambda: "peer-class"
 
                                 def __setattr__(self, name, value):
@@ -9358,7 +9159,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4, self).__init__()
@@ -9368,20 +9169,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v4"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4, [], name, value)
 
 
                                     class Peers(Entity):
@@ -9398,7 +9199,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -9408,8 +9209,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -9441,7 +9241,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -9451,8 +9251,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -9477,7 +9276,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -9487,8 +9286,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -9520,7 +9318,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -9530,8 +9328,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -9561,7 +9358,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6, self).__init__()
@@ -9571,20 +9368,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v6"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6, [], name, value)
 
 
                                     class Peers(Entity):
@@ -9601,7 +9398,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -9611,8 +9408,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -9644,7 +9440,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -9654,8 +9450,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -9680,7 +9475,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -9690,8 +9485,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -9723,7 +9517,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -9733,8 +9527,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -9759,7 +9552,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol, self).__init__()
@@ -9769,15 +9562,16 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass))])
                                 self._leafs = OrderedDict()
 
                                 self.peer_class = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass()
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
-                                self._children_yang_names.add("peer-class")
                                 self._segment_path = lambda: "netconf-protocol"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol, [], name, value)
 
 
                             class PeerClass(Entity):
@@ -9804,7 +9598,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass, self).__init__()
@@ -9814,8 +9608,7 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
                                         ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                     ])
@@ -9824,12 +9617,10 @@ class ControlPlane(Entity):
                                     self.peer_v4 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4()
                                     self.peer_v4.parent = self
                                     self._children_name_map["peer_v4"] = "peer-v4"
-                                    self._children_yang_names.add("peer-v4")
 
                                     self.peer_v6 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6()
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
-                                    self._children_yang_names.add("peer-v6")
                                     self._segment_path = lambda: "peer-class"
 
                                 def __setattr__(self, name, value):
@@ -9855,7 +9646,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4, self).__init__()
@@ -9865,20 +9656,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v4"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4, [], name, value)
 
 
                                     class Peers(Entity):
@@ -9895,7 +9686,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -9905,8 +9696,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -9938,7 +9728,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -9948,8 +9738,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -9974,7 +9763,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -9984,8 +9773,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -10017,7 +9805,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -10027,8 +9815,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -10058,7 +9845,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6, self).__init__()
@@ -10068,20 +9855,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v6"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6, [], name, value)
 
 
                                     class Peers(Entity):
@@ -10098,7 +9885,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -10108,8 +9895,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -10141,7 +9927,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -10151,8 +9937,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -10177,7 +9962,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -10187,8 +9972,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -10220,7 +10004,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -10230,8 +10014,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -10256,7 +10039,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml, self).__init__()
@@ -10266,15 +10049,16 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass))])
                                 self._leafs = OrderedDict()
 
                                 self.peer_class = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass()
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
-                                self._children_yang_names.add("peer-class")
                                 self._segment_path = lambda: "xr-xml"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml, [], name, value)
 
 
                             class PeerClass(Entity):
@@ -10301,7 +10085,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass, self).__init__()
@@ -10311,8 +10095,7 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
                                         ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                     ])
@@ -10321,12 +10104,10 @@ class ControlPlane(Entity):
                                     self.peer_v4 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4()
                                     self.peer_v4.parent = self
                                     self._children_name_map["peer_v4"] = "peer-v4"
-                                    self._children_yang_names.add("peer-v4")
 
                                     self.peer_v6 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6()
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
-                                    self._children_yang_names.add("peer-v6")
                                     self._segment_path = lambda: "peer-class"
 
                                 def __setattr__(self, name, value):
@@ -10352,7 +10133,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4, self).__init__()
@@ -10362,20 +10143,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v4"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4, [], name, value)
 
 
                                     class Peers(Entity):
@@ -10392,7 +10173,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers, self).__init__()
@@ -10402,8 +10183,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -10435,7 +10215,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -10445,8 +10225,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -10471,7 +10250,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -10481,8 +10260,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -10514,7 +10292,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -10524,8 +10302,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -10555,7 +10332,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6, self).__init__()
@@ -10565,20 +10342,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v6"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6, [], name, value)
 
 
                                     class Peers(Entity):
@@ -10595,7 +10372,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers, self).__init__()
@@ -10605,8 +10382,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -10638,7 +10414,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -10648,8 +10424,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -10674,7 +10449,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -10684,8 +10459,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -10717,7 +10491,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -10727,8 +10501,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -10753,7 +10526,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol, self).__init__()
@@ -10763,15 +10536,16 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass))])
                                 self._leafs = OrderedDict()
 
                                 self.peer_class = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass()
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
-                                self._children_yang_names.add("peer-class")
                                 self._segment_path = lambda: "ssh-protocol"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol, [], name, value)
 
 
                             class PeerClass(Entity):
@@ -10798,7 +10572,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass, self).__init__()
@@ -10808,8 +10582,7 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
                                         ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                     ])
@@ -10818,12 +10591,10 @@ class ControlPlane(Entity):
                                     self.peer_v4 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4()
                                     self.peer_v4.parent = self
                                     self._children_name_map["peer_v4"] = "peer-v4"
-                                    self._children_yang_names.add("peer-v4")
 
                                     self.peer_v6 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6()
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
-                                    self._children_yang_names.add("peer-v6")
                                     self._segment_path = lambda: "peer-class"
 
                                 def __setattr__(self, name, value):
@@ -10849,7 +10620,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4, self).__init__()
@@ -10859,20 +10630,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v4"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4, [], name, value)
 
 
                                     class Peers(Entity):
@@ -10889,7 +10660,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -10899,8 +10670,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -10932,7 +10702,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -10942,8 +10712,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -10968,7 +10737,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -10978,8 +10747,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -11011,7 +10779,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -11021,8 +10789,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -11052,7 +10819,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6, self).__init__()
@@ -11062,20 +10829,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v6"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6, [], name, value)
 
 
                                     class Peers(Entity):
@@ -11092,7 +10859,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -11102,8 +10869,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -11135,7 +10901,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -11145,8 +10911,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -11171,7 +10936,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -11181,8 +10946,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -11214,7 +10978,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -11224,8 +10988,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -11250,7 +11013,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol, self).__init__()
@@ -11260,15 +11023,16 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass))])
                                 self._leafs = OrderedDict()
 
                                 self.peer_class = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass()
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
-                                self._children_yang_names.add("peer-class")
                                 self._segment_path = lambda: "snmp-protocol"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol, [], name, value)
 
 
                             class PeerClass(Entity):
@@ -11295,7 +11059,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass, self).__init__()
@@ -11305,8 +11069,7 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
                                         ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                     ])
@@ -11315,12 +11078,10 @@ class ControlPlane(Entity):
                                     self.peer_v4 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4()
                                     self.peer_v4.parent = self
                                     self._children_name_map["peer_v4"] = "peer-v4"
-                                    self._children_yang_names.add("peer-v4")
 
                                     self.peer_v6 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6()
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
-                                    self._children_yang_names.add("peer-v6")
                                     self._segment_path = lambda: "peer-class"
 
                                 def __setattr__(self, name, value):
@@ -11346,7 +11107,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4, self).__init__()
@@ -11356,20 +11117,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v4"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4, [], name, value)
 
 
                                     class Peers(Entity):
@@ -11386,7 +11147,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -11396,8 +11157,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -11429,7 +11189,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -11439,8 +11199,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -11465,7 +11224,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -11475,8 +11234,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -11508,7 +11266,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -11518,8 +11276,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -11549,7 +11306,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6, self).__init__()
@@ -11559,20 +11316,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v6"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6, [], name, value)
 
 
                                     class Peers(Entity):
@@ -11589,7 +11346,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -11599,8 +11356,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -11632,7 +11388,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -11642,8 +11398,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -11668,7 +11423,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -11678,8 +11433,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -11711,7 +11465,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -11721,8 +11475,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -11747,7 +11500,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol, self).__init__()
@@ -11757,15 +11510,16 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass))])
                                 self._leafs = OrderedDict()
 
                                 self.peer_class = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass()
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
-                                self._children_yang_names.add("peer-class")
                                 self._segment_path = lambda: "telnet-protocol"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol, [], name, value)
 
 
                             class PeerClass(Entity):
@@ -11792,7 +11546,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass, self).__init__()
@@ -11802,8 +11556,7 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
                                         ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                     ])
@@ -11812,12 +11565,10 @@ class ControlPlane(Entity):
                                     self.peer_v4 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4()
                                     self.peer_v4.parent = self
                                     self._children_name_map["peer_v4"] = "peer-v4"
-                                    self._children_yang_names.add("peer-v4")
 
                                     self.peer_v6 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6()
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
-                                    self._children_yang_names.add("peer-v6")
                                     self._segment_path = lambda: "peer-class"
 
                                 def __setattr__(self, name, value):
@@ -11843,7 +11594,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4, self).__init__()
@@ -11853,20 +11604,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v4"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4, [], name, value)
 
 
                                     class Peers(Entity):
@@ -11883,7 +11634,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -11893,8 +11644,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -11926,7 +11676,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -11936,8 +11686,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -11962,7 +11711,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -11972,8 +11721,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -12005,7 +11753,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -12015,8 +11763,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -12046,7 +11793,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6, self).__init__()
@@ -12056,20 +11803,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v6"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6, [], name, value)
 
 
                                     class Peers(Entity):
@@ -12086,7 +11833,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -12096,8 +11843,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -12129,7 +11875,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -12139,8 +11885,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -12165,7 +11910,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -12175,8 +11920,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -12208,7 +11952,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -12218,8 +11962,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -12244,7 +11987,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols, self).__init__()
@@ -12254,15 +11997,16 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass))])
                                 self._leafs = OrderedDict()
 
                                 self.peer_class = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass()
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
-                                self._children_yang_names.add("peer-class")
                                 self._segment_path = lambda: "all-protocols"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols, [], name, value)
 
 
                             class PeerClass(Entity):
@@ -12289,7 +12033,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass, self).__init__()
@@ -12299,8 +12043,7 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
                                         ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                     ])
@@ -12309,12 +12052,10 @@ class ControlPlane(Entity):
                                     self.peer_v4 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4()
                                     self.peer_v4.parent = self
                                     self._children_name_map["peer_v4"] = "peer-v4"
-                                    self._children_yang_names.add("peer-v4")
 
                                     self.peer_v6 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6()
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
-                                    self._children_yang_names.add("peer-v6")
                                     self._segment_path = lambda: "peer-class"
 
                                 def __setattr__(self, name, value):
@@ -12340,7 +12081,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4, self).__init__()
@@ -12350,20 +12091,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v4"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4, [], name, value)
 
 
                                     class Peers(Entity):
@@ -12380,7 +12121,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers, self).__init__()
@@ -12390,8 +12131,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -12423,7 +12163,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -12433,8 +12173,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -12459,7 +12198,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -12469,8 +12208,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -12502,7 +12240,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -12512,8 +12250,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -12543,7 +12280,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6, self).__init__()
@@ -12553,20 +12290,20 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes))])
                                         self._leafs = OrderedDict()
 
                                         self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers()
                                         self.peers.parent = self
                                         self._children_name_map["peers"] = "peers"
-                                        self._children_yang_names.add("peers")
 
                                         self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes()
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                        self._children_yang_names.add("peer-prefixes")
                                         self._segment_path = lambda: "peer-v6"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6, [], name, value)
 
 
                                     class Peers(Entity):
@@ -12583,7 +12320,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers, self).__init__()
@@ -12593,8 +12330,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer))])
+                                            self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer))])
                                             self._leafs = OrderedDict()
 
                                             self.peer = YList(self)
@@ -12626,7 +12362,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -12636,8 +12372,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address', YLeaf(YType.str, 'address')),
                                                 ])
@@ -12662,7 +12397,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -12672,8 +12407,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                            self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                             self._leafs = OrderedDict()
 
                                             self.peer_prefix = YList(self)
@@ -12705,7 +12439,7 @@ class ControlPlane(Entity):
                                             """
 
                                             _prefix = 'lib-mpp-cfg'
-                                            _revision = '2017-07-28'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -12715,8 +12449,7 @@ class ControlPlane(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['address_prefix']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                                 ])
@@ -12776,7 +12509,7 @@ class ControlPlane(Entity):
                     """
 
                     _prefix = 'lib-mpp-cfg'
-                    _revision = '2017-07-28'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces, self).__init__()
@@ -12786,51 +12519,45 @@ class ControlPlane(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("http-protocol", ("http_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol)), ("tftp-protocol", ("tftp_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol)), ("netconf-protocol", ("netconf_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol)), ("xr-xml", ("xr_xml", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml)), ("ssh-protocol", ("ssh_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol)), ("snmp-protocol", ("snmp_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol)), ("telnet-protocol", ("telnet_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol)), ("all-protocols", ("all_protocols", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("http-protocol", ("http_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol)), ("tftp-protocol", ("tftp_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol)), ("netconf-protocol", ("netconf_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol)), ("xr-xml", ("xr_xml", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml)), ("ssh-protocol", ("ssh_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol)), ("snmp-protocol", ("snmp_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol)), ("telnet-protocol", ("telnet_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol)), ("all-protocols", ("all_protocols", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols))])
                         self._leafs = OrderedDict()
 
                         self.http_protocol = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol()
                         self.http_protocol.parent = self
                         self._children_name_map["http_protocol"] = "http-protocol"
-                        self._children_yang_names.add("http-protocol")
 
                         self.tftp_protocol = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol()
                         self.tftp_protocol.parent = self
                         self._children_name_map["tftp_protocol"] = "tftp-protocol"
-                        self._children_yang_names.add("tftp-protocol")
 
                         self.netconf_protocol = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol()
                         self.netconf_protocol.parent = self
                         self._children_name_map["netconf_protocol"] = "netconf-protocol"
-                        self._children_yang_names.add("netconf-protocol")
 
                         self.xr_xml = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml()
                         self.xr_xml.parent = self
                         self._children_name_map["xr_xml"] = "xr-xml"
-                        self._children_yang_names.add("xr-xml")
 
                         self.ssh_protocol = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol()
                         self.ssh_protocol.parent = self
                         self._children_name_map["ssh_protocol"] = "ssh-protocol"
-                        self._children_yang_names.add("ssh-protocol")
 
                         self.snmp_protocol = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol()
                         self.snmp_protocol.parent = self
                         self._children_name_map["snmp_protocol"] = "snmp-protocol"
-                        self._children_yang_names.add("snmp-protocol")
 
                         self.telnet_protocol = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol()
                         self.telnet_protocol.parent = self
                         self._children_name_map["telnet_protocol"] = "telnet-protocol"
-                        self._children_yang_names.add("telnet-protocol")
 
                         self.all_protocols = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols()
                         self.all_protocols.parent = self
                         self._children_name_map["all_protocols"] = "all-protocols"
-                        self._children_yang_names.add("all-protocols")
                         self._segment_path = lambda: "all-interfaces"
                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces, [], name, value)
 
 
                     class HttpProtocol(Entity):
@@ -12847,7 +12574,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-07-28'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol, self).__init__()
@@ -12857,16 +12584,17 @@ class ControlPlane(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass))])
                             self._leafs = OrderedDict()
 
                             self.peer_class = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass()
                             self.peer_class.parent = self
                             self._children_name_map["peer_class"] = "peer-class"
-                            self._children_yang_names.add("peer-class")
                             self._segment_path = lambda: "http-protocol"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol, [], name, value)
 
 
                         class PeerClass(Entity):
@@ -12893,7 +12621,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass, self).__init__()
@@ -12903,8 +12631,7 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
                                     ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                 ])
@@ -12913,12 +12640,10 @@ class ControlPlane(Entity):
                                 self.peer_v4 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4()
                                 self.peer_v4.parent = self
                                 self._children_name_map["peer_v4"] = "peer-v4"
-                                self._children_yang_names.add("peer-v4")
 
                                 self.peer_v6 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6()
                                 self.peer_v6.parent = self
                                 self._children_name_map["peer_v6"] = "peer-v6"
-                                self._children_yang_names.add("peer-v6")
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/http-protocol/%s" % self._segment_path()
 
@@ -12945,7 +12670,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4, self).__init__()
@@ -12955,21 +12680,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/http-protocol/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4, [], name, value)
 
 
                                 class Peers(Entity):
@@ -12986,7 +12711,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -12996,8 +12721,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -13030,7 +12754,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -13040,8 +12764,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -13067,7 +12790,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -13077,8 +12800,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -13111,7 +12833,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -13121,8 +12843,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -13153,7 +12874,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6, self).__init__()
@@ -13163,21 +12884,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/http-protocol/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6, [], name, value)
 
 
                                 class Peers(Entity):
@@ -13194,7 +12915,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -13204,8 +12925,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -13238,7 +12958,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -13248,8 +12968,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -13275,7 +12994,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -13285,8 +13004,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -13319,7 +13037,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -13329,8 +13047,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -13356,7 +13073,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-07-28'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol, self).__init__()
@@ -13366,16 +13083,17 @@ class ControlPlane(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass))])
                             self._leafs = OrderedDict()
 
                             self.peer_class = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass()
                             self.peer_class.parent = self
                             self._children_name_map["peer_class"] = "peer-class"
-                            self._children_yang_names.add("peer-class")
                             self._segment_path = lambda: "tftp-protocol"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol, [], name, value)
 
 
                         class PeerClass(Entity):
@@ -13402,7 +13120,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass, self).__init__()
@@ -13412,8 +13130,7 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
                                     ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                 ])
@@ -13422,12 +13139,10 @@ class ControlPlane(Entity):
                                 self.peer_v4 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4()
                                 self.peer_v4.parent = self
                                 self._children_name_map["peer_v4"] = "peer-v4"
-                                self._children_yang_names.add("peer-v4")
 
                                 self.peer_v6 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6()
                                 self.peer_v6.parent = self
                                 self._children_name_map["peer_v6"] = "peer-v6"
-                                self._children_yang_names.add("peer-v6")
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/tftp-protocol/%s" % self._segment_path()
 
@@ -13454,7 +13169,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4, self).__init__()
@@ -13464,21 +13179,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/tftp-protocol/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4, [], name, value)
 
 
                                 class Peers(Entity):
@@ -13495,7 +13210,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -13505,8 +13220,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -13539,7 +13253,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -13549,8 +13263,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -13576,7 +13289,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -13586,8 +13299,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -13620,7 +13332,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -13630,8 +13342,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -13662,7 +13373,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6, self).__init__()
@@ -13672,21 +13383,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/tftp-protocol/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6, [], name, value)
 
 
                                 class Peers(Entity):
@@ -13703,7 +13414,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -13713,8 +13424,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -13747,7 +13457,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -13757,8 +13467,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -13784,7 +13493,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -13794,8 +13503,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -13828,7 +13536,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -13838,8 +13546,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -13865,7 +13572,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-07-28'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol, self).__init__()
@@ -13875,16 +13582,17 @@ class ControlPlane(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass))])
                             self._leafs = OrderedDict()
 
                             self.peer_class = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass()
                             self.peer_class.parent = self
                             self._children_name_map["peer_class"] = "peer-class"
-                            self._children_yang_names.add("peer-class")
                             self._segment_path = lambda: "netconf-protocol"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol, [], name, value)
 
 
                         class PeerClass(Entity):
@@ -13911,7 +13619,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass, self).__init__()
@@ -13921,8 +13629,7 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
                                     ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                 ])
@@ -13931,12 +13638,10 @@ class ControlPlane(Entity):
                                 self.peer_v4 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4()
                                 self.peer_v4.parent = self
                                 self._children_name_map["peer_v4"] = "peer-v4"
-                                self._children_yang_names.add("peer-v4")
 
                                 self.peer_v6 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6()
                                 self.peer_v6.parent = self
                                 self._children_name_map["peer_v6"] = "peer-v6"
-                                self._children_yang_names.add("peer-v6")
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/netconf-protocol/%s" % self._segment_path()
 
@@ -13963,7 +13668,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4, self).__init__()
@@ -13973,21 +13678,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/netconf-protocol/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4, [], name, value)
 
 
                                 class Peers(Entity):
@@ -14004,7 +13709,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -14014,8 +13719,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -14048,7 +13752,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -14058,8 +13762,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -14085,7 +13788,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -14095,8 +13798,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -14129,7 +13831,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -14139,8 +13841,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -14171,7 +13872,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6, self).__init__()
@@ -14181,21 +13882,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/netconf-protocol/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6, [], name, value)
 
 
                                 class Peers(Entity):
@@ -14212,7 +13913,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -14222,8 +13923,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -14256,7 +13956,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -14266,8 +13966,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -14293,7 +13992,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -14303,8 +14002,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -14337,7 +14035,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -14347,8 +14045,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -14374,7 +14071,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-07-28'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml, self).__init__()
@@ -14384,16 +14081,17 @@ class ControlPlane(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass))])
                             self._leafs = OrderedDict()
 
                             self.peer_class = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass()
                             self.peer_class.parent = self
                             self._children_name_map["peer_class"] = "peer-class"
-                            self._children_yang_names.add("peer-class")
                             self._segment_path = lambda: "xr-xml"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml, [], name, value)
 
 
                         class PeerClass(Entity):
@@ -14420,7 +14118,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass, self).__init__()
@@ -14430,8 +14128,7 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
                                     ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                 ])
@@ -14440,12 +14137,10 @@ class ControlPlane(Entity):
                                 self.peer_v4 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4()
                                 self.peer_v4.parent = self
                                 self._children_name_map["peer_v4"] = "peer-v4"
-                                self._children_yang_names.add("peer-v4")
 
                                 self.peer_v6 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6()
                                 self.peer_v6.parent = self
                                 self._children_name_map["peer_v6"] = "peer-v6"
-                                self._children_yang_names.add("peer-v6")
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/xr-xml/%s" % self._segment_path()
 
@@ -14472,7 +14167,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4, self).__init__()
@@ -14482,21 +14177,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/xr-xml/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4, [], name, value)
 
 
                                 class Peers(Entity):
@@ -14513,7 +14208,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers, self).__init__()
@@ -14523,8 +14218,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -14557,7 +14251,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -14567,8 +14261,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -14594,7 +14287,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -14604,8 +14297,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -14638,7 +14330,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -14648,8 +14340,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -14680,7 +14371,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6, self).__init__()
@@ -14690,21 +14381,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/xr-xml/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6, [], name, value)
 
 
                                 class Peers(Entity):
@@ -14721,7 +14412,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers, self).__init__()
@@ -14731,8 +14422,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -14765,7 +14455,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -14775,8 +14465,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -14802,7 +14491,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -14812,8 +14501,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -14846,7 +14534,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -14856,8 +14544,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -14883,7 +14570,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-07-28'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol, self).__init__()
@@ -14893,16 +14580,17 @@ class ControlPlane(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass))])
                             self._leafs = OrderedDict()
 
                             self.peer_class = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass()
                             self.peer_class.parent = self
                             self._children_name_map["peer_class"] = "peer-class"
-                            self._children_yang_names.add("peer-class")
                             self._segment_path = lambda: "ssh-protocol"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol, [], name, value)
 
 
                         class PeerClass(Entity):
@@ -14929,7 +14617,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass, self).__init__()
@@ -14939,8 +14627,7 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
                                     ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                 ])
@@ -14949,12 +14636,10 @@ class ControlPlane(Entity):
                                 self.peer_v4 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4()
                                 self.peer_v4.parent = self
                                 self._children_name_map["peer_v4"] = "peer-v4"
-                                self._children_yang_names.add("peer-v4")
 
                                 self.peer_v6 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6()
                                 self.peer_v6.parent = self
                                 self._children_name_map["peer_v6"] = "peer-v6"
-                                self._children_yang_names.add("peer-v6")
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/ssh-protocol/%s" % self._segment_path()
 
@@ -14981,7 +14666,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4, self).__init__()
@@ -14991,21 +14676,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/ssh-protocol/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4, [], name, value)
 
 
                                 class Peers(Entity):
@@ -15022,7 +14707,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -15032,8 +14717,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -15066,7 +14750,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -15076,8 +14760,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -15103,7 +14786,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -15113,8 +14796,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -15147,7 +14829,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -15157,8 +14839,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -15189,7 +14870,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6, self).__init__()
@@ -15199,21 +14880,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/ssh-protocol/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6, [], name, value)
 
 
                                 class Peers(Entity):
@@ -15230,7 +14911,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -15240,8 +14921,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -15274,7 +14954,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -15284,8 +14964,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -15311,7 +14990,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -15321,8 +15000,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -15355,7 +15033,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -15365,8 +15043,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -15392,7 +15069,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-07-28'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol, self).__init__()
@@ -15402,16 +15079,17 @@ class ControlPlane(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass))])
                             self._leafs = OrderedDict()
 
                             self.peer_class = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass()
                             self.peer_class.parent = self
                             self._children_name_map["peer_class"] = "peer-class"
-                            self._children_yang_names.add("peer-class")
                             self._segment_path = lambda: "snmp-protocol"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol, [], name, value)
 
 
                         class PeerClass(Entity):
@@ -15438,7 +15116,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass, self).__init__()
@@ -15448,8 +15126,7 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
                                     ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                 ])
@@ -15458,12 +15135,10 @@ class ControlPlane(Entity):
                                 self.peer_v4 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4()
                                 self.peer_v4.parent = self
                                 self._children_name_map["peer_v4"] = "peer-v4"
-                                self._children_yang_names.add("peer-v4")
 
                                 self.peer_v6 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6()
                                 self.peer_v6.parent = self
                                 self._children_name_map["peer_v6"] = "peer-v6"
-                                self._children_yang_names.add("peer-v6")
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/snmp-protocol/%s" % self._segment_path()
 
@@ -15490,7 +15165,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4, self).__init__()
@@ -15500,21 +15175,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/snmp-protocol/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4, [], name, value)
 
 
                                 class Peers(Entity):
@@ -15531,7 +15206,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -15541,8 +15216,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -15575,7 +15249,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -15585,8 +15259,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -15612,7 +15285,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -15622,8 +15295,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -15656,7 +15328,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -15666,8 +15338,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -15698,7 +15369,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6, self).__init__()
@@ -15708,21 +15379,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/snmp-protocol/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6, [], name, value)
 
 
                                 class Peers(Entity):
@@ -15739,7 +15410,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -15749,8 +15420,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -15783,7 +15453,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -15793,8 +15463,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -15820,7 +15489,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -15830,8 +15499,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -15864,7 +15532,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -15874,8 +15542,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -15901,7 +15568,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-07-28'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol, self).__init__()
@@ -15911,16 +15578,17 @@ class ControlPlane(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass))])
                             self._leafs = OrderedDict()
 
                             self.peer_class = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass()
                             self.peer_class.parent = self
                             self._children_name_map["peer_class"] = "peer-class"
-                            self._children_yang_names.add("peer-class")
                             self._segment_path = lambda: "telnet-protocol"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol, [], name, value)
 
 
                         class PeerClass(Entity):
@@ -15947,7 +15615,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass, self).__init__()
@@ -15957,8 +15625,7 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
                                     ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                 ])
@@ -15967,12 +15634,10 @@ class ControlPlane(Entity):
                                 self.peer_v4 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4()
                                 self.peer_v4.parent = self
                                 self._children_name_map["peer_v4"] = "peer-v4"
-                                self._children_yang_names.add("peer-v4")
 
                                 self.peer_v6 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6()
                                 self.peer_v6.parent = self
                                 self._children_name_map["peer_v6"] = "peer-v6"
-                                self._children_yang_names.add("peer-v6")
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/telnet-protocol/%s" % self._segment_path()
 
@@ -15999,7 +15664,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4, self).__init__()
@@ -16009,21 +15674,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/telnet-protocol/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4, [], name, value)
 
 
                                 class Peers(Entity):
@@ -16040,7 +15705,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers, self).__init__()
@@ -16050,8 +15715,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -16084,7 +15748,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -16094,8 +15758,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -16121,7 +15784,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -16131,8 +15794,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -16165,7 +15827,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -16175,8 +15837,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -16207,7 +15868,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6, self).__init__()
@@ -16217,21 +15878,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/telnet-protocol/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6, [], name, value)
 
 
                                 class Peers(Entity):
@@ -16248,7 +15909,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers, self).__init__()
@@ -16258,8 +15919,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -16292,7 +15952,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -16302,8 +15962,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -16329,7 +15988,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -16339,8 +15998,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -16373,7 +16031,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -16383,8 +16041,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -16410,7 +16067,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-07-28'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols, self).__init__()
@@ -16420,16 +16077,17 @@ class ControlPlane(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("peer-class", ("peer_class", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass))])
                             self._leafs = OrderedDict()
 
                             self.peer_class = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass()
                             self.peer_class.parent = self
                             self._children_name_map["peer_class"] = "peer-class"
-                            self._children_yang_names.add("peer-class")
                             self._segment_path = lambda: "all-protocols"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols, [], name, value)
 
 
                         class PeerClass(Entity):
@@ -16456,7 +16114,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass, self).__init__()
@@ -16466,8 +16124,7 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
                                     ('peer_all', YLeaf(YType.empty, 'peer-all')),
                                 ])
@@ -16476,12 +16133,10 @@ class ControlPlane(Entity):
                                 self.peer_v4 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4()
                                 self.peer_v4.parent = self
                                 self._children_name_map["peer_v4"] = "peer-v4"
-                                self._children_yang_names.add("peer-v4")
 
                                 self.peer_v6 = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6()
                                 self.peer_v6.parent = self
                                 self._children_name_map["peer_v6"] = "peer-v6"
-                                self._children_yang_names.add("peer-v6")
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/all-protocols/%s" % self._segment_path()
 
@@ -16508,7 +16163,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4, self).__init__()
@@ -16518,21 +16173,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/all-protocols/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4, [], name, value)
 
 
                                 class Peers(Entity):
@@ -16549,7 +16204,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers, self).__init__()
@@ -16559,8 +16214,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -16593,7 +16247,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer, self).__init__()
@@ -16603,8 +16257,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -16630,7 +16283,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes, self).__init__()
@@ -16640,8 +16293,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -16674,7 +16326,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
@@ -16684,8 +16336,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -16716,7 +16367,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6, self).__init__()
@@ -16726,21 +16377,21 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("peers", ("peers", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers)), ("peer-prefixes", ("peer_prefixes", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes))])
                                     self._leafs = OrderedDict()
 
                                     self.peers = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers()
                                     self.peers.parent = self
                                     self._children_name_map["peers"] = "peers"
-                                    self._children_yang_names.add("peers")
 
                                     self.peer_prefixes = ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes()
                                     self.peer_prefixes.parent = self
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
-                                    self._children_yang_names.add("peer-prefixes")
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/all-protocols/peer-class/%s" % self._segment_path()
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6, [], name, value)
 
 
                                 class Peers(Entity):
@@ -16757,7 +16408,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers, self).__init__()
@@ -16767,8 +16418,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer))])
+                                        self._child_classes = OrderedDict([("peer", ("peer", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer))])
                                         self._leafs = OrderedDict()
 
                                         self.peer = YList(self)
@@ -16801,7 +16451,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer, self).__init__()
@@ -16811,8 +16461,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address', YLeaf(YType.str, 'address')),
                                             ])
@@ -16838,7 +16487,7 @@ class ControlPlane(Entity):
                                     """
 
                                     _prefix = 'lib-mpp-cfg'
-                                    _revision = '2017-07-28'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes, self).__init__()
@@ -16848,8 +16497,7 @@ class ControlPlane(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
+                                        self._child_classes = OrderedDict([("peer-prefix", ("peer_prefix", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix))])
                                         self._leafs = OrderedDict()
 
                                         self.peer_prefix = YList(self)
@@ -16882,7 +16530,7 @@ class ControlPlane(Entity):
                                         """
 
                                         _prefix = 'lib-mpp-cfg'
-                                        _revision = '2017-07-28'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
@@ -16892,8 +16540,7 @@ class ControlPlane(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = ['address_prefix']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('address_prefix', YLeaf(YType.str, 'address-prefix')),
                                             ])
@@ -16920,7 +16567,7 @@ class ControlPlane(Entity):
             """
 
             _prefix = 'lib-mpp-cfg'
-            _revision = '2017-07-28'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(ControlPlane.ManagementPlaneProtection.Tpa, self).__init__()
@@ -16930,16 +16577,17 @@ class ControlPlane(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("vrfs", ("vrfs", ControlPlane.ManagementPlaneProtection.Tpa.Vrfs))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("vrfs", ("vrfs", ControlPlane.ManagementPlaneProtection.Tpa.Vrfs))])
                 self._leafs = OrderedDict()
 
                 self.vrfs = ControlPlane.ManagementPlaneProtection.Tpa.Vrfs()
                 self.vrfs.parent = self
                 self._children_name_map["vrfs"] = "vrfs"
-                self._children_yang_names.add("vrfs")
                 self._segment_path = lambda: "tpa"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(ControlPlane.ManagementPlaneProtection.Tpa, [], name, value)
 
 
             class Vrfs(Entity):
@@ -16956,7 +16604,7 @@ class ControlPlane(Entity):
                 """
 
                 _prefix = 'lib-mpp-cfg'
-                _revision = '2017-07-28'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs, self).__init__()
@@ -16966,8 +16614,7 @@ class ControlPlane(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("vrf", ("vrf", ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf))])
+                    self._child_classes = OrderedDict([("vrf", ("vrf", ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf))])
                     self._leafs = OrderedDict()
 
                     self.vrf = YList(self)
@@ -16999,7 +16646,7 @@ class ControlPlane(Entity):
                     """
 
                     _prefix = 'lib-mpp-cfg'
-                    _revision = '2017-07-28'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf, self).__init__()
@@ -17009,8 +16656,7 @@ class ControlPlane(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['vrf_name']
-                        self._child_container_classes = OrderedDict([("address-family", ("address_family", ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("address-family", ("address_family", ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily))])
                         self._leafs = OrderedDict([
                             ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                         ])
@@ -17019,7 +16665,6 @@ class ControlPlane(Entity):
                         self.address_family = ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily()
                         self.address_family.parent = self
                         self._children_name_map["address_family"] = "address-family"
-                        self._children_yang_names.add("address-family")
                         self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/tpa/vrfs/%s" % self._segment_path()
 
@@ -17046,7 +16691,7 @@ class ControlPlane(Entity):
                         """
 
                         _prefix = 'lib-mpp-cfg'
-                        _revision = '2017-07-28'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily, self).__init__()
@@ -17056,20 +16701,20 @@ class ControlPlane(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("ipv4-table", ("ipv4_table", ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv4Table)), ("ipv6-table", ("ipv6_table", ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv6Table))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("ipv4-table", ("ipv4_table", ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv4Table)), ("ipv6-table", ("ipv6_table", ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv6Table))])
                             self._leafs = OrderedDict()
 
                             self.ipv4_table = ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv4Table()
                             self.ipv4_table.parent = self
                             self._children_name_map["ipv4_table"] = "ipv4-table"
-                            self._children_yang_names.add("ipv4-table")
 
                             self.ipv6_table = ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv6Table()
                             self.ipv6_table.parent = self
                             self._children_name_map["ipv6_table"] = "ipv6-table"
-                            self._children_yang_names.add("ipv6-table")
                             self._segment_path = lambda: "address-family"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily, [], name, value)
 
 
                         class Ipv4Table(Entity):
@@ -17086,7 +16731,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv4Table, self).__init__()
@@ -17096,8 +16741,7 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("tpa-allow", ("tpa_allow", ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv4Table.TpaAllow))])
+                                self._child_classes = OrderedDict([("tpa-allow", ("tpa_allow", ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv4Table.TpaAllow))])
                                 self._leafs = OrderedDict()
 
                                 self.tpa_allow = YList(self)
@@ -17171,7 +16815,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv4Table.TpaAllow, self).__init__()
@@ -17181,8 +16825,7 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['local_port','protocol']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('local_port', YLeaf(YType.uint16, 'local-port')),
                                         ('protocol', YLeaf(YType.uint32, 'protocol')),
@@ -17219,7 +16862,7 @@ class ControlPlane(Entity):
                             """
 
                             _prefix = 'lib-mpp-cfg'
-                            _revision = '2017-07-28'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv6Table, self).__init__()
@@ -17229,8 +16872,7 @@ class ControlPlane(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("tpa-allow", ("tpa_allow", ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv6Table.TpaAllow))])
+                                self._child_classes = OrderedDict([("tpa-allow", ("tpa_allow", ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv6Table.TpaAllow))])
                                 self._leafs = OrderedDict()
 
                                 self.tpa_allow = YList(self)
@@ -17304,7 +16946,7 @@ class ControlPlane(Entity):
                                 """
 
                                 _prefix = 'lib-mpp-cfg'
-                                _revision = '2017-07-28'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv6Table.TpaAllow, self).__init__()
@@ -17314,8 +16956,7 @@ class ControlPlane(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['local_port','protocol']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('local_port', YLeaf(YType.uint16, 'local-port')),
                                         ('protocol', YLeaf(YType.uint32, 'protocol')),

@@ -41,8 +41,7 @@ class AccessLists(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("access-list", ("access_list", AccessLists.AccessList))])
+        self._child_classes = OrderedDict([("access-list", ("access_list", AccessLists.AccessList))])
         self._leafs = OrderedDict()
 
         self.access_list = YList(self)
@@ -88,8 +87,7 @@ class AccessLists(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['access_control_list_name']
-            self._child_container_classes = OrderedDict([("access-list-entries", ("access_list_entries", AccessLists.AccessList.AccessListEntries))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("access-list-entries", ("access_list_entries", AccessLists.AccessList.AccessListEntries))])
             self._leafs = OrderedDict([
                 ('access_control_list_name', YLeaf(YType.str, 'access-control-list-name')),
             ])
@@ -98,7 +96,6 @@ class AccessLists(Entity):
             self.access_list_entries = AccessLists.AccessList.AccessListEntries()
             self.access_list_entries.parent = self
             self._children_name_map["access_list_entries"] = "access-list-entries"
-            self._children_yang_names.add("access-list-entries")
             self._segment_path = lambda: "access-list" + "[access-control-list-name='" + str(self.access_control_list_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-acl-oper:access-lists/%s" % self._segment_path()
 
@@ -130,8 +127,7 @@ class AccessLists(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("access-list-entry", ("access_list_entry", AccessLists.AccessList.AccessListEntries.AccessListEntry))])
+                self._child_classes = OrderedDict([("access-list-entry", ("access_list_entry", AccessLists.AccessList.AccessListEntries.AccessListEntry))])
                 self._leafs = OrderedDict()
 
                 self.access_list_entry = YList(self)
@@ -172,8 +168,7 @@ class AccessLists(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['rule_name']
-                    self._child_container_classes = OrderedDict([("access-list-entries-oper-data", ("access_list_entries_oper_data", AccessLists.AccessList.AccessListEntries.AccessListEntry.AccessListEntriesOperData))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("access-list-entries-oper-data", ("access_list_entries_oper_data", AccessLists.AccessList.AccessListEntries.AccessListEntry.AccessListEntriesOperData))])
                     self._leafs = OrderedDict([
                         ('rule_name', YLeaf(YType.uint32, 'rule-name')),
                     ])
@@ -182,7 +177,6 @@ class AccessLists(Entity):
                     self.access_list_entries_oper_data = AccessLists.AccessList.AccessListEntries.AccessListEntry.AccessListEntriesOperData()
                     self.access_list_entries_oper_data.parent = self
                     self._children_name_map["access_list_entries_oper_data"] = "access-list-entries-oper-data"
-                    self._children_yang_names.add("access-list-entries-oper-data")
                     self._segment_path = lambda: "access-list-entry" + "[rule-name='" + str(self.rule_name) + "']"
 
                 def __setattr__(self, name, value):
@@ -215,8 +209,7 @@ class AccessLists(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('match_counter', YLeaf(YType.uint64, 'match-counter')),
                         ])

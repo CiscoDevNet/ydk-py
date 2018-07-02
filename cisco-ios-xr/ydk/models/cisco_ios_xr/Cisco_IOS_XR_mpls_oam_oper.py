@@ -172,25 +172,24 @@ class MplsOam(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("interface", ("interface", MplsOam.Interface)), ("packet", ("packet", MplsOam.Packet)), ("global", ("global_", MplsOam.Global))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("interface", ("interface", MplsOam.Interface)), ("packet", ("packet", MplsOam.Packet)), ("global", ("global_", MplsOam.Global))])
         self._leafs = OrderedDict()
 
         self.interface = MplsOam.Interface()
         self.interface.parent = self
         self._children_name_map["interface"] = "interface"
-        self._children_yang_names.add("interface")
 
         self.packet = MplsOam.Packet()
         self.packet.parent = self
         self._children_name_map["packet"] = "packet"
-        self._children_yang_names.add("packet")
 
         self.global_ = MplsOam.Global()
         self.global_.parent = self
         self._children_name_map["global_"] = "global"
-        self._children_yang_names.add("global")
         self._segment_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(MplsOam, [], name, value)
 
 
     class Interface(Entity):
@@ -222,21 +221,21 @@ class MplsOam(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("briefs", ("briefs", MplsOam.Interface.Briefs)), ("details", ("details", MplsOam.Interface.Details))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("briefs", ("briefs", MplsOam.Interface.Briefs)), ("details", ("details", MplsOam.Interface.Details))])
             self._leafs = OrderedDict()
 
             self.briefs = MplsOam.Interface.Briefs()
             self.briefs.parent = self
             self._children_name_map["briefs"] = "briefs"
-            self._children_yang_names.add("briefs")
 
             self.details = MplsOam.Interface.Details()
             self.details.parent = self
             self._children_name_map["details"] = "details"
-            self._children_yang_names.add("details")
             self._segment_path = lambda: "interface"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(MplsOam.Interface, [], name, value)
 
 
         class Briefs(Entity):
@@ -263,8 +262,7 @@ class MplsOam(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("brief", ("brief", MplsOam.Interface.Briefs.Brief))])
+                self._child_classes = OrderedDict([("brief", ("brief", MplsOam.Interface.Briefs.Brief))])
                 self._leafs = OrderedDict()
 
                 self.brief = YList(self)
@@ -348,8 +346,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['interface_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
@@ -372,7 +369,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/briefs/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Interface.Briefs.Brief, ['interface_name', 'interface_name_xr', 'state', 'mtu', 'prefix_length', 'prefix_length_v6', 'primary_address', 'primary_address_v6'], name, value)
+                    self._perform_setattr(MplsOam.Interface.Briefs.Brief, ['interface_name', u'interface_name_xr', u'state', u'mtu', u'prefix_length', u'prefix_length_v6', u'primary_address', u'primary_address_v6'], name, value)
 
 
         class Details(Entity):
@@ -399,8 +396,7 @@ class MplsOam(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("detail", ("detail", MplsOam.Interface.Details.Detail))])
+                self._child_classes = OrderedDict([("detail", ("detail", MplsOam.Interface.Details.Detail))])
                 self._leafs = OrderedDict()
 
                 self.detail = YList(self)
@@ -447,8 +443,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['interface_name']
-                    self._child_container_classes = OrderedDict([("interface-brief", ("interface_brief", MplsOam.Interface.Details.Detail.InterfaceBrief)), ("packet-statistics", ("packet_statistics", MplsOam.Interface.Details.Detail.PacketStatistics))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("interface-brief", ("interface_brief", MplsOam.Interface.Details.Detail.InterfaceBrief)), ("packet-statistics", ("packet_statistics", MplsOam.Interface.Details.Detail.PacketStatistics))])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                     ])
@@ -457,12 +452,10 @@ class MplsOam(Entity):
                     self.interface_brief = MplsOam.Interface.Details.Detail.InterfaceBrief()
                     self.interface_brief.parent = self
                     self._children_name_map["interface_brief"] = "interface-brief"
-                    self._children_yang_names.add("interface-brief")
 
                     self.packet_statistics = MplsOam.Interface.Details.Detail.PacketStatistics()
                     self.packet_statistics.parent = self
                     self._children_name_map["packet_statistics"] = "packet-statistics"
-                    self._children_yang_names.add("packet-statistics")
                     self._segment_path = lambda: "detail" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/%s" % self._segment_path()
 
@@ -536,8 +529,7 @@ class MplsOam(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
                             ('state', YLeaf(YType.enumeration, 'state')),
@@ -557,7 +549,7 @@ class MplsOam(Entity):
                         self._segment_path = lambda: "interface-brief"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsOam.Interface.Details.Detail.InterfaceBrief, ['interface_name_xr', 'state', 'mtu', 'prefix_length', 'prefix_length_v6', 'primary_address', 'primary_address_v6'], name, value)
+                        self._perform_setattr(MplsOam.Interface.Details.Detail.InterfaceBrief, [u'interface_name_xr', u'state', u'mtu', u'prefix_length', u'prefix_length_v6', u'primary_address', u'primary_address_v6'], name, value)
 
 
                 class PacketStatistics(Entity):
@@ -609,40 +601,36 @@ class MplsOam(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("received", ("received", MplsOam.Interface.Details.Detail.PacketStatistics.Received)), ("sent", ("sent", MplsOam.Interface.Details.Detail.PacketStatistics.Sent)), ("working-req-sent", ("working_req_sent", MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent)), ("working-rep-sent", ("working_rep_sent", MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent)), ("protect-req-sent", ("protect_req_sent", MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent)), ("protect-rep-sent", ("protect_rep_sent", MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("received", ("received", MplsOam.Interface.Details.Detail.PacketStatistics.Received)), ("sent", ("sent", MplsOam.Interface.Details.Detail.PacketStatistics.Sent)), ("working-req-sent", ("working_req_sent", MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent)), ("working-rep-sent", ("working_rep_sent", MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent)), ("protect-req-sent", ("protect_req_sent", MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent)), ("protect-rep-sent", ("protect_rep_sent", MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent))])
                         self._leafs = OrderedDict()
 
                         self.received = MplsOam.Interface.Details.Detail.PacketStatistics.Received()
                         self.received.parent = self
                         self._children_name_map["received"] = "received"
-                        self._children_yang_names.add("received")
 
                         self.sent = MplsOam.Interface.Details.Detail.PacketStatistics.Sent()
                         self.sent.parent = self
                         self._children_name_map["sent"] = "sent"
-                        self._children_yang_names.add("sent")
 
                         self.working_req_sent = MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent()
                         self.working_req_sent.parent = self
                         self._children_name_map["working_req_sent"] = "working-req-sent"
-                        self._children_yang_names.add("working-req-sent")
 
                         self.working_rep_sent = MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent()
                         self.working_rep_sent.parent = self
                         self._children_name_map["working_rep_sent"] = "working-rep-sent"
-                        self._children_yang_names.add("working-rep-sent")
 
                         self.protect_req_sent = MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent()
                         self.protect_req_sent.parent = self
                         self._children_name_map["protect_req_sent"] = "protect-req-sent"
-                        self._children_yang_names.add("protect-req-sent")
 
                         self.protect_rep_sent = MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent()
                         self.protect_rep_sent.parent = self
                         self._children_name_map["protect_rep_sent"] = "protect-rep-sent"
-                        self._children_yang_names.add("protect-rep-sent")
                         self._segment_path = lambda: "packet-statistics"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics, [], name, value)
 
 
                     class Received(Entity):
@@ -734,80 +722,68 @@ class MplsOam(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("received-good-request", ("received_good_request", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodRequest)), ("received-good-reply", ("received_good_reply", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodReply)), ("received-unknown", ("received_unknown", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedUnknown)), ("received-error-ip-header", ("received_error_ip_header", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorIpHeader)), ("received-error-udp-header", ("received_error_udp_header", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorUdpHeader)), ("received-error-runt", ("received_error_runt", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorRunt)), ("received-error-queue-full", ("received_error_queue_full", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorQueueFull)), ("received-error-general", ("received_error_general", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorGeneral)), ("received-error-no-interface", ("received_error_no_interface", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoInterface)), ("received-error-no-memory", ("received_error_no_memory", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoMemory)), ("protect-protocol-received-good-request", ("protect_protocol_received_good_request", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodRequest)), ("protect-protocol-received-good-reply", ("protect_protocol_received_good_reply", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodReply)), ("received-good-bfd-request", ("received_good_bfd_request", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdRequest)), ("received-good-bfd-reply", ("received_good_bfd_reply", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdReply))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("received-good-request", ("received_good_request", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodRequest)), ("received-good-reply", ("received_good_reply", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodReply)), ("received-unknown", ("received_unknown", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedUnknown)), ("received-error-ip-header", ("received_error_ip_header", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorIpHeader)), ("received-error-udp-header", ("received_error_udp_header", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorUdpHeader)), ("received-error-runt", ("received_error_runt", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorRunt)), ("received-error-queue-full", ("received_error_queue_full", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorQueueFull)), ("received-error-general", ("received_error_general", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorGeneral)), ("received-error-no-interface", ("received_error_no_interface", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoInterface)), ("received-error-no-memory", ("received_error_no_memory", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoMemory)), ("protect-protocol-received-good-request", ("protect_protocol_received_good_request", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodRequest)), ("protect-protocol-received-good-reply", ("protect_protocol_received_good_reply", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodReply)), ("received-good-bfd-request", ("received_good_bfd_request", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdRequest)), ("received-good-bfd-reply", ("received_good_bfd_reply", MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdReply))])
                             self._leafs = OrderedDict()
 
                             self.received_good_request = MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodRequest()
                             self.received_good_request.parent = self
                             self._children_name_map["received_good_request"] = "received-good-request"
-                            self._children_yang_names.add("received-good-request")
 
                             self.received_good_reply = MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodReply()
                             self.received_good_reply.parent = self
                             self._children_name_map["received_good_reply"] = "received-good-reply"
-                            self._children_yang_names.add("received-good-reply")
 
                             self.received_unknown = MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedUnknown()
                             self.received_unknown.parent = self
                             self._children_name_map["received_unknown"] = "received-unknown"
-                            self._children_yang_names.add("received-unknown")
 
                             self.received_error_ip_header = MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorIpHeader()
                             self.received_error_ip_header.parent = self
                             self._children_name_map["received_error_ip_header"] = "received-error-ip-header"
-                            self._children_yang_names.add("received-error-ip-header")
 
                             self.received_error_udp_header = MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorUdpHeader()
                             self.received_error_udp_header.parent = self
                             self._children_name_map["received_error_udp_header"] = "received-error-udp-header"
-                            self._children_yang_names.add("received-error-udp-header")
 
                             self.received_error_runt = MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorRunt()
                             self.received_error_runt.parent = self
                             self._children_name_map["received_error_runt"] = "received-error-runt"
-                            self._children_yang_names.add("received-error-runt")
 
                             self.received_error_queue_full = MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorQueueFull()
                             self.received_error_queue_full.parent = self
                             self._children_name_map["received_error_queue_full"] = "received-error-queue-full"
-                            self._children_yang_names.add("received-error-queue-full")
 
                             self.received_error_general = MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorGeneral()
                             self.received_error_general.parent = self
                             self._children_name_map["received_error_general"] = "received-error-general"
-                            self._children_yang_names.add("received-error-general")
 
                             self.received_error_no_interface = MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoInterface()
                             self.received_error_no_interface.parent = self
                             self._children_name_map["received_error_no_interface"] = "received-error-no-interface"
-                            self._children_yang_names.add("received-error-no-interface")
 
                             self.received_error_no_memory = MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoMemory()
                             self.received_error_no_memory.parent = self
                             self._children_name_map["received_error_no_memory"] = "received-error-no-memory"
-                            self._children_yang_names.add("received-error-no-memory")
 
                             self.protect_protocol_received_good_request = MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodRequest()
                             self.protect_protocol_received_good_request.parent = self
                             self._children_name_map["protect_protocol_received_good_request"] = "protect-protocol-received-good-request"
-                            self._children_yang_names.add("protect-protocol-received-good-request")
 
                             self.protect_protocol_received_good_reply = MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodReply()
                             self.protect_protocol_received_good_reply.parent = self
                             self._children_name_map["protect_protocol_received_good_reply"] = "protect-protocol-received-good-reply"
-                            self._children_yang_names.add("protect-protocol-received-good-reply")
 
                             self.received_good_bfd_request = MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdRequest()
                             self.received_good_bfd_request.parent = self
                             self._children_name_map["received_good_bfd_request"] = "received-good-bfd-request"
-                            self._children_yang_names.add("received-good-bfd-request")
 
                             self.received_good_bfd_reply = MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdReply()
                             self.received_good_bfd_reply.parent = self
                             self._children_name_map["received_good_bfd_reply"] = "received-good-bfd-reply"
-                            self._children_yang_names.add("received-good-bfd-reply")
                             self._segment_path = lambda: "received"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received, [], name, value)
 
 
                         class ReceivedGoodRequest(Entity):
@@ -845,8 +821,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -856,7 +831,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "received-good-request"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodRequest, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodRequest, [u'packets', u'bytes'], name, value)
 
 
                         class ReceivedGoodReply(Entity):
@@ -894,8 +869,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -905,7 +879,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "received-good-reply"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodReply, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodReply, [u'packets', u'bytes'], name, value)
 
 
                         class ReceivedUnknown(Entity):
@@ -943,8 +917,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -954,7 +927,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "received-unknown"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedUnknown, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedUnknown, [u'packets', u'bytes'], name, value)
 
 
                         class ReceivedErrorIpHeader(Entity):
@@ -992,8 +965,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -1003,7 +975,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "received-error-ip-header"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorIpHeader, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorIpHeader, [u'packets', u'bytes'], name, value)
 
 
                         class ReceivedErrorUdpHeader(Entity):
@@ -1041,8 +1013,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -1052,7 +1023,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "received-error-udp-header"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorUdpHeader, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorUdpHeader, [u'packets', u'bytes'], name, value)
 
 
                         class ReceivedErrorRunt(Entity):
@@ -1090,8 +1061,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -1101,7 +1071,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "received-error-runt"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorRunt, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorRunt, [u'packets', u'bytes'], name, value)
 
 
                         class ReceivedErrorQueueFull(Entity):
@@ -1139,8 +1109,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -1150,7 +1119,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "received-error-queue-full"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorQueueFull, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorQueueFull, [u'packets', u'bytes'], name, value)
 
 
                         class ReceivedErrorGeneral(Entity):
@@ -1188,8 +1157,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -1199,7 +1167,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "received-error-general"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorGeneral, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorGeneral, [u'packets', u'bytes'], name, value)
 
 
                         class ReceivedErrorNoInterface(Entity):
@@ -1237,8 +1205,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -1248,7 +1215,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "received-error-no-interface"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoInterface, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoInterface, [u'packets', u'bytes'], name, value)
 
 
                         class ReceivedErrorNoMemory(Entity):
@@ -1286,8 +1253,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -1297,7 +1263,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "received-error-no-memory"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoMemory, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoMemory, [u'packets', u'bytes'], name, value)
 
 
                         class ProtectProtocolReceivedGoodRequest(Entity):
@@ -1335,8 +1301,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -1346,7 +1311,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "protect-protocol-received-good-request"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodRequest, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodRequest, [u'packets', u'bytes'], name, value)
 
 
                         class ProtectProtocolReceivedGoodReply(Entity):
@@ -1384,8 +1349,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -1395,7 +1359,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "protect-protocol-received-good-reply"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodReply, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodReply, [u'packets', u'bytes'], name, value)
 
 
                         class ReceivedGoodBfdRequest(Entity):
@@ -1433,8 +1397,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -1444,7 +1407,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "received-good-bfd-request"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdRequest, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdRequest, [u'packets', u'bytes'], name, value)
 
 
                         class ReceivedGoodBfdReply(Entity):
@@ -1482,8 +1445,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -1493,7 +1455,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "received-good-bfd-reply"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdReply, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdReply, [u'packets', u'bytes'], name, value)
 
 
                     class Sent(Entity):
@@ -1535,30 +1497,28 @@ class MplsOam(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("transmit-good", ("transmit_good", MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitGood)), ("transmit-drop", ("transmit_drop", MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitDrop)), ("transmit-bfd-good", ("transmit_bfd_good", MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitBfdGood)), ("bfd-no-reply", ("bfd_no_reply", MplsOam.Interface.Details.Detail.PacketStatistics.Sent.BfdNoReply))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("transmit-good", ("transmit_good", MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitGood)), ("transmit-drop", ("transmit_drop", MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitDrop)), ("transmit-bfd-good", ("transmit_bfd_good", MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitBfdGood)), ("bfd-no-reply", ("bfd_no_reply", MplsOam.Interface.Details.Detail.PacketStatistics.Sent.BfdNoReply))])
                             self._leafs = OrderedDict()
 
                             self.transmit_good = MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitGood()
                             self.transmit_good.parent = self
                             self._children_name_map["transmit_good"] = "transmit-good"
-                            self._children_yang_names.add("transmit-good")
 
                             self.transmit_drop = MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitDrop()
                             self.transmit_drop.parent = self
                             self._children_name_map["transmit_drop"] = "transmit-drop"
-                            self._children_yang_names.add("transmit-drop")
 
                             self.transmit_bfd_good = MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitBfdGood()
                             self.transmit_bfd_good.parent = self
                             self._children_name_map["transmit_bfd_good"] = "transmit-bfd-good"
-                            self._children_yang_names.add("transmit-bfd-good")
 
                             self.bfd_no_reply = MplsOam.Interface.Details.Detail.PacketStatistics.Sent.BfdNoReply()
                             self.bfd_no_reply.parent = self
                             self._children_name_map["bfd_no_reply"] = "bfd-no-reply"
-                            self._children_yang_names.add("bfd-no-reply")
                             self._segment_path = lambda: "sent"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent, [], name, value)
 
 
                         class TransmitGood(Entity):
@@ -1596,8 +1556,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -1607,7 +1566,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "transmit-good"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitGood, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitGood, [u'packets', u'bytes'], name, value)
 
 
                         class TransmitDrop(Entity):
@@ -1645,8 +1604,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -1656,7 +1614,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "transmit-drop"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitDrop, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitDrop, [u'packets', u'bytes'], name, value)
 
 
                         class TransmitBfdGood(Entity):
@@ -1694,8 +1652,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -1705,7 +1662,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "transmit-bfd-good"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitBfdGood, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
 
 
                         class BfdNoReply(Entity):
@@ -1744,8 +1701,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -1755,7 +1711,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "bfd-no-reply"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.BfdNoReply, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.BfdNoReply, [u'packets', u'bytes'], name, value)
 
 
                     class WorkingReqSent(Entity):
@@ -1797,30 +1753,28 @@ class MplsOam(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("transmit-good", ("transmit_good", MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitGood)), ("transmit-drop", ("transmit_drop", MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitDrop)), ("transmit-bfd-good", ("transmit_bfd_good", MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitBfdGood)), ("bfd-no-reply", ("bfd_no_reply", MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.BfdNoReply))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("transmit-good", ("transmit_good", MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitGood)), ("transmit-drop", ("transmit_drop", MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitDrop)), ("transmit-bfd-good", ("transmit_bfd_good", MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitBfdGood)), ("bfd-no-reply", ("bfd_no_reply", MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.BfdNoReply))])
                             self._leafs = OrderedDict()
 
                             self.transmit_good = MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitGood()
                             self.transmit_good.parent = self
                             self._children_name_map["transmit_good"] = "transmit-good"
-                            self._children_yang_names.add("transmit-good")
 
                             self.transmit_drop = MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitDrop()
                             self.transmit_drop.parent = self
                             self._children_name_map["transmit_drop"] = "transmit-drop"
-                            self._children_yang_names.add("transmit-drop")
 
                             self.transmit_bfd_good = MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitBfdGood()
                             self.transmit_bfd_good.parent = self
                             self._children_name_map["transmit_bfd_good"] = "transmit-bfd-good"
-                            self._children_yang_names.add("transmit-bfd-good")
 
                             self.bfd_no_reply = MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.BfdNoReply()
                             self.bfd_no_reply.parent = self
                             self._children_name_map["bfd_no_reply"] = "bfd-no-reply"
-                            self._children_yang_names.add("bfd-no-reply")
                             self._segment_path = lambda: "working-req-sent"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent, [], name, value)
 
 
                         class TransmitGood(Entity):
@@ -1858,8 +1812,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -1869,7 +1822,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "transmit-good"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitGood, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitGood, [u'packets', u'bytes'], name, value)
 
 
                         class TransmitDrop(Entity):
@@ -1907,8 +1860,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -1918,7 +1870,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "transmit-drop"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitDrop, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitDrop, [u'packets', u'bytes'], name, value)
 
 
                         class TransmitBfdGood(Entity):
@@ -1956,8 +1908,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -1967,7 +1918,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "transmit-bfd-good"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
 
 
                         class BfdNoReply(Entity):
@@ -2006,8 +1957,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -2017,7 +1967,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "bfd-no-reply"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.BfdNoReply, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.BfdNoReply, [u'packets', u'bytes'], name, value)
 
 
                     class WorkingRepSent(Entity):
@@ -2059,30 +2009,28 @@ class MplsOam(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("transmit-good", ("transmit_good", MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitGood)), ("transmit-drop", ("transmit_drop", MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitDrop)), ("transmit-bfd-good", ("transmit_bfd_good", MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitBfdGood)), ("bfd-no-reply", ("bfd_no_reply", MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.BfdNoReply))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("transmit-good", ("transmit_good", MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitGood)), ("transmit-drop", ("transmit_drop", MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitDrop)), ("transmit-bfd-good", ("transmit_bfd_good", MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitBfdGood)), ("bfd-no-reply", ("bfd_no_reply", MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.BfdNoReply))])
                             self._leafs = OrderedDict()
 
                             self.transmit_good = MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitGood()
                             self.transmit_good.parent = self
                             self._children_name_map["transmit_good"] = "transmit-good"
-                            self._children_yang_names.add("transmit-good")
 
                             self.transmit_drop = MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitDrop()
                             self.transmit_drop.parent = self
                             self._children_name_map["transmit_drop"] = "transmit-drop"
-                            self._children_yang_names.add("transmit-drop")
 
                             self.transmit_bfd_good = MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitBfdGood()
                             self.transmit_bfd_good.parent = self
                             self._children_name_map["transmit_bfd_good"] = "transmit-bfd-good"
-                            self._children_yang_names.add("transmit-bfd-good")
 
                             self.bfd_no_reply = MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.BfdNoReply()
                             self.bfd_no_reply.parent = self
                             self._children_name_map["bfd_no_reply"] = "bfd-no-reply"
-                            self._children_yang_names.add("bfd-no-reply")
                             self._segment_path = lambda: "working-rep-sent"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent, [], name, value)
 
 
                         class TransmitGood(Entity):
@@ -2120,8 +2068,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -2131,7 +2078,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "transmit-good"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitGood, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitGood, [u'packets', u'bytes'], name, value)
 
 
                         class TransmitDrop(Entity):
@@ -2169,8 +2116,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -2180,7 +2126,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "transmit-drop"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitDrop, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitDrop, [u'packets', u'bytes'], name, value)
 
 
                         class TransmitBfdGood(Entity):
@@ -2218,8 +2164,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -2229,7 +2174,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "transmit-bfd-good"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
 
 
                         class BfdNoReply(Entity):
@@ -2268,8 +2213,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -2279,7 +2223,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "bfd-no-reply"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.BfdNoReply, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.BfdNoReply, [u'packets', u'bytes'], name, value)
 
 
                     class ProtectReqSent(Entity):
@@ -2321,30 +2265,28 @@ class MplsOam(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("transmit-good", ("transmit_good", MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitGood)), ("transmit-drop", ("transmit_drop", MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitDrop)), ("transmit-bfd-good", ("transmit_bfd_good", MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitBfdGood)), ("bfd-no-reply", ("bfd_no_reply", MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.BfdNoReply))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("transmit-good", ("transmit_good", MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitGood)), ("transmit-drop", ("transmit_drop", MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitDrop)), ("transmit-bfd-good", ("transmit_bfd_good", MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitBfdGood)), ("bfd-no-reply", ("bfd_no_reply", MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.BfdNoReply))])
                             self._leafs = OrderedDict()
 
                             self.transmit_good = MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitGood()
                             self.transmit_good.parent = self
                             self._children_name_map["transmit_good"] = "transmit-good"
-                            self._children_yang_names.add("transmit-good")
 
                             self.transmit_drop = MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitDrop()
                             self.transmit_drop.parent = self
                             self._children_name_map["transmit_drop"] = "transmit-drop"
-                            self._children_yang_names.add("transmit-drop")
 
                             self.transmit_bfd_good = MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitBfdGood()
                             self.transmit_bfd_good.parent = self
                             self._children_name_map["transmit_bfd_good"] = "transmit-bfd-good"
-                            self._children_yang_names.add("transmit-bfd-good")
 
                             self.bfd_no_reply = MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.BfdNoReply()
                             self.bfd_no_reply.parent = self
                             self._children_name_map["bfd_no_reply"] = "bfd-no-reply"
-                            self._children_yang_names.add("bfd-no-reply")
                             self._segment_path = lambda: "protect-req-sent"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent, [], name, value)
 
 
                         class TransmitGood(Entity):
@@ -2382,8 +2324,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -2393,7 +2334,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "transmit-good"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitGood, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitGood, [u'packets', u'bytes'], name, value)
 
 
                         class TransmitDrop(Entity):
@@ -2431,8 +2372,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -2442,7 +2382,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "transmit-drop"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitDrop, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitDrop, [u'packets', u'bytes'], name, value)
 
 
                         class TransmitBfdGood(Entity):
@@ -2480,8 +2420,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -2491,7 +2430,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "transmit-bfd-good"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
 
 
                         class BfdNoReply(Entity):
@@ -2530,8 +2469,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -2541,7 +2479,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "bfd-no-reply"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.BfdNoReply, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.BfdNoReply, [u'packets', u'bytes'], name, value)
 
 
                     class ProtectRepSent(Entity):
@@ -2583,30 +2521,28 @@ class MplsOam(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("transmit-good", ("transmit_good", MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitGood)), ("transmit-drop", ("transmit_drop", MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitDrop)), ("transmit-bfd-good", ("transmit_bfd_good", MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitBfdGood)), ("bfd-no-reply", ("bfd_no_reply", MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.BfdNoReply))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("transmit-good", ("transmit_good", MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitGood)), ("transmit-drop", ("transmit_drop", MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitDrop)), ("transmit-bfd-good", ("transmit_bfd_good", MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitBfdGood)), ("bfd-no-reply", ("bfd_no_reply", MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.BfdNoReply))])
                             self._leafs = OrderedDict()
 
                             self.transmit_good = MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitGood()
                             self.transmit_good.parent = self
                             self._children_name_map["transmit_good"] = "transmit-good"
-                            self._children_yang_names.add("transmit-good")
 
                             self.transmit_drop = MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitDrop()
                             self.transmit_drop.parent = self
                             self._children_name_map["transmit_drop"] = "transmit-drop"
-                            self._children_yang_names.add("transmit-drop")
 
                             self.transmit_bfd_good = MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitBfdGood()
                             self.transmit_bfd_good.parent = self
                             self._children_name_map["transmit_bfd_good"] = "transmit-bfd-good"
-                            self._children_yang_names.add("transmit-bfd-good")
 
                             self.bfd_no_reply = MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.BfdNoReply()
                             self.bfd_no_reply.parent = self
                             self._children_name_map["bfd_no_reply"] = "bfd-no-reply"
-                            self._children_yang_names.add("bfd-no-reply")
                             self._segment_path = lambda: "protect-rep-sent"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent, [], name, value)
 
 
                         class TransmitGood(Entity):
@@ -2644,8 +2580,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -2655,7 +2590,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "transmit-good"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitGood, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitGood, [u'packets', u'bytes'], name, value)
 
 
                         class TransmitDrop(Entity):
@@ -2693,8 +2628,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -2704,7 +2638,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "transmit-drop"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitDrop, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitDrop, [u'packets', u'bytes'], name, value)
 
 
                         class TransmitBfdGood(Entity):
@@ -2742,8 +2676,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -2753,7 +2686,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "transmit-bfd-good"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
 
 
                         class BfdNoReply(Entity):
@@ -2792,8 +2725,7 @@ class MplsOam(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packets', YLeaf(YType.uint64, 'packets')),
                                     ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -2803,7 +2735,7 @@ class MplsOam(Entity):
                                 self._segment_path = lambda: "bfd-no-reply"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.BfdNoReply, ['packets', 'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.BfdNoReply, [u'packets', u'bytes'], name, value)
 
 
     class Packet(Entity):
@@ -2855,41 +2787,37 @@ class MplsOam(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("received", ("received", MplsOam.Packet.Received)), ("sent", ("sent", MplsOam.Packet.Sent)), ("working-req-sent", ("working_req_sent", MplsOam.Packet.WorkingReqSent)), ("working-rep-sent", ("working_rep_sent", MplsOam.Packet.WorkingRepSent)), ("protect-req-sent", ("protect_req_sent", MplsOam.Packet.ProtectReqSent)), ("protect-rep-sent", ("protect_rep_sent", MplsOam.Packet.ProtectRepSent))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("received", ("received", MplsOam.Packet.Received)), ("sent", ("sent", MplsOam.Packet.Sent)), ("working-req-sent", ("working_req_sent", MplsOam.Packet.WorkingReqSent)), ("working-rep-sent", ("working_rep_sent", MplsOam.Packet.WorkingRepSent)), ("protect-req-sent", ("protect_req_sent", MplsOam.Packet.ProtectReqSent)), ("protect-rep-sent", ("protect_rep_sent", MplsOam.Packet.ProtectRepSent))])
             self._leafs = OrderedDict()
 
             self.received = MplsOam.Packet.Received()
             self.received.parent = self
             self._children_name_map["received"] = "received"
-            self._children_yang_names.add("received")
 
             self.sent = MplsOam.Packet.Sent()
             self.sent.parent = self
             self._children_name_map["sent"] = "sent"
-            self._children_yang_names.add("sent")
 
             self.working_req_sent = MplsOam.Packet.WorkingReqSent()
             self.working_req_sent.parent = self
             self._children_name_map["working_req_sent"] = "working-req-sent"
-            self._children_yang_names.add("working-req-sent")
 
             self.working_rep_sent = MplsOam.Packet.WorkingRepSent()
             self.working_rep_sent.parent = self
             self._children_name_map["working_rep_sent"] = "working-rep-sent"
-            self._children_yang_names.add("working-rep-sent")
 
             self.protect_req_sent = MplsOam.Packet.ProtectReqSent()
             self.protect_req_sent.parent = self
             self._children_name_map["protect_req_sent"] = "protect-req-sent"
-            self._children_yang_names.add("protect-req-sent")
 
             self.protect_rep_sent = MplsOam.Packet.ProtectRepSent()
             self.protect_rep_sent.parent = self
             self._children_name_map["protect_rep_sent"] = "protect-rep-sent"
-            self._children_yang_names.add("protect-rep-sent")
             self._segment_path = lambda: "packet"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(MplsOam.Packet, [], name, value)
 
 
         class Received(Entity):
@@ -2981,81 +2909,69 @@ class MplsOam(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("received-good-request", ("received_good_request", MplsOam.Packet.Received.ReceivedGoodRequest)), ("received-good-reply", ("received_good_reply", MplsOam.Packet.Received.ReceivedGoodReply)), ("received-unknown", ("received_unknown", MplsOam.Packet.Received.ReceivedUnknown)), ("received-error-ip-header", ("received_error_ip_header", MplsOam.Packet.Received.ReceivedErrorIpHeader)), ("received-error-udp-header", ("received_error_udp_header", MplsOam.Packet.Received.ReceivedErrorUdpHeader)), ("received-error-runt", ("received_error_runt", MplsOam.Packet.Received.ReceivedErrorRunt)), ("received-error-queue-full", ("received_error_queue_full", MplsOam.Packet.Received.ReceivedErrorQueueFull)), ("received-error-general", ("received_error_general", MplsOam.Packet.Received.ReceivedErrorGeneral)), ("received-error-no-interface", ("received_error_no_interface", MplsOam.Packet.Received.ReceivedErrorNoInterface)), ("received-error-no-memory", ("received_error_no_memory", MplsOam.Packet.Received.ReceivedErrorNoMemory)), ("protect-protocol-received-good-request", ("protect_protocol_received_good_request", MplsOam.Packet.Received.ProtectProtocolReceivedGoodRequest)), ("protect-protocol-received-good-reply", ("protect_protocol_received_good_reply", MplsOam.Packet.Received.ProtectProtocolReceivedGoodReply)), ("received-good-bfd-request", ("received_good_bfd_request", MplsOam.Packet.Received.ReceivedGoodBfdRequest)), ("received-good-bfd-reply", ("received_good_bfd_reply", MplsOam.Packet.Received.ReceivedGoodBfdReply))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("received-good-request", ("received_good_request", MplsOam.Packet.Received.ReceivedGoodRequest)), ("received-good-reply", ("received_good_reply", MplsOam.Packet.Received.ReceivedGoodReply)), ("received-unknown", ("received_unknown", MplsOam.Packet.Received.ReceivedUnknown)), ("received-error-ip-header", ("received_error_ip_header", MplsOam.Packet.Received.ReceivedErrorIpHeader)), ("received-error-udp-header", ("received_error_udp_header", MplsOam.Packet.Received.ReceivedErrorUdpHeader)), ("received-error-runt", ("received_error_runt", MplsOam.Packet.Received.ReceivedErrorRunt)), ("received-error-queue-full", ("received_error_queue_full", MplsOam.Packet.Received.ReceivedErrorQueueFull)), ("received-error-general", ("received_error_general", MplsOam.Packet.Received.ReceivedErrorGeneral)), ("received-error-no-interface", ("received_error_no_interface", MplsOam.Packet.Received.ReceivedErrorNoInterface)), ("received-error-no-memory", ("received_error_no_memory", MplsOam.Packet.Received.ReceivedErrorNoMemory)), ("protect-protocol-received-good-request", ("protect_protocol_received_good_request", MplsOam.Packet.Received.ProtectProtocolReceivedGoodRequest)), ("protect-protocol-received-good-reply", ("protect_protocol_received_good_reply", MplsOam.Packet.Received.ProtectProtocolReceivedGoodReply)), ("received-good-bfd-request", ("received_good_bfd_request", MplsOam.Packet.Received.ReceivedGoodBfdRequest)), ("received-good-bfd-reply", ("received_good_bfd_reply", MplsOam.Packet.Received.ReceivedGoodBfdReply))])
                 self._leafs = OrderedDict()
 
                 self.received_good_request = MplsOam.Packet.Received.ReceivedGoodRequest()
                 self.received_good_request.parent = self
                 self._children_name_map["received_good_request"] = "received-good-request"
-                self._children_yang_names.add("received-good-request")
 
                 self.received_good_reply = MplsOam.Packet.Received.ReceivedGoodReply()
                 self.received_good_reply.parent = self
                 self._children_name_map["received_good_reply"] = "received-good-reply"
-                self._children_yang_names.add("received-good-reply")
 
                 self.received_unknown = MplsOam.Packet.Received.ReceivedUnknown()
                 self.received_unknown.parent = self
                 self._children_name_map["received_unknown"] = "received-unknown"
-                self._children_yang_names.add("received-unknown")
 
                 self.received_error_ip_header = MplsOam.Packet.Received.ReceivedErrorIpHeader()
                 self.received_error_ip_header.parent = self
                 self._children_name_map["received_error_ip_header"] = "received-error-ip-header"
-                self._children_yang_names.add("received-error-ip-header")
 
                 self.received_error_udp_header = MplsOam.Packet.Received.ReceivedErrorUdpHeader()
                 self.received_error_udp_header.parent = self
                 self._children_name_map["received_error_udp_header"] = "received-error-udp-header"
-                self._children_yang_names.add("received-error-udp-header")
 
                 self.received_error_runt = MplsOam.Packet.Received.ReceivedErrorRunt()
                 self.received_error_runt.parent = self
                 self._children_name_map["received_error_runt"] = "received-error-runt"
-                self._children_yang_names.add("received-error-runt")
 
                 self.received_error_queue_full = MplsOam.Packet.Received.ReceivedErrorQueueFull()
                 self.received_error_queue_full.parent = self
                 self._children_name_map["received_error_queue_full"] = "received-error-queue-full"
-                self._children_yang_names.add("received-error-queue-full")
 
                 self.received_error_general = MplsOam.Packet.Received.ReceivedErrorGeneral()
                 self.received_error_general.parent = self
                 self._children_name_map["received_error_general"] = "received-error-general"
-                self._children_yang_names.add("received-error-general")
 
                 self.received_error_no_interface = MplsOam.Packet.Received.ReceivedErrorNoInterface()
                 self.received_error_no_interface.parent = self
                 self._children_name_map["received_error_no_interface"] = "received-error-no-interface"
-                self._children_yang_names.add("received-error-no-interface")
 
                 self.received_error_no_memory = MplsOam.Packet.Received.ReceivedErrorNoMemory()
                 self.received_error_no_memory.parent = self
                 self._children_name_map["received_error_no_memory"] = "received-error-no-memory"
-                self._children_yang_names.add("received-error-no-memory")
 
                 self.protect_protocol_received_good_request = MplsOam.Packet.Received.ProtectProtocolReceivedGoodRequest()
                 self.protect_protocol_received_good_request.parent = self
                 self._children_name_map["protect_protocol_received_good_request"] = "protect-protocol-received-good-request"
-                self._children_yang_names.add("protect-protocol-received-good-request")
 
                 self.protect_protocol_received_good_reply = MplsOam.Packet.Received.ProtectProtocolReceivedGoodReply()
                 self.protect_protocol_received_good_reply.parent = self
                 self._children_name_map["protect_protocol_received_good_reply"] = "protect-protocol-received-good-reply"
-                self._children_yang_names.add("protect-protocol-received-good-reply")
 
                 self.received_good_bfd_request = MplsOam.Packet.Received.ReceivedGoodBfdRequest()
                 self.received_good_bfd_request.parent = self
                 self._children_name_map["received_good_bfd_request"] = "received-good-bfd-request"
-                self._children_yang_names.add("received-good-bfd-request")
 
                 self.received_good_bfd_reply = MplsOam.Packet.Received.ReceivedGoodBfdReply()
                 self.received_good_bfd_reply.parent = self
                 self._children_name_map["received_good_bfd_reply"] = "received-good-bfd-reply"
-                self._children_yang_names.add("received-good-bfd-reply")
                 self._segment_path = lambda: "received"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(MplsOam.Packet.Received, [], name, value)
 
 
             class ReceivedGoodRequest(Entity):
@@ -3093,8 +3009,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -3105,7 +3020,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodRequest, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodRequest, [u'packets', u'bytes'], name, value)
 
 
             class ReceivedGoodReply(Entity):
@@ -3143,8 +3058,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -3155,7 +3069,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodReply, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodReply, [u'packets', u'bytes'], name, value)
 
 
             class ReceivedUnknown(Entity):
@@ -3193,8 +3107,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -3205,7 +3118,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedUnknown, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedUnknown, [u'packets', u'bytes'], name, value)
 
 
             class ReceivedErrorIpHeader(Entity):
@@ -3243,8 +3156,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -3255,7 +3167,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorIpHeader, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorIpHeader, [u'packets', u'bytes'], name, value)
 
 
             class ReceivedErrorUdpHeader(Entity):
@@ -3293,8 +3205,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -3305,7 +3216,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorUdpHeader, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorUdpHeader, [u'packets', u'bytes'], name, value)
 
 
             class ReceivedErrorRunt(Entity):
@@ -3343,8 +3254,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -3355,7 +3265,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorRunt, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorRunt, [u'packets', u'bytes'], name, value)
 
 
             class ReceivedErrorQueueFull(Entity):
@@ -3393,8 +3303,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -3405,7 +3314,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorQueueFull, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorQueueFull, [u'packets', u'bytes'], name, value)
 
 
             class ReceivedErrorGeneral(Entity):
@@ -3443,8 +3352,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -3455,7 +3363,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorGeneral, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorGeneral, [u'packets', u'bytes'], name, value)
 
 
             class ReceivedErrorNoInterface(Entity):
@@ -3493,8 +3401,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -3505,7 +3412,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorNoInterface, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorNoInterface, [u'packets', u'bytes'], name, value)
 
 
             class ReceivedErrorNoMemory(Entity):
@@ -3543,8 +3450,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -3555,7 +3461,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorNoMemory, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorNoMemory, [u'packets', u'bytes'], name, value)
 
 
             class ProtectProtocolReceivedGoodRequest(Entity):
@@ -3593,8 +3499,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -3605,7 +3510,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ProtectProtocolReceivedGoodRequest, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ProtectProtocolReceivedGoodRequest, [u'packets', u'bytes'], name, value)
 
 
             class ProtectProtocolReceivedGoodReply(Entity):
@@ -3643,8 +3548,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -3655,7 +3559,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ProtectProtocolReceivedGoodReply, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ProtectProtocolReceivedGoodReply, [u'packets', u'bytes'], name, value)
 
 
             class ReceivedGoodBfdRequest(Entity):
@@ -3693,8 +3597,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -3705,7 +3608,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodBfdRequest, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodBfdRequest, [u'packets', u'bytes'], name, value)
 
 
             class ReceivedGoodBfdReply(Entity):
@@ -3743,8 +3646,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -3755,7 +3657,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodBfdReply, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodBfdReply, [u'packets', u'bytes'], name, value)
 
 
         class Sent(Entity):
@@ -3797,31 +3699,29 @@ class MplsOam(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("transmit-good", ("transmit_good", MplsOam.Packet.Sent.TransmitGood)), ("transmit-drop", ("transmit_drop", MplsOam.Packet.Sent.TransmitDrop)), ("transmit-bfd-good", ("transmit_bfd_good", MplsOam.Packet.Sent.TransmitBfdGood)), ("bfd-no-reply", ("bfd_no_reply", MplsOam.Packet.Sent.BfdNoReply))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("transmit-good", ("transmit_good", MplsOam.Packet.Sent.TransmitGood)), ("transmit-drop", ("transmit_drop", MplsOam.Packet.Sent.TransmitDrop)), ("transmit-bfd-good", ("transmit_bfd_good", MplsOam.Packet.Sent.TransmitBfdGood)), ("bfd-no-reply", ("bfd_no_reply", MplsOam.Packet.Sent.BfdNoReply))])
                 self._leafs = OrderedDict()
 
                 self.transmit_good = MplsOam.Packet.Sent.TransmitGood()
                 self.transmit_good.parent = self
                 self._children_name_map["transmit_good"] = "transmit-good"
-                self._children_yang_names.add("transmit-good")
 
                 self.transmit_drop = MplsOam.Packet.Sent.TransmitDrop()
                 self.transmit_drop.parent = self
                 self._children_name_map["transmit_drop"] = "transmit-drop"
-                self._children_yang_names.add("transmit-drop")
 
                 self.transmit_bfd_good = MplsOam.Packet.Sent.TransmitBfdGood()
                 self.transmit_bfd_good.parent = self
                 self._children_name_map["transmit_bfd_good"] = "transmit-bfd-good"
-                self._children_yang_names.add("transmit-bfd-good")
 
                 self.bfd_no_reply = MplsOam.Packet.Sent.BfdNoReply()
                 self.bfd_no_reply.parent = self
                 self._children_name_map["bfd_no_reply"] = "bfd-no-reply"
-                self._children_yang_names.add("bfd-no-reply")
                 self._segment_path = lambda: "sent"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(MplsOam.Packet.Sent, [], name, value)
 
 
             class TransmitGood(Entity):
@@ -3859,8 +3759,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -3871,7 +3770,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/sent/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Sent.TransmitGood, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Sent.TransmitGood, [u'packets', u'bytes'], name, value)
 
 
             class TransmitDrop(Entity):
@@ -3909,8 +3808,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -3921,7 +3819,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/sent/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Sent.TransmitDrop, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Sent.TransmitDrop, [u'packets', u'bytes'], name, value)
 
 
             class TransmitBfdGood(Entity):
@@ -3959,8 +3857,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -3971,7 +3868,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/sent/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Sent.TransmitBfdGood, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Sent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
 
 
             class BfdNoReply(Entity):
@@ -4010,8 +3907,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -4022,7 +3918,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/sent/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Sent.BfdNoReply, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Sent.BfdNoReply, [u'packets', u'bytes'], name, value)
 
 
         class WorkingReqSent(Entity):
@@ -4064,31 +3960,29 @@ class MplsOam(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("transmit-good", ("transmit_good", MplsOam.Packet.WorkingReqSent.TransmitGood)), ("transmit-drop", ("transmit_drop", MplsOam.Packet.WorkingReqSent.TransmitDrop)), ("transmit-bfd-good", ("transmit_bfd_good", MplsOam.Packet.WorkingReqSent.TransmitBfdGood)), ("bfd-no-reply", ("bfd_no_reply", MplsOam.Packet.WorkingReqSent.BfdNoReply))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("transmit-good", ("transmit_good", MplsOam.Packet.WorkingReqSent.TransmitGood)), ("transmit-drop", ("transmit_drop", MplsOam.Packet.WorkingReqSent.TransmitDrop)), ("transmit-bfd-good", ("transmit_bfd_good", MplsOam.Packet.WorkingReqSent.TransmitBfdGood)), ("bfd-no-reply", ("bfd_no_reply", MplsOam.Packet.WorkingReqSent.BfdNoReply))])
                 self._leafs = OrderedDict()
 
                 self.transmit_good = MplsOam.Packet.WorkingReqSent.TransmitGood()
                 self.transmit_good.parent = self
                 self._children_name_map["transmit_good"] = "transmit-good"
-                self._children_yang_names.add("transmit-good")
 
                 self.transmit_drop = MplsOam.Packet.WorkingReqSent.TransmitDrop()
                 self.transmit_drop.parent = self
                 self._children_name_map["transmit_drop"] = "transmit-drop"
-                self._children_yang_names.add("transmit-drop")
 
                 self.transmit_bfd_good = MplsOam.Packet.WorkingReqSent.TransmitBfdGood()
                 self.transmit_bfd_good.parent = self
                 self._children_name_map["transmit_bfd_good"] = "transmit-bfd-good"
-                self._children_yang_names.add("transmit-bfd-good")
 
                 self.bfd_no_reply = MplsOam.Packet.WorkingReqSent.BfdNoReply()
                 self.bfd_no_reply.parent = self
                 self._children_name_map["bfd_no_reply"] = "bfd-no-reply"
-                self._children_yang_names.add("bfd-no-reply")
                 self._segment_path = lambda: "working-req-sent"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(MplsOam.Packet.WorkingReqSent, [], name, value)
 
 
             class TransmitGood(Entity):
@@ -4126,8 +4020,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -4138,7 +4031,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/working-req-sent/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.WorkingReqSent.TransmitGood, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.WorkingReqSent.TransmitGood, [u'packets', u'bytes'], name, value)
 
 
             class TransmitDrop(Entity):
@@ -4176,8 +4069,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -4188,7 +4080,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/working-req-sent/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.WorkingReqSent.TransmitDrop, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.WorkingReqSent.TransmitDrop, [u'packets', u'bytes'], name, value)
 
 
             class TransmitBfdGood(Entity):
@@ -4226,8 +4118,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -4238,7 +4129,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/working-req-sent/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.WorkingReqSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.WorkingReqSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
 
 
             class BfdNoReply(Entity):
@@ -4277,8 +4168,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -4289,7 +4179,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/working-req-sent/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.WorkingReqSent.BfdNoReply, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.WorkingReqSent.BfdNoReply, [u'packets', u'bytes'], name, value)
 
 
         class WorkingRepSent(Entity):
@@ -4331,31 +4221,29 @@ class MplsOam(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("transmit-good", ("transmit_good", MplsOam.Packet.WorkingRepSent.TransmitGood)), ("transmit-drop", ("transmit_drop", MplsOam.Packet.WorkingRepSent.TransmitDrop)), ("transmit-bfd-good", ("transmit_bfd_good", MplsOam.Packet.WorkingRepSent.TransmitBfdGood)), ("bfd-no-reply", ("bfd_no_reply", MplsOam.Packet.WorkingRepSent.BfdNoReply))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("transmit-good", ("transmit_good", MplsOam.Packet.WorkingRepSent.TransmitGood)), ("transmit-drop", ("transmit_drop", MplsOam.Packet.WorkingRepSent.TransmitDrop)), ("transmit-bfd-good", ("transmit_bfd_good", MplsOam.Packet.WorkingRepSent.TransmitBfdGood)), ("bfd-no-reply", ("bfd_no_reply", MplsOam.Packet.WorkingRepSent.BfdNoReply))])
                 self._leafs = OrderedDict()
 
                 self.transmit_good = MplsOam.Packet.WorkingRepSent.TransmitGood()
                 self.transmit_good.parent = self
                 self._children_name_map["transmit_good"] = "transmit-good"
-                self._children_yang_names.add("transmit-good")
 
                 self.transmit_drop = MplsOam.Packet.WorkingRepSent.TransmitDrop()
                 self.transmit_drop.parent = self
                 self._children_name_map["transmit_drop"] = "transmit-drop"
-                self._children_yang_names.add("transmit-drop")
 
                 self.transmit_bfd_good = MplsOam.Packet.WorkingRepSent.TransmitBfdGood()
                 self.transmit_bfd_good.parent = self
                 self._children_name_map["transmit_bfd_good"] = "transmit-bfd-good"
-                self._children_yang_names.add("transmit-bfd-good")
 
                 self.bfd_no_reply = MplsOam.Packet.WorkingRepSent.BfdNoReply()
                 self.bfd_no_reply.parent = self
                 self._children_name_map["bfd_no_reply"] = "bfd-no-reply"
-                self._children_yang_names.add("bfd-no-reply")
                 self._segment_path = lambda: "working-rep-sent"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(MplsOam.Packet.WorkingRepSent, [], name, value)
 
 
             class TransmitGood(Entity):
@@ -4393,8 +4281,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -4405,7 +4292,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/working-rep-sent/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.WorkingRepSent.TransmitGood, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.WorkingRepSent.TransmitGood, [u'packets', u'bytes'], name, value)
 
 
             class TransmitDrop(Entity):
@@ -4443,8 +4330,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -4455,7 +4341,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/working-rep-sent/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.WorkingRepSent.TransmitDrop, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.WorkingRepSent.TransmitDrop, [u'packets', u'bytes'], name, value)
 
 
             class TransmitBfdGood(Entity):
@@ -4493,8 +4379,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -4505,7 +4390,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/working-rep-sent/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.WorkingRepSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.WorkingRepSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
 
 
             class BfdNoReply(Entity):
@@ -4544,8 +4429,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -4556,7 +4440,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/working-rep-sent/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.WorkingRepSent.BfdNoReply, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.WorkingRepSent.BfdNoReply, [u'packets', u'bytes'], name, value)
 
 
         class ProtectReqSent(Entity):
@@ -4598,31 +4482,29 @@ class MplsOam(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("transmit-good", ("transmit_good", MplsOam.Packet.ProtectReqSent.TransmitGood)), ("transmit-drop", ("transmit_drop", MplsOam.Packet.ProtectReqSent.TransmitDrop)), ("transmit-bfd-good", ("transmit_bfd_good", MplsOam.Packet.ProtectReqSent.TransmitBfdGood)), ("bfd-no-reply", ("bfd_no_reply", MplsOam.Packet.ProtectReqSent.BfdNoReply))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("transmit-good", ("transmit_good", MplsOam.Packet.ProtectReqSent.TransmitGood)), ("transmit-drop", ("transmit_drop", MplsOam.Packet.ProtectReqSent.TransmitDrop)), ("transmit-bfd-good", ("transmit_bfd_good", MplsOam.Packet.ProtectReqSent.TransmitBfdGood)), ("bfd-no-reply", ("bfd_no_reply", MplsOam.Packet.ProtectReqSent.BfdNoReply))])
                 self._leafs = OrderedDict()
 
                 self.transmit_good = MplsOam.Packet.ProtectReqSent.TransmitGood()
                 self.transmit_good.parent = self
                 self._children_name_map["transmit_good"] = "transmit-good"
-                self._children_yang_names.add("transmit-good")
 
                 self.transmit_drop = MplsOam.Packet.ProtectReqSent.TransmitDrop()
                 self.transmit_drop.parent = self
                 self._children_name_map["transmit_drop"] = "transmit-drop"
-                self._children_yang_names.add("transmit-drop")
 
                 self.transmit_bfd_good = MplsOam.Packet.ProtectReqSent.TransmitBfdGood()
                 self.transmit_bfd_good.parent = self
                 self._children_name_map["transmit_bfd_good"] = "transmit-bfd-good"
-                self._children_yang_names.add("transmit-bfd-good")
 
                 self.bfd_no_reply = MplsOam.Packet.ProtectReqSent.BfdNoReply()
                 self.bfd_no_reply.parent = self
                 self._children_name_map["bfd_no_reply"] = "bfd-no-reply"
-                self._children_yang_names.add("bfd-no-reply")
                 self._segment_path = lambda: "protect-req-sent"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(MplsOam.Packet.ProtectReqSent, [], name, value)
 
 
             class TransmitGood(Entity):
@@ -4660,8 +4542,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -4672,7 +4553,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/protect-req-sent/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.ProtectReqSent.TransmitGood, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.ProtectReqSent.TransmitGood, [u'packets', u'bytes'], name, value)
 
 
             class TransmitDrop(Entity):
@@ -4710,8 +4591,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -4722,7 +4602,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/protect-req-sent/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.ProtectReqSent.TransmitDrop, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.ProtectReqSent.TransmitDrop, [u'packets', u'bytes'], name, value)
 
 
             class TransmitBfdGood(Entity):
@@ -4760,8 +4640,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -4772,7 +4651,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/protect-req-sent/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.ProtectReqSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.ProtectReqSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
 
 
             class BfdNoReply(Entity):
@@ -4811,8 +4690,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -4823,7 +4701,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/protect-req-sent/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.ProtectReqSent.BfdNoReply, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.ProtectReqSent.BfdNoReply, [u'packets', u'bytes'], name, value)
 
 
         class ProtectRepSent(Entity):
@@ -4865,31 +4743,29 @@ class MplsOam(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("transmit-good", ("transmit_good", MplsOam.Packet.ProtectRepSent.TransmitGood)), ("transmit-drop", ("transmit_drop", MplsOam.Packet.ProtectRepSent.TransmitDrop)), ("transmit-bfd-good", ("transmit_bfd_good", MplsOam.Packet.ProtectRepSent.TransmitBfdGood)), ("bfd-no-reply", ("bfd_no_reply", MplsOam.Packet.ProtectRepSent.BfdNoReply))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("transmit-good", ("transmit_good", MplsOam.Packet.ProtectRepSent.TransmitGood)), ("transmit-drop", ("transmit_drop", MplsOam.Packet.ProtectRepSent.TransmitDrop)), ("transmit-bfd-good", ("transmit_bfd_good", MplsOam.Packet.ProtectRepSent.TransmitBfdGood)), ("bfd-no-reply", ("bfd_no_reply", MplsOam.Packet.ProtectRepSent.BfdNoReply))])
                 self._leafs = OrderedDict()
 
                 self.transmit_good = MplsOam.Packet.ProtectRepSent.TransmitGood()
                 self.transmit_good.parent = self
                 self._children_name_map["transmit_good"] = "transmit-good"
-                self._children_yang_names.add("transmit-good")
 
                 self.transmit_drop = MplsOam.Packet.ProtectRepSent.TransmitDrop()
                 self.transmit_drop.parent = self
                 self._children_name_map["transmit_drop"] = "transmit-drop"
-                self._children_yang_names.add("transmit-drop")
 
                 self.transmit_bfd_good = MplsOam.Packet.ProtectRepSent.TransmitBfdGood()
                 self.transmit_bfd_good.parent = self
                 self._children_name_map["transmit_bfd_good"] = "transmit-bfd-good"
-                self._children_yang_names.add("transmit-bfd-good")
 
                 self.bfd_no_reply = MplsOam.Packet.ProtectRepSent.BfdNoReply()
                 self.bfd_no_reply.parent = self
                 self._children_name_map["bfd_no_reply"] = "bfd-no-reply"
-                self._children_yang_names.add("bfd-no-reply")
                 self._segment_path = lambda: "protect-rep-sent"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(MplsOam.Packet.ProtectRepSent, [], name, value)
 
 
             class TransmitGood(Entity):
@@ -4927,8 +4803,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -4939,7 +4814,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/protect-rep-sent/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.ProtectRepSent.TransmitGood, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.ProtectRepSent.TransmitGood, [u'packets', u'bytes'], name, value)
 
 
             class TransmitDrop(Entity):
@@ -4977,8 +4852,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -4989,7 +4863,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/protect-rep-sent/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.ProtectRepSent.TransmitDrop, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.ProtectRepSent.TransmitDrop, [u'packets', u'bytes'], name, value)
 
 
             class TransmitBfdGood(Entity):
@@ -5027,8 +4901,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -5039,7 +4912,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/protect-rep-sent/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.ProtectRepSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.ProtectRepSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
 
 
             class BfdNoReply(Entity):
@@ -5078,8 +4951,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets', YLeaf(YType.uint64, 'packets')),
                         ('bytes', YLeaf(YType.uint64, 'bytes')),
@@ -5090,7 +4962,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/protect-rep-sent/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.ProtectRepSent.BfdNoReply, ['packets', 'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.ProtectRepSent.BfdNoReply, [u'packets', u'bytes'], name, value)
 
 
     class Global(Entity):
@@ -5129,8 +5001,7 @@ class MplsOam(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("message-statistics", ("message_statistics", MplsOam.Global.MessageStatistics)), ("collaborator-statistics", ("collaborator_statistics", MplsOam.Global.CollaboratorStatistics))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("message-statistics", ("message_statistics", MplsOam.Global.MessageStatistics)), ("collaborator-statistics", ("collaborator_statistics", MplsOam.Global.CollaboratorStatistics))])
             self._leafs = OrderedDict([
                 ('total_clients', YLeaf(YType.uint32, 'total-clients')),
             ])
@@ -5139,17 +5010,15 @@ class MplsOam(Entity):
             self.message_statistics = MplsOam.Global.MessageStatistics()
             self.message_statistics.parent = self
             self._children_name_map["message_statistics"] = "message-statistics"
-            self._children_yang_names.add("message-statistics")
 
             self.collaborator_statistics = MplsOam.Global.CollaboratorStatistics()
             self.collaborator_statistics.parent = self
             self._children_name_map["collaborator_statistics"] = "collaborator-statistics"
-            self._children_yang_names.add("collaborator-statistics")
             self._segment_path = lambda: "global"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MplsOam.Global, ['total_clients'], name, value)
+            self._perform_setattr(MplsOam.Global, [u'total_clients'], name, value)
 
 
         class MessageStatistics(Entity):
@@ -5248,8 +5117,7 @@ class MplsOam(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('register_messages', YLeaf(YType.uint32, 'register-messages')),
                     ('unregister_messages', YLeaf(YType.uint32, 'unregister-messages')),
@@ -5278,7 +5146,7 @@ class MplsOam(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/global/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MplsOam.Global.MessageStatistics, ['register_messages', 'unregister_messages', 'echo_submit_messages', 'echo_cancel_messages', 'get_result_messages', 'get_config_messages', 'get_response_messages', 'property_response_messages', 'property_request_messages', 'property_block_messages', 'thread_request_messages'], name, value)
+                self._perform_setattr(MplsOam.Global.MessageStatistics, [u'register_messages', u'unregister_messages', u'echo_submit_messages', u'echo_cancel_messages', u'get_result_messages', u'get_config_messages', u'get_response_messages', u'property_response_messages', u'property_request_messages', u'property_block_messages', u'thread_request_messages'], name, value)
 
 
         class CollaboratorStatistics(Entity):
@@ -5320,31 +5188,29 @@ class MplsOam(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("collaborator-i-parm", ("collaborator_i_parm", MplsOam.Global.CollaboratorStatistics.CollaboratorIParm)), ("collaborator-im", ("collaborator_im", MplsOam.Global.CollaboratorStatistics.CollaboratorIm)), ("collaborator-net-io", ("collaborator_net_io", MplsOam.Global.CollaboratorStatistics.CollaboratorNetIo)), ("collaborator-rib", ("collaborator_rib", MplsOam.Global.CollaboratorStatistics.CollaboratorRib))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("collaborator-i-parm", ("collaborator_i_parm", MplsOam.Global.CollaboratorStatistics.CollaboratorIParm)), ("collaborator-im", ("collaborator_im", MplsOam.Global.CollaboratorStatistics.CollaboratorIm)), ("collaborator-net-io", ("collaborator_net_io", MplsOam.Global.CollaboratorStatistics.CollaboratorNetIo)), ("collaborator-rib", ("collaborator_rib", MplsOam.Global.CollaboratorStatistics.CollaboratorRib))])
                 self._leafs = OrderedDict()
 
                 self.collaborator_i_parm = MplsOam.Global.CollaboratorStatistics.CollaboratorIParm()
                 self.collaborator_i_parm.parent = self
                 self._children_name_map["collaborator_i_parm"] = "collaborator-i-parm"
-                self._children_yang_names.add("collaborator-i-parm")
 
                 self.collaborator_im = MplsOam.Global.CollaboratorStatistics.CollaboratorIm()
                 self.collaborator_im.parent = self
                 self._children_name_map["collaborator_im"] = "collaborator-im"
-                self._children_yang_names.add("collaborator-im")
 
                 self.collaborator_net_io = MplsOam.Global.CollaboratorStatistics.CollaboratorNetIo()
                 self.collaborator_net_io.parent = self
                 self._children_name_map["collaborator_net_io"] = "collaborator-net-io"
-                self._children_yang_names.add("collaborator-net-io")
 
                 self.collaborator_rib = MplsOam.Global.CollaboratorStatistics.CollaboratorRib()
                 self.collaborator_rib.parent = self
                 self._children_name_map["collaborator_rib"] = "collaborator-rib"
-                self._children_yang_names.add("collaborator-rib")
                 self._segment_path = lambda: "collaborator-statistics"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/global/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(MplsOam.Global.CollaboratorStatistics, [], name, value)
 
 
             class CollaboratorIParm(Entity):
@@ -5380,8 +5246,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ups', YLeaf(YType.uint32, 'ups')),
                         ('downs', YLeaf(YType.uint32, 'downs')),
@@ -5392,7 +5257,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/global/collaborator-statistics/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorIParm, ['ups', 'downs'], name, value)
+                    self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorIParm, [u'ups', u'downs'], name, value)
 
 
             class CollaboratorIm(Entity):
@@ -5428,8 +5293,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ups', YLeaf(YType.uint32, 'ups')),
                         ('downs', YLeaf(YType.uint32, 'downs')),
@@ -5440,7 +5304,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/global/collaborator-statistics/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorIm, ['ups', 'downs'], name, value)
+                    self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorIm, [u'ups', u'downs'], name, value)
 
 
             class CollaboratorNetIo(Entity):
@@ -5476,8 +5340,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ups', YLeaf(YType.uint32, 'ups')),
                         ('downs', YLeaf(YType.uint32, 'downs')),
@@ -5488,7 +5351,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/global/collaborator-statistics/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorNetIo, ['ups', 'downs'], name, value)
+                    self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorNetIo, [u'ups', u'downs'], name, value)
 
 
             class CollaboratorRib(Entity):
@@ -5524,8 +5387,7 @@ class MplsOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ups', YLeaf(YType.uint32, 'ups')),
                         ('downs', YLeaf(YType.uint32, 'downs')),
@@ -5536,7 +5398,7 @@ class MplsOam(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/global/collaborator-statistics/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorRib, ['ups', 'downs'], name, value)
+                    self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorRib, [u'ups', u'downs'], name, value)
 
     def clone_ptr(self):
         self._top_entity = MplsOam()

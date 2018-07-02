@@ -1,5 +1,10 @@
 """ Cisco_IOS_XR_sysadmin_fpd_infra_cli_fpdserv_ctrace 
 
+This module contains definitions
+for the Calvados model objects.
+
+Copyright (c) 2012\-2017 by Cisco Systems, Inc.
+All rights reserved.
 
 """
 from collections import OrderedDict
@@ -36,8 +41,7 @@ class Fpdserv(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("trace", ("trace", Fpdserv.Trace))])
+        self._child_classes = OrderedDict([("trace", ("trace", Fpdserv.Trace))])
         self._leafs = OrderedDict()
 
         self.trace = YList(self)
@@ -76,8 +80,7 @@ class Fpdserv(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['buffer']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("location", ("location", Fpdserv.Trace.Location))])
+            self._child_classes = OrderedDict([("location", ("location", Fpdserv.Trace.Location))])
             self._leafs = OrderedDict([
                 ('buffer', YLeaf(YType.str, 'buffer')),
             ])
@@ -88,7 +91,7 @@ class Fpdserv(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-fpd-infra-cli-fpdserv-ctrace:fpdserv/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Fpdserv.Trace, ['buffer'], name, value)
+            self._perform_setattr(Fpdserv.Trace, [u'buffer'], name, value)
 
 
         class Location(Entity):
@@ -120,8 +123,7 @@ class Fpdserv(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['location_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("all-options", ("all_options", Fpdserv.Trace.Location.AllOptions))])
+                self._child_classes = OrderedDict([("all-options", ("all_options", Fpdserv.Trace.Location.AllOptions))])
                 self._leafs = OrderedDict([
                     ('location_name', YLeaf(YType.str, 'location_name')),
                 ])
@@ -131,7 +133,7 @@ class Fpdserv(Entity):
                 self._segment_path = lambda: "location" + "[location_name='" + str(self.location_name) + "']"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Fpdserv.Trace.Location, ['location_name'], name, value)
+                self._perform_setattr(Fpdserv.Trace.Location, [u'location_name'], name, value)
 
 
             class AllOptions(Entity):
@@ -163,8 +165,7 @@ class Fpdserv(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['option']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("trace-blocks", ("trace_blocks", Fpdserv.Trace.Location.AllOptions.TraceBlocks))])
+                    self._child_classes = OrderedDict([("trace-blocks", ("trace_blocks", Fpdserv.Trace.Location.AllOptions.TraceBlocks))])
                     self._leafs = OrderedDict([
                         ('option', YLeaf(YType.str, 'option')),
                     ])
@@ -174,7 +175,7 @@ class Fpdserv(Entity):
                     self._segment_path = lambda: "all-options" + "[option='" + str(self.option) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Fpdserv.Trace.Location.AllOptions, ['option'], name, value)
+                    self._perform_setattr(Fpdserv.Trace.Location.AllOptions, [u'option'], name, value)
 
 
                 class TraceBlocks(Entity):
@@ -201,8 +202,7 @@ class Fpdserv(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('data', YLeaf(YType.str, 'data')),
                         ])
@@ -210,7 +210,7 @@ class Fpdserv(Entity):
                         self._segment_path = lambda: "trace-blocks"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Fpdserv.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
+                        self._perform_setattr(Fpdserv.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Fpdserv()

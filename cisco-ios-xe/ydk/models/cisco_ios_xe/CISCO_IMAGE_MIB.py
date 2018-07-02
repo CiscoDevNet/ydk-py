@@ -20,7 +20,7 @@ class CISCOIMAGEMIB(Entity):
     .. attribute:: ciscoimagetable
     
     	A table provides content information describing the executing IOS image
-    	**type**\:  :py:class:`Ciscoimagetable <ydk.models.cisco_ios_xe.CISCO_IMAGE_MIB.CISCOIMAGEMIB.Ciscoimagetable>`
+    	**type**\:  :py:class:`CiscoImageTable <ydk.models.cisco_ios_xe.CISCO_IMAGE_MIB.CISCOIMAGEMIB.CiscoImageTable>`
     
     
 
@@ -38,18 +38,19 @@ class CISCOIMAGEMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ciscoImageTable", ("ciscoimagetable", CISCOIMAGEMIB.Ciscoimagetable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ciscoImageTable", ("ciscoimagetable", CISCOIMAGEMIB.CiscoImageTable))])
         self._leafs = OrderedDict()
 
-        self.ciscoimagetable = CISCOIMAGEMIB.Ciscoimagetable()
+        self.ciscoimagetable = CISCOIMAGEMIB.CiscoImageTable()
         self.ciscoimagetable.parent = self
         self._children_name_map["ciscoimagetable"] = "ciscoImageTable"
-        self._children_yang_names.add("ciscoImageTable")
         self._segment_path = lambda: "CISCO-IMAGE-MIB:CISCO-IMAGE-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOIMAGEMIB, [], name, value)
 
-    class Ciscoimagetable(Entity):
+
+    class CiscoImageTable(Entity):
         """
         A table provides content information describing the
         executing IOS image.
@@ -57,7 +58,7 @@ class CISCOIMAGEMIB(Entity):
         .. attribute:: ciscoimageentry
         
         	A image characteristic string entry
-        	**type**\: list of  		 :py:class:`Ciscoimageentry <ydk.models.cisco_ios_xe.CISCO_IMAGE_MIB.CISCOIMAGEMIB.Ciscoimagetable.Ciscoimageentry>`
+        	**type**\: list of  		 :py:class:`CiscoImageEntry <ydk.models.cisco_ios_xe.CISCO_IMAGE_MIB.CISCOIMAGEMIB.CiscoImageTable.CiscoImageEntry>`
         
         
 
@@ -67,15 +68,14 @@ class CISCOIMAGEMIB(Entity):
         _revision = '1995-08-15'
 
         def __init__(self):
-            super(CISCOIMAGEMIB.Ciscoimagetable, self).__init__()
+            super(CISCOIMAGEMIB.CiscoImageTable, self).__init__()
 
             self.yang_name = "ciscoImageTable"
             self.yang_parent_name = "CISCO-IMAGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ciscoImageEntry", ("ciscoimageentry", CISCOIMAGEMIB.Ciscoimagetable.Ciscoimageentry))])
+            self._child_classes = OrderedDict([("ciscoImageEntry", ("ciscoimageentry", CISCOIMAGEMIB.CiscoImageTable.CiscoImageEntry))])
             self._leafs = OrderedDict()
 
             self.ciscoimageentry = YList(self)
@@ -83,10 +83,10 @@ class CISCOIMAGEMIB(Entity):
             self._absolute_path = lambda: "CISCO-IMAGE-MIB:CISCO-IMAGE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIMAGEMIB.Ciscoimagetable, [], name, value)
+            self._perform_setattr(CISCOIMAGEMIB.CiscoImageTable, [], name, value)
 
 
-        class Ciscoimageentry(Entity):
+        class CiscoImageEntry(Entity):
             """
             A image characteristic string entry.
             
@@ -110,15 +110,14 @@ class CISCOIMAGEMIB(Entity):
             _revision = '1995-08-15'
 
             def __init__(self):
-                super(CISCOIMAGEMIB.Ciscoimagetable.Ciscoimageentry, self).__init__()
+                super(CISCOIMAGEMIB.CiscoImageTable.CiscoImageEntry, self).__init__()
 
                 self.yang_name = "ciscoImageEntry"
                 self.yang_parent_name = "ciscoImageTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ciscoimageindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ciscoimageindex', YLeaf(YType.int32, 'ciscoImageIndex')),
                     ('ciscoimagestring', YLeaf(YType.str, 'ciscoImageString')),
@@ -129,7 +128,7 @@ class CISCOIMAGEMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IMAGE-MIB:CISCO-IMAGE-MIB/ciscoImageTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIMAGEMIB.Ciscoimagetable.Ciscoimageentry, ['ciscoimageindex', 'ciscoimagestring'], name, value)
+                self._perform_setattr(CISCOIMAGEMIB.CiscoImageTable.CiscoImageEntry, ['ciscoimageindex', 'ciscoimagestring'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOIMAGEMIB()

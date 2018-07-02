@@ -40,15 +40,16 @@ class CpuUsage(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cpu-utilization", ("cpu_utilization", CpuUsage.CpuUtilization))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cpu-utilization", ("cpu_utilization", CpuUsage.CpuUtilization))])
         self._leafs = OrderedDict()
 
         self.cpu_utilization = CpuUsage.CpuUtilization()
         self.cpu_utilization.parent = self
         self._children_name_map["cpu_utilization"] = "cpu-utilization"
-        self._children_yang_names.add("cpu-utilization")
         self._segment_path = lambda: "Cisco-IOS-XE-process-cpu-oper:cpu-usage"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(CpuUsage, [], name, value)
 
 
     class CpuUtilization(Entity):
@@ -111,8 +112,7 @@ class CpuUsage(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("cpu-usage-processes", ("cpu_usage_processes", CpuUsage.CpuUtilization.CpuUsageProcesses))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("cpu-usage-processes", ("cpu_usage_processes", CpuUsage.CpuUtilization.CpuUsageProcesses))])
             self._leafs = OrderedDict([
                 ('five_seconds', YLeaf(YType.uint8, 'five-seconds')),
                 ('five_seconds_intr', YLeaf(YType.uint8, 'five-seconds-intr')),
@@ -127,7 +127,6 @@ class CpuUsage(Entity):
             self.cpu_usage_processes = CpuUsage.CpuUtilization.CpuUsageProcesses()
             self.cpu_usage_processes.parent = self
             self._children_name_map["cpu_usage_processes"] = "cpu-usage-processes"
-            self._children_yang_names.add("cpu-usage-processes")
             self._segment_path = lambda: "cpu-utilization"
             self._absolute_path = lambda: "Cisco-IOS-XE-process-cpu-oper:cpu-usage/%s" % self._segment_path()
 
@@ -159,8 +158,7 @@ class CpuUsage(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("cpu-usage-process", ("cpu_usage_process", CpuUsage.CpuUtilization.CpuUsageProcesses.CpuUsageProcess))])
+                self._child_classes = OrderedDict([("cpu-usage-process", ("cpu_usage_process", CpuUsage.CpuUtilization.CpuUsageProcesses.CpuUsageProcess))])
                 self._leafs = OrderedDict()
 
                 self.cpu_usage_process = YList(self)
@@ -261,8 +259,7 @@ class CpuUsage(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['pid','name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('pid', YLeaf(YType.uint32, 'pid')),
                         ('name', YLeaf(YType.str, 'name')),

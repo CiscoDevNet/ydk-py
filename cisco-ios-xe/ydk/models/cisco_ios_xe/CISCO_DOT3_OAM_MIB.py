@@ -82,32 +82,32 @@ class CISCODOT3OAMMIB(Entity):
     .. attribute:: cdot3oamtable
     
     	This table contains the primary controls and status for the OAM capabilities of an Ethernet like interface.  There will be one row in this table for each Ethernet like interface in the system that supports the OAM functions defined in [802.3ah]
-    	**type**\:  :py:class:`Cdot3Oamtable <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3Oamtable>`
+    	**type**\:  :py:class:`Cdot3OamTable <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamTable>`
     
     .. attribute:: cdot3oampeertable
     
     	This table contains information about the OAM peer for a particular Ethernet like interface. OAM entities communicate with a single OAM peer entity on Ethernet links on which OAM is enabled and operating properly.  There is one entry in this table for each entry in the cdot3OamTable for which information on the peer OAM entity is available.  
-    	**type**\:  :py:class:`Cdot3Oampeertable <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3Oampeertable>`
+    	**type**\:  :py:class:`Cdot3OamPeerTable <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamPeerTable>`
     
     .. attribute:: cdot3oamloopbacktable
     
     	This table contains controls for the loopback state of the local link as well as indicating the status of the loopback function.  There is one entry in this table for each entry in cdot3OamTable that supports loopback functionality (where cdot3OamFunctionsSupported includes the loopbackSupport bit set).  Loopback can be used to place the remote OAM entity in a state where every received frame (except OAMPDUs) is echoed back over the same interface on which they were received.   In this state, at the remote entity, 'normal' traffic is disabled as only the looped back frames are transmitted on the interface. Loopback is thus an intrusive operation that prohibits normal data flow and should be used accordingly.  
-    	**type**\:  :py:class:`Cdot3Oamloopbacktable <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3Oamloopbacktable>`
+    	**type**\:  :py:class:`Cdot3OamLoopbackTable <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamLoopbackTable>`
     
     .. attribute:: cdot3oamstatstable
     
     	This table contains statistics for the OAM function on a particular Ethernet like interface. There is an entry in the table for every entry in the cdot3OamTable.   The counters in this table are defined as 32\-bit entries to match the counter size as defined in [802.3ah].  Given the OAM protocol is a slow protocol, the counters increment at a slow rate. 
-    	**type**\:  :py:class:`Cdot3Oamstatstable <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3Oamstatstable>`
+    	**type**\:  :py:class:`Cdot3OamStatsTable <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamStatsTable>`
     
     .. attribute:: cdot3oameventconfigtable
     
     	Ethernet OAM includes the ability to generate and receive Event Notification OAMPDUs to indicate various link problems. This table contains the mechanisms to enable Event Notifications and configure the thresholds to generate the standard Ethernet OAM events.  There is one entry in the table for every entry in cdot3OamTable that supports OAM events (where cdot3OamFunctionsSupported includes the eventSupport bit set). The values in the table are maintained across changes to cdot3OamOperStatus.    The standard threshold crossing events are\:   \- Errored Symbol Period Event.  Generated when the number of     symbol errors exceeds a threshold within a given window      defined by a number of symbols (for example, 1,000 symbols     out of 1,000,000 had errors).     \- Errored Frame Period Event.  Generated when the number of      frame errors exceeds a threshold within a given window      defined by a number of frames (for example, 10 frames out     of 1000 had errors).     \- Errored Frame Event.  Generated when the number of frame      errors exceeds a threshold within a given window defined      by a period of time (for example, 10 frames in 1 second      had errors).   \- Errored Frame Seconds Summary Event.  Generated when the      number of errored frame seconds exceeds a threshold within     a given time period (for example, 10 errored frame seconds     within the last 100 seconds).  An errored frame second is      defined as a 1 second interval which had >0 frame errors.   There are other events (dying gasp, critical events) that are not threshold crossing events but which can be enabled/disabled via this table.  
-    	**type**\:  :py:class:`Cdot3Oameventconfigtable <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3Oameventconfigtable>`
+    	**type**\:  :py:class:`Cdot3OamEventConfigTable <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamEventConfigTable>`
     
     .. attribute:: cdot3oameventlogtable
     
     	This table records a history of the events that have occurred at the Ethernet OAM level.  These events can include locally detected events, which may result in locally generated OAMPDUs, and remotely detected events, which are detected by the OAM peer entity and signaled to the local entity via Ethernet OAM.  Ethernet OAM events can be signaled by Event Notification OAMPDUs or by the flags field in any OAMPDU.    This table contains both threshold crossing events and non\-threshold crossing events.  The parameters for the threshold window, threshold value, and actual value (cdot3OamEventLogWindowXX, cdot3OamEventLogThresholdXX, cdot3OamEventLogValue) are only applicable to threshold crossing events, and are returned as all F's (2^32 \- 1) for non\-threshold crossing events.   Entries in the table are automatically created when such events are detected.  The size of the table is implementation dependent.  When the table reaches its maximum size, older entries are automatically deleted to make room for newer entries. 
-    	**type**\:  :py:class:`Cdot3Oameventlogtable <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3Oameventlogtable>`
+    	**type**\:  :py:class:`Cdot3OamEventLogTable <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamEventLogTable>`
     
     
 
@@ -125,43 +125,39 @@ class CISCODOT3OAMMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cdot3OamTable", ("cdot3oamtable", CISCODOT3OAMMIB.Cdot3Oamtable)), ("cdot3OamPeerTable", ("cdot3oampeertable", CISCODOT3OAMMIB.Cdot3Oampeertable)), ("cdot3OamLoopbackTable", ("cdot3oamloopbacktable", CISCODOT3OAMMIB.Cdot3Oamloopbacktable)), ("cdot3OamStatsTable", ("cdot3oamstatstable", CISCODOT3OAMMIB.Cdot3Oamstatstable)), ("cdot3OamEventConfigTable", ("cdot3oameventconfigtable", CISCODOT3OAMMIB.Cdot3Oameventconfigtable)), ("cdot3OamEventLogTable", ("cdot3oameventlogtable", CISCODOT3OAMMIB.Cdot3Oameventlogtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cdot3OamTable", ("cdot3oamtable", CISCODOT3OAMMIB.Cdot3OamTable)), ("cdot3OamPeerTable", ("cdot3oampeertable", CISCODOT3OAMMIB.Cdot3OamPeerTable)), ("cdot3OamLoopbackTable", ("cdot3oamloopbacktable", CISCODOT3OAMMIB.Cdot3OamLoopbackTable)), ("cdot3OamStatsTable", ("cdot3oamstatstable", CISCODOT3OAMMIB.Cdot3OamStatsTable)), ("cdot3OamEventConfigTable", ("cdot3oameventconfigtable", CISCODOT3OAMMIB.Cdot3OamEventConfigTable)), ("cdot3OamEventLogTable", ("cdot3oameventlogtable", CISCODOT3OAMMIB.Cdot3OamEventLogTable))])
         self._leafs = OrderedDict()
 
-        self.cdot3oamtable = CISCODOT3OAMMIB.Cdot3Oamtable()
+        self.cdot3oamtable = CISCODOT3OAMMIB.Cdot3OamTable()
         self.cdot3oamtable.parent = self
         self._children_name_map["cdot3oamtable"] = "cdot3OamTable"
-        self._children_yang_names.add("cdot3OamTable")
 
-        self.cdot3oampeertable = CISCODOT3OAMMIB.Cdot3Oampeertable()
+        self.cdot3oampeertable = CISCODOT3OAMMIB.Cdot3OamPeerTable()
         self.cdot3oampeertable.parent = self
         self._children_name_map["cdot3oampeertable"] = "cdot3OamPeerTable"
-        self._children_yang_names.add("cdot3OamPeerTable")
 
-        self.cdot3oamloopbacktable = CISCODOT3OAMMIB.Cdot3Oamloopbacktable()
+        self.cdot3oamloopbacktable = CISCODOT3OAMMIB.Cdot3OamLoopbackTable()
         self.cdot3oamloopbacktable.parent = self
         self._children_name_map["cdot3oamloopbacktable"] = "cdot3OamLoopbackTable"
-        self._children_yang_names.add("cdot3OamLoopbackTable")
 
-        self.cdot3oamstatstable = CISCODOT3OAMMIB.Cdot3Oamstatstable()
+        self.cdot3oamstatstable = CISCODOT3OAMMIB.Cdot3OamStatsTable()
         self.cdot3oamstatstable.parent = self
         self._children_name_map["cdot3oamstatstable"] = "cdot3OamStatsTable"
-        self._children_yang_names.add("cdot3OamStatsTable")
 
-        self.cdot3oameventconfigtable = CISCODOT3OAMMIB.Cdot3Oameventconfigtable()
+        self.cdot3oameventconfigtable = CISCODOT3OAMMIB.Cdot3OamEventConfigTable()
         self.cdot3oameventconfigtable.parent = self
         self._children_name_map["cdot3oameventconfigtable"] = "cdot3OamEventConfigTable"
-        self._children_yang_names.add("cdot3OamEventConfigTable")
 
-        self.cdot3oameventlogtable = CISCODOT3OAMMIB.Cdot3Oameventlogtable()
+        self.cdot3oameventlogtable = CISCODOT3OAMMIB.Cdot3OamEventLogTable()
         self.cdot3oameventlogtable.parent = self
         self._children_name_map["cdot3oameventlogtable"] = "cdot3OamEventLogTable"
-        self._children_yang_names.add("cdot3OamEventLogTable")
         self._segment_path = lambda: "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCODOT3OAMMIB, [], name, value)
 
-    class Cdot3Oamtable(Entity):
+
+    class Cdot3OamTable(Entity):
         """
         This table contains the primary controls and status for the
         OAM capabilities of an Ethernet like interface.  There will be
@@ -171,7 +167,7 @@ class CISCODOT3OAMMIB(Entity):
         .. attribute:: cdot3oamentry
         
         	An entry in the table, containing information on the Ethernet OAM function for a single Ethernet like interface. Entries in the table are created automatically for each interface supporting Ethernet OAM. The status of the row entry can be determined from cdot3OamOperStatus.    A cdot3OamEntry is indexed in the cdot3OamTable by the ifIndex object of the Interfaces MIB.  
-        	**type**\: list of  		 :py:class:`Cdot3Oamentry <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3Oamtable.Cdot3Oamentry>`
+        	**type**\: list of  		 :py:class:`Cdot3OamEntry <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamTable.Cdot3OamEntry>`
         
         
 
@@ -181,15 +177,14 @@ class CISCODOT3OAMMIB(Entity):
         _revision = '2006-05-31'
 
         def __init__(self):
-            super(CISCODOT3OAMMIB.Cdot3Oamtable, self).__init__()
+            super(CISCODOT3OAMMIB.Cdot3OamTable, self).__init__()
 
             self.yang_name = "cdot3OamTable"
             self.yang_parent_name = "CISCO-DOT3-OAM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cdot3OamEntry", ("cdot3oamentry", CISCODOT3OAMMIB.Cdot3Oamtable.Cdot3Oamentry))])
+            self._child_classes = OrderedDict([("cdot3OamEntry", ("cdot3oamentry", CISCODOT3OAMMIB.Cdot3OamTable.Cdot3OamEntry))])
             self._leafs = OrderedDict()
 
             self.cdot3oamentry = YList(self)
@@ -197,10 +192,10 @@ class CISCODOT3OAMMIB(Entity):
             self._absolute_path = lambda: "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCODOT3OAMMIB.Cdot3Oamtable, [], name, value)
+            self._perform_setattr(CISCODOT3OAMMIB.Cdot3OamTable, [], name, value)
 
 
-        class Cdot3Oamentry(Entity):
+        class Cdot3OamEntry(Entity):
             """
             An entry in the table, containing information on the Ethernet
             OAM function for a single Ethernet like interface. Entries in
@@ -218,22 +213,22 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: cdot3oamadminstate
             
             	This object is used to provision the default administrative OAM mode for this interface.  This object represents the desired state of OAM for this interface.    The cdot3OamAdminState always starts in the disabled(1) state until an explicit management action or configuration information retained by the system causes a transition to the enabled(2) state.   When enabled(2), Ethernet OAM will attempt to operate over this interface.  
-            	**type**\:  :py:class:`Cdot3Oamadminstate <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3Oamtable.Cdot3Oamentry.Cdot3Oamadminstate>`
+            	**type**\:  :py:class:`Cdot3OamAdminState <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamTable.Cdot3OamEntry.Cdot3OamAdminState>`
             
             .. attribute:: cdot3oamoperstatus
             
             	At initialization and failure conditions, two OAM entities on the same full\-duplex Ethernet link begin a discovery phase to determine what OAM capabilities may be used on that link.  The progress of this initialization is controlled by the OAM sublayer.               This value is always disabled(1) if OAM is disabled on this interface via the cdot3OamAdminState.    If the link has detected a fault and is transmitting OAMPDUs with a link fault indication, the value is linkFault(2). Also, if the interface is not operational (ifOperStatus is not  up(1)), linkFault(2) is returned.  Note that the object  ifOperStatus may not be up(1) as a result of link failure or administrative action (ifAdminState being down(2) or testing(3)).                     The passiveWait(3) state is returned only by OAM entities in passive mode (cdot3OamMode) and reflects the state in which the OAM entity is waiting to see if the peer device is OAM capable.  The activeSendLocal(4) value is used by active mode devices (cdot3OamMode) and reflects the OAM entity actively trying to discover whether the peer has OAM capability but has not yet made that determination.                     The state sendLocalAndRemote(5) reflects that the local OAM entity has discovered the peer but has not yet accepted or rejected the configuration of the peer.  The local device can, for whatever reason, decide that the peer device is unacceptable and decline OAM peering.  If the local OAM entity rejects the peer OAM entity, the state becomes oamPeeringLocallyRejected(7).  If the OAM peering is allowed by the local device, the state moves to sendLocalAndRemoteOk(6).  Note that both the sendLocalAndRemote(5) and oamPeeringLocallyRejected(7) states fall within the state SEND\_LOCAL\_REMOTE of the Discovery state diagram [802.3ah, Figure 57\-5], with the difference being whether the local OAM client has actively rejected the peering or has just not indicated any decision yet.  Whether a peering decision has been made is indicated via the local flags field in the OAMPDU (reflected in the aOAMLocalFlagsField of 30.3.6.1.10).    If the remote OAM entity rejects the peering, the state becomes oamPeeringRemotelyRejected(8).  Note that both the sendLocalAndRemoteOk(6) and oamPeeringRemotelyRejected(8) states fall within the state SEND\_LOCAL\_REMOTE\_OK of the Discovery state diagram [802.3ah, Figure 57\-5], with the difference being whether the remote OAM client has rejected the peering or has just not yet decided.  This is indicated via the remote flags field in the OAM PDU (reflected in the aOAMRemoteFlagsField of 30.3.6.1.11).                     When the local OAM entity learns that both it and the remote OAM entity have accepted the peering, the state moves to operational(9) corresponding to the SEND\_ANY state of the Discovery state diagram [802.3ah, Figure 57\-5].    Since Ethernet OAM functions are not designed to work completely over half\-duplex interfaces, the value nonOperHalfDuplex(10) is returned whenever Ethernet OAM is enabled (cdot3OamAdminState is enabled(1)) but the interface is in half\-duplex operation.  
-            	**type**\:  :py:class:`Cdot3Oamoperstatus <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3Oamtable.Cdot3Oamentry.Cdot3Oamoperstatus>`
+            	**type**\:  :py:class:`Cdot3OamOperStatus <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamTable.Cdot3OamEntry.Cdot3OamOperStatus>`
             
             .. attribute:: cdot3oammode
             
             	This object configures the mode of OAM operation for this Ethernet like interface.  OAM on Ethernet interfaces may be in 'active' mode or 'passive' mode.  These two modes differ in that active mode provides additional capabilities to initiate monitoring activities with the remote OAM peer entity, while passive mode generally waits for the peer to initiate OAM actions with it.  As an example, an active OAM entity can put the remote OAM entity in a loopback state, where a passive OAM entity cannot.    The default value of cdot3OamMode is dependent on the type of system on which this Ethernet like interface resides.  The default value should be 'active(1)' unless it is known that this system should take on a subservient role to the other device connected over this interface.    Changing this value results in incrementing the configuration revision field of locally generated OAMPDUs (30.3.6.1.12) and potentially re\-doing the OAM discovery process if the cdot3OamOperStatus was already operational(9).  
-            	**type**\:  :py:class:`Cdot3Oammode <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3Oamtable.Cdot3Oamentry.Cdot3Oammode>`
+            	**type**\:  :py:class:`Cdot3OamMode <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamTable.Cdot3OamEntry.Cdot3OamMode>`
             
             .. attribute:: cdot3oammaxoampdusize
             
@@ -254,7 +249,7 @@ class CISCODOT3OAMMIB(Entity):
             .. attribute:: cdot3oamfunctionssupported
             
             	The OAM functions supported on this Ethernet like interface. OAM consists of separate functional sets beyond the basic discovery process which is always required.  These functional groups can be supported independently by any implementation. These values are communicated to the peer via the local configuration field of Information OAMPDUs.    Setting 'unidirectionalSupport(0)' indicates that the OAM entity supports the transmission of OAMPDUs on links that are operating in unidirectional mode (traffic flowing in one direction only).  Setting 'loopbackSupport(1)' indicates the OAM entity can initiate and respond to loopback commands. Setting 'eventSupport(2)' indicates the OAM entity can send and receive Event Notification OAMPDUs. Setting 'variableSupport(3)' indicates the OAM entity can send and receive Variable Request and Response OAMPDUs.  
-            	**type**\:  :py:class:`Cdot3Oamfunctionssupported <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3Oamtable.Cdot3Oamentry.Cdot3Oamfunctionssupported>`
+            	**type**\:  :py:class:`Cdot3OamFunctionsSupported <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamTable.Cdot3OamEntry.Cdot3OamFunctionsSupported>`
             
             
 
@@ -264,15 +259,14 @@ class CISCODOT3OAMMIB(Entity):
             _revision = '2006-05-31'
 
             def __init__(self):
-                super(CISCODOT3OAMMIB.Cdot3Oamtable.Cdot3Oamentry, self).__init__()
+                super(CISCODOT3OAMMIB.Cdot3OamTable.Cdot3OamEntry, self).__init__()
 
                 self.yang_name = "cdot3OamEntry"
                 self.yang_parent_name = "cdot3OamTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('cdot3oamadminstate', YLeaf(YType.enumeration, 'cdot3OamAdminState')),
@@ -293,11 +287,11 @@ class CISCODOT3OAMMIB(Entity):
                 self._absolute_path = lambda: "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/cdot3OamTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCODOT3OAMMIB.Cdot3Oamtable.Cdot3Oamentry, ['ifindex', 'cdot3oamadminstate', 'cdot3oamoperstatus', 'cdot3oammode', 'cdot3oammaxoampdusize', 'cdot3oamconfigrevision', 'cdot3oamfunctionssupported'], name, value)
+                self._perform_setattr(CISCODOT3OAMMIB.Cdot3OamTable.Cdot3OamEntry, ['ifindex', 'cdot3oamadminstate', 'cdot3oamoperstatus', 'cdot3oammode', 'cdot3oammaxoampdusize', 'cdot3oamconfigrevision', 'cdot3oamfunctionssupported'], name, value)
 
-            class Cdot3Oamadminstate(Enum):
+            class Cdot3OamAdminState(Enum):
                 """
-                Cdot3Oamadminstate (Enum Class)
+                Cdot3OamAdminState (Enum Class)
 
                 This object is used to provision the default administrative
 
@@ -326,9 +320,9 @@ class CISCODOT3OAMMIB(Entity):
                 enabled = Enum.YLeaf(2, "enabled")
 
 
-            class Cdot3Oammode(Enum):
+            class Cdot3OamMode(Enum):
                 """
-                Cdot3Oammode (Enum Class)
+                Cdot3OamMode (Enum Class)
 
                 This object configures the mode of OAM operation for this
 
@@ -377,9 +371,9 @@ class CISCODOT3OAMMIB(Entity):
                 passive = Enum.YLeaf(2, "passive")
 
 
-            class Cdot3Oamoperstatus(Enum):
+            class Cdot3OamOperStatus(Enum):
                 """
-                Cdot3Oamoperstatus (Enum Class)
+                Cdot3OamOperStatus (Enum Class)
 
                 At initialization and failure conditions, two OAM entities on
 
@@ -537,7 +531,7 @@ class CISCODOT3OAMMIB(Entity):
 
 
 
-    class Cdot3Oampeertable(Entity):
+    class Cdot3OamPeerTable(Entity):
         """
         This table contains information about the OAM peer for a
         particular Ethernet like interface. OAM entities communicate
@@ -549,7 +543,7 @@ class CISCODOT3OAMMIB(Entity):
         .. attribute:: cdot3oampeerentry
         
         	An entry in the table, containing information on the peer OAM entity for a single Ethernet like interface.    Note that there is at most one OAM peer for each Ethernet like interface.  Entries are automatically created when information about the OAM peer entity becomes available, and automatically deleted when the OAM peer entity is no longer in communication.  Peer information is not available when cdot3OamOperStatus is disabled(1), linkFault(2), passiveWait(3), activeSendLocal(4). or nonOperHalfDuplex(10)). 
-        	**type**\: list of  		 :py:class:`Cdot3Oampeerentry <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3Oampeertable.Cdot3Oampeerentry>`
+        	**type**\: list of  		 :py:class:`Cdot3OamPeerEntry <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamPeerTable.Cdot3OamPeerEntry>`
         
         
 
@@ -559,15 +553,14 @@ class CISCODOT3OAMMIB(Entity):
         _revision = '2006-05-31'
 
         def __init__(self):
-            super(CISCODOT3OAMMIB.Cdot3Oampeertable, self).__init__()
+            super(CISCODOT3OAMMIB.Cdot3OamPeerTable, self).__init__()
 
             self.yang_name = "cdot3OamPeerTable"
             self.yang_parent_name = "CISCO-DOT3-OAM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cdot3OamPeerEntry", ("cdot3oampeerentry", CISCODOT3OAMMIB.Cdot3Oampeertable.Cdot3Oampeerentry))])
+            self._child_classes = OrderedDict([("cdot3OamPeerEntry", ("cdot3oampeerentry", CISCODOT3OAMMIB.Cdot3OamPeerTable.Cdot3OamPeerEntry))])
             self._leafs = OrderedDict()
 
             self.cdot3oampeerentry = YList(self)
@@ -575,10 +568,10 @@ class CISCODOT3OAMMIB(Entity):
             self._absolute_path = lambda: "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCODOT3OAMMIB.Cdot3Oampeertable, [], name, value)
+            self._perform_setattr(CISCODOT3OAMMIB.Cdot3OamPeerTable, [], name, value)
 
 
-        class Cdot3Oampeerentry(Entity):
+        class Cdot3OamPeerEntry(Entity):
             """
             An entry in the table, containing information on the peer OAM
             entity for a single Ethernet like interface.  
@@ -598,7 +591,7 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: cdot3oampeermacaddress
             
@@ -624,7 +617,7 @@ class CISCODOT3OAMMIB(Entity):
             .. attribute:: cdot3oampeermode
             
             	The mode of the OAM peer as reflected in the latest Information OAMPDU received with a Local Information TLV.  The mode of the peer can be determined from the Configuration field in the Local Information TLV of the last Information OAMPDU received from the peer.  The value is unknown(3) whenever no Local Information TLV has been received.  The values of active(1) and passive(2) are returned when a Local Information TLV has been received indicating the peer is in active or passive mode, respectively. 
-            	**type**\:  :py:class:`Cdot3Oampeermode <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3Oampeertable.Cdot3Oampeerentry.Cdot3Oampeermode>`
+            	**type**\:  :py:class:`Cdot3OamPeerMode <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamPeerTable.Cdot3OamPeerEntry.Cdot3OamPeerMode>`
             
             .. attribute:: cdot3oampeermaxoampdusize
             
@@ -645,7 +638,7 @@ class CISCODOT3OAMMIB(Entity):
             .. attribute:: cdot3oampeerfunctionssupported
             
             	The OAM functions supported on this Ethernet like interface. OAM consists of separate functionality sets above the basic discovery process.  This value indicates the capabilities of the peer OAM entity with respect to these functions.  This value is initialized so all bits are clear.   If unidirectionalSupport(0) is set, then the peer OAM entity supports sending OAM frames on Ethernet interfaces when the receive path is known to be inoperable.   If loopbackSupport(1) is set, then the peer OAM entity can send and receive OAM loopback commands.  If eventSupport(2) is set, then the peer OAM entity can send and receive event OAMPDUs to signal various error conditions. If variableSupport(3) is set, then the peer OAM entity can send and receive variable requests to monitor attribute value as described in Clause 57 of [802.3ah].     The capabilities of the OAM peer can be determined from the configuration field of the Local Information TLV of the most recently received Information OAMPDU with a Local Information TLV.  All zeros are returned if no Local Information TLV has yet been received. 
-            	**type**\:  :py:class:`Cdot3Oampeerfunctionssupported <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3Oampeertable.Cdot3Oampeerentry.Cdot3Oampeerfunctionssupported>`
+            	**type**\:  :py:class:`Cdot3OamPeerFunctionsSupported <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamPeerTable.Cdot3OamPeerEntry.Cdot3OamPeerFunctionsSupported>`
             
             
 
@@ -655,15 +648,14 @@ class CISCODOT3OAMMIB(Entity):
             _revision = '2006-05-31'
 
             def __init__(self):
-                super(CISCODOT3OAMMIB.Cdot3Oampeertable.Cdot3Oampeerentry, self).__init__()
+                super(CISCODOT3OAMMIB.Cdot3OamPeerTable.Cdot3OamPeerEntry, self).__init__()
 
                 self.yang_name = "cdot3OamPeerEntry"
                 self.yang_parent_name = "cdot3OamPeerTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('cdot3oampeermacaddress', YLeaf(YType.str, 'cdot3OamPeerMacAddress')),
@@ -686,11 +678,11 @@ class CISCODOT3OAMMIB(Entity):
                 self._absolute_path = lambda: "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/cdot3OamPeerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCODOT3OAMMIB.Cdot3Oampeertable.Cdot3Oampeerentry, ['ifindex', 'cdot3oampeermacaddress', 'cdot3oampeervendoroui', 'cdot3oampeervendorinfo', 'cdot3oampeermode', 'cdot3oampeermaxoampdusize', 'cdot3oampeerconfigrevision', 'cdot3oampeerfunctionssupported'], name, value)
+                self._perform_setattr(CISCODOT3OAMMIB.Cdot3OamPeerTable.Cdot3OamPeerEntry, ['ifindex', 'cdot3oampeermacaddress', 'cdot3oampeervendoroui', 'cdot3oampeervendorinfo', 'cdot3oampeermode', 'cdot3oampeermaxoampdusize', 'cdot3oampeerconfigrevision', 'cdot3oampeerfunctionssupported'], name, value)
 
-            class Cdot3Oampeermode(Enum):
+            class Cdot3OamPeerMode(Enum):
                 """
-                Cdot3Oampeermode (Enum Class)
+                Cdot3OamPeerMode (Enum Class)
 
                 The mode of the OAM peer as reflected in the latest
 
@@ -726,7 +718,7 @@ class CISCODOT3OAMMIB(Entity):
 
 
 
-    class Cdot3Oamloopbacktable(Entity):
+    class Cdot3OamLoopbackTable(Entity):
         """
         This table contains controls for the loopback state of the
         local link as well as indicating the status of the loopback
@@ -746,7 +738,7 @@ class CISCODOT3OAMMIB(Entity):
         .. attribute:: cdot3oamloopbackentry
         
         	An entry in the table, containing information on the loopback status for a single Ethernet like interface.  Entries in the table are automatically created whenever the local OAM entity supports loopback capabilities.  The loopback status on the interface can be determined from the cdot3OamLoopbackStatus object.  
-        	**type**\: list of  		 :py:class:`Cdot3Oamloopbackentry <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3Oamloopbacktable.Cdot3Oamloopbackentry>`
+        	**type**\: list of  		 :py:class:`Cdot3OamLoopbackEntry <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamLoopbackTable.Cdot3OamLoopbackEntry>`
         
         
 
@@ -756,15 +748,14 @@ class CISCODOT3OAMMIB(Entity):
         _revision = '2006-05-31'
 
         def __init__(self):
-            super(CISCODOT3OAMMIB.Cdot3Oamloopbacktable, self).__init__()
+            super(CISCODOT3OAMMIB.Cdot3OamLoopbackTable, self).__init__()
 
             self.yang_name = "cdot3OamLoopbackTable"
             self.yang_parent_name = "CISCO-DOT3-OAM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cdot3OamLoopbackEntry", ("cdot3oamloopbackentry", CISCODOT3OAMMIB.Cdot3Oamloopbacktable.Cdot3Oamloopbackentry))])
+            self._child_classes = OrderedDict([("cdot3OamLoopbackEntry", ("cdot3oamloopbackentry", CISCODOT3OAMMIB.Cdot3OamLoopbackTable.Cdot3OamLoopbackEntry))])
             self._leafs = OrderedDict()
 
             self.cdot3oamloopbackentry = YList(self)
@@ -772,10 +763,10 @@ class CISCODOT3OAMMIB(Entity):
             self._absolute_path = lambda: "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCODOT3OAMMIB.Cdot3Oamloopbacktable, [], name, value)
+            self._perform_setattr(CISCODOT3OAMMIB.Cdot3OamLoopbackTable, [], name, value)
 
 
-        class Cdot3Oamloopbackentry(Entity):
+        class Cdot3OamLoopbackEntry(Entity):
             """
             An entry in the table, containing information on the loopback
             status for a single Ethernet like interface.  Entries in the
@@ -791,17 +782,17 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: cdot3oamloopbackstatus
             
             	The loopback status of the OAM entity.  This status is determined by a combination of the local parser and multiplexer states, the remote parser and multiplexer states, as well as by the actions of the local OAM client.  When operating in normal mode with no loopback in progress, the status reads noLoopback(1).    The values initiatingLooopback(2) and terminatingLoopback(4) can be read or written.  The other values can only be read \- they can never be written.  Writing initiatingLoopback causes the local OAM entity to start the loopback process with its peer.  This value can only be written when the status is noLoopback(1).  Writing the value initiatingLoopback(2) in any other state has no effect.  When in remoteLoopback(3), writing terminatingLoopback(4) causes the local OAM entity to initiate the termination of the loopback state.  Writing terminatingLoopack(4) in any other state has no effect.                     If the OAM client initiates a looopback and has sent an Loopback OAMPDU and is waiting for a response, where the local parser and multiplexer states are DISCARD (see [802.3ah, 57.2.11.1]), the status is 'initiatingLoopback'.  In this case, the local OAM entity has yet to receive any acknowledgement that the remote OAM entity has received its loopback command request.                    If the local OAM client knows that the remote OAM entity is in loopback mode (via the remote state information as described in [802.3ah, 57.2.11.1, 30.3.6.1.15]), the status is remoteLoopback(3).  If the local OAM client is in the process of terminating the remote loopback [802.3ah, 57.2.11.3, 30.3.6.1.14], with its local multiplexer and parser states in DISCARD, the status is terminatingLoopback(4).  If the remote OAM client has put the local OAM entity in loopback mode as indicated by its local parser state, the status is localLoopback(5).    The unknown(6) status indicates the parser and multiplexer combination is unexpected.  This status may be returned if the OAM loopback is in a transition state but should not persist.   The values of this attribute correspond to the following values of the local and remote parser and multiplexer states.     value            LclPrsr   LclMux    RmtPrsr   RmtMux   noLoopback         FWD       FWD       FWD       FWD     initLoopback     DISCARD   DISCARD     FWD       FWD    rmtLoopback      DISCARD     FWD      LPBK    DISCARD   tmtngLoopback    DISCARD   DISCARD    LPBK    DISCARD   lclLoopback        LPBK    DISCARD   DISCARD     FWD   unknown            \*\*\*   any other combination   \*\*\*
-            	**type**\:  :py:class:`Cdot3Oamloopbackstatus <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3Oamloopbacktable.Cdot3Oamloopbackentry.Cdot3Oamloopbackstatus>`
+            	**type**\:  :py:class:`Cdot3OamLoopbackStatus <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamLoopbackTable.Cdot3OamLoopbackEntry.Cdot3OamLoopbackStatus>`
             
             .. attribute:: cdot3oamloopbackignorerx
             
             	Since OAM loopback is a disruptive operation (user traffic does not pass), this attribute provides a mechanism to provide controls over whether received OAM loopback commands are processed or ignored.  When the value is ignore(1), received loopback commands are ignored.  When the value is process(2), OAM loopback commands are processed.  The default value is to ignore loopback commands (ignore(1)).  
-            	**type**\:  :py:class:`Cdot3Oamloopbackignorerx <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3Oamloopbacktable.Cdot3Oamloopbackentry.Cdot3Oamloopbackignorerx>`
+            	**type**\:  :py:class:`Cdot3OamLoopbackIgnoreRx <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamLoopbackTable.Cdot3OamLoopbackEntry.Cdot3OamLoopbackIgnoreRx>`
             
             
 
@@ -811,15 +802,14 @@ class CISCODOT3OAMMIB(Entity):
             _revision = '2006-05-31'
 
             def __init__(self):
-                super(CISCODOT3OAMMIB.Cdot3Oamloopbacktable.Cdot3Oamloopbackentry, self).__init__()
+                super(CISCODOT3OAMMIB.Cdot3OamLoopbackTable.Cdot3OamLoopbackEntry, self).__init__()
 
                 self.yang_name = "cdot3OamLoopbackEntry"
                 self.yang_parent_name = "cdot3OamLoopbackTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('cdot3oamloopbackstatus', YLeaf(YType.enumeration, 'cdot3OamLoopbackStatus')),
@@ -832,11 +822,11 @@ class CISCODOT3OAMMIB(Entity):
                 self._absolute_path = lambda: "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/cdot3OamLoopbackTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCODOT3OAMMIB.Cdot3Oamloopbacktable.Cdot3Oamloopbackentry, ['ifindex', 'cdot3oamloopbackstatus', 'cdot3oamloopbackignorerx'], name, value)
+                self._perform_setattr(CISCODOT3OAMMIB.Cdot3OamLoopbackTable.Cdot3OamLoopbackEntry, ['ifindex', 'cdot3oamloopbackstatus', 'cdot3oamloopbackignorerx'], name, value)
 
-            class Cdot3Oamloopbackignorerx(Enum):
+            class Cdot3OamLoopbackIgnoreRx(Enum):
                 """
-                Cdot3Oamloopbackignorerx (Enum Class)
+                Cdot3OamLoopbackIgnoreRx (Enum Class)
 
                 Since OAM loopback is a disruptive operation (user traffic
 
@@ -863,9 +853,9 @@ class CISCODOT3OAMMIB(Entity):
                 process = Enum.YLeaf(2, "process")
 
 
-            class Cdot3Oamloopbackstatus(Enum):
+            class Cdot3OamLoopbackStatus(Enum):
                 """
-                Cdot3Oamloopbackstatus (Enum Class)
+                Cdot3OamLoopbackStatus (Enum Class)
 
                 The loopback status of the OAM entity.  This status is
 
@@ -985,7 +975,7 @@ class CISCODOT3OAMMIB(Entity):
 
 
 
-    class Cdot3Oamstatstable(Entity):
+    class Cdot3OamStatsTable(Entity):
         """
         This table contains statistics for the OAM function on a
         particular Ethernet like interface. There is an entry in the
@@ -999,7 +989,7 @@ class CISCODOT3OAMMIB(Entity):
         .. attribute:: cdot3oamstatsentry
         
         	An entry in the table, containing statistics information on the Ethernet OAM function for a single Ethernet like interface.  Entries are automatically created for every entry in the cdot3OamTable.  Counters are maintained across transitions in cdot3OamOperStatus.  
-        	**type**\: list of  		 :py:class:`Cdot3Oamstatsentry <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3Oamstatstable.Cdot3Oamstatsentry>`
+        	**type**\: list of  		 :py:class:`Cdot3OamStatsEntry <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamStatsTable.Cdot3OamStatsEntry>`
         
         
 
@@ -1009,15 +999,14 @@ class CISCODOT3OAMMIB(Entity):
         _revision = '2006-05-31'
 
         def __init__(self):
-            super(CISCODOT3OAMMIB.Cdot3Oamstatstable, self).__init__()
+            super(CISCODOT3OAMMIB.Cdot3OamStatsTable, self).__init__()
 
             self.yang_name = "cdot3OamStatsTable"
             self.yang_parent_name = "CISCO-DOT3-OAM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cdot3OamStatsEntry", ("cdot3oamstatsentry", CISCODOT3OAMMIB.Cdot3Oamstatstable.Cdot3Oamstatsentry))])
+            self._child_classes = OrderedDict([("cdot3OamStatsEntry", ("cdot3oamstatsentry", CISCODOT3OAMMIB.Cdot3OamStatsTable.Cdot3OamStatsEntry))])
             self._leafs = OrderedDict()
 
             self.cdot3oamstatsentry = YList(self)
@@ -1025,10 +1014,10 @@ class CISCODOT3OAMMIB(Entity):
             self._absolute_path = lambda: "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCODOT3OAMMIB.Cdot3Oamstatstable, [], name, value)
+            self._perform_setattr(CISCODOT3OAMMIB.Cdot3OamStatsTable, [], name, value)
 
 
-        class Cdot3Oamstatsentry(Entity):
+        class Cdot3OamStatsEntry(Entity):
             """
             An entry in the table, containing statistics information on
             the Ethernet OAM function for a single Ethernet like
@@ -1043,7 +1032,7 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: cdot3oaminformationtx
             
@@ -1206,15 +1195,14 @@ class CISCODOT3OAMMIB(Entity):
             _revision = '2006-05-31'
 
             def __init__(self):
-                super(CISCODOT3OAMMIB.Cdot3Oamstatstable.Cdot3Oamstatsentry, self).__init__()
+                super(CISCODOT3OAMMIB.Cdot3OamStatsTable.Cdot3OamStatsEntry, self).__init__()
 
                 self.yang_name = "cdot3OamStatsEntry"
                 self.yang_parent_name = "cdot3OamStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('cdot3oaminformationtx', YLeaf(YType.uint32, 'cdot3OamInformationTx')),
@@ -1257,10 +1245,10 @@ class CISCODOT3OAMMIB(Entity):
                 self._absolute_path = lambda: "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/cdot3OamStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCODOT3OAMMIB.Cdot3Oamstatstable.Cdot3Oamstatsentry, ['ifindex', 'cdot3oaminformationtx', 'cdot3oaminformationrx', 'cdot3oamuniqueeventnotificationtx', 'cdot3oamuniqueeventnotificationrx', 'cdot3oamduplicateeventnotificationtx', 'cdot3oamduplicateeventnotificationrx', 'cdot3oamloopbackcontroltx', 'cdot3oamloopbackcontrolrx', 'cdot3oamvariablerequesttx', 'cdot3oamvariablerequestrx', 'cdot3oamvariableresponsetx', 'cdot3oamvariableresponserx', 'cdot3oamorgspecifictx', 'cdot3oamorgspecificrx', 'cdot3oamunsupportedcodestx', 'cdot3oamunsupportedcodesrx', 'cdot3oamframeslostduetooam'], name, value)
+                self._perform_setattr(CISCODOT3OAMMIB.Cdot3OamStatsTable.Cdot3OamStatsEntry, ['ifindex', 'cdot3oaminformationtx', 'cdot3oaminformationrx', 'cdot3oamuniqueeventnotificationtx', 'cdot3oamuniqueeventnotificationrx', 'cdot3oamduplicateeventnotificationtx', 'cdot3oamduplicateeventnotificationrx', 'cdot3oamloopbackcontroltx', 'cdot3oamloopbackcontrolrx', 'cdot3oamvariablerequesttx', 'cdot3oamvariablerequestrx', 'cdot3oamvariableresponsetx', 'cdot3oamvariableresponserx', 'cdot3oamorgspecifictx', 'cdot3oamorgspecificrx', 'cdot3oamunsupportedcodestx', 'cdot3oamunsupportedcodesrx', 'cdot3oamframeslostduetooam'], name, value)
 
 
-    class Cdot3Oameventconfigtable(Entity):
+    class Cdot3OamEventConfigTable(Entity):
         """
         Ethernet OAM includes the ability to generate and receive
         Event Notification OAMPDUs to indicate various link problems.
@@ -1297,7 +1285,7 @@ class CISCODOT3OAMMIB(Entity):
         .. attribute:: cdot3oameventconfigentry
         
         	Entries are automatically created and deleted from this table, and exist whenever the OAM entity supports Ethernet OAM events (as indicated by the eventSupport bit in cdot3OamFunctionsSuppported).  Values in the table are maintained across changes to the value of cdot3OamOperStatus.  Event configuration controls when the local management entity sends Event Notification OAMPDUs to its OAM peer, and when certain event flags are set or cleared in OAMPDUs. 
-        	**type**\: list of  		 :py:class:`Cdot3Oameventconfigentry <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3Oameventconfigtable.Cdot3Oameventconfigentry>`
+        	**type**\: list of  		 :py:class:`Cdot3OamEventConfigEntry <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamEventConfigTable.Cdot3OamEventConfigEntry>`
         
         
 
@@ -1307,15 +1295,14 @@ class CISCODOT3OAMMIB(Entity):
         _revision = '2006-05-31'
 
         def __init__(self):
-            super(CISCODOT3OAMMIB.Cdot3Oameventconfigtable, self).__init__()
+            super(CISCODOT3OAMMIB.Cdot3OamEventConfigTable, self).__init__()
 
             self.yang_name = "cdot3OamEventConfigTable"
             self.yang_parent_name = "CISCO-DOT3-OAM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cdot3OamEventConfigEntry", ("cdot3oameventconfigentry", CISCODOT3OAMMIB.Cdot3Oameventconfigtable.Cdot3Oameventconfigentry))])
+            self._child_classes = OrderedDict([("cdot3OamEventConfigEntry", ("cdot3oameventconfigentry", CISCODOT3OAMMIB.Cdot3OamEventConfigTable.Cdot3OamEventConfigEntry))])
             self._leafs = OrderedDict()
 
             self.cdot3oameventconfigentry = YList(self)
@@ -1323,10 +1310,10 @@ class CISCODOT3OAMMIB(Entity):
             self._absolute_path = lambda: "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCODOT3OAMMIB.Cdot3Oameventconfigtable, [], name, value)
+            self._perform_setattr(CISCODOT3OAMMIB.Cdot3OamEventConfigTable, [], name, value)
 
 
-        class Cdot3Oameventconfigentry(Entity):
+        class Cdot3OamEventConfigEntry(Entity):
             """
             Entries are automatically created and deleted from this
             table, and exist whenever the OAM entity supports Ethernet OAM
@@ -1345,7 +1332,7 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: cdot3oamerrsymperiodwindowhi
             
@@ -1475,15 +1462,14 @@ class CISCODOT3OAMMIB(Entity):
             _revision = '2006-05-31'
 
             def __init__(self):
-                super(CISCODOT3OAMMIB.Cdot3Oameventconfigtable.Cdot3Oameventconfigentry, self).__init__()
+                super(CISCODOT3OAMMIB.Cdot3OamEventConfigTable.Cdot3OamEventConfigEntry, self).__init__()
 
                 self.yang_name = "cdot3OamEventConfigEntry"
                 self.yang_parent_name = "cdot3OamEventConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('cdot3oamerrsymperiodwindowhi', YLeaf(YType.uint32, 'cdot3OamErrSymPeriodWindowHi')),
@@ -1524,10 +1510,10 @@ class CISCODOT3OAMMIB(Entity):
                 self._absolute_path = lambda: "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/cdot3OamEventConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCODOT3OAMMIB.Cdot3Oameventconfigtable.Cdot3Oameventconfigentry, ['ifindex', 'cdot3oamerrsymperiodwindowhi', 'cdot3oamerrsymperiodwindowlo', 'cdot3oamerrsymperiodthresholdhi', 'cdot3oamerrsymperiodthresholdlo', 'cdot3oamerrsymperiodevnotifenable', 'cdot3oamerrframeperiodwindow', 'cdot3oamerrframeperiodthreshold', 'cdot3oamerrframeperiodevnotifenable', 'cdot3oamerrframewindow', 'cdot3oamerrframethreshold', 'cdot3oamerrframeevnotifenable', 'cdot3oamerrframesecssummarywindow', 'cdot3oamerrframesecssummarythreshold', 'cdot3oamerrframesecsevnotifenable', 'cdot3oamdyinggaspenable', 'cdot3oamcriticaleventenable'], name, value)
+                self._perform_setattr(CISCODOT3OAMMIB.Cdot3OamEventConfigTable.Cdot3OamEventConfigEntry, ['ifindex', 'cdot3oamerrsymperiodwindowhi', 'cdot3oamerrsymperiodwindowlo', 'cdot3oamerrsymperiodthresholdhi', 'cdot3oamerrsymperiodthresholdlo', 'cdot3oamerrsymperiodevnotifenable', 'cdot3oamerrframeperiodwindow', 'cdot3oamerrframeperiodthreshold', 'cdot3oamerrframeperiodevnotifenable', 'cdot3oamerrframewindow', 'cdot3oamerrframethreshold', 'cdot3oamerrframeevnotifenable', 'cdot3oamerrframesecssummarywindow', 'cdot3oamerrframesecssummarythreshold', 'cdot3oamerrframesecsevnotifenable', 'cdot3oamdyinggaspenable', 'cdot3oamcriticaleventenable'], name, value)
 
 
-    class Cdot3Oameventlogtable(Entity):
+    class Cdot3OamEventLogTable(Entity):
         """
         This table records a history of the events that have occurred
         at the Ethernet OAM level.  These events can include locally
@@ -1553,7 +1539,7 @@ class CISCODOT3OAMMIB(Entity):
         .. attribute:: cdot3oameventlogentry
         
         	An entry in the cdot3OamEventLogTable.  Entries are automatically created whenever Ethernet OAM events occur at the local OAM entity, and when Event Notification OAMPDUs are received at the local OAM entity (indicating events have occurred at the peer OAM entity).  The size of the table is implementation dependent, but when the table becomes full, older events are automatically deleted to make room for newer events.  The table index cdot3OamEventLogIndex increments for each new entry, and when the maximum value is reached the value restarts at zero.  
-        	**type**\: list of  		 :py:class:`Cdot3Oameventlogentry <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3Oameventlogtable.Cdot3Oameventlogentry>`
+        	**type**\: list of  		 :py:class:`Cdot3OamEventLogEntry <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamEventLogTable.Cdot3OamEventLogEntry>`
         
         
 
@@ -1563,15 +1549,14 @@ class CISCODOT3OAMMIB(Entity):
         _revision = '2006-05-31'
 
         def __init__(self):
-            super(CISCODOT3OAMMIB.Cdot3Oameventlogtable, self).__init__()
+            super(CISCODOT3OAMMIB.Cdot3OamEventLogTable, self).__init__()
 
             self.yang_name = "cdot3OamEventLogTable"
             self.yang_parent_name = "CISCO-DOT3-OAM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cdot3OamEventLogEntry", ("cdot3oameventlogentry", CISCODOT3OAMMIB.Cdot3Oameventlogtable.Cdot3Oameventlogentry))])
+            self._child_classes = OrderedDict([("cdot3OamEventLogEntry", ("cdot3oameventlogentry", CISCODOT3OAMMIB.Cdot3OamEventLogTable.Cdot3OamEventLogEntry))])
             self._leafs = OrderedDict()
 
             self.cdot3oameventlogentry = YList(self)
@@ -1579,10 +1564,10 @@ class CISCODOT3OAMMIB(Entity):
             self._absolute_path = lambda: "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCODOT3OAMMIB.Cdot3Oameventlogtable, [], name, value)
+            self._perform_setattr(CISCODOT3OAMMIB.Cdot3OamEventLogTable, [], name, value)
 
 
-        class Cdot3Oameventlogentry(Entity):
+        class Cdot3OamEventLogEntry(Entity):
             """
             An entry in the cdot3OamEventLogTable.  Entries are
             automatically created whenever Ethernet OAM events occur at
@@ -1602,7 +1587,7 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: cdot3oameventlogindex  (key)
             
@@ -1635,7 +1620,7 @@ class CISCODOT3OAMMIB(Entity):
             .. attribute:: cdot3oameventloglocation
             
             	Whether this event occurred locally (local(1)), or was  received from the OAM peer via Ethernet OAM (remote(2))
-            	**type**\:  :py:class:`Cdot3Oameventloglocation <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3Oameventlogtable.Cdot3Oameventlogentry.Cdot3Oameventloglocation>`
+            	**type**\:  :py:class:`Cdot3OamEventLogLocation <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamEventLogTable.Cdot3OamEventLogEntry.Cdot3OamEventLogLocation>`
             
             .. attribute:: cdot3oameventlogwindowhi
             
@@ -1694,15 +1679,14 @@ class CISCODOT3OAMMIB(Entity):
             _revision = '2006-05-31'
 
             def __init__(self):
-                super(CISCODOT3OAMMIB.Cdot3Oameventlogtable.Cdot3Oameventlogentry, self).__init__()
+                super(CISCODOT3OAMMIB.Cdot3OamEventLogTable.Cdot3OamEventLogEntry, self).__init__()
 
                 self.yang_name = "cdot3OamEventLogEntry"
                 self.yang_parent_name = "cdot3OamEventLogTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex','cdot3oameventlogindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('cdot3oameventlogindex', YLeaf(YType.uint32, 'cdot3OamEventLogIndex')),
@@ -1735,11 +1719,11 @@ class CISCODOT3OAMMIB(Entity):
                 self._absolute_path = lambda: "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/cdot3OamEventLogTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCODOT3OAMMIB.Cdot3Oameventlogtable.Cdot3Oameventlogentry, ['ifindex', 'cdot3oameventlogindex', 'cdot3oameventlogtimestamp', 'cdot3oameventlogoui', 'cdot3oameventlogtype', 'cdot3oameventloglocation', 'cdot3oameventlogwindowhi', 'cdot3oameventlogwindowlo', 'cdot3oameventlogthresholdhi', 'cdot3oameventlogthresholdlo', 'cdot3oameventlogvalue', 'cdot3oameventlogrunningtotal', 'cdot3oameventlogeventtotal'], name, value)
+                self._perform_setattr(CISCODOT3OAMMIB.Cdot3OamEventLogTable.Cdot3OamEventLogEntry, ['ifindex', 'cdot3oameventlogindex', 'cdot3oameventlogtimestamp', 'cdot3oameventlogoui', 'cdot3oameventlogtype', 'cdot3oameventloglocation', 'cdot3oameventlogwindowhi', 'cdot3oameventlogwindowlo', 'cdot3oameventlogthresholdhi', 'cdot3oameventlogthresholdlo', 'cdot3oameventlogvalue', 'cdot3oameventlogrunningtotal', 'cdot3oameventlogeventtotal'], name, value)
 
-            class Cdot3Oameventloglocation(Enum):
+            class Cdot3OamEventLogLocation(Enum):
                 """
-                Cdot3Oameventloglocation (Enum Class)
+                Cdot3OamEventLogLocation (Enum Class)
 
                 Whether this event occurred locally (local(1)), or was 
 

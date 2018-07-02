@@ -27,7 +27,7 @@ class CISCOPIMMIB(Entity):
     .. attribute:: ciscopimmibnotificationobjects
     
     	
-    	**type**\:  :py:class:`Ciscopimmibnotificationobjects <ydk.models.cisco_ios_xe.CISCO_PIM_MIB.CISCOPIMMIB.Ciscopimmibnotificationobjects>`
+    	**type**\:  :py:class:`CiscoPimMIBNotificationObjects <ydk.models.cisco_ios_xe.CISCO_PIM_MIB.CISCOPIMMIB.CiscoPimMIBNotificationObjects>`
     
     
 
@@ -45,20 +45,20 @@ class CISCOPIMMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cpim", ("cpim", CISCOPIMMIB.Cpim)), ("ciscoPimMIBNotificationObjects", ("ciscopimmibnotificationobjects", CISCOPIMMIB.Ciscopimmibnotificationobjects))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cpim", ("cpim", CISCOPIMMIB.Cpim)), ("ciscoPimMIBNotificationObjects", ("ciscopimmibnotificationobjects", CISCOPIMMIB.CiscoPimMIBNotificationObjects))])
         self._leafs = OrderedDict()
 
         self.cpim = CISCOPIMMIB.Cpim()
         self.cpim.parent = self
         self._children_name_map["cpim"] = "cpim"
-        self._children_yang_names.add("cpim")
 
-        self.ciscopimmibnotificationobjects = CISCOPIMMIB.Ciscopimmibnotificationobjects()
+        self.ciscopimmibnotificationobjects = CISCOPIMMIB.CiscoPimMIBNotificationObjects()
         self.ciscopimmibnotificationobjects.parent = self
         self._children_name_map["ciscopimmibnotificationobjects"] = "ciscoPimMIBNotificationObjects"
-        self._children_yang_names.add("ciscoPimMIBNotificationObjects")
         self._segment_path = lambda: "CISCO-PIM-MIB:CISCO-PIM-MIB"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOPIMMIB, [], name, value)
 
 
     class Cpim(Entity):
@@ -82,7 +82,7 @@ class CISCOPIMMIB(Entity):
         .. attribute:: cpimlasterrortype
         
         	The type of the last invalid message that was received by this device
-        	**type**\:  :py:class:`Cpimlasterrortype <ydk.models.cisco_ios_xe.CISCO_PIM_MIB.CISCOPIMMIB.Cpim.Cpimlasterrortype>`
+        	**type**\:  :py:class:`CpimLastErrorType <ydk.models.cisco_ios_xe.CISCO_PIM_MIB.CISCOPIMMIB.Cpim.CpimLastErrorType>`
         
         .. attribute:: cpimlasterrororigintype
         
@@ -135,8 +135,7 @@ class CISCOPIMMIB(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cpiminvalidregistermsgsrcvd', YLeaf(YType.uint32, 'cpimInvalidRegisterMsgsRcvd')),
                 ('cpiminvalidjoinprunemsgsrcvd', YLeaf(YType.uint32, 'cpimInvalidJoinPruneMsgsRcvd')),
@@ -163,9 +162,9 @@ class CISCOPIMMIB(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPIMMIB.Cpim, ['cpiminvalidregistermsgsrcvd', 'cpiminvalidjoinprunemsgsrcvd', 'cpimlasterrortype', 'cpimlasterrororigintype', 'cpimlasterrororigin', 'cpimlasterrorgrouptype', 'cpimlasterrorgroup', 'cpimlasterrorrptype', 'cpimlasterrorrp'], name, value)
 
-        class Cpimlasterrortype(Enum):
+        class CpimLastErrorType(Enum):
             """
-            Cpimlasterrortype (Enum Class)
+            CpimLastErrorType (Enum Class)
 
             The type of the last invalid message that was received by
 
@@ -187,14 +186,14 @@ class CISCOPIMMIB(Entity):
 
 
 
-    class Ciscopimmibnotificationobjects(Entity):
+    class CiscoPimMIBNotificationObjects(Entity):
         """
         
         
         .. attribute:: cpimrpmappingchangetype
         
         	Describes the operation that resulted in generation of cpimRPMappingChange notification.  o newMapping, as the name suggests indicates that a new   mapping has been added into the pimRPSetTable,  o deletedMapping indicates that a mapping has been    deleted from the pimRPSetTable, and, o modifiedXXXMapping indicates that an RP mapping (which   already existed in the table) has been modified.   The two modifications types i.e. modifiedOldMapping   and modifiedNewMapping, are defined to differentiate   the notification generated before modification from   that generated after modification
-        	**type**\:  :py:class:`Cpimrpmappingchangetype <ydk.models.cisco_ios_xe.CISCO_PIM_MIB.CISCOPIMMIB.Ciscopimmibnotificationobjects.Cpimrpmappingchangetype>`
+        	**type**\:  :py:class:`CpimRPMappingChangeType <ydk.models.cisco_ios_xe.CISCO_PIM_MIB.CISCOPIMMIB.CiscoPimMIBNotificationObjects.CpimRPMappingChangeType>`
         
         
 
@@ -204,15 +203,14 @@ class CISCOPIMMIB(Entity):
         _revision = '2000-11-02'
 
         def __init__(self):
-            super(CISCOPIMMIB.Ciscopimmibnotificationobjects, self).__init__()
+            super(CISCOPIMMIB.CiscoPimMIBNotificationObjects, self).__init__()
 
             self.yang_name = "ciscoPimMIBNotificationObjects"
             self.yang_parent_name = "CISCO-PIM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cpimrpmappingchangetype', YLeaf(YType.enumeration, 'cpimRPMappingChangeType')),
             ])
@@ -221,11 +219,11 @@ class CISCOPIMMIB(Entity):
             self._absolute_path = lambda: "CISCO-PIM-MIB:CISCO-PIM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPIMMIB.Ciscopimmibnotificationobjects, ['cpimrpmappingchangetype'], name, value)
+            self._perform_setattr(CISCOPIMMIB.CiscoPimMIBNotificationObjects, ['cpimrpmappingchangetype'], name, value)
 
-        class Cpimrpmappingchangetype(Enum):
+        class CpimRPMappingChangeType(Enum):
             """
-            Cpimrpmappingchangetype (Enum Class)
+            CpimRPMappingChangeType (Enum Class)
 
             Describes the operation that resulted in generation
 

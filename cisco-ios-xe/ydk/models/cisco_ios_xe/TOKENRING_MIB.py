@@ -12,7 +12,52 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Dot5Testinsertfunc(Identity):
+class Dot5ChipSetTItms380(Identity):
+    """
+    Texas Instruments' TMS 380 4Mbs chip\-set
+    
+    
+
+    """
+
+    _prefix = 'TOKENRING-MIB'
+    _revision = '1994-10-23'
+
+    def __init__(self):
+        super(Dot5ChipSetTItms380, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:TOKENRING-MIB", "TOKENRING-MIB", "TOKENRING-MIB:dot5ChipSetTItms380")
+
+
+class Dot5ChipSetTItms380c16(Identity):
+    """
+    Texas Instruments' TMS 380C16 16/4 Mbs chip\-set
+    
+    
+
+    """
+
+    _prefix = 'TOKENRING-MIB'
+    _revision = '1994-10-23'
+
+    def __init__(self):
+        super(Dot5ChipSetTItms380c16, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:TOKENRING-MIB", "TOKENRING-MIB", "TOKENRING-MIB:dot5ChipSetTItms380c16")
+
+
+class Dot5ChipSetIBM16(Identity):
+    """
+    IBM's 16/4 Mbs chip set.
+    
+    
+
+    """
+
+    _prefix = 'TOKENRING-MIB'
+    _revision = '1994-10-23'
+
+    def __init__(self):
+        super(Dot5ChipSetIBM16, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:TOKENRING-MIB", "TOKENRING-MIB", "TOKENRING-MIB:dot5ChipSetIBM16")
+
+
+class Dot5TestInsertFunc(Identity):
     """
     Invoking this test causes the station to test the insert
     ring logic of the hardware if the station's lobe media
@@ -29,10 +74,10 @@ class Dot5Testinsertfunc(Identity):
     _revision = '1994-10-23'
 
     def __init__(self):
-        super(Dot5Testinsertfunc, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:TOKENRING-MIB", "TOKENRING-MIB", "TOKENRING-MIB:dot5TestInsertFunc")
+        super(Dot5TestInsertFunc, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:TOKENRING-MIB", "TOKENRING-MIB", "TOKENRING-MIB:dot5TestInsertFunc")
 
 
-class Dot5Testfullduplexloopback(Identity):
+class Dot5TestFullDuplexLoopBack(Identity):
     """
     Invoking this test on a 802.5 interface causes the
     interface to check the path from memory through the
@@ -48,52 +93,7 @@ class Dot5Testfullduplexloopback(Identity):
     _revision = '1994-10-23'
 
     def __init__(self):
-        super(Dot5Testfullduplexloopback, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:TOKENRING-MIB", "TOKENRING-MIB", "TOKENRING-MIB:dot5TestFullDuplexLoopBack")
-
-
-class Dot5Chipsetibm16(Identity):
-    """
-    IBM's 16/4 Mbs chip set.
-    
-    
-
-    """
-
-    _prefix = 'TOKENRING-MIB'
-    _revision = '1994-10-23'
-
-    def __init__(self):
-        super(Dot5Chipsetibm16, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:TOKENRING-MIB", "TOKENRING-MIB", "TOKENRING-MIB:dot5ChipSetIBM16")
-
-
-class Dot5Chipsettitms380(Identity):
-    """
-    Texas Instruments' TMS 380 4Mbs chip\-set
-    
-    
-
-    """
-
-    _prefix = 'TOKENRING-MIB'
-    _revision = '1994-10-23'
-
-    def __init__(self):
-        super(Dot5Chipsettitms380, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:TOKENRING-MIB", "TOKENRING-MIB", "TOKENRING-MIB:dot5ChipSetTItms380")
-
-
-class Dot5Chipsettitms380C16(Identity):
-    """
-    Texas Instruments' TMS 380C16 16/4 Mbs chip\-set
-    
-    
-
-    """
-
-    _prefix = 'TOKENRING-MIB'
-    _revision = '1994-10-23'
-
-    def __init__(self):
-        super(Dot5Chipsettitms380C16, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:TOKENRING-MIB", "TOKENRING-MIB", "TOKENRING-MIB:dot5ChipSetTItms380c16")
+        super(Dot5TestFullDuplexLoopBack, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:TOKENRING-MIB", "TOKENRING-MIB", "TOKENRING-MIB:dot5TestFullDuplexLoopBack")
 
 
 class TOKENRINGMIB(Entity):
@@ -108,12 +108,12 @@ class TOKENRINGMIB(Entity):
     .. attribute:: dot5statstable
     
     	A table containing Token Ring statistics, one entry per 802.5 interface.     All the statistics are defined using the syntax Counter32 as 32\-bit wrap around counters.  Thus, if an interface's hardware maintains these statistics in 16\-bit counters, then the agent must read the hardware's counters frequently enough to prevent loss of significance, in order to maintain 32\-bit counters in software
-    	**type**\:  :py:class:`Dot5Statstable <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5Statstable>`
+    	**type**\:  :py:class:`Dot5StatsTable <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5StatsTable>`
     
     .. attribute:: dot5timertable
     
     	This table contains Token Ring interface timer values, one entry per 802.5 interface
-    	**type**\:  :py:class:`Dot5Timertable <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5Timertable>`
+    	**type**\:  :py:class:`Dot5TimerTable <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5TimerTable>`
     
     	**status**\: obsolete
     
@@ -133,25 +133,24 @@ class TOKENRINGMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("dot5Table", ("dot5table", TOKENRINGMIB.Dot5Table)), ("dot5StatsTable", ("dot5statstable", TOKENRINGMIB.Dot5Statstable)), ("dot5TimerTable", ("dot5timertable", TOKENRINGMIB.Dot5Timertable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("dot5Table", ("dot5table", TOKENRINGMIB.Dot5Table)), ("dot5StatsTable", ("dot5statstable", TOKENRINGMIB.Dot5StatsTable)), ("dot5TimerTable", ("dot5timertable", TOKENRINGMIB.Dot5TimerTable))])
         self._leafs = OrderedDict()
 
         self.dot5table = TOKENRINGMIB.Dot5Table()
         self.dot5table.parent = self
         self._children_name_map["dot5table"] = "dot5Table"
-        self._children_yang_names.add("dot5Table")
 
-        self.dot5statstable = TOKENRINGMIB.Dot5Statstable()
+        self.dot5statstable = TOKENRINGMIB.Dot5StatsTable()
         self.dot5statstable.parent = self
         self._children_name_map["dot5statstable"] = "dot5StatsTable"
-        self._children_yang_names.add("dot5StatsTable")
 
-        self.dot5timertable = TOKENRINGMIB.Dot5Timertable()
+        self.dot5timertable = TOKENRINGMIB.Dot5TimerTable()
         self.dot5timertable.parent = self
         self._children_name_map["dot5timertable"] = "dot5TimerTable"
-        self._children_yang_names.add("dot5TimerTable")
         self._segment_path = lambda: "TOKENRING-MIB:TOKENRING-MIB"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(TOKENRINGMIB, [], name, value)
 
 
     class Dot5Table(Entity):
@@ -180,8 +179,7 @@ class TOKENRINGMIB(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot5Entry", ("dot5entry", TOKENRINGMIB.Dot5Table.Dot5Entry))])
+            self._child_classes = OrderedDict([("dot5Entry", ("dot5entry", TOKENRINGMIB.Dot5Table.Dot5Entry))])
             self._leafs = OrderedDict()
 
             self.dot5entry = YList(self)
@@ -219,17 +217,17 @@ class TOKENRINGMIB(Entity):
             .. attribute:: dot5ringstate
             
             	The current interface state with respect to entering or leaving the ring
-            	**type**\:  :py:class:`Dot5Ringstate <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5Table.Dot5Entry.Dot5Ringstate>`
+            	**type**\:  :py:class:`Dot5RingState <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5Table.Dot5Entry.Dot5RingState>`
             
             .. attribute:: dot5ringopenstatus
             
             	This object indicates the success, or the reason for failure, of the station's most recent attempt to enter the ring
-            	**type**\:  :py:class:`Dot5Ringopenstatus <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5Table.Dot5Entry.Dot5Ringopenstatus>`
+            	**type**\:  :py:class:`Dot5RingOpenStatus <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5Table.Dot5Entry.Dot5RingOpenStatus>`
             
             .. attribute:: dot5ringspeed
             
             	The ring\-speed at the next insertion into the ring.  Note that this may or may not be different to the current ring\-speed which is given by MIB\-II's ifSpeed.  For interfaces which do not support changing ring\-speed, dot5RingSpeed can only be set to its current value.  When dot5RingSpeed has the value unknown(1), the ring's actual ring\-speed is to be used
-            	**type**\:  :py:class:`Dot5Ringspeed <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5Table.Dot5Entry.Dot5Ringspeed>`
+            	**type**\:  :py:class:`Dot5RingSpeed <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5Table.Dot5Entry.Dot5RingSpeed>`
             
             .. attribute:: dot5upstream
             
@@ -241,7 +239,7 @@ class TOKENRINGMIB(Entity):
             .. attribute:: dot5actmonparticipate
             
             	If this object has a value of true(1) then this interface will participate in the active monitor selection process.  If the value is false(2) then it will not. Setting this object does not take effect until the next Active Monitor election, and might not take effect until the next time the interface is opened
-            	**type**\:  :py:class:`Dot5Actmonparticipate <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5Table.Dot5Entry.Dot5Actmonparticipate>`
+            	**type**\:  :py:class:`Dot5ActMonParticipate <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5Table.Dot5Entry.Dot5ActMonParticipate>`
             
             .. attribute:: dot5functional
             
@@ -272,8 +270,7 @@ class TOKENRINGMIB(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot5ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot5ifindex', YLeaf(YType.int32, 'dot5IfIndex')),
                     ('dot5commands', YLeaf(YType.enumeration, 'dot5Commands')),
@@ -302,9 +299,9 @@ class TOKENRINGMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(TOKENRINGMIB.Dot5Table.Dot5Entry, ['dot5ifindex', 'dot5commands', 'dot5ringstatus', 'dot5ringstate', 'dot5ringopenstatus', 'dot5ringspeed', 'dot5upstream', 'dot5actmonparticipate', 'dot5functional', 'dot5lastbeaconsent'], name, value)
 
-            class Dot5Actmonparticipate(Enum):
+            class Dot5ActMonParticipate(Enum):
                 """
-                Dot5Actmonparticipate (Enum Class)
+                Dot5ActMonParticipate (Enum Class)
 
                 If this object has a value of true(1) then
 
@@ -408,9 +405,9 @@ class TOKENRINGMIB(Entity):
                 close = Enum.YLeaf(4, "close")
 
 
-            class Dot5Ringopenstatus(Enum):
+            class Dot5RingOpenStatus(Enum):
                 """
-                Dot5Ringopenstatus (Enum Class)
+                Dot5RingOpenStatus (Enum Class)
 
                 This object indicates the success, or the
 
@@ -465,9 +462,9 @@ class TOKENRINGMIB(Entity):
                 open = Enum.YLeaf(11, "open")
 
 
-            class Dot5Ringspeed(Enum):
+            class Dot5RingSpeed(Enum):
                 """
-                Dot5Ringspeed (Enum Class)
+                Dot5RingSpeed (Enum Class)
 
                 The ring\-speed at the next insertion into
 
@@ -506,9 +503,9 @@ class TOKENRINGMIB(Entity):
                 sixteenMegabit = Enum.YLeaf(4, "sixteenMegabit")
 
 
-            class Dot5Ringstate(Enum):
+            class Dot5RingState(Enum):
                 """
-                Dot5Ringstate (Enum Class)
+                Dot5RingState (Enum Class)
 
                 The current interface state with respect
 
@@ -542,7 +539,7 @@ class TOKENRINGMIB(Entity):
 
 
 
-    class Dot5Statstable(Entity):
+    class Dot5StatsTable(Entity):
         """
         A table containing Token Ring statistics,
         one entry per 802.5 interface.
@@ -558,7 +555,7 @@ class TOKENRINGMIB(Entity):
         .. attribute:: dot5statsentry
         
         	An entry contains the 802.5 statistics for a particular interface
-        	**type**\: list of  		 :py:class:`Dot5Statsentry <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5Statstable.Dot5Statsentry>`
+        	**type**\: list of  		 :py:class:`Dot5StatsEntry <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5StatsTable.Dot5StatsEntry>`
         
         
 
@@ -568,15 +565,14 @@ class TOKENRINGMIB(Entity):
         _revision = '1994-10-23'
 
         def __init__(self):
-            super(TOKENRINGMIB.Dot5Statstable, self).__init__()
+            super(TOKENRINGMIB.Dot5StatsTable, self).__init__()
 
             self.yang_name = "dot5StatsTable"
             self.yang_parent_name = "TOKENRING-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot5StatsEntry", ("dot5statsentry", TOKENRINGMIB.Dot5Statstable.Dot5Statsentry))])
+            self._child_classes = OrderedDict([("dot5StatsEntry", ("dot5statsentry", TOKENRINGMIB.Dot5StatsTable.Dot5StatsEntry))])
             self._leafs = OrderedDict()
 
             self.dot5statsentry = YList(self)
@@ -584,10 +580,10 @@ class TOKENRINGMIB(Entity):
             self._absolute_path = lambda: "TOKENRING-MIB:TOKENRING-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(TOKENRINGMIB.Dot5Statstable, [], name, value)
+            self._perform_setattr(TOKENRINGMIB.Dot5StatsTable, [], name, value)
 
 
-        class Dot5Statsentry(Entity):
+        class Dot5StatsEntry(Entity):
             """
             An entry contains the 802.5 statistics
             for a particular interface.
@@ -733,15 +729,14 @@ class TOKENRINGMIB(Entity):
             _revision = '1994-10-23'
 
             def __init__(self):
-                super(TOKENRINGMIB.Dot5Statstable.Dot5Statsentry, self).__init__()
+                super(TOKENRINGMIB.Dot5StatsTable.Dot5StatsEntry, self).__init__()
 
                 self.yang_name = "dot5StatsEntry"
                 self.yang_parent_name = "dot5StatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot5statsifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot5statsifindex', YLeaf(YType.int32, 'dot5StatsIfIndex')),
                     ('dot5statslineerrors', YLeaf(YType.uint32, 'dot5StatsLineErrors')),
@@ -786,10 +781,10 @@ class TOKENRINGMIB(Entity):
                 self._absolute_path = lambda: "TOKENRING-MIB:TOKENRING-MIB/dot5StatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGMIB.Dot5Statstable.Dot5Statsentry, ['dot5statsifindex', 'dot5statslineerrors', 'dot5statsbursterrors', 'dot5statsacerrors', 'dot5statsaborttranserrors', 'dot5statsinternalerrors', 'dot5statslostframeerrors', 'dot5statsreceivecongestions', 'dot5statsframecopiederrors', 'dot5statstokenerrors', 'dot5statssofterrors', 'dot5statsharderrors', 'dot5statssignalloss', 'dot5statstransmitbeacons', 'dot5statsrecoverys', 'dot5statslobewires', 'dot5statsremoves', 'dot5statssingles', 'dot5statsfreqerrors'], name, value)
+                self._perform_setattr(TOKENRINGMIB.Dot5StatsTable.Dot5StatsEntry, ['dot5statsifindex', 'dot5statslineerrors', 'dot5statsbursterrors', 'dot5statsacerrors', 'dot5statsaborttranserrors', 'dot5statsinternalerrors', 'dot5statslostframeerrors', 'dot5statsreceivecongestions', 'dot5statsframecopiederrors', 'dot5statstokenerrors', 'dot5statssofterrors', 'dot5statsharderrors', 'dot5statssignalloss', 'dot5statstransmitbeacons', 'dot5statsrecoverys', 'dot5statslobewires', 'dot5statsremoves', 'dot5statssingles', 'dot5statsfreqerrors'], name, value)
 
 
-    class Dot5Timertable(Entity):
+    class Dot5TimerTable(Entity):
         """
         This table contains Token Ring interface
         timer values, one entry per 802.5
@@ -798,7 +793,7 @@ class TOKENRINGMIB(Entity):
         .. attribute:: dot5timerentry
         
         	A list of Token Ring timer values for an 802.5 interface
-        	**type**\: list of  		 :py:class:`Dot5Timerentry <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5Timertable.Dot5Timerentry>`
+        	**type**\: list of  		 :py:class:`Dot5TimerEntry <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5TimerTable.Dot5TimerEntry>`
         
         	**status**\: obsolete
         
@@ -810,15 +805,14 @@ class TOKENRINGMIB(Entity):
         _revision = '1994-10-23'
 
         def __init__(self):
-            super(TOKENRINGMIB.Dot5Timertable, self).__init__()
+            super(TOKENRINGMIB.Dot5TimerTable, self).__init__()
 
             self.yang_name = "dot5TimerTable"
             self.yang_parent_name = "TOKENRING-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot5TimerEntry", ("dot5timerentry", TOKENRINGMIB.Dot5Timertable.Dot5Timerentry))])
+            self._child_classes = OrderedDict([("dot5TimerEntry", ("dot5timerentry", TOKENRINGMIB.Dot5TimerTable.Dot5TimerEntry))])
             self._leafs = OrderedDict()
 
             self.dot5timerentry = YList(self)
@@ -826,10 +820,10 @@ class TOKENRINGMIB(Entity):
             self._absolute_path = lambda: "TOKENRING-MIB:TOKENRING-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(TOKENRINGMIB.Dot5Timertable, [], name, value)
+            self._perform_setattr(TOKENRINGMIB.Dot5TimerTable, [], name, value)
 
 
-        class Dot5Timerentry(Entity):
+        class Dot5TimerEntry(Entity):
             """
             A list of Token Ring timer values for an
             802.5 interface.
@@ -941,15 +935,14 @@ class TOKENRINGMIB(Entity):
             _revision = '1994-10-23'
 
             def __init__(self):
-                super(TOKENRINGMIB.Dot5Timertable.Dot5Timerentry, self).__init__()
+                super(TOKENRINGMIB.Dot5TimerTable.Dot5TimerEntry, self).__init__()
 
                 self.yang_name = "dot5TimerEntry"
                 self.yang_parent_name = "dot5TimerTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot5timerifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot5timerifindex', YLeaf(YType.int32, 'dot5TimerIfIndex')),
                     ('dot5timerreturnrepeat', YLeaf(YType.int32, 'dot5TimerReturnRepeat')),
@@ -978,7 +971,7 @@ class TOKENRINGMIB(Entity):
                 self._absolute_path = lambda: "TOKENRING-MIB:TOKENRING-MIB/dot5TimerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGMIB.Dot5Timertable.Dot5Timerentry, ['dot5timerifindex', 'dot5timerreturnrepeat', 'dot5timerholding', 'dot5timerqueuepdu', 'dot5timervalidtransmit', 'dot5timernotoken', 'dot5timeractivemon', 'dot5timerstandbymon', 'dot5timererrorreport', 'dot5timerbeacontransmit', 'dot5timerbeaconreceive'], name, value)
+                self._perform_setattr(TOKENRINGMIB.Dot5TimerTable.Dot5TimerEntry, ['dot5timerifindex', 'dot5timerreturnrepeat', 'dot5timerholding', 'dot5timerqueuepdu', 'dot5timervalidtransmit', 'dot5timernotoken', 'dot5timeractivemon', 'dot5timerstandbymon', 'dot5timererrorreport', 'dot5timerbeacontransmit', 'dot5timerbeaconreceive'], name, value)
 
     def clone_ptr(self):
         self._top_entity = TOKENRINGMIB()

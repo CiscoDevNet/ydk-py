@@ -56,8 +56,7 @@ class Rib(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("af", ("af", Rib.Af))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("af", ("af", Rib.Af))])
         self._leafs = OrderedDict([
             ('max_recursion_depth', YLeaf(YType.uint32, 'max-recursion-depth')),
         ])
@@ -66,7 +65,6 @@ class Rib(Entity):
         self.af = Rib.Af()
         self.af.parent = self
         self._children_name_map["af"] = "af"
-        self._children_yang_names.add("af")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:rib"
 
     def __setattr__(self, name, value):
@@ -102,21 +100,21 @@ class Rib(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("ipv4", ("ipv4", Rib.Af.Ipv4)), ("ipv6", ("ipv6", Rib.Af.Ipv6))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("ipv4", ("ipv4", Rib.Af.Ipv4)), ("ipv6", ("ipv6", Rib.Af.Ipv6))])
             self._leafs = OrderedDict()
 
             self.ipv4 = Rib.Af.Ipv4()
             self.ipv4.parent = self
             self._children_name_map["ipv4"] = "ipv4"
-            self._children_yang_names.add("ipv4")
 
             self.ipv6 = Rib.Af.Ipv6()
             self.ipv6.parent = self
             self._children_name_map["ipv6"] = "ipv6"
-            self._children_yang_names.add("ipv6")
             self._segment_path = lambda: "af"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:rib/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Rib.Af, [], name, value)
 
 
         class Ipv4(Entity):
@@ -148,8 +146,7 @@ class Rib(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("redistribution-history", ("redistribution_history", Rib.Af.Ipv4.RedistributionHistory))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("redistribution-history", ("redistribution_history", Rib.Af.Ipv4.RedistributionHistory))])
                 self._leafs = OrderedDict([
                     ('next_hop_dampening_disable', YLeaf(YType.empty, 'next-hop-dampening-disable')),
                 ])
@@ -158,7 +155,6 @@ class Rib(Entity):
                 self.redistribution_history = Rib.Af.Ipv4.RedistributionHistory()
                 self.redistribution_history.parent = self
                 self._children_name_map["redistribution_history"] = "redistribution-history"
-                self._children_yang_names.add("redistribution-history")
                 self._segment_path = lambda: "ipv4"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:rib/af/%s" % self._segment_path()
 
@@ -204,8 +200,7 @@ class Rib(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("keep", ("keep", Rib.Af.Ipv4.RedistributionHistory.Keep))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("keep", ("keep", Rib.Af.Ipv4.RedistributionHistory.Keep))])
                     self._leafs = OrderedDict([
                         ('bcdl_client', YLeaf(YType.uint32, 'bcdl-client')),
                         ('protocol_client', YLeaf(YType.uint32, 'protocol-client')),
@@ -216,7 +211,6 @@ class Rib(Entity):
                     self.keep = Rib.Af.Ipv4.RedistributionHistory.Keep()
                     self.keep.parent = self
                     self._children_name_map["keep"] = "keep"
-                    self._children_yang_names.add("keep")
                     self._segment_path = lambda: "redistribution-history"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:rib/af/ipv4/%s" % self._segment_path()
 
@@ -248,8 +242,7 @@ class Rib(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('bcdl', YLeaf(YType.empty, 'bcdl')),
                         ])
@@ -290,8 +283,7 @@ class Rib(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("redistribution-history", ("redistribution_history", Rib.Af.Ipv6.RedistributionHistory))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("redistribution-history", ("redistribution_history", Rib.Af.Ipv6.RedistributionHistory))])
                 self._leafs = OrderedDict([
                     ('next_hop_dampening_disable', YLeaf(YType.empty, 'next-hop-dampening-disable')),
                 ])
@@ -300,7 +292,6 @@ class Rib(Entity):
                 self.redistribution_history = Rib.Af.Ipv6.RedistributionHistory()
                 self.redistribution_history.parent = self
                 self._children_name_map["redistribution_history"] = "redistribution-history"
-                self._children_yang_names.add("redistribution-history")
                 self._segment_path = lambda: "ipv6"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:rib/af/%s" % self._segment_path()
 
@@ -346,8 +337,7 @@ class Rib(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("keep", ("keep", Rib.Af.Ipv6.RedistributionHistory.Keep))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("keep", ("keep", Rib.Af.Ipv6.RedistributionHistory.Keep))])
                     self._leafs = OrderedDict([
                         ('bcdl_client', YLeaf(YType.uint32, 'bcdl-client')),
                         ('protocol_client', YLeaf(YType.uint32, 'protocol-client')),
@@ -358,7 +348,6 @@ class Rib(Entity):
                     self.keep = Rib.Af.Ipv6.RedistributionHistory.Keep()
                     self.keep.parent = self
                     self._children_name_map["keep"] = "keep"
-                    self._children_yang_names.add("keep")
                     self._segment_path = lambda: "redistribution-history"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:rib/af/ipv6/%s" % self._segment_path()
 
@@ -390,8 +379,7 @@ class Rib(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('bcdl', YLeaf(YType.empty, 'bcdl')),
                         ])

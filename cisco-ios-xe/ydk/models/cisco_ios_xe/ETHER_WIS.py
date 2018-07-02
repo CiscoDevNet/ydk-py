@@ -47,22 +47,22 @@ class ETHERWIS(Entity):
     .. attribute:: etherwisdevicetable
     
     	The table for Ethernet WIS devices
-    	**type**\:  :py:class:`Etherwisdevicetable <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwisdevicetable>`
+    	**type**\:  :py:class:`EtherWisDeviceTable <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.EtherWisDeviceTable>`
     
     .. attribute:: etherwissectioncurrenttable
     
     	The table for the current state of Ethernet WIS sections
-    	**type**\:  :py:class:`Etherwissectioncurrenttable <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwissectioncurrenttable>`
+    	**type**\:  :py:class:`EtherWisSectionCurrentTable <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.EtherWisSectionCurrentTable>`
     
     .. attribute:: etherwispathcurrenttable
     
     	The table for the current state of Ethernet WIS paths
-    	**type**\:  :py:class:`Etherwispathcurrenttable <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwispathcurrenttable>`
+    	**type**\:  :py:class:`EtherWisPathCurrentTable <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.EtherWisPathCurrentTable>`
     
     .. attribute:: etherwisfarendpathcurrenttable
     
     	The table for the current far\-end state of Ethernet WIS paths
-    	**type**\:  :py:class:`Etherwisfarendpathcurrenttable <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwisfarendpathcurrenttable>`
+    	**type**\:  :py:class:`EtherWisFarEndPathCurrentTable <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.EtherWisFarEndPathCurrentTable>`
     
     
 
@@ -80,40 +80,38 @@ class ETHERWIS(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("etherWisDeviceTable", ("etherwisdevicetable", ETHERWIS.Etherwisdevicetable)), ("etherWisSectionCurrentTable", ("etherwissectioncurrenttable", ETHERWIS.Etherwissectioncurrenttable)), ("etherWisPathCurrentTable", ("etherwispathcurrenttable", ETHERWIS.Etherwispathcurrenttable)), ("etherWisFarEndPathCurrentTable", ("etherwisfarendpathcurrenttable", ETHERWIS.Etherwisfarendpathcurrenttable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("etherWisDeviceTable", ("etherwisdevicetable", ETHERWIS.EtherWisDeviceTable)), ("etherWisSectionCurrentTable", ("etherwissectioncurrenttable", ETHERWIS.EtherWisSectionCurrentTable)), ("etherWisPathCurrentTable", ("etherwispathcurrenttable", ETHERWIS.EtherWisPathCurrentTable)), ("etherWisFarEndPathCurrentTable", ("etherwisfarendpathcurrenttable", ETHERWIS.EtherWisFarEndPathCurrentTable))])
         self._leafs = OrderedDict()
 
-        self.etherwisdevicetable = ETHERWIS.Etherwisdevicetable()
+        self.etherwisdevicetable = ETHERWIS.EtherWisDeviceTable()
         self.etherwisdevicetable.parent = self
         self._children_name_map["etherwisdevicetable"] = "etherWisDeviceTable"
-        self._children_yang_names.add("etherWisDeviceTable")
 
-        self.etherwissectioncurrenttable = ETHERWIS.Etherwissectioncurrenttable()
+        self.etherwissectioncurrenttable = ETHERWIS.EtherWisSectionCurrentTable()
         self.etherwissectioncurrenttable.parent = self
         self._children_name_map["etherwissectioncurrenttable"] = "etherWisSectionCurrentTable"
-        self._children_yang_names.add("etherWisSectionCurrentTable")
 
-        self.etherwispathcurrenttable = ETHERWIS.Etherwispathcurrenttable()
+        self.etherwispathcurrenttable = ETHERWIS.EtherWisPathCurrentTable()
         self.etherwispathcurrenttable.parent = self
         self._children_name_map["etherwispathcurrenttable"] = "etherWisPathCurrentTable"
-        self._children_yang_names.add("etherWisPathCurrentTable")
 
-        self.etherwisfarendpathcurrenttable = ETHERWIS.Etherwisfarendpathcurrenttable()
+        self.etherwisfarendpathcurrenttable = ETHERWIS.EtherWisFarEndPathCurrentTable()
         self.etherwisfarendpathcurrenttable.parent = self
         self._children_name_map["etherwisfarendpathcurrenttable"] = "etherWisFarEndPathCurrentTable"
-        self._children_yang_names.add("etherWisFarEndPathCurrentTable")
         self._segment_path = lambda: "ETHER-WIS:ETHER-WIS"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(ETHERWIS, [], name, value)
 
-    class Etherwisdevicetable(Entity):
+
+    class EtherWisDeviceTable(Entity):
         """
         The table for Ethernet WIS devices
         
         .. attribute:: etherwisdeviceentry
         
         	An entry in the Ethernet WIS device table.  For each instance of this object there MUST be a corresponding instance of sonetMediumEntry
-        	**type**\: list of  		 :py:class:`Etherwisdeviceentry <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwisdevicetable.Etherwisdeviceentry>`
+        	**type**\: list of  		 :py:class:`EtherWisDeviceEntry <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.EtherWisDeviceTable.EtherWisDeviceEntry>`
         
         
 
@@ -123,15 +121,14 @@ class ETHERWIS(Entity):
         _revision = '2003-09-19'
 
         def __init__(self):
-            super(ETHERWIS.Etherwisdevicetable, self).__init__()
+            super(ETHERWIS.EtherWisDeviceTable, self).__init__()
 
             self.yang_name = "etherWisDeviceTable"
             self.yang_parent_name = "ETHER-WIS"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("etherWisDeviceEntry", ("etherwisdeviceentry", ETHERWIS.Etherwisdevicetable.Etherwisdeviceentry))])
+            self._child_classes = OrderedDict([("etherWisDeviceEntry", ("etherwisdeviceentry", ETHERWIS.EtherWisDeviceTable.EtherWisDeviceEntry))])
             self._leafs = OrderedDict()
 
             self.etherwisdeviceentry = YList(self)
@@ -139,10 +136,10 @@ class ETHERWIS(Entity):
             self._absolute_path = lambda: "ETHER-WIS:ETHER-WIS/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ETHERWIS.Etherwisdevicetable, [], name, value)
+            self._perform_setattr(ETHERWIS.EtherWisDeviceTable, [], name, value)
 
 
-        class Etherwisdeviceentry(Entity):
+        class EtherWisDeviceEntry(Entity):
             """
             An entry in the Ethernet WIS device table.  For each
             instance of this object there MUST be a corresponding
@@ -155,17 +152,17 @@ class ETHERWIS(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: etherwisdevicetxtestpatternmode
             
             	This variable controls the transmit test pattern mode. The value none(1) puts the the WIS transmit path into the normal operating mode.  The value squareWave(2) puts the WIS transmit path into the square wave test pattern mode described in [IEEE 802.3 Std.] subclause 50.3.8.1. The value prbs31(3) puts the WIS transmit path into the PRBS31 test pattern mode described in [IEEE 802.3 Std.] subclause 50.3.8.2.  The value mixedFrequency(4) puts the WIS transmit path into the mixed frequency test pattern mode described in [IEEE 802.3 Std.] subclause 50.3.8.3. Any attempt to set this object to a value other than none(1) when the corresponding instance of ifAdminStatus has the value up(1) MUST be rejected with the error inconsistentValue, and any attempt to set the corresponding instance of ifAdminStatus to the value up(1) when an instance of this object has a value other than none(1) MUST be rejected with the error inconsistentValue
-            	**type**\:  :py:class:`Etherwisdevicetxtestpatternmode <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwisdevicetable.Etherwisdeviceentry.Etherwisdevicetxtestpatternmode>`
+            	**type**\:  :py:class:`EtherWisDeviceTxTestPatternMode <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.EtherWisDeviceTable.EtherWisDeviceEntry.EtherWisDeviceTxTestPatternMode>`
             
             .. attribute:: etherwisdevicerxtestpatternmode
             
             	This variable controls the receive test pattern mode. The value none(1) puts the the WIS receive path into the normal operating mode.  The value prbs31(3) puts the WIS receive path into the PRBS31 test pattern mode described in [IEEE 802.3 Std.] subclause 50.3.8.2.  The value mixedFrequency(4) puts the WIS receive path into the mixed frequency test pattern mode described in [IEEE 802.3 Std.] subclause 50.3.8.3.  Any attempt to set this object to a value other than none(1) when the corresponding instance of ifAdminStatus has the value up(1) MUST be rejected with the error inconsistentValue, and any attempt to set the corresponding instance of ifAdminStatus to the value up(1) when an instance of this object has a value other than none(1) MUST be rejected with the error inconsistentValue
-            	**type**\:  :py:class:`Etherwisdevicerxtestpatternmode <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwisdevicetable.Etherwisdeviceentry.Etherwisdevicerxtestpatternmode>`
+            	**type**\:  :py:class:`EtherWisDeviceRxTestPatternMode <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.EtherWisDeviceTable.EtherWisDeviceEntry.EtherWisDeviceRxTestPatternMode>`
             
             .. attribute:: etherwisdevicerxtestpatternerrors
             
@@ -182,15 +179,14 @@ class ETHERWIS(Entity):
             _revision = '2003-09-19'
 
             def __init__(self):
-                super(ETHERWIS.Etherwisdevicetable.Etherwisdeviceentry, self).__init__()
+                super(ETHERWIS.EtherWisDeviceTable.EtherWisDeviceEntry, self).__init__()
 
                 self.yang_name = "etherWisDeviceEntry"
                 self.yang_parent_name = "etherWisDeviceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('etherwisdevicetxtestpatternmode', YLeaf(YType.enumeration, 'etherWisDeviceTxTestPatternMode')),
@@ -205,11 +201,11 @@ class ETHERWIS(Entity):
                 self._absolute_path = lambda: "ETHER-WIS:ETHER-WIS/etherWisDeviceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ETHERWIS.Etherwisdevicetable.Etherwisdeviceentry, ['ifindex', 'etherwisdevicetxtestpatternmode', 'etherwisdevicerxtestpatternmode', 'etherwisdevicerxtestpatternerrors'], name, value)
+                self._perform_setattr(ETHERWIS.EtherWisDeviceTable.EtherWisDeviceEntry, ['ifindex', 'etherwisdevicetxtestpatternmode', 'etherwisdevicerxtestpatternmode', 'etherwisdevicerxtestpatternerrors'], name, value)
 
-            class Etherwisdevicerxtestpatternmode(Enum):
+            class EtherWisDeviceRxTestPatternMode(Enum):
                 """
-                Etherwisdevicerxtestpatternmode (Enum Class)
+                EtherWisDeviceRxTestPatternMode (Enum Class)
 
                 This variable controls the receive test pattern mode.
 
@@ -254,9 +250,9 @@ class ETHERWIS(Entity):
                 mixedFrequency = Enum.YLeaf(4, "mixedFrequency")
 
 
-            class Etherwisdevicetxtestpatternmode(Enum):
+            class EtherWisDeviceTxTestPatternMode(Enum):
                 """
-                Etherwisdevicetxtestpatternmode (Enum Class)
+                EtherWisDeviceTxTestPatternMode (Enum Class)
 
                 This variable controls the transmit test pattern mode.
 
@@ -312,14 +308,14 @@ class ETHERWIS(Entity):
 
 
 
-    class Etherwissectioncurrenttable(Entity):
+    class EtherWisSectionCurrentTable(Entity):
         """
         The table for the current state of Ethernet WIS sections.
         
         .. attribute:: etherwissectioncurrententry
         
         	An entry in the etherWisSectionCurrentTable.  For each instance of this object there MUST be a corresponding instance of sonetSectionCurrentEntry
-        	**type**\: list of  		 :py:class:`Etherwissectioncurrententry <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwissectioncurrenttable.Etherwissectioncurrententry>`
+        	**type**\: list of  		 :py:class:`EtherWisSectionCurrentEntry <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.EtherWisSectionCurrentTable.EtherWisSectionCurrentEntry>`
         
         
 
@@ -329,15 +325,14 @@ class ETHERWIS(Entity):
         _revision = '2003-09-19'
 
         def __init__(self):
-            super(ETHERWIS.Etherwissectioncurrenttable, self).__init__()
+            super(ETHERWIS.EtherWisSectionCurrentTable, self).__init__()
 
             self.yang_name = "etherWisSectionCurrentTable"
             self.yang_parent_name = "ETHER-WIS"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("etherWisSectionCurrentEntry", ("etherwissectioncurrententry", ETHERWIS.Etherwissectioncurrenttable.Etherwissectioncurrententry))])
+            self._child_classes = OrderedDict([("etherWisSectionCurrentEntry", ("etherwissectioncurrententry", ETHERWIS.EtherWisSectionCurrentTable.EtherWisSectionCurrentEntry))])
             self._leafs = OrderedDict()
 
             self.etherwissectioncurrententry = YList(self)
@@ -345,10 +340,10 @@ class ETHERWIS(Entity):
             self._absolute_path = lambda: "ETHER-WIS:ETHER-WIS/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ETHERWIS.Etherwissectioncurrenttable, [], name, value)
+            self._perform_setattr(ETHERWIS.EtherWisSectionCurrentTable, [], name, value)
 
 
-        class Etherwissectioncurrententry(Entity):
+        class EtherWisSectionCurrentEntry(Entity):
             """
             An entry in the etherWisSectionCurrentTable.  For each
             instance of this object there MUST be a corresponding
@@ -361,7 +356,7 @@ class ETHERWIS(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: etherwissectioncurrentj0transmitted
             
@@ -385,15 +380,14 @@ class ETHERWIS(Entity):
             _revision = '2003-09-19'
 
             def __init__(self):
-                super(ETHERWIS.Etherwissectioncurrenttable.Etherwissectioncurrententry, self).__init__()
+                super(ETHERWIS.EtherWisSectionCurrentTable.EtherWisSectionCurrentEntry, self).__init__()
 
                 self.yang_name = "etherWisSectionCurrentEntry"
                 self.yang_parent_name = "etherWisSectionCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('etherwissectioncurrentj0transmitted', YLeaf(YType.str, 'etherWisSectionCurrentJ0Transmitted')),
@@ -406,17 +400,17 @@ class ETHERWIS(Entity):
                 self._absolute_path = lambda: "ETHER-WIS:ETHER-WIS/etherWisSectionCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ETHERWIS.Etherwissectioncurrenttable.Etherwissectioncurrententry, ['ifindex', 'etherwissectioncurrentj0transmitted', 'etherwissectioncurrentj0received'], name, value)
+                self._perform_setattr(ETHERWIS.EtherWisSectionCurrentTable.EtherWisSectionCurrentEntry, ['ifindex', 'etherwissectioncurrentj0transmitted', 'etherwissectioncurrentj0received'], name, value)
 
 
-    class Etherwispathcurrenttable(Entity):
+    class EtherWisPathCurrentTable(Entity):
         """
         The table for the current state of Ethernet WIS paths.
         
         .. attribute:: etherwispathcurrententry
         
         	An entry in the etherWisPathCurrentTable.  For each instance of this object there MUST be a corresponding instance of sonetPathCurrentEntry
-        	**type**\: list of  		 :py:class:`Etherwispathcurrententry <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwispathcurrenttable.Etherwispathcurrententry>`
+        	**type**\: list of  		 :py:class:`EtherWisPathCurrentEntry <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.EtherWisPathCurrentTable.EtherWisPathCurrentEntry>`
         
         
 
@@ -426,15 +420,14 @@ class ETHERWIS(Entity):
         _revision = '2003-09-19'
 
         def __init__(self):
-            super(ETHERWIS.Etherwispathcurrenttable, self).__init__()
+            super(ETHERWIS.EtherWisPathCurrentTable, self).__init__()
 
             self.yang_name = "etherWisPathCurrentTable"
             self.yang_parent_name = "ETHER-WIS"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("etherWisPathCurrentEntry", ("etherwispathcurrententry", ETHERWIS.Etherwispathcurrenttable.Etherwispathcurrententry))])
+            self._child_classes = OrderedDict([("etherWisPathCurrentEntry", ("etherwispathcurrententry", ETHERWIS.EtherWisPathCurrentTable.EtherWisPathCurrentEntry))])
             self._leafs = OrderedDict()
 
             self.etherwispathcurrententry = YList(self)
@@ -442,10 +435,10 @@ class ETHERWIS(Entity):
             self._absolute_path = lambda: "ETHER-WIS:ETHER-WIS/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ETHERWIS.Etherwispathcurrenttable, [], name, value)
+            self._perform_setattr(ETHERWIS.EtherWisPathCurrentTable, [], name, value)
 
 
-        class Etherwispathcurrententry(Entity):
+        class EtherWisPathCurrentEntry(Entity):
             """
             An entry in the etherWisPathCurrentTable.  For each
             instance of this object there MUST be a corresponding
@@ -458,12 +451,12 @@ class ETHERWIS(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: etherwispathcurrentstatus
             
             	This variable indicates the current status of the path payload with a bit map that can indicate multiple defects at once.  The bit positions are assigned as follows\:  etherWisPathLOP(0)    This bit is set to indicate that an    LOP\-P (Loss of Pointer \- Path) defect    is being experienced.  Note\:  when this    bit is set, sonetPathSTSLOP MUST be set    in the corresponding instance of    sonetPathCurrentStatus.  etherWisPathAIS(1)    This bit is set to indicate that an    AIS\-P (Alarm Indication Signal \- Path)    defect is being experienced.  Note\:  when    this bit is set, sonetPathSTSAIS MUST be    set in the corresponding instance of    sonetPathCurrentStatus.  etherWisPathPLM(1)    This bit is set to indicate that a    PLM\-P (Payload Label Mismatch \- Path)    defect is being experienced.  Note\:  when    this bit is set, sonetPathSignalLabelMismatch    MUST be set in the corresponding instance of    sonetPathCurrentStatus.  etherWisPathLCD(3)    This bit is set to indicate that an    LCD\-P (Loss of Codegroup Delination \- Path)    defect is being experienced.  Since this    defect is detected by the PCS and not by    the path layer itself, there is no    corresponding bit in sonetPathCurrentStatus
-            	**type**\:  :py:class:`Etherwispathcurrentstatus <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwispathcurrenttable.Etherwispathcurrententry.Etherwispathcurrentstatus>`
+            	**type**\:  :py:class:`EtherWisPathCurrentStatus <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.EtherWisPathCurrentTable.EtherWisPathCurrentEntry.EtherWisPathCurrentStatus>`
             
             .. attribute:: etherwispathcurrentj1transmitted
             
@@ -487,15 +480,14 @@ class ETHERWIS(Entity):
             _revision = '2003-09-19'
 
             def __init__(self):
-                super(ETHERWIS.Etherwispathcurrenttable.Etherwispathcurrententry, self).__init__()
+                super(ETHERWIS.EtherWisPathCurrentTable.EtherWisPathCurrentEntry, self).__init__()
 
                 self.yang_name = "etherWisPathCurrentEntry"
                 self.yang_parent_name = "etherWisPathCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('etherwispathcurrentstatus', YLeaf(YType.bits, 'etherWisPathCurrentStatus')),
@@ -510,10 +502,10 @@ class ETHERWIS(Entity):
                 self._absolute_path = lambda: "ETHER-WIS:ETHER-WIS/etherWisPathCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ETHERWIS.Etherwispathcurrenttable.Etherwispathcurrententry, ['ifindex', 'etherwispathcurrentstatus', 'etherwispathcurrentj1transmitted', 'etherwispathcurrentj1received'], name, value)
+                self._perform_setattr(ETHERWIS.EtherWisPathCurrentTable.EtherWisPathCurrentEntry, ['ifindex', 'etherwispathcurrentstatus', 'etherwispathcurrentj1transmitted', 'etherwispathcurrentj1received'], name, value)
 
 
-    class Etherwisfarendpathcurrenttable(Entity):
+    class EtherWisFarEndPathCurrentTable(Entity):
         """
         The table for the current far\-end state of Ethernet WIS
         paths.
@@ -521,7 +513,7 @@ class ETHERWIS(Entity):
         .. attribute:: etherwisfarendpathcurrententry
         
         	An entry in the etherWisFarEndPathCurrentTable.  For each instance of this object there MUST be a corresponding instance of sonetFarEndPathCurrentEntry
-        	**type**\: list of  		 :py:class:`Etherwisfarendpathcurrententry <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwisfarendpathcurrenttable.Etherwisfarendpathcurrententry>`
+        	**type**\: list of  		 :py:class:`EtherWisFarEndPathCurrentEntry <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.EtherWisFarEndPathCurrentTable.EtherWisFarEndPathCurrentEntry>`
         
         
 
@@ -531,15 +523,14 @@ class ETHERWIS(Entity):
         _revision = '2003-09-19'
 
         def __init__(self):
-            super(ETHERWIS.Etherwisfarendpathcurrenttable, self).__init__()
+            super(ETHERWIS.EtherWisFarEndPathCurrentTable, self).__init__()
 
             self.yang_name = "etherWisFarEndPathCurrentTable"
             self.yang_parent_name = "ETHER-WIS"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("etherWisFarEndPathCurrentEntry", ("etherwisfarendpathcurrententry", ETHERWIS.Etherwisfarendpathcurrenttable.Etherwisfarendpathcurrententry))])
+            self._child_classes = OrderedDict([("etherWisFarEndPathCurrentEntry", ("etherwisfarendpathcurrententry", ETHERWIS.EtherWisFarEndPathCurrentTable.EtherWisFarEndPathCurrentEntry))])
             self._leafs = OrderedDict()
 
             self.etherwisfarendpathcurrententry = YList(self)
@@ -547,10 +538,10 @@ class ETHERWIS(Entity):
             self._absolute_path = lambda: "ETHER-WIS:ETHER-WIS/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ETHERWIS.Etherwisfarendpathcurrenttable, [], name, value)
+            self._perform_setattr(ETHERWIS.EtherWisFarEndPathCurrentTable, [], name, value)
 
 
-        class Etherwisfarendpathcurrententry(Entity):
+        class EtherWisFarEndPathCurrentEntry(Entity):
             """
             An entry in the etherWisFarEndPathCurrentTable.  For each
             instance of this object there MUST be a corresponding
@@ -563,12 +554,12 @@ class ETHERWIS(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: etherwisfarendpathcurrentstatus
             
             	This variable indicates the current status at the far end of the path using a bit map that can indicate multiple defects at once.  The bit positions are assigned as follows\:  etherWisFarEndPayloadDefect(0)    A far end payload defect (i.e., far end    PLM\-P or LCD\-P) is currently being signaled    in G1 bits 5\-7.  etherWisFarEndServerDefect(1)    A far end server defect (i.e., far end    LOP\-P or AIS\-P) is currently being signaled    in G1 bits 5\-7.  Note\:  when this bit is set,    sonetPathSTSRDI MUST be set in the corresponding    instance of sonetPathCurrentStatus
-            	**type**\:  :py:class:`Etherwisfarendpathcurrentstatus <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.Etherwisfarendpathcurrenttable.Etherwisfarendpathcurrententry.Etherwisfarendpathcurrentstatus>`
+            	**type**\:  :py:class:`EtherWisFarEndPathCurrentStatus <ydk.models.cisco_ios_xe.ETHER_WIS.ETHERWIS.EtherWisFarEndPathCurrentTable.EtherWisFarEndPathCurrentEntry.EtherWisFarEndPathCurrentStatus>`
             
             
 
@@ -578,15 +569,14 @@ class ETHERWIS(Entity):
             _revision = '2003-09-19'
 
             def __init__(self):
-                super(ETHERWIS.Etherwisfarendpathcurrenttable.Etherwisfarendpathcurrententry, self).__init__()
+                super(ETHERWIS.EtherWisFarEndPathCurrentTable.EtherWisFarEndPathCurrentEntry, self).__init__()
 
                 self.yang_name = "etherWisFarEndPathCurrentEntry"
                 self.yang_parent_name = "etherWisFarEndPathCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('etherwisfarendpathcurrentstatus', YLeaf(YType.bits, 'etherWisFarEndPathCurrentStatus')),
@@ -597,7 +587,7 @@ class ETHERWIS(Entity):
                 self._absolute_path = lambda: "ETHER-WIS:ETHER-WIS/etherWisFarEndPathCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ETHERWIS.Etherwisfarendpathcurrenttable.Etherwisfarendpathcurrententry, ['ifindex', 'etherwisfarendpathcurrentstatus'], name, value)
+                self._perform_setattr(ETHERWIS.EtherWisFarEndPathCurrentTable.EtherWisFarEndPathCurrentEntry, ['ifindex', 'etherwisfarendpathcurrentstatus'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ETHERWIS()

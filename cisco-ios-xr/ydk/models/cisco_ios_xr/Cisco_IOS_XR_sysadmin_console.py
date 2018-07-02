@@ -44,15 +44,16 @@ class Console(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("config", ("config", Console.Config))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("config", ("config", Console.Config))])
         self._leafs = OrderedDict()
 
         self.config = Console.Config()
         self.config.parent = self
         self._children_name_map["config"] = "config"
-        self._children_yang_names.add("config")
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-console:console"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Console, [], name, value)
 
 
     class Config(Entity):
@@ -79,16 +80,17 @@ class Console(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("attach-sdr", ("attach_sdr", Console.Config.AttachSdr))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("attach-sdr", ("attach_sdr", Console.Config.AttachSdr))])
             self._leafs = OrderedDict()
 
             self.attach_sdr = Console.Config.AttachSdr()
             self.attach_sdr.parent = self
             self._children_name_map["attach_sdr"] = "attach-sdr"
-            self._children_yang_names.add("attach-sdr")
             self._segment_path = lambda: "config"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-console:console/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Console.Config, [], name, value)
 
 
         class AttachSdr(Entity):
@@ -120,21 +122,21 @@ class Console(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("runtime", ("runtime", Console.Config.AttachSdr.Runtime)), ("boot", ("boot", Console.Config.AttachSdr.Boot))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("runtime", ("runtime", Console.Config.AttachSdr.Runtime)), ("boot", ("boot", Console.Config.AttachSdr.Boot))])
                 self._leafs = OrderedDict()
 
                 self.runtime = Console.Config.AttachSdr.Runtime()
                 self.runtime.parent = self
                 self._children_name_map["runtime"] = "runtime"
-                self._children_yang_names.add("runtime")
 
                 self.boot = Console.Config.AttachSdr.Boot()
                 self.boot.parent = self
                 self._children_name_map["boot"] = "boot"
-                self._children_yang_names.add("boot")
                 self._segment_path = lambda: "attach-sdr"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-console:console/config/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Console.Config.AttachSdr, [], name, value)
 
 
             class Runtime(Entity):
@@ -161,8 +163,7 @@ class Console(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("location", ("location", Console.Config.AttachSdr.Runtime.Location))])
+                    self._child_classes = OrderedDict([("location", ("location", Console.Config.AttachSdr.Runtime.Location))])
                     self._leafs = OrderedDict()
 
                     self.location = YList(self)
@@ -182,7 +183,7 @@ class Console(Entity):
                     	
                     	**type**\: str
                     
-                    	**pattern:** ((0?[0\-9]\|1[1\-5])/([rR][pP]\\d{1,2}))(/[cC][pP][uU]0)?
+                    	**pattern:** ((0?[0\-9]\|1[1\-5]\|[bB]\\d)/(([rR][pP]\|[cC][bB])\\d{1,2}))(/[cC][pP][uU]0)?
                     
                     .. attribute:: tty_name
                     
@@ -204,8 +205,7 @@ class Console(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['location_rp']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("tty-name", ("tty_name", Console.Config.AttachSdr.Runtime.Location.TtyName))])
+                        self._child_classes = OrderedDict([("tty-name", ("tty_name", Console.Config.AttachSdr.Runtime.Location.TtyName))])
                         self._leafs = OrderedDict([
                             ('location_rp', YLeaf(YType.str, 'location-rp')),
                         ])
@@ -216,7 +216,7 @@ class Console(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-console:console/config/attach-sdr/runtime/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Console.Config.AttachSdr.Runtime.Location, ['location_rp'], name, value)
+                        self._perform_setattr(Console.Config.AttachSdr.Runtime.Location, [u'location_rp'], name, value)
 
 
                     class TtyName(Entity):
@@ -252,8 +252,7 @@ class Console(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['ttyname']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('ttyname', YLeaf(YType.str, 'ttyname')),
                                 ('sdr_name', YLeaf(YType.str, 'sdr-name')),
@@ -263,7 +262,7 @@ class Console(Entity):
                             self._segment_path = lambda: "tty-name" + "[ttyname='" + str(self.ttyname) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Console.Config.AttachSdr.Runtime.Location.TtyName, ['ttyname', 'sdr_name'], name, value)
+                            self._perform_setattr(Console.Config.AttachSdr.Runtime.Location.TtyName, [u'ttyname', u'sdr_name'], name, value)
 
 
             class Boot(Entity):
@@ -290,8 +289,7 @@ class Console(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("location", ("location", Console.Config.AttachSdr.Boot.Location))])
+                    self._child_classes = OrderedDict([("location", ("location", Console.Config.AttachSdr.Boot.Location))])
                     self._leafs = OrderedDict()
 
                     self.location = YList(self)
@@ -311,7 +309,7 @@ class Console(Entity):
                     	
                     	**type**\: str
                     
-                    	**pattern:** ((0?[0\-9]\|1[1\-5])/([rR][pP]\\d{1,2}))(/[cC][pP][uU]0)?
+                    	**pattern:** ((0?[0\-9]\|1[1\-5]\|[bB]\\d)/(([rR][pP]\|[cC][bB])\\d{1,2}))(/[cC][pP][uU]0)?
                     
                     .. attribute:: sdr_name
                     
@@ -335,8 +333,7 @@ class Console(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['location_rp']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('location_rp', YLeaf(YType.str, 'location-rp')),
                             ('sdr_name', YLeaf(YType.str, 'sdr-name')),
@@ -347,7 +344,7 @@ class Console(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-console:console/config/attach-sdr/boot/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Console.Config.AttachSdr.Boot.Location, ['location_rp', 'sdr_name'], name, value)
+                        self._perform_setattr(Console.Config.AttachSdr.Boot.Location, [u'location_rp', u'sdr_name'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Console()

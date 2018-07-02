@@ -34,12 +34,12 @@ class CISCOVOICEDNISMIB(Entity):
     .. attribute:: cvdnismappingtable
     
     	The table contains the map name and a url specifying a file name. The file contains DNIS entries that belong to the DNIS mapping
-    	**type**\:  :py:class:`Cvdnismappingtable <ydk.models.cisco_ios_xe.CISCO_VOICE_DNIS_MIB.CISCOVOICEDNISMIB.Cvdnismappingtable>`
+    	**type**\:  :py:class:`CvDnisMappingTable <ydk.models.cisco_ios_xe.CISCO_VOICE_DNIS_MIB.CISCOVOICEDNISMIB.CvDnisMappingTable>`
     
     .. attribute:: cvdnisnodetable
     
     	The table contains a DNIS name and a url. The url is a pointer to a VXML page for the DNIS name. 
-    	**type**\:  :py:class:`Cvdnisnodetable <ydk.models.cisco_ios_xe.CISCO_VOICE_DNIS_MIB.CISCOVOICEDNISMIB.Cvdnisnodetable>`
+    	**type**\:  :py:class:`CvDnisNodeTable <ydk.models.cisco_ios_xe.CISCO_VOICE_DNIS_MIB.CISCOVOICEDNISMIB.CvDnisNodeTable>`
     
     
 
@@ -57,23 +57,23 @@ class CISCOVOICEDNISMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cvDnisMappingTable", ("cvdnismappingtable", CISCOVOICEDNISMIB.Cvdnismappingtable)), ("cvDnisNodeTable", ("cvdnisnodetable", CISCOVOICEDNISMIB.Cvdnisnodetable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cvDnisMappingTable", ("cvdnismappingtable", CISCOVOICEDNISMIB.CvDnisMappingTable)), ("cvDnisNodeTable", ("cvdnisnodetable", CISCOVOICEDNISMIB.CvDnisNodeTable))])
         self._leafs = OrderedDict()
 
-        self.cvdnismappingtable = CISCOVOICEDNISMIB.Cvdnismappingtable()
+        self.cvdnismappingtable = CISCOVOICEDNISMIB.CvDnisMappingTable()
         self.cvdnismappingtable.parent = self
         self._children_name_map["cvdnismappingtable"] = "cvDnisMappingTable"
-        self._children_yang_names.add("cvDnisMappingTable")
 
-        self.cvdnisnodetable = CISCOVOICEDNISMIB.Cvdnisnodetable()
+        self.cvdnisnodetable = CISCOVOICEDNISMIB.CvDnisNodeTable()
         self.cvdnisnodetable.parent = self
         self._children_name_map["cvdnisnodetable"] = "cvDnisNodeTable"
-        self._children_yang_names.add("cvDnisNodeTable")
         self._segment_path = lambda: "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOVOICEDNISMIB, [], name, value)
 
-    class Cvdnismappingtable(Entity):
+
+    class CvDnisMappingTable(Entity):
         """
         The table contains the map name and a url specifying
         a file name. The file contains DNIS entries that belong
@@ -82,7 +82,7 @@ class CISCOVOICEDNISMIB(Entity):
         .. attribute:: cvdnismappingentry
         
         	Information about a single DNIS mapping. There is a unique DNIS map name. New DNIS mapping can be created using cvDnisMappingStatus.  The entry can be created with or without a file location  specified by cvDnisMappingUrl. The mapping file contains DNIS name and VXML page per line. For example, a  cvDnisMappingUrl could be tftp\://someserver/dnismap.txt. This file is a text file and the content format is   dnis <dnisname> url <urlname>. An example of the contents of the file itself can be   dnis 18004251234 url http\://www.b.com/p/vwelcome.vxml   dnis 18004253421 url http\://www.c.com/j/vxmlintf.vxml If a mapping file location is specified, then new rows corresponding to this map name are created and populated in cvDnisNodeTable from the contents of the file. The rows corresponding to this map name in cvDnisNodeTable cannot be created or modified or deleted but can be read.   If a mapping file location is not specified in cvDnisMappingUrl, then individual DNIS entries corresponding to this map name can be created, modified and deleted in cvDnisNodeTable.   Deleting an entry deletes all the related entries in cvDnisNodeTable. 
-        	**type**\: list of  		 :py:class:`Cvdnismappingentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DNIS_MIB.CISCOVOICEDNISMIB.Cvdnismappingtable.Cvdnismappingentry>`
+        	**type**\: list of  		 :py:class:`CvDnisMappingEntry <ydk.models.cisco_ios_xe.CISCO_VOICE_DNIS_MIB.CISCOVOICEDNISMIB.CvDnisMappingTable.CvDnisMappingEntry>`
         
         
 
@@ -92,15 +92,14 @@ class CISCOVOICEDNISMIB(Entity):
         _revision = '2002-05-01'
 
         def __init__(self):
-            super(CISCOVOICEDNISMIB.Cvdnismappingtable, self).__init__()
+            super(CISCOVOICEDNISMIB.CvDnisMappingTable, self).__init__()
 
             self.yang_name = "cvDnisMappingTable"
             self.yang_parent_name = "CISCO-VOICE-DNIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvDnisMappingEntry", ("cvdnismappingentry", CISCOVOICEDNISMIB.Cvdnismappingtable.Cvdnismappingentry))])
+            self._child_classes = OrderedDict([("cvDnisMappingEntry", ("cvdnismappingentry", CISCOVOICEDNISMIB.CvDnisMappingTable.CvDnisMappingEntry))])
             self._leafs = OrderedDict()
 
             self.cvdnismappingentry = YList(self)
@@ -108,10 +107,10 @@ class CISCOVOICEDNISMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDNISMIB.Cvdnismappingtable, [], name, value)
+            self._perform_setattr(CISCOVOICEDNISMIB.CvDnisMappingTable, [], name, value)
 
 
-        class Cvdnismappingentry(Entity):
+        class CvDnisMappingEntry(Entity):
             """
             Information about a single DNIS mapping. There is a
             unique DNIS map name. New DNIS mapping can be created
@@ -156,7 +155,7 @@ class CISCOVOICEDNISMIB(Entity):
             .. attribute:: cvdnismappingrefresh
             
             	Whenever there is a need to re\-read the contents of the file specified by cvDnisMappingUrl, this object can be set to refresh(2). This will cause the contents of the file to be re\-read and correspondingly update the cvDnisNodeTable. After the completion of this operation, the value of this object is reset to idle(1). The only operation allowed on this object is setting it to refresh(2). This can only be done when the current value is idle(1) and the rowstatus is active(1).  idle       \- The refreshing process is idle and the user              can modify this object to refresh. refresh    \- The refreshing process is currently busy and              the user have to wait till the object              becomes idle to issue new refresh
-            	**type**\:  :py:class:`Cvdnismappingrefresh <ydk.models.cisco_ios_xe.CISCO_VOICE_DNIS_MIB.CISCOVOICEDNISMIB.Cvdnismappingtable.Cvdnismappingentry.Cvdnismappingrefresh>`
+            	**type**\:  :py:class:`CvDnisMappingRefresh <ydk.models.cisco_ios_xe.CISCO_VOICE_DNIS_MIB.CISCOVOICEDNISMIB.CvDnisMappingTable.CvDnisMappingEntry.CvDnisMappingRefresh>`
             
             .. attribute:: cvdnismappingurlaccesserror
             
@@ -176,15 +175,14 @@ class CISCOVOICEDNISMIB(Entity):
             _revision = '2002-05-01'
 
             def __init__(self):
-                super(CISCOVOICEDNISMIB.Cvdnismappingtable.Cvdnismappingentry, self).__init__()
+                super(CISCOVOICEDNISMIB.CvDnisMappingTable.CvDnisMappingEntry, self).__init__()
 
                 self.yang_name = "cvDnisMappingEntry"
                 self.yang_parent_name = "cvDnisMappingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cvdnismappingname']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cvdnismappingname', YLeaf(YType.str, 'cvDnisMappingName')),
                     ('cvdnismappingurl', YLeaf(YType.str, 'cvDnisMappingUrl')),
@@ -201,11 +199,11 @@ class CISCOVOICEDNISMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB/cvDnisMappingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDNISMIB.Cvdnismappingtable.Cvdnismappingentry, ['cvdnismappingname', 'cvdnismappingurl', 'cvdnismappingrefresh', 'cvdnismappingurlaccesserror', 'cvdnismappingstatus'], name, value)
+                self._perform_setattr(CISCOVOICEDNISMIB.CvDnisMappingTable.CvDnisMappingEntry, ['cvdnismappingname', 'cvdnismappingurl', 'cvdnismappingrefresh', 'cvdnismappingurlaccesserror', 'cvdnismappingstatus'], name, value)
 
-            class Cvdnismappingrefresh(Enum):
+            class CvDnisMappingRefresh(Enum):
                 """
-                Cvdnismappingrefresh (Enum Class)
+                CvDnisMappingRefresh (Enum Class)
 
                 Whenever there is a need to re\-read the contents of the
 
@@ -247,7 +245,7 @@ class CISCOVOICEDNISMIB(Entity):
 
 
 
-    class Cvdnisnodetable(Entity):
+    class CvDnisNodeTable(Entity):
         """
         The table contains a DNIS name and a url. The url is a
         pointer to a VXML page for the DNIS name. 
@@ -255,7 +253,7 @@ class CISCOVOICEDNISMIB(Entity):
         .. attribute:: cvdnisnodeentry
         
         	Each entry is a DNIS name and the location of the associated VXML page. New DNIS entries can be created or the existing entries can be modified or deleted only if the corresponding map name (defined in cvDnisMappingTable) does not have any file name provided in the cvDnisMappingUrl object.   If a file name is provided in cvDnisMappingUrl corresponding to this entry's map name, then this row will have read permission only
-        	**type**\: list of  		 :py:class:`Cvdnisnodeentry <ydk.models.cisco_ios_xe.CISCO_VOICE_DNIS_MIB.CISCOVOICEDNISMIB.Cvdnisnodetable.Cvdnisnodeentry>`
+        	**type**\: list of  		 :py:class:`CvDnisNodeEntry <ydk.models.cisco_ios_xe.CISCO_VOICE_DNIS_MIB.CISCOVOICEDNISMIB.CvDnisNodeTable.CvDnisNodeEntry>`
         
         
 
@@ -265,15 +263,14 @@ class CISCOVOICEDNISMIB(Entity):
         _revision = '2002-05-01'
 
         def __init__(self):
-            super(CISCOVOICEDNISMIB.Cvdnisnodetable, self).__init__()
+            super(CISCOVOICEDNISMIB.CvDnisNodeTable, self).__init__()
 
             self.yang_name = "cvDnisNodeTable"
             self.yang_parent_name = "CISCO-VOICE-DNIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cvDnisNodeEntry", ("cvdnisnodeentry", CISCOVOICEDNISMIB.Cvdnisnodetable.Cvdnisnodeentry))])
+            self._child_classes = OrderedDict([("cvDnisNodeEntry", ("cvdnisnodeentry", CISCOVOICEDNISMIB.CvDnisNodeTable.CvDnisNodeEntry))])
             self._leafs = OrderedDict()
 
             self.cvdnisnodeentry = YList(self)
@@ -281,10 +278,10 @@ class CISCOVOICEDNISMIB(Entity):
             self._absolute_path = lambda: "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVOICEDNISMIB.Cvdnisnodetable, [], name, value)
+            self._perform_setattr(CISCOVOICEDNISMIB.CvDnisNodeTable, [], name, value)
 
 
-        class Cvdnisnodeentry(Entity):
+        class CvDnisNodeEntry(Entity):
             """
             Each entry is a DNIS name and the location of the
             associated VXML page. New DNIS entries can be created or
@@ -304,7 +301,7 @@ class CISCOVOICEDNISMIB(Entity):
             
             	**length:** 1..32
             
-            	**refers to**\:  :py:class:`cvdnismappingname <ydk.models.cisco_ios_xe.CISCO_VOICE_DNIS_MIB.CISCOVOICEDNISMIB.Cvdnismappingtable.Cvdnismappingentry>`
+            	**refers to**\:  :py:class:`cvdnismappingname <ydk.models.cisco_ios_xe.CISCO_VOICE_DNIS_MIB.CISCOVOICEDNISMIB.CvDnisMappingTable.CvDnisMappingEntry>`
             
             .. attribute:: cvdnisnumber  (key)
             
@@ -334,15 +331,14 @@ class CISCOVOICEDNISMIB(Entity):
             _revision = '2002-05-01'
 
             def __init__(self):
-                super(CISCOVOICEDNISMIB.Cvdnisnodetable.Cvdnisnodeentry, self).__init__()
+                super(CISCOVOICEDNISMIB.CvDnisNodeTable.CvDnisNodeEntry, self).__init__()
 
                 self.yang_name = "cvDnisNodeEntry"
                 self.yang_parent_name = "cvDnisNodeTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cvdnismappingname','cvdnisnumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cvdnismappingname', YLeaf(YType.str, 'cvDnisMappingName')),
                     ('cvdnisnumber', YLeaf(YType.str, 'cvDnisNumber')),
@@ -359,7 +355,7 @@ class CISCOVOICEDNISMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB/cvDnisNodeTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDNISMIB.Cvdnisnodetable.Cvdnisnodeentry, ['cvdnismappingname', 'cvdnisnumber', 'cvdnisnodeurl', 'cvdnisnodemodifiable', 'cvdnisnodestatus'], name, value)
+                self._perform_setattr(CISCOVOICEDNISMIB.CvDnisNodeTable.CvDnisNodeEntry, ['cvdnismappingname', 'cvdnisnumber', 'cvdnisnodeurl', 'cvdnisnodemodifiable', 'cvdnisnodestatus'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOVOICEDNISMIB()

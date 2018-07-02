@@ -145,35 +145,32 @@ class PerfMgmt(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("resources", ("resources", PerfMgmt.Resources)), ("statistics", ("statistics", PerfMgmt.Statistics)), ("enable", ("enable", PerfMgmt.Enable)), ("reg-exp-groups", ("reg_exp_groups", PerfMgmt.RegExpGroups)), ("threshold", ("threshold", PerfMgmt.Threshold))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("resources", ("resources", PerfMgmt.Resources)), ("statistics", ("statistics", PerfMgmt.Statistics)), ("enable", ("enable", PerfMgmt.Enable)), ("reg-exp-groups", ("reg_exp_groups", PerfMgmt.RegExpGroups)), ("threshold", ("threshold", PerfMgmt.Threshold))])
         self._leafs = OrderedDict()
 
         self.resources = PerfMgmt.Resources()
         self.resources.parent = self
         self._children_name_map["resources"] = "resources"
-        self._children_yang_names.add("resources")
 
         self.statistics = PerfMgmt.Statistics()
         self.statistics.parent = self
         self._children_name_map["statistics"] = "statistics"
-        self._children_yang_names.add("statistics")
 
         self.enable = PerfMgmt.Enable()
         self.enable.parent = self
         self._children_name_map["enable"] = "enable"
-        self._children_yang_names.add("enable")
 
         self.reg_exp_groups = PerfMgmt.RegExpGroups()
         self.reg_exp_groups.parent = self
         self._children_name_map["reg_exp_groups"] = "reg-exp-groups"
-        self._children_yang_names.add("reg-exp-groups")
 
         self.threshold = PerfMgmt.Threshold()
         self.threshold.parent = self
         self._children_name_map["threshold"] = "threshold"
-        self._children_yang_names.add("threshold")
         self._segment_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(PerfMgmt, [], name, value)
 
 
     class Resources(Entity):
@@ -212,25 +209,24 @@ class PerfMgmt(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("tftp-resources", ("tftp_resources", PerfMgmt.Resources.TftpResources)), ("dump-local", ("dump_local", PerfMgmt.Resources.DumpLocal)), ("memory-resources", ("memory_resources", PerfMgmt.Resources.MemoryResources))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("tftp-resources", ("tftp_resources", PerfMgmt.Resources.TftpResources)), ("dump-local", ("dump_local", PerfMgmt.Resources.DumpLocal)), ("memory-resources", ("memory_resources", PerfMgmt.Resources.MemoryResources))])
             self._leafs = OrderedDict()
 
             self.tftp_resources = None
             self._children_name_map["tftp_resources"] = "tftp-resources"
-            self._children_yang_names.add("tftp-resources")
 
             self.dump_local = PerfMgmt.Resources.DumpLocal()
             self.dump_local.parent = self
             self._children_name_map["dump_local"] = "dump-local"
-            self._children_yang_names.add("dump-local")
 
             self.memory_resources = PerfMgmt.Resources.MemoryResources()
             self.memory_resources.parent = self
             self._children_name_map["memory_resources"] = "memory-resources"
-            self._children_yang_names.add("memory-resources")
             self._segment_path = lambda: "resources"
             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(PerfMgmt.Resources, [], name, value)
 
 
         class TftpResources(Entity):
@@ -278,8 +274,7 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
                     ('server_address', YLeaf(YType.str, 'server-address')),
@@ -320,8 +315,7 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('enable', YLeaf(YType.empty, 'enable')),
                 ])
@@ -371,8 +365,7 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('max_limit', YLeaf(YType.int32, 'max-limit')),
                     ('min_reserved', YLeaf(YType.int32, 'min-reserved')),
@@ -455,61 +448,53 @@ class PerfMgmt(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("generic-counter-interface", ("generic_counter_interface", PerfMgmt.Statistics.GenericCounterInterface)), ("process-node", ("process_node", PerfMgmt.Statistics.ProcessNode)), ("basic-counter-interface", ("basic_counter_interface", PerfMgmt.Statistics.BasicCounterInterface)), ("ospfv3-protocol", ("ospfv3_protocol", PerfMgmt.Statistics.Ospfv3Protocol)), ("cpu-node", ("cpu_node", PerfMgmt.Statistics.CpuNode)), ("data-rate-interface", ("data_rate_interface", PerfMgmt.Statistics.DataRateInterface)), ("memory-node", ("memory_node", PerfMgmt.Statistics.MemoryNode)), ("ldp-mpls", ("ldp_mpls", PerfMgmt.Statistics.LdpMpls)), ("bgp", ("bgp", PerfMgmt.Statistics.Bgp)), ("ospfv2-protocol", ("ospfv2_protocol", PerfMgmt.Statistics.Ospfv2Protocol))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("generic-counter-interface", ("generic_counter_interface", PerfMgmt.Statistics.GenericCounterInterface)), ("process-node", ("process_node", PerfMgmt.Statistics.ProcessNode)), ("basic-counter-interface", ("basic_counter_interface", PerfMgmt.Statistics.BasicCounterInterface)), ("ospfv3-protocol", ("ospfv3_protocol", PerfMgmt.Statistics.Ospfv3Protocol)), ("cpu-node", ("cpu_node", PerfMgmt.Statistics.CpuNode)), ("data-rate-interface", ("data_rate_interface", PerfMgmt.Statistics.DataRateInterface)), ("memory-node", ("memory_node", PerfMgmt.Statistics.MemoryNode)), ("ldp-mpls", ("ldp_mpls", PerfMgmt.Statistics.LdpMpls)), ("bgp", ("bgp", PerfMgmt.Statistics.Bgp)), ("ospfv2-protocol", ("ospfv2_protocol", PerfMgmt.Statistics.Ospfv2Protocol))])
             self._leafs = OrderedDict()
 
             self.generic_counter_interface = PerfMgmt.Statistics.GenericCounterInterface()
             self.generic_counter_interface.parent = self
             self._children_name_map["generic_counter_interface"] = "generic-counter-interface"
-            self._children_yang_names.add("generic-counter-interface")
 
             self.process_node = PerfMgmt.Statistics.ProcessNode()
             self.process_node.parent = self
             self._children_name_map["process_node"] = "process-node"
-            self._children_yang_names.add("process-node")
 
             self.basic_counter_interface = PerfMgmt.Statistics.BasicCounterInterface()
             self.basic_counter_interface.parent = self
             self._children_name_map["basic_counter_interface"] = "basic-counter-interface"
-            self._children_yang_names.add("basic-counter-interface")
 
             self.ospfv3_protocol = PerfMgmt.Statistics.Ospfv3Protocol()
             self.ospfv3_protocol.parent = self
             self._children_name_map["ospfv3_protocol"] = "ospfv3-protocol"
-            self._children_yang_names.add("ospfv3-protocol")
 
             self.cpu_node = PerfMgmt.Statistics.CpuNode()
             self.cpu_node.parent = self
             self._children_name_map["cpu_node"] = "cpu-node"
-            self._children_yang_names.add("cpu-node")
 
             self.data_rate_interface = PerfMgmt.Statistics.DataRateInterface()
             self.data_rate_interface.parent = self
             self._children_name_map["data_rate_interface"] = "data-rate-interface"
-            self._children_yang_names.add("data-rate-interface")
 
             self.memory_node = PerfMgmt.Statistics.MemoryNode()
             self.memory_node.parent = self
             self._children_name_map["memory_node"] = "memory-node"
-            self._children_yang_names.add("memory-node")
 
             self.ldp_mpls = PerfMgmt.Statistics.LdpMpls()
             self.ldp_mpls.parent = self
             self._children_name_map["ldp_mpls"] = "ldp-mpls"
-            self._children_yang_names.add("ldp-mpls")
 
             self.bgp = PerfMgmt.Statistics.Bgp()
             self.bgp.parent = self
             self._children_name_map["bgp"] = "bgp"
-            self._children_yang_names.add("bgp")
 
             self.ospfv2_protocol = PerfMgmt.Statistics.Ospfv2Protocol()
             self.ospfv2_protocol.parent = self
             self._children_name_map["ospfv2_protocol"] = "ospfv2-protocol"
-            self._children_yang_names.add("ospfv2-protocol")
             self._segment_path = lambda: "statistics"
             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(PerfMgmt.Statistics, [], name, value)
 
 
         class GenericCounterInterface(Entity):
@@ -537,16 +522,17 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("templates", ("templates", PerfMgmt.Statistics.GenericCounterInterface.Templates))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("templates", ("templates", PerfMgmt.Statistics.GenericCounterInterface.Templates))])
                 self._leafs = OrderedDict()
 
                 self.templates = PerfMgmt.Statistics.GenericCounterInterface.Templates()
                 self.templates.parent = self
                 self._children_name_map["templates"] = "templates"
-                self._children_yang_names.add("templates")
                 self._segment_path = lambda: "generic-counter-interface"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Statistics.GenericCounterInterface, [], name, value)
 
 
             class Templates(Entity):
@@ -573,8 +559,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("template", ("template", PerfMgmt.Statistics.GenericCounterInterface.Templates.Template))])
+                    self._child_classes = OrderedDict([("template", ("template", PerfMgmt.Statistics.GenericCounterInterface.Templates.Template))])
                     self._leafs = OrderedDict()
 
                     self.template = YList(self)
@@ -646,8 +631,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['template_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                             ('reg_exp_group', YLeaf(YType.str, 'reg-exp-group')),
@@ -693,16 +677,17 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("templates", ("templates", PerfMgmt.Statistics.ProcessNode.Templates))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("templates", ("templates", PerfMgmt.Statistics.ProcessNode.Templates))])
                 self._leafs = OrderedDict()
 
                 self.templates = PerfMgmt.Statistics.ProcessNode.Templates()
                 self.templates.parent = self
                 self._children_name_map["templates"] = "templates"
-                self._children_yang_names.add("templates")
                 self._segment_path = lambda: "process-node"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Statistics.ProcessNode, [], name, value)
 
 
             class Templates(Entity):
@@ -729,8 +714,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("template", ("template", PerfMgmt.Statistics.ProcessNode.Templates.Template))])
+                    self._child_classes = OrderedDict([("template", ("template", PerfMgmt.Statistics.ProcessNode.Templates.Template))])
                     self._leafs = OrderedDict()
 
                     self.template = YList(self)
@@ -802,8 +786,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['template_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                             ('reg_exp_group', YLeaf(YType.str, 'reg-exp-group')),
@@ -849,16 +832,17 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("templates", ("templates", PerfMgmt.Statistics.BasicCounterInterface.Templates))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("templates", ("templates", PerfMgmt.Statistics.BasicCounterInterface.Templates))])
                 self._leafs = OrderedDict()
 
                 self.templates = PerfMgmt.Statistics.BasicCounterInterface.Templates()
                 self.templates.parent = self
                 self._children_name_map["templates"] = "templates"
-                self._children_yang_names.add("templates")
                 self._segment_path = lambda: "basic-counter-interface"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Statistics.BasicCounterInterface, [], name, value)
 
 
             class Templates(Entity):
@@ -885,8 +869,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("template", ("template", PerfMgmt.Statistics.BasicCounterInterface.Templates.Template))])
+                    self._child_classes = OrderedDict([("template", ("template", PerfMgmt.Statistics.BasicCounterInterface.Templates.Template))])
                     self._leafs = OrderedDict()
 
                     self.template = YList(self)
@@ -958,8 +941,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['template_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                             ('reg_exp_group', YLeaf(YType.str, 'reg-exp-group')),
@@ -1005,16 +987,17 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("templates", ("templates", PerfMgmt.Statistics.Ospfv3Protocol.Templates))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("templates", ("templates", PerfMgmt.Statistics.Ospfv3Protocol.Templates))])
                 self._leafs = OrderedDict()
 
                 self.templates = PerfMgmt.Statistics.Ospfv3Protocol.Templates()
                 self.templates.parent = self
                 self._children_name_map["templates"] = "templates"
-                self._children_yang_names.add("templates")
                 self._segment_path = lambda: "ospfv3-protocol"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Statistics.Ospfv3Protocol, [], name, value)
 
 
             class Templates(Entity):
@@ -1041,8 +1024,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("template", ("template", PerfMgmt.Statistics.Ospfv3Protocol.Templates.Template))])
+                    self._child_classes = OrderedDict([("template", ("template", PerfMgmt.Statistics.Ospfv3Protocol.Templates.Template))])
                     self._leafs = OrderedDict()
 
                     self.template = YList(self)
@@ -1114,8 +1096,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['template_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                             ('reg_exp_group', YLeaf(YType.str, 'reg-exp-group')),
@@ -1161,16 +1142,17 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("templates", ("templates", PerfMgmt.Statistics.CpuNode.Templates))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("templates", ("templates", PerfMgmt.Statistics.CpuNode.Templates))])
                 self._leafs = OrderedDict()
 
                 self.templates = PerfMgmt.Statistics.CpuNode.Templates()
                 self.templates.parent = self
                 self._children_name_map["templates"] = "templates"
-                self._children_yang_names.add("templates")
                 self._segment_path = lambda: "cpu-node"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Statistics.CpuNode, [], name, value)
 
 
             class Templates(Entity):
@@ -1197,8 +1179,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("template", ("template", PerfMgmt.Statistics.CpuNode.Templates.Template))])
+                    self._child_classes = OrderedDict([("template", ("template", PerfMgmt.Statistics.CpuNode.Templates.Template))])
                     self._leafs = OrderedDict()
 
                     self.template = YList(self)
@@ -1270,8 +1251,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['template_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                             ('reg_exp_group', YLeaf(YType.str, 'reg-exp-group')),
@@ -1317,16 +1297,17 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("templates", ("templates", PerfMgmt.Statistics.DataRateInterface.Templates))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("templates", ("templates", PerfMgmt.Statistics.DataRateInterface.Templates))])
                 self._leafs = OrderedDict()
 
                 self.templates = PerfMgmt.Statistics.DataRateInterface.Templates()
                 self.templates.parent = self
                 self._children_name_map["templates"] = "templates"
-                self._children_yang_names.add("templates")
                 self._segment_path = lambda: "data-rate-interface"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Statistics.DataRateInterface, [], name, value)
 
 
             class Templates(Entity):
@@ -1353,8 +1334,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("template", ("template", PerfMgmt.Statistics.DataRateInterface.Templates.Template))])
+                    self._child_classes = OrderedDict([("template", ("template", PerfMgmt.Statistics.DataRateInterface.Templates.Template))])
                     self._leafs = OrderedDict()
 
                     self.template = YList(self)
@@ -1426,8 +1406,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['template_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                             ('reg_exp_group', YLeaf(YType.str, 'reg-exp-group')),
@@ -1473,16 +1452,17 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("templates", ("templates", PerfMgmt.Statistics.MemoryNode.Templates))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("templates", ("templates", PerfMgmt.Statistics.MemoryNode.Templates))])
                 self._leafs = OrderedDict()
 
                 self.templates = PerfMgmt.Statistics.MemoryNode.Templates()
                 self.templates.parent = self
                 self._children_name_map["templates"] = "templates"
-                self._children_yang_names.add("templates")
                 self._segment_path = lambda: "memory-node"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Statistics.MemoryNode, [], name, value)
 
 
             class Templates(Entity):
@@ -1509,8 +1489,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("template", ("template", PerfMgmt.Statistics.MemoryNode.Templates.Template))])
+                    self._child_classes = OrderedDict([("template", ("template", PerfMgmt.Statistics.MemoryNode.Templates.Template))])
                     self._leafs = OrderedDict()
 
                     self.template = YList(self)
@@ -1582,8 +1561,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['template_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                             ('reg_exp_group', YLeaf(YType.str, 'reg-exp-group')),
@@ -1629,16 +1607,17 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("templates", ("templates", PerfMgmt.Statistics.LdpMpls.Templates))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("templates", ("templates", PerfMgmt.Statistics.LdpMpls.Templates))])
                 self._leafs = OrderedDict()
 
                 self.templates = PerfMgmt.Statistics.LdpMpls.Templates()
                 self.templates.parent = self
                 self._children_name_map["templates"] = "templates"
-                self._children_yang_names.add("templates")
                 self._segment_path = lambda: "ldp-mpls"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Statistics.LdpMpls, [], name, value)
 
 
             class Templates(Entity):
@@ -1665,8 +1644,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("template", ("template", PerfMgmt.Statistics.LdpMpls.Templates.Template))])
+                    self._child_classes = OrderedDict([("template", ("template", PerfMgmt.Statistics.LdpMpls.Templates.Template))])
                     self._leafs = OrderedDict()
 
                     self.template = YList(self)
@@ -1738,8 +1716,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['template_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                             ('reg_exp_group', YLeaf(YType.str, 'reg-exp-group')),
@@ -1785,16 +1762,17 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("templates", ("templates", PerfMgmt.Statistics.Bgp.Templates))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("templates", ("templates", PerfMgmt.Statistics.Bgp.Templates))])
                 self._leafs = OrderedDict()
 
                 self.templates = PerfMgmt.Statistics.Bgp.Templates()
                 self.templates.parent = self
                 self._children_name_map["templates"] = "templates"
-                self._children_yang_names.add("templates")
                 self._segment_path = lambda: "bgp"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Statistics.Bgp, [], name, value)
 
 
             class Templates(Entity):
@@ -1821,8 +1799,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("template", ("template", PerfMgmt.Statistics.Bgp.Templates.Template))])
+                    self._child_classes = OrderedDict([("template", ("template", PerfMgmt.Statistics.Bgp.Templates.Template))])
                     self._leafs = OrderedDict()
 
                     self.template = YList(self)
@@ -1894,8 +1871,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['template_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                             ('reg_exp_group', YLeaf(YType.str, 'reg-exp-group')),
@@ -1941,16 +1917,17 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("templates", ("templates", PerfMgmt.Statistics.Ospfv2Protocol.Templates))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("templates", ("templates", PerfMgmt.Statistics.Ospfv2Protocol.Templates))])
                 self._leafs = OrderedDict()
 
                 self.templates = PerfMgmt.Statistics.Ospfv2Protocol.Templates()
                 self.templates.parent = self
                 self._children_name_map["templates"] = "templates"
-                self._children_yang_names.add("templates")
                 self._segment_path = lambda: "ospfv2-protocol"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Statistics.Ospfv2Protocol, [], name, value)
 
 
             class Templates(Entity):
@@ -1977,8 +1954,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("template", ("template", PerfMgmt.Statistics.Ospfv2Protocol.Templates.Template))])
+                    self._child_classes = OrderedDict([("template", ("template", PerfMgmt.Statistics.Ospfv2Protocol.Templates.Template))])
                     self._leafs = OrderedDict()
 
                     self.template = YList(self)
@@ -2050,8 +2026,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['template_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                             ('reg_exp_group', YLeaf(YType.str, 'reg-exp-group')),
@@ -2108,26 +2083,25 @@ class PerfMgmt(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("threshold", ("threshold", PerfMgmt.Enable.Threshold)), ("statistics", ("statistics", PerfMgmt.Enable.Statistics)), ("monitor-enable", ("monitor_enable", PerfMgmt.Enable.MonitorEnable))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("threshold", ("threshold", PerfMgmt.Enable.Threshold)), ("statistics", ("statistics", PerfMgmt.Enable.Statistics)), ("monitor-enable", ("monitor_enable", PerfMgmt.Enable.MonitorEnable))])
             self._leafs = OrderedDict()
 
             self.threshold = PerfMgmt.Enable.Threshold()
             self.threshold.parent = self
             self._children_name_map["threshold"] = "threshold"
-            self._children_yang_names.add("threshold")
 
             self.statistics = PerfMgmt.Enable.Statistics()
             self.statistics.parent = self
             self._children_name_map["statistics"] = "statistics"
-            self._children_yang_names.add("statistics")
 
             self.monitor_enable = PerfMgmt.Enable.MonitorEnable()
             self.monitor_enable.parent = self
             self._children_name_map["monitor_enable"] = "monitor-enable"
-            self._children_yang_names.add("monitor-enable")
             self._segment_path = lambda: "enable"
             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(PerfMgmt.Enable, [], name, value)
 
 
         class Threshold(Entity):
@@ -2200,61 +2174,53 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("ospfv3-protocol", ("ospfv3_protocol", PerfMgmt.Enable.Threshold.Ospfv3Protocol)), ("bgp", ("bgp", PerfMgmt.Enable.Threshold.Bgp)), ("data-rate-interface", ("data_rate_interface", PerfMgmt.Enable.Threshold.DataRateInterface)), ("ospfv2-protocol", ("ospfv2_protocol", PerfMgmt.Enable.Threshold.Ospfv2Protocol)), ("memory-node", ("memory_node", PerfMgmt.Enable.Threshold.MemoryNode)), ("generic-counter-interface", ("generic_counter_interface", PerfMgmt.Enable.Threshold.GenericCounterInterface)), ("cpu-node", ("cpu_node", PerfMgmt.Enable.Threshold.CpuNode)), ("ldp-mpls", ("ldp_mpls", PerfMgmt.Enable.Threshold.LdpMpls)), ("process-node", ("process_node", PerfMgmt.Enable.Threshold.ProcessNode)), ("basic-counter-interface", ("basic_counter_interface", PerfMgmt.Enable.Threshold.BasicCounterInterface))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("ospfv3-protocol", ("ospfv3_protocol", PerfMgmt.Enable.Threshold.Ospfv3Protocol)), ("bgp", ("bgp", PerfMgmt.Enable.Threshold.Bgp)), ("data-rate-interface", ("data_rate_interface", PerfMgmt.Enable.Threshold.DataRateInterface)), ("ospfv2-protocol", ("ospfv2_protocol", PerfMgmt.Enable.Threshold.Ospfv2Protocol)), ("memory-node", ("memory_node", PerfMgmt.Enable.Threshold.MemoryNode)), ("generic-counter-interface", ("generic_counter_interface", PerfMgmt.Enable.Threshold.GenericCounterInterface)), ("cpu-node", ("cpu_node", PerfMgmt.Enable.Threshold.CpuNode)), ("ldp-mpls", ("ldp_mpls", PerfMgmt.Enable.Threshold.LdpMpls)), ("process-node", ("process_node", PerfMgmt.Enable.Threshold.ProcessNode)), ("basic-counter-interface", ("basic_counter_interface", PerfMgmt.Enable.Threshold.BasicCounterInterface))])
                 self._leafs = OrderedDict()
 
                 self.ospfv3_protocol = PerfMgmt.Enable.Threshold.Ospfv3Protocol()
                 self.ospfv3_protocol.parent = self
                 self._children_name_map["ospfv3_protocol"] = "ospfv3-protocol"
-                self._children_yang_names.add("ospfv3-protocol")
 
                 self.bgp = PerfMgmt.Enable.Threshold.Bgp()
                 self.bgp.parent = self
                 self._children_name_map["bgp"] = "bgp"
-                self._children_yang_names.add("bgp")
 
                 self.data_rate_interface = PerfMgmt.Enable.Threshold.DataRateInterface()
                 self.data_rate_interface.parent = self
                 self._children_name_map["data_rate_interface"] = "data-rate-interface"
-                self._children_yang_names.add("data-rate-interface")
 
                 self.ospfv2_protocol = PerfMgmt.Enable.Threshold.Ospfv2Protocol()
                 self.ospfv2_protocol.parent = self
                 self._children_name_map["ospfv2_protocol"] = "ospfv2-protocol"
-                self._children_yang_names.add("ospfv2-protocol")
 
                 self.memory_node = PerfMgmt.Enable.Threshold.MemoryNode()
                 self.memory_node.parent = self
                 self._children_name_map["memory_node"] = "memory-node"
-                self._children_yang_names.add("memory-node")
 
                 self.generic_counter_interface = PerfMgmt.Enable.Threshold.GenericCounterInterface()
                 self.generic_counter_interface.parent = self
                 self._children_name_map["generic_counter_interface"] = "generic-counter-interface"
-                self._children_yang_names.add("generic-counter-interface")
 
                 self.cpu_node = PerfMgmt.Enable.Threshold.CpuNode()
                 self.cpu_node.parent = self
                 self._children_name_map["cpu_node"] = "cpu-node"
-                self._children_yang_names.add("cpu-node")
 
                 self.ldp_mpls = PerfMgmt.Enable.Threshold.LdpMpls()
                 self.ldp_mpls.parent = self
                 self._children_name_map["ldp_mpls"] = "ldp-mpls"
-                self._children_yang_names.add("ldp-mpls")
 
                 self.process_node = PerfMgmt.Enable.Threshold.ProcessNode()
                 self.process_node.parent = self
                 self._children_name_map["process_node"] = "process-node"
-                self._children_yang_names.add("process-node")
 
                 self.basic_counter_interface = PerfMgmt.Enable.Threshold.BasicCounterInterface()
                 self.basic_counter_interface.parent = self
                 self._children_name_map["basic_counter_interface"] = "basic-counter-interface"
-                self._children_yang_names.add("basic-counter-interface")
                 self._segment_path = lambda: "threshold"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Enable.Threshold, [], name, value)
 
 
             class Ospfv3Protocol(Entity):
@@ -2281,8 +2247,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('template_name', YLeaf(YType.str, 'template-name')),
                     ])
@@ -2318,8 +2283,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('template_name', YLeaf(YType.str, 'template-name')),
                     ])
@@ -2355,8 +2319,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('template_name', YLeaf(YType.str, 'template-name')),
                     ])
@@ -2392,8 +2355,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('template_name', YLeaf(YType.str, 'template-name')),
                     ])
@@ -2434,21 +2396,21 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("nodes", ("nodes", PerfMgmt.Enable.Threshold.MemoryNode.Nodes)), ("node-all", ("node_all", PerfMgmt.Enable.Threshold.MemoryNode.NodeAll))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("nodes", ("nodes", PerfMgmt.Enable.Threshold.MemoryNode.Nodes)), ("node-all", ("node_all", PerfMgmt.Enable.Threshold.MemoryNode.NodeAll))])
                     self._leafs = OrderedDict()
 
                     self.nodes = PerfMgmt.Enable.Threshold.MemoryNode.Nodes()
                     self.nodes.parent = self
                     self._children_name_map["nodes"] = "nodes"
-                    self._children_yang_names.add("nodes")
 
                     self.node_all = PerfMgmt.Enable.Threshold.MemoryNode.NodeAll()
                     self.node_all.parent = self
                     self._children_name_map["node_all"] = "node-all"
-                    self._children_yang_names.add("node-all")
                     self._segment_path = lambda: "memory-node"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PerfMgmt.Enable.Threshold.MemoryNode, [], name, value)
 
 
                 class Nodes(Entity):
@@ -2475,8 +2437,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("node", ("node", PerfMgmt.Enable.Threshold.MemoryNode.Nodes.Node))])
+                        self._child_classes = OrderedDict([("node", ("node", PerfMgmt.Enable.Threshold.MemoryNode.Nodes.Node))])
                         self._leafs = OrderedDict()
 
                         self.node = YList(self)
@@ -2518,8 +2479,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['node_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('node_id', YLeaf(YType.str, 'node-id')),
                                 ('template_name', YLeaf(YType.str, 'template-name')),
@@ -2557,8 +2517,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                         ])
@@ -2595,8 +2554,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('template_name', YLeaf(YType.str, 'template-name')),
                     ])
@@ -2637,21 +2595,21 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("nodes", ("nodes", PerfMgmt.Enable.Threshold.CpuNode.Nodes)), ("node-all", ("node_all", PerfMgmt.Enable.Threshold.CpuNode.NodeAll))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("nodes", ("nodes", PerfMgmt.Enable.Threshold.CpuNode.Nodes)), ("node-all", ("node_all", PerfMgmt.Enable.Threshold.CpuNode.NodeAll))])
                     self._leafs = OrderedDict()
 
                     self.nodes = PerfMgmt.Enable.Threshold.CpuNode.Nodes()
                     self.nodes.parent = self
                     self._children_name_map["nodes"] = "nodes"
-                    self._children_yang_names.add("nodes")
 
                     self.node_all = PerfMgmt.Enable.Threshold.CpuNode.NodeAll()
                     self.node_all.parent = self
                     self._children_name_map["node_all"] = "node-all"
-                    self._children_yang_names.add("node-all")
                     self._segment_path = lambda: "cpu-node"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PerfMgmt.Enable.Threshold.CpuNode, [], name, value)
 
 
                 class Nodes(Entity):
@@ -2678,8 +2636,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("node", ("node", PerfMgmt.Enable.Threshold.CpuNode.Nodes.Node))])
+                        self._child_classes = OrderedDict([("node", ("node", PerfMgmt.Enable.Threshold.CpuNode.Nodes.Node))])
                         self._leafs = OrderedDict()
 
                         self.node = YList(self)
@@ -2721,8 +2678,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['node_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('node_id', YLeaf(YType.str, 'node-id')),
                                 ('template_name', YLeaf(YType.str, 'template-name')),
@@ -2760,8 +2716,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                         ])
@@ -2797,8 +2752,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('template_name', YLeaf(YType.str, 'template-name')),
                     ])
@@ -2839,21 +2793,21 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("nodes", ("nodes", PerfMgmt.Enable.Threshold.ProcessNode.Nodes)), ("node-all", ("node_all", PerfMgmt.Enable.Threshold.ProcessNode.NodeAll))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("nodes", ("nodes", PerfMgmt.Enable.Threshold.ProcessNode.Nodes)), ("node-all", ("node_all", PerfMgmt.Enable.Threshold.ProcessNode.NodeAll))])
                     self._leafs = OrderedDict()
 
                     self.nodes = PerfMgmt.Enable.Threshold.ProcessNode.Nodes()
                     self.nodes.parent = self
                     self._children_name_map["nodes"] = "nodes"
-                    self._children_yang_names.add("nodes")
 
                     self.node_all = PerfMgmt.Enable.Threshold.ProcessNode.NodeAll()
                     self.node_all.parent = self
                     self._children_name_map["node_all"] = "node-all"
-                    self._children_yang_names.add("node-all")
                     self._segment_path = lambda: "process-node"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PerfMgmt.Enable.Threshold.ProcessNode, [], name, value)
 
 
                 class Nodes(Entity):
@@ -2880,8 +2834,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("node", ("node", PerfMgmt.Enable.Threshold.ProcessNode.Nodes.Node))])
+                        self._child_classes = OrderedDict([("node", ("node", PerfMgmt.Enable.Threshold.ProcessNode.Nodes.Node))])
                         self._leafs = OrderedDict()
 
                         self.node = YList(self)
@@ -2923,8 +2876,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['node_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('node_id', YLeaf(YType.str, 'node-id')),
                                 ('template_name', YLeaf(YType.str, 'template-name')),
@@ -2962,8 +2914,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                         ])
@@ -3000,8 +2951,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('template_name', YLeaf(YType.str, 'template-name')),
                     ])
@@ -3083,61 +3033,53 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("generic-counter-interface", ("generic_counter_interface", PerfMgmt.Enable.Statistics.GenericCounterInterface)), ("bgp", ("bgp", PerfMgmt.Enable.Statistics.Bgp)), ("ospfv2-protocol", ("ospfv2_protocol", PerfMgmt.Enable.Statistics.Ospfv2Protocol)), ("ospfv3-protocol", ("ospfv3_protocol", PerfMgmt.Enable.Statistics.Ospfv3Protocol)), ("cpu-node", ("cpu_node", PerfMgmt.Enable.Statistics.CpuNode)), ("basic-counter-interface", ("basic_counter_interface", PerfMgmt.Enable.Statistics.BasicCounterInterface)), ("process-node", ("process_node", PerfMgmt.Enable.Statistics.ProcessNode)), ("data-rate-interface", ("data_rate_interface", PerfMgmt.Enable.Statistics.DataRateInterface)), ("memory-node", ("memory_node", PerfMgmt.Enable.Statistics.MemoryNode)), ("ldp-mpls", ("ldp_mpls", PerfMgmt.Enable.Statistics.LdpMpls))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("generic-counter-interface", ("generic_counter_interface", PerfMgmt.Enable.Statistics.GenericCounterInterface)), ("bgp", ("bgp", PerfMgmt.Enable.Statistics.Bgp)), ("ospfv2-protocol", ("ospfv2_protocol", PerfMgmt.Enable.Statistics.Ospfv2Protocol)), ("ospfv3-protocol", ("ospfv3_protocol", PerfMgmt.Enable.Statistics.Ospfv3Protocol)), ("cpu-node", ("cpu_node", PerfMgmt.Enable.Statistics.CpuNode)), ("basic-counter-interface", ("basic_counter_interface", PerfMgmt.Enable.Statistics.BasicCounterInterface)), ("process-node", ("process_node", PerfMgmt.Enable.Statistics.ProcessNode)), ("data-rate-interface", ("data_rate_interface", PerfMgmt.Enable.Statistics.DataRateInterface)), ("memory-node", ("memory_node", PerfMgmt.Enable.Statistics.MemoryNode)), ("ldp-mpls", ("ldp_mpls", PerfMgmt.Enable.Statistics.LdpMpls))])
                 self._leafs = OrderedDict()
 
                 self.generic_counter_interface = PerfMgmt.Enable.Statistics.GenericCounterInterface()
                 self.generic_counter_interface.parent = self
                 self._children_name_map["generic_counter_interface"] = "generic-counter-interface"
-                self._children_yang_names.add("generic-counter-interface")
 
                 self.bgp = PerfMgmt.Enable.Statistics.Bgp()
                 self.bgp.parent = self
                 self._children_name_map["bgp"] = "bgp"
-                self._children_yang_names.add("bgp")
 
                 self.ospfv2_protocol = PerfMgmt.Enable.Statistics.Ospfv2Protocol()
                 self.ospfv2_protocol.parent = self
                 self._children_name_map["ospfv2_protocol"] = "ospfv2-protocol"
-                self._children_yang_names.add("ospfv2-protocol")
 
                 self.ospfv3_protocol = PerfMgmt.Enable.Statistics.Ospfv3Protocol()
                 self.ospfv3_protocol.parent = self
                 self._children_name_map["ospfv3_protocol"] = "ospfv3-protocol"
-                self._children_yang_names.add("ospfv3-protocol")
 
                 self.cpu_node = PerfMgmt.Enable.Statistics.CpuNode()
                 self.cpu_node.parent = self
                 self._children_name_map["cpu_node"] = "cpu-node"
-                self._children_yang_names.add("cpu-node")
 
                 self.basic_counter_interface = PerfMgmt.Enable.Statistics.BasicCounterInterface()
                 self.basic_counter_interface.parent = self
                 self._children_name_map["basic_counter_interface"] = "basic-counter-interface"
-                self._children_yang_names.add("basic-counter-interface")
 
                 self.process_node = PerfMgmt.Enable.Statistics.ProcessNode()
                 self.process_node.parent = self
                 self._children_name_map["process_node"] = "process-node"
-                self._children_yang_names.add("process-node")
 
                 self.data_rate_interface = PerfMgmt.Enable.Statistics.DataRateInterface()
                 self.data_rate_interface.parent = self
                 self._children_name_map["data_rate_interface"] = "data-rate-interface"
-                self._children_yang_names.add("data-rate-interface")
 
                 self.memory_node = PerfMgmt.Enable.Statistics.MemoryNode()
                 self.memory_node.parent = self
                 self._children_name_map["memory_node"] = "memory-node"
-                self._children_yang_names.add("memory-node")
 
                 self.ldp_mpls = PerfMgmt.Enable.Statistics.LdpMpls()
                 self.ldp_mpls.parent = self
                 self._children_name_map["ldp_mpls"] = "ldp-mpls"
-                self._children_yang_names.add("ldp-mpls")
                 self._segment_path = lambda: "statistics"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Enable.Statistics, [], name, value)
 
 
             class GenericCounterInterface(Entity):
@@ -3164,8 +3106,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('template_name', YLeaf(YType.str, 'template-name')),
                     ])
@@ -3201,8 +3142,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('template_name', YLeaf(YType.str, 'template-name')),
                     ])
@@ -3238,8 +3178,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('template_name', YLeaf(YType.str, 'template-name')),
                     ])
@@ -3275,8 +3214,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('template_name', YLeaf(YType.str, 'template-name')),
                     ])
@@ -3317,21 +3255,21 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("node-all", ("node_all", PerfMgmt.Enable.Statistics.CpuNode.NodeAll)), ("nodes", ("nodes", PerfMgmt.Enable.Statistics.CpuNode.Nodes))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("node-all", ("node_all", PerfMgmt.Enable.Statistics.CpuNode.NodeAll)), ("nodes", ("nodes", PerfMgmt.Enable.Statistics.CpuNode.Nodes))])
                     self._leafs = OrderedDict()
 
                     self.node_all = PerfMgmt.Enable.Statistics.CpuNode.NodeAll()
                     self.node_all.parent = self
                     self._children_name_map["node_all"] = "node-all"
-                    self._children_yang_names.add("node-all")
 
                     self.nodes = PerfMgmt.Enable.Statistics.CpuNode.Nodes()
                     self.nodes.parent = self
                     self._children_name_map["nodes"] = "nodes"
-                    self._children_yang_names.add("nodes")
                     self._segment_path = lambda: "cpu-node"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PerfMgmt.Enable.Statistics.CpuNode, [], name, value)
 
 
                 class NodeAll(Entity):
@@ -3358,8 +3296,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                         ])
@@ -3395,8 +3332,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("node", ("node", PerfMgmt.Enable.Statistics.CpuNode.Nodes.Node))])
+                        self._child_classes = OrderedDict([("node", ("node", PerfMgmt.Enable.Statistics.CpuNode.Nodes.Node))])
                         self._leafs = OrderedDict()
 
                         self.node = YList(self)
@@ -3438,8 +3374,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['node_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('node_id', YLeaf(YType.str, 'node-id')),
                                 ('template_name', YLeaf(YType.str, 'template-name')),
@@ -3477,8 +3412,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('template_name', YLeaf(YType.str, 'template-name')),
                     ])
@@ -3519,21 +3453,21 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("node-all", ("node_all", PerfMgmt.Enable.Statistics.ProcessNode.NodeAll)), ("nodes", ("nodes", PerfMgmt.Enable.Statistics.ProcessNode.Nodes))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("node-all", ("node_all", PerfMgmt.Enable.Statistics.ProcessNode.NodeAll)), ("nodes", ("nodes", PerfMgmt.Enable.Statistics.ProcessNode.Nodes))])
                     self._leafs = OrderedDict()
 
                     self.node_all = PerfMgmt.Enable.Statistics.ProcessNode.NodeAll()
                     self.node_all.parent = self
                     self._children_name_map["node_all"] = "node-all"
-                    self._children_yang_names.add("node-all")
 
                     self.nodes = PerfMgmt.Enable.Statistics.ProcessNode.Nodes()
                     self.nodes.parent = self
                     self._children_name_map["nodes"] = "nodes"
-                    self._children_yang_names.add("nodes")
                     self._segment_path = lambda: "process-node"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PerfMgmt.Enable.Statistics.ProcessNode, [], name, value)
 
 
                 class NodeAll(Entity):
@@ -3560,8 +3494,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                         ])
@@ -3597,8 +3530,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("node", ("node", PerfMgmt.Enable.Statistics.ProcessNode.Nodes.Node))])
+                        self._child_classes = OrderedDict([("node", ("node", PerfMgmt.Enable.Statistics.ProcessNode.Nodes.Node))])
                         self._leafs = OrderedDict()
 
                         self.node = YList(self)
@@ -3640,8 +3572,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['node_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('node_id', YLeaf(YType.str, 'node-id')),
                                 ('template_name', YLeaf(YType.str, 'template-name')),
@@ -3679,8 +3610,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('template_name', YLeaf(YType.str, 'template-name')),
                     ])
@@ -3721,21 +3651,21 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("node-all", ("node_all", PerfMgmt.Enable.Statistics.MemoryNode.NodeAll)), ("nodes", ("nodes", PerfMgmt.Enable.Statistics.MemoryNode.Nodes))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("node-all", ("node_all", PerfMgmt.Enable.Statistics.MemoryNode.NodeAll)), ("nodes", ("nodes", PerfMgmt.Enable.Statistics.MemoryNode.Nodes))])
                     self._leafs = OrderedDict()
 
                     self.node_all = PerfMgmt.Enable.Statistics.MemoryNode.NodeAll()
                     self.node_all.parent = self
                     self._children_name_map["node_all"] = "node-all"
-                    self._children_yang_names.add("node-all")
 
                     self.nodes = PerfMgmt.Enable.Statistics.MemoryNode.Nodes()
                     self.nodes.parent = self
                     self._children_name_map["nodes"] = "nodes"
-                    self._children_yang_names.add("nodes")
                     self._segment_path = lambda: "memory-node"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PerfMgmt.Enable.Statistics.MemoryNode, [], name, value)
 
 
                 class NodeAll(Entity):
@@ -3762,8 +3692,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                         ])
@@ -3799,8 +3728,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("node", ("node", PerfMgmt.Enable.Statistics.MemoryNode.Nodes.Node))])
+                        self._child_classes = OrderedDict([("node", ("node", PerfMgmt.Enable.Statistics.MemoryNode.Nodes.Node))])
                         self._leafs = OrderedDict()
 
                         self.node = YList(self)
@@ -3842,8 +3770,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['node_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('node_id', YLeaf(YType.str, 'node-id')),
                                 ('template_name', YLeaf(YType.str, 'template-name')),
@@ -3881,8 +3808,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('template_name', YLeaf(YType.str, 'template-name')),
                     ])
@@ -3963,61 +3889,53 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("ldp-mpls", ("ldp_mpls", PerfMgmt.Enable.MonitorEnable.LdpMpls)), ("ospfv3-protocol", ("ospfv3_protocol", PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol)), ("generic-counters", ("generic_counters", PerfMgmt.Enable.MonitorEnable.GenericCounters)), ("process", ("process", PerfMgmt.Enable.MonitorEnable.Process)), ("basic-counters", ("basic_counters", PerfMgmt.Enable.MonitorEnable.BasicCounters)), ("memory", ("memory", PerfMgmt.Enable.MonitorEnable.Memory)), ("ospfv2-protocol", ("ospfv2_protocol", PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol)), ("cpu", ("cpu", PerfMgmt.Enable.MonitorEnable.Cpu)), ("bgp", ("bgp", PerfMgmt.Enable.MonitorEnable.Bgp)), ("data-rates", ("data_rates", PerfMgmt.Enable.MonitorEnable.DataRates))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("ldp-mpls", ("ldp_mpls", PerfMgmt.Enable.MonitorEnable.LdpMpls)), ("ospfv3-protocol", ("ospfv3_protocol", PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol)), ("generic-counters", ("generic_counters", PerfMgmt.Enable.MonitorEnable.GenericCounters)), ("process", ("process", PerfMgmt.Enable.MonitorEnable.Process)), ("basic-counters", ("basic_counters", PerfMgmt.Enable.MonitorEnable.BasicCounters)), ("memory", ("memory", PerfMgmt.Enable.MonitorEnable.Memory)), ("ospfv2-protocol", ("ospfv2_protocol", PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol)), ("cpu", ("cpu", PerfMgmt.Enable.MonitorEnable.Cpu)), ("bgp", ("bgp", PerfMgmt.Enable.MonitorEnable.Bgp)), ("data-rates", ("data_rates", PerfMgmt.Enable.MonitorEnable.DataRates))])
                 self._leafs = OrderedDict()
 
                 self.ldp_mpls = PerfMgmt.Enable.MonitorEnable.LdpMpls()
                 self.ldp_mpls.parent = self
                 self._children_name_map["ldp_mpls"] = "ldp-mpls"
-                self._children_yang_names.add("ldp-mpls")
 
                 self.ospfv3_protocol = PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol()
                 self.ospfv3_protocol.parent = self
                 self._children_name_map["ospfv3_protocol"] = "ospfv3-protocol"
-                self._children_yang_names.add("ospfv3-protocol")
 
                 self.generic_counters = PerfMgmt.Enable.MonitorEnable.GenericCounters()
                 self.generic_counters.parent = self
                 self._children_name_map["generic_counters"] = "generic-counters"
-                self._children_yang_names.add("generic-counters")
 
                 self.process = PerfMgmt.Enable.MonitorEnable.Process()
                 self.process.parent = self
                 self._children_name_map["process"] = "process"
-                self._children_yang_names.add("process")
 
                 self.basic_counters = PerfMgmt.Enable.MonitorEnable.BasicCounters()
                 self.basic_counters.parent = self
                 self._children_name_map["basic_counters"] = "basic-counters"
-                self._children_yang_names.add("basic-counters")
 
                 self.memory = PerfMgmt.Enable.MonitorEnable.Memory()
                 self.memory.parent = self
                 self._children_name_map["memory"] = "memory"
-                self._children_yang_names.add("memory")
 
                 self.ospfv2_protocol = PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol()
                 self.ospfv2_protocol.parent = self
                 self._children_name_map["ospfv2_protocol"] = "ospfv2-protocol"
-                self._children_yang_names.add("ospfv2-protocol")
 
                 self.cpu = PerfMgmt.Enable.MonitorEnable.Cpu()
                 self.cpu.parent = self
                 self._children_name_map["cpu"] = "cpu"
-                self._children_yang_names.add("cpu")
 
                 self.bgp = PerfMgmt.Enable.MonitorEnable.Bgp()
                 self.bgp.parent = self
                 self._children_name_map["bgp"] = "bgp"
-                self._children_yang_names.add("bgp")
 
                 self.data_rates = PerfMgmt.Enable.MonitorEnable.DataRates()
                 self.data_rates.parent = self
                 self._children_name_map["data_rates"] = "data-rates"
-                self._children_yang_names.add("data-rates")
                 self._segment_path = lambda: "monitor-enable"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Enable.MonitorEnable, [], name, value)
 
 
             class LdpMpls(Entity):
@@ -4044,16 +3962,17 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("sessions", ("sessions", PerfMgmt.Enable.MonitorEnable.LdpMpls.Sessions))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("sessions", ("sessions", PerfMgmt.Enable.MonitorEnable.LdpMpls.Sessions))])
                     self._leafs = OrderedDict()
 
                     self.sessions = PerfMgmt.Enable.MonitorEnable.LdpMpls.Sessions()
                     self.sessions.parent = self
                     self._children_name_map["sessions"] = "sessions"
-                    self._children_yang_names.add("sessions")
                     self._segment_path = lambda: "ldp-mpls"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PerfMgmt.Enable.MonitorEnable.LdpMpls, [], name, value)
 
 
                 class Sessions(Entity):
@@ -4080,8 +3999,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("session", ("session", PerfMgmt.Enable.MonitorEnable.LdpMpls.Sessions.Session))])
+                        self._child_classes = OrderedDict([("session", ("session", PerfMgmt.Enable.MonitorEnable.LdpMpls.Sessions.Session))])
                         self._leafs = OrderedDict()
 
                         self.session = YList(self)
@@ -4123,8 +4041,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['session']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('session', YLeaf(YType.str, 'session')),
                                 ('template_name', YLeaf(YType.str, 'template-name')),
@@ -4162,16 +4079,17 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("ospf-instances", ("ospf_instances", PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol.OspfInstances))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("ospf-instances", ("ospf_instances", PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol.OspfInstances))])
                     self._leafs = OrderedDict()
 
                     self.ospf_instances = PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol.OspfInstances()
                     self.ospf_instances.parent = self
                     self._children_name_map["ospf_instances"] = "ospf-instances"
-                    self._children_yang_names.add("ospf-instances")
                     self._segment_path = lambda: "ospfv3-protocol"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol, [], name, value)
 
 
                 class OspfInstances(Entity):
@@ -4198,8 +4116,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("ospf-instance", ("ospf_instance", PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol.OspfInstances.OspfInstance))])
+                        self._child_classes = OrderedDict([("ospf-instance", ("ospf_instance", PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol.OspfInstances.OspfInstance))])
                         self._leafs = OrderedDict()
 
                         self.ospf_instance = YList(self)
@@ -4241,8 +4158,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['instance_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('instance_name', YLeaf(YType.str, 'instance-name')),
                                 ('template_name', YLeaf(YType.str, 'template-name')),
@@ -4280,16 +4196,17 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("interfaces", ("interfaces", PerfMgmt.Enable.MonitorEnable.GenericCounters.Interfaces))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("interfaces", ("interfaces", PerfMgmt.Enable.MonitorEnable.GenericCounters.Interfaces))])
                     self._leafs = OrderedDict()
 
                     self.interfaces = PerfMgmt.Enable.MonitorEnable.GenericCounters.Interfaces()
                     self.interfaces.parent = self
                     self._children_name_map["interfaces"] = "interfaces"
-                    self._children_yang_names.add("interfaces")
                     self._segment_path = lambda: "generic-counters"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PerfMgmt.Enable.MonitorEnable.GenericCounters, [], name, value)
 
 
                 class Interfaces(Entity):
@@ -4316,8 +4233,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("interface", ("interface", PerfMgmt.Enable.MonitorEnable.GenericCounters.Interfaces.Interface))])
+                        self._child_classes = OrderedDict([("interface", ("interface", PerfMgmt.Enable.MonitorEnable.GenericCounters.Interfaces.Interface))])
                         self._leafs = OrderedDict()
 
                         self.interface = YList(self)
@@ -4359,8 +4275,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['interface_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                                 ('template_name', YLeaf(YType.str, 'template-name')),
@@ -4398,16 +4313,17 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("process-nodes", ("process_nodes", PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("process-nodes", ("process_nodes", PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes))])
                     self._leafs = OrderedDict()
 
                     self.process_nodes = PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes()
                     self.process_nodes.parent = self
                     self._children_name_map["process_nodes"] = "process-nodes"
-                    self._children_yang_names.add("process-nodes")
                     self._segment_path = lambda: "process"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Process, [], name, value)
 
 
                 class ProcessNodes(Entity):
@@ -4434,8 +4350,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("process-node", ("process_node", PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode))])
+                        self._child_classes = OrderedDict([("process-node", ("process_node", PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode))])
                         self._leafs = OrderedDict()
 
                         self.process_node = YList(self)
@@ -4477,8 +4392,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['node_id']
-                            self._child_container_classes = OrderedDict([("pids", ("pids", PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode.Pids))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("pids", ("pids", PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode.Pids))])
                             self._leafs = OrderedDict([
                                 ('node_id', YLeaf(YType.str, 'node-id')),
                             ])
@@ -4487,7 +4401,6 @@ class PerfMgmt(Entity):
                             self.pids = PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode.Pids()
                             self.pids.parent = self
                             self._children_name_map["pids"] = "pids"
-                            self._children_yang_names.add("pids")
                             self._segment_path = lambda: "process-node" + "[node-id='" + str(self.node_id) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/process/process-nodes/%s" % self._segment_path()
 
@@ -4519,8 +4432,7 @@ class PerfMgmt(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("pid", ("pid", PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode.Pids.Pid))])
+                                self._child_classes = OrderedDict([("pid", ("pid", PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode.Pids.Pid))])
                                 self._leafs = OrderedDict()
 
                                 self.pid = YList(self)
@@ -4562,8 +4474,7 @@ class PerfMgmt(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['pid']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('pid', YLeaf(YType.uint32, 'pid')),
                                         ('template_name', YLeaf(YType.str, 'template-name')),
@@ -4600,16 +4511,17 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("interfaces", ("interfaces", PerfMgmt.Enable.MonitorEnable.BasicCounters.Interfaces))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("interfaces", ("interfaces", PerfMgmt.Enable.MonitorEnable.BasicCounters.Interfaces))])
                     self._leafs = OrderedDict()
 
                     self.interfaces = PerfMgmt.Enable.MonitorEnable.BasicCounters.Interfaces()
                     self.interfaces.parent = self
                     self._children_name_map["interfaces"] = "interfaces"
-                    self._children_yang_names.add("interfaces")
                     self._segment_path = lambda: "basic-counters"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PerfMgmt.Enable.MonitorEnable.BasicCounters, [], name, value)
 
 
                 class Interfaces(Entity):
@@ -4636,8 +4548,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("interface", ("interface", PerfMgmt.Enable.MonitorEnable.BasicCounters.Interfaces.Interface))])
+                        self._child_classes = OrderedDict([("interface", ("interface", PerfMgmt.Enable.MonitorEnable.BasicCounters.Interfaces.Interface))])
                         self._leafs = OrderedDict()
 
                         self.interface = YList(self)
@@ -4679,8 +4590,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['interface_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                                 ('template_name', YLeaf(YType.str, 'template-name')),
@@ -4718,16 +4628,17 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("nodes", ("nodes", PerfMgmt.Enable.MonitorEnable.Memory.Nodes))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("nodes", ("nodes", PerfMgmt.Enable.MonitorEnable.Memory.Nodes))])
                     self._leafs = OrderedDict()
 
                     self.nodes = PerfMgmt.Enable.MonitorEnable.Memory.Nodes()
                     self.nodes.parent = self
                     self._children_name_map["nodes"] = "nodes"
-                    self._children_yang_names.add("nodes")
                     self._segment_path = lambda: "memory"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Memory, [], name, value)
 
 
                 class Nodes(Entity):
@@ -4754,8 +4665,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("node", ("node", PerfMgmt.Enable.MonitorEnable.Memory.Nodes.Node))])
+                        self._child_classes = OrderedDict([("node", ("node", PerfMgmt.Enable.MonitorEnable.Memory.Nodes.Node))])
                         self._leafs = OrderedDict()
 
                         self.node = YList(self)
@@ -4797,8 +4707,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['node_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('node_id', YLeaf(YType.str, 'node-id')),
                                 ('template_name', YLeaf(YType.str, 'template-name')),
@@ -4836,16 +4745,17 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("ospf-instances", ("ospf_instances", PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol.OspfInstances))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("ospf-instances", ("ospf_instances", PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol.OspfInstances))])
                     self._leafs = OrderedDict()
 
                     self.ospf_instances = PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol.OspfInstances()
                     self.ospf_instances.parent = self
                     self._children_name_map["ospf_instances"] = "ospf-instances"
-                    self._children_yang_names.add("ospf-instances")
                     self._segment_path = lambda: "ospfv2-protocol"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol, [], name, value)
 
 
                 class OspfInstances(Entity):
@@ -4872,8 +4782,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("ospf-instance", ("ospf_instance", PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol.OspfInstances.OspfInstance))])
+                        self._child_classes = OrderedDict([("ospf-instance", ("ospf_instance", PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol.OspfInstances.OspfInstance))])
                         self._leafs = OrderedDict()
 
                         self.ospf_instance = YList(self)
@@ -4915,8 +4824,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['instance_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('instance_name', YLeaf(YType.str, 'instance-name')),
                                 ('template_name', YLeaf(YType.str, 'template-name')),
@@ -4954,16 +4862,17 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("nodes", ("nodes", PerfMgmt.Enable.MonitorEnable.Cpu.Nodes))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("nodes", ("nodes", PerfMgmt.Enable.MonitorEnable.Cpu.Nodes))])
                     self._leafs = OrderedDict()
 
                     self.nodes = PerfMgmt.Enable.MonitorEnable.Cpu.Nodes()
                     self.nodes.parent = self
                     self._children_name_map["nodes"] = "nodes"
-                    self._children_yang_names.add("nodes")
                     self._segment_path = lambda: "cpu"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Cpu, [], name, value)
 
 
                 class Nodes(Entity):
@@ -4990,8 +4899,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("node", ("node", PerfMgmt.Enable.MonitorEnable.Cpu.Nodes.Node))])
+                        self._child_classes = OrderedDict([("node", ("node", PerfMgmt.Enable.MonitorEnable.Cpu.Nodes.Node))])
                         self._leafs = OrderedDict()
 
                         self.node = YList(self)
@@ -5033,8 +4941,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['node_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('node_id', YLeaf(YType.str, 'node-id')),
                                 ('template_name', YLeaf(YType.str, 'template-name')),
@@ -5072,16 +4979,17 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("neighbors", ("neighbors", PerfMgmt.Enable.MonitorEnable.Bgp.Neighbors))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("neighbors", ("neighbors", PerfMgmt.Enable.MonitorEnable.Bgp.Neighbors))])
                     self._leafs = OrderedDict()
 
                     self.neighbors = PerfMgmt.Enable.MonitorEnable.Bgp.Neighbors()
                     self.neighbors.parent = self
                     self._children_name_map["neighbors"] = "neighbors"
-                    self._children_yang_names.add("neighbors")
                     self._segment_path = lambda: "bgp"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Bgp, [], name, value)
 
 
                 class Neighbors(Entity):
@@ -5108,8 +5016,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("neighbor", ("neighbor", PerfMgmt.Enable.MonitorEnable.Bgp.Neighbors.Neighbor))])
+                        self._child_classes = OrderedDict([("neighbor", ("neighbor", PerfMgmt.Enable.MonitorEnable.Bgp.Neighbors.Neighbor))])
                         self._leafs = OrderedDict()
 
                         self.neighbor = YList(self)
@@ -5151,8 +5058,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['peer_address']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('peer_address', YLeaf(YType.str, 'peer-address')),
                                 ('template_name', YLeaf(YType.str, 'template-name')),
@@ -5190,16 +5096,17 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("interfaces", ("interfaces", PerfMgmt.Enable.MonitorEnable.DataRates.Interfaces))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("interfaces", ("interfaces", PerfMgmt.Enable.MonitorEnable.DataRates.Interfaces))])
                     self._leafs = OrderedDict()
 
                     self.interfaces = PerfMgmt.Enable.MonitorEnable.DataRates.Interfaces()
                     self.interfaces.parent = self
                     self._children_name_map["interfaces"] = "interfaces"
-                    self._children_yang_names.add("interfaces")
                     self._segment_path = lambda: "data-rates"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PerfMgmt.Enable.MonitorEnable.DataRates, [], name, value)
 
 
                 class Interfaces(Entity):
@@ -5226,8 +5133,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("interface", ("interface", PerfMgmt.Enable.MonitorEnable.DataRates.Interfaces.Interface))])
+                        self._child_classes = OrderedDict([("interface", ("interface", PerfMgmt.Enable.MonitorEnable.DataRates.Interfaces.Interface))])
                         self._leafs = OrderedDict()
 
                         self.interface = YList(self)
@@ -5269,8 +5175,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['interface_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                                 ('template_name', YLeaf(YType.str, 'template-name')),
@@ -5308,8 +5213,7 @@ class PerfMgmt(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("reg-exp-group", ("reg_exp_group", PerfMgmt.RegExpGroups.RegExpGroup))])
+            self._child_classes = OrderedDict([("reg-exp-group", ("reg_exp_group", PerfMgmt.RegExpGroups.RegExpGroup))])
             self._leafs = OrderedDict()
 
             self.reg_exp_group = YList(self)
@@ -5351,8 +5255,7 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['reg_exp_group_name']
-                self._child_container_classes = OrderedDict([("reg-exps", ("reg_exps", PerfMgmt.RegExpGroups.RegExpGroup.RegExps))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("reg-exps", ("reg_exps", PerfMgmt.RegExpGroups.RegExpGroup.RegExps))])
                 self._leafs = OrderedDict([
                     ('reg_exp_group_name', YLeaf(YType.str, 'reg-exp-group-name')),
                 ])
@@ -5361,7 +5264,6 @@ class PerfMgmt(Entity):
                 self.reg_exps = PerfMgmt.RegExpGroups.RegExpGroup.RegExps()
                 self.reg_exps.parent = self
                 self._children_name_map["reg_exps"] = "reg-exps"
-                self._children_yang_names.add("reg-exps")
                 self._segment_path = lambda: "reg-exp-group" + "[reg-exp-group-name='" + str(self.reg_exp_group_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/reg-exp-groups/%s" % self._segment_path()
 
@@ -5393,8 +5295,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("reg-exp", ("reg_exp", PerfMgmt.RegExpGroups.RegExpGroup.RegExps.RegExp))])
+                    self._child_classes = OrderedDict([("reg-exp", ("reg_exp", PerfMgmt.RegExpGroups.RegExpGroup.RegExps.RegExp))])
                     self._leafs = OrderedDict()
 
                     self.reg_exp = YList(self)
@@ -5439,8 +5340,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['reg_exp_index']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('reg_exp_index', YLeaf(YType.uint32, 'reg-exp-index')),
                             ('reg_exp_string', YLeaf(YType.str, 'reg-exp-string')),
@@ -5522,61 +5422,53 @@ class PerfMgmt(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("generic-counter-interface", ("generic_counter_interface", PerfMgmt.Threshold.GenericCounterInterface)), ("ldp-mpls", ("ldp_mpls", PerfMgmt.Threshold.LdpMpls)), ("basic-counter-interface", ("basic_counter_interface", PerfMgmt.Threshold.BasicCounterInterface)), ("bgp", ("bgp", PerfMgmt.Threshold.Bgp)), ("ospfv2-protocol", ("ospfv2_protocol", PerfMgmt.Threshold.Ospfv2Protocol)), ("cpu-node", ("cpu_node", PerfMgmt.Threshold.CpuNode)), ("data-rate-interface", ("data_rate_interface", PerfMgmt.Threshold.DataRateInterface)), ("process-node", ("process_node", PerfMgmt.Threshold.ProcessNode)), ("memory-node", ("memory_node", PerfMgmt.Threshold.MemoryNode)), ("ospfv3-protocol", ("ospfv3_protocol", PerfMgmt.Threshold.Ospfv3Protocol))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("generic-counter-interface", ("generic_counter_interface", PerfMgmt.Threshold.GenericCounterInterface)), ("ldp-mpls", ("ldp_mpls", PerfMgmt.Threshold.LdpMpls)), ("basic-counter-interface", ("basic_counter_interface", PerfMgmt.Threshold.BasicCounterInterface)), ("bgp", ("bgp", PerfMgmt.Threshold.Bgp)), ("ospfv2-protocol", ("ospfv2_protocol", PerfMgmt.Threshold.Ospfv2Protocol)), ("cpu-node", ("cpu_node", PerfMgmt.Threshold.CpuNode)), ("data-rate-interface", ("data_rate_interface", PerfMgmt.Threshold.DataRateInterface)), ("process-node", ("process_node", PerfMgmt.Threshold.ProcessNode)), ("memory-node", ("memory_node", PerfMgmt.Threshold.MemoryNode)), ("ospfv3-protocol", ("ospfv3_protocol", PerfMgmt.Threshold.Ospfv3Protocol))])
             self._leafs = OrderedDict()
 
             self.generic_counter_interface = PerfMgmt.Threshold.GenericCounterInterface()
             self.generic_counter_interface.parent = self
             self._children_name_map["generic_counter_interface"] = "generic-counter-interface"
-            self._children_yang_names.add("generic-counter-interface")
 
             self.ldp_mpls = PerfMgmt.Threshold.LdpMpls()
             self.ldp_mpls.parent = self
             self._children_name_map["ldp_mpls"] = "ldp-mpls"
-            self._children_yang_names.add("ldp-mpls")
 
             self.basic_counter_interface = PerfMgmt.Threshold.BasicCounterInterface()
             self.basic_counter_interface.parent = self
             self._children_name_map["basic_counter_interface"] = "basic-counter-interface"
-            self._children_yang_names.add("basic-counter-interface")
 
             self.bgp = PerfMgmt.Threshold.Bgp()
             self.bgp.parent = self
             self._children_name_map["bgp"] = "bgp"
-            self._children_yang_names.add("bgp")
 
             self.ospfv2_protocol = PerfMgmt.Threshold.Ospfv2Protocol()
             self.ospfv2_protocol.parent = self
             self._children_name_map["ospfv2_protocol"] = "ospfv2-protocol"
-            self._children_yang_names.add("ospfv2-protocol")
 
             self.cpu_node = PerfMgmt.Threshold.CpuNode()
             self.cpu_node.parent = self
             self._children_name_map["cpu_node"] = "cpu-node"
-            self._children_yang_names.add("cpu-node")
 
             self.data_rate_interface = PerfMgmt.Threshold.DataRateInterface()
             self.data_rate_interface.parent = self
             self._children_name_map["data_rate_interface"] = "data-rate-interface"
-            self._children_yang_names.add("data-rate-interface")
 
             self.process_node = PerfMgmt.Threshold.ProcessNode()
             self.process_node.parent = self
             self._children_name_map["process_node"] = "process-node"
-            self._children_yang_names.add("process-node")
 
             self.memory_node = PerfMgmt.Threshold.MemoryNode()
             self.memory_node.parent = self
             self._children_name_map["memory_node"] = "memory-node"
-            self._children_yang_names.add("memory-node")
 
             self.ospfv3_protocol = PerfMgmt.Threshold.Ospfv3Protocol()
             self.ospfv3_protocol.parent = self
             self._children_name_map["ospfv3_protocol"] = "ospfv3-protocol"
-            self._children_yang_names.add("ospfv3-protocol")
             self._segment_path = lambda: "threshold"
             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(PerfMgmt.Threshold, [], name, value)
 
 
         class GenericCounterInterface(Entity):
@@ -5604,16 +5496,17 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("generic-counter-interface-templates", ("generic_counter_interface_templates", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("generic-counter-interface-templates", ("generic_counter_interface_templates", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates))])
                 self._leafs = OrderedDict()
 
                 self.generic_counter_interface_templates = PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates()
                 self.generic_counter_interface_templates.parent = self
                 self._children_name_map["generic_counter_interface_templates"] = "generic-counter-interface-templates"
-                self._children_yang_names.add("generic-counter-interface-templates")
                 self._segment_path = lambda: "generic-counter-interface"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface, [], name, value)
 
 
             class GenericCounterInterfaceTemplates(Entity):
@@ -5640,8 +5533,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("generic-counter-interface-template", ("generic_counter_interface_template", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate))])
+                    self._child_classes = OrderedDict([("generic-counter-interface-template", ("generic_counter_interface_template", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate))])
                     self._leafs = OrderedDict()
 
                     self.generic_counter_interface_template = YList(self)
@@ -5842,8 +5734,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['template_name']
-                        self._child_container_classes = OrderedDict([("in-octets", ("in_octets", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InOctets)), ("in-ucast-pkts", ("in_ucast_pkts", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InUcastPkts)), ("out-ucast-pkts", ("out_ucast_pkts", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutUcastPkts)), ("out-broadcast-pkts", ("out_broadcast_pkts", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutBroadcastPkts)), ("out-multicast-pkts", ("out_multicast_pkts", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutMulticastPkts)), ("input-overrun", ("input_overrun", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputOverrun)), ("out-octets", ("out_octets", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutOctets)), ("output-underrun", ("output_underrun", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputUnderrun)), ("input-total-errors", ("input_total_errors", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputTotalErrors)), ("output-total-drops", ("output_total_drops", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputTotalDrops)), ("input-crc", ("input_crc", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputCrc)), ("in-broadcast-pkts", ("in_broadcast_pkts", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InBroadcastPkts)), ("in-multicast-pkts", ("in_multicast_pkts", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InMulticastPkts)), ("out-packets", ("out_packets", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutPackets)), ("output-total-errors", ("output_total_errors", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputTotalErrors)), ("in-packets", ("in_packets", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InPackets)), ("input-unknown-proto", ("input_unknown_proto", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputUnknownProto)), ("input-queue-drops", ("input_queue_drops", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputQueueDrops)), ("input-total-drops", ("input_total_drops", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputTotalDrops)), ("input-frame", ("input_frame", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputFrame))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("in-octets", ("in_octets", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InOctets)), ("in-ucast-pkts", ("in_ucast_pkts", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InUcastPkts)), ("out-ucast-pkts", ("out_ucast_pkts", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutUcastPkts)), ("out-broadcast-pkts", ("out_broadcast_pkts", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutBroadcastPkts)), ("out-multicast-pkts", ("out_multicast_pkts", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutMulticastPkts)), ("input-overrun", ("input_overrun", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputOverrun)), ("out-octets", ("out_octets", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutOctets)), ("output-underrun", ("output_underrun", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputUnderrun)), ("input-total-errors", ("input_total_errors", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputTotalErrors)), ("output-total-drops", ("output_total_drops", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputTotalDrops)), ("input-crc", ("input_crc", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputCrc)), ("in-broadcast-pkts", ("in_broadcast_pkts", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InBroadcastPkts)), ("in-multicast-pkts", ("in_multicast_pkts", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InMulticastPkts)), ("out-packets", ("out_packets", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutPackets)), ("output-total-errors", ("output_total_errors", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputTotalErrors)), ("in-packets", ("in_packets", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InPackets)), ("input-unknown-proto", ("input_unknown_proto", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputUnknownProto)), ("input-queue-drops", ("input_queue_drops", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputQueueDrops)), ("input-total-drops", ("input_total_drops", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputTotalDrops)), ("input-frame", ("input_frame", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputFrame))])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                             ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
@@ -5857,83 +5748,63 @@ class PerfMgmt(Entity):
 
                         self.in_octets = None
                         self._children_name_map["in_octets"] = "in-octets"
-                        self._children_yang_names.add("in-octets")
 
                         self.in_ucast_pkts = None
                         self._children_name_map["in_ucast_pkts"] = "in-ucast-pkts"
-                        self._children_yang_names.add("in-ucast-pkts")
 
                         self.out_ucast_pkts = None
                         self._children_name_map["out_ucast_pkts"] = "out-ucast-pkts"
-                        self._children_yang_names.add("out-ucast-pkts")
 
                         self.out_broadcast_pkts = None
                         self._children_name_map["out_broadcast_pkts"] = "out-broadcast-pkts"
-                        self._children_yang_names.add("out-broadcast-pkts")
 
                         self.out_multicast_pkts = None
                         self._children_name_map["out_multicast_pkts"] = "out-multicast-pkts"
-                        self._children_yang_names.add("out-multicast-pkts")
 
                         self.input_overrun = None
                         self._children_name_map["input_overrun"] = "input-overrun"
-                        self._children_yang_names.add("input-overrun")
 
                         self.out_octets = None
                         self._children_name_map["out_octets"] = "out-octets"
-                        self._children_yang_names.add("out-octets")
 
                         self.output_underrun = None
                         self._children_name_map["output_underrun"] = "output-underrun"
-                        self._children_yang_names.add("output-underrun")
 
                         self.input_total_errors = None
                         self._children_name_map["input_total_errors"] = "input-total-errors"
-                        self._children_yang_names.add("input-total-errors")
 
                         self.output_total_drops = None
                         self._children_name_map["output_total_drops"] = "output-total-drops"
-                        self._children_yang_names.add("output-total-drops")
 
                         self.input_crc = None
                         self._children_name_map["input_crc"] = "input-crc"
-                        self._children_yang_names.add("input-crc")
 
                         self.in_broadcast_pkts = None
                         self._children_name_map["in_broadcast_pkts"] = "in-broadcast-pkts"
-                        self._children_yang_names.add("in-broadcast-pkts")
 
                         self.in_multicast_pkts = None
                         self._children_name_map["in_multicast_pkts"] = "in-multicast-pkts"
-                        self._children_yang_names.add("in-multicast-pkts")
 
                         self.out_packets = None
                         self._children_name_map["out_packets"] = "out-packets"
-                        self._children_yang_names.add("out-packets")
 
                         self.output_total_errors = None
                         self._children_name_map["output_total_errors"] = "output-total-errors"
-                        self._children_yang_names.add("output-total-errors")
 
                         self.in_packets = None
                         self._children_name_map["in_packets"] = "in-packets"
-                        self._children_yang_names.add("in-packets")
 
                         self.input_unknown_proto = None
                         self._children_name_map["input_unknown_proto"] = "input-unknown-proto"
-                        self._children_yang_names.add("input-unknown-proto")
 
                         self.input_queue_drops = None
                         self._children_name_map["input_queue_drops"] = "input-queue-drops"
-                        self._children_yang_names.add("input-queue-drops")
 
                         self.input_total_drops = None
                         self._children_name_map["input_total_drops"] = "input-total-drops"
-                        self._children_yang_names.add("input-total-drops")
 
                         self.input_frame = None
                         self._children_name_map["input_frame"] = "input-frame"
-                        self._children_yang_names.add("input-frame")
                         self._segment_path = lambda: "generic-counter-interface-template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/generic-counter-interface/generic-counter-interface-templates/%s" % self._segment_path()
 
@@ -5998,8 +5869,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -6078,8 +5948,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -6158,8 +6027,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -6238,8 +6106,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -6318,8 +6185,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -6399,8 +6265,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -6479,8 +6344,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -6560,8 +6424,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -6641,8 +6504,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -6721,8 +6583,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -6802,8 +6663,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -6882,8 +6742,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -6962,8 +6821,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -7042,8 +6900,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -7123,8 +6980,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -7203,8 +7059,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -7284,8 +7139,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -7364,8 +7218,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -7444,8 +7297,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -7525,8 +7377,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -7572,16 +7423,17 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("ldp-mpls-templates", ("ldp_mpls_templates", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("ldp-mpls-templates", ("ldp_mpls_templates", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates))])
                 self._leafs = OrderedDict()
 
                 self.ldp_mpls_templates = PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates()
                 self.ldp_mpls_templates.parent = self
                 self._children_name_map["ldp_mpls_templates"] = "ldp-mpls-templates"
-                self._children_yang_names.add("ldp-mpls-templates")
                 self._segment_path = lambda: "ldp-mpls"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Threshold.LdpMpls, [], name, value)
 
 
             class LdpMplsTemplates(Entity):
@@ -7608,8 +7460,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("ldp-mpls-template", ("ldp_mpls_template", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate))])
+                    self._child_classes = OrderedDict([("ldp-mpls-template", ("ldp_mpls_template", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate))])
                     self._leafs = OrderedDict()
 
                     self.ldp_mpls_template = YList(self)
@@ -7781,8 +7632,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['template_name']
-                        self._child_container_classes = OrderedDict([("address-withdraw-msgs-rcvd", ("address_withdraw_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressWithdrawMsgsRcvd)), ("label-withdraw-msgs-rcvd", ("label_withdraw_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelWithdrawMsgsRcvd)), ("address-withdraw-msgs-sent", ("address_withdraw_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressWithdrawMsgsSent)), ("label-withdraw-msgs-sent", ("label_withdraw_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelWithdrawMsgsSent)), ("notification-msgs-rcvd", ("notification_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.NotificationMsgsRcvd)), ("total-msgs-rcvd", ("total_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.TotalMsgsRcvd)), ("notification-msgs-sent", ("notification_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.NotificationMsgsSent)), ("total-msgs-sent", ("total_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.TotalMsgsSent)), ("label-release-msgs-rcvd", ("label_release_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelReleaseMsgsRcvd)), ("init-msgs-rcvd", ("init_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.InitMsgsRcvd)), ("label-release-msgs-sent", ("label_release_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelReleaseMsgsSent)), ("init-msgs-sent", ("init_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.InitMsgsSent)), ("label-mapping-msgs-rcvd", ("label_mapping_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelMappingMsgsRcvd)), ("keepalive-msgs-rcvd", ("keepalive_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.KeepaliveMsgsRcvd)), ("label-mapping-msgs-sent", ("label_mapping_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelMappingMsgsSent)), ("keepalive-msgs-sent", ("keepalive_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.KeepaliveMsgsSent)), ("address-msgs-rcvd", ("address_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressMsgsRcvd)), ("address-msgs-sent", ("address_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressMsgsSent))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("address-withdraw-msgs-rcvd", ("address_withdraw_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressWithdrawMsgsRcvd)), ("label-withdraw-msgs-rcvd", ("label_withdraw_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelWithdrawMsgsRcvd)), ("address-withdraw-msgs-sent", ("address_withdraw_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressWithdrawMsgsSent)), ("label-withdraw-msgs-sent", ("label_withdraw_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelWithdrawMsgsSent)), ("notification-msgs-rcvd", ("notification_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.NotificationMsgsRcvd)), ("total-msgs-rcvd", ("total_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.TotalMsgsRcvd)), ("notification-msgs-sent", ("notification_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.NotificationMsgsSent)), ("total-msgs-sent", ("total_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.TotalMsgsSent)), ("label-release-msgs-rcvd", ("label_release_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelReleaseMsgsRcvd)), ("init-msgs-rcvd", ("init_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.InitMsgsRcvd)), ("label-release-msgs-sent", ("label_release_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelReleaseMsgsSent)), ("init-msgs-sent", ("init_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.InitMsgsSent)), ("label-mapping-msgs-rcvd", ("label_mapping_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelMappingMsgsRcvd)), ("keepalive-msgs-rcvd", ("keepalive_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.KeepaliveMsgsRcvd)), ("label-mapping-msgs-sent", ("label_mapping_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelMappingMsgsSent)), ("keepalive-msgs-sent", ("keepalive_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.KeepaliveMsgsSent)), ("address-msgs-rcvd", ("address_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressMsgsRcvd)), ("address-msgs-sent", ("address_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressMsgsSent))])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                             ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
@@ -7792,75 +7642,57 @@ class PerfMgmt(Entity):
 
                         self.address_withdraw_msgs_rcvd = None
                         self._children_name_map["address_withdraw_msgs_rcvd"] = "address-withdraw-msgs-rcvd"
-                        self._children_yang_names.add("address-withdraw-msgs-rcvd")
 
                         self.label_withdraw_msgs_rcvd = None
                         self._children_name_map["label_withdraw_msgs_rcvd"] = "label-withdraw-msgs-rcvd"
-                        self._children_yang_names.add("label-withdraw-msgs-rcvd")
 
                         self.address_withdraw_msgs_sent = None
                         self._children_name_map["address_withdraw_msgs_sent"] = "address-withdraw-msgs-sent"
-                        self._children_yang_names.add("address-withdraw-msgs-sent")
 
                         self.label_withdraw_msgs_sent = None
                         self._children_name_map["label_withdraw_msgs_sent"] = "label-withdraw-msgs-sent"
-                        self._children_yang_names.add("label-withdraw-msgs-sent")
 
                         self.notification_msgs_rcvd = None
                         self._children_name_map["notification_msgs_rcvd"] = "notification-msgs-rcvd"
-                        self._children_yang_names.add("notification-msgs-rcvd")
 
                         self.total_msgs_rcvd = None
                         self._children_name_map["total_msgs_rcvd"] = "total-msgs-rcvd"
-                        self._children_yang_names.add("total-msgs-rcvd")
 
                         self.notification_msgs_sent = None
                         self._children_name_map["notification_msgs_sent"] = "notification-msgs-sent"
-                        self._children_yang_names.add("notification-msgs-sent")
 
                         self.total_msgs_sent = None
                         self._children_name_map["total_msgs_sent"] = "total-msgs-sent"
-                        self._children_yang_names.add("total-msgs-sent")
 
                         self.label_release_msgs_rcvd = None
                         self._children_name_map["label_release_msgs_rcvd"] = "label-release-msgs-rcvd"
-                        self._children_yang_names.add("label-release-msgs-rcvd")
 
                         self.init_msgs_rcvd = None
                         self._children_name_map["init_msgs_rcvd"] = "init-msgs-rcvd"
-                        self._children_yang_names.add("init-msgs-rcvd")
 
                         self.label_release_msgs_sent = None
                         self._children_name_map["label_release_msgs_sent"] = "label-release-msgs-sent"
-                        self._children_yang_names.add("label-release-msgs-sent")
 
                         self.init_msgs_sent = None
                         self._children_name_map["init_msgs_sent"] = "init-msgs-sent"
-                        self._children_yang_names.add("init-msgs-sent")
 
                         self.label_mapping_msgs_rcvd = None
                         self._children_name_map["label_mapping_msgs_rcvd"] = "label-mapping-msgs-rcvd"
-                        self._children_yang_names.add("label-mapping-msgs-rcvd")
 
                         self.keepalive_msgs_rcvd = None
                         self._children_name_map["keepalive_msgs_rcvd"] = "keepalive-msgs-rcvd"
-                        self._children_yang_names.add("keepalive-msgs-rcvd")
 
                         self.label_mapping_msgs_sent = None
                         self._children_name_map["label_mapping_msgs_sent"] = "label-mapping-msgs-sent"
-                        self._children_yang_names.add("label-mapping-msgs-sent")
 
                         self.keepalive_msgs_sent = None
                         self._children_name_map["keepalive_msgs_sent"] = "keepalive-msgs-sent"
-                        self._children_yang_names.add("keepalive-msgs-sent")
 
                         self.address_msgs_rcvd = None
                         self._children_name_map["address_msgs_rcvd"] = "address-msgs-rcvd"
-                        self._children_yang_names.add("address-msgs-rcvd")
 
                         self.address_msgs_sent = None
                         self._children_name_map["address_msgs_sent"] = "address-msgs-sent"
-                        self._children_yang_names.add("address-msgs-sent")
                         self._segment_path = lambda: "ldp-mpls-template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ldp-mpls/ldp-mpls-templates/%s" % self._segment_path()
 
@@ -7925,8 +7757,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -8005,8 +7836,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -8085,8 +7915,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -8165,8 +7994,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -8245,8 +8073,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -8325,8 +8152,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -8405,8 +8231,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -8485,8 +8310,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -8565,8 +8389,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -8645,8 +8468,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -8725,8 +8547,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -8805,8 +8626,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -8885,8 +8705,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -8965,8 +8784,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -9045,8 +8863,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -9125,8 +8942,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -9205,8 +9021,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -9285,8 +9100,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -9332,16 +9146,17 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("basic-counter-interface-templates", ("basic_counter_interface_templates", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("basic-counter-interface-templates", ("basic_counter_interface_templates", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates))])
                 self._leafs = OrderedDict()
 
                 self.basic_counter_interface_templates = PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates()
                 self.basic_counter_interface_templates.parent = self
                 self._children_name_map["basic_counter_interface_templates"] = "basic-counter-interface-templates"
-                self._children_yang_names.add("basic-counter-interface-templates")
                 self._segment_path = lambda: "basic-counter-interface"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface, [], name, value)
 
 
             class BasicCounterInterfaceTemplates(Entity):
@@ -9368,8 +9183,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("basic-counter-interface-template", ("basic_counter_interface_template", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate))])
+                    self._child_classes = OrderedDict([("basic-counter-interface-template", ("basic_counter_interface_template", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate))])
                     self._leafs = OrderedDict()
 
                     self.basic_counter_interface_template = YList(self)
@@ -9500,8 +9314,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['template_name']
-                        self._child_container_classes = OrderedDict([("in-octets", ("in_octets", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InOctets)), ("out-octets", ("out_octets", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutOctets)), ("output-queue-drops", ("output_queue_drops", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputQueueDrops)), ("input-total-errors", ("input_total_errors", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputTotalErrors)), ("output-total-drops", ("output_total_drops", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputTotalDrops)), ("out-packets", ("out_packets", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutPackets)), ("output-total-errors", ("output_total_errors", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputTotalErrors)), ("in-packets", ("in_packets", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InPackets)), ("input-queue-drops", ("input_queue_drops", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputQueueDrops)), ("input-total-drops", ("input_total_drops", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputTotalDrops))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("in-octets", ("in_octets", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InOctets)), ("out-octets", ("out_octets", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutOctets)), ("output-queue-drops", ("output_queue_drops", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputQueueDrops)), ("input-total-errors", ("input_total_errors", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputTotalErrors)), ("output-total-drops", ("output_total_drops", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputTotalDrops)), ("out-packets", ("out_packets", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutPackets)), ("output-total-errors", ("output_total_errors", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputTotalErrors)), ("in-packets", ("in_packets", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InPackets)), ("input-queue-drops", ("input_queue_drops", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputQueueDrops)), ("input-total-drops", ("input_total_drops", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputTotalDrops))])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                             ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
@@ -9515,43 +9328,33 @@ class PerfMgmt(Entity):
 
                         self.in_octets = None
                         self._children_name_map["in_octets"] = "in-octets"
-                        self._children_yang_names.add("in-octets")
 
                         self.out_octets = None
                         self._children_name_map["out_octets"] = "out-octets"
-                        self._children_yang_names.add("out-octets")
 
                         self.output_queue_drops = None
                         self._children_name_map["output_queue_drops"] = "output-queue-drops"
-                        self._children_yang_names.add("output-queue-drops")
 
                         self.input_total_errors = None
                         self._children_name_map["input_total_errors"] = "input-total-errors"
-                        self._children_yang_names.add("input-total-errors")
 
                         self.output_total_drops = None
                         self._children_name_map["output_total_drops"] = "output-total-drops"
-                        self._children_yang_names.add("output-total-drops")
 
                         self.out_packets = None
                         self._children_name_map["out_packets"] = "out-packets"
-                        self._children_yang_names.add("out-packets")
 
                         self.output_total_errors = None
                         self._children_name_map["output_total_errors"] = "output-total-errors"
-                        self._children_yang_names.add("output-total-errors")
 
                         self.in_packets = None
                         self._children_name_map["in_packets"] = "in-packets"
-                        self._children_yang_names.add("in-packets")
 
                         self.input_queue_drops = None
                         self._children_name_map["input_queue_drops"] = "input-queue-drops"
-                        self._children_yang_names.add("input-queue-drops")
 
                         self.input_total_drops = None
                         self._children_name_map["input_total_drops"] = "input-total-drops"
-                        self._children_yang_names.add("input-total-drops")
                         self._segment_path = lambda: "basic-counter-interface-template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/basic-counter-interface/basic-counter-interface-templates/%s" % self._segment_path()
 
@@ -9616,8 +9419,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -9696,8 +9498,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -9776,8 +9577,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -9857,8 +9657,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -9937,8 +9736,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -10017,8 +9815,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -10098,8 +9895,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -10178,8 +9974,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -10258,8 +10053,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -10338,8 +10132,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -10385,16 +10178,17 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("bgp-templates", ("bgp_templates", PerfMgmt.Threshold.Bgp.BgpTemplates))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("bgp-templates", ("bgp_templates", PerfMgmt.Threshold.Bgp.BgpTemplates))])
                 self._leafs = OrderedDict()
 
                 self.bgp_templates = PerfMgmt.Threshold.Bgp.BgpTemplates()
                 self.bgp_templates.parent = self
                 self._children_name_map["bgp_templates"] = "bgp-templates"
-                self._children_yang_names.add("bgp-templates")
                 self._segment_path = lambda: "bgp"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Threshold.Bgp, [], name, value)
 
 
             class BgpTemplates(Entity):
@@ -10421,8 +10215,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("bgp-template", ("bgp_template", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate))])
+                    self._child_classes = OrderedDict([("bgp-template", ("bgp_template", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate))])
                     self._leafs = OrderedDict()
 
                     self.bgp_template = YList(self)
@@ -10524,8 +10317,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['template_name']
-                        self._child_container_classes = OrderedDict([("output-update-messages", ("output_update_messages", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.OutputUpdateMessages)), ("errors-received", ("errors_received", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ErrorsReceived)), ("conn-established", ("conn_established", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ConnEstablished)), ("output-messages", ("output_messages", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.OutputMessages)), ("conn-dropped", ("conn_dropped", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ConnDropped)), ("input-update-messages", ("input_update_messages", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.InputUpdateMessages)), ("errors-sent", ("errors_sent", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ErrorsSent)), ("input-messages", ("input_messages", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.InputMessages))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("output-update-messages", ("output_update_messages", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.OutputUpdateMessages)), ("errors-received", ("errors_received", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ErrorsReceived)), ("conn-established", ("conn_established", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ConnEstablished)), ("output-messages", ("output_messages", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.OutputMessages)), ("conn-dropped", ("conn_dropped", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ConnDropped)), ("input-update-messages", ("input_update_messages", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.InputUpdateMessages)), ("errors-sent", ("errors_sent", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ErrorsSent)), ("input-messages", ("input_messages", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.InputMessages))])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                             ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
@@ -10535,35 +10327,27 @@ class PerfMgmt(Entity):
 
                         self.output_update_messages = None
                         self._children_name_map["output_update_messages"] = "output-update-messages"
-                        self._children_yang_names.add("output-update-messages")
 
                         self.errors_received = None
                         self._children_name_map["errors_received"] = "errors-received"
-                        self._children_yang_names.add("errors-received")
 
                         self.conn_established = None
                         self._children_name_map["conn_established"] = "conn-established"
-                        self._children_yang_names.add("conn-established")
 
                         self.output_messages = None
                         self._children_name_map["output_messages"] = "output-messages"
-                        self._children_yang_names.add("output-messages")
 
                         self.conn_dropped = None
                         self._children_name_map["conn_dropped"] = "conn-dropped"
-                        self._children_yang_names.add("conn-dropped")
 
                         self.input_update_messages = None
                         self._children_name_map["input_update_messages"] = "input-update-messages"
-                        self._children_yang_names.add("input-update-messages")
 
                         self.errors_sent = None
                         self._children_name_map["errors_sent"] = "errors-sent"
-                        self._children_yang_names.add("errors-sent")
 
                         self.input_messages = None
                         self._children_name_map["input_messages"] = "input-messages"
-                        self._children_yang_names.add("input-messages")
                         self._segment_path = lambda: "bgp-template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/bgp/bgp-templates/%s" % self._segment_path()
 
@@ -10628,8 +10412,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -10708,8 +10491,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -10789,8 +10571,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -10869,8 +10650,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -10949,8 +10729,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -11029,8 +10808,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -11109,8 +10887,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -11189,8 +10966,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -11236,16 +11012,17 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("ospfv2-protocol-templates", ("ospfv2_protocol_templates", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("ospfv2-protocol-templates", ("ospfv2_protocol_templates", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates))])
                 self._leafs = OrderedDict()
 
                 self.ospfv2_protocol_templates = PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates()
                 self.ospfv2_protocol_templates.parent = self
                 self._children_name_map["ospfv2_protocol_templates"] = "ospfv2-protocol-templates"
-                self._children_yang_names.add("ospfv2-protocol-templates")
                 self._segment_path = lambda: "ospfv2-protocol"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol, [], name, value)
 
 
             class Ospfv2ProtocolTemplates(Entity):
@@ -11272,8 +11049,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("ospfv2-protocol-template", ("ospfv2_protocol_template", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate))])
+                    self._child_classes = OrderedDict([("ospfv2-protocol-template", ("ospfv2_protocol_template", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate))])
                     self._leafs = OrderedDict()
 
                     self.ospfv2_protocol_template = YList(self)
@@ -11466,8 +11242,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['template_name']
-                        self._child_container_classes = OrderedDict([("checksum-errors", ("checksum_errors", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.ChecksumErrors)), ("input-lsa-acks-lsa", ("input_lsa_acks_lsa", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaAcksLsa)), ("output-db-ds-lsa", ("output_db_ds_lsa", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputDbDsLsa)), ("input-db-ds-lsa", ("input_db_ds_lsa", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputDbDsLsa)), ("input-lsa-updates", ("input_lsa_updates", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaUpdates)), ("output-db-ds", ("output_db_ds", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputDbDs)), ("output-lsa-updates-lsa", ("output_lsa_updates_lsa", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaUpdatesLsa)), ("input-db-ds", ("input_db_ds", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputDbDs)), ("input-lsa-updates-lsa", ("input_lsa_updates_lsa", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaUpdatesLsa)), ("output-packets", ("output_packets", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputPackets)), ("input-packets", ("input_packets", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputPackets)), ("output-hello-packets", ("output_hello_packets", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputHelloPackets)), ("input-hello-packets", ("input_hello_packets", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputHelloPackets)), ("output-ls-requests", ("output_ls_requests", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsRequests)), ("output-lsa-acks-lsa", ("output_lsa_acks_lsa", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaAcksLsa)), ("output-lsa-acks", ("output_lsa_acks", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaAcks)), ("input-lsa-acks", ("input_lsa_acks", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaAcks)), ("output-lsa-updates", ("output_lsa_updates", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaUpdates)), ("output-ls-requests-lsa", ("output_ls_requests_lsa", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsRequestsLsa)), ("input-ls-requests-lsa", ("input_ls_requests_lsa", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsRequestsLsa)), ("input-ls-requests", ("input_ls_requests", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsRequests))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("checksum-errors", ("checksum_errors", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.ChecksumErrors)), ("input-lsa-acks-lsa", ("input_lsa_acks_lsa", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaAcksLsa)), ("output-db-ds-lsa", ("output_db_ds_lsa", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputDbDsLsa)), ("input-db-ds-lsa", ("input_db_ds_lsa", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputDbDsLsa)), ("input-lsa-updates", ("input_lsa_updates", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaUpdates)), ("output-db-ds", ("output_db_ds", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputDbDs)), ("output-lsa-updates-lsa", ("output_lsa_updates_lsa", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaUpdatesLsa)), ("input-db-ds", ("input_db_ds", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputDbDs)), ("input-lsa-updates-lsa", ("input_lsa_updates_lsa", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaUpdatesLsa)), ("output-packets", ("output_packets", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputPackets)), ("input-packets", ("input_packets", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputPackets)), ("output-hello-packets", ("output_hello_packets", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputHelloPackets)), ("input-hello-packets", ("input_hello_packets", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputHelloPackets)), ("output-ls-requests", ("output_ls_requests", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsRequests)), ("output-lsa-acks-lsa", ("output_lsa_acks_lsa", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaAcksLsa)), ("output-lsa-acks", ("output_lsa_acks", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaAcks)), ("input-lsa-acks", ("input_lsa_acks", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaAcks)), ("output-lsa-updates", ("output_lsa_updates", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaUpdates)), ("output-ls-requests-lsa", ("output_ls_requests_lsa", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsRequestsLsa)), ("input-ls-requests-lsa", ("input_ls_requests_lsa", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsRequestsLsa)), ("input-ls-requests", ("input_ls_requests", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsRequests))])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                             ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
@@ -11477,87 +11252,66 @@ class PerfMgmt(Entity):
 
                         self.checksum_errors = None
                         self._children_name_map["checksum_errors"] = "checksum-errors"
-                        self._children_yang_names.add("checksum-errors")
 
                         self.input_lsa_acks_lsa = None
                         self._children_name_map["input_lsa_acks_lsa"] = "input-lsa-acks-lsa"
-                        self._children_yang_names.add("input-lsa-acks-lsa")
 
                         self.output_db_ds_lsa = None
                         self._children_name_map["output_db_ds_lsa"] = "output-db-ds-lsa"
-                        self._children_yang_names.add("output-db-ds-lsa")
 
                         self.input_db_ds_lsa = None
                         self._children_name_map["input_db_ds_lsa"] = "input-db-ds-lsa"
-                        self._children_yang_names.add("input-db-ds-lsa")
 
                         self.input_lsa_updates = None
                         self._children_name_map["input_lsa_updates"] = "input-lsa-updates"
-                        self._children_yang_names.add("input-lsa-updates")
 
                         self.output_db_ds = None
                         self._children_name_map["output_db_ds"] = "output-db-ds"
-                        self._children_yang_names.add("output-db-ds")
 
                         self.output_lsa_updates_lsa = None
                         self._children_name_map["output_lsa_updates_lsa"] = "output-lsa-updates-lsa"
-                        self._children_yang_names.add("output-lsa-updates-lsa")
 
                         self.input_db_ds = None
                         self._children_name_map["input_db_ds"] = "input-db-ds"
-                        self._children_yang_names.add("input-db-ds")
 
                         self.input_lsa_updates_lsa = None
                         self._children_name_map["input_lsa_updates_lsa"] = "input-lsa-updates-lsa"
-                        self._children_yang_names.add("input-lsa-updates-lsa")
 
                         self.output_packets = None
                         self._children_name_map["output_packets"] = "output-packets"
-                        self._children_yang_names.add("output-packets")
 
                         self.input_packets = None
                         self._children_name_map["input_packets"] = "input-packets"
-                        self._children_yang_names.add("input-packets")
 
                         self.output_hello_packets = None
                         self._children_name_map["output_hello_packets"] = "output-hello-packets"
-                        self._children_yang_names.add("output-hello-packets")
 
                         self.input_hello_packets = None
                         self._children_name_map["input_hello_packets"] = "input-hello-packets"
-                        self._children_yang_names.add("input-hello-packets")
 
                         self.output_ls_requests = None
                         self._children_name_map["output_ls_requests"] = "output-ls-requests"
-                        self._children_yang_names.add("output-ls-requests")
 
                         self.output_lsa_acks_lsa = None
                         self._children_name_map["output_lsa_acks_lsa"] = "output-lsa-acks-lsa"
-                        self._children_yang_names.add("output-lsa-acks-lsa")
 
                         self.output_lsa_acks = None
                         self._children_name_map["output_lsa_acks"] = "output-lsa-acks"
-                        self._children_yang_names.add("output-lsa-acks")
 
                         self.input_lsa_acks = None
                         self._children_name_map["input_lsa_acks"] = "input-lsa-acks"
-                        self._children_yang_names.add("input-lsa-acks")
 
                         self.output_lsa_updates = None
                         self._children_name_map["output_lsa_updates"] = "output-lsa-updates"
-                        self._children_yang_names.add("output-lsa-updates")
 
                         self.output_ls_requests_lsa = None
                         self._children_name_map["output_ls_requests_lsa"] = "output-ls-requests-lsa"
-                        self._children_yang_names.add("output-ls-requests-lsa")
 
                         self.input_ls_requests_lsa = None
                         self._children_name_map["input_ls_requests_lsa"] = "input-ls-requests-lsa"
-                        self._children_yang_names.add("input-ls-requests-lsa")
 
                         self.input_ls_requests = None
                         self._children_name_map["input_ls_requests"] = "input-ls-requests"
-                        self._children_yang_names.add("input-ls-requests")
                         self._segment_path = lambda: "ospfv2-protocol-template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/ospfv2-protocol-templates/%s" % self._segment_path()
 
@@ -11623,8 +11377,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -11703,8 +11456,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -11783,8 +11535,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -11863,8 +11614,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -11943,8 +11693,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -12023,8 +11772,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -12103,8 +11851,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -12183,8 +11930,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -12263,8 +12009,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -12343,8 +12088,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -12423,8 +12167,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -12503,8 +12246,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -12583,8 +12325,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -12663,8 +12404,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -12743,8 +12483,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -12823,8 +12562,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -12903,8 +12641,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -12983,8 +12720,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -13063,8 +12799,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -13143,8 +12878,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -13223,8 +12957,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -13270,16 +13003,17 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("cpu-node-templates", ("cpu_node_templates", PerfMgmt.Threshold.CpuNode.CpuNodeTemplates))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("cpu-node-templates", ("cpu_node_templates", PerfMgmt.Threshold.CpuNode.CpuNodeTemplates))])
                 self._leafs = OrderedDict()
 
                 self.cpu_node_templates = PerfMgmt.Threshold.CpuNode.CpuNodeTemplates()
                 self.cpu_node_templates.parent = self
                 self._children_name_map["cpu_node_templates"] = "cpu-node-templates"
-                self._children_yang_names.add("cpu-node-templates")
                 self._segment_path = lambda: "cpu-node"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Threshold.CpuNode, [], name, value)
 
 
             class CpuNodeTemplates(Entity):
@@ -13306,8 +13040,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("cpu-node-template", ("cpu_node_template", PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate))])
+                    self._child_classes = OrderedDict([("cpu-node-template", ("cpu_node_template", PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate))])
                     self._leafs = OrderedDict()
 
                     self.cpu_node_template = YList(self)
@@ -13368,8 +13101,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['template_name']
-                        self._child_container_classes = OrderedDict([("average-cpu-used", ("average_cpu_used", PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate.AverageCpuUsed)), ("no-processes", ("no_processes", PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate.NoProcesses))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("average-cpu-used", ("average_cpu_used", PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate.AverageCpuUsed)), ("no-processes", ("no_processes", PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate.NoProcesses))])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                             ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
@@ -13379,11 +13111,9 @@ class PerfMgmt(Entity):
 
                         self.average_cpu_used = None
                         self._children_name_map["average_cpu_used"] = "average-cpu-used"
-                        self._children_yang_names.add("average-cpu-used")
 
                         self.no_processes = None
                         self._children_name_map["no_processes"] = "no-processes"
-                        self._children_yang_names.add("no-processes")
                         self._segment_path = lambda: "cpu-node-template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/cpu-node/cpu-node-templates/%s" % self._segment_path()
 
@@ -13448,8 +13178,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -13528,8 +13257,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -13575,16 +13303,17 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("data-rate-interface-templates", ("data_rate_interface_templates", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("data-rate-interface-templates", ("data_rate_interface_templates", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates))])
                 self._leafs = OrderedDict()
 
                 self.data_rate_interface_templates = PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates()
                 self.data_rate_interface_templates.parent = self
                 self._children_name_map["data_rate_interface_templates"] = "data-rate-interface-templates"
-                self._children_yang_names.add("data-rate-interface-templates")
                 self._segment_path = lambda: "data-rate-interface"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Threshold.DataRateInterface, [], name, value)
 
 
             class DataRateInterfaceTemplates(Entity):
@@ -13611,8 +13340,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("data-rate-interface-template", ("data_rate_interface_template", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate))])
+                    self._child_classes = OrderedDict([("data-rate-interface-template", ("data_rate_interface_template", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate))])
                     self._leafs = OrderedDict()
 
                     self.data_rate_interface_template = YList(self)
@@ -13736,8 +13464,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['template_name']
-                        self._child_container_classes = OrderedDict([("input-data-rate", ("input_data_rate", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputDataRate)), ("bandwidth", ("bandwidth", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.Bandwidth)), ("output-packet-rate", ("output_packet_rate", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPacketRate)), ("input-peak-pkts", ("input_peak_pkts", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPeakPkts)), ("output-peak-rate", ("output_peak_rate", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPeakRate)), ("output-data-rate", ("output_data_rate", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputDataRate)), ("input-packet-rate", ("input_packet_rate", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPacketRate)), ("output-peak-pkts", ("output_peak_pkts", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPeakPkts)), ("input-peak-rate", ("input_peak_rate", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPeakRate))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("input-data-rate", ("input_data_rate", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputDataRate)), ("bandwidth", ("bandwidth", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.Bandwidth)), ("output-packet-rate", ("output_packet_rate", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPacketRate)), ("input-peak-pkts", ("input_peak_pkts", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPeakPkts)), ("output-peak-rate", ("output_peak_rate", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPeakRate)), ("output-data-rate", ("output_data_rate", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputDataRate)), ("input-packet-rate", ("input_packet_rate", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPacketRate)), ("output-peak-pkts", ("output_peak_pkts", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPeakPkts)), ("input-peak-rate", ("input_peak_rate", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPeakRate))])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                             ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
@@ -13751,39 +13478,30 @@ class PerfMgmt(Entity):
 
                         self.input_data_rate = None
                         self._children_name_map["input_data_rate"] = "input-data-rate"
-                        self._children_yang_names.add("input-data-rate")
 
                         self.bandwidth = None
                         self._children_name_map["bandwidth"] = "bandwidth"
-                        self._children_yang_names.add("bandwidth")
 
                         self.output_packet_rate = None
                         self._children_name_map["output_packet_rate"] = "output-packet-rate"
-                        self._children_yang_names.add("output-packet-rate")
 
                         self.input_peak_pkts = None
                         self._children_name_map["input_peak_pkts"] = "input-peak-pkts"
-                        self._children_yang_names.add("input-peak-pkts")
 
                         self.output_peak_rate = None
                         self._children_name_map["output_peak_rate"] = "output-peak-rate"
-                        self._children_yang_names.add("output-peak-rate")
 
                         self.output_data_rate = None
                         self._children_name_map["output_data_rate"] = "output-data-rate"
-                        self._children_yang_names.add("output-data-rate")
 
                         self.input_packet_rate = None
                         self._children_name_map["input_packet_rate"] = "input-packet-rate"
-                        self._children_yang_names.add("input-packet-rate")
 
                         self.output_peak_pkts = None
                         self._children_name_map["output_peak_pkts"] = "output-peak-pkts"
-                        self._children_yang_names.add("output-peak-pkts")
 
                         self.input_peak_rate = None
                         self._children_name_map["input_peak_rate"] = "input-peak-rate"
-                        self._children_yang_names.add("input-peak-rate")
                         self._segment_path = lambda: "data-rate-interface-template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/data-rate-interface/data-rate-interface-templates/%s" % self._segment_path()
 
@@ -13848,8 +13566,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -13928,8 +13645,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -14008,8 +13724,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -14088,8 +13803,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -14168,8 +13882,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -14248,8 +13961,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -14328,8 +14040,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -14408,8 +14119,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -14488,8 +14198,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -14535,16 +14244,17 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("process-node-templates", ("process_node_templates", PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("process-node-templates", ("process_node_templates", PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates))])
                 self._leafs = OrderedDict()
 
                 self.process_node_templates = PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates()
                 self.process_node_templates.parent = self
                 self._children_name_map["process_node_templates"] = "process-node-templates"
-                self._children_yang_names.add("process-node-templates")
                 self._segment_path = lambda: "process-node"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Threshold.ProcessNode, [], name, value)
 
 
             class ProcessNodeTemplates(Entity):
@@ -14571,8 +14281,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("process-node-template", ("process_node_template", PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate))])
+                    self._child_classes = OrderedDict([("process-node-template", ("process_node_template", PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate))])
                     self._leafs = OrderedDict()
 
                     self.process_node_template = YList(self)
@@ -14639,8 +14348,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['template_name']
-                        self._child_container_classes = OrderedDict([("average-cpu-used", ("average_cpu_used", PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.AverageCpuUsed)), ("peak-memory", ("peak_memory", PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.PeakMemory)), ("no-threads", ("no_threads", PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.NoThreads))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("average-cpu-used", ("average_cpu_used", PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.AverageCpuUsed)), ("peak-memory", ("peak_memory", PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.PeakMemory)), ("no-threads", ("no_threads", PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.NoThreads))])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                             ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
@@ -14650,15 +14358,12 @@ class PerfMgmt(Entity):
 
                         self.average_cpu_used = None
                         self._children_name_map["average_cpu_used"] = "average-cpu-used"
-                        self._children_yang_names.add("average-cpu-used")
 
                         self.peak_memory = None
                         self._children_name_map["peak_memory"] = "peak-memory"
-                        self._children_yang_names.add("peak-memory")
 
                         self.no_threads = None
                         self._children_name_map["no_threads"] = "no-threads"
-                        self._children_yang_names.add("no-threads")
                         self._segment_path = lambda: "process-node-template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/process-node/process-node-templates/%s" % self._segment_path()
 
@@ -14723,8 +14428,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -14803,8 +14507,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -14883,8 +14586,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -14930,16 +14632,17 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("memory-node-templates", ("memory_node_templates", PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("memory-node-templates", ("memory_node_templates", PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates))])
                 self._leafs = OrderedDict()
 
                 self.memory_node_templates = PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates()
                 self.memory_node_templates.parent = self
                 self._children_name_map["memory_node_templates"] = "memory-node-templates"
-                self._children_yang_names.add("memory-node-templates")
                 self._segment_path = lambda: "memory-node"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Threshold.MemoryNode, [], name, value)
 
 
             class MemoryNodeTemplates(Entity):
@@ -14966,8 +14669,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("memory-node-template", ("memory_node_template", PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate))])
+                    self._child_classes = OrderedDict([("memory-node-template", ("memory_node_template", PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate))])
                     self._leafs = OrderedDict()
 
                     self.memory_node_template = YList(self)
@@ -15028,8 +14730,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['template_name']
-                        self._child_container_classes = OrderedDict([("peak-memory", ("peak_memory", PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate.PeakMemory)), ("curr-memory", ("curr_memory", PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate.CurrMemory))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("peak-memory", ("peak_memory", PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate.PeakMemory)), ("curr-memory", ("curr_memory", PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate.CurrMemory))])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                             ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
@@ -15039,11 +14740,9 @@ class PerfMgmt(Entity):
 
                         self.peak_memory = None
                         self._children_name_map["peak_memory"] = "peak-memory"
-                        self._children_yang_names.add("peak-memory")
 
                         self.curr_memory = None
                         self._children_name_map["curr_memory"] = "curr-memory"
-                        self._children_yang_names.add("curr-memory")
                         self._segment_path = lambda: "memory-node-template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/memory-node/memory-node-templates/%s" % self._segment_path()
 
@@ -15108,8 +14807,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -15188,8 +14886,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -15235,16 +14932,17 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("ospfv3-protocol-templates", ("ospfv3_protocol_templates", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("ospfv3-protocol-templates", ("ospfv3_protocol_templates", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates))])
                 self._leafs = OrderedDict()
 
                 self.ospfv3_protocol_templates = PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates()
                 self.ospfv3_protocol_templates.parent = self
                 self._children_name_map["ospfv3_protocol_templates"] = "ospfv3-protocol-templates"
-                self._children_yang_names.add("ospfv3-protocol-templates")
                 self._segment_path = lambda: "ospfv3-protocol"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol, [], name, value)
 
 
             class Ospfv3ProtocolTemplates(Entity):
@@ -15271,8 +14969,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("ospfv3-protocol-template", ("ospfv3_protocol_template", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate))])
+                    self._child_classes = OrderedDict([("ospfv3-protocol-template", ("ospfv3_protocol_template", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate))])
                     self._leafs = OrderedDict()
 
                     self.ospfv3_protocol_template = YList(self)
@@ -15458,8 +15155,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['template_name']
-                        self._child_container_classes = OrderedDict([("input-lsa-acks-lsa", ("input_lsa_acks_lsa", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaAcksLsa)), ("output-db-ds-lsa", ("output_db_ds_lsa", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputDbDsLsa)), ("input-db-ds-lsa", ("input_db_ds_lsa", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputDbDsLsa)), ("input-lsa-updates", ("input_lsa_updates", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaUpdates)), ("output-db-ds", ("output_db_ds", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputDbDs)), ("output-lsa-updates-lsa", ("output_lsa_updates_lsa", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaUpdatesLsa)), ("input-db-ds", ("input_db_ds", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputDbDs)), ("input-lsa-updates-lsa", ("input_lsa_updates_lsa", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaUpdatesLsa)), ("output-packets", ("output_packets", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputPackets)), ("input-packets", ("input_packets", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputPackets)), ("output-hello-packets", ("output_hello_packets", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputHelloPackets)), ("input-hello-packets", ("input_hello_packets", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputHelloPackets)), ("output-ls-requests", ("output_ls_requests", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsRequests)), ("output-lsa-acks-lsa", ("output_lsa_acks_lsa", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaAcksLsa)), ("output-lsa-acks", ("output_lsa_acks", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaAcks)), ("input-lsa-acks", ("input_lsa_acks", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaAcks)), ("output-lsa-updates", ("output_lsa_updates", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaUpdates)), ("output-ls-requests-lsa", ("output_ls_requests_lsa", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsRequestsLsa)), ("input-ls-requests-lsa", ("input_ls_requests_lsa", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsRequestsLsa)), ("input-ls-requests", ("input_ls_requests", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsRequests))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("input-lsa-acks-lsa", ("input_lsa_acks_lsa", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaAcksLsa)), ("output-db-ds-lsa", ("output_db_ds_lsa", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputDbDsLsa)), ("input-db-ds-lsa", ("input_db_ds_lsa", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputDbDsLsa)), ("input-lsa-updates", ("input_lsa_updates", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaUpdates)), ("output-db-ds", ("output_db_ds", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputDbDs)), ("output-lsa-updates-lsa", ("output_lsa_updates_lsa", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaUpdatesLsa)), ("input-db-ds", ("input_db_ds", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputDbDs)), ("input-lsa-updates-lsa", ("input_lsa_updates_lsa", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaUpdatesLsa)), ("output-packets", ("output_packets", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputPackets)), ("input-packets", ("input_packets", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputPackets)), ("output-hello-packets", ("output_hello_packets", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputHelloPackets)), ("input-hello-packets", ("input_hello_packets", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputHelloPackets)), ("output-ls-requests", ("output_ls_requests", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsRequests)), ("output-lsa-acks-lsa", ("output_lsa_acks_lsa", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaAcksLsa)), ("output-lsa-acks", ("output_lsa_acks", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaAcks)), ("input-lsa-acks", ("input_lsa_acks", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaAcks)), ("output-lsa-updates", ("output_lsa_updates", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaUpdates)), ("output-ls-requests-lsa", ("output_ls_requests_lsa", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsRequestsLsa)), ("input-ls-requests-lsa", ("input_ls_requests_lsa", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsRequestsLsa)), ("input-ls-requests", ("input_ls_requests", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsRequests))])
                         self._leafs = OrderedDict([
                             ('template_name', YLeaf(YType.str, 'template-name')),
                             ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
@@ -15469,83 +15165,63 @@ class PerfMgmt(Entity):
 
                         self.input_lsa_acks_lsa = None
                         self._children_name_map["input_lsa_acks_lsa"] = "input-lsa-acks-lsa"
-                        self._children_yang_names.add("input-lsa-acks-lsa")
 
                         self.output_db_ds_lsa = None
                         self._children_name_map["output_db_ds_lsa"] = "output-db-ds-lsa"
-                        self._children_yang_names.add("output-db-ds-lsa")
 
                         self.input_db_ds_lsa = None
                         self._children_name_map["input_db_ds_lsa"] = "input-db-ds-lsa"
-                        self._children_yang_names.add("input-db-ds-lsa")
 
                         self.input_lsa_updates = None
                         self._children_name_map["input_lsa_updates"] = "input-lsa-updates"
-                        self._children_yang_names.add("input-lsa-updates")
 
                         self.output_db_ds = None
                         self._children_name_map["output_db_ds"] = "output-db-ds"
-                        self._children_yang_names.add("output-db-ds")
 
                         self.output_lsa_updates_lsa = None
                         self._children_name_map["output_lsa_updates_lsa"] = "output-lsa-updates-lsa"
-                        self._children_yang_names.add("output-lsa-updates-lsa")
 
                         self.input_db_ds = None
                         self._children_name_map["input_db_ds"] = "input-db-ds"
-                        self._children_yang_names.add("input-db-ds")
 
                         self.input_lsa_updates_lsa = None
                         self._children_name_map["input_lsa_updates_lsa"] = "input-lsa-updates-lsa"
-                        self._children_yang_names.add("input-lsa-updates-lsa")
 
                         self.output_packets = None
                         self._children_name_map["output_packets"] = "output-packets"
-                        self._children_yang_names.add("output-packets")
 
                         self.input_packets = None
                         self._children_name_map["input_packets"] = "input-packets"
-                        self._children_yang_names.add("input-packets")
 
                         self.output_hello_packets = None
                         self._children_name_map["output_hello_packets"] = "output-hello-packets"
-                        self._children_yang_names.add("output-hello-packets")
 
                         self.input_hello_packets = None
                         self._children_name_map["input_hello_packets"] = "input-hello-packets"
-                        self._children_yang_names.add("input-hello-packets")
 
                         self.output_ls_requests = None
                         self._children_name_map["output_ls_requests"] = "output-ls-requests"
-                        self._children_yang_names.add("output-ls-requests")
 
                         self.output_lsa_acks_lsa = None
                         self._children_name_map["output_lsa_acks_lsa"] = "output-lsa-acks-lsa"
-                        self._children_yang_names.add("output-lsa-acks-lsa")
 
                         self.output_lsa_acks = None
                         self._children_name_map["output_lsa_acks"] = "output-lsa-acks"
-                        self._children_yang_names.add("output-lsa-acks")
 
                         self.input_lsa_acks = None
                         self._children_name_map["input_lsa_acks"] = "input-lsa-acks"
-                        self._children_yang_names.add("input-lsa-acks")
 
                         self.output_lsa_updates = None
                         self._children_name_map["output_lsa_updates"] = "output-lsa-updates"
-                        self._children_yang_names.add("output-lsa-updates")
 
                         self.output_ls_requests_lsa = None
                         self._children_name_map["output_ls_requests_lsa"] = "output-ls-requests-lsa"
-                        self._children_yang_names.add("output-ls-requests-lsa")
 
                         self.input_ls_requests_lsa = None
                         self._children_name_map["input_ls_requests_lsa"] = "input-ls-requests-lsa"
-                        self._children_yang_names.add("input-ls-requests-lsa")
 
                         self.input_ls_requests = None
                         self._children_name_map["input_ls_requests"] = "input-ls-requests"
-                        self._children_yang_names.add("input-ls-requests")
                         self._segment_path = lambda: "ospfv3-protocol-template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv3-protocol/ospfv3-protocol-templates/%s" % self._segment_path()
 
@@ -15610,8 +15286,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -15690,8 +15365,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -15770,8 +15444,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -15850,8 +15523,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -15930,8 +15602,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -16010,8 +15681,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -16090,8 +15760,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -16170,8 +15839,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -16250,8 +15918,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -16330,8 +15997,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -16410,8 +16076,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -16490,8 +16155,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -16570,8 +16234,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -16650,8 +16313,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -16730,8 +16392,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -16810,8 +16471,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -16890,8 +16550,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -16970,8 +16629,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -17050,8 +16708,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),
@@ -17130,8 +16787,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('operator', YLeaf(YType.enumeration, 'operator')),

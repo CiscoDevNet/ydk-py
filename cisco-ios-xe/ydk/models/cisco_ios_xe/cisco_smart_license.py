@@ -1305,19 +1305,16 @@ class RegisterIdToken(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = RegisterIdToken.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = RegisterIdToken.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "cisco-smart-license:register-id-token"
 
 
@@ -1354,8 +1351,7 @@ class RegisterIdToken(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('id_token', YLeaf(YType.str, 'id-token')),
                 ('force', YLeaf(YType.boolean, 'force')),
@@ -1393,8 +1389,7 @@ class RegisterIdToken(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('return_code', YLeaf(YType.enumeration, 'return-code')),
             ])
@@ -1434,14 +1429,12 @@ class DeRegister(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.output = DeRegister.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "cisco-smart-license:de-register"
 
 
@@ -1469,8 +1462,7 @@ class DeRegister(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('return_code', YLeaf(YType.enumeration, 'return-code')),
             ])
@@ -1513,14 +1505,12 @@ class RenewId(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.output = RenewId.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "cisco-smart-license:renew-id"
 
 
@@ -1548,8 +1538,7 @@ class RenewId(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('return_code', YLeaf(YType.enumeration, 'return-code')),
             ])
@@ -1592,14 +1581,12 @@ class RenewAuth(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.output = RenewAuth.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "cisco-smart-license:renew-auth"
 
 
@@ -1627,8 +1614,7 @@ class RenewAuth(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('return_code', YLeaf(YType.enumeration, 'return-code')),
             ])
@@ -1673,20 +1659,20 @@ class Licensing(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("config", ("config", Licensing.Config)), ("state", ("state", Licensing.State))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("config", ("config", Licensing.Config)), ("state", ("state", Licensing.State))])
         self._leafs = OrderedDict()
 
         self.config = Licensing.Config()
         self.config.parent = self
         self._children_name_map["config"] = "config"
-        self._children_yang_names.add("config")
 
         self.state = Licensing.State()
         self.state.parent = self
         self._children_name_map["state"] = "state"
-        self._children_yang_names.add("state")
         self._segment_path = lambda: "cisco-smart-license:licensing"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Licensing, [], name, value)
 
 
     class Config(Entity):
@@ -1733,8 +1719,7 @@ class Licensing(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("privacy", ("privacy", Licensing.Config.Privacy)), ("utility", ("utility", Licensing.Config.Utility)), ("transport", ("transport", Licensing.Config.Transport))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("privacy", ("privacy", Licensing.Config.Privacy)), ("utility", ("utility", Licensing.Config.Utility)), ("transport", ("transport", Licensing.Config.Transport))])
             self._leafs = OrderedDict([
                 ('enable', YLeaf(YType.boolean, 'enable')),
                 ('custom_id', YLeaf(YType.str, 'custom-id')),
@@ -1745,17 +1730,14 @@ class Licensing(Entity):
             self.privacy = Licensing.Config.Privacy()
             self.privacy.parent = self
             self._children_name_map["privacy"] = "privacy"
-            self._children_yang_names.add("privacy")
 
             self.utility = Licensing.Config.Utility()
             self.utility.parent = self
             self._children_name_map["utility"] = "utility"
-            self._children_yang_names.add("utility")
 
             self.transport = Licensing.Config.Transport()
             self.transport.parent = self
             self._children_name_map["transport"] = "transport"
-            self._children_yang_names.add("transport")
             self._segment_path = lambda: "config"
             self._absolute_path = lambda: "cisco-smart-license:licensing/%s" % self._segment_path()
 
@@ -1793,8 +1775,7 @@ class Licensing(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('hostname', YLeaf(YType.boolean, 'hostname')),
                     ('version', YLeaf(YType.boolean, 'version')),
@@ -1837,8 +1818,7 @@ class Licensing(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("customer-info", ("customer_info", Licensing.Config.Utility.CustomerInfo))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("customer-info", ("customer_info", Licensing.Config.Utility.CustomerInfo))])
                 self._leafs = OrderedDict([
                     ('utility_enable', YLeaf(YType.boolean, 'utility-enable')),
                 ])
@@ -1847,7 +1827,6 @@ class Licensing(Entity):
                 self.customer_info = Licensing.Config.Utility.CustomerInfo()
                 self.customer_info.parent = self
                 self._children_name_map["customer_info"] = "customer-info"
-                self._children_yang_names.add("customer-info")
                 self._segment_path = lambda: "utility"
                 self._absolute_path = lambda: "cisco-smart-license:licensing/config/%s" % self._segment_path()
 
@@ -1924,8 +1903,7 @@ class Licensing(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('id', YLeaf(YType.str, 'id')),
                         ('name', YLeaf(YType.str, 'name')),
@@ -1978,8 +1956,7 @@ class Licensing(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("transport-smart", ("transport_smart", Licensing.Config.Transport.TransportSmart))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("transport-smart", ("transport_smart", Licensing.Config.Transport.TransportSmart))])
                 self._leafs = OrderedDict([
                     ('transport_type', YLeaf(YType.enumeration, 'transport-type')),
                 ])
@@ -1988,7 +1965,6 @@ class Licensing(Entity):
                 self.transport_smart = Licensing.Config.Transport.TransportSmart()
                 self.transport_smart.parent = self
                 self._children_name_map["transport_smart"] = "transport-smart"
-                self._children_yang_names.add("transport-smart")
                 self._segment_path = lambda: "transport"
                 self._absolute_path = lambda: "cisco-smart-license:licensing/config/%s" % self._segment_path()
 
@@ -2025,8 +2001,7 @@ class Licensing(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("urls", ("urls", Licensing.Config.Transport.TransportSmart.Urls))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("urls", ("urls", Licensing.Config.Transport.TransportSmart.Urls))])
                     self._leafs = OrderedDict([
                         ('url_default', YLeaf(YType.boolean, 'url-default')),
                     ])
@@ -2035,7 +2010,6 @@ class Licensing(Entity):
                     self.urls = Licensing.Config.Transport.TransportSmart.Urls()
                     self.urls.parent = self
                     self._children_name_map["urls"] = "urls"
-                    self._children_yang_names.add("urls")
                     self._segment_path = lambda: "transport-smart"
                     self._absolute_path = lambda: "cisco-smart-license:licensing/config/transport/%s" % self._segment_path()
 
@@ -2075,8 +2049,7 @@ class Licensing(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('url_registration', YLeaf(YType.str, 'url-registration')),
                             ('url_utility', YLeaf(YType.str, 'url-utility')),
@@ -2131,8 +2104,7 @@ class Licensing(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("state-info", ("state_info", Licensing.State.StateInfo))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("state-info", ("state_info", Licensing.State.StateInfo))])
             self._leafs = OrderedDict([
                 ('always_enabled', YLeaf(YType.boolean, 'always-enabled')),
                 ('smart_enabled', YLeaf(YType.boolean, 'smart-enabled')),
@@ -2145,7 +2117,6 @@ class Licensing(Entity):
             self.state_info = Licensing.State.StateInfo()
             self.state_info.parent = self
             self._children_name_map["state_info"] = "state-info"
-            self._children_yang_names.add("state-info")
             self._segment_path = lambda: "state"
             self._absolute_path = lambda: "cisco-smart-license:licensing/%s" % self._segment_path()
 
@@ -2218,8 +2189,7 @@ class Licensing(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("registration", ("registration", Licensing.State.StateInfo.Registration)), ("authorization", ("authorization", Licensing.State.StateInfo.Authorization)), ("utility", ("utility", Licensing.State.StateInfo.Utility)), ("transport", ("transport", Licensing.State.StateInfo.Transport)), ("privacy", ("privacy", Licensing.State.StateInfo.Privacy)), ("evaluation", ("evaluation", Licensing.State.StateInfo.Evaluation)), ("udi", ("udi", Licensing.State.StateInfo.Udi))])
-                self._child_list_classes = OrderedDict([("usage", ("usage", Licensing.State.StateInfo.Usage))])
+                self._child_classes = OrderedDict([("registration", ("registration", Licensing.State.StateInfo.Registration)), ("authorization", ("authorization", Licensing.State.StateInfo.Authorization)), ("utility", ("utility", Licensing.State.StateInfo.Utility)), ("transport", ("transport", Licensing.State.StateInfo.Transport)), ("privacy", ("privacy", Licensing.State.StateInfo.Privacy)), ("evaluation", ("evaluation", Licensing.State.StateInfo.Evaluation)), ("udi", ("udi", Licensing.State.StateInfo.Udi)), ("usage", ("usage", Licensing.State.StateInfo.Usage))])
                 self._leafs = OrderedDict([
                     ('custom_id', YLeaf(YType.str, 'custom-id')),
                 ])
@@ -2228,37 +2198,30 @@ class Licensing(Entity):
                 self.registration = Licensing.State.StateInfo.Registration()
                 self.registration.parent = self
                 self._children_name_map["registration"] = "registration"
-                self._children_yang_names.add("registration")
 
                 self.authorization = Licensing.State.StateInfo.Authorization()
                 self.authorization.parent = self
                 self._children_name_map["authorization"] = "authorization"
-                self._children_yang_names.add("authorization")
 
                 self.utility = Licensing.State.StateInfo.Utility()
                 self.utility.parent = self
                 self._children_name_map["utility"] = "utility"
-                self._children_yang_names.add("utility")
 
                 self.transport = Licensing.State.StateInfo.Transport()
                 self.transport.parent = self
                 self._children_name_map["transport"] = "transport"
-                self._children_yang_names.add("transport")
 
                 self.privacy = Licensing.State.StateInfo.Privacy()
                 self.privacy.parent = self
                 self._children_name_map["privacy"] = "privacy"
-                self._children_yang_names.add("privacy")
 
                 self.evaluation = Licensing.State.StateInfo.Evaluation()
                 self.evaluation.parent = self
                 self._children_name_map["evaluation"] = "evaluation"
-                self._children_yang_names.add("evaluation")
 
                 self.udi = Licensing.State.StateInfo.Udi()
                 self.udi.parent = self
                 self._children_name_map["udi"] = "udi"
-                self._children_yang_names.add("udi")
 
                 self.usage = YList(self)
                 self._segment_path = lambda: "state-info"
@@ -2317,8 +2280,7 @@ class Licensing(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("registration-in-progress", ("registration_in_progress", Licensing.State.StateInfo.Registration.RegistrationInProgress)), ("registration-failed", ("registration_failed", Licensing.State.StateInfo.Registration.RegistrationFailed)), ("registration-retry", ("registration_retry", Licensing.State.StateInfo.Registration.RegistrationRetry)), ("registration-complete", ("registration_complete", Licensing.State.StateInfo.Registration.RegistrationComplete))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("registration-in-progress", ("registration_in_progress", Licensing.State.StateInfo.Registration.RegistrationInProgress)), ("registration-failed", ("registration_failed", Licensing.State.StateInfo.Registration.RegistrationFailed)), ("registration-retry", ("registration_retry", Licensing.State.StateInfo.Registration.RegistrationRetry)), ("registration-complete", ("registration_complete", Licensing.State.StateInfo.Registration.RegistrationComplete))])
                     self._leafs = OrderedDict([
                         ('registration_state', YLeaf(YType.enumeration, 'registration-state')),
                         ('export_control_allowed', YLeaf(YType.boolean, 'export-control-allowed')),
@@ -2329,22 +2291,18 @@ class Licensing(Entity):
                     self.registration_in_progress = Licensing.State.StateInfo.Registration.RegistrationInProgress()
                     self.registration_in_progress.parent = self
                     self._children_name_map["registration_in_progress"] = "registration-in-progress"
-                    self._children_yang_names.add("registration-in-progress")
 
                     self.registration_failed = Licensing.State.StateInfo.Registration.RegistrationFailed()
                     self.registration_failed.parent = self
                     self._children_name_map["registration_failed"] = "registration-failed"
-                    self._children_yang_names.add("registration-failed")
 
                     self.registration_retry = Licensing.State.StateInfo.Registration.RegistrationRetry()
                     self.registration_retry.parent = self
                     self._children_name_map["registration_retry"] = "registration-retry"
-                    self._children_yang_names.add("registration-retry")
 
                     self.registration_complete = Licensing.State.StateInfo.Registration.RegistrationComplete()
                     self.registration_complete.parent = self
                     self._children_name_map["registration_complete"] = "registration-complete"
-                    self._children_yang_names.add("registration-complete")
                     self._segment_path = lambda: "registration"
                     self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/%s" % self._segment_path()
 
@@ -2378,8 +2336,7 @@ class Licensing(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('start_time', YLeaf(YType.str, 'start-time')),
                         ])
@@ -2424,8 +2381,7 @@ class Licensing(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('fail_time', YLeaf(YType.str, 'fail-time')),
                             ('fail_message', YLeaf(YType.str, 'fail-message')),
@@ -2479,8 +2435,7 @@ class Licensing(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('retry_next_time', YLeaf(YType.str, 'retry-next-time')),
                             ('fail_time', YLeaf(YType.str, 'fail-time')),
@@ -2569,8 +2524,7 @@ class Licensing(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('complete_time', YLeaf(YType.str, 'complete-time')),
                             ('last_renew_time', YLeaf(YType.str, 'last-renew-time')),
@@ -2655,8 +2609,7 @@ class Licensing(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("authorization-none", ("authorization_none", Licensing.State.StateInfo.Authorization.AuthorizationNone)), ("authorization-eval", ("authorization_eval", Licensing.State.StateInfo.Authorization.AuthorizationEval)), ("authorization-eval-expired", ("authorization_eval_expired", Licensing.State.StateInfo.Authorization.AuthorizationEvalExpired)), ("authorization-authorized", ("authorization_authorized", Licensing.State.StateInfo.Authorization.AuthorizationAuthorized)), ("authorization-authorized-reservation", ("authorization_authorized_reservation", Licensing.State.StateInfo.Authorization.AuthorizationAuthorizedReservation)), ("authorization-out-of-compliance", ("authorization_out_of_compliance", Licensing.State.StateInfo.Authorization.AuthorizationOutOfCompliance)), ("authorization-authorization-expired", ("authorization_authorization_expired", Licensing.State.StateInfo.Authorization.AuthorizationAuthorizationExpired))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("authorization-none", ("authorization_none", Licensing.State.StateInfo.Authorization.AuthorizationNone)), ("authorization-eval", ("authorization_eval", Licensing.State.StateInfo.Authorization.AuthorizationEval)), ("authorization-eval-expired", ("authorization_eval_expired", Licensing.State.StateInfo.Authorization.AuthorizationEvalExpired)), ("authorization-authorized", ("authorization_authorized", Licensing.State.StateInfo.Authorization.AuthorizationAuthorized)), ("authorization-authorized-reservation", ("authorization_authorized_reservation", Licensing.State.StateInfo.Authorization.AuthorizationAuthorizedReservation)), ("authorization-out-of-compliance", ("authorization_out_of_compliance", Licensing.State.StateInfo.Authorization.AuthorizationOutOfCompliance)), ("authorization-authorization-expired", ("authorization_authorization_expired", Licensing.State.StateInfo.Authorization.AuthorizationAuthorizationExpired))])
                     self._leafs = OrderedDict([
                         ('authorization_state', YLeaf(YType.enumeration, 'authorization-state')),
                     ])
@@ -2665,37 +2618,30 @@ class Licensing(Entity):
                     self.authorization_none = Licensing.State.StateInfo.Authorization.AuthorizationNone()
                     self.authorization_none.parent = self
                     self._children_name_map["authorization_none"] = "authorization-none"
-                    self._children_yang_names.add("authorization-none")
 
                     self.authorization_eval = Licensing.State.StateInfo.Authorization.AuthorizationEval()
                     self.authorization_eval.parent = self
                     self._children_name_map["authorization_eval"] = "authorization-eval"
-                    self._children_yang_names.add("authorization-eval")
 
                     self.authorization_eval_expired = Licensing.State.StateInfo.Authorization.AuthorizationEvalExpired()
                     self.authorization_eval_expired.parent = self
                     self._children_name_map["authorization_eval_expired"] = "authorization-eval-expired"
-                    self._children_yang_names.add("authorization-eval-expired")
 
                     self.authorization_authorized = Licensing.State.StateInfo.Authorization.AuthorizationAuthorized()
                     self.authorization_authorized.parent = self
                     self._children_name_map["authorization_authorized"] = "authorization-authorized"
-                    self._children_yang_names.add("authorization-authorized")
 
                     self.authorization_authorized_reservation = Licensing.State.StateInfo.Authorization.AuthorizationAuthorizedReservation()
                     self.authorization_authorized_reservation.parent = self
                     self._children_name_map["authorization_authorized_reservation"] = "authorization-authorized-reservation"
-                    self._children_yang_names.add("authorization-authorized-reservation")
 
                     self.authorization_out_of_compliance = Licensing.State.StateInfo.Authorization.AuthorizationOutOfCompliance()
                     self.authorization_out_of_compliance.parent = self
                     self._children_name_map["authorization_out_of_compliance"] = "authorization-out-of-compliance"
-                    self._children_yang_names.add("authorization-out-of-compliance")
 
                     self.authorization_authorization_expired = Licensing.State.StateInfo.Authorization.AuthorizationAuthorizationExpired()
                     self.authorization_authorization_expired.parent = self
                     self._children_name_map["authorization_authorization_expired"] = "authorization-authorization-expired"
-                    self._children_yang_names.add("authorization-authorization-expired")
                     self._segment_path = lambda: "authorization"
                     self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/%s" % self._segment_path()
 
@@ -2723,8 +2669,7 @@ class Licensing(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict()
                         self._segment_path = lambda: "authorization-none"
                         self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/authorization/%s" % self._segment_path()
@@ -2758,8 +2703,7 @@ class Licensing(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('seconds_left', YLeaf(YType.uint64, 'seconds-left')),
                         ])
@@ -2797,8 +2741,7 @@ class Licensing(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('expire_time', YLeaf(YType.str, 'expire-time')),
                         ])
@@ -2862,8 +2805,7 @@ class Licensing(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('last_comm_status_success', YLeaf(YType.boolean, 'last-comm-status-success')),
                             ('fail_message', YLeaf(YType.str, 'fail-message')),
@@ -2910,8 +2852,7 @@ class Licensing(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('reservation_time', YLeaf(YType.str, 'reservation-time')),
                         ])
@@ -2983,8 +2924,7 @@ class Licensing(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('last_comm_status_success', YLeaf(YType.boolean, 'last-comm-status-success')),
                             ('fail_message', YLeaf(YType.str, 'fail-message')),
@@ -3060,8 +3000,7 @@ class Licensing(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('last_comm_status_success', YLeaf(YType.boolean, 'last-comm-status-success')),
                             ('fail_message', YLeaf(YType.str, 'fail-message')),
@@ -3120,8 +3059,7 @@ class Licensing(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("reporting-times", ("reporting_times", Licensing.State.StateInfo.Utility.ReportingTimes)), ("customer-info", ("customer_info", Licensing.State.StateInfo.Utility.CustomerInfo))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("reporting-times", ("reporting_times", Licensing.State.StateInfo.Utility.ReportingTimes)), ("customer-info", ("customer_info", Licensing.State.StateInfo.Utility.CustomerInfo))])
                     self._leafs = OrderedDict([
                         ('enabled', YLeaf(YType.boolean, 'enabled')),
                         ('reporting', YLeaf(YType.enumeration, 'reporting')),
@@ -3132,12 +3070,10 @@ class Licensing(Entity):
                     self.reporting_times = Licensing.State.StateInfo.Utility.ReportingTimes()
                     self.reporting_times.parent = self
                     self._children_name_map["reporting_times"] = "reporting-times"
-                    self._children_yang_names.add("reporting-times")
 
                     self.customer_info = Licensing.State.StateInfo.Utility.CustomerInfo()
                     self.customer_info.parent = self
                     self._children_name_map["customer_info"] = "customer-info"
-                    self._children_yang_names.add("customer-info")
                     self._segment_path = lambda: "utility"
                     self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/%s" % self._segment_path()
 
@@ -3191,8 +3127,7 @@ class Licensing(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('last_report_time', YLeaf(YType.str, 'last-report-time')),
                             ('last_report_success', YLeaf(YType.boolean, 'last-report-success')),
@@ -3279,8 +3214,7 @@ class Licensing(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('id', YLeaf(YType.str, 'id')),
                             ('name', YLeaf(YType.str, 'name')),
@@ -3333,8 +3267,7 @@ class Licensing(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("url-settings", ("url_settings", Licensing.State.StateInfo.Transport.UrlSettings))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("url-settings", ("url_settings", Licensing.State.StateInfo.Transport.UrlSettings))])
                     self._leafs = OrderedDict([
                         ('transport_type', YLeaf(YType.enumeration, 'transport-type')),
                     ])
@@ -3343,7 +3276,6 @@ class Licensing(Entity):
                     self.url_settings = Licensing.State.StateInfo.Transport.UrlSettings()
                     self.url_settings.parent = self
                     self._children_name_map["url_settings"] = "url-settings"
-                    self._children_yang_names.add("url-settings")
                     self._segment_path = lambda: "transport"
                     self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/%s" % self._segment_path()
 
@@ -3380,8 +3312,7 @@ class Licensing(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('url_registration', YLeaf(YType.str, 'url-registration')),
                             ('url_utility', YLeaf(YType.str, 'url-utility')),
@@ -3424,8 +3355,7 @@ class Licensing(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('hostname', YLeaf(YType.boolean, 'hostname')),
                         ('version', YLeaf(YType.boolean, 'version')),
@@ -3478,8 +3408,7 @@ class Licensing(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("eval-period-left", ("eval_period_left", Licensing.State.StateInfo.Evaluation.EvalPeriodLeft)), ("eval-expire-time", ("eval_expire_time", Licensing.State.StateInfo.Evaluation.EvalExpireTime))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("eval-period-left", ("eval_period_left", Licensing.State.StateInfo.Evaluation.EvalPeriodLeft)), ("eval-expire-time", ("eval_expire_time", Licensing.State.StateInfo.Evaluation.EvalExpireTime))])
                     self._leafs = OrderedDict([
                         ('eval_in_use', YLeaf(YType.boolean, 'eval-in-use')),
                         ('eval_expired', YLeaf(YType.boolean, 'eval-expired')),
@@ -3490,12 +3419,10 @@ class Licensing(Entity):
                     self.eval_period_left = Licensing.State.StateInfo.Evaluation.EvalPeriodLeft()
                     self.eval_period_left.parent = self
                     self._children_name_map["eval_period_left"] = "eval-period-left"
-                    self._children_yang_names.add("eval-period-left")
 
                     self.eval_expire_time = Licensing.State.StateInfo.Evaluation.EvalExpireTime()
                     self.eval_expire_time.parent = self
                     self._children_name_map["eval_expire_time"] = "eval-expire-time"
-                    self._children_yang_names.add("eval-expire-time")
                     self._segment_path = lambda: "evaluation"
                     self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/%s" % self._segment_path()
 
@@ -3530,8 +3457,7 @@ class Licensing(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('time_left', YLeaf(YType.uint32, 'time-left')),
                         ])
@@ -3570,8 +3496,7 @@ class Licensing(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('expire_time', YLeaf(YType.str, 'expire-time')),
                         ])
@@ -3651,8 +3576,7 @@ class Licensing(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('pid', YLeaf(YType.str, 'pid')),
                         ('sn', YLeaf(YType.str, 'sn')),
@@ -3738,8 +3662,7 @@ class Licensing(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['entitlement_tag']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('entitlement_tag', YLeaf(YType.str, 'entitlement-tag')),
                         ('short_name', YLeaf(YType.str, 'short-name')),

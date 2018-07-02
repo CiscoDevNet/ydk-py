@@ -38,8 +38,7 @@ class MplsForwardingTable(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("local-label-entry", ("local_label_entry", MplsForwardingTable.LocalLabelEntry))])
+        self._child_classes = OrderedDict([("local-label-entry", ("local_label_entry", MplsForwardingTable.LocalLabelEntry))])
         self._leafs = OrderedDict()
 
         self.local_label_entry = YList(self)
@@ -80,8 +79,7 @@ class MplsForwardingTable(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['local_label']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("forwarding-info", ("forwarding_info", MplsForwardingTable.LocalLabelEntry.ForwardingInfo))])
+            self._child_classes = OrderedDict([("forwarding-info", ("forwarding_info", MplsForwardingTable.LocalLabelEntry.ForwardingInfo))])
             self._leafs = OrderedDict([
                 ('local_label', YLeaf(YType.uint32, 'local-label')),
             ])
@@ -165,8 +163,7 @@ class MplsForwardingTable(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['outgoing_interface']
-                self._child_container_classes = OrderedDict([("connection-info", ("connection_info", MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("connection-info", ("connection_info", MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo))])
                 self._leafs = OrderedDict([
                     ('outgoing_interface', YLeaf(YType.str, 'outgoing-interface')),
                     ('outgoing_label', YLeaf(YType.str, 'outgoing-label')),
@@ -181,7 +178,6 @@ class MplsForwardingTable(Entity):
                 self.connection_info = MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo()
                 self.connection_info.parent = self
                 self._children_name_map["connection_info"] = "connection-info"
-                self._children_yang_names.add("connection-info")
                 self._segment_path = lambda: "forwarding-info" + "[outgoing-interface='" + str(self.outgoing_interface) + "']"
 
             def __setattr__(self, name, value):
@@ -351,8 +347,7 @@ class MplsForwardingTable(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("tunnel-tp", ("tunnel_tp", MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("tunnel-tp", ("tunnel_tp", MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp))])
                     self._leafs = OrderedDict([
                         ('type', YLeaf(YType.enumeration, 'type')),
                         ('ip', YLeaf(YType.str, 'ip')),
@@ -373,7 +368,6 @@ class MplsForwardingTable(Entity):
                     self.tunnel_tp = MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp()
                     self.tunnel_tp.parent = self
                     self._children_name_map["tunnel_tp"] = "tunnel-tp"
-                    self._children_yang_names.add("tunnel-tp")
                     self._segment_path = lambda: "connection-info"
 
                 def __setattr__(self, name, value):
@@ -453,8 +447,7 @@ class MplsForwardingTable(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("src-id", ("src_id", MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.SrcId)), ("dst-id", ("dst_id", MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.DstId))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("src-id", ("src_id", MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.SrcId)), ("dst-id", ("dst_id", MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.DstId))])
                         self._leafs = OrderedDict([
                             ('tunnel', YLeaf(YType.uint32, 'tunnel')),
                         ])
@@ -463,12 +456,10 @@ class MplsForwardingTable(Entity):
                         self.src_id = MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.SrcId()
                         self.src_id.parent = self
                         self._children_name_map["src_id"] = "src-id"
-                        self._children_yang_names.add("src-id")
 
                         self.dst_id = MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.DstId()
                         self.dst_id.parent = self
                         self._children_name_map["dst_id"] = "dst-id"
-                        self._children_yang_names.add("dst-id")
                         self._segment_path = lambda: "tunnel-tp"
 
                     def __setattr__(self, name, value):
@@ -514,8 +505,7 @@ class MplsForwardingTable(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('global_', YLeaf(YType.uint32, 'global')),
                                 ('node', YLeaf(YType.str, 'node')),
@@ -567,8 +557,7 @@ class MplsForwardingTable(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('global_', YLeaf(YType.uint32, 'global')),
                                 ('node', YLeaf(YType.str, 'node')),

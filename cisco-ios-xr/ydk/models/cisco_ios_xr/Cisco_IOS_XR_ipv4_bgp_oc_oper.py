@@ -121,7 +121,7 @@ class OcBgp(Entity):
     """
 
     _prefix = 'ipv4-bgp-oc-oper'
-    _revision = '2017-05-01'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(OcBgp, self).__init__()
@@ -132,15 +132,16 @@ class OcBgp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("bgp-rib", ("bgp_rib", OcBgp.BgpRib))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("bgp-rib", ("bgp_rib", OcBgp.BgpRib))])
         self._leafs = OrderedDict()
 
         self.bgp_rib = OcBgp.BgpRib()
         self.bgp_rib.parent = self
         self._children_name_map["bgp_rib"] = "bgp-rib"
-        self._children_yang_names.add("bgp-rib")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(OcBgp, [], name, value)
 
 
     class BgpRib(Entity):
@@ -157,7 +158,7 @@ class OcBgp(Entity):
         """
 
         _prefix = 'ipv4-bgp-oc-oper'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(OcBgp.BgpRib, self).__init__()
@@ -167,16 +168,17 @@ class OcBgp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("afi-safi-table", ("afi_safi_table", OcBgp.BgpRib.AfiSafiTable))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("afi-safi-table", ("afi_safi_table", OcBgp.BgpRib.AfiSafiTable))])
             self._leafs = OrderedDict()
 
             self.afi_safi_table = OcBgp.BgpRib.AfiSafiTable()
             self.afi_safi_table.parent = self
             self._children_name_map["afi_safi_table"] = "afi-safi-table"
-            self._children_yang_names.add("afi-safi-table")
             self._segment_path = lambda: "bgp-rib"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(OcBgp.BgpRib, [], name, value)
 
 
         class AfiSafiTable(Entity):
@@ -198,7 +200,7 @@ class OcBgp(Entity):
             """
 
             _prefix = 'ipv4-bgp-oc-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(OcBgp.BgpRib.AfiSafiTable, self).__init__()
@@ -208,21 +210,21 @@ class OcBgp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("ipv4-unicast", ("ipv4_unicast", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast)), ("ipv6-unicast", ("ipv6_unicast", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("ipv4-unicast", ("ipv4_unicast", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast)), ("ipv6-unicast", ("ipv6_unicast", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast))])
                 self._leafs = OrderedDict()
 
                 self.ipv4_unicast = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast()
                 self.ipv4_unicast.parent = self
                 self._children_name_map["ipv4_unicast"] = "ipv4-unicast"
-                self._children_yang_names.add("ipv4-unicast")
 
                 self.ipv6_unicast = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast()
                 self.ipv6_unicast.parent = self
                 self._children_name_map["ipv6_unicast"] = "ipv6-unicast"
-                self._children_yang_names.add("ipv6-unicast")
                 self._segment_path = lambda: "afi-safi-table"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(OcBgp.BgpRib.AfiSafiTable, [], name, value)
 
 
             class Ipv4Unicast(Entity):
@@ -244,7 +246,7 @@ class OcBgp(Entity):
                 """
 
                 _prefix = 'ipv4-bgp-oc-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast, self).__init__()
@@ -254,21 +256,21 @@ class OcBgp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("loc-rib", ("loc_rib", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib)), ("open-config-neighbors", ("open_config_neighbors", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("loc-rib", ("loc_rib", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib)), ("open-config-neighbors", ("open_config_neighbors", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors))])
                     self._leafs = OrderedDict()
 
                     self.loc_rib = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib()
                     self.loc_rib.parent = self
                     self._children_name_map["loc_rib"] = "loc-rib"
-                    self._children_yang_names.add("loc-rib")
 
                     self.open_config_neighbors = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors()
                     self.open_config_neighbors.parent = self
                     self._children_name_map["open_config_neighbors"] = "open-config-neighbors"
-                    self._children_yang_names.add("open-config-neighbors")
                     self._segment_path = lambda: "ipv4-unicast"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast, [], name, value)
 
 
                 class LocRib(Entity):
@@ -290,7 +292,7 @@ class OcBgp(Entity):
                     """
 
                     _prefix = 'ipv4-bgp-oc-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib, self).__init__()
@@ -300,21 +302,21 @@ class OcBgp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("routes", ("routes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes)), ("num-routes", ("num_routes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.NumRoutes))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("routes", ("routes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes)), ("num-routes", ("num_routes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.NumRoutes))])
                         self._leafs = OrderedDict()
 
                         self.routes = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes()
                         self.routes.parent = self
                         self._children_name_map["routes"] = "routes"
-                        self._children_yang_names.add("routes")
 
                         self.num_routes = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.NumRoutes()
                         self.num_routes.parent = self
                         self._children_name_map["num_routes"] = "num-routes"
-                        self._children_yang_names.add("num-routes")
                         self._segment_path = lambda: "loc-rib"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib, [], name, value)
 
 
                     class Routes(Entity):
@@ -331,7 +333,7 @@ class OcBgp(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-oc-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes, self).__init__()
@@ -341,8 +343,7 @@ class OcBgp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("route", ("route", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route))])
+                            self._child_classes = OrderedDict([("route", ("route", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route))])
                             self._leafs = OrderedDict()
 
                             self.route = YList(self)
@@ -388,7 +389,7 @@ class OcBgp(Entity):
                             	Path ID
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: prefix_name
                             
@@ -435,7 +436,7 @@ class OcBgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-oc-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route, self).__init__()
@@ -445,12 +446,11 @@ class OcBgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.LastUpdateRecieved))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.LastUpdateRecieved))])
                                 self._leafs = OrderedDict([
                                     ('route', YLeaf(YType.str, 'route')),
                                     ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
-                                    ('path_id', YLeaf(YType.int32, 'path-id')),
+                                    ('path_id', YLeaf(YType.uint32, 'path-id')),
                                     ('valid_route', YLeaf(YType.boolean, 'valid-route')),
                                     ('invalid_reason', YLeaf(YType.enumeration, 'invalid-reason')),
                                     ('best_path', YLeaf(YType.boolean, 'best-path')),
@@ -465,27 +465,22 @@ class OcBgp(Entity):
                                 self.prefix_name = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.PrefixName()
                                 self.prefix_name.parent = self
                                 self._children_name_map["prefix_name"] = "prefix-name"
-                                self._children_yang_names.add("prefix-name")
 
                                 self.route_attr_list = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList()
                                 self.route_attr_list.parent = self
                                 self._children_name_map["route_attr_list"] = "route-attr-list"
-                                self._children_yang_names.add("route-attr-list")
 
                                 self.ext_attributes_list = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList()
                                 self.ext_attributes_list.parent = self
                                 self._children_name_map["ext_attributes_list"] = "ext-attributes-list"
-                                self._children_yang_names.add("ext-attributes-list")
 
                                 self.last_modified_date = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.LastModifiedDate()
                                 self.last_modified_date.parent = self
                                 self._children_name_map["last_modified_date"] = "last-modified-date"
-                                self._children_yang_names.add("last-modified-date")
 
                                 self.last_update_recieved = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.LastUpdateRecieved()
                                 self.last_update_recieved.parent = self
                                 self._children_name_map["last_update_recieved"] = "last-update-recieved"
-                                self._children_yang_names.add("last-update-recieved")
                                 self._segment_path = lambda: "route"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/%s" % self._segment_path()
 
@@ -514,7 +509,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.PrefixName, self).__init__()
@@ -524,8 +519,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.PrefixName.Prefix))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.PrefixName.Prefix))])
                                     self._leafs = OrderedDict([
                                         ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
                                     ])
@@ -534,7 +528,6 @@ class OcBgp(Entity):
                                     self.prefix = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.PrefixName.Prefix()
                                     self.prefix.parent = self
                                     self._children_name_map["prefix"] = "prefix"
-                                    self._children_yang_names.add("prefix")
                                     self._segment_path = lambda: "prefix-name"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/route/%s" % self._segment_path()
 
@@ -570,7 +563,7 @@ class OcBgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-oc-oper'
-                                    _revision = '2017-05-01'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.PrefixName.Prefix, self).__init__()
@@ -580,8 +573,7 @@ class OcBgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('afi', YLeaf(YType.enumeration, 'afi')),
                                             ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -655,7 +647,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList, self).__init__()
@@ -665,8 +657,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.AggregratorAttributes))])
-                                    self._child_list_classes = OrderedDict([("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.Community))])
+                                    self._child_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.AggregratorAttributes)), ("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.Community))])
                                     self._leafs = OrderedDict([
                                         ('origin_type', YLeaf(YType.enumeration, 'origin-type')),
                                         ('as_path', YLeaf(YType.str, 'as-path')),
@@ -685,12 +676,10 @@ class OcBgp(Entity):
                                     self.next_hop = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.NextHop()
                                     self.next_hop.parent = self
                                     self._children_name_map["next_hop"] = "next-hop"
-                                    self._children_yang_names.add("next-hop")
 
                                     self.aggregrator_attributes = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.AggregratorAttributes()
                                     self.aggregrator_attributes.parent = self
                                     self._children_name_map["aggregrator_attributes"] = "aggregrator-attributes"
-                                    self._children_yang_names.add("aggregrator-attributes")
 
                                     self.community = YList(self)
                                     self._segment_path = lambda: "route-attr-list"
@@ -728,7 +717,7 @@ class OcBgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-oc-oper'
-                                    _revision = '2017-05-01'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.NextHop, self).__init__()
@@ -738,8 +727,7 @@ class OcBgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('afi', YLeaf(YType.enumeration, 'afi')),
                                             ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -785,7 +773,7 @@ class OcBgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-oc-oper'
-                                    _revision = '2017-05-01'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
@@ -795,8 +783,7 @@ class OcBgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('as_', YLeaf(YType.uint32, 'as')),
                                             ('as4', YLeaf(YType.uint32, 'as4')),
@@ -826,7 +813,7 @@ class OcBgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-oc-oper'
-                                    _revision = '2017-05-01'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.Community, self).__init__()
@@ -836,8 +823,7 @@ class OcBgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('objects', YLeaf(YType.str, 'objects')),
                                         ])
@@ -896,7 +882,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList, self).__init__()
@@ -906,8 +892,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList.UnknownAttributes))])
+                                    self._child_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList.UnknownAttributes))])
                                     self._leafs = OrderedDict([
                                         ('originator_id', YLeaf(YType.str, 'originator-id')),
                                         ('aigp', YLeaf(YType.uint64, 'aigp')),
@@ -942,7 +927,7 @@ class OcBgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-oc-oper'
-                                    _revision = '2017-05-01'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
@@ -952,8 +937,7 @@ class OcBgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('objects', YLeaf(YType.str, 'objects')),
                                         ])
@@ -995,7 +979,7 @@ class OcBgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-oc-oper'
-                                    _revision = '2017-05-01'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
@@ -1005,8 +989,7 @@ class OcBgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('attribute_type', YLeaf(YType.uint16, 'attribute-type')),
                                             ('attribute_length', YLeaf(YType.uint16, 'attribute-length')),
@@ -1036,7 +1019,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.LastModifiedDate, self).__init__()
@@ -1046,8 +1029,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('time_value', YLeaf(YType.str, 'time-value')),
                                     ])
@@ -1073,7 +1055,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.LastUpdateRecieved, self).__init__()
@@ -1083,8 +1065,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('time_value', YLeaf(YType.str, 'time-value')),
                                     ])
@@ -1113,7 +1094,7 @@ class OcBgp(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-oc-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.NumRoutes, self).__init__()
@@ -1123,8 +1104,7 @@ class OcBgp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('num_routes', YLeaf(YType.uint64, 'num-routes')),
                             ])
@@ -1150,7 +1130,7 @@ class OcBgp(Entity):
                     """
 
                     _prefix = 'ipv4-bgp-oc-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors, self).__init__()
@@ -1160,8 +1140,7 @@ class OcBgp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("open-config-neighbor", ("open_config_neighbor", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor))])
+                        self._child_classes = OrderedDict([("open-config-neighbor", ("open_config_neighbor", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor))])
                         self._leafs = OrderedDict()
 
                         self.open_config_neighbor = YList(self)
@@ -1214,7 +1193,7 @@ class OcBgp(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-oc-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor, self).__init__()
@@ -1224,8 +1203,7 @@ class OcBgp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['neighbor_address']
-                            self._child_container_classes = OrderedDict([("adj-rib-in-post", ("adj_rib_in_post", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost)), ("adj-rib-out-post", ("adj_rib_out_post", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost)), ("adj-rib-out-pre", ("adj_rib_out_pre", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre)), ("adj-rib-in-pre", ("adj_rib_in_pre", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("adj-rib-in-post", ("adj_rib_in_post", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost)), ("adj-rib-out-post", ("adj_rib_out_post", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost)), ("adj-rib-out-pre", ("adj_rib_out_pre", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre)), ("adj-rib-in-pre", ("adj_rib_in_pre", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre))])
                             self._leafs = OrderedDict([
                                 ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
                             ])
@@ -1234,22 +1212,18 @@ class OcBgp(Entity):
                             self.adj_rib_in_post = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost()
                             self.adj_rib_in_post.parent = self
                             self._children_name_map["adj_rib_in_post"] = "adj-rib-in-post"
-                            self._children_yang_names.add("adj-rib-in-post")
 
                             self.adj_rib_out_post = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost()
                             self.adj_rib_out_post.parent = self
                             self._children_name_map["adj_rib_out_post"] = "adj-rib-out-post"
-                            self._children_yang_names.add("adj-rib-out-post")
 
                             self.adj_rib_out_pre = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre()
                             self.adj_rib_out_pre.parent = self
                             self._children_name_map["adj_rib_out_pre"] = "adj-rib-out-pre"
-                            self._children_yang_names.add("adj-rib-out-pre")
 
                             self.adj_rib_in_pre = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre()
                             self.adj_rib_in_pre.parent = self
                             self._children_name_map["adj_rib_in_pre"] = "adj-rib-in-pre"
-                            self._children_yang_names.add("adj-rib-in-pre")
                             self._segment_path = lambda: "open-config-neighbor" + "[neighbor-address='" + str(self.neighbor_address) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/%s" % self._segment_path()
 
@@ -1276,7 +1250,7 @@ class OcBgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-oc-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost, self).__init__()
@@ -1286,20 +1260,20 @@ class OcBgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("routes", ("routes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes)), ("num-routes", ("num_routes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.NumRoutes))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("routes", ("routes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes)), ("num-routes", ("num_routes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.NumRoutes))])
                                 self._leafs = OrderedDict()
 
                                 self.routes = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes()
                                 self.routes.parent = self
                                 self._children_name_map["routes"] = "routes"
-                                self._children_yang_names.add("routes")
 
                                 self.num_routes = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.NumRoutes()
                                 self.num_routes.parent = self
                                 self._children_name_map["num_routes"] = "num-routes"
-                                self._children_yang_names.add("num-routes")
                                 self._segment_path = lambda: "adj-rib-in-post"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost, [], name, value)
 
 
                             class Routes(Entity):
@@ -1316,7 +1290,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes, self).__init__()
@@ -1326,8 +1300,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("route", ("route", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route))])
+                                    self._child_classes = OrderedDict([("route", ("route", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route))])
                                     self._leafs = OrderedDict()
 
                                     self.route = YList(self)
@@ -1372,7 +1345,7 @@ class OcBgp(Entity):
                                     	Path ID
                                     	**type**\: int
                                     
-                                    	**range:** \-2147483648..2147483647
+                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: prefix_name
                                     
@@ -1419,7 +1392,7 @@ class OcBgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-oc-oper'
-                                    _revision = '2017-05-01'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route, self).__init__()
@@ -1429,12 +1402,11 @@ class OcBgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastUpdateRecieved))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastUpdateRecieved))])
                                         self._leafs = OrderedDict([
                                             ('route', YLeaf(YType.str, 'route')),
                                             ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
-                                            ('path_id', YLeaf(YType.int32, 'path-id')),
+                                            ('path_id', YLeaf(YType.uint32, 'path-id')),
                                             ('valid_route', YLeaf(YType.boolean, 'valid-route')),
                                             ('invalid_reason', YLeaf(YType.enumeration, 'invalid-reason')),
                                             ('best_path', YLeaf(YType.boolean, 'best-path')),
@@ -1449,27 +1421,22 @@ class OcBgp(Entity):
                                         self.prefix_name = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName()
                                         self.prefix_name.parent = self
                                         self._children_name_map["prefix_name"] = "prefix-name"
-                                        self._children_yang_names.add("prefix-name")
 
                                         self.route_attr_list = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList()
                                         self.route_attr_list.parent = self
                                         self._children_name_map["route_attr_list"] = "route-attr-list"
-                                        self._children_yang_names.add("route-attr-list")
 
                                         self.ext_attributes_list = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList()
                                         self.ext_attributes_list.parent = self
                                         self._children_name_map["ext_attributes_list"] = "ext-attributes-list"
-                                        self._children_yang_names.add("ext-attributes-list")
 
                                         self.last_modified_date = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastModifiedDate()
                                         self.last_modified_date.parent = self
                                         self._children_name_map["last_modified_date"] = "last-modified-date"
-                                        self._children_yang_names.add("last-modified-date")
 
                                         self.last_update_recieved = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastUpdateRecieved()
                                         self.last_update_recieved.parent = self
                                         self._children_name_map["last_update_recieved"] = "last-update-recieved"
-                                        self._children_yang_names.add("last-update-recieved")
                                         self._segment_path = lambda: "route"
 
                                     def __setattr__(self, name, value):
@@ -1497,7 +1464,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName, self).__init__()
@@ -1507,8 +1474,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName.Prefix))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName.Prefix))])
                                             self._leafs = OrderedDict([
                                                 ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
                                             ])
@@ -1517,7 +1483,6 @@ class OcBgp(Entity):
                                             self.prefix = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName.Prefix()
                                             self.prefix.parent = self
                                             self._children_name_map["prefix"] = "prefix"
-                                            self._children_yang_names.add("prefix")
                                             self._segment_path = lambda: "prefix-name"
 
                                         def __setattr__(self, name, value):
@@ -1552,7 +1517,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName.Prefix, self).__init__()
@@ -1562,8 +1527,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('afi', YLeaf(YType.enumeration, 'afi')),
                                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -1636,7 +1600,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList, self).__init__()
@@ -1646,8 +1610,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.AggregratorAttributes))])
-                                            self._child_list_classes = OrderedDict([("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.Community))])
+                                            self._child_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.AggregratorAttributes)), ("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.Community))])
                                             self._leafs = OrderedDict([
                                                 ('origin_type', YLeaf(YType.enumeration, 'origin-type')),
                                                 ('as_path', YLeaf(YType.str, 'as-path')),
@@ -1666,12 +1629,10 @@ class OcBgp(Entity):
                                             self.next_hop = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.NextHop()
                                             self.next_hop.parent = self
                                             self._children_name_map["next_hop"] = "next-hop"
-                                            self._children_yang_names.add("next-hop")
 
                                             self.aggregrator_attributes = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.AggregratorAttributes()
                                             self.aggregrator_attributes.parent = self
                                             self._children_name_map["aggregrator_attributes"] = "aggregrator-attributes"
-                                            self._children_yang_names.add("aggregrator-attributes")
 
                                             self.community = YList(self)
                                             self._segment_path = lambda: "route-attr-list"
@@ -1708,7 +1669,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.NextHop, self).__init__()
@@ -1718,8 +1679,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('afi', YLeaf(YType.enumeration, 'afi')),
                                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -1764,7 +1724,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
@@ -1774,8 +1734,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('as_', YLeaf(YType.uint32, 'as')),
                                                     ('as4', YLeaf(YType.uint32, 'as4')),
@@ -1804,7 +1763,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.Community, self).__init__()
@@ -1814,8 +1773,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('objects', YLeaf(YType.str, 'objects')),
                                                 ])
@@ -1873,7 +1831,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList, self).__init__()
@@ -1883,8 +1841,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.UnknownAttributes))])
+                                            self._child_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.UnknownAttributes))])
                                             self._leafs = OrderedDict([
                                                 ('originator_id', YLeaf(YType.str, 'originator-id')),
                                                 ('aigp', YLeaf(YType.uint64, 'aigp')),
@@ -1918,7 +1875,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
@@ -1928,8 +1885,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('objects', YLeaf(YType.str, 'objects')),
                                                 ])
@@ -1970,7 +1926,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
@@ -1980,8 +1936,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('attribute_type', YLeaf(YType.uint16, 'attribute-type')),
                                                     ('attribute_length', YLeaf(YType.uint16, 'attribute-length')),
@@ -2010,7 +1965,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastModifiedDate, self).__init__()
@@ -2020,8 +1975,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('time_value', YLeaf(YType.str, 'time-value')),
                                             ])
@@ -2046,7 +2000,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastUpdateRecieved, self).__init__()
@@ -2056,8 +2010,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('time_value', YLeaf(YType.str, 'time-value')),
                                             ])
@@ -2085,7 +2038,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.NumRoutes, self).__init__()
@@ -2095,8 +2048,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('num_routes', YLeaf(YType.uint64, 'num-routes')),
                                     ])
@@ -2126,7 +2078,7 @@ class OcBgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-oc-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost, self).__init__()
@@ -2136,20 +2088,20 @@ class OcBgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("routes", ("routes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes)), ("num-routes", ("num_routes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.NumRoutes))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("routes", ("routes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes)), ("num-routes", ("num_routes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.NumRoutes))])
                                 self._leafs = OrderedDict()
 
                                 self.routes = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes()
                                 self.routes.parent = self
                                 self._children_name_map["routes"] = "routes"
-                                self._children_yang_names.add("routes")
 
                                 self.num_routes = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.NumRoutes()
                                 self.num_routes.parent = self
                                 self._children_name_map["num_routes"] = "num-routes"
-                                self._children_yang_names.add("num-routes")
                                 self._segment_path = lambda: "adj-rib-out-post"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost, [], name, value)
 
 
                             class Routes(Entity):
@@ -2166,7 +2118,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes, self).__init__()
@@ -2176,8 +2128,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("route", ("route", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route))])
+                                    self._child_classes = OrderedDict([("route", ("route", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route))])
                                     self._leafs = OrderedDict()
 
                                     self.route = YList(self)
@@ -2222,7 +2173,7 @@ class OcBgp(Entity):
                                     	Path ID
                                     	**type**\: int
                                     
-                                    	**range:** \-2147483648..2147483647
+                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: prefix_name
                                     
@@ -2269,7 +2220,7 @@ class OcBgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-oc-oper'
-                                    _revision = '2017-05-01'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route, self).__init__()
@@ -2279,12 +2230,11 @@ class OcBgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastUpdateRecieved))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastUpdateRecieved))])
                                         self._leafs = OrderedDict([
                                             ('route', YLeaf(YType.str, 'route')),
                                             ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
-                                            ('path_id', YLeaf(YType.int32, 'path-id')),
+                                            ('path_id', YLeaf(YType.uint32, 'path-id')),
                                             ('valid_route', YLeaf(YType.boolean, 'valid-route')),
                                             ('invalid_reason', YLeaf(YType.enumeration, 'invalid-reason')),
                                             ('best_path', YLeaf(YType.boolean, 'best-path')),
@@ -2299,27 +2249,22 @@ class OcBgp(Entity):
                                         self.prefix_name = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName()
                                         self.prefix_name.parent = self
                                         self._children_name_map["prefix_name"] = "prefix-name"
-                                        self._children_yang_names.add("prefix-name")
 
                                         self.route_attr_list = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList()
                                         self.route_attr_list.parent = self
                                         self._children_name_map["route_attr_list"] = "route-attr-list"
-                                        self._children_yang_names.add("route-attr-list")
 
                                         self.ext_attributes_list = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList()
                                         self.ext_attributes_list.parent = self
                                         self._children_name_map["ext_attributes_list"] = "ext-attributes-list"
-                                        self._children_yang_names.add("ext-attributes-list")
 
                                         self.last_modified_date = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastModifiedDate()
                                         self.last_modified_date.parent = self
                                         self._children_name_map["last_modified_date"] = "last-modified-date"
-                                        self._children_yang_names.add("last-modified-date")
 
                                         self.last_update_recieved = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastUpdateRecieved()
                                         self.last_update_recieved.parent = self
                                         self._children_name_map["last_update_recieved"] = "last-update-recieved"
-                                        self._children_yang_names.add("last-update-recieved")
                                         self._segment_path = lambda: "route"
 
                                     def __setattr__(self, name, value):
@@ -2347,7 +2292,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName, self).__init__()
@@ -2357,8 +2302,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName.Prefix))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName.Prefix))])
                                             self._leafs = OrderedDict([
                                                 ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
                                             ])
@@ -2367,7 +2311,6 @@ class OcBgp(Entity):
                                             self.prefix = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName.Prefix()
                                             self.prefix.parent = self
                                             self._children_name_map["prefix"] = "prefix"
-                                            self._children_yang_names.add("prefix")
                                             self._segment_path = lambda: "prefix-name"
 
                                         def __setattr__(self, name, value):
@@ -2402,7 +2345,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName.Prefix, self).__init__()
@@ -2412,8 +2355,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('afi', YLeaf(YType.enumeration, 'afi')),
                                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -2486,7 +2428,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList, self).__init__()
@@ -2496,8 +2438,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.AggregratorAttributes))])
-                                            self._child_list_classes = OrderedDict([("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.Community))])
+                                            self._child_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.AggregratorAttributes)), ("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.Community))])
                                             self._leafs = OrderedDict([
                                                 ('origin_type', YLeaf(YType.enumeration, 'origin-type')),
                                                 ('as_path', YLeaf(YType.str, 'as-path')),
@@ -2516,12 +2457,10 @@ class OcBgp(Entity):
                                             self.next_hop = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.NextHop()
                                             self.next_hop.parent = self
                                             self._children_name_map["next_hop"] = "next-hop"
-                                            self._children_yang_names.add("next-hop")
 
                                             self.aggregrator_attributes = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.AggregratorAttributes()
                                             self.aggregrator_attributes.parent = self
                                             self._children_name_map["aggregrator_attributes"] = "aggregrator-attributes"
-                                            self._children_yang_names.add("aggregrator-attributes")
 
                                             self.community = YList(self)
                                             self._segment_path = lambda: "route-attr-list"
@@ -2558,7 +2497,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.NextHop, self).__init__()
@@ -2568,8 +2507,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('afi', YLeaf(YType.enumeration, 'afi')),
                                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -2614,7 +2552,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
@@ -2624,8 +2562,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('as_', YLeaf(YType.uint32, 'as')),
                                                     ('as4', YLeaf(YType.uint32, 'as4')),
@@ -2654,7 +2591,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.Community, self).__init__()
@@ -2664,8 +2601,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('objects', YLeaf(YType.str, 'objects')),
                                                 ])
@@ -2723,7 +2659,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList, self).__init__()
@@ -2733,8 +2669,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.UnknownAttributes))])
+                                            self._child_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.UnknownAttributes))])
                                             self._leafs = OrderedDict([
                                                 ('originator_id', YLeaf(YType.str, 'originator-id')),
                                                 ('aigp', YLeaf(YType.uint64, 'aigp')),
@@ -2768,7 +2703,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
@@ -2778,8 +2713,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('objects', YLeaf(YType.str, 'objects')),
                                                 ])
@@ -2820,7 +2754,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
@@ -2830,8 +2764,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('attribute_type', YLeaf(YType.uint16, 'attribute-type')),
                                                     ('attribute_length', YLeaf(YType.uint16, 'attribute-length')),
@@ -2860,7 +2793,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastModifiedDate, self).__init__()
@@ -2870,8 +2803,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('time_value', YLeaf(YType.str, 'time-value')),
                                             ])
@@ -2896,7 +2828,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastUpdateRecieved, self).__init__()
@@ -2906,8 +2838,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('time_value', YLeaf(YType.str, 'time-value')),
                                             ])
@@ -2935,7 +2866,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.NumRoutes, self).__init__()
@@ -2945,8 +2876,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('num_routes', YLeaf(YType.uint64, 'num-routes')),
                                     ])
@@ -2976,7 +2906,7 @@ class OcBgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-oc-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre, self).__init__()
@@ -2986,20 +2916,20 @@ class OcBgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("routes", ("routes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes)), ("num-routes", ("num_routes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.NumRoutes))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("routes", ("routes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes)), ("num-routes", ("num_routes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.NumRoutes))])
                                 self._leafs = OrderedDict()
 
                                 self.routes = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes()
                                 self.routes.parent = self
                                 self._children_name_map["routes"] = "routes"
-                                self._children_yang_names.add("routes")
 
                                 self.num_routes = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.NumRoutes()
                                 self.num_routes.parent = self
                                 self._children_name_map["num_routes"] = "num-routes"
-                                self._children_yang_names.add("num-routes")
                                 self._segment_path = lambda: "adj-rib-out-pre"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre, [], name, value)
 
 
                             class Routes(Entity):
@@ -3016,7 +2946,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes, self).__init__()
@@ -3026,8 +2956,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("route", ("route", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route))])
+                                    self._child_classes = OrderedDict([("route", ("route", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route))])
                                     self._leafs = OrderedDict()
 
                                     self.route = YList(self)
@@ -3072,7 +3001,7 @@ class OcBgp(Entity):
                                     	Path ID
                                     	**type**\: int
                                     
-                                    	**range:** \-2147483648..2147483647
+                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: prefix_name
                                     
@@ -3119,7 +3048,7 @@ class OcBgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-oc-oper'
-                                    _revision = '2017-05-01'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route, self).__init__()
@@ -3129,12 +3058,11 @@ class OcBgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastUpdateRecieved))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastUpdateRecieved))])
                                         self._leafs = OrderedDict([
                                             ('route', YLeaf(YType.str, 'route')),
                                             ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
-                                            ('path_id', YLeaf(YType.int32, 'path-id')),
+                                            ('path_id', YLeaf(YType.uint32, 'path-id')),
                                             ('valid_route', YLeaf(YType.boolean, 'valid-route')),
                                             ('invalid_reason', YLeaf(YType.enumeration, 'invalid-reason')),
                                             ('best_path', YLeaf(YType.boolean, 'best-path')),
@@ -3149,27 +3077,22 @@ class OcBgp(Entity):
                                         self.prefix_name = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName()
                                         self.prefix_name.parent = self
                                         self._children_name_map["prefix_name"] = "prefix-name"
-                                        self._children_yang_names.add("prefix-name")
 
                                         self.route_attr_list = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList()
                                         self.route_attr_list.parent = self
                                         self._children_name_map["route_attr_list"] = "route-attr-list"
-                                        self._children_yang_names.add("route-attr-list")
 
                                         self.ext_attributes_list = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList()
                                         self.ext_attributes_list.parent = self
                                         self._children_name_map["ext_attributes_list"] = "ext-attributes-list"
-                                        self._children_yang_names.add("ext-attributes-list")
 
                                         self.last_modified_date = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastModifiedDate()
                                         self.last_modified_date.parent = self
                                         self._children_name_map["last_modified_date"] = "last-modified-date"
-                                        self._children_yang_names.add("last-modified-date")
 
                                         self.last_update_recieved = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastUpdateRecieved()
                                         self.last_update_recieved.parent = self
                                         self._children_name_map["last_update_recieved"] = "last-update-recieved"
-                                        self._children_yang_names.add("last-update-recieved")
                                         self._segment_path = lambda: "route"
 
                                     def __setattr__(self, name, value):
@@ -3197,7 +3120,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName, self).__init__()
@@ -3207,8 +3130,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName.Prefix))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName.Prefix))])
                                             self._leafs = OrderedDict([
                                                 ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
                                             ])
@@ -3217,7 +3139,6 @@ class OcBgp(Entity):
                                             self.prefix = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName.Prefix()
                                             self.prefix.parent = self
                                             self._children_name_map["prefix"] = "prefix"
-                                            self._children_yang_names.add("prefix")
                                             self._segment_path = lambda: "prefix-name"
 
                                         def __setattr__(self, name, value):
@@ -3252,7 +3173,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName.Prefix, self).__init__()
@@ -3262,8 +3183,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('afi', YLeaf(YType.enumeration, 'afi')),
                                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -3336,7 +3256,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList, self).__init__()
@@ -3346,8 +3266,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.AggregratorAttributes))])
-                                            self._child_list_classes = OrderedDict([("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.Community))])
+                                            self._child_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.AggregratorAttributes)), ("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.Community))])
                                             self._leafs = OrderedDict([
                                                 ('origin_type', YLeaf(YType.enumeration, 'origin-type')),
                                                 ('as_path', YLeaf(YType.str, 'as-path')),
@@ -3366,12 +3285,10 @@ class OcBgp(Entity):
                                             self.next_hop = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.NextHop()
                                             self.next_hop.parent = self
                                             self._children_name_map["next_hop"] = "next-hop"
-                                            self._children_yang_names.add("next-hop")
 
                                             self.aggregrator_attributes = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.AggregratorAttributes()
                                             self.aggregrator_attributes.parent = self
                                             self._children_name_map["aggregrator_attributes"] = "aggregrator-attributes"
-                                            self._children_yang_names.add("aggregrator-attributes")
 
                                             self.community = YList(self)
                                             self._segment_path = lambda: "route-attr-list"
@@ -3408,7 +3325,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.NextHop, self).__init__()
@@ -3418,8 +3335,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('afi', YLeaf(YType.enumeration, 'afi')),
                                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -3464,7 +3380,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
@@ -3474,8 +3390,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('as_', YLeaf(YType.uint32, 'as')),
                                                     ('as4', YLeaf(YType.uint32, 'as4')),
@@ -3504,7 +3419,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.Community, self).__init__()
@@ -3514,8 +3429,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('objects', YLeaf(YType.str, 'objects')),
                                                 ])
@@ -3573,7 +3487,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList, self).__init__()
@@ -3583,8 +3497,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.UnknownAttributes))])
+                                            self._child_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.UnknownAttributes))])
                                             self._leafs = OrderedDict([
                                                 ('originator_id', YLeaf(YType.str, 'originator-id')),
                                                 ('aigp', YLeaf(YType.uint64, 'aigp')),
@@ -3618,7 +3531,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
@@ -3628,8 +3541,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('objects', YLeaf(YType.str, 'objects')),
                                                 ])
@@ -3670,7 +3582,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
@@ -3680,8 +3592,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('attribute_type', YLeaf(YType.uint16, 'attribute-type')),
                                                     ('attribute_length', YLeaf(YType.uint16, 'attribute-length')),
@@ -3710,7 +3621,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastModifiedDate, self).__init__()
@@ -3720,8 +3631,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('time_value', YLeaf(YType.str, 'time-value')),
                                             ])
@@ -3746,7 +3656,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastUpdateRecieved, self).__init__()
@@ -3756,8 +3666,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('time_value', YLeaf(YType.str, 'time-value')),
                                             ])
@@ -3785,7 +3694,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.NumRoutes, self).__init__()
@@ -3795,8 +3704,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('num_routes', YLeaf(YType.uint64, 'num-routes')),
                                     ])
@@ -3826,7 +3734,7 @@ class OcBgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-oc-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre, self).__init__()
@@ -3836,20 +3744,20 @@ class OcBgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("routes", ("routes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes)), ("num-routes", ("num_routes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.NumRoutes))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("routes", ("routes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes)), ("num-routes", ("num_routes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.NumRoutes))])
                                 self._leafs = OrderedDict()
 
                                 self.routes = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes()
                                 self.routes.parent = self
                                 self._children_name_map["routes"] = "routes"
-                                self._children_yang_names.add("routes")
 
                                 self.num_routes = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.NumRoutes()
                                 self.num_routes.parent = self
                                 self._children_name_map["num_routes"] = "num-routes"
-                                self._children_yang_names.add("num-routes")
                                 self._segment_path = lambda: "adj-rib-in-pre"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre, [], name, value)
 
 
                             class Routes(Entity):
@@ -3866,7 +3774,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes, self).__init__()
@@ -3876,8 +3784,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("route", ("route", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route))])
+                                    self._child_classes = OrderedDict([("route", ("route", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route))])
                                     self._leafs = OrderedDict()
 
                                     self.route = YList(self)
@@ -3922,7 +3829,7 @@ class OcBgp(Entity):
                                     	Path ID
                                     	**type**\: int
                                     
-                                    	**range:** \-2147483648..2147483647
+                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: prefix_name
                                     
@@ -3969,7 +3876,7 @@ class OcBgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-oc-oper'
-                                    _revision = '2017-05-01'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route, self).__init__()
@@ -3979,12 +3886,11 @@ class OcBgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastUpdateRecieved))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastUpdateRecieved))])
                                         self._leafs = OrderedDict([
                                             ('route', YLeaf(YType.str, 'route')),
                                             ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
-                                            ('path_id', YLeaf(YType.int32, 'path-id')),
+                                            ('path_id', YLeaf(YType.uint32, 'path-id')),
                                             ('valid_route', YLeaf(YType.boolean, 'valid-route')),
                                             ('invalid_reason', YLeaf(YType.enumeration, 'invalid-reason')),
                                             ('best_path', YLeaf(YType.boolean, 'best-path')),
@@ -3999,27 +3905,22 @@ class OcBgp(Entity):
                                         self.prefix_name = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName()
                                         self.prefix_name.parent = self
                                         self._children_name_map["prefix_name"] = "prefix-name"
-                                        self._children_yang_names.add("prefix-name")
 
                                         self.route_attr_list = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList()
                                         self.route_attr_list.parent = self
                                         self._children_name_map["route_attr_list"] = "route-attr-list"
-                                        self._children_yang_names.add("route-attr-list")
 
                                         self.ext_attributes_list = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList()
                                         self.ext_attributes_list.parent = self
                                         self._children_name_map["ext_attributes_list"] = "ext-attributes-list"
-                                        self._children_yang_names.add("ext-attributes-list")
 
                                         self.last_modified_date = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastModifiedDate()
                                         self.last_modified_date.parent = self
                                         self._children_name_map["last_modified_date"] = "last-modified-date"
-                                        self._children_yang_names.add("last-modified-date")
 
                                         self.last_update_recieved = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastUpdateRecieved()
                                         self.last_update_recieved.parent = self
                                         self._children_name_map["last_update_recieved"] = "last-update-recieved"
-                                        self._children_yang_names.add("last-update-recieved")
                                         self._segment_path = lambda: "route"
 
                                     def __setattr__(self, name, value):
@@ -4047,7 +3948,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName, self).__init__()
@@ -4057,8 +3958,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName.Prefix))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName.Prefix))])
                                             self._leafs = OrderedDict([
                                                 ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
                                             ])
@@ -4067,7 +3967,6 @@ class OcBgp(Entity):
                                             self.prefix = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName.Prefix()
                                             self.prefix.parent = self
                                             self._children_name_map["prefix"] = "prefix"
-                                            self._children_yang_names.add("prefix")
                                             self._segment_path = lambda: "prefix-name"
 
                                         def __setattr__(self, name, value):
@@ -4102,7 +4001,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName.Prefix, self).__init__()
@@ -4112,8 +4011,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('afi', YLeaf(YType.enumeration, 'afi')),
                                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -4186,7 +4084,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList, self).__init__()
@@ -4196,8 +4094,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.AggregratorAttributes))])
-                                            self._child_list_classes = OrderedDict([("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.Community))])
+                                            self._child_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.AggregratorAttributes)), ("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.Community))])
                                             self._leafs = OrderedDict([
                                                 ('origin_type', YLeaf(YType.enumeration, 'origin-type')),
                                                 ('as_path', YLeaf(YType.str, 'as-path')),
@@ -4216,12 +4113,10 @@ class OcBgp(Entity):
                                             self.next_hop = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.NextHop()
                                             self.next_hop.parent = self
                                             self._children_name_map["next_hop"] = "next-hop"
-                                            self._children_yang_names.add("next-hop")
 
                                             self.aggregrator_attributes = OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.AggregratorAttributes()
                                             self.aggregrator_attributes.parent = self
                                             self._children_name_map["aggregrator_attributes"] = "aggregrator-attributes"
-                                            self._children_yang_names.add("aggregrator-attributes")
 
                                             self.community = YList(self)
                                             self._segment_path = lambda: "route-attr-list"
@@ -4258,7 +4153,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.NextHop, self).__init__()
@@ -4268,8 +4163,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('afi', YLeaf(YType.enumeration, 'afi')),
                                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -4314,7 +4208,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
@@ -4324,8 +4218,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('as_', YLeaf(YType.uint32, 'as')),
                                                     ('as4', YLeaf(YType.uint32, 'as4')),
@@ -4354,7 +4247,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.Community, self).__init__()
@@ -4364,8 +4257,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('objects', YLeaf(YType.str, 'objects')),
                                                 ])
@@ -4423,7 +4315,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList, self).__init__()
@@ -4433,8 +4325,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.UnknownAttributes))])
+                                            self._child_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.UnknownAttributes))])
                                             self._leafs = OrderedDict([
                                                 ('originator_id', YLeaf(YType.str, 'originator-id')),
                                                 ('aigp', YLeaf(YType.uint64, 'aigp')),
@@ -4468,7 +4359,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
@@ -4478,8 +4369,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('objects', YLeaf(YType.str, 'objects')),
                                                 ])
@@ -4520,7 +4410,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
@@ -4530,8 +4420,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('attribute_type', YLeaf(YType.uint16, 'attribute-type')),
                                                     ('attribute_length', YLeaf(YType.uint16, 'attribute-length')),
@@ -4560,7 +4449,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastModifiedDate, self).__init__()
@@ -4570,8 +4459,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('time_value', YLeaf(YType.str, 'time-value')),
                                             ])
@@ -4596,7 +4484,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastUpdateRecieved, self).__init__()
@@ -4606,8 +4494,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('time_value', YLeaf(YType.str, 'time-value')),
                                             ])
@@ -4635,7 +4522,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.NumRoutes, self).__init__()
@@ -4645,8 +4532,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('num_routes', YLeaf(YType.uint64, 'num-routes')),
                                     ])
@@ -4676,7 +4562,7 @@ class OcBgp(Entity):
                 """
 
                 _prefix = 'ipv4-bgp-oc-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast, self).__init__()
@@ -4686,21 +4572,21 @@ class OcBgp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("loc-rib", ("loc_rib", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib)), ("open-config-neighbors", ("open_config_neighbors", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("loc-rib", ("loc_rib", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib)), ("open-config-neighbors", ("open_config_neighbors", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors))])
                     self._leafs = OrderedDict()
 
                     self.loc_rib = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib()
                     self.loc_rib.parent = self
                     self._children_name_map["loc_rib"] = "loc-rib"
-                    self._children_yang_names.add("loc-rib")
 
                     self.open_config_neighbors = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors()
                     self.open_config_neighbors.parent = self
                     self._children_name_map["open_config_neighbors"] = "open-config-neighbors"
-                    self._children_yang_names.add("open-config-neighbors")
                     self._segment_path = lambda: "ipv6-unicast"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast, [], name, value)
 
 
                 class LocRib(Entity):
@@ -4722,7 +4608,7 @@ class OcBgp(Entity):
                     """
 
                     _prefix = 'ipv4-bgp-oc-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib, self).__init__()
@@ -4732,21 +4618,21 @@ class OcBgp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("routes", ("routes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes)), ("num-routes", ("num_routes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.NumRoutes))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("routes", ("routes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes)), ("num-routes", ("num_routes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.NumRoutes))])
                         self._leafs = OrderedDict()
 
                         self.routes = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes()
                         self.routes.parent = self
                         self._children_name_map["routes"] = "routes"
-                        self._children_yang_names.add("routes")
 
                         self.num_routes = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.NumRoutes()
                         self.num_routes.parent = self
                         self._children_name_map["num_routes"] = "num-routes"
-                        self._children_yang_names.add("num-routes")
                         self._segment_path = lambda: "loc-rib"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib, [], name, value)
 
 
                     class Routes(Entity):
@@ -4763,7 +4649,7 @@ class OcBgp(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-oc-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes, self).__init__()
@@ -4773,8 +4659,7 @@ class OcBgp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("route", ("route", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route))])
+                            self._child_classes = OrderedDict([("route", ("route", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route))])
                             self._leafs = OrderedDict()
 
                             self.route = YList(self)
@@ -4820,7 +4705,7 @@ class OcBgp(Entity):
                             	Path ID
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: prefix_name
                             
@@ -4867,7 +4752,7 @@ class OcBgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-oc-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route, self).__init__()
@@ -4877,12 +4762,11 @@ class OcBgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.LastUpdateRecieved))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.LastUpdateRecieved))])
                                 self._leafs = OrderedDict([
                                     ('route', YLeaf(YType.str, 'route')),
                                     ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
-                                    ('path_id', YLeaf(YType.int32, 'path-id')),
+                                    ('path_id', YLeaf(YType.uint32, 'path-id')),
                                     ('valid_route', YLeaf(YType.boolean, 'valid-route')),
                                     ('invalid_reason', YLeaf(YType.enumeration, 'invalid-reason')),
                                     ('best_path', YLeaf(YType.boolean, 'best-path')),
@@ -4897,27 +4781,22 @@ class OcBgp(Entity):
                                 self.prefix_name = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.PrefixName()
                                 self.prefix_name.parent = self
                                 self._children_name_map["prefix_name"] = "prefix-name"
-                                self._children_yang_names.add("prefix-name")
 
                                 self.route_attr_list = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList()
                                 self.route_attr_list.parent = self
                                 self._children_name_map["route_attr_list"] = "route-attr-list"
-                                self._children_yang_names.add("route-attr-list")
 
                                 self.ext_attributes_list = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList()
                                 self.ext_attributes_list.parent = self
                                 self._children_name_map["ext_attributes_list"] = "ext-attributes-list"
-                                self._children_yang_names.add("ext-attributes-list")
 
                                 self.last_modified_date = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.LastModifiedDate()
                                 self.last_modified_date.parent = self
                                 self._children_name_map["last_modified_date"] = "last-modified-date"
-                                self._children_yang_names.add("last-modified-date")
 
                                 self.last_update_recieved = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.LastUpdateRecieved()
                                 self.last_update_recieved.parent = self
                                 self._children_name_map["last_update_recieved"] = "last-update-recieved"
-                                self._children_yang_names.add("last-update-recieved")
                                 self._segment_path = lambda: "route"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/%s" % self._segment_path()
 
@@ -4946,7 +4825,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.PrefixName, self).__init__()
@@ -4956,8 +4835,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.PrefixName.Prefix))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.PrefixName.Prefix))])
                                     self._leafs = OrderedDict([
                                         ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
                                     ])
@@ -4966,7 +4844,6 @@ class OcBgp(Entity):
                                     self.prefix = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.PrefixName.Prefix()
                                     self.prefix.parent = self
                                     self._children_name_map["prefix"] = "prefix"
-                                    self._children_yang_names.add("prefix")
                                     self._segment_path = lambda: "prefix-name"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/route/%s" % self._segment_path()
 
@@ -5002,7 +4879,7 @@ class OcBgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-oc-oper'
-                                    _revision = '2017-05-01'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.PrefixName.Prefix, self).__init__()
@@ -5012,8 +4889,7 @@ class OcBgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('afi', YLeaf(YType.enumeration, 'afi')),
                                             ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -5087,7 +4963,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList, self).__init__()
@@ -5097,8 +4973,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.AggregratorAttributes))])
-                                    self._child_list_classes = OrderedDict([("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.Community))])
+                                    self._child_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.AggregratorAttributes)), ("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.Community))])
                                     self._leafs = OrderedDict([
                                         ('origin_type', YLeaf(YType.enumeration, 'origin-type')),
                                         ('as_path', YLeaf(YType.str, 'as-path')),
@@ -5117,12 +4992,10 @@ class OcBgp(Entity):
                                     self.next_hop = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.NextHop()
                                     self.next_hop.parent = self
                                     self._children_name_map["next_hop"] = "next-hop"
-                                    self._children_yang_names.add("next-hop")
 
                                     self.aggregrator_attributes = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.AggregratorAttributes()
                                     self.aggregrator_attributes.parent = self
                                     self._children_name_map["aggregrator_attributes"] = "aggregrator-attributes"
-                                    self._children_yang_names.add("aggregrator-attributes")
 
                                     self.community = YList(self)
                                     self._segment_path = lambda: "route-attr-list"
@@ -5160,7 +5033,7 @@ class OcBgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-oc-oper'
-                                    _revision = '2017-05-01'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.NextHop, self).__init__()
@@ -5170,8 +5043,7 @@ class OcBgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('afi', YLeaf(YType.enumeration, 'afi')),
                                             ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -5217,7 +5089,7 @@ class OcBgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-oc-oper'
-                                    _revision = '2017-05-01'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
@@ -5227,8 +5099,7 @@ class OcBgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('as_', YLeaf(YType.uint32, 'as')),
                                             ('as4', YLeaf(YType.uint32, 'as4')),
@@ -5258,7 +5129,7 @@ class OcBgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-oc-oper'
-                                    _revision = '2017-05-01'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.Community, self).__init__()
@@ -5268,8 +5139,7 @@ class OcBgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('objects', YLeaf(YType.str, 'objects')),
                                         ])
@@ -5328,7 +5198,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList, self).__init__()
@@ -5338,8 +5208,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList.UnknownAttributes))])
+                                    self._child_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList.UnknownAttributes))])
                                     self._leafs = OrderedDict([
                                         ('originator_id', YLeaf(YType.str, 'originator-id')),
                                         ('aigp', YLeaf(YType.uint64, 'aigp')),
@@ -5374,7 +5243,7 @@ class OcBgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-oc-oper'
-                                    _revision = '2017-05-01'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
@@ -5384,8 +5253,7 @@ class OcBgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('objects', YLeaf(YType.str, 'objects')),
                                         ])
@@ -5427,7 +5295,7 @@ class OcBgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-oc-oper'
-                                    _revision = '2017-05-01'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
@@ -5437,8 +5305,7 @@ class OcBgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('attribute_type', YLeaf(YType.uint16, 'attribute-type')),
                                             ('attribute_length', YLeaf(YType.uint16, 'attribute-length')),
@@ -5468,7 +5335,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.LastModifiedDate, self).__init__()
@@ -5478,8 +5345,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('time_value', YLeaf(YType.str, 'time-value')),
                                     ])
@@ -5505,7 +5371,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.LastUpdateRecieved, self).__init__()
@@ -5515,8 +5381,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('time_value', YLeaf(YType.str, 'time-value')),
                                     ])
@@ -5545,7 +5410,7 @@ class OcBgp(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-oc-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.NumRoutes, self).__init__()
@@ -5555,8 +5420,7 @@ class OcBgp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('num_routes', YLeaf(YType.uint64, 'num-routes')),
                             ])
@@ -5582,7 +5446,7 @@ class OcBgp(Entity):
                     """
 
                     _prefix = 'ipv4-bgp-oc-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors, self).__init__()
@@ -5592,8 +5456,7 @@ class OcBgp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("open-config-neighbor", ("open_config_neighbor", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor))])
+                        self._child_classes = OrderedDict([("open-config-neighbor", ("open_config_neighbor", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor))])
                         self._leafs = OrderedDict()
 
                         self.open_config_neighbor = YList(self)
@@ -5646,7 +5509,7 @@ class OcBgp(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-oc-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor, self).__init__()
@@ -5656,8 +5519,7 @@ class OcBgp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['neighbor_address']
-                            self._child_container_classes = OrderedDict([("adj-rib-in-post", ("adj_rib_in_post", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost)), ("adj-rib-out-post", ("adj_rib_out_post", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost)), ("adj-rib-out-pre", ("adj_rib_out_pre", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre)), ("adj-rib-in-pre", ("adj_rib_in_pre", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("adj-rib-in-post", ("adj_rib_in_post", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost)), ("adj-rib-out-post", ("adj_rib_out_post", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost)), ("adj-rib-out-pre", ("adj_rib_out_pre", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre)), ("adj-rib-in-pre", ("adj_rib_in_pre", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre))])
                             self._leafs = OrderedDict([
                                 ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
                             ])
@@ -5666,22 +5528,18 @@ class OcBgp(Entity):
                             self.adj_rib_in_post = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost()
                             self.adj_rib_in_post.parent = self
                             self._children_name_map["adj_rib_in_post"] = "adj-rib-in-post"
-                            self._children_yang_names.add("adj-rib-in-post")
 
                             self.adj_rib_out_post = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost()
                             self.adj_rib_out_post.parent = self
                             self._children_name_map["adj_rib_out_post"] = "adj-rib-out-post"
-                            self._children_yang_names.add("adj-rib-out-post")
 
                             self.adj_rib_out_pre = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre()
                             self.adj_rib_out_pre.parent = self
                             self._children_name_map["adj_rib_out_pre"] = "adj-rib-out-pre"
-                            self._children_yang_names.add("adj-rib-out-pre")
 
                             self.adj_rib_in_pre = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre()
                             self.adj_rib_in_pre.parent = self
                             self._children_name_map["adj_rib_in_pre"] = "adj-rib-in-pre"
-                            self._children_yang_names.add("adj-rib-in-pre")
                             self._segment_path = lambda: "open-config-neighbor" + "[neighbor-address='" + str(self.neighbor_address) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/%s" % self._segment_path()
 
@@ -5708,7 +5566,7 @@ class OcBgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-oc-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost, self).__init__()
@@ -5718,20 +5576,20 @@ class OcBgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("routes", ("routes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes)), ("num-routes", ("num_routes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.NumRoutes))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("routes", ("routes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes)), ("num-routes", ("num_routes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.NumRoutes))])
                                 self._leafs = OrderedDict()
 
                                 self.routes = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes()
                                 self.routes.parent = self
                                 self._children_name_map["routes"] = "routes"
-                                self._children_yang_names.add("routes")
 
                                 self.num_routes = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.NumRoutes()
                                 self.num_routes.parent = self
                                 self._children_name_map["num_routes"] = "num-routes"
-                                self._children_yang_names.add("num-routes")
                                 self._segment_path = lambda: "adj-rib-in-post"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost, [], name, value)
 
 
                             class Routes(Entity):
@@ -5748,7 +5606,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes, self).__init__()
@@ -5758,8 +5616,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("route", ("route", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route))])
+                                    self._child_classes = OrderedDict([("route", ("route", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route))])
                                     self._leafs = OrderedDict()
 
                                     self.route = YList(self)
@@ -5804,7 +5661,7 @@ class OcBgp(Entity):
                                     	Path ID
                                     	**type**\: int
                                     
-                                    	**range:** \-2147483648..2147483647
+                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: prefix_name
                                     
@@ -5851,7 +5708,7 @@ class OcBgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-oc-oper'
-                                    _revision = '2017-05-01'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route, self).__init__()
@@ -5861,12 +5718,11 @@ class OcBgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastUpdateRecieved))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastUpdateRecieved))])
                                         self._leafs = OrderedDict([
                                             ('route', YLeaf(YType.str, 'route')),
                                             ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
-                                            ('path_id', YLeaf(YType.int32, 'path-id')),
+                                            ('path_id', YLeaf(YType.uint32, 'path-id')),
                                             ('valid_route', YLeaf(YType.boolean, 'valid-route')),
                                             ('invalid_reason', YLeaf(YType.enumeration, 'invalid-reason')),
                                             ('best_path', YLeaf(YType.boolean, 'best-path')),
@@ -5881,27 +5737,22 @@ class OcBgp(Entity):
                                         self.prefix_name = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName()
                                         self.prefix_name.parent = self
                                         self._children_name_map["prefix_name"] = "prefix-name"
-                                        self._children_yang_names.add("prefix-name")
 
                                         self.route_attr_list = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList()
                                         self.route_attr_list.parent = self
                                         self._children_name_map["route_attr_list"] = "route-attr-list"
-                                        self._children_yang_names.add("route-attr-list")
 
                                         self.ext_attributes_list = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList()
                                         self.ext_attributes_list.parent = self
                                         self._children_name_map["ext_attributes_list"] = "ext-attributes-list"
-                                        self._children_yang_names.add("ext-attributes-list")
 
                                         self.last_modified_date = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastModifiedDate()
                                         self.last_modified_date.parent = self
                                         self._children_name_map["last_modified_date"] = "last-modified-date"
-                                        self._children_yang_names.add("last-modified-date")
 
                                         self.last_update_recieved = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastUpdateRecieved()
                                         self.last_update_recieved.parent = self
                                         self._children_name_map["last_update_recieved"] = "last-update-recieved"
-                                        self._children_yang_names.add("last-update-recieved")
                                         self._segment_path = lambda: "route"
 
                                     def __setattr__(self, name, value):
@@ -5929,7 +5780,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName, self).__init__()
@@ -5939,8 +5790,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName.Prefix))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName.Prefix))])
                                             self._leafs = OrderedDict([
                                                 ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
                                             ])
@@ -5949,7 +5799,6 @@ class OcBgp(Entity):
                                             self.prefix = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName.Prefix()
                                             self.prefix.parent = self
                                             self._children_name_map["prefix"] = "prefix"
-                                            self._children_yang_names.add("prefix")
                                             self._segment_path = lambda: "prefix-name"
 
                                         def __setattr__(self, name, value):
@@ -5984,7 +5833,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName.Prefix, self).__init__()
@@ -5994,8 +5843,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('afi', YLeaf(YType.enumeration, 'afi')),
                                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -6068,7 +5916,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList, self).__init__()
@@ -6078,8 +5926,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.AggregratorAttributes))])
-                                            self._child_list_classes = OrderedDict([("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.Community))])
+                                            self._child_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.AggregratorAttributes)), ("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.Community))])
                                             self._leafs = OrderedDict([
                                                 ('origin_type', YLeaf(YType.enumeration, 'origin-type')),
                                                 ('as_path', YLeaf(YType.str, 'as-path')),
@@ -6098,12 +5945,10 @@ class OcBgp(Entity):
                                             self.next_hop = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.NextHop()
                                             self.next_hop.parent = self
                                             self._children_name_map["next_hop"] = "next-hop"
-                                            self._children_yang_names.add("next-hop")
 
                                             self.aggregrator_attributes = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.AggregratorAttributes()
                                             self.aggregrator_attributes.parent = self
                                             self._children_name_map["aggregrator_attributes"] = "aggregrator-attributes"
-                                            self._children_yang_names.add("aggregrator-attributes")
 
                                             self.community = YList(self)
                                             self._segment_path = lambda: "route-attr-list"
@@ -6140,7 +5985,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.NextHop, self).__init__()
@@ -6150,8 +5995,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('afi', YLeaf(YType.enumeration, 'afi')),
                                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -6196,7 +6040,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
@@ -6206,8 +6050,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('as_', YLeaf(YType.uint32, 'as')),
                                                     ('as4', YLeaf(YType.uint32, 'as4')),
@@ -6236,7 +6079,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.Community, self).__init__()
@@ -6246,8 +6089,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('objects', YLeaf(YType.str, 'objects')),
                                                 ])
@@ -6305,7 +6147,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList, self).__init__()
@@ -6315,8 +6157,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.UnknownAttributes))])
+                                            self._child_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.UnknownAttributes))])
                                             self._leafs = OrderedDict([
                                                 ('originator_id', YLeaf(YType.str, 'originator-id')),
                                                 ('aigp', YLeaf(YType.uint64, 'aigp')),
@@ -6350,7 +6191,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
@@ -6360,8 +6201,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('objects', YLeaf(YType.str, 'objects')),
                                                 ])
@@ -6402,7 +6242,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
@@ -6412,8 +6252,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('attribute_type', YLeaf(YType.uint16, 'attribute-type')),
                                                     ('attribute_length', YLeaf(YType.uint16, 'attribute-length')),
@@ -6442,7 +6281,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastModifiedDate, self).__init__()
@@ -6452,8 +6291,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('time_value', YLeaf(YType.str, 'time-value')),
                                             ])
@@ -6478,7 +6316,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastUpdateRecieved, self).__init__()
@@ -6488,8 +6326,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('time_value', YLeaf(YType.str, 'time-value')),
                                             ])
@@ -6517,7 +6354,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.NumRoutes, self).__init__()
@@ -6527,8 +6364,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('num_routes', YLeaf(YType.uint64, 'num-routes')),
                                     ])
@@ -6558,7 +6394,7 @@ class OcBgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-oc-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost, self).__init__()
@@ -6568,20 +6404,20 @@ class OcBgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("routes", ("routes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes)), ("num-routes", ("num_routes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.NumRoutes))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("routes", ("routes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes)), ("num-routes", ("num_routes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.NumRoutes))])
                                 self._leafs = OrderedDict()
 
                                 self.routes = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes()
                                 self.routes.parent = self
                                 self._children_name_map["routes"] = "routes"
-                                self._children_yang_names.add("routes")
 
                                 self.num_routes = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.NumRoutes()
                                 self.num_routes.parent = self
                                 self._children_name_map["num_routes"] = "num-routes"
-                                self._children_yang_names.add("num-routes")
                                 self._segment_path = lambda: "adj-rib-out-post"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost, [], name, value)
 
 
                             class Routes(Entity):
@@ -6598,7 +6434,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes, self).__init__()
@@ -6608,8 +6444,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("route", ("route", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route))])
+                                    self._child_classes = OrderedDict([("route", ("route", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route))])
                                     self._leafs = OrderedDict()
 
                                     self.route = YList(self)
@@ -6654,7 +6489,7 @@ class OcBgp(Entity):
                                     	Path ID
                                     	**type**\: int
                                     
-                                    	**range:** \-2147483648..2147483647
+                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: prefix_name
                                     
@@ -6701,7 +6536,7 @@ class OcBgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-oc-oper'
-                                    _revision = '2017-05-01'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route, self).__init__()
@@ -6711,12 +6546,11 @@ class OcBgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastUpdateRecieved))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastUpdateRecieved))])
                                         self._leafs = OrderedDict([
                                             ('route', YLeaf(YType.str, 'route')),
                                             ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
-                                            ('path_id', YLeaf(YType.int32, 'path-id')),
+                                            ('path_id', YLeaf(YType.uint32, 'path-id')),
                                             ('valid_route', YLeaf(YType.boolean, 'valid-route')),
                                             ('invalid_reason', YLeaf(YType.enumeration, 'invalid-reason')),
                                             ('best_path', YLeaf(YType.boolean, 'best-path')),
@@ -6731,27 +6565,22 @@ class OcBgp(Entity):
                                         self.prefix_name = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName()
                                         self.prefix_name.parent = self
                                         self._children_name_map["prefix_name"] = "prefix-name"
-                                        self._children_yang_names.add("prefix-name")
 
                                         self.route_attr_list = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList()
                                         self.route_attr_list.parent = self
                                         self._children_name_map["route_attr_list"] = "route-attr-list"
-                                        self._children_yang_names.add("route-attr-list")
 
                                         self.ext_attributes_list = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList()
                                         self.ext_attributes_list.parent = self
                                         self._children_name_map["ext_attributes_list"] = "ext-attributes-list"
-                                        self._children_yang_names.add("ext-attributes-list")
 
                                         self.last_modified_date = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastModifiedDate()
                                         self.last_modified_date.parent = self
                                         self._children_name_map["last_modified_date"] = "last-modified-date"
-                                        self._children_yang_names.add("last-modified-date")
 
                                         self.last_update_recieved = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastUpdateRecieved()
                                         self.last_update_recieved.parent = self
                                         self._children_name_map["last_update_recieved"] = "last-update-recieved"
-                                        self._children_yang_names.add("last-update-recieved")
                                         self._segment_path = lambda: "route"
 
                                     def __setattr__(self, name, value):
@@ -6779,7 +6608,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName, self).__init__()
@@ -6789,8 +6618,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName.Prefix))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName.Prefix))])
                                             self._leafs = OrderedDict([
                                                 ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
                                             ])
@@ -6799,7 +6627,6 @@ class OcBgp(Entity):
                                             self.prefix = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName.Prefix()
                                             self.prefix.parent = self
                                             self._children_name_map["prefix"] = "prefix"
-                                            self._children_yang_names.add("prefix")
                                             self._segment_path = lambda: "prefix-name"
 
                                         def __setattr__(self, name, value):
@@ -6834,7 +6661,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName.Prefix, self).__init__()
@@ -6844,8 +6671,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('afi', YLeaf(YType.enumeration, 'afi')),
                                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -6918,7 +6744,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList, self).__init__()
@@ -6928,8 +6754,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.AggregratorAttributes))])
-                                            self._child_list_classes = OrderedDict([("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.Community))])
+                                            self._child_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.AggregratorAttributes)), ("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.Community))])
                                             self._leafs = OrderedDict([
                                                 ('origin_type', YLeaf(YType.enumeration, 'origin-type')),
                                                 ('as_path', YLeaf(YType.str, 'as-path')),
@@ -6948,12 +6773,10 @@ class OcBgp(Entity):
                                             self.next_hop = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.NextHop()
                                             self.next_hop.parent = self
                                             self._children_name_map["next_hop"] = "next-hop"
-                                            self._children_yang_names.add("next-hop")
 
                                             self.aggregrator_attributes = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.AggregratorAttributes()
                                             self.aggregrator_attributes.parent = self
                                             self._children_name_map["aggregrator_attributes"] = "aggregrator-attributes"
-                                            self._children_yang_names.add("aggregrator-attributes")
 
                                             self.community = YList(self)
                                             self._segment_path = lambda: "route-attr-list"
@@ -6990,7 +6813,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.NextHop, self).__init__()
@@ -7000,8 +6823,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('afi', YLeaf(YType.enumeration, 'afi')),
                                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -7046,7 +6868,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
@@ -7056,8 +6878,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('as_', YLeaf(YType.uint32, 'as')),
                                                     ('as4', YLeaf(YType.uint32, 'as4')),
@@ -7086,7 +6907,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.Community, self).__init__()
@@ -7096,8 +6917,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('objects', YLeaf(YType.str, 'objects')),
                                                 ])
@@ -7155,7 +6975,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList, self).__init__()
@@ -7165,8 +6985,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.UnknownAttributes))])
+                                            self._child_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.UnknownAttributes))])
                                             self._leafs = OrderedDict([
                                                 ('originator_id', YLeaf(YType.str, 'originator-id')),
                                                 ('aigp', YLeaf(YType.uint64, 'aigp')),
@@ -7200,7 +7019,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
@@ -7210,8 +7029,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('objects', YLeaf(YType.str, 'objects')),
                                                 ])
@@ -7252,7 +7070,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
@@ -7262,8 +7080,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('attribute_type', YLeaf(YType.uint16, 'attribute-type')),
                                                     ('attribute_length', YLeaf(YType.uint16, 'attribute-length')),
@@ -7292,7 +7109,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastModifiedDate, self).__init__()
@@ -7302,8 +7119,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('time_value', YLeaf(YType.str, 'time-value')),
                                             ])
@@ -7328,7 +7144,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastUpdateRecieved, self).__init__()
@@ -7338,8 +7154,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('time_value', YLeaf(YType.str, 'time-value')),
                                             ])
@@ -7367,7 +7182,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.NumRoutes, self).__init__()
@@ -7377,8 +7192,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('num_routes', YLeaf(YType.uint64, 'num-routes')),
                                     ])
@@ -7408,7 +7222,7 @@ class OcBgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-oc-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre, self).__init__()
@@ -7418,20 +7232,20 @@ class OcBgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("routes", ("routes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes)), ("num-routes", ("num_routes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.NumRoutes))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("routes", ("routes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes)), ("num-routes", ("num_routes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.NumRoutes))])
                                 self._leafs = OrderedDict()
 
                                 self.routes = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes()
                                 self.routes.parent = self
                                 self._children_name_map["routes"] = "routes"
-                                self._children_yang_names.add("routes")
 
                                 self.num_routes = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.NumRoutes()
                                 self.num_routes.parent = self
                                 self._children_name_map["num_routes"] = "num-routes"
-                                self._children_yang_names.add("num-routes")
                                 self._segment_path = lambda: "adj-rib-out-pre"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre, [], name, value)
 
 
                             class Routes(Entity):
@@ -7448,7 +7262,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes, self).__init__()
@@ -7458,8 +7272,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("route", ("route", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route))])
+                                    self._child_classes = OrderedDict([("route", ("route", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route))])
                                     self._leafs = OrderedDict()
 
                                     self.route = YList(self)
@@ -7504,7 +7317,7 @@ class OcBgp(Entity):
                                     	Path ID
                                     	**type**\: int
                                     
-                                    	**range:** \-2147483648..2147483647
+                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: prefix_name
                                     
@@ -7551,7 +7364,7 @@ class OcBgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-oc-oper'
-                                    _revision = '2017-05-01'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route, self).__init__()
@@ -7561,12 +7374,11 @@ class OcBgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastUpdateRecieved))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastUpdateRecieved))])
                                         self._leafs = OrderedDict([
                                             ('route', YLeaf(YType.str, 'route')),
                                             ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
-                                            ('path_id', YLeaf(YType.int32, 'path-id')),
+                                            ('path_id', YLeaf(YType.uint32, 'path-id')),
                                             ('valid_route', YLeaf(YType.boolean, 'valid-route')),
                                             ('invalid_reason', YLeaf(YType.enumeration, 'invalid-reason')),
                                             ('best_path', YLeaf(YType.boolean, 'best-path')),
@@ -7581,27 +7393,22 @@ class OcBgp(Entity):
                                         self.prefix_name = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName()
                                         self.prefix_name.parent = self
                                         self._children_name_map["prefix_name"] = "prefix-name"
-                                        self._children_yang_names.add("prefix-name")
 
                                         self.route_attr_list = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList()
                                         self.route_attr_list.parent = self
                                         self._children_name_map["route_attr_list"] = "route-attr-list"
-                                        self._children_yang_names.add("route-attr-list")
 
                                         self.ext_attributes_list = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList()
                                         self.ext_attributes_list.parent = self
                                         self._children_name_map["ext_attributes_list"] = "ext-attributes-list"
-                                        self._children_yang_names.add("ext-attributes-list")
 
                                         self.last_modified_date = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastModifiedDate()
                                         self.last_modified_date.parent = self
                                         self._children_name_map["last_modified_date"] = "last-modified-date"
-                                        self._children_yang_names.add("last-modified-date")
 
                                         self.last_update_recieved = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastUpdateRecieved()
                                         self.last_update_recieved.parent = self
                                         self._children_name_map["last_update_recieved"] = "last-update-recieved"
-                                        self._children_yang_names.add("last-update-recieved")
                                         self._segment_path = lambda: "route"
 
                                     def __setattr__(self, name, value):
@@ -7629,7 +7436,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName, self).__init__()
@@ -7639,8 +7446,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName.Prefix))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName.Prefix))])
                                             self._leafs = OrderedDict([
                                                 ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
                                             ])
@@ -7649,7 +7455,6 @@ class OcBgp(Entity):
                                             self.prefix = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName.Prefix()
                                             self.prefix.parent = self
                                             self._children_name_map["prefix"] = "prefix"
-                                            self._children_yang_names.add("prefix")
                                             self._segment_path = lambda: "prefix-name"
 
                                         def __setattr__(self, name, value):
@@ -7684,7 +7489,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName.Prefix, self).__init__()
@@ -7694,8 +7499,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('afi', YLeaf(YType.enumeration, 'afi')),
                                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -7768,7 +7572,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList, self).__init__()
@@ -7778,8 +7582,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.AggregratorAttributes))])
-                                            self._child_list_classes = OrderedDict([("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.Community))])
+                                            self._child_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.AggregratorAttributes)), ("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.Community))])
                                             self._leafs = OrderedDict([
                                                 ('origin_type', YLeaf(YType.enumeration, 'origin-type')),
                                                 ('as_path', YLeaf(YType.str, 'as-path')),
@@ -7798,12 +7601,10 @@ class OcBgp(Entity):
                                             self.next_hop = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.NextHop()
                                             self.next_hop.parent = self
                                             self._children_name_map["next_hop"] = "next-hop"
-                                            self._children_yang_names.add("next-hop")
 
                                             self.aggregrator_attributes = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.AggregratorAttributes()
                                             self.aggregrator_attributes.parent = self
                                             self._children_name_map["aggregrator_attributes"] = "aggregrator-attributes"
-                                            self._children_yang_names.add("aggregrator-attributes")
 
                                             self.community = YList(self)
                                             self._segment_path = lambda: "route-attr-list"
@@ -7840,7 +7641,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.NextHop, self).__init__()
@@ -7850,8 +7651,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('afi', YLeaf(YType.enumeration, 'afi')),
                                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -7896,7 +7696,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
@@ -7906,8 +7706,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('as_', YLeaf(YType.uint32, 'as')),
                                                     ('as4', YLeaf(YType.uint32, 'as4')),
@@ -7936,7 +7735,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.Community, self).__init__()
@@ -7946,8 +7745,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('objects', YLeaf(YType.str, 'objects')),
                                                 ])
@@ -8005,7 +7803,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList, self).__init__()
@@ -8015,8 +7813,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.UnknownAttributes))])
+                                            self._child_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.UnknownAttributes))])
                                             self._leafs = OrderedDict([
                                                 ('originator_id', YLeaf(YType.str, 'originator-id')),
                                                 ('aigp', YLeaf(YType.uint64, 'aigp')),
@@ -8050,7 +7847,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
@@ -8060,8 +7857,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('objects', YLeaf(YType.str, 'objects')),
                                                 ])
@@ -8102,7 +7898,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
@@ -8112,8 +7908,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('attribute_type', YLeaf(YType.uint16, 'attribute-type')),
                                                     ('attribute_length', YLeaf(YType.uint16, 'attribute-length')),
@@ -8142,7 +7937,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastModifiedDate, self).__init__()
@@ -8152,8 +7947,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('time_value', YLeaf(YType.str, 'time-value')),
                                             ])
@@ -8178,7 +7972,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastUpdateRecieved, self).__init__()
@@ -8188,8 +7982,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('time_value', YLeaf(YType.str, 'time-value')),
                                             ])
@@ -8217,7 +8010,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.NumRoutes, self).__init__()
@@ -8227,8 +8020,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('num_routes', YLeaf(YType.uint64, 'num-routes')),
                                     ])
@@ -8258,7 +8050,7 @@ class OcBgp(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-oc-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre, self).__init__()
@@ -8268,20 +8060,20 @@ class OcBgp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("routes", ("routes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes)), ("num-routes", ("num_routes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.NumRoutes))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("routes", ("routes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes)), ("num-routes", ("num_routes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.NumRoutes))])
                                 self._leafs = OrderedDict()
 
                                 self.routes = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes()
                                 self.routes.parent = self
                                 self._children_name_map["routes"] = "routes"
-                                self._children_yang_names.add("routes")
 
                                 self.num_routes = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.NumRoutes()
                                 self.num_routes.parent = self
                                 self._children_name_map["num_routes"] = "num-routes"
-                                self._children_yang_names.add("num-routes")
                                 self._segment_path = lambda: "adj-rib-in-pre"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre, [], name, value)
 
 
                             class Routes(Entity):
@@ -8298,7 +8090,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes, self).__init__()
@@ -8308,8 +8100,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("route", ("route", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route))])
+                                    self._child_classes = OrderedDict([("route", ("route", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route))])
                                     self._leafs = OrderedDict()
 
                                     self.route = YList(self)
@@ -8354,7 +8145,7 @@ class OcBgp(Entity):
                                     	Path ID
                                     	**type**\: int
                                     
-                                    	**range:** \-2147483648..2147483647
+                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: prefix_name
                                     
@@ -8401,7 +8192,7 @@ class OcBgp(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-oc-oper'
-                                    _revision = '2017-05-01'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route, self).__init__()
@@ -8411,12 +8202,11 @@ class OcBgp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastUpdateRecieved))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastUpdateRecieved))])
                                         self._leafs = OrderedDict([
                                             ('route', YLeaf(YType.str, 'route')),
                                             ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
-                                            ('path_id', YLeaf(YType.int32, 'path-id')),
+                                            ('path_id', YLeaf(YType.uint32, 'path-id')),
                                             ('valid_route', YLeaf(YType.boolean, 'valid-route')),
                                             ('invalid_reason', YLeaf(YType.enumeration, 'invalid-reason')),
                                             ('best_path', YLeaf(YType.boolean, 'best-path')),
@@ -8431,27 +8221,22 @@ class OcBgp(Entity):
                                         self.prefix_name = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName()
                                         self.prefix_name.parent = self
                                         self._children_name_map["prefix_name"] = "prefix-name"
-                                        self._children_yang_names.add("prefix-name")
 
                                         self.route_attr_list = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList()
                                         self.route_attr_list.parent = self
                                         self._children_name_map["route_attr_list"] = "route-attr-list"
-                                        self._children_yang_names.add("route-attr-list")
 
                                         self.ext_attributes_list = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList()
                                         self.ext_attributes_list.parent = self
                                         self._children_name_map["ext_attributes_list"] = "ext-attributes-list"
-                                        self._children_yang_names.add("ext-attributes-list")
 
                                         self.last_modified_date = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastModifiedDate()
                                         self.last_modified_date.parent = self
                                         self._children_name_map["last_modified_date"] = "last-modified-date"
-                                        self._children_yang_names.add("last-modified-date")
 
                                         self.last_update_recieved = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastUpdateRecieved()
                                         self.last_update_recieved.parent = self
                                         self._children_name_map["last_update_recieved"] = "last-update-recieved"
-                                        self._children_yang_names.add("last-update-recieved")
                                         self._segment_path = lambda: "route"
 
                                     def __setattr__(self, name, value):
@@ -8479,7 +8264,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName, self).__init__()
@@ -8489,8 +8274,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName.Prefix))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName.Prefix))])
                                             self._leafs = OrderedDict([
                                                 ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
                                             ])
@@ -8499,7 +8283,6 @@ class OcBgp(Entity):
                                             self.prefix = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName.Prefix()
                                             self.prefix.parent = self
                                             self._children_name_map["prefix"] = "prefix"
-                                            self._children_yang_names.add("prefix")
                                             self._segment_path = lambda: "prefix-name"
 
                                         def __setattr__(self, name, value):
@@ -8534,7 +8317,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName.Prefix, self).__init__()
@@ -8544,8 +8327,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('afi', YLeaf(YType.enumeration, 'afi')),
                                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -8618,7 +8400,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList, self).__init__()
@@ -8628,8 +8410,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.AggregratorAttributes))])
-                                            self._child_list_classes = OrderedDict([("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.Community))])
+                                            self._child_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.AggregratorAttributes)), ("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.Community))])
                                             self._leafs = OrderedDict([
                                                 ('origin_type', YLeaf(YType.enumeration, 'origin-type')),
                                                 ('as_path', YLeaf(YType.str, 'as-path')),
@@ -8648,12 +8429,10 @@ class OcBgp(Entity):
                                             self.next_hop = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.NextHop()
                                             self.next_hop.parent = self
                                             self._children_name_map["next_hop"] = "next-hop"
-                                            self._children_yang_names.add("next-hop")
 
                                             self.aggregrator_attributes = OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.AggregratorAttributes()
                                             self.aggregrator_attributes.parent = self
                                             self._children_name_map["aggregrator_attributes"] = "aggregrator-attributes"
-                                            self._children_yang_names.add("aggregrator-attributes")
 
                                             self.community = YList(self)
                                             self._segment_path = lambda: "route-attr-list"
@@ -8690,7 +8469,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.NextHop, self).__init__()
@@ -8700,8 +8479,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('afi', YLeaf(YType.enumeration, 'afi')),
                                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -8746,7 +8524,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.AggregratorAttributes, self).__init__()
@@ -8756,8 +8534,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('as_', YLeaf(YType.uint32, 'as')),
                                                     ('as4', YLeaf(YType.uint32, 'as4')),
@@ -8786,7 +8563,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.Community, self).__init__()
@@ -8796,8 +8573,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('objects', YLeaf(YType.str, 'objects')),
                                                 ])
@@ -8855,7 +8631,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList, self).__init__()
@@ -8865,8 +8641,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.UnknownAttributes))])
+                                            self._child_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.UnknownAttributes))])
                                             self._leafs = OrderedDict([
                                                 ('originator_id', YLeaf(YType.str, 'originator-id')),
                                                 ('aigp', YLeaf(YType.uint64, 'aigp')),
@@ -8900,7 +8675,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.ExtCommunity, self).__init__()
@@ -8910,8 +8685,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('objects', YLeaf(YType.str, 'objects')),
                                                 ])
@@ -8952,7 +8726,7 @@ class OcBgp(Entity):
                                             """
 
                                             _prefix = 'ipv4-bgp-oc-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.UnknownAttributes, self).__init__()
@@ -8962,8 +8736,7 @@ class OcBgp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('attribute_type', YLeaf(YType.uint16, 'attribute-type')),
                                                     ('attribute_length', YLeaf(YType.uint16, 'attribute-length')),
@@ -8992,7 +8765,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastModifiedDate, self).__init__()
@@ -9002,8 +8775,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('time_value', YLeaf(YType.str, 'time-value')),
                                             ])
@@ -9028,7 +8800,7 @@ class OcBgp(Entity):
                                         """
 
                                         _prefix = 'ipv4-bgp-oc-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastUpdateRecieved, self).__init__()
@@ -9038,8 +8810,7 @@ class OcBgp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('time_value', YLeaf(YType.str, 'time-value')),
                                             ])
@@ -9067,7 +8838,7 @@ class OcBgp(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-oc-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.NumRoutes, self).__init__()
@@ -9077,8 +8848,7 @@ class OcBgp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('num_routes', YLeaf(YType.uint64, 'num-routes')),
                                     ])

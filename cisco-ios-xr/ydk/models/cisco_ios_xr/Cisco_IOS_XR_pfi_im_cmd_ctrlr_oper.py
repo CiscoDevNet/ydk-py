@@ -168,15 +168,16 @@ class Controllers(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("controllers", ("controllers", Controllers.Controllers_))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("controllers", ("controllers", Controllers.Controllers_))])
         self._leafs = OrderedDict()
 
         self.controllers = Controllers.Controllers_()
         self.controllers.parent = self
         self._children_name_map["controllers"] = "controllers"
-        self._children_yang_names.add("controllers")
         self._segment_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-ctrlr-oper:controllers"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Controllers, [], name, value)
 
 
     class Controllers_(Entity):
@@ -203,8 +204,7 @@ class Controllers(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("controller", ("controller", Controllers.Controllers_.Controller))])
+            self._child_classes = OrderedDict([("controller", ("controller", Controllers.Controllers_.Controller))])
             self._leafs = OrderedDict()
 
             self.controller = YList(self)
@@ -258,8 +258,7 @@ class Controllers(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interafce_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('interafce_name', YLeaf(YType.str, 'interafce-name')),
                     ('controller', YLeaf(YType.str, 'controller')),

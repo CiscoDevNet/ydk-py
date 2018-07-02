@@ -124,20 +124,20 @@ class ManagementPlaneProtection(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("outband", ("outband", ManagementPlaneProtection.Outband)), ("inband", ("inband", ManagementPlaneProtection.Inband))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("outband", ("outband", ManagementPlaneProtection.Outband)), ("inband", ("inband", ManagementPlaneProtection.Inband))])
         self._leafs = OrderedDict()
 
         self.outband = ManagementPlaneProtection.Outband()
         self.outband.parent = self
         self._children_name_map["outband"] = "outband"
-        self._children_yang_names.add("outband")
 
         self.inband = ManagementPlaneProtection.Inband()
         self.inband.parent = self
         self._children_name_map["inband"] = "inband"
-        self._children_yang_names.add("inband")
         self._segment_path = lambda: "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(ManagementPlaneProtection, [], name, value)
 
 
     class Outband(Entity):
@@ -170,21 +170,21 @@ class ManagementPlaneProtection(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("vrf", ("vrf", ManagementPlaneProtection.Outband.Vrf)), ("interfaces", ("interfaces", ManagementPlaneProtection.Outband.Interfaces))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("vrf", ("vrf", ManagementPlaneProtection.Outband.Vrf)), ("interfaces", ("interfaces", ManagementPlaneProtection.Outband.Interfaces))])
             self._leafs = OrderedDict()
 
             self.vrf = ManagementPlaneProtection.Outband.Vrf()
             self.vrf.parent = self
             self._children_name_map["vrf"] = "vrf"
-            self._children_yang_names.add("vrf")
 
             self.interfaces = ManagementPlaneProtection.Outband.Interfaces()
             self.interfaces.parent = self
             self._children_name_map["interfaces"] = "interfaces"
-            self._children_yang_names.add("interfaces")
             self._segment_path = lambda: "outband"
             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(ManagementPlaneProtection.Outband, [], name, value)
 
 
         class Vrf(Entity):
@@ -211,8 +211,7 @@ class ManagementPlaneProtection(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                 ])
@@ -221,7 +220,7 @@ class ManagementPlaneProtection(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/outband/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ManagementPlaneProtection.Outband.Vrf, ['vrf_name'], name, value)
+                self._perform_setattr(ManagementPlaneProtection.Outband.Vrf, [u'vrf_name'], name, value)
 
 
         class Interfaces(Entity):
@@ -248,8 +247,7 @@ class ManagementPlaneProtection(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("interface", ("interface", ManagementPlaneProtection.Outband.Interfaces.Interface))])
+                self._child_classes = OrderedDict([("interface", ("interface", ManagementPlaneProtection.Outband.Interfaces.Interface))])
                 self._leafs = OrderedDict()
 
                 self.interface = YList(self)
@@ -289,8 +287,7 @@ class ManagementPlaneProtection(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['interface_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("protocol", ("protocol", ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol))])
+                    self._child_classes = OrderedDict([("protocol", ("protocol", ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol))])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                     ])
@@ -338,8 +335,7 @@ class ManagementPlaneProtection(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("peer-address", ("peer_address", ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol.PeerAddress))])
+                        self._child_classes = OrderedDict([("peer-address", ("peer_address", ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol.PeerAddress))])
                         self._leafs = OrderedDict([
                             ('allow', YLeaf(YType.enumeration, 'allow')),
                             ('is_all_peers_allowed', YLeaf(YType.boolean, 'is-all-peers-allowed')),
@@ -351,7 +347,7 @@ class ManagementPlaneProtection(Entity):
                         self._segment_path = lambda: "protocol"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol, ['allow', 'is_all_peers_allowed'], name, value)
+                        self._perform_setattr(ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol, [u'allow', u'is_all_peers_allowed'], name, value)
 
 
                     class PeerAddress(Entity):
@@ -392,8 +388,7 @@ class ManagementPlaneProtection(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('af_name', YLeaf(YType.identityref, 'af-name')),
                                 ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -405,7 +400,7 @@ class ManagementPlaneProtection(Entity):
                             self._segment_path = lambda: "peer-address"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol.PeerAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                            self._perform_setattr(ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol.PeerAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
 
 
     class Inband(Entity):
@@ -433,16 +428,17 @@ class ManagementPlaneProtection(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("interfaces", ("interfaces", ManagementPlaneProtection.Inband.Interfaces))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("interfaces", ("interfaces", ManagementPlaneProtection.Inband.Interfaces))])
             self._leafs = OrderedDict()
 
             self.interfaces = ManagementPlaneProtection.Inband.Interfaces()
             self.interfaces.parent = self
             self._children_name_map["interfaces"] = "interfaces"
-            self._children_yang_names.add("interfaces")
             self._segment_path = lambda: "inband"
             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(ManagementPlaneProtection.Inband, [], name, value)
 
 
         class Interfaces(Entity):
@@ -469,8 +465,7 @@ class ManagementPlaneProtection(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("interface", ("interface", ManagementPlaneProtection.Inband.Interfaces.Interface))])
+                self._child_classes = OrderedDict([("interface", ("interface", ManagementPlaneProtection.Inband.Interfaces.Interface))])
                 self._leafs = OrderedDict()
 
                 self.interface = YList(self)
@@ -510,8 +505,7 @@ class ManagementPlaneProtection(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['interface_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("protocol", ("protocol", ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol))])
+                    self._child_classes = OrderedDict([("protocol", ("protocol", ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol))])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                     ])
@@ -559,8 +553,7 @@ class ManagementPlaneProtection(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("peer-address", ("peer_address", ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol.PeerAddress))])
+                        self._child_classes = OrderedDict([("peer-address", ("peer_address", ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol.PeerAddress))])
                         self._leafs = OrderedDict([
                             ('allow', YLeaf(YType.enumeration, 'allow')),
                             ('is_all_peers_allowed', YLeaf(YType.boolean, 'is-all-peers-allowed')),
@@ -572,7 +565,7 @@ class ManagementPlaneProtection(Entity):
                         self._segment_path = lambda: "protocol"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol, ['allow', 'is_all_peers_allowed'], name, value)
+                        self._perform_setattr(ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol, [u'allow', u'is_all_peers_allowed'], name, value)
 
 
                     class PeerAddress(Entity):
@@ -613,8 +606,7 @@ class ManagementPlaneProtection(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('af_name', YLeaf(YType.identityref, 'af-name')),
                                 ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -626,7 +618,7 @@ class ManagementPlaneProtection(Entity):
                             self._segment_path = lambda: "peer-address"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol.PeerAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                            self._perform_setattr(ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol.PeerAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ManagementPlaneProtection()

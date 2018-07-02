@@ -49,15 +49,16 @@ class Statistics(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("period", ("period", Statistics.Period))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("period", ("period", Statistics.Period))])
         self._leafs = OrderedDict()
 
         self.period = Statistics.Period()
         self.period.parent = self
         self._children_name_map["period"] = "period"
-        self._children_yang_names.add("period")
         self._segment_path = lambda: "Cisco-IOS-XR-infra-statsd-cfg:statistics"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Statistics, [], name, value)
 
 
     class Period(Entity):
@@ -84,16 +85,17 @@ class Statistics(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("service-accounting", ("service_accounting", Statistics.Period.ServiceAccounting))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("service-accounting", ("service_accounting", Statistics.Period.ServiceAccounting))])
             self._leafs = OrderedDict()
 
             self.service_accounting = Statistics.Period.ServiceAccounting()
             self.service_accounting.parent = self
             self._children_name_map["service_accounting"] = "service-accounting"
-            self._children_yang_names.add("service-accounting")
             self._segment_path = lambda: "period"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-statsd-cfg:statistics/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Statistics.Period, [], name, value)
 
 
         class ServiceAccounting(Entity):
@@ -107,6 +109,8 @@ class Statistics(Entity):
             	**type**\: int
             
             	**range:** 30..3600
+            
+            	**default value**\: 900
             
             .. attribute:: polling_disable
             
@@ -128,8 +132,7 @@ class Statistics(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('polling_period', YLeaf(YType.uint32, 'polling-period')),
                     ('polling_disable', YLeaf(YType.empty, 'polling-disable')),

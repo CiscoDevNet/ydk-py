@@ -117,8 +117,7 @@ class Ipv6Data(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("nd6-info", ("nd6_info", Ipv6Data.Nd6Info))])
+        self._child_classes = OrderedDict([("nd6-info", ("nd6_info", Ipv6Data.Nd6Info))])
         self._leafs = OrderedDict()
 
         self.nd6_info = YList(self)
@@ -196,8 +195,7 @@ class Ipv6Data(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['vrf_name','if_name','ip']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                 ('if_name', YLeaf(YType.str, 'if-name')),

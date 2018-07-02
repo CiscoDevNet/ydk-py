@@ -41,8 +41,7 @@ class VM(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("all-locations", ("all_locations", VM.AllLocations))])
+        self._child_classes = OrderedDict([("all-locations", ("all_locations", VM.AllLocations))])
         self._leafs = OrderedDict()
 
         self.all_locations = YList(self)
@@ -81,8 +80,7 @@ class VM(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['location']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("all-uiids", ("all_uiids", VM.AllLocations.AllUiids))])
+            self._child_classes = OrderedDict([("all-uiids", ("all_uiids", VM.AllLocations.AllUiids))])
             self._leafs = OrderedDict([
                 ('location', YLeaf(YType.str, 'location')),
             ])
@@ -160,8 +158,7 @@ class VM(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['uiid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('uiid', YLeaf(YType.str, 'uiid')),
                     ('id', YLeaf(YType.str, 'id')),

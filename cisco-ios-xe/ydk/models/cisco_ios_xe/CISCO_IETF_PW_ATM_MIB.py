@@ -25,7 +25,7 @@ class CISCOIETFPWATMMIB(Entity):
     .. attribute:: cpwvcatmtable
     
     	This table specifies the information for an ATM interface, VC, VP to be carried over PSN
-    	**type**\:  :py:class:`Cpwvcatmtable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ATM_MIB.CISCOIETFPWATMMIB.Cpwvcatmtable>`
+    	**type**\:  :py:class:`CpwVcAtmTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ATM_MIB.CISCOIETFPWATMMIB.CpwVcAtmTable>`
     
     
 
@@ -43,18 +43,19 @@ class CISCOIETFPWATMMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cpwVcAtmTable", ("cpwvcatmtable", CISCOIETFPWATMMIB.Cpwvcatmtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cpwVcAtmTable", ("cpwvcatmtable", CISCOIETFPWATMMIB.CpwVcAtmTable))])
         self._leafs = OrderedDict()
 
-        self.cpwvcatmtable = CISCOIETFPWATMMIB.Cpwvcatmtable()
+        self.cpwvcatmtable = CISCOIETFPWATMMIB.CpwVcAtmTable()
         self.cpwvcatmtable.parent = self
         self._children_name_map["cpwvcatmtable"] = "cpwVcAtmTable"
-        self._children_yang_names.add("cpwVcAtmTable")
         self._segment_path = lambda: "CISCO-IETF-PW-ATM-MIB:CISCO-IETF-PW-ATM-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOIETFPWATMMIB, [], name, value)
 
-    class Cpwvcatmtable(Entity):
+
+    class CpwVcAtmTable(Entity):
         """
         This table specifies the information for an ATM interface, VC,
         VP to be carried over PSN.
@@ -62,7 +63,7 @@ class CISCOIETFPWATMMIB(Entity):
         .. attribute:: cpwvcatmentry
         
         	A row in this table represents an ATM interface, VC, VP that needs to be adapted and carried over PSN. This table is indexed by CpwVcIndex in CISCO\-IETF\-PW\-MIB
-        	**type**\: list of  		 :py:class:`Cpwvcatmentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ATM_MIB.CISCOIETFPWATMMIB.Cpwvcatmtable.Cpwvcatmentry>`
+        	**type**\: list of  		 :py:class:`CpwVcAtmEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ATM_MIB.CISCOIETFPWATMMIB.CpwVcAtmTable.CpwVcAtmEntry>`
         
         
 
@@ -72,15 +73,14 @@ class CISCOIETFPWATMMIB(Entity):
         _revision = '2005-04-19'
 
         def __init__(self):
-            super(CISCOIETFPWATMMIB.Cpwvcatmtable, self).__init__()
+            super(CISCOIETFPWATMMIB.CpwVcAtmTable, self).__init__()
 
             self.yang_name = "cpwVcAtmTable"
             self.yang_parent_name = "CISCO-IETF-PW-ATM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpwVcAtmEntry", ("cpwvcatmentry", CISCOIETFPWATMMIB.Cpwvcatmtable.Cpwvcatmentry))])
+            self._child_classes = OrderedDict([("cpwVcAtmEntry", ("cpwvcatmentry", CISCOIETFPWATMMIB.CpwVcAtmTable.CpwVcAtmEntry))])
             self._leafs = OrderedDict()
 
             self.cpwvcatmentry = YList(self)
@@ -88,10 +88,10 @@ class CISCOIETFPWATMMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-PW-ATM-MIB:CISCO-IETF-PW-ATM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWATMMIB.Cpwvcatmtable, [], name, value)
+            self._perform_setattr(CISCOIETFPWATMMIB.CpwVcAtmTable, [], name, value)
 
 
-        class Cpwvcatmentry(Entity):
+        class CpwVcAtmEntry(Entity):
             """
             A row in this table represents an ATM interface, VC, VP
             that needs to be adapted and carried over PSN. This table
@@ -104,7 +104,7 @@ class CISCOIETFPWATMMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
+            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
             
             .. attribute:: cpwatmif
             
@@ -171,7 +171,7 @@ class CISCOIETFPWATMMIB(Entity):
             .. attribute:: cpwatmencap
             
             	This object indicates if the packet going on the pseudowire is mpls or l2tpv3 encapsulated
-            	**type**\:  :py:class:`Cpwatmencap <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ATM_MIB.CISCOIETFPWATMMIB.Cpwvcatmtable.Cpwvcatmentry.Cpwatmencap>`
+            	**type**\:  :py:class:`CpwAtmEncap <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ATM_MIB.CISCOIETFPWATMMIB.CpwVcAtmTable.CpwVcAtmEntry.CpwAtmEncap>`
             
             .. attribute:: cpwatmmcpttimeout
             
@@ -265,15 +265,14 @@ class CISCOIETFPWATMMIB(Entity):
             _revision = '2005-04-19'
 
             def __init__(self):
-                super(CISCOIETFPWATMMIB.Cpwvcatmtable.Cpwvcatmentry, self).__init__()
+                super(CISCOIETFPWATMMIB.CpwVcAtmTable.CpwVcAtmEntry, self).__init__()
 
                 self.yang_name = "cpwVcAtmEntry"
                 self.yang_parent_name = "cpwVcAtmTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpwvcindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
                     ('cpwatmif', YLeaf(YType.int32, 'cpwAtmIf')),
@@ -328,11 +327,11 @@ class CISCOIETFPWATMMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-PW-ATM-MIB:CISCO-IETF-PW-ATM-MIB/cpwVcAtmTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWATMMIB.Cpwvcatmtable.Cpwvcatmentry, ['cpwvcindex', 'cpwatmif', 'cpwatmvpi', 'cpwatmvci', 'cpwatmclpqosmapping', 'cpwatmrowstatus', 'cpwatmoamcellsupported', 'cpwatmqosscalingfactor', 'cpwatmcellpacking', 'cpwatmmncp', 'cpwatmpeermncp', 'cpwatmencap', 'cpwatmmcpttimeout', 'cpwatmcellsreceived', 'cpwatmcellssent', 'cpwatmcellsrejected', 'cpwatmcellstagged', 'cpwatmhccellsreceived', 'cpwatmhccellsrejected', 'cpwatmhccellstagged', 'cpwatmavgcellspacked', 'cpwatmpktsreceived', 'cpwatmpktssent', 'cpwatmpktsrejected'], name, value)
+                self._perform_setattr(CISCOIETFPWATMMIB.CpwVcAtmTable.CpwVcAtmEntry, ['cpwvcindex', 'cpwatmif', 'cpwatmvpi', 'cpwatmvci', 'cpwatmclpqosmapping', 'cpwatmrowstatus', 'cpwatmoamcellsupported', 'cpwatmqosscalingfactor', 'cpwatmcellpacking', 'cpwatmmncp', 'cpwatmpeermncp', 'cpwatmencap', 'cpwatmmcpttimeout', 'cpwatmcellsreceived', 'cpwatmcellssent', 'cpwatmcellsrejected', 'cpwatmcellstagged', 'cpwatmhccellsreceived', 'cpwatmhccellsrejected', 'cpwatmhccellstagged', 'cpwatmavgcellspacked', 'cpwatmpktsreceived', 'cpwatmpktssent', 'cpwatmpktsrejected'], name, value)
 
-            class Cpwatmencap(Enum):
+            class CpwAtmEncap(Enum):
                 """
-                Cpwatmencap (Enum Class)
+                CpwAtmEncap (Enum Class)
 
                 This object indicates if the packet going on the pseudowire
 

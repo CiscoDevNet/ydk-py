@@ -3,7 +3,7 @@ module openconfig-local-routing {
   namespace "http://openconfig.net/yang/local-routing";
   prefix oc-loc-rt;
 
-  import ietf-inet-types {
+  import openconfig-inet-types {
     prefix inet;
   }
   import openconfig-policy-types {
@@ -12,8 +12,8 @@ module openconfig-local-routing {
   import openconfig-extensions {
     prefix oc-ext;
   }
-  import cisco-xr-openconfig-interfaces-types {
-    prefix cisco-oc-if-types;
+  import openconfig-interfaces {
+    prefix oc-if;
   }
 
   organization
@@ -27,6 +27,7 @@ module openconfig-local-routing {
      dynamic routing protocols.  These include static routes, locally
      created aggregate routes for reducing the number of constituent
      routes that must be advertised, summary routes for IGPs, etc.
+     
      This model expresses locally generated routes as generically as
      possible, avoiding configuration of protocol-specific attributes
      at the time of route creation.  This is primarily to avoid
@@ -35,12 +36,18 @@ module openconfig-local-routing {
      maintain.  Hence, the definition of locally generated routes
      essentially creates 'bare' routes that do not have any protocol-
      specific attributes.
+     
      When protocol-specific attributes must be attached to a route
      (e.g., communities on a locally defined route meant to be
      advertised via BGP), the attributes should be attached via a
      protocol-specific policy after importing the route into the
      protocol for distribution (again via routing policy).";
 
+  revision 2017-05-15 {
+    description
+      "Update to resolve style guide non-compliance.";
+    reference "1.0.1";
+  }
   revision 2016-05-11 {
     description
       "OpenConfig public release";
@@ -122,7 +129,7 @@ module openconfig-local-routing {
     }
     leaf next-hop {
       type union {
-        type inet:ip-address-no-zone;
+        type inet:ip-address;
         type local-defined-next-hop;
       }
       description
@@ -236,7 +243,7 @@ module openconfig-local-routing {
               uses local-static-nexthop-config;
               uses local-static-nexthop-state;
             }
-            uses cisco-oc-if-types:interface-ref;
+            uses oc-if:interface-ref;
           }
         }
       }
@@ -338,7 +345,7 @@ module openconfig-local-routing {
       uses local-aggregate-top;
     }
   }
-  oc-ext:openconfig-version "1.0.0";
+  oc-ext:openconfig-version "1.0.1";
 
   uses local-routes-top;
 }

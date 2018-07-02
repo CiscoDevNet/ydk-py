@@ -20,160 +20,160 @@ class CISCOSTPEXTENSIONSMIB(Entity):
     .. attribute:: stpxuplinkfastobjects
     
     	
-    	**type**\:  :py:class:`Stpxuplinkfastobjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxuplinkfastobjects>`
+    	**type**\:  :py:class:`StpxUplinkFastObjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxUplinkFastObjects>`
     
     .. attribute:: stpxbackbonefastobjects
     
     	
-    	**type**\:  :py:class:`Stpxbackbonefastobjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxbackbonefastobjects>`
+    	**type**\:  :py:class:`StpxBackboneFastObjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxBackboneFastObjects>`
     
     .. attribute:: stpxspanningtreeobjects
     
     	
-    	**type**\:  :py:class:`Stpxspanningtreeobjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxspanningtreeobjects>`
+    	**type**\:  :py:class:`StpxSpanningTreeObjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSpanningTreeObjects>`
     
     .. attribute:: stpxmistpobjects
     
     	
-    	**type**\:  :py:class:`Stpxmistpobjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxmistpobjects>`
+    	**type**\:  :py:class:`StpxMISTPObjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMISTPObjects>`
     
     .. attribute:: stpxloopguardobjects
     
     	
-    	**type**\:  :py:class:`Stpxloopguardobjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxloopguardobjects>`
+    	**type**\:  :py:class:`StpxLoopGuardObjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxLoopGuardObjects>`
     
     .. attribute:: stpxfaststartobjects
     
     	
-    	**type**\:  :py:class:`Stpxfaststartobjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxfaststartobjects>`
+    	**type**\:  :py:class:`StpxFastStartObjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxFastStartObjects>`
     
     .. attribute:: stpxbpduskewingobjects
     
     	
-    	**type**\:  :py:class:`Stpxbpduskewingobjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxbpduskewingobjects>`
+    	**type**\:  :py:class:`StpxBpduSkewingObjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxBpduSkewingObjects>`
     
     .. attribute:: stpxmstobjects
     
     	
-    	**type**\:  :py:class:`Stpxmstobjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxmstobjects>`
+    	**type**\:  :py:class:`StpxMSTObjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTObjects>`
     
     .. attribute:: stpxrstpobjects
     
     	
-    	**type**\:  :py:class:`Stpxrstpobjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxrstpobjects>`
+    	**type**\:  :py:class:`StpxRSTPObjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRSTPObjects>`
     
     .. attribute:: stpxsmstobjects
     
     	
-    	**type**\:  :py:class:`Stpxsmstobjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxsmstobjects>`
+    	**type**\:  :py:class:`StpxSMSTObjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSMSTObjects>`
     
     .. attribute:: stpxpvstvlantable
     
     	A list of Virtual LAN entries containing information for Spanning Tree PVST+ protocol.  An entry will exist for each VLAN existing on  the device
-    	**type**\:  :py:class:`Stpxpvstvlantable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxpvstvlantable>`
+    	**type**\:  :py:class:`StpxPVSTVlanTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxPVSTVlanTable>`
     
     .. attribute:: stpxinconsistencytable
     
     	A table containing a list of the ports for which a particular VLAN's Spanning Tree has been found to have an inconsistency.  Two types of inconsistency are discovered\: 1) an inconsistency where two different port types have been plugged together; and 2) an inconsistency where different switches have different PVIDs for the same link
-    	**type**\:  :py:class:`Stpxinconsistencytable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxinconsistencytable>`
+    	**type**\:  :py:class:`StpxInconsistencyTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxInconsistencyTable>`
     
     .. attribute:: stpxrootguardconfigtable
     
     	A table containing a list of the bridge ports for which Spanning Tree RootGuard capability can be configured
-    	**type**\:  :py:class:`Stpxrootguardconfigtable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxrootguardconfigtable>`
+    	**type**\:  :py:class:`StpxRootGuardConfigTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRootGuardConfigTable>`
     
     .. attribute:: stpxrootinconsistencytable
     
     	A table containing a list of the bridge ports for which a particular Spanning Tree instance has been found  to have an root\-inconsistency. The agent creates a new  entry in this table whenever it detects a new  root\-inconsistency, and deletes entries  when/soon after the inconsistency is no longer present
-    	**type**\:  :py:class:`Stpxrootinconsistencytable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxrootinconsistencytable>`
+    	**type**\:  :py:class:`StpxRootInconsistencyTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRootInconsistencyTable>`
     
     .. attribute:: stpxmistpinstancetable
     
     	This table contains one entry for each instance of MISTP and  it contains stpxMISTPInstanceNumber entries, numbered from 1 to stpxMISTPInstanceNumber.  This table is only instantiated when the value of  stpxSpanningTreeType is mistp(2) or mistpPvstPlus(3)
-    	**type**\:  :py:class:`Stpxmistpinstancetable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxmistpinstancetable>`
+    	**type**\:  :py:class:`StpxMISTPInstanceTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMISTPInstanceTable>`
     
     .. attribute:: stpxloopguardconfigtable
     
     	A table containing a list of the bridge ports for which Spanning Tree LoopGuard capability can be configured
-    	**type**\:  :py:class:`Stpxloopguardconfigtable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxloopguardconfigtable>`
+    	**type**\:  :py:class:`StpxLoopGuardConfigTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxLoopGuardConfigTable>`
     
     .. attribute:: stpxloopinconsistencytable
     
     	A table containing a list of the bridge ports for which a particular Spanning Tree instance has been found to have a loop\-inconsistency. The agent creates a new entry in this table whenever it detects a new loop\-inconsistency, and deletes entries when/soon after the inconsistency is no longer present
-    	**type**\:  :py:class:`Stpxloopinconsistencytable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxloopinconsistencytable>`
+    	**type**\:  :py:class:`StpxLoopInconsistencyTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxLoopInconsistencyTable>`
     
     .. attribute:: stpxfaststartporttable
     
     	A table containing a list of the bridge ports for which Spanning Tree Port Fast Start can be configured
-    	**type**\:  :py:class:`Stpxfaststartporttable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxfaststartporttable>`
+    	**type**\:  :py:class:`StpxFastStartPortTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxFastStartPortTable>`
     
     .. attribute:: stpxfaststartopermodetable
     
     	A table containing a list of the bridge ports  for a particular Spanning Tree Instance
-    	**type**\:  :py:class:`Stpxfaststartopermodetable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxfaststartopermodetable>`
+    	**type**\:  :py:class:`StpxFastStartOperModeTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxFastStartOperModeTable>`
     
     .. attribute:: stpxbpduskewingtable
     
     	A table containing a list of the bridge ports for  which a particular Spanning Tree instance has been  detected to have BPDU skewing occurred since the  object value of stpxBpduSkewingDetectionEnable was last changed to true(1).  The agent creates a new entry in this table whenever a port in a particular Spanning Tree instance is  detected to be BPDU skewed since the object value of  stpxBpduSkewingDetectionEnable object is changed to  true(1). The agent deletes all the entries in this  table when the object value of  stpxBpduSkewingDetectionEnable is changed to false(2) or the object value of stpxSpanningTreeType is  changed
-    	**type**\:  :py:class:`Stpxbpduskewingtable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxbpduskewingtable>`
+    	**type**\:  :py:class:`StpxBpduSkewingTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxBpduSkewingTable>`
     
     .. attribute:: stpxmstinstancetable
     
     	This table contains MST instance information with one entry for an MST instance within the range of  0 to the object value of stpxMSTMaxInstanceNumber.   This table is deprecated and replaced by  stpxSMSTInstanceTable
-    	**type**\:  :py:class:`Stpxmstinstancetable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxmstinstancetable>`
+    	**type**\:  :py:class:`StpxMSTInstanceTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTInstanceTable>`
     
     	**status**\: deprecated
     
     .. attribute:: stpxmstinstanceedittable
     
     	This table contains MST instance information in the  Edit Buffer with one entry for each MST instance numbered from 0 to stpxMSTMaxInstanceNumber.   This table is only instantiated when the  stpxMSTRegionEditBufferStatus has the value of acquiredBySnmp(2).  This table is deprecated and replaced by  stpxSMSTInstanceEditTable
-    	**type**\:  :py:class:`Stpxmstinstanceedittable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxmstinstanceedittable>`
+    	**type**\:  :py:class:`StpxMSTInstanceEditTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTInstanceEditTable>`
     
     	**status**\: deprecated
     
     .. attribute:: stpxmstporttable
     
     	A table containing port information for the MST  Protocol on all the bridge ports existing on the  system
-    	**type**\:  :py:class:`Stpxmstporttable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxmstporttable>`
+    	**type**\:  :py:class:`StpxMSTPortTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTPortTable>`
     
     	**status**\: deprecated
     
     .. attribute:: stpxmstportroletable
     
     	A table containing a list of the bridge ports for a  particular MST instance.  This table is only instantiated  when the stpxSpanningTreeType is mst(4).   This table is deprecated and replaced with  stpxRSTPPortRoleTable
-    	**type**\:  :py:class:`Stpxmstportroletable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxmstportroletable>`
+    	**type**\:  :py:class:`StpxMSTPortRoleTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTPortRoleTable>`
     
     	**status**\: deprecated
     
     .. attribute:: stpxrstpporttable
     
     	A table containing port information for the RSTP  Protocol on all the bridge ports existing in the  system
-    	**type**\:  :py:class:`Stpxrstpporttable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxrstpporttable>`
+    	**type**\:  :py:class:`StpxRSTPPortTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRSTPPortTable>`
     
     .. attribute:: stpxrstpportroletable
     
     	A table containing a list of the bridge ports for a  particular Spanning Tree instance.  This table is  only instantiated when the stpxSpanningTreeType is mst(4)  or rapidPvstPlus(5)
-    	**type**\:  :py:class:`Stpxrstpportroletable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxrstpportroletable>`
+    	**type**\:  :py:class:`StpxRSTPPortRoleTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRSTPPortRoleTable>`
     
     .. attribute:: stpxrpvstporttable
     
     	A table containing a list of the bridge ports  for a particular Spanning Tree Instance. This table is only instantiated when the object value of stpxSpanningTreeType is rapidPvstPlus(5)
-    	**type**\:  :py:class:`Stpxrpvstporttable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxrpvstporttable>`
+    	**type**\:  :py:class:`StpxRPVSTPortTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRPVSTPortTable>`
     
     .. attribute:: stpxsmstinstancetable
     
     	This table contains MST instance information for IEEE MST
-    	**type**\:  :py:class:`Stpxsmstinstancetable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxsmstinstancetable>`
+    	**type**\:  :py:class:`StpxSMSTInstanceTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceTable>`
     
     .. attribute:: stpxsmstinstanceedittable
     
     	This table contains MST instance information in the  Edit Buffer.   This table is only instantiated when the object value of  stpxMSTRegionEditBufferStatus has the value of acquiredBySnmp(2)
-    	**type**\:  :py:class:`Stpxsmstinstanceedittable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxsmstinstanceedittable>`
+    	**type**\:  :py:class:`StpxSMSTInstanceEditTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceEditTable>`
     
     .. attribute:: stpxsmstporttable
     
     	A table containing port information for the MST  Protocol on all the bridge ports existing on the  system.  This table is only instantiated when the object  value of stpxSpanningTreeType is mst(4)
-    	**type**\:  :py:class:`Stpxsmstporttable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxsmstporttable>`
+    	**type**\:  :py:class:`StpxSMSTPortTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSMSTPortTable>`
     
     
 
@@ -191,163 +191,135 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("stpxUplinkFastObjects", ("stpxuplinkfastobjects", CISCOSTPEXTENSIONSMIB.Stpxuplinkfastobjects)), ("stpxBackboneFastObjects", ("stpxbackbonefastobjects", CISCOSTPEXTENSIONSMIB.Stpxbackbonefastobjects)), ("stpxSpanningTreeObjects", ("stpxspanningtreeobjects", CISCOSTPEXTENSIONSMIB.Stpxspanningtreeobjects)), ("stpxMISTPObjects", ("stpxmistpobjects", CISCOSTPEXTENSIONSMIB.Stpxmistpobjects)), ("stpxLoopGuardObjects", ("stpxloopguardobjects", CISCOSTPEXTENSIONSMIB.Stpxloopguardobjects)), ("stpxFastStartObjects", ("stpxfaststartobjects", CISCOSTPEXTENSIONSMIB.Stpxfaststartobjects)), ("stpxBpduSkewingObjects", ("stpxbpduskewingobjects", CISCOSTPEXTENSIONSMIB.Stpxbpduskewingobjects)), ("stpxMSTObjects", ("stpxmstobjects", CISCOSTPEXTENSIONSMIB.Stpxmstobjects)), ("stpxRSTPObjects", ("stpxrstpobjects", CISCOSTPEXTENSIONSMIB.Stpxrstpobjects)), ("stpxSMSTObjects", ("stpxsmstobjects", CISCOSTPEXTENSIONSMIB.Stpxsmstobjects)), ("stpxPVSTVlanTable", ("stpxpvstvlantable", CISCOSTPEXTENSIONSMIB.Stpxpvstvlantable)), ("stpxInconsistencyTable", ("stpxinconsistencytable", CISCOSTPEXTENSIONSMIB.Stpxinconsistencytable)), ("stpxRootGuardConfigTable", ("stpxrootguardconfigtable", CISCOSTPEXTENSIONSMIB.Stpxrootguardconfigtable)), ("stpxRootInconsistencyTable", ("stpxrootinconsistencytable", CISCOSTPEXTENSIONSMIB.Stpxrootinconsistencytable)), ("stpxMISTPInstanceTable", ("stpxmistpinstancetable", CISCOSTPEXTENSIONSMIB.Stpxmistpinstancetable)), ("stpxLoopGuardConfigTable", ("stpxloopguardconfigtable", CISCOSTPEXTENSIONSMIB.Stpxloopguardconfigtable)), ("stpxLoopInconsistencyTable", ("stpxloopinconsistencytable", CISCOSTPEXTENSIONSMIB.Stpxloopinconsistencytable)), ("stpxFastStartPortTable", ("stpxfaststartporttable", CISCOSTPEXTENSIONSMIB.Stpxfaststartporttable)), ("stpxFastStartOperModeTable", ("stpxfaststartopermodetable", CISCOSTPEXTENSIONSMIB.Stpxfaststartopermodetable)), ("stpxBpduSkewingTable", ("stpxbpduskewingtable", CISCOSTPEXTENSIONSMIB.Stpxbpduskewingtable)), ("stpxMSTInstanceTable", ("stpxmstinstancetable", CISCOSTPEXTENSIONSMIB.Stpxmstinstancetable)), ("stpxMSTInstanceEditTable", ("stpxmstinstanceedittable", CISCOSTPEXTENSIONSMIB.Stpxmstinstanceedittable)), ("stpxMSTPortTable", ("stpxmstporttable", CISCOSTPEXTENSIONSMIB.Stpxmstporttable)), ("stpxMSTPortRoleTable", ("stpxmstportroletable", CISCOSTPEXTENSIONSMIB.Stpxmstportroletable)), ("stpxRSTPPortTable", ("stpxrstpporttable", CISCOSTPEXTENSIONSMIB.Stpxrstpporttable)), ("stpxRSTPPortRoleTable", ("stpxrstpportroletable", CISCOSTPEXTENSIONSMIB.Stpxrstpportroletable)), ("stpxRPVSTPortTable", ("stpxrpvstporttable", CISCOSTPEXTENSIONSMIB.Stpxrpvstporttable)), ("stpxSMSTInstanceTable", ("stpxsmstinstancetable", CISCOSTPEXTENSIONSMIB.Stpxsmstinstancetable)), ("stpxSMSTInstanceEditTable", ("stpxsmstinstanceedittable", CISCOSTPEXTENSIONSMIB.Stpxsmstinstanceedittable)), ("stpxSMSTPortTable", ("stpxsmstporttable", CISCOSTPEXTENSIONSMIB.Stpxsmstporttable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("stpxUplinkFastObjects", ("stpxuplinkfastobjects", CISCOSTPEXTENSIONSMIB.StpxUplinkFastObjects)), ("stpxBackboneFastObjects", ("stpxbackbonefastobjects", CISCOSTPEXTENSIONSMIB.StpxBackboneFastObjects)), ("stpxSpanningTreeObjects", ("stpxspanningtreeobjects", CISCOSTPEXTENSIONSMIB.StpxSpanningTreeObjects)), ("stpxMISTPObjects", ("stpxmistpobjects", CISCOSTPEXTENSIONSMIB.StpxMISTPObjects)), ("stpxLoopGuardObjects", ("stpxloopguardobjects", CISCOSTPEXTENSIONSMIB.StpxLoopGuardObjects)), ("stpxFastStartObjects", ("stpxfaststartobjects", CISCOSTPEXTENSIONSMIB.StpxFastStartObjects)), ("stpxBpduSkewingObjects", ("stpxbpduskewingobjects", CISCOSTPEXTENSIONSMIB.StpxBpduSkewingObjects)), ("stpxMSTObjects", ("stpxmstobjects", CISCOSTPEXTENSIONSMIB.StpxMSTObjects)), ("stpxRSTPObjects", ("stpxrstpobjects", CISCOSTPEXTENSIONSMIB.StpxRSTPObjects)), ("stpxSMSTObjects", ("stpxsmstobjects", CISCOSTPEXTENSIONSMIB.StpxSMSTObjects)), ("stpxPVSTVlanTable", ("stpxpvstvlantable", CISCOSTPEXTENSIONSMIB.StpxPVSTVlanTable)), ("stpxInconsistencyTable", ("stpxinconsistencytable", CISCOSTPEXTENSIONSMIB.StpxInconsistencyTable)), ("stpxRootGuardConfigTable", ("stpxrootguardconfigtable", CISCOSTPEXTENSIONSMIB.StpxRootGuardConfigTable)), ("stpxRootInconsistencyTable", ("stpxrootinconsistencytable", CISCOSTPEXTENSIONSMIB.StpxRootInconsistencyTable)), ("stpxMISTPInstanceTable", ("stpxmistpinstancetable", CISCOSTPEXTENSIONSMIB.StpxMISTPInstanceTable)), ("stpxLoopGuardConfigTable", ("stpxloopguardconfigtable", CISCOSTPEXTENSIONSMIB.StpxLoopGuardConfigTable)), ("stpxLoopInconsistencyTable", ("stpxloopinconsistencytable", CISCOSTPEXTENSIONSMIB.StpxLoopInconsistencyTable)), ("stpxFastStartPortTable", ("stpxfaststartporttable", CISCOSTPEXTENSIONSMIB.StpxFastStartPortTable)), ("stpxFastStartOperModeTable", ("stpxfaststartopermodetable", CISCOSTPEXTENSIONSMIB.StpxFastStartOperModeTable)), ("stpxBpduSkewingTable", ("stpxbpduskewingtable", CISCOSTPEXTENSIONSMIB.StpxBpduSkewingTable)), ("stpxMSTInstanceTable", ("stpxmstinstancetable", CISCOSTPEXTENSIONSMIB.StpxMSTInstanceTable)), ("stpxMSTInstanceEditTable", ("stpxmstinstanceedittable", CISCOSTPEXTENSIONSMIB.StpxMSTInstanceEditTable)), ("stpxMSTPortTable", ("stpxmstporttable", CISCOSTPEXTENSIONSMIB.StpxMSTPortTable)), ("stpxMSTPortRoleTable", ("stpxmstportroletable", CISCOSTPEXTENSIONSMIB.StpxMSTPortRoleTable)), ("stpxRSTPPortTable", ("stpxrstpporttable", CISCOSTPEXTENSIONSMIB.StpxRSTPPortTable)), ("stpxRSTPPortRoleTable", ("stpxrstpportroletable", CISCOSTPEXTENSIONSMIB.StpxRSTPPortRoleTable)), ("stpxRPVSTPortTable", ("stpxrpvstporttable", CISCOSTPEXTENSIONSMIB.StpxRPVSTPortTable)), ("stpxSMSTInstanceTable", ("stpxsmstinstancetable", CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceTable)), ("stpxSMSTInstanceEditTable", ("stpxsmstinstanceedittable", CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceEditTable)), ("stpxSMSTPortTable", ("stpxsmstporttable", CISCOSTPEXTENSIONSMIB.StpxSMSTPortTable))])
         self._leafs = OrderedDict()
 
-        self.stpxuplinkfastobjects = CISCOSTPEXTENSIONSMIB.Stpxuplinkfastobjects()
+        self.stpxuplinkfastobjects = CISCOSTPEXTENSIONSMIB.StpxUplinkFastObjects()
         self.stpxuplinkfastobjects.parent = self
         self._children_name_map["stpxuplinkfastobjects"] = "stpxUplinkFastObjects"
-        self._children_yang_names.add("stpxUplinkFastObjects")
 
-        self.stpxbackbonefastobjects = CISCOSTPEXTENSIONSMIB.Stpxbackbonefastobjects()
+        self.stpxbackbonefastobjects = CISCOSTPEXTENSIONSMIB.StpxBackboneFastObjects()
         self.stpxbackbonefastobjects.parent = self
         self._children_name_map["stpxbackbonefastobjects"] = "stpxBackboneFastObjects"
-        self._children_yang_names.add("stpxBackboneFastObjects")
 
-        self.stpxspanningtreeobjects = CISCOSTPEXTENSIONSMIB.Stpxspanningtreeobjects()
+        self.stpxspanningtreeobjects = CISCOSTPEXTENSIONSMIB.StpxSpanningTreeObjects()
         self.stpxspanningtreeobjects.parent = self
         self._children_name_map["stpxspanningtreeobjects"] = "stpxSpanningTreeObjects"
-        self._children_yang_names.add("stpxSpanningTreeObjects")
 
-        self.stpxmistpobjects = CISCOSTPEXTENSIONSMIB.Stpxmistpobjects()
+        self.stpxmistpobjects = CISCOSTPEXTENSIONSMIB.StpxMISTPObjects()
         self.stpxmistpobjects.parent = self
         self._children_name_map["stpxmistpobjects"] = "stpxMISTPObjects"
-        self._children_yang_names.add("stpxMISTPObjects")
 
-        self.stpxloopguardobjects = CISCOSTPEXTENSIONSMIB.Stpxloopguardobjects()
+        self.stpxloopguardobjects = CISCOSTPEXTENSIONSMIB.StpxLoopGuardObjects()
         self.stpxloopguardobjects.parent = self
         self._children_name_map["stpxloopguardobjects"] = "stpxLoopGuardObjects"
-        self._children_yang_names.add("stpxLoopGuardObjects")
 
-        self.stpxfaststartobjects = CISCOSTPEXTENSIONSMIB.Stpxfaststartobjects()
+        self.stpxfaststartobjects = CISCOSTPEXTENSIONSMIB.StpxFastStartObjects()
         self.stpxfaststartobjects.parent = self
         self._children_name_map["stpxfaststartobjects"] = "stpxFastStartObjects"
-        self._children_yang_names.add("stpxFastStartObjects")
 
-        self.stpxbpduskewingobjects = CISCOSTPEXTENSIONSMIB.Stpxbpduskewingobjects()
+        self.stpxbpduskewingobjects = CISCOSTPEXTENSIONSMIB.StpxBpduSkewingObjects()
         self.stpxbpduskewingobjects.parent = self
         self._children_name_map["stpxbpduskewingobjects"] = "stpxBpduSkewingObjects"
-        self._children_yang_names.add("stpxBpduSkewingObjects")
 
-        self.stpxmstobjects = CISCOSTPEXTENSIONSMIB.Stpxmstobjects()
+        self.stpxmstobjects = CISCOSTPEXTENSIONSMIB.StpxMSTObjects()
         self.stpxmstobjects.parent = self
         self._children_name_map["stpxmstobjects"] = "stpxMSTObjects"
-        self._children_yang_names.add("stpxMSTObjects")
 
-        self.stpxrstpobjects = CISCOSTPEXTENSIONSMIB.Stpxrstpobjects()
+        self.stpxrstpobjects = CISCOSTPEXTENSIONSMIB.StpxRSTPObjects()
         self.stpxrstpobjects.parent = self
         self._children_name_map["stpxrstpobjects"] = "stpxRSTPObjects"
-        self._children_yang_names.add("stpxRSTPObjects")
 
-        self.stpxsmstobjects = CISCOSTPEXTENSIONSMIB.Stpxsmstobjects()
+        self.stpxsmstobjects = CISCOSTPEXTENSIONSMIB.StpxSMSTObjects()
         self.stpxsmstobjects.parent = self
         self._children_name_map["stpxsmstobjects"] = "stpxSMSTObjects"
-        self._children_yang_names.add("stpxSMSTObjects")
 
-        self.stpxpvstvlantable = CISCOSTPEXTENSIONSMIB.Stpxpvstvlantable()
+        self.stpxpvstvlantable = CISCOSTPEXTENSIONSMIB.StpxPVSTVlanTable()
         self.stpxpvstvlantable.parent = self
         self._children_name_map["stpxpvstvlantable"] = "stpxPVSTVlanTable"
-        self._children_yang_names.add("stpxPVSTVlanTable")
 
-        self.stpxinconsistencytable = CISCOSTPEXTENSIONSMIB.Stpxinconsistencytable()
+        self.stpxinconsistencytable = CISCOSTPEXTENSIONSMIB.StpxInconsistencyTable()
         self.stpxinconsistencytable.parent = self
         self._children_name_map["stpxinconsistencytable"] = "stpxInconsistencyTable"
-        self._children_yang_names.add("stpxInconsistencyTable")
 
-        self.stpxrootguardconfigtable = CISCOSTPEXTENSIONSMIB.Stpxrootguardconfigtable()
+        self.stpxrootguardconfigtable = CISCOSTPEXTENSIONSMIB.StpxRootGuardConfigTable()
         self.stpxrootguardconfigtable.parent = self
         self._children_name_map["stpxrootguardconfigtable"] = "stpxRootGuardConfigTable"
-        self._children_yang_names.add("stpxRootGuardConfigTable")
 
-        self.stpxrootinconsistencytable = CISCOSTPEXTENSIONSMIB.Stpxrootinconsistencytable()
+        self.stpxrootinconsistencytable = CISCOSTPEXTENSIONSMIB.StpxRootInconsistencyTable()
         self.stpxrootinconsistencytable.parent = self
         self._children_name_map["stpxrootinconsistencytable"] = "stpxRootInconsistencyTable"
-        self._children_yang_names.add("stpxRootInconsistencyTable")
 
-        self.stpxmistpinstancetable = CISCOSTPEXTENSIONSMIB.Stpxmistpinstancetable()
+        self.stpxmistpinstancetable = CISCOSTPEXTENSIONSMIB.StpxMISTPInstanceTable()
         self.stpxmistpinstancetable.parent = self
         self._children_name_map["stpxmistpinstancetable"] = "stpxMISTPInstanceTable"
-        self._children_yang_names.add("stpxMISTPInstanceTable")
 
-        self.stpxloopguardconfigtable = CISCOSTPEXTENSIONSMIB.Stpxloopguardconfigtable()
+        self.stpxloopguardconfigtable = CISCOSTPEXTENSIONSMIB.StpxLoopGuardConfigTable()
         self.stpxloopguardconfigtable.parent = self
         self._children_name_map["stpxloopguardconfigtable"] = "stpxLoopGuardConfigTable"
-        self._children_yang_names.add("stpxLoopGuardConfigTable")
 
-        self.stpxloopinconsistencytable = CISCOSTPEXTENSIONSMIB.Stpxloopinconsistencytable()
+        self.stpxloopinconsistencytable = CISCOSTPEXTENSIONSMIB.StpxLoopInconsistencyTable()
         self.stpxloopinconsistencytable.parent = self
         self._children_name_map["stpxloopinconsistencytable"] = "stpxLoopInconsistencyTable"
-        self._children_yang_names.add("stpxLoopInconsistencyTable")
 
-        self.stpxfaststartporttable = CISCOSTPEXTENSIONSMIB.Stpxfaststartporttable()
+        self.stpxfaststartporttable = CISCOSTPEXTENSIONSMIB.StpxFastStartPortTable()
         self.stpxfaststartporttable.parent = self
         self._children_name_map["stpxfaststartporttable"] = "stpxFastStartPortTable"
-        self._children_yang_names.add("stpxFastStartPortTable")
 
-        self.stpxfaststartopermodetable = CISCOSTPEXTENSIONSMIB.Stpxfaststartopermodetable()
+        self.stpxfaststartopermodetable = CISCOSTPEXTENSIONSMIB.StpxFastStartOperModeTable()
         self.stpxfaststartopermodetable.parent = self
         self._children_name_map["stpxfaststartopermodetable"] = "stpxFastStartOperModeTable"
-        self._children_yang_names.add("stpxFastStartOperModeTable")
 
-        self.stpxbpduskewingtable = CISCOSTPEXTENSIONSMIB.Stpxbpduskewingtable()
+        self.stpxbpduskewingtable = CISCOSTPEXTENSIONSMIB.StpxBpduSkewingTable()
         self.stpxbpduskewingtable.parent = self
         self._children_name_map["stpxbpduskewingtable"] = "stpxBpduSkewingTable"
-        self._children_yang_names.add("stpxBpduSkewingTable")
 
-        self.stpxmstinstancetable = CISCOSTPEXTENSIONSMIB.Stpxmstinstancetable()
+        self.stpxmstinstancetable = CISCOSTPEXTENSIONSMIB.StpxMSTInstanceTable()
         self.stpxmstinstancetable.parent = self
         self._children_name_map["stpxmstinstancetable"] = "stpxMSTInstanceTable"
-        self._children_yang_names.add("stpxMSTInstanceTable")
 
-        self.stpxmstinstanceedittable = CISCOSTPEXTENSIONSMIB.Stpxmstinstanceedittable()
+        self.stpxmstinstanceedittable = CISCOSTPEXTENSIONSMIB.StpxMSTInstanceEditTable()
         self.stpxmstinstanceedittable.parent = self
         self._children_name_map["stpxmstinstanceedittable"] = "stpxMSTInstanceEditTable"
-        self._children_yang_names.add("stpxMSTInstanceEditTable")
 
-        self.stpxmstporttable = CISCOSTPEXTENSIONSMIB.Stpxmstporttable()
+        self.stpxmstporttable = CISCOSTPEXTENSIONSMIB.StpxMSTPortTable()
         self.stpxmstporttable.parent = self
         self._children_name_map["stpxmstporttable"] = "stpxMSTPortTable"
-        self._children_yang_names.add("stpxMSTPortTable")
 
-        self.stpxmstportroletable = CISCOSTPEXTENSIONSMIB.Stpxmstportroletable()
+        self.stpxmstportroletable = CISCOSTPEXTENSIONSMIB.StpxMSTPortRoleTable()
         self.stpxmstportroletable.parent = self
         self._children_name_map["stpxmstportroletable"] = "stpxMSTPortRoleTable"
-        self._children_yang_names.add("stpxMSTPortRoleTable")
 
-        self.stpxrstpporttable = CISCOSTPEXTENSIONSMIB.Stpxrstpporttable()
+        self.stpxrstpporttable = CISCOSTPEXTENSIONSMIB.StpxRSTPPortTable()
         self.stpxrstpporttable.parent = self
         self._children_name_map["stpxrstpporttable"] = "stpxRSTPPortTable"
-        self._children_yang_names.add("stpxRSTPPortTable")
 
-        self.stpxrstpportroletable = CISCOSTPEXTENSIONSMIB.Stpxrstpportroletable()
+        self.stpxrstpportroletable = CISCOSTPEXTENSIONSMIB.StpxRSTPPortRoleTable()
         self.stpxrstpportroletable.parent = self
         self._children_name_map["stpxrstpportroletable"] = "stpxRSTPPortRoleTable"
-        self._children_yang_names.add("stpxRSTPPortRoleTable")
 
-        self.stpxrpvstporttable = CISCOSTPEXTENSIONSMIB.Stpxrpvstporttable()
+        self.stpxrpvstporttable = CISCOSTPEXTENSIONSMIB.StpxRPVSTPortTable()
         self.stpxrpvstporttable.parent = self
         self._children_name_map["stpxrpvstporttable"] = "stpxRPVSTPortTable"
-        self._children_yang_names.add("stpxRPVSTPortTable")
 
-        self.stpxsmstinstancetable = CISCOSTPEXTENSIONSMIB.Stpxsmstinstancetable()
+        self.stpxsmstinstancetable = CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceTable()
         self.stpxsmstinstancetable.parent = self
         self._children_name_map["stpxsmstinstancetable"] = "stpxSMSTInstanceTable"
-        self._children_yang_names.add("stpxSMSTInstanceTable")
 
-        self.stpxsmstinstanceedittable = CISCOSTPEXTENSIONSMIB.Stpxsmstinstanceedittable()
+        self.stpxsmstinstanceedittable = CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceEditTable()
         self.stpxsmstinstanceedittable.parent = self
         self._children_name_map["stpxsmstinstanceedittable"] = "stpxSMSTInstanceEditTable"
-        self._children_yang_names.add("stpxSMSTInstanceEditTable")
 
-        self.stpxsmstporttable = CISCOSTPEXTENSIONSMIB.Stpxsmstporttable()
+        self.stpxsmstporttable = CISCOSTPEXTENSIONSMIB.StpxSMSTPortTable()
         self.stpxsmstporttable.parent = self
         self._children_name_map["stpxsmstporttable"] = "stpxSMSTPortTable"
-        self._children_yang_names.add("stpxSMSTPortTable")
         self._segment_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOSTPEXTENSIONSMIB, [], name, value)
 
-    class Stpxuplinkfastobjects(Entity):
+
+    class StpxUplinkFastObjects(Entity):
         """
         
         
@@ -396,15 +368,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxuplinkfastobjects, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxUplinkFastObjects, self).__init__()
 
             self.yang_name = "stpxUplinkFastObjects"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('stpxuplinkfastenabled', YLeaf(YType.boolean, 'stpxUplinkFastEnabled')),
                 ('stpxuplinkfasttransitions', YLeaf(YType.uint32, 'stpxUplinkFastTransitions')),
@@ -421,10 +392,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxuplinkfastobjects, ['stpxuplinkfastenabled', 'stpxuplinkfasttransitions', 'stpxuplinkstationlearninggenrate', 'stpxuplinkstationlearningframes', 'stpxuplinkfastoperenabled'], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxUplinkFastObjects, ['stpxuplinkfastenabled', 'stpxuplinkfasttransitions', 'stpxuplinkstationlearninggenrate', 'stpxuplinkstationlearningframes', 'stpxuplinkfastoperenabled'], name, value)
 
 
-    class Stpxbackbonefastobjects(Entity):
+    class StpxBackboneFastObjects(Entity):
         """
         
         
@@ -481,15 +452,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxbackbonefastobjects, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxBackboneFastObjects, self).__init__()
 
             self.yang_name = "stpxBackboneFastObjects"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('stpxbackbonefastenabled', YLeaf(YType.boolean, 'stpxBackboneFastEnabled')),
                 ('stpxbackbonefastininferiorbpdus', YLeaf(YType.uint32, 'stpxBackboneFastInInferiorBPDUs')),
@@ -510,22 +480,22 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxbackbonefastobjects, ['stpxbackbonefastenabled', 'stpxbackbonefastininferiorbpdus', 'stpxbackbonefastinrlqrequestpdus', 'stpxbackbonefastinrlqresponsepdus', 'stpxbackbonefastoutrlqrequestpdus', 'stpxbackbonefastoutrlqresponsepdus', 'stpxbackbonefastoperenabled'], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxBackboneFastObjects, ['stpxbackbonefastenabled', 'stpxbackbonefastininferiorbpdus', 'stpxbackbonefastinrlqrequestpdus', 'stpxbackbonefastinrlqresponsepdus', 'stpxbackbonefastoutrlqrequestpdus', 'stpxbackbonefastoutrlqresponsepdus', 'stpxbackbonefastoperenabled'], name, value)
 
 
-    class Stpxspanningtreeobjects(Entity):
+    class StpxSpanningTreeObjects(Entity):
         """
         
         
         .. attribute:: stpxspanningtreetype
         
         	The actual mode of spanning tree protocol runs on the  device. It can be one of the following\:  pvstPlus \-\- PVST+ (Per VLAN Spanning Tree+ Protocol).  mistp \-\- MISTP (Multi Instance Spanning Tree Protocol).  mistpPvstPlus \-\-  MISTP with the tunneling scheme                      enabled for PVST+.  mst \-\- IEEE 802.1s Multiple Spanning Tree (MST)        with IEEE 802.1w Rapid Spanning Tree Protocol        (RSTP).  rapidPvstPlus \-\- IEEE 802.1w Rapid Spanning Tree          Protocol (RSTP) for all vlans in PVST+.  When the value of this MIB object gets changed, the  network connectivity would be affected and the  connectivity to this device would also be lost  temporarily
-        	**type**\:  :py:class:`Stpxspanningtreetype <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxspanningtreeobjects.Stpxspanningtreetype>`
+        	**type**\:  :py:class:`StpxSpanningTreeType <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSpanningTreeObjects.StpxSpanningTreeType>`
         
         .. attribute:: stpxspanningtreepathcostmode
         
         	Indicates the administrative  spanning tree path cost mode  configured on device
-        	**type**\:  :py:class:`Stpxspanningtreepathcostmode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxspanningtreeobjects.Stpxspanningtreepathcostmode>`
+        	**type**\:  :py:class:`StpxSpanningTreePathCostMode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSpanningTreeObjects.StpxSpanningTreePathCostMode>`
         
         .. attribute:: stpxextendedsysidadminenabled
         
@@ -540,12 +510,12 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         .. attribute:: stpxnotificationenable
         
         	Indicates whether a specified notification is enabled or not. If a bit corresponding to a notification is set to 1, then  the specified notification can be generated.  newRoot \-\- the newRoot notification as defined in BRIDGE\-MIB.  topologyChange \-\- the topologyChange notification as                   defined in BRIDGE\-MIB.  inconsistency \-\- the stpxInconsistencyUpdate notification.  rootInconsistency \-\- the stpxRootInconsistencyUpdate                       notification.  loopInconsistency \-\- the stpxLoopInconsistencyUpdate                       notification
-        	**type**\:  :py:class:`Stpxnotificationenable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxspanningtreeobjects.Stpxnotificationenable>`
+        	**type**\:  :py:class:`StpxNotificationEnable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSpanningTreeObjects.StpxNotificationEnable>`
         
         .. attribute:: stpxspanningtreepathcostopermode
         
         	Indicate the operational spanning tree path cost mode on device. This mode applies to all instances of the Spanning Tree protocol running on the device.   When the value of this MIB object gets changed, the path cost of all ports will be reassigned to the default path cost values based on the new spanning tree path cost mode and the ports' speed.  When the value of this MIB object is long(2), the stpxLongStpPortPathCost MIB object must be used in order to retrieve/configure the spanning tree port path cost as a 32 bits value. The set operation on dot1dStpPortPathCost in BRIDGE\-MIB will be rejected. While retrieving the value of dot1dStpPortPathCost, the maximum value of 65535 will be returned if the value of stpxLongStpPortPathCost for the same instance exceeds 65535.  When the value of this MIB object is short(1), the dot1dStpPortPathCost in BRIDGE\-MIB must be used
-        	**type**\:  :py:class:`Stpxspanningtreepathcostopermode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxspanningtreeobjects.Stpxspanningtreepathcostopermode>`
+        	**type**\:  :py:class:`StpxSpanningTreePathCostOperMode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSpanningTreeObjects.StpxSpanningTreePathCostOperMode>`
         
         
 
@@ -555,15 +525,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxspanningtreeobjects, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxSpanningTreeObjects, self).__init__()
 
             self.yang_name = "stpxSpanningTreeObjects"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('stpxspanningtreetype', YLeaf(YType.enumeration, 'stpxSpanningTreeType')),
                 ('stpxspanningtreepathcostmode', YLeaf(YType.enumeration, 'stpxSpanningTreePathCostMode')),
@@ -582,11 +551,11 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxspanningtreeobjects, ['stpxspanningtreetype', 'stpxspanningtreepathcostmode', 'stpxextendedsysidadminenabled', 'stpxextendedsysidoperenabled', 'stpxnotificationenable', 'stpxspanningtreepathcostopermode'], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxSpanningTreeObjects, ['stpxspanningtreetype', 'stpxspanningtreepathcostmode', 'stpxextendedsysidadminenabled', 'stpxextendedsysidoperenabled', 'stpxnotificationenable', 'stpxspanningtreepathcostopermode'], name, value)
 
-        class Stpxspanningtreepathcostmode(Enum):
+        class StpxSpanningTreePathCostMode(Enum):
             """
-            Stpxspanningtreepathcostmode (Enum Class)
+            StpxSpanningTreePathCostMode (Enum Class)
 
             Indicates the administrative  spanning tree path cost mode 
 
@@ -603,9 +572,9 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             long = Enum.YLeaf(2, "long")
 
 
-        class Stpxspanningtreepathcostopermode(Enum):
+        class StpxSpanningTreePathCostOperMode(Enum):
             """
-            Stpxspanningtreepathcostopermode (Enum Class)
+            StpxSpanningTreePathCostOperMode (Enum Class)
 
             Indicate the operational spanning tree path cost mode
 
@@ -652,9 +621,9 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             long = Enum.YLeaf(2, "long")
 
 
-        class Stpxspanningtreetype(Enum):
+        class StpxSpanningTreeType(Enum):
             """
-            Stpxspanningtreetype (Enum Class)
+            StpxSpanningTreeType (Enum Class)
 
             The actual mode of spanning tree protocol runs
 
@@ -710,7 +679,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
 
 
-    class Stpxmistpobjects(Entity):
+    class StpxMISTPObjects(Entity):
         """
         
         
@@ -729,15 +698,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxmistpobjects, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxMISTPObjects, self).__init__()
 
             self.yang_name = "stpxMISTPObjects"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('stpxmistpinstancenumber', YLeaf(YType.int32, 'stpxMISTPInstanceNumber')),
             ])
@@ -746,17 +714,17 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxmistpobjects, ['stpxmistpinstancenumber'], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMISTPObjects, ['stpxmistpinstancenumber'], name, value)
 
 
-    class Stpxloopguardobjects(Entity):
+    class StpxLoopGuardObjects(Entity):
         """
         
         
         .. attribute:: stpxloopguardglobaldefaultmode
         
         	Indicates the global default config mode of LoopGuard  feature on the device
-        	**type**\:  :py:class:`Stpxloopguardglobaldefaultmode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxloopguardobjects.Stpxloopguardglobaldefaultmode>`
+        	**type**\:  :py:class:`StpxLoopGuardGlobalDefaultMode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxLoopGuardObjects.StpxLoopGuardGlobalDefaultMode>`
         
         
 
@@ -766,15 +734,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxloopguardobjects, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxLoopGuardObjects, self).__init__()
 
             self.yang_name = "stpxLoopGuardObjects"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('stpxloopguardglobaldefaultmode', YLeaf(YType.enumeration, 'stpxLoopGuardGlobalDefaultMode')),
             ])
@@ -783,11 +750,11 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxloopguardobjects, ['stpxloopguardglobaldefaultmode'], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxLoopGuardObjects, ['stpxloopguardglobaldefaultmode'], name, value)
 
-        class Stpxloopguardglobaldefaultmode(Enum):
+        class StpxLoopGuardGlobalDefaultMode(Enum):
             """
-            Stpxloopguardglobaldefaultmode (Enum Class)
+            StpxLoopGuardGlobalDefaultMode (Enum Class)
 
             Indicates the global default config mode of LoopGuard 
 
@@ -805,7 +772,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
 
 
-    class Stpxfaststartobjects(Entity):
+    class StpxFastStartObjects(Entity):
         """
         
         
@@ -822,7 +789,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         .. attribute:: stpxfaststartglobaldefaultmode
         
         	Indicates the global default mode of the Fast  Start feature on the device
-        	**type**\:  :py:class:`Stpxfaststartglobaldefaultmode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxfaststartobjects.Stpxfaststartglobaldefaultmode>`
+        	**type**\:  :py:class:`StpxFastStartGlobalDefaultMode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxFastStartObjects.StpxFastStartGlobalDefaultMode>`
         
         
 
@@ -832,15 +799,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxfaststartobjects, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxFastStartObjects, self).__init__()
 
             self.yang_name = "stpxFastStartObjects"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('stpxfaststartbpduguardenable', YLeaf(YType.boolean, 'stpxFastStartBpduGuardEnable')),
                 ('stpxfaststartbpdufilterenable', YLeaf(YType.boolean, 'stpxFastStartBpduFilterEnable')),
@@ -853,11 +819,11 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxfaststartobjects, ['stpxfaststartbpduguardenable', 'stpxfaststartbpdufilterenable', 'stpxfaststartglobaldefaultmode'], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxFastStartObjects, ['stpxfaststartbpduguardenable', 'stpxfaststartbpdufilterenable', 'stpxfaststartglobaldefaultmode'], name, value)
 
-        class Stpxfaststartglobaldefaultmode(Enum):
+        class StpxFastStartGlobalDefaultMode(Enum):
             """
-            Stpxfaststartglobaldefaultmode (Enum Class)
+            StpxFastStartGlobalDefaultMode (Enum Class)
 
             Indicates the global default mode of the Fast 
 
@@ -875,7 +841,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
 
 
-    class Stpxbpduskewingobjects(Entity):
+    class StpxBpduSkewingObjects(Entity):
         """
         
         
@@ -892,15 +858,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxbpduskewingobjects, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxBpduSkewingObjects, self).__init__()
 
             self.yang_name = "stpxBpduSkewingObjects"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('stpxbpduskewingdetectionenable', YLeaf(YType.boolean, 'stpxBpduSkewingDetectionEnable')),
             ])
@@ -909,10 +874,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxbpduskewingobjects, ['stpxbpduskewingdetectionenable'], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxBpduSkewingObjects, ['stpxbpduskewingdetectionenable'], name, value)
 
 
-    class Stpxmstobjects(Entity):
+    class StpxMSTObjects(Entity):
         """
         
         
@@ -944,12 +909,12 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         .. attribute:: stpxmstregioneditbufferstatus
         
         	Indicates the current ownership status of the unique  Region Config Edit Buffer.   released \-\- the Edit Buffer can be acquired by any of              the SNMP management stations.   acquiredBySnmp \-\- the Edit Buffer is acquired by             any of the SNMP management stations.   acquiredByNonSnmp \-\- the Edit Buffer is acquired by the              non\-SNMP users managing the device
-        	**type**\:  :py:class:`Stpxmstregioneditbufferstatus <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxmstobjects.Stpxmstregioneditbufferstatus>`
+        	**type**\:  :py:class:`StpxMSTRegionEditBufferStatus <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTObjects.StpxMSTRegionEditBufferStatus>`
         
         .. attribute:: stpxmstregioneditbufferoperation
         
         	Indicates the operation that is performed on the Region  Config Edit Buffer.  other \-\-   none of the following operations.    acquire \-\- acquire the Edit Buffer. This operation can             only be performed when the object             stpxMSTRegionEditBufferStatus has the value of            released(1). After the successful operation of             this action, the stpxMSTRegionEditBufferStatus            will be changed to acquiredBySnmp(2).               releaseWithForce \-\- release the Edit Buffer acquired by            non\-SNMP users with force and discard the changes            in the Edit Buffer. This operation can only be             performed when the object             stpxMSTRegionEditBufferStatus has the value of             acquiredByNonSnmp(2).  commit \-\-  commit the changes in the Edit Buffer            and release the Edit Buffer. The successful             operation of this action will make the changes            in the Edit Buffer effective on the device.            This operation can only be performed when the             object stpxMSTRegionEditBufferStatus has the             value of acquiredBySnmp(3).   rollBack \-\- discard the changes in the Edit Buffer            and release the Edit Buffer. This operation can             only be performed when the object             stpxMSTRegionEditBufferStatus has the value             of acquiredBySnmp(3).  This object always returns other(1) when it is read
-        	**type**\:  :py:class:`Stpxmstregioneditbufferoperation <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxmstobjects.Stpxmstregioneditbufferoperation>`
+        	**type**\:  :py:class:`StpxMSTRegionEditBufferOperation <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTObjects.StpxMSTRegionEditBufferOperation>`
         
         .. attribute:: stpxmstregioneditname
         
@@ -984,15 +949,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxmstobjects, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxMSTObjects, self).__init__()
 
             self.yang_name = "stpxMSTObjects"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('stpxmstmaxinstancenumber', YLeaf(YType.int32, 'stpxMSTMaxInstanceNumber')),
                 ('stpxmstregionname', YLeaf(YType.str, 'stpxMSTRegionName')),
@@ -1015,11 +979,11 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxmstobjects, ['stpxmstmaxinstancenumber', 'stpxmstregionname', 'stpxmstregionrevision', 'stpxmstregioneditbufferstatus', 'stpxmstregioneditbufferoperation', 'stpxmstregioneditname', 'stpxmstregioneditrevision', 'stpxmstmaxhopcount'], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMSTObjects, ['stpxmstmaxinstancenumber', 'stpxmstregionname', 'stpxmstregionrevision', 'stpxmstregioneditbufferstatus', 'stpxmstregioneditbufferoperation', 'stpxmstregioneditname', 'stpxmstregioneditrevision', 'stpxmstmaxhopcount'], name, value)
 
-        class Stpxmstregioneditbufferoperation(Enum):
+        class StpxMSTRegionEditBufferOperation(Enum):
             """
-            Stpxmstregioneditbufferoperation (Enum Class)
+            StpxMSTRegionEditBufferOperation (Enum Class)
 
             Indicates the operation that is performed on the Region 
 
@@ -1100,9 +1064,9 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             rollBack = Enum.YLeaf(5, "rollBack")
 
 
-        class Stpxmstregioneditbufferstatus(Enum):
+        class StpxMSTRegionEditBufferStatus(Enum):
             """
-            Stpxmstregioneditbufferstatus (Enum Class)
+            StpxMSTRegionEditBufferStatus (Enum Class)
 
             Indicates the current ownership status of the unique 
 
@@ -1136,7 +1100,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
 
 
-    class Stpxrstpobjects(Entity):
+    class StpxRSTPObjects(Entity):
         """
         
         
@@ -1155,15 +1119,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxrstpobjects, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxRSTPObjects, self).__init__()
 
             self.yang_name = "stpxRSTPObjects"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('stpxrstptransmitholdcount', YLeaf(YType.uint32, 'stpxRSTPTransmitHoldCount')),
             ])
@@ -1172,10 +1135,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxrstpobjects, ['stpxrstptransmitholdcount'], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRSTPObjects, ['stpxrstptransmitholdcount'], name, value)
 
 
-    class Stpxsmstobjects(Entity):
+    class StpxSMSTObjects(Entity):
         """
         
         
@@ -1232,15 +1195,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxsmstobjects, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxSMSTObjects, self).__init__()
 
             self.yang_name = "stpxSMSTObjects"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('stpxsmstmaxinstances', YLeaf(YType.uint32, 'stpxSMSTMaxInstances')),
                 ('stpxsmstmaxinstanceid', YLeaf(YType.uint32, 'stpxSMSTMaxInstanceID')),
@@ -1261,10 +1223,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxsmstobjects, ['stpxsmstmaxinstances', 'stpxsmstmaxinstanceid', 'stpxsmstregionrevision', 'stpxsmstregioneditrevision', 'stpxsmstmaxhopcount', 'stpxsmstconfigdigest', 'stpxsmstconfigprestandarddigest'], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxSMSTObjects, ['stpxsmstmaxinstances', 'stpxsmstmaxinstanceid', 'stpxsmstregionrevision', 'stpxsmstregioneditrevision', 'stpxsmstmaxhopcount', 'stpxsmstconfigdigest', 'stpxsmstconfigprestandarddigest'], name, value)
 
 
-    class Stpxpvstvlantable(Entity):
+    class StpxPVSTVlanTable(Entity):
         """
         A list of Virtual LAN entries containing
         information for Spanning Tree PVST+ protocol. 
@@ -1274,7 +1236,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         .. attribute:: stpxpvstvlanentry
         
         	An entry containing Spanning Tree PVST+ Protocol  information for a particular Virtual LAN
-        	**type**\: list of  		 :py:class:`Stpxpvstvlanentry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxpvstvlantable.Stpxpvstvlanentry>`
+        	**type**\: list of  		 :py:class:`StpxPVSTVlanEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxPVSTVlanTable.StpxPVSTVlanEntry>`
         
         
 
@@ -1284,15 +1246,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxpvstvlantable, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxPVSTVlanTable, self).__init__()
 
             self.yang_name = "stpxPVSTVlanTable"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("stpxPVSTVlanEntry", ("stpxpvstvlanentry", CISCOSTPEXTENSIONSMIB.Stpxpvstvlantable.Stpxpvstvlanentry))])
+            self._child_classes = OrderedDict([("stpxPVSTVlanEntry", ("stpxpvstvlanentry", CISCOSTPEXTENSIONSMIB.StpxPVSTVlanTable.StpxPVSTVlanEntry))])
             self._leafs = OrderedDict()
 
             self.stpxpvstvlanentry = YList(self)
@@ -1300,10 +1261,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxpvstvlantable, [], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxPVSTVlanTable, [], name, value)
 
 
-        class Stpxpvstvlanentry(Entity):
+        class StpxPVSTVlanEntry(Entity):
             """
             An entry containing Spanning Tree PVST+ Protocol 
             information for a particular Virtual LAN.
@@ -1318,7 +1279,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             .. attribute:: stpxpvstvlanenable
             
             	Indicates whether Spanning Tree PVST+   Protocol is enabled for this Virtual LAN. If  Spanning Tree PVST+ Protocol is not supported  on this VLAN, then notApplicable(3) will be  returned while retrieving the object value for  this VLAN.  If the device only supports a single global Spanning Tree PVST+ Protocol enable/disable  for all the existing VLANs, then the object  value assigned to this VLAN will be applied to the object values of all the instances in this table which do not have the value of notApplicable(3).  If the value of stpxSpanningTreeType is neither  pvstPlus(1) nor rapidPvstPlus(5), then the value  of stpxPVSTVlanEnable for this VLAN can not be  changed
-            	**type**\:  :py:class:`Stpxpvstvlanenable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxpvstvlantable.Stpxpvstvlanentry.Stpxpvstvlanenable>`
+            	**type**\:  :py:class:`StpxPVSTVlanEnable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxPVSTVlanTable.StpxPVSTVlanEntry.StpxPVSTVlanEnable>`
             
             
 
@@ -1328,15 +1289,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             _revision = '2013-03-07'
 
             def __init__(self):
-                super(CISCOSTPEXTENSIONSMIB.Stpxpvstvlantable.Stpxpvstvlanentry, self).__init__()
+                super(CISCOSTPEXTENSIONSMIB.StpxPVSTVlanTable.StpxPVSTVlanEntry, self).__init__()
 
                 self.yang_name = "stpxPVSTVlanEntry"
                 self.yang_parent_name = "stpxPVSTVlanTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['stpxpvstvlanindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('stpxpvstvlanindex', YLeaf(YType.int32, 'stpxPVSTVlanIndex')),
                     ('stpxpvstvlanenable', YLeaf(YType.enumeration, 'stpxPVSTVlanEnable')),
@@ -1347,11 +1307,11 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxPVSTVlanTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxpvstvlantable.Stpxpvstvlanentry, ['stpxpvstvlanindex', 'stpxpvstvlanenable'], name, value)
+                self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxPVSTVlanTable.StpxPVSTVlanEntry, ['stpxpvstvlanindex', 'stpxpvstvlanenable'], name, value)
 
-            class Stpxpvstvlanenable(Enum):
+            class StpxPVSTVlanEnable(Enum):
                 """
-                Stpxpvstvlanenable (Enum Class)
+                StpxPVSTVlanEnable (Enum Class)
 
                 Indicates whether Spanning Tree PVST+  
 
@@ -1403,7 +1363,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
 
 
-    class Stpxinconsistencytable(Entity):
+    class StpxInconsistencyTable(Entity):
         """
         A table containing a list of the ports for which
         a particular VLAN's Spanning Tree has been found to
@@ -1416,7 +1376,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         .. attribute:: stpxinconsistencyentry
         
         	A VLAN on a particular port for which a Spanning Tree inconsistency is currently in effect
-        	**type**\: list of  		 :py:class:`Stpxinconsistencyentry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxinconsistencytable.Stpxinconsistencyentry>`
+        	**type**\: list of  		 :py:class:`StpxInconsistencyEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxInconsistencyTable.StpxInconsistencyEntry>`
         
         
 
@@ -1426,15 +1386,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxinconsistencytable, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxInconsistencyTable, self).__init__()
 
             self.yang_name = "stpxInconsistencyTable"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("stpxInconsistencyEntry", ("stpxinconsistencyentry", CISCOSTPEXTENSIONSMIB.Stpxinconsistencytable.Stpxinconsistencyentry))])
+            self._child_classes = OrderedDict([("stpxInconsistencyEntry", ("stpxinconsistencyentry", CISCOSTPEXTENSIONSMIB.StpxInconsistencyTable.StpxInconsistencyEntry))])
             self._leafs = OrderedDict()
 
             self.stpxinconsistencyentry = YList(self)
@@ -1442,10 +1401,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxinconsistencytable, [], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxInconsistencyTable, [], name, value)
 
 
-        class Stpxinconsistencyentry(Entity):
+        class StpxInconsistencyEntry(Entity):
             """
             A VLAN on a particular port for which a Spanning Tree
             inconsistency is currently in effect.
@@ -1467,7 +1426,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             .. attribute:: stpxinconsistentstate
             
             	The types of inconsistency which have been discovered on this port for this VLAN's Spanning Tree.  When this object exists, the value of the corresponding instance of the Bridge MIB's dot1dStpPortState object will be 'broken(6)'
-            	**type**\:  :py:class:`Stpxinconsistentstate <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxinconsistencytable.Stpxinconsistencyentry.Stpxinconsistentstate>`
+            	**type**\:  :py:class:`StpxInconsistentState <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxInconsistencyTable.StpxInconsistencyEntry.StpxInconsistentState>`
             
             
 
@@ -1477,15 +1436,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             _revision = '2013-03-07'
 
             def __init__(self):
-                super(CISCOSTPEXTENSIONSMIB.Stpxinconsistencytable.Stpxinconsistencyentry, self).__init__()
+                super(CISCOSTPEXTENSIONSMIB.StpxInconsistencyTable.StpxInconsistencyEntry, self).__init__()
 
                 self.yang_name = "stpxInconsistencyEntry"
                 self.yang_parent_name = "stpxInconsistencyTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['stpxvlanindex','stpxportindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('stpxvlanindex', YLeaf(YType.int32, 'stpxVlanIndex')),
                     ('stpxportindex', YLeaf(YType.int32, 'stpxPortIndex')),
@@ -1498,10 +1456,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxInconsistencyTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxinconsistencytable.Stpxinconsistencyentry, ['stpxvlanindex', 'stpxportindex', 'stpxinconsistentstate'], name, value)
+                self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxInconsistencyTable.StpxInconsistencyEntry, ['stpxvlanindex', 'stpxportindex', 'stpxinconsistentstate'], name, value)
 
 
-    class Stpxrootguardconfigtable(Entity):
+    class StpxRootGuardConfigTable(Entity):
         """
         A table containing a list of the bridge ports for which
         Spanning Tree RootGuard capability can be configured.
@@ -1509,7 +1467,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         .. attribute:: stpxrootguardconfigentry
         
         	A bridge port for which Spanning Tree RootGuard capability can be configured
-        	**type**\: list of  		 :py:class:`Stpxrootguardconfigentry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxrootguardconfigtable.Stpxrootguardconfigentry>`
+        	**type**\: list of  		 :py:class:`StpxRootGuardConfigEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRootGuardConfigTable.StpxRootGuardConfigEntry>`
         
         
 
@@ -1519,15 +1477,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxrootguardconfigtable, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxRootGuardConfigTable, self).__init__()
 
             self.yang_name = "stpxRootGuardConfigTable"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("stpxRootGuardConfigEntry", ("stpxrootguardconfigentry", CISCOSTPEXTENSIONSMIB.Stpxrootguardconfigtable.Stpxrootguardconfigentry))])
+            self._child_classes = OrderedDict([("stpxRootGuardConfigEntry", ("stpxrootguardconfigentry", CISCOSTPEXTENSIONSMIB.StpxRootGuardConfigTable.StpxRootGuardConfigEntry))])
             self._leafs = OrderedDict()
 
             self.stpxrootguardconfigentry = YList(self)
@@ -1535,10 +1492,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxrootguardconfigtable, [], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRootGuardConfigTable, [], name, value)
 
 
-        class Stpxrootguardconfigentry(Entity):
+        class StpxRootGuardConfigEntry(Entity):
             """
             A bridge port for which Spanning Tree RootGuard
             capability can be configured.
@@ -1563,15 +1520,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             _revision = '2013-03-07'
 
             def __init__(self):
-                super(CISCOSTPEXTENSIONSMIB.Stpxrootguardconfigtable.Stpxrootguardconfigentry, self).__init__()
+                super(CISCOSTPEXTENSIONSMIB.StpxRootGuardConfigTable.StpxRootGuardConfigEntry, self).__init__()
 
                 self.yang_name = "stpxRootGuardConfigEntry"
                 self.yang_parent_name = "stpxRootGuardConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['stpxrootguardconfigportindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('stpxrootguardconfigportindex', YLeaf(YType.int32, 'stpxRootGuardConfigPortIndex')),
                     ('stpxrootguardconfigenabled', YLeaf(YType.boolean, 'stpxRootGuardConfigEnabled')),
@@ -1582,10 +1538,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxRootGuardConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxrootguardconfigtable.Stpxrootguardconfigentry, ['stpxrootguardconfigportindex', 'stpxrootguardconfigenabled'], name, value)
+                self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRootGuardConfigTable.StpxRootGuardConfigEntry, ['stpxrootguardconfigportindex', 'stpxrootguardconfigenabled'], name, value)
 
 
-    class Stpxrootinconsistencytable(Entity):
+    class StpxRootInconsistencyTable(Entity):
         """
         A table containing a list of the bridge ports for which
         a particular Spanning Tree instance has been found 
@@ -1597,7 +1553,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         .. attribute:: stpxrootinconsistencyentry
         
         	A Spanning Tree instance on a particular port for  which a Spanning Tree root\-inconsistency is currently  in effect
-        	**type**\: list of  		 :py:class:`Stpxrootinconsistencyentry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxrootinconsistencytable.Stpxrootinconsistencyentry>`
+        	**type**\: list of  		 :py:class:`StpxRootInconsistencyEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRootInconsistencyTable.StpxRootInconsistencyEntry>`
         
         
 
@@ -1607,15 +1563,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxrootinconsistencytable, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxRootInconsistencyTable, self).__init__()
 
             self.yang_name = "stpxRootInconsistencyTable"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("stpxRootInconsistencyEntry", ("stpxrootinconsistencyentry", CISCOSTPEXTENSIONSMIB.Stpxrootinconsistencytable.Stpxrootinconsistencyentry))])
+            self._child_classes = OrderedDict([("stpxRootInconsistencyEntry", ("stpxrootinconsistencyentry", CISCOSTPEXTENSIONSMIB.StpxRootInconsistencyTable.StpxRootInconsistencyEntry))])
             self._leafs = OrderedDict()
 
             self.stpxrootinconsistencyentry = YList(self)
@@ -1623,10 +1578,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxrootinconsistencytable, [], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRootInconsistencyTable, [], name, value)
 
 
-        class Stpxrootinconsistencyentry(Entity):
+        class StpxRootInconsistencyEntry(Entity):
             """
             A Spanning Tree instance on a particular port for 
             which a Spanning Tree root\-inconsistency is currently 
@@ -1659,15 +1614,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             _revision = '2013-03-07'
 
             def __init__(self):
-                super(CISCOSTPEXTENSIONSMIB.Stpxrootinconsistencytable.Stpxrootinconsistencyentry, self).__init__()
+                super(CISCOSTPEXTENSIONSMIB.StpxRootInconsistencyTable.StpxRootInconsistencyEntry, self).__init__()
 
                 self.yang_name = "stpxRootInconsistencyEntry"
                 self.yang_parent_name = "stpxRootInconsistencyTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['stpxrootinconsistencyindex','stpxrootinconsistencyportindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('stpxrootinconsistencyindex', YLeaf(YType.int32, 'stpxRootInconsistencyIndex')),
                     ('stpxrootinconsistencyportindex', YLeaf(YType.int32, 'stpxRootInconsistencyPortIndex')),
@@ -1680,10 +1634,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxRootInconsistencyTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxrootinconsistencytable.Stpxrootinconsistencyentry, ['stpxrootinconsistencyindex', 'stpxrootinconsistencyportindex', 'stpxrootinconsistencystate'], name, value)
+                self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRootInconsistencyTable.StpxRootInconsistencyEntry, ['stpxrootinconsistencyindex', 'stpxrootinconsistencyportindex', 'stpxrootinconsistencystate'], name, value)
 
 
-    class Stpxmistpinstancetable(Entity):
+    class StpxMISTPInstanceTable(Entity):
         """
         This table contains one entry for each instance of MISTP and 
         it contains stpxMISTPInstanceNumber entries, numbered from 1
@@ -1695,7 +1649,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         .. attribute:: stpxmistpinstanceentry
         
         	A conceptual row containing the status of the MISTP  instance
-        	**type**\: list of  		 :py:class:`Stpxmistpinstanceentry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxmistpinstancetable.Stpxmistpinstanceentry>`
+        	**type**\: list of  		 :py:class:`StpxMISTPInstanceEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMISTPInstanceTable.StpxMISTPInstanceEntry>`
         
         
 
@@ -1705,15 +1659,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxmistpinstancetable, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxMISTPInstanceTable, self).__init__()
 
             self.yang_name = "stpxMISTPInstanceTable"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("stpxMISTPInstanceEntry", ("stpxmistpinstanceentry", CISCOSTPEXTENSIONSMIB.Stpxmistpinstancetable.Stpxmistpinstanceentry))])
+            self._child_classes = OrderedDict([("stpxMISTPInstanceEntry", ("stpxmistpinstanceentry", CISCOSTPEXTENSIONSMIB.StpxMISTPInstanceTable.StpxMISTPInstanceEntry))])
             self._leafs = OrderedDict()
 
             self.stpxmistpinstanceentry = YList(self)
@@ -1721,10 +1674,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxmistpinstancetable, [], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMISTPInstanceTable, [], name, value)
 
 
-        class Stpxmistpinstanceentry(Entity):
+        class StpxMISTPInstanceEntry(Entity):
             """
             A conceptual row containing the status of the MISTP 
             instance.
@@ -1777,15 +1730,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             _revision = '2013-03-07'
 
             def __init__(self):
-                super(CISCOSTPEXTENSIONSMIB.Stpxmistpinstancetable.Stpxmistpinstanceentry, self).__init__()
+                super(CISCOSTPEXTENSIONSMIB.StpxMISTPInstanceTable.StpxMISTPInstanceEntry, self).__init__()
 
                 self.yang_name = "stpxMISTPInstanceEntry"
                 self.yang_parent_name = "stpxMISTPInstanceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['stpxmistpinstanceindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('stpxmistpinstanceindex', YLeaf(YType.int32, 'stpxMISTPInstanceIndex')),
                     ('stpxmistpinstanceenable', YLeaf(YType.boolean, 'stpxMISTPInstanceEnable')),
@@ -1804,10 +1756,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxMISTPInstanceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxmistpinstancetable.Stpxmistpinstanceentry, ['stpxmistpinstanceindex', 'stpxmistpinstanceenable', 'stpxmistpinstancevlansmapped', 'stpxmistpinstancevlansmapped2k', 'stpxmistpinstancevlansmapped3k', 'stpxmistpinstancevlansmapped4k'], name, value)
+                self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMISTPInstanceTable.StpxMISTPInstanceEntry, ['stpxmistpinstanceindex', 'stpxmistpinstanceenable', 'stpxmistpinstancevlansmapped', 'stpxmistpinstancevlansmapped2k', 'stpxmistpinstancevlansmapped3k', 'stpxmistpinstancevlansmapped4k'], name, value)
 
 
-    class Stpxloopguardconfigtable(Entity):
+    class StpxLoopGuardConfigTable(Entity):
         """
         A table containing a list of the bridge ports for which
         Spanning Tree LoopGuard capability can be configured.
@@ -1815,7 +1767,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         .. attribute:: stpxloopguardconfigentry
         
         	A bridge port for which Spanning Tree LoopGuard  capability can be configured
-        	**type**\: list of  		 :py:class:`Stpxloopguardconfigentry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxloopguardconfigtable.Stpxloopguardconfigentry>`
+        	**type**\: list of  		 :py:class:`StpxLoopGuardConfigEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxLoopGuardConfigTable.StpxLoopGuardConfigEntry>`
         
         
 
@@ -1825,15 +1777,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxloopguardconfigtable, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxLoopGuardConfigTable, self).__init__()
 
             self.yang_name = "stpxLoopGuardConfigTable"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("stpxLoopGuardConfigEntry", ("stpxloopguardconfigentry", CISCOSTPEXTENSIONSMIB.Stpxloopguardconfigtable.Stpxloopguardconfigentry))])
+            self._child_classes = OrderedDict([("stpxLoopGuardConfigEntry", ("stpxloopguardconfigentry", CISCOSTPEXTENSIONSMIB.StpxLoopGuardConfigTable.StpxLoopGuardConfigEntry))])
             self._leafs = OrderedDict()
 
             self.stpxloopguardconfigentry = YList(self)
@@ -1841,10 +1792,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxloopguardconfigtable, [], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxLoopGuardConfigTable, [], name, value)
 
 
-        class Stpxloopguardconfigentry(Entity):
+        class StpxLoopGuardConfigEntry(Entity):
             """
             A bridge port for which Spanning Tree LoopGuard 
             capability can be configured.
@@ -1866,7 +1817,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             .. attribute:: stpxloopguardconfigmode
             
             	Indicates the mode of Loop Guard Feature on this  port. This configuration will be applied to all  the Spanning Tree instances in which this port  exists.  enable \-\- the Loop Guard feature is enabled on this            port.   disable \-\- the Loop Guard feature is disabled on this            port.    default \-\- whether the Loop Guard feature is enabled            or not on this port depends on the object             value of stpxLoopGuardGlobalDefaultMode
-            	**type**\:  :py:class:`Stpxloopguardconfigmode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxloopguardconfigtable.Stpxloopguardconfigentry.Stpxloopguardconfigmode>`
+            	**type**\:  :py:class:`StpxLoopGuardConfigMode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxLoopGuardConfigTable.StpxLoopGuardConfigEntry.StpxLoopGuardConfigMode>`
             
             
 
@@ -1876,15 +1827,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             _revision = '2013-03-07'
 
             def __init__(self):
-                super(CISCOSTPEXTENSIONSMIB.Stpxloopguardconfigtable.Stpxloopguardconfigentry, self).__init__()
+                super(CISCOSTPEXTENSIONSMIB.StpxLoopGuardConfigTable.StpxLoopGuardConfigEntry, self).__init__()
 
                 self.yang_name = "stpxLoopGuardConfigEntry"
                 self.yang_parent_name = "stpxLoopGuardConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['stpxloopguardconfigportindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('stpxloopguardconfigportindex', YLeaf(YType.int32, 'stpxLoopGuardConfigPortIndex')),
                     ('stpxloopguardconfigenabled', YLeaf(YType.boolean, 'stpxLoopGuardConfigEnabled')),
@@ -1897,11 +1847,11 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxLoopGuardConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxloopguardconfigtable.Stpxloopguardconfigentry, ['stpxloopguardconfigportindex', 'stpxloopguardconfigenabled', 'stpxloopguardconfigmode'], name, value)
+                self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxLoopGuardConfigTable.StpxLoopGuardConfigEntry, ['stpxloopguardconfigportindex', 'stpxloopguardconfigenabled', 'stpxloopguardconfigmode'], name, value)
 
-            class Stpxloopguardconfigmode(Enum):
+            class StpxLoopGuardConfigMode(Enum):
                 """
-                Stpxloopguardconfigmode (Enum Class)
+                StpxLoopGuardConfigMode (Enum Class)
 
                 Indicates the mode of Loop Guard Feature on this 
 
@@ -1941,7 +1891,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
 
 
-    class Stpxloopinconsistencytable(Entity):
+    class StpxLoopInconsistencyTable(Entity):
         """
         A table containing a list of the bridge ports for which
         a particular Spanning Tree instance has been found
@@ -1953,7 +1903,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         .. attribute:: stpxloopinconsistencyentry
         
         	A Spanning Tree instance on a particular port for which a Spanning Tree loop\-inconsistency is currently in effect
-        	**type**\: list of  		 :py:class:`Stpxloopinconsistencyentry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxloopinconsistencytable.Stpxloopinconsistencyentry>`
+        	**type**\: list of  		 :py:class:`StpxLoopInconsistencyEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxLoopInconsistencyTable.StpxLoopInconsistencyEntry>`
         
         
 
@@ -1963,15 +1913,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxloopinconsistencytable, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxLoopInconsistencyTable, self).__init__()
 
             self.yang_name = "stpxLoopInconsistencyTable"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("stpxLoopInconsistencyEntry", ("stpxloopinconsistencyentry", CISCOSTPEXTENSIONSMIB.Stpxloopinconsistencytable.Stpxloopinconsistencyentry))])
+            self._child_classes = OrderedDict([("stpxLoopInconsistencyEntry", ("stpxloopinconsistencyentry", CISCOSTPEXTENSIONSMIB.StpxLoopInconsistencyTable.StpxLoopInconsistencyEntry))])
             self._leafs = OrderedDict()
 
             self.stpxloopinconsistencyentry = YList(self)
@@ -1979,10 +1928,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxloopinconsistencytable, [], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxLoopInconsistencyTable, [], name, value)
 
 
-        class Stpxloopinconsistencyentry(Entity):
+        class StpxLoopInconsistencyEntry(Entity):
             """
             A Spanning Tree instance on a particular port for
             which a Spanning Tree loop\-inconsistency is currently
@@ -2015,15 +1964,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             _revision = '2013-03-07'
 
             def __init__(self):
-                super(CISCOSTPEXTENSIONSMIB.Stpxloopinconsistencytable.Stpxloopinconsistencyentry, self).__init__()
+                super(CISCOSTPEXTENSIONSMIB.StpxLoopInconsistencyTable.StpxLoopInconsistencyEntry, self).__init__()
 
                 self.yang_name = "stpxLoopInconsistencyEntry"
                 self.yang_parent_name = "stpxLoopInconsistencyTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['stpxloopinconsistencyindex','stpxloopinconsistencyportindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('stpxloopinconsistencyindex', YLeaf(YType.int32, 'stpxLoopInconsistencyIndex')),
                     ('stpxloopinconsistencyportindex', YLeaf(YType.int32, 'stpxLoopInconsistencyPortIndex')),
@@ -2036,10 +1984,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxLoopInconsistencyTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxloopinconsistencytable.Stpxloopinconsistencyentry, ['stpxloopinconsistencyindex', 'stpxloopinconsistencyportindex', 'stpxloopinconsistencystate'], name, value)
+                self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxLoopInconsistencyTable.StpxLoopInconsistencyEntry, ['stpxloopinconsistencyindex', 'stpxloopinconsistencyportindex', 'stpxloopinconsistencystate'], name, value)
 
 
-    class Stpxfaststartporttable(Entity):
+    class StpxFastStartPortTable(Entity):
         """
         A table containing a list of the bridge ports for
         which Spanning Tree Port Fast Start can be
@@ -2048,7 +1996,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         .. attribute:: stpxfaststartportentry
         
         	A bridge port for which Spanning Tree Port Fast Start can be configured
-        	**type**\: list of  		 :py:class:`Stpxfaststartportentry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxfaststartporttable.Stpxfaststartportentry>`
+        	**type**\: list of  		 :py:class:`StpxFastStartPortEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxFastStartPortTable.StpxFastStartPortEntry>`
         
         
 
@@ -2058,15 +2006,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxfaststartporttable, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxFastStartPortTable, self).__init__()
 
             self.yang_name = "stpxFastStartPortTable"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("stpxFastStartPortEntry", ("stpxfaststartportentry", CISCOSTPEXTENSIONSMIB.Stpxfaststartporttable.Stpxfaststartportentry))])
+            self._child_classes = OrderedDict([("stpxFastStartPortEntry", ("stpxfaststartportentry", CISCOSTPEXTENSIONSMIB.StpxFastStartPortTable.StpxFastStartPortEntry))])
             self._leafs = OrderedDict()
 
             self.stpxfaststartportentry = YList(self)
@@ -2074,10 +2021,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxfaststartporttable, [], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxFastStartPortTable, [], name, value)
 
 
-        class Stpxfaststartportentry(Entity):
+        class StpxFastStartPortEntry(Entity):
             """
             A bridge port for which Spanning Tree Port Fast
             Start can be configured.
@@ -2099,17 +2046,17 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             .. attribute:: stpxfaststartportmode
             
             	Indicates the mode of Fast Start Feature on the  port. A port with fast start enabled is immediately  put in spanning tree forwarding state when the port is detected by the Spanning Tree, rather than  starting in blocking state which is the normal  operation.  enable \-\- the fast start feature is enabled on this            port but will only take effect when the            object value of its            vlanTrunkPortDynamicStatus as specified            in CISCO\-VTP\-MIB is notTrunking(2).  disable \-\- the fast start feature is disabled on this            port.    enableForTrunk \-\- the fast start feature is enabled            on this port and will take effect            regardless of the object value of            its vlanTrunkPortDynamicStatus.  default \-\- whether the fast start feature is enabled            or not on this port depends on the object             value of stpxFastStartGlobalDefaultMode.  network \-\- the fast start network mode is enabled on             this port
-            	**type**\:  :py:class:`Stpxfaststartportmode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxfaststartporttable.Stpxfaststartportentry.Stpxfaststartportmode>`
+            	**type**\:  :py:class:`StpxFastStartPortMode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxFastStartPortTable.StpxFastStartPortEntry.StpxFastStartPortMode>`
             
             .. attribute:: stpxfaststartportbpduguardmode
             
             	Indicates the mode of Bpdu Guard Feature on the port. A port with Bpdu Guard enabled is  immediately disabled when the system  receives a BPDU from that port.   enable \-\- the Bpdu Guard feature is enabled on this           port.   disable \-\- the Bpdu Guard feature is disabled on this           port.  default \-\- whether the Bpdu Guard feature is enabled            or not on this port depends on the object            value of stpxFastStartBpduGuardEnable. If             the value of stpxFastStartBpduGuardEnable            is true(1) and Fast Start feature is also             enabled operationally on this port, then            this port is immediately disabled when             the system receives a BPDU from this port
-            	**type**\:  :py:class:`Stpxfaststartportbpduguardmode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxfaststartporttable.Stpxfaststartportentry.Stpxfaststartportbpduguardmode>`
+            	**type**\:  :py:class:`StpxFastStartPortBpduGuardMode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxFastStartPortTable.StpxFastStartPortEntry.StpxFastStartPortBpduGuardMode>`
             
             .. attribute:: stpxfaststartportbpdufiltermode
             
             	Indicates the mode of Bpdu Filter Feature on the port. The system will not transmit BPDUs on a port  with Bpdu Filter feature enabled.  enable \-\- the Bpdu Filter feature is enabled on this            port.   disable \-\- the Bpdu Filter feature is disabled on this            port.  default \-\- whether the Bpdu Filter feature is enabled            or not on this port depends on the object            value of stpxFastStartBpduFilterEnable. If            the value of stpxFastStartBpduFilterEnable            is true(1) and Fast Start feature is also            enabled operationally on this port, then            no BPDUs will be transmitted on this port
-            	**type**\:  :py:class:`Stpxfaststartportbpdufiltermode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxfaststartporttable.Stpxfaststartportentry.Stpxfaststartportbpdufiltermode>`
+            	**type**\:  :py:class:`StpxFastStartPortBpduFilterMode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxFastStartPortTable.StpxFastStartPortEntry.StpxFastStartPortBpduFilterMode>`
             
             
 
@@ -2119,15 +2066,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             _revision = '2013-03-07'
 
             def __init__(self):
-                super(CISCOSTPEXTENSIONSMIB.Stpxfaststartporttable.Stpxfaststartportentry, self).__init__()
+                super(CISCOSTPEXTENSIONSMIB.StpxFastStartPortTable.StpxFastStartPortEntry, self).__init__()
 
                 self.yang_name = "stpxFastStartPortEntry"
                 self.yang_parent_name = "stpxFastStartPortTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['stpxfaststartportindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('stpxfaststartportindex', YLeaf(YType.int32, 'stpxFastStartPortIndex')),
                     ('stpxfaststartportenable', YLeaf(YType.boolean, 'stpxFastStartPortEnable')),
@@ -2144,11 +2090,11 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxFastStartPortTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxfaststartporttable.Stpxfaststartportentry, ['stpxfaststartportindex', 'stpxfaststartportenable', 'stpxfaststartportmode', 'stpxfaststartportbpduguardmode', 'stpxfaststartportbpdufiltermode'], name, value)
+                self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxFastStartPortTable.StpxFastStartPortEntry, ['stpxfaststartportindex', 'stpxfaststartportenable', 'stpxfaststartportmode', 'stpxfaststartportbpduguardmode', 'stpxfaststartportbpdufiltermode'], name, value)
 
-            class Stpxfaststartportbpdufiltermode(Enum):
+            class StpxFastStartPortBpduFilterMode(Enum):
                 """
-                Stpxfaststartportbpdufiltermode (Enum Class)
+                StpxFastStartPortBpduFilterMode (Enum Class)
 
                 Indicates the mode of Bpdu Filter Feature on the
 
@@ -2193,9 +2139,9 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 default = Enum.YLeaf(3, "default")
 
 
-            class Stpxfaststartportbpduguardmode(Enum):
+            class StpxFastStartPortBpduGuardMode(Enum):
                 """
-                Stpxfaststartportbpduguardmode (Enum Class)
+                StpxFastStartPortBpduGuardMode (Enum Class)
 
                 Indicates the mode of Bpdu Guard Feature on the
 
@@ -2244,9 +2190,9 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 default = Enum.YLeaf(3, "default")
 
 
-            class Stpxfaststartportmode(Enum):
+            class StpxFastStartPortMode(Enum):
                 """
-                Stpxfaststartportmode (Enum Class)
+                StpxFastStartPortMode (Enum Class)
 
                 Indicates the mode of Fast Start Feature on the 
 
@@ -2316,7 +2262,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
 
 
-    class Stpxfaststartopermodetable(Entity):
+    class StpxFastStartOperModeTable(Entity):
         """
         A table containing a list of the bridge ports 
         for a particular Spanning Tree Instance.
@@ -2324,7 +2270,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         .. attribute:: stpxfaststartopermodeentry
         
         	An entry with port fast start oper mode  information on a bridge port for a particular  Spanning Tree Instance
-        	**type**\: list of  		 :py:class:`Stpxfaststartopermodeentry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxfaststartopermodetable.Stpxfaststartopermodeentry>`
+        	**type**\: list of  		 :py:class:`StpxFastStartOperModeEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxFastStartOperModeTable.StpxFastStartOperModeEntry>`
         
         
 
@@ -2334,15 +2280,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxfaststartopermodetable, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxFastStartOperModeTable, self).__init__()
 
             self.yang_name = "stpxFastStartOperModeTable"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("stpxFastStartOperModeEntry", ("stpxfaststartopermodeentry", CISCOSTPEXTENSIONSMIB.Stpxfaststartopermodetable.Stpxfaststartopermodeentry))])
+            self._child_classes = OrderedDict([("stpxFastStartOperModeEntry", ("stpxfaststartopermodeentry", CISCOSTPEXTENSIONSMIB.StpxFastStartOperModeTable.StpxFastStartOperModeEntry))])
             self._leafs = OrderedDict()
 
             self.stpxfaststartopermodeentry = YList(self)
@@ -2350,10 +2295,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxfaststartopermodetable, [], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxFastStartOperModeTable, [], name, value)
 
 
-        class Stpxfaststartopermodeentry(Entity):
+        class StpxFastStartOperModeEntry(Entity):
             """
             An entry with port fast start oper mode 
             information on a bridge port for a particular 
@@ -2376,7 +2321,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             .. attribute:: stpxfaststartopermode
             
             	Indicates the fast start operational status of the  port on a particular Spanning Tree Instance
-            	**type**\:  :py:class:`Stpxfaststartopermode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxfaststartopermodetable.Stpxfaststartopermodeentry.Stpxfaststartopermode>`
+            	**type**\:  :py:class:`StpxFastStartOperMode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxFastStartOperModeTable.StpxFastStartOperModeEntry.StpxFastStartOperMode>`
             
             
 
@@ -2386,15 +2331,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             _revision = '2013-03-07'
 
             def __init__(self):
-                super(CISCOSTPEXTENSIONSMIB.Stpxfaststartopermodetable.Stpxfaststartopermodeentry, self).__init__()
+                super(CISCOSTPEXTENSIONSMIB.StpxFastStartOperModeTable.StpxFastStartOperModeEntry, self).__init__()
 
                 self.yang_name = "stpxFastStartOperModeEntry"
                 self.yang_parent_name = "stpxFastStartOperModeTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['stpxfaststartopermodeinstindex','stpxfaststartopermodeportindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('stpxfaststartopermodeinstindex', YLeaf(YType.int32, 'stpxFastStartOperModeInstIndex')),
                     ('stpxfaststartopermodeportindex', YLeaf(YType.int32, 'stpxFastStartOperModePortIndex')),
@@ -2407,11 +2351,11 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxFastStartOperModeTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxfaststartopermodetable.Stpxfaststartopermodeentry, ['stpxfaststartopermodeinstindex', 'stpxfaststartopermodeportindex', 'stpxfaststartopermode'], name, value)
+                self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxFastStartOperModeTable.StpxFastStartOperModeEntry, ['stpxfaststartopermodeinstindex', 'stpxfaststartopermodeportindex', 'stpxfaststartopermode'], name, value)
 
-            class Stpxfaststartopermode(Enum):
+            class StpxFastStartOperMode(Enum):
                 """
-                Stpxfaststartopermode (Enum Class)
+                StpxFastStartOperMode (Enum Class)
 
                 Indicates the fast start operational status of the 
 
@@ -2429,7 +2373,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
 
 
-    class Stpxbpduskewingtable(Entity):
+    class StpxBpduSkewingTable(Entity):
         """
         A table containing a list of the bridge ports for 
         which a particular Spanning Tree instance has been 
@@ -2450,7 +2394,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         .. attribute:: stpxbpduskewingentry
         
         	A Spanning Tree instance on a particular port for which BPDU skewing has been detected
-        	**type**\: list of  		 :py:class:`Stpxbpduskewingentry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxbpduskewingtable.Stpxbpduskewingentry>`
+        	**type**\: list of  		 :py:class:`StpxBpduSkewingEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxBpduSkewingTable.StpxBpduSkewingEntry>`
         
         
 
@@ -2460,15 +2404,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxbpduskewingtable, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxBpduSkewingTable, self).__init__()
 
             self.yang_name = "stpxBpduSkewingTable"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("stpxBpduSkewingEntry", ("stpxbpduskewingentry", CISCOSTPEXTENSIONSMIB.Stpxbpduskewingtable.Stpxbpduskewingentry))])
+            self._child_classes = OrderedDict([("stpxBpduSkewingEntry", ("stpxbpduskewingentry", CISCOSTPEXTENSIONSMIB.StpxBpduSkewingTable.StpxBpduSkewingEntry))])
             self._leafs = OrderedDict()
 
             self.stpxbpduskewingentry = YList(self)
@@ -2476,10 +2419,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxbpduskewingtable, [], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxBpduSkewingTable, [], name, value)
 
 
-        class Stpxbpduskewingentry(Entity):
+        class StpxBpduSkewingEntry(Entity):
             """
             A Spanning Tree instance on a particular port for
             which BPDU skewing has been detected.
@@ -2531,15 +2474,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             _revision = '2013-03-07'
 
             def __init__(self):
-                super(CISCOSTPEXTENSIONSMIB.Stpxbpduskewingtable.Stpxbpduskewingentry, self).__init__()
+                super(CISCOSTPEXTENSIONSMIB.StpxBpduSkewingTable.StpxBpduSkewingEntry, self).__init__()
 
                 self.yang_name = "stpxBpduSkewingEntry"
                 self.yang_parent_name = "stpxBpduSkewingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['stpxbpduskewinginstanceindex','stpxbpduskewingportindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('stpxbpduskewinginstanceindex', YLeaf(YType.int32, 'stpxBpduSkewingInstanceIndex')),
                     ('stpxbpduskewingportindex', YLeaf(YType.int32, 'stpxBpduSkewingPortIndex')),
@@ -2556,10 +2498,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxBpduSkewingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxbpduskewingtable.Stpxbpduskewingentry, ['stpxbpduskewinginstanceindex', 'stpxbpduskewingportindex', 'stpxbpduskewinglastskewduration', 'stpxbpduskewingworstskewduration', 'stpxbpduskewingworstskewtime'], name, value)
+                self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxBpduSkewingTable.StpxBpduSkewingEntry, ['stpxbpduskewinginstanceindex', 'stpxbpduskewingportindex', 'stpxbpduskewinglastskewduration', 'stpxbpduskewingworstskewduration', 'stpxbpduskewingworstskewtime'], name, value)
 
 
-    class Stpxmstinstancetable(Entity):
+    class StpxMSTInstanceTable(Entity):
         """
         This table contains MST instance information with
         one entry for an MST instance within the range of 
@@ -2571,7 +2513,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         .. attribute:: stpxmstinstanceentry
         
         	A conceptual row containing the MST instance  information
-        	**type**\: list of  		 :py:class:`Stpxmstinstanceentry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxmstinstancetable.Stpxmstinstanceentry>`
+        	**type**\: list of  		 :py:class:`StpxMSTInstanceEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTInstanceTable.StpxMSTInstanceEntry>`
         
         	**status**\: deprecated
         
@@ -2583,15 +2525,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxmstinstancetable, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxMSTInstanceTable, self).__init__()
 
             self.yang_name = "stpxMSTInstanceTable"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("stpxMSTInstanceEntry", ("stpxmstinstanceentry", CISCOSTPEXTENSIONSMIB.Stpxmstinstancetable.Stpxmstinstanceentry))])
+            self._child_classes = OrderedDict([("stpxMSTInstanceEntry", ("stpxmstinstanceentry", CISCOSTPEXTENSIONSMIB.StpxMSTInstanceTable.StpxMSTInstanceEntry))])
             self._leafs = OrderedDict()
 
             self.stpxmstinstanceentry = YList(self)
@@ -2599,10 +2540,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxmstinstancetable, [], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMSTInstanceTable, [], name, value)
 
 
-        class Stpxmstinstanceentry(Entity):
+        class StpxMSTInstanceEntry(Entity):
             """
             A conceptual row containing the MST instance 
             information.
@@ -2669,15 +2610,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             _revision = '2013-03-07'
 
             def __init__(self):
-                super(CISCOSTPEXTENSIONSMIB.Stpxmstinstancetable.Stpxmstinstanceentry, self).__init__()
+                super(CISCOSTPEXTENSIONSMIB.StpxMSTInstanceTable.StpxMSTInstanceEntry, self).__init__()
 
                 self.yang_name = "stpxMSTInstanceEntry"
                 self.yang_parent_name = "stpxMSTInstanceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['stpxmstinstanceindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('stpxmstinstanceindex', YLeaf(YType.int32, 'stpxMSTInstanceIndex')),
                     ('stpxmstinstancevlansmapped', YLeaf(YType.str, 'stpxMSTInstanceVlansMapped')),
@@ -2696,10 +2636,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxMSTInstanceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxmstinstancetable.Stpxmstinstanceentry, ['stpxmstinstanceindex', 'stpxmstinstancevlansmapped', 'stpxmstinstancevlansmapped2k', 'stpxmstinstancevlansmapped3k', 'stpxmstinstancevlansmapped4k', 'stpxmstinstanceremaininghopcount'], name, value)
+                self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMSTInstanceTable.StpxMSTInstanceEntry, ['stpxmstinstanceindex', 'stpxmstinstancevlansmapped', 'stpxmstinstancevlansmapped2k', 'stpxmstinstancevlansmapped3k', 'stpxmstinstancevlansmapped4k', 'stpxmstinstanceremaininghopcount'], name, value)
 
 
-    class Stpxmstinstanceedittable(Entity):
+    class StpxMSTInstanceEditTable(Entity):
         """
         This table contains MST instance information in the 
         Edit Buffer with one entry for each MST
@@ -2715,7 +2655,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         .. attribute:: stpxmstinstanceeditentry
         
         	A conceptual row containing MST instance information  in the Edit Buffer
-        	**type**\: list of  		 :py:class:`Stpxmstinstanceeditentry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxmstinstanceedittable.Stpxmstinstanceeditentry>`
+        	**type**\: list of  		 :py:class:`StpxMSTInstanceEditEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTInstanceEditTable.StpxMSTInstanceEditEntry>`
         
         	**status**\: deprecated
         
@@ -2727,15 +2667,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxmstinstanceedittable, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxMSTInstanceEditTable, self).__init__()
 
             self.yang_name = "stpxMSTInstanceEditTable"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("stpxMSTInstanceEditEntry", ("stpxmstinstanceeditentry", CISCOSTPEXTENSIONSMIB.Stpxmstinstanceedittable.Stpxmstinstanceeditentry))])
+            self._child_classes = OrderedDict([("stpxMSTInstanceEditEntry", ("stpxmstinstanceeditentry", CISCOSTPEXTENSIONSMIB.StpxMSTInstanceEditTable.StpxMSTInstanceEditEntry))])
             self._leafs = OrderedDict()
 
             self.stpxmstinstanceeditentry = YList(self)
@@ -2743,10 +2682,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxmstinstanceedittable, [], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMSTInstanceEditTable, [], name, value)
 
 
-        class Stpxmstinstanceeditentry(Entity):
+        class StpxMSTInstanceEditEntry(Entity):
             """
             A conceptual row containing MST instance information 
             in the Edit Buffer.
@@ -2804,15 +2743,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             _revision = '2013-03-07'
 
             def __init__(self):
-                super(CISCOSTPEXTENSIONSMIB.Stpxmstinstanceedittable.Stpxmstinstanceeditentry, self).__init__()
+                super(CISCOSTPEXTENSIONSMIB.StpxMSTInstanceEditTable.StpxMSTInstanceEditEntry, self).__init__()
 
                 self.yang_name = "stpxMSTInstanceEditEntry"
                 self.yang_parent_name = "stpxMSTInstanceEditTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['stpxmstinstanceeditindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('stpxmstinstanceeditindex', YLeaf(YType.int32, 'stpxMSTInstanceEditIndex')),
                     ('stpxmstinstanceeditvlansmap', YLeaf(YType.str, 'stpxMSTInstanceEditVlansMap')),
@@ -2829,10 +2767,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxMSTInstanceEditTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxmstinstanceedittable.Stpxmstinstanceeditentry, ['stpxmstinstanceeditindex', 'stpxmstinstanceeditvlansmap', 'stpxmstinstanceeditvlansmap2k', 'stpxmstinstanceeditvlansmap3k', 'stpxmstinstanceeditvlansmap4k'], name, value)
+                self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMSTInstanceEditTable.StpxMSTInstanceEditEntry, ['stpxmstinstanceeditindex', 'stpxmstinstanceeditvlansmap', 'stpxmstinstanceeditvlansmap2k', 'stpxmstinstanceeditvlansmap3k', 'stpxmstinstanceeditvlansmap4k'], name, value)
 
 
-    class Stpxmstporttable(Entity):
+    class StpxMSTPortTable(Entity):
         """
         A table containing port information for the MST 
         Protocol on all the bridge ports existing on the 
@@ -2841,7 +2779,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         .. attribute:: stpxmstportentry
         
         	An entry with port information for the MST Protocol on a bridge port
-        	**type**\: list of  		 :py:class:`Stpxmstportentry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxmstporttable.Stpxmstportentry>`
+        	**type**\: list of  		 :py:class:`StpxMSTPortEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTPortTable.StpxMSTPortEntry>`
         
         	**status**\: deprecated
         
@@ -2853,15 +2791,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxmstporttable, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxMSTPortTable, self).__init__()
 
             self.yang_name = "stpxMSTPortTable"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("stpxMSTPortEntry", ("stpxmstportentry", CISCOSTPEXTENSIONSMIB.Stpxmstporttable.Stpxmstportentry))])
+            self._child_classes = OrderedDict([("stpxMSTPortEntry", ("stpxmstportentry", CISCOSTPEXTENSIONSMIB.StpxMSTPortTable.StpxMSTPortEntry))])
             self._leafs = OrderedDict()
 
             self.stpxmstportentry = YList(self)
@@ -2869,10 +2806,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxmstporttable, [], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMSTPortTable, [], name, value)
 
 
-        class Stpxmstportentry(Entity):
+        class StpxMSTPortEntry(Entity):
             """
             An entry with port information for the MST Protocol
             on a bridge port.
@@ -2889,14 +2826,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             .. attribute:: stpxmstportadminlinktype
             
             	Indicates the administrative link type configuration of  a bridge port for the MST protocol.   pointToPoint \-\- the port is administratively configured to         be connected to a point\-to\-point link.  shared \-\- the port is administratively configured to be         connected to a shared medium.   auto \-\- the administrative configuration of the port's          link type depends on link duplex of the port.         If the port link is full\-duplex, the administrative          link type configuration on this port will be taken          as pointTopoint(1). If the port link is half\-duplex,          the administrative link type configuration on this         port will be taken as shared(2).  This configuration of this object only takes effect when the stpxSpanningTreeType is mst(4) or rapidPvstPlus(5). stpxMSTPortAdminLinkType is deprecated and replaced  with stpxRSTPPortAdminLinkType
-            	**type**\:  :py:class:`Stpxmstportadminlinktype <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxmstporttable.Stpxmstportentry.Stpxmstportadminlinktype>`
+            	**type**\:  :py:class:`StpxMSTPortAdminLinkType <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTPortTable.StpxMSTPortEntry.StpxMSTPortAdminLinkType>`
             
             	**status**\: deprecated
             
             .. attribute:: stpxmstportoperlinktype
             
             	Indicates the operational link type of a bridge port for the MST protocol.  pointToPoint \-\- the port is operationally connected to         a point\-to\-point link.  shared \-\- the port is operationally connected to          a shared medium.  other \-\- none of the above.  This object is only instantiated when the object value of stpxSpanningTreeType is mst(4).  stpxMSTPortOperLinkType  is deprecated and replaced with stpxRSTPPortOperLinkType
-            	**type**\:  :py:class:`Stpxmstportoperlinktype <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxmstporttable.Stpxmstportentry.Stpxmstportoperlinktype>`
+            	**type**\:  :py:class:`StpxMSTPortOperLinkType <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTPortTable.StpxMSTPortEntry.StpxMSTPortOperLinkType>`
             
             	**status**\: deprecated
             
@@ -2910,7 +2847,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             .. attribute:: stpxmstportstatus
             
             	Indicates the operational status of the port for the  MST protocol.   edge \-\- this port is an edge port for the MST region.  boundary \-\- this port is a boundary port for the          MST region.  pvst \-\-  this port is connected to a PVST/PVST+ bridge.     stp \-\- this port is connected to a Single Spanning         Tree bridge.   This object is only instantiated when the object value of stpxSpanningTreeType is mst(4).  This object is deprecated and replaced by  stpxSMSTPortStatus
-            	**type**\:  :py:class:`Stpxmstportstatus <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxmstporttable.Stpxmstportentry.Stpxmstportstatus>`
+            	**type**\:  :py:class:`StpxMSTPortStatus <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTPortTable.StpxMSTPortEntry.StpxMSTPortStatus>`
             
             	**status**\: deprecated
             
@@ -2922,15 +2859,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             _revision = '2013-03-07'
 
             def __init__(self):
-                super(CISCOSTPEXTENSIONSMIB.Stpxmstporttable.Stpxmstportentry, self).__init__()
+                super(CISCOSTPEXTENSIONSMIB.StpxMSTPortTable.StpxMSTPortEntry, self).__init__()
 
                 self.yang_name = "stpxMSTPortEntry"
                 self.yang_parent_name = "stpxMSTPortTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['stpxmstportindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('stpxmstportindex', YLeaf(YType.int32, 'stpxMSTPortIndex')),
                     ('stpxmstportadminlinktype', YLeaf(YType.enumeration, 'stpxMSTPortAdminLinkType')),
@@ -2947,11 +2883,11 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxMSTPortTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxmstporttable.Stpxmstportentry, ['stpxmstportindex', 'stpxmstportadminlinktype', 'stpxmstportoperlinktype', 'stpxmstportprotocolmigration', 'stpxmstportstatus'], name, value)
+                self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMSTPortTable.StpxMSTPortEntry, ['stpxmstportindex', 'stpxmstportadminlinktype', 'stpxmstportoperlinktype', 'stpxmstportprotocolmigration', 'stpxmstportstatus'], name, value)
 
-            class Stpxmstportadminlinktype(Enum):
+            class StpxMSTPortAdminLinkType(Enum):
                 """
-                Stpxmstportadminlinktype (Enum Class)
+                StpxMSTPortAdminLinkType (Enum Class)
 
                 Indicates the administrative link type configuration of 
 
@@ -3002,9 +2938,9 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 auto = Enum.YLeaf(3, "auto")
 
 
-            class Stpxmstportoperlinktype(Enum):
+            class StpxMSTPortOperLinkType(Enum):
                 """
-                Stpxmstportoperlinktype (Enum Class)
+                StpxMSTPortOperLinkType (Enum Class)
 
                 Indicates the operational link type of a bridge port
 
@@ -3042,7 +2978,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
 
 
-    class Stpxmstportroletable(Entity):
+    class StpxMSTPortRoleTable(Entity):
         """
         A table containing a list of the bridge ports for a 
         particular MST instance.  This table is only instantiated 
@@ -3054,7 +2990,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         .. attribute:: stpxmstportroleentry
         
         	An entry containing the port role information for the MST protocol on a port for a particular MST instance existing on the system
-        	**type**\: list of  		 :py:class:`Stpxmstportroleentry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxmstportroletable.Stpxmstportroleentry>`
+        	**type**\: list of  		 :py:class:`StpxMSTPortRoleEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTPortRoleTable.StpxMSTPortRoleEntry>`
         
         	**status**\: deprecated
         
@@ -3066,15 +3002,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxmstportroletable, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxMSTPortRoleTable, self).__init__()
 
             self.yang_name = "stpxMSTPortRoleTable"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("stpxMSTPortRoleEntry", ("stpxmstportroleentry", CISCOSTPEXTENSIONSMIB.Stpxmstportroletable.Stpxmstportroleentry))])
+            self._child_classes = OrderedDict([("stpxMSTPortRoleEntry", ("stpxmstportroleentry", CISCOSTPEXTENSIONSMIB.StpxMSTPortRoleTable.StpxMSTPortRoleEntry))])
             self._leafs = OrderedDict()
 
             self.stpxmstportroleentry = YList(self)
@@ -3082,10 +3017,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxmstportroletable, [], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMSTPortRoleTable, [], name, value)
 
 
-        class Stpxmstportroleentry(Entity):
+        class StpxMSTPortRoleEntry(Entity):
             """
             An entry containing the port role information for the MST
             protocol on a port for a particular MST instance existing
@@ -3112,7 +3047,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             .. attribute:: stpxmstportrolevalue
             
             	Indicates the port role on a particular MST instance for the MST protocol.   disabled \-\-  this port has no role on this MST instance.   root \-\- this port has the role of root port on this MST             instance.   designated \-\- this port has the role of designated              port on this MST instance.  alternate \-\- this port has the role of alternate port             on this MST instance.  backUp \-\- this port has the role of backup port on this               MST instance.  boundary \-\- this port has the role of boundary port on              this MST instance.  master \-\- this port has the role of master port on           this MST instance
-            	**type**\:  :py:class:`Stpxmstportrolevalue <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxmstportroletable.Stpxmstportroleentry.Stpxmstportrolevalue>`
+            	**type**\:  :py:class:`StpxMSTPortRoleValue <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTPortRoleTable.StpxMSTPortRoleEntry.StpxMSTPortRoleValue>`
             
             	**status**\: deprecated
             
@@ -3124,15 +3059,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             _revision = '2013-03-07'
 
             def __init__(self):
-                super(CISCOSTPEXTENSIONSMIB.Stpxmstportroletable.Stpxmstportroleentry, self).__init__()
+                super(CISCOSTPEXTENSIONSMIB.StpxMSTPortRoleTable.StpxMSTPortRoleEntry, self).__init__()
 
                 self.yang_name = "stpxMSTPortRoleEntry"
                 self.yang_parent_name = "stpxMSTPortRoleTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['stpxmstportroleinstanceindex','stpxmstportroleportindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('stpxmstportroleinstanceindex', YLeaf(YType.int32, 'stpxMSTPortRoleInstanceIndex')),
                     ('stpxmstportroleportindex', YLeaf(YType.int32, 'stpxMSTPortRolePortIndex')),
@@ -3145,11 +3079,11 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxMSTPortRoleTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxmstportroletable.Stpxmstportroleentry, ['stpxmstportroleinstanceindex', 'stpxmstportroleportindex', 'stpxmstportrolevalue'], name, value)
+                self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMSTPortRoleTable.StpxMSTPortRoleEntry, ['stpxmstportroleinstanceindex', 'stpxmstportroleportindex', 'stpxmstportrolevalue'], name, value)
 
-            class Stpxmstportrolevalue(Enum):
+            class StpxMSTPortRoleValue(Enum):
                 """
-                Stpxmstportrolevalue (Enum Class)
+                StpxMSTPortRoleValue (Enum Class)
 
                 Indicates the port role on a particular MST instance
 
@@ -3213,7 +3147,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
 
 
-    class Stpxrstpporttable(Entity):
+    class StpxRSTPPortTable(Entity):
         """
         A table containing port information for the RSTP 
         Protocol on all the bridge ports existing in the 
@@ -3222,7 +3156,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         .. attribute:: stpxrstpportentry
         
         	An entry with port information for the RSTP Protocol on a bridge port
-        	**type**\: list of  		 :py:class:`Stpxrstpportentry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxrstpporttable.Stpxrstpportentry>`
+        	**type**\: list of  		 :py:class:`StpxRSTPPortEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRSTPPortTable.StpxRSTPPortEntry>`
         
         
 
@@ -3232,15 +3166,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxrstpporttable, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxRSTPPortTable, self).__init__()
 
             self.yang_name = "stpxRSTPPortTable"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("stpxRSTPPortEntry", ("stpxrstpportentry", CISCOSTPEXTENSIONSMIB.Stpxrstpporttable.Stpxrstpportentry))])
+            self._child_classes = OrderedDict([("stpxRSTPPortEntry", ("stpxrstpportentry", CISCOSTPEXTENSIONSMIB.StpxRSTPPortTable.StpxRSTPPortEntry))])
             self._leafs = OrderedDict()
 
             self.stpxrstpportentry = YList(self)
@@ -3248,10 +3181,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxrstpporttable, [], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRSTPPortTable, [], name, value)
 
 
-        class Stpxrstpportentry(Entity):
+        class StpxRSTPPortEntry(Entity):
             """
             An entry with port information for the RSTP Protocol
             on a bridge port.
@@ -3266,12 +3199,12 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             .. attribute:: stpxrstpportadminlinktype
             
             	Indicates the administrative link type configuration of  a bridge port for the RSTP protocol.   pointToPoint \-\- the port is administratively configured to         be connected to a point\-to\-point link.  shared \-\- the port is administratively configured to be         connected to a shared medium.   auto \-\- the administrative configuration of the port's          link type depends on link duplex of the port.         If the port link is full\-duplex, the administrative          link type configuration on this port will be taken          as pointTopoint(1). If the port link is half\-duplex,          the administrative link type configuration on this         port will be taken as shared(2).  This configuration of this object only takes effect when the stpxSpanningTreeType is mst(4) or rapidPvstPlus(5)
-            	**type**\:  :py:class:`Stpxrstpportadminlinktype <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxrstpporttable.Stpxrstpportentry.Stpxrstpportadminlinktype>`
+            	**type**\:  :py:class:`StpxRSTPPortAdminLinkType <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRSTPPortTable.StpxRSTPPortEntry.StpxRSTPPortAdminLinkType>`
             
             .. attribute:: stpxrstpportoperlinktype
             
             	Indicates the operational link type of a bridge port for the RSTP protocol.  pointToPoint \-\- the port is operationally connected to         a point\-to\-point link.  shared \-\- the port is operationally connected to          a shared medium.  other \-\- none of the above.  This object is only instantiated when the object value of stpxSpanningTreeType is mst(4) or rapidPvstPlus(5)
-            	**type**\:  :py:class:`Stpxrstpportoperlinktype <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxrstpporttable.Stpxrstpportentry.Stpxrstpportoperlinktype>`
+            	**type**\:  :py:class:`StpxRSTPPortOperLinkType <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRSTPPortTable.StpxRSTPPortEntry.StpxRSTPPortOperLinkType>`
             
             .. attribute:: stpxrstpportprotocolmigration
             
@@ -3286,15 +3219,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             _revision = '2013-03-07'
 
             def __init__(self):
-                super(CISCOSTPEXTENSIONSMIB.Stpxrstpporttable.Stpxrstpportentry, self).__init__()
+                super(CISCOSTPEXTENSIONSMIB.StpxRSTPPortTable.StpxRSTPPortEntry, self).__init__()
 
                 self.yang_name = "stpxRSTPPortEntry"
                 self.yang_parent_name = "stpxRSTPPortTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['stpxrstpportindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('stpxrstpportindex', YLeaf(YType.int32, 'stpxRSTPPortIndex')),
                     ('stpxrstpportadminlinktype', YLeaf(YType.enumeration, 'stpxRSTPPortAdminLinkType')),
@@ -3309,11 +3241,11 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxRSTPPortTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxrstpporttable.Stpxrstpportentry, ['stpxrstpportindex', 'stpxrstpportadminlinktype', 'stpxrstpportoperlinktype', 'stpxrstpportprotocolmigration'], name, value)
+                self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRSTPPortTable.StpxRSTPPortEntry, ['stpxrstpportindex', 'stpxrstpportadminlinktype', 'stpxrstpportoperlinktype', 'stpxrstpportprotocolmigration'], name, value)
 
-            class Stpxrstpportadminlinktype(Enum):
+            class StpxRSTPPortAdminLinkType(Enum):
                 """
-                Stpxrstpportadminlinktype (Enum Class)
+                StpxRSTPPortAdminLinkType (Enum Class)
 
                 Indicates the administrative link type configuration of 
 
@@ -3360,9 +3292,9 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 auto = Enum.YLeaf(3, "auto")
 
 
-            class Stpxrstpportoperlinktype(Enum):
+            class StpxRSTPPortOperLinkType(Enum):
                 """
-                Stpxrstpportoperlinktype (Enum Class)
+                StpxRSTPPortOperLinkType (Enum Class)
 
                 Indicates the operational link type of a bridge port
 
@@ -3398,7 +3330,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
 
 
-    class Stpxrstpportroletable(Entity):
+    class StpxRSTPPortRoleTable(Entity):
         """
         A table containing a list of the bridge ports for a 
         particular Spanning Tree instance.  This table is 
@@ -3408,7 +3340,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         .. attribute:: stpxrstpportroleentry
         
         	An entry containing the port role information for the RSTP protocol on a port for a particular Spanning Tree instance
-        	**type**\: list of  		 :py:class:`Stpxrstpportroleentry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxrstpportroletable.Stpxrstpportroleentry>`
+        	**type**\: list of  		 :py:class:`StpxRSTPPortRoleEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRSTPPortRoleTable.StpxRSTPPortRoleEntry>`
         
         
 
@@ -3418,15 +3350,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxrstpportroletable, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxRSTPPortRoleTable, self).__init__()
 
             self.yang_name = "stpxRSTPPortRoleTable"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("stpxRSTPPortRoleEntry", ("stpxrstpportroleentry", CISCOSTPEXTENSIONSMIB.Stpxrstpportroletable.Stpxrstpportroleentry))])
+            self._child_classes = OrderedDict([("stpxRSTPPortRoleEntry", ("stpxrstpportroleentry", CISCOSTPEXTENSIONSMIB.StpxRSTPPortRoleTable.StpxRSTPPortRoleEntry))])
             self._leafs = OrderedDict()
 
             self.stpxrstpportroleentry = YList(self)
@@ -3434,10 +3365,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxrstpportroletable, [], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRSTPPortRoleTable, [], name, value)
 
 
-        class Stpxrstpportroleentry(Entity):
+        class StpxRSTPPortRoleEntry(Entity):
             """
             An entry containing the port role information for the RSTP
             protocol on a port for a particular Spanning Tree instance.
@@ -3459,7 +3390,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             .. attribute:: stpxrstpportrolevalue
             
             	Indicates the port role on a particular Spanning Tree  instance for the RSTP protocol.   disabled \-\-  this port has no role in this Spanning             Tree instance.   root \-\- this port has the role of root port in this             Spanning Tree instance.   designated \-\- this port has the role of designated              port in this Spanning Tree instance.  alternate \-\- this port has the role of alternate port             in this Spanning Tree instance.  backUp \-\- this port has the role of backup port in this               Spanning Tree instance.  boundary \-\- this port has the role of boundary port in              this Spanning Tree instance.  master \-\- this port has the role of master port in             this Spanning Tree instance.  This object could have a value of 'boundary' or 'master' only when the object value of stpxSpanningTreeType is mst(4)
-            	**type**\:  :py:class:`Stpxrstpportrolevalue <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxrstpportroletable.Stpxrstpportroleentry.Stpxrstpportrolevalue>`
+            	**type**\:  :py:class:`StpxRSTPPortRoleValue <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRSTPPortRoleTable.StpxRSTPPortRoleEntry.StpxRSTPPortRoleValue>`
             
             
 
@@ -3469,15 +3400,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             _revision = '2013-03-07'
 
             def __init__(self):
-                super(CISCOSTPEXTENSIONSMIB.Stpxrstpportroletable.Stpxrstpportroleentry, self).__init__()
+                super(CISCOSTPEXTENSIONSMIB.StpxRSTPPortRoleTable.StpxRSTPPortRoleEntry, self).__init__()
 
                 self.yang_name = "stpxRSTPPortRoleEntry"
                 self.yang_parent_name = "stpxRSTPPortRoleTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['stpxrstpportroleinstanceindex','stpxrstpportroleportindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('stpxrstpportroleinstanceindex', YLeaf(YType.int32, 'stpxRSTPPortRoleInstanceIndex')),
                     ('stpxrstpportroleportindex', YLeaf(YType.int32, 'stpxRSTPPortRolePortIndex')),
@@ -3490,11 +3420,11 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxRSTPPortRoleTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxrstpportroletable.Stpxrstpportroleentry, ['stpxrstpportroleinstanceindex', 'stpxrstpportroleportindex', 'stpxrstpportrolevalue'], name, value)
+                self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRSTPPortRoleTable.StpxRSTPPortRoleEntry, ['stpxrstpportroleinstanceindex', 'stpxrstpportroleportindex', 'stpxrstpportrolevalue'], name, value)
 
-            class Stpxrstpportrolevalue(Enum):
+            class StpxRSTPPortRoleValue(Enum):
                 """
-                Stpxrstpportrolevalue (Enum Class)
+                StpxRSTPPortRoleValue (Enum Class)
 
                 Indicates the port role on a particular Spanning Tree 
 
@@ -3564,7 +3494,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
 
 
-    class Stpxrpvstporttable(Entity):
+    class StpxRPVSTPortTable(Entity):
         """
         A table containing a list of the bridge ports 
         for a particular Spanning Tree Instance.
@@ -3574,7 +3504,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         .. attribute:: stpxrpvstportentry
         
         	An entry with port status information on a  bridge port for a particular Spanning Tree  Instance
-        	**type**\: list of  		 :py:class:`Stpxrpvstportentry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxrpvstporttable.Stpxrpvstportentry>`
+        	**type**\: list of  		 :py:class:`StpxRPVSTPortEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRPVSTPortTable.StpxRPVSTPortEntry>`
         
         
 
@@ -3584,15 +3514,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxrpvstporttable, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxRPVSTPortTable, self).__init__()
 
             self.yang_name = "stpxRPVSTPortTable"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("stpxRPVSTPortEntry", ("stpxrpvstportentry", CISCOSTPEXTENSIONSMIB.Stpxrpvstporttable.Stpxrpvstportentry))])
+            self._child_classes = OrderedDict([("stpxRPVSTPortEntry", ("stpxrpvstportentry", CISCOSTPEXTENSIONSMIB.StpxRPVSTPortTable.StpxRPVSTPortEntry))])
             self._leafs = OrderedDict()
 
             self.stpxrpvstportentry = YList(self)
@@ -3600,10 +3529,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxrpvstporttable, [], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRPVSTPortTable, [], name, value)
 
 
-        class Stpxrpvstportentry(Entity):
+        class StpxRPVSTPortEntry(Entity):
             """
             An entry with port status information on a 
             bridge port for a particular Spanning Tree 
@@ -3626,7 +3555,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             .. attribute:: stpxrpvstportstatus
             
             	Indicates the operational status of the port for the  Rapid PVST+ protocol.  edge \-\- this port is an edge port for the RST region.  unused1 \-\- unused bit 1.  unused2 \-\- unused bit 2.  stp \-\- this port is connected to a Single Spanning        Tree/PVST+ bridge.  dispute \-\- this port, as a designated port, received an        inferior BPDU with a designated role and the        learning bit being set
-            	**type**\:  :py:class:`Stpxrpvstportstatus <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxrpvstporttable.Stpxrpvstportentry.Stpxrpvstportstatus>`
+            	**type**\:  :py:class:`StpxRPVSTPortStatus <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRPVSTPortTable.StpxRPVSTPortEntry.StpxRPVSTPortStatus>`
             
             
 
@@ -3636,15 +3565,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             _revision = '2013-03-07'
 
             def __init__(self):
-                super(CISCOSTPEXTENSIONSMIB.Stpxrpvstporttable.Stpxrpvstportentry, self).__init__()
+                super(CISCOSTPEXTENSIONSMIB.StpxRPVSTPortTable.StpxRPVSTPortEntry, self).__init__()
 
                 self.yang_name = "stpxRPVSTPortEntry"
                 self.yang_parent_name = "stpxRPVSTPortTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['stpxrpvstportvlanindex','stpxrpvstportindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('stpxrpvstportvlanindex', YLeaf(YType.int32, 'stpxRPVSTPortVlanIndex')),
                     ('stpxrpvstportindex', YLeaf(YType.int32, 'stpxRPVSTPortIndex')),
@@ -3657,10 +3585,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxRPVSTPortTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxrpvstporttable.Stpxrpvstportentry, ['stpxrpvstportvlanindex', 'stpxrpvstportindex', 'stpxrpvstportstatus'], name, value)
+                self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRPVSTPortTable.StpxRPVSTPortEntry, ['stpxrpvstportvlanindex', 'stpxrpvstportindex', 'stpxrpvstportstatus'], name, value)
 
 
-    class Stpxsmstinstancetable(Entity):
+    class StpxSMSTInstanceTable(Entity):
         """
         This table contains MST instance information
         for IEEE MST.
@@ -3668,7 +3596,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         .. attribute:: stpxsmstinstanceentry
         
         	A conceptual row containing the MST instance  information for IEEE MST
-        	**type**\: list of  		 :py:class:`Stpxsmstinstanceentry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxsmstinstancetable.Stpxsmstinstanceentry>`
+        	**type**\: list of  		 :py:class:`StpxSMSTInstanceEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceTable.StpxSMSTInstanceEntry>`
         
         
 
@@ -3678,15 +3606,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxsmstinstancetable, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceTable, self).__init__()
 
             self.yang_name = "stpxSMSTInstanceTable"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("stpxSMSTInstanceEntry", ("stpxsmstinstanceentry", CISCOSTPEXTENSIONSMIB.Stpxsmstinstancetable.Stpxsmstinstanceentry))])
+            self._child_classes = OrderedDict([("stpxSMSTInstanceEntry", ("stpxsmstinstanceentry", CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceTable.StpxSMSTInstanceEntry))])
             self._leafs = OrderedDict()
 
             self.stpxsmstinstanceentry = YList(self)
@@ -3694,10 +3621,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxsmstinstancetable, [], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceTable, [], name, value)
 
 
-        class Stpxsmstinstanceentry(Entity):
+        class StpxSMSTInstanceEntry(Entity):
             """
             A conceptual row containing the MST instance 
             information for IEEE MST.
@@ -3752,15 +3679,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             _revision = '2013-03-07'
 
             def __init__(self):
-                super(CISCOSTPEXTENSIONSMIB.Stpxsmstinstancetable.Stpxsmstinstanceentry, self).__init__()
+                super(CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceTable.StpxSMSTInstanceEntry, self).__init__()
 
                 self.yang_name = "stpxSMSTInstanceEntry"
                 self.yang_parent_name = "stpxSMSTInstanceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['stpxsmstinstanceindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('stpxsmstinstanceindex', YLeaf(YType.uint32, 'stpxSMSTInstanceIndex')),
                     ('stpxsmstinstancevlansmapped1k2k', YLeaf(YType.str, 'stpxSMSTInstanceVlansMapped1k2k')),
@@ -3779,10 +3705,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxSMSTInstanceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxsmstinstancetable.Stpxsmstinstanceentry, ['stpxsmstinstanceindex', 'stpxsmstinstancevlansmapped1k2k', 'stpxsmstinstancevlansmapped3k4k', 'stpxsmstinstanceremaininghopcount', 'stpxsmstinstancecistregionalroot', 'stpxsmstinstancecistintrootcost'], name, value)
+                self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceTable.StpxSMSTInstanceEntry, ['stpxsmstinstanceindex', 'stpxsmstinstancevlansmapped1k2k', 'stpxsmstinstancevlansmapped3k4k', 'stpxsmstinstanceremaininghopcount', 'stpxsmstinstancecistregionalroot', 'stpxsmstinstancecistintrootcost'], name, value)
 
 
-    class Stpxsmstinstanceedittable(Entity):
+    class StpxSMSTInstanceEditTable(Entity):
         """
         This table contains MST instance information in the 
         Edit Buffer. 
@@ -3794,7 +3720,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         .. attribute:: stpxsmstinstanceeditentry
         
         	A conceptual row containing MST instance information  in the Edit Buffer.  The total number of entries in this table has to be  less than or equal to the object value of stpxSMSTMaxInstances
-        	**type**\: list of  		 :py:class:`Stpxsmstinstanceeditentry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxsmstinstanceedittable.Stpxsmstinstanceeditentry>`
+        	**type**\: list of  		 :py:class:`StpxSMSTInstanceEditEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceEditTable.StpxSMSTInstanceEditEntry>`
         
         
 
@@ -3804,15 +3730,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxsmstinstanceedittable, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceEditTable, self).__init__()
 
             self.yang_name = "stpxSMSTInstanceEditTable"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("stpxSMSTInstanceEditEntry", ("stpxsmstinstanceeditentry", CISCOSTPEXTENSIONSMIB.Stpxsmstinstanceedittable.Stpxsmstinstanceeditentry))])
+            self._child_classes = OrderedDict([("stpxSMSTInstanceEditEntry", ("stpxsmstinstanceeditentry", CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceEditTable.StpxSMSTInstanceEditEntry))])
             self._leafs = OrderedDict()
 
             self.stpxsmstinstanceeditentry = YList(self)
@@ -3820,10 +3745,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxsmstinstanceedittable, [], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceEditTable, [], name, value)
 
 
-        class Stpxsmstinstanceeditentry(Entity):
+        class StpxSMSTInstanceEditEntry(Entity):
             """
             A conceptual row containing MST instance information 
             in the Edit Buffer.
@@ -3865,15 +3790,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             _revision = '2013-03-07'
 
             def __init__(self):
-                super(CISCOSTPEXTENSIONSMIB.Stpxsmstinstanceedittable.Stpxsmstinstanceeditentry, self).__init__()
+                super(CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceEditTable.StpxSMSTInstanceEditEntry, self).__init__()
 
                 self.yang_name = "stpxSMSTInstanceEditEntry"
                 self.yang_parent_name = "stpxSMSTInstanceEditTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['stpxsmstinstanceeditindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('stpxsmstinstanceeditindex', YLeaf(YType.uint32, 'stpxSMSTInstanceEditIndex')),
                     ('stpxsmstinstanceeditvlansmap1k2k', YLeaf(YType.str, 'stpxSMSTInstanceEditVlansMap1k2k')),
@@ -3888,10 +3812,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxSMSTInstanceEditTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxsmstinstanceedittable.Stpxsmstinstanceeditentry, ['stpxsmstinstanceeditindex', 'stpxsmstinstanceeditvlansmap1k2k', 'stpxsmstinstanceeditvlansmap3k4k', 'stpxsmstinstanceeditrowstatus'], name, value)
+                self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceEditTable.StpxSMSTInstanceEditEntry, ['stpxsmstinstanceeditindex', 'stpxsmstinstanceeditvlansmap1k2k', 'stpxsmstinstanceeditvlansmap3k4k', 'stpxsmstinstanceeditrowstatus'], name, value)
 
 
-    class Stpxsmstporttable(Entity):
+    class StpxSMSTPortTable(Entity):
         """
         A table containing port information for the MST 
         Protocol on all the bridge ports existing on the 
@@ -3903,7 +3827,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         .. attribute:: stpxsmstportentry
         
         	An entry with port information for the MST protocol on a bridge port
-        	**type**\: list of  		 :py:class:`Stpxsmstportentry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxsmstporttable.Stpxsmstportentry>`
+        	**type**\: list of  		 :py:class:`StpxSMSTPortEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSMSTPortTable.StpxSMSTPortEntry>`
         
         
 
@@ -3913,15 +3837,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         _revision = '2013-03-07'
 
         def __init__(self):
-            super(CISCOSTPEXTENSIONSMIB.Stpxsmstporttable, self).__init__()
+            super(CISCOSTPEXTENSIONSMIB.StpxSMSTPortTable, self).__init__()
 
             self.yang_name = "stpxSMSTPortTable"
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("stpxSMSTPortEntry", ("stpxsmstportentry", CISCOSTPEXTENSIONSMIB.Stpxsmstporttable.Stpxsmstportentry))])
+            self._child_classes = OrderedDict([("stpxSMSTPortEntry", ("stpxsmstportentry", CISCOSTPEXTENSIONSMIB.StpxSMSTPortTable.StpxSMSTPortEntry))])
             self._leafs = OrderedDict()
 
             self.stpxsmstportentry = YList(self)
@@ -3929,10 +3852,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxsmstporttable, [], name, value)
+            self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxSMSTPortTable, [], name, value)
 
 
-        class Stpxsmstportentry(Entity):
+        class StpxSMSTPortEntry(Entity):
             """
             An entry with port information for the MST protocol
             on a bridge port.
@@ -3947,7 +3870,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             .. attribute:: stpxsmstportstatus
             
             	Indicates the operational status of the port for the  MST protocol.   edge \-\- this port is an edge port for the MST region.  boundary \-\- this port is a boundary port for the          MST region.  pvst \-\-  this port is connected to a PVST/PVST+ bridge.     stp \-\- this port is connected to a Single Spanning         Tree bridge.  dispute \-\- this port, as a designated port, received an         inferior BPDU with a designated role and the         learning bit being set.  rstp \-\- this port is connected to a RSTP bridge or an          MST bridge in a different MST region
-            	**type**\:  :py:class:`Stpxsmstportstatus <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxsmstporttable.Stpxsmstportentry.Stpxsmstportstatus>`
+            	**type**\:  :py:class:`StpxSMSTPortStatus <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSMSTPortTable.StpxSMSTPortEntry.StpxSMSTPortStatus>`
             
             .. attribute:: stpxsmstportadminhellotime
             
@@ -3979,12 +3902,12 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             .. attribute:: stpxsmstportadminmstmode
             
             	The desired MST mode of this port.  preStandard \-\- this port is administratively configured to     transmit pre\-standard, i.e. pre IEEE MST, BPDUs.  auto \-\- the BPDU transmission mode of this port is based      on automatic detection of neighbor ports
-            	**type**\:  :py:class:`Stpxsmstportadminmstmode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxsmstporttable.Stpxsmstportentry.Stpxsmstportadminmstmode>`
+            	**type**\:  :py:class:`StpxSMSTPortAdminMSTMode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSMSTPortTable.StpxSMSTPortEntry.StpxSMSTPortAdminMSTMode>`
             
             .. attribute:: stpxsmstportopermstmode
             
             	Indicates the current operational MST mode of this port.  unknown \-\- the operational mode is currently unknown.  preStandard \-\- this port is currently operating in      pre\-standard MSTP BPDU transmission mode.  standard \-\- this port is currently operating in IEEE MST      BPDU transmission mode
-            	**type**\:  :py:class:`Stpxsmstportopermstmode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.Stpxsmstporttable.Stpxsmstportentry.Stpxsmstportopermstmode>`
+            	**type**\:  :py:class:`StpxSMSTPortOperMSTMode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSMSTPortTable.StpxSMSTPortEntry.StpxSMSTPortOperMSTMode>`
             
             
 
@@ -3994,15 +3917,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             _revision = '2013-03-07'
 
             def __init__(self):
-                super(CISCOSTPEXTENSIONSMIB.Stpxsmstporttable.Stpxsmstportentry, self).__init__()
+                super(CISCOSTPEXTENSIONSMIB.StpxSMSTPortTable.StpxSMSTPortEntry, self).__init__()
 
                 self.yang_name = "stpxSMSTPortEntry"
                 self.yang_parent_name = "stpxSMSTPortTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['stpxsmstportindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('stpxsmstportindex', YLeaf(YType.int32, 'stpxSMSTPortIndex')),
                     ('stpxsmstportstatus', YLeaf(YType.bits, 'stpxSMSTPortStatus')),
@@ -4023,11 +3945,11 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxSMSTPortTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSTPEXTENSIONSMIB.Stpxsmstporttable.Stpxsmstportentry, ['stpxsmstportindex', 'stpxsmstportstatus', 'stpxsmstportadminhellotime', 'stpxsmstportconfigedhellotime', 'stpxsmstportoperhellotime', 'stpxsmstportadminmstmode', 'stpxsmstportopermstmode'], name, value)
+                self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxSMSTPortTable.StpxSMSTPortEntry, ['stpxsmstportindex', 'stpxsmstportstatus', 'stpxsmstportadminhellotime', 'stpxsmstportconfigedhellotime', 'stpxsmstportoperhellotime', 'stpxsmstportadminmstmode', 'stpxsmstportopermstmode'], name, value)
 
-            class Stpxsmstportadminmstmode(Enum):
+            class StpxSMSTPortAdminMSTMode(Enum):
                 """
-                Stpxsmstportadminmstmode (Enum Class)
+                StpxSMSTPortAdminMSTMode (Enum Class)
 
                 The desired MST mode of this port.
 
@@ -4050,9 +3972,9 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 auto = Enum.YLeaf(2, "auto")
 
 
-            class Stpxsmstportopermstmode(Enum):
+            class StpxSMSTPortOperMSTMode(Enum):
                 """
-                Stpxsmstportopermstmode (Enum Class)
+                StpxSMSTPortOperMSTMode (Enum Class)
 
                 Indicates the current operational MST mode of this port.
 

@@ -20,27 +20,27 @@ class CISCOBULKFILEMIB(Entity):
     .. attribute:: cbfdefine
     
     	
-    	**type**\:  :py:class:`Cbfdefine <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefine>`
+    	**type**\:  :py:class:`CbfDefine <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.CbfDefine>`
     
     .. attribute:: cbfstatus
     
     	
-    	**type**\:  :py:class:`Cbfstatus <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfstatus>`
+    	**type**\:  :py:class:`CbfStatus <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.CbfStatus>`
     
     .. attribute:: cbfdefinefiletable
     
     	A table of bulk file definition and creation controls
-    	**type**\:  :py:class:`Cbfdefinefiletable <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefinefiletable>`
+    	**type**\:  :py:class:`CbfDefineFileTable <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.CbfDefineFileTable>`
     
     .. attribute:: cbfdefineobjecttable
     
     	A table of objects to go in bulk files
-    	**type**\:  :py:class:`Cbfdefineobjecttable <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefineobjecttable>`
+    	**type**\:  :py:class:`CbfDefineObjectTable <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.CbfDefineObjectTable>`
     
     .. attribute:: cbfstatusfiletable
     
     	A table of bulk file status
-    	**type**\:  :py:class:`Cbfstatusfiletable <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfstatusfiletable>`
+    	**type**\:  :py:class:`CbfStatusFileTable <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.CbfStatusFileTable>`
     
     
 
@@ -58,38 +58,35 @@ class CISCOBULKFILEMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cbfDefine", ("cbfdefine", CISCOBULKFILEMIB.Cbfdefine)), ("cbfStatus", ("cbfstatus", CISCOBULKFILEMIB.Cbfstatus)), ("cbfDefineFileTable", ("cbfdefinefiletable", CISCOBULKFILEMIB.Cbfdefinefiletable)), ("cbfDefineObjectTable", ("cbfdefineobjecttable", CISCOBULKFILEMIB.Cbfdefineobjecttable)), ("cbfStatusFileTable", ("cbfstatusfiletable", CISCOBULKFILEMIB.Cbfstatusfiletable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cbfDefine", ("cbfdefine", CISCOBULKFILEMIB.CbfDefine)), ("cbfStatus", ("cbfstatus", CISCOBULKFILEMIB.CbfStatus)), ("cbfDefineFileTable", ("cbfdefinefiletable", CISCOBULKFILEMIB.CbfDefineFileTable)), ("cbfDefineObjectTable", ("cbfdefineobjecttable", CISCOBULKFILEMIB.CbfDefineObjectTable)), ("cbfStatusFileTable", ("cbfstatusfiletable", CISCOBULKFILEMIB.CbfStatusFileTable))])
         self._leafs = OrderedDict()
 
-        self.cbfdefine = CISCOBULKFILEMIB.Cbfdefine()
+        self.cbfdefine = CISCOBULKFILEMIB.CbfDefine()
         self.cbfdefine.parent = self
         self._children_name_map["cbfdefine"] = "cbfDefine"
-        self._children_yang_names.add("cbfDefine")
 
-        self.cbfstatus = CISCOBULKFILEMIB.Cbfstatus()
+        self.cbfstatus = CISCOBULKFILEMIB.CbfStatus()
         self.cbfstatus.parent = self
         self._children_name_map["cbfstatus"] = "cbfStatus"
-        self._children_yang_names.add("cbfStatus")
 
-        self.cbfdefinefiletable = CISCOBULKFILEMIB.Cbfdefinefiletable()
+        self.cbfdefinefiletable = CISCOBULKFILEMIB.CbfDefineFileTable()
         self.cbfdefinefiletable.parent = self
         self._children_name_map["cbfdefinefiletable"] = "cbfDefineFileTable"
-        self._children_yang_names.add("cbfDefineFileTable")
 
-        self.cbfdefineobjecttable = CISCOBULKFILEMIB.Cbfdefineobjecttable()
+        self.cbfdefineobjecttable = CISCOBULKFILEMIB.CbfDefineObjectTable()
         self.cbfdefineobjecttable.parent = self
         self._children_name_map["cbfdefineobjecttable"] = "cbfDefineObjectTable"
-        self._children_yang_names.add("cbfDefineObjectTable")
 
-        self.cbfstatusfiletable = CISCOBULKFILEMIB.Cbfstatusfiletable()
+        self.cbfstatusfiletable = CISCOBULKFILEMIB.CbfStatusFileTable()
         self.cbfstatusfiletable.parent = self
         self._children_name_map["cbfstatusfiletable"] = "cbfStatusFileTable"
-        self._children_yang_names.add("cbfStatusFileTable")
         self._segment_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOBULKFILEMIB, [], name, value)
 
-    class Cbfdefine(Entity):
+
+    class CbfDefine(Entity):
         """
         
         
@@ -157,15 +154,14 @@ class CISCOBULKFILEMIB(Entity):
         _revision = '2002-06-10'
 
         def __init__(self):
-            super(CISCOBULKFILEMIB.Cbfdefine, self).__init__()
+            super(CISCOBULKFILEMIB.CbfDefine, self).__init__()
 
             self.yang_name = "cbfDefine"
             self.yang_parent_name = "CISCO-BULK-FILE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cbfdefinemaxfiles', YLeaf(YType.uint32, 'cbfDefineMaxFiles')),
                 ('cbfdefinefiles', YLeaf(YType.uint32, 'cbfDefineFiles')),
@@ -188,10 +184,10 @@ class CISCOBULKFILEMIB(Entity):
             self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOBULKFILEMIB.Cbfdefine, ['cbfdefinemaxfiles', 'cbfdefinefiles', 'cbfdefinehighfiles', 'cbfdefinefilesrefused', 'cbfdefinemaxobjects', 'cbfdefineobjects', 'cbfdefinehighobjects', 'cbfdefineobjectsrefused'], name, value)
+            self._perform_setattr(CISCOBULKFILEMIB.CbfDefine, ['cbfdefinemaxfiles', 'cbfdefinefiles', 'cbfdefinehighfiles', 'cbfdefinefilesrefused', 'cbfdefinemaxobjects', 'cbfdefineobjects', 'cbfdefinehighobjects', 'cbfdefineobjectsrefused'], name, value)
 
 
-    class Cbfstatus(Entity):
+    class CbfStatus(Entity):
         """
         
         
@@ -231,15 +227,14 @@ class CISCOBULKFILEMIB(Entity):
         _revision = '2002-06-10'
 
         def __init__(self):
-            super(CISCOBULKFILEMIB.Cbfstatus, self).__init__()
+            super(CISCOBULKFILEMIB.CbfStatus, self).__init__()
 
             self.yang_name = "cbfStatus"
             self.yang_parent_name = "CISCO-BULK-FILE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cbfstatusmaxfiles', YLeaf(YType.uint32, 'cbfStatusMaxFiles')),
                 ('cbfstatusfiles', YLeaf(YType.uint32, 'cbfStatusFiles')),
@@ -254,17 +249,17 @@ class CISCOBULKFILEMIB(Entity):
             self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOBULKFILEMIB.Cbfstatus, ['cbfstatusmaxfiles', 'cbfstatusfiles', 'cbfstatushighfiles', 'cbfstatusfilesbumped'], name, value)
+            self._perform_setattr(CISCOBULKFILEMIB.CbfStatus, ['cbfstatusmaxfiles', 'cbfstatusfiles', 'cbfstatushighfiles', 'cbfstatusfilesbumped'], name, value)
 
 
-    class Cbfdefinefiletable(Entity):
+    class CbfDefineFileTable(Entity):
         """
         A table of bulk file definition and creation controls.
         
         .. attribute:: cbfdefinefileentry
         
         	Information for creation of a bulk file.  To creat a bulk file an application creates an entry in this table and corresponding entries in cbfDefineObjectTable.  When the entry in this table and the corresponding entries in cbfDefineObjectTable are 'active' the appliction uses cbfDefineFileNow to create the file and a corresponding entry in cbfStatusFileTable.  Deleting an entry in cbfDefineFileTable deletes all corresponding entries in cbfDefineObjectTable and cbfStatusFileTable.  An entry may not be modified or deleted while its cbfDefineFileNow has the value 'running'
-        	**type**\: list of  		 :py:class:`Cbfdefinefileentry <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefinefiletable.Cbfdefinefileentry>`
+        	**type**\: list of  		 :py:class:`CbfDefineFileEntry <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.CbfDefineFileTable.CbfDefineFileEntry>`
         
         
 
@@ -274,15 +269,14 @@ class CISCOBULKFILEMIB(Entity):
         _revision = '2002-06-10'
 
         def __init__(self):
-            super(CISCOBULKFILEMIB.Cbfdefinefiletable, self).__init__()
+            super(CISCOBULKFILEMIB.CbfDefineFileTable, self).__init__()
 
             self.yang_name = "cbfDefineFileTable"
             self.yang_parent_name = "CISCO-BULK-FILE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cbfDefineFileEntry", ("cbfdefinefileentry", CISCOBULKFILEMIB.Cbfdefinefiletable.Cbfdefinefileentry))])
+            self._child_classes = OrderedDict([("cbfDefineFileEntry", ("cbfdefinefileentry", CISCOBULKFILEMIB.CbfDefineFileTable.CbfDefineFileEntry))])
             self._leafs = OrderedDict()
 
             self.cbfdefinefileentry = YList(self)
@@ -290,10 +284,10 @@ class CISCOBULKFILEMIB(Entity):
             self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOBULKFILEMIB.Cbfdefinefiletable, [], name, value)
+            self._perform_setattr(CISCOBULKFILEMIB.CbfDefineFileTable, [], name, value)
 
 
-        class Cbfdefinefileentry(Entity):
+        class CbfDefineFileEntry(Entity):
             """
             Information for creation of a bulk file.
             
@@ -329,17 +323,17 @@ class CISCOBULKFILEMIB(Entity):
             .. attribute:: cbfdefinefilestorage
             
             	The type of file storage to use\:  ephemeral        data exists in small amounts until read volatile        data exists in volatile memory permanent        data survives reboot  An ephemeral file is suitable to be read only one time.  Note that this value is taken as advisory and may be overridden by explicit device or path choices in cbfDefineFile.  A given system may support any or all of these
-            	**type**\:  :py:class:`Cbfdefinefilestorage <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefinefiletable.Cbfdefinefileentry.Cbfdefinefilestorage>`
+            	**type**\:  :py:class:`CbfDefineFileStorage <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.CbfDefineFileTable.CbfDefineFileEntry.CbfDefineFileStorage>`
             
             .. attribute:: cbfdefinefileformat
             
             	The format of the data in the file\:  StandardBER        standard SNMP ASN.1 BER bulkBinary        a binary format specified with this MIB bulkASCII        a human\-readable form of bulkBinary variantBERWithCksum ASN.1 BER encoding with checksum variantBinWithCksum a binary format with checksum      A given system may support any or all of these
-            	**type**\:  :py:class:`Cbfdefinefileformat <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefinefiletable.Cbfdefinefileentry.Cbfdefinefileformat>`
+            	**type**\:  :py:class:`CbfDefineFileFormat <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.CbfDefineFileTable.CbfDefineFileEntry.CbfDefineFileFormat>`
             
             .. attribute:: cbfdefinefilenow
             
             	The control to cause file creation.  The only values that can be set are 'create' and 'forcedCreate'. These can be set only  when the value is 'ready'.  Setting it to 'create' begins a  file creation and creates a corresponding entry in  cbfStatusFileTable. The system may choose to use an already  existing copy of the file instead of creating a new one. This may happen if there has been no configuration change on the  system and a request to recreate the file is received.  Setting this object to 'forcedCreate' forces the system to  create a new copy of the file.  The value is 'notActve' as long as cbfDefineFileEntryStatus or any corresponding cbfDefineObjectEntryStatus is not active.  When cbfDefineFileEntryStatus becomes active and all corresponding cbfDefineObjectEntryStatuses are active this  object automatically goes to 'ready'
-            	**type**\:  :py:class:`Cbfdefinefilenow <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefinefiletable.Cbfdefinefileentry.Cbfdefinefilenow>`
+            	**type**\:  :py:class:`CbfDefineFileNow <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.CbfDefineFileTable.CbfDefineFileEntry.CbfDefineFileNow>`
             
             .. attribute:: cbfdefinefileentrystatus
             
@@ -359,15 +353,14 @@ class CISCOBULKFILEMIB(Entity):
             _revision = '2002-06-10'
 
             def __init__(self):
-                super(CISCOBULKFILEMIB.Cbfdefinefiletable.Cbfdefinefileentry, self).__init__()
+                super(CISCOBULKFILEMIB.CbfDefineFileTable.CbfDefineFileEntry, self).__init__()
 
                 self.yang_name = "cbfDefineFileEntry"
                 self.yang_parent_name = "cbfDefineFileTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cbfdefinefileindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cbfdefinefileindex', YLeaf(YType.uint32, 'cbfDefineFileIndex')),
                     ('cbfdefinefilename', YLeaf(YType.str, 'cbfDefineFileName')),
@@ -388,11 +381,11 @@ class CISCOBULKFILEMIB(Entity):
                 self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/cbfDefineFileTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOBULKFILEMIB.Cbfdefinefiletable.Cbfdefinefileentry, ['cbfdefinefileindex', 'cbfdefinefilename', 'cbfdefinefilestorage', 'cbfdefinefileformat', 'cbfdefinefilenow', 'cbfdefinefileentrystatus', 'cbfdefinefilenotifyoncompletion'], name, value)
+                self._perform_setattr(CISCOBULKFILEMIB.CbfDefineFileTable.CbfDefineFileEntry, ['cbfdefinefileindex', 'cbfdefinefilename', 'cbfdefinefilestorage', 'cbfdefinefileformat', 'cbfdefinefilenow', 'cbfdefinefileentrystatus', 'cbfdefinefilenotifyoncompletion'], name, value)
 
-            class Cbfdefinefileformat(Enum):
+            class CbfDefineFileFormat(Enum):
                 """
-                Cbfdefinefileformat (Enum Class)
+                CbfDefineFileFormat (Enum Class)
 
                 The format of the data in the file\:
 
@@ -431,9 +424,9 @@ class CISCOBULKFILEMIB(Entity):
                 variantBinWithCksum = Enum.YLeaf(5, "variantBinWithCksum")
 
 
-            class Cbfdefinefilenow(Enum):
+            class CbfDefineFileNow(Enum):
                 """
-                Cbfdefinefilenow (Enum Class)
+                CbfDefineFileNow (Enum Class)
 
                 The control to cause file creation.  The only values that can
 
@@ -488,9 +481,9 @@ class CISCOBULKFILEMIB(Entity):
                 forcedCreate = Enum.YLeaf(5, "forcedCreate")
 
 
-            class Cbfdefinefilestorage(Enum):
+            class CbfDefineFileStorage(Enum):
                 """
-                Cbfdefinefilestorage (Enum Class)
+                CbfDefineFileStorage (Enum Class)
 
                 The type of file storage to use\:
 
@@ -524,14 +517,14 @@ class CISCOBULKFILEMIB(Entity):
 
 
 
-    class Cbfdefineobjecttable(Entity):
+    class CbfDefineObjectTable(Entity):
         """
         A table of objects to go in bulk files.
         
         .. attribute:: cbfdefineobjectentry
         
         	Information about one object for a particular file.  An application uses cbfDefineObjectEntryStatus to create entries in this table in correspondence with entries in cbfDefineFileTable, which must be created first.  Entries in this table may not be changed, created or deleted while the corresponding value of cbfDefineFileNow is 'running'
-        	**type**\: list of  		 :py:class:`Cbfdefineobjectentry <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefineobjecttable.Cbfdefineobjectentry>`
+        	**type**\: list of  		 :py:class:`CbfDefineObjectEntry <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.CbfDefineObjectTable.CbfDefineObjectEntry>`
         
         
 
@@ -541,15 +534,14 @@ class CISCOBULKFILEMIB(Entity):
         _revision = '2002-06-10'
 
         def __init__(self):
-            super(CISCOBULKFILEMIB.Cbfdefineobjecttable, self).__init__()
+            super(CISCOBULKFILEMIB.CbfDefineObjectTable, self).__init__()
 
             self.yang_name = "cbfDefineObjectTable"
             self.yang_parent_name = "CISCO-BULK-FILE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cbfDefineObjectEntry", ("cbfdefineobjectentry", CISCOBULKFILEMIB.Cbfdefineobjecttable.Cbfdefineobjectentry))])
+            self._child_classes = OrderedDict([("cbfDefineObjectEntry", ("cbfdefineobjectentry", CISCOBULKFILEMIB.CbfDefineObjectTable.CbfDefineObjectEntry))])
             self._leafs = OrderedDict()
 
             self.cbfdefineobjectentry = YList(self)
@@ -557,10 +549,10 @@ class CISCOBULKFILEMIB(Entity):
             self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOBULKFILEMIB.Cbfdefineobjecttable, [], name, value)
+            self._perform_setattr(CISCOBULKFILEMIB.CbfDefineObjectTable, [], name, value)
 
 
-        class Cbfdefineobjectentry(Entity):
+        class CbfDefineObjectEntry(Entity):
             """
             Information about one object for a particular file.
             
@@ -578,7 +570,7 @@ class CISCOBULKFILEMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`cbfdefinefileindex <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefinefiletable.Cbfdefinefileentry>`
+            	**refers to**\:  :py:class:`cbfdefinefileindex <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.CbfDefineFileTable.CbfDefineFileEntry>`
             
             .. attribute:: cbfdefineobjectindex  (key)
             
@@ -590,7 +582,7 @@ class CISCOBULKFILEMIB(Entity):
             .. attribute:: cbfdefineobjectclass
             
             	The meaning of each object class is given below\:  object          a single MIB object is retrieved.  lexicalTable    an entire table or partial table                 is retrieved in lexical order of rows.  leastCpuTable   an entire table is retrieved with                 lowest CPU utilization.                 Lexical ordering of rows may not be                  maintained and is dependent upon                  individual MIB implementation
-            	**type**\:  :py:class:`Cbfdefineobjectclass <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefineobjecttable.Cbfdefineobjectentry.Cbfdefineobjectclass>`
+            	**type**\:  :py:class:`CbfDefineObjectClass <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.CbfDefineObjectTable.CbfDefineObjectEntry.CbfDefineObjectClass>`
             
             .. attribute:: cbfdefineobjectid
             
@@ -633,15 +625,14 @@ class CISCOBULKFILEMIB(Entity):
             _revision = '2002-06-10'
 
             def __init__(self):
-                super(CISCOBULKFILEMIB.Cbfdefineobjecttable.Cbfdefineobjectentry, self).__init__()
+                super(CISCOBULKFILEMIB.CbfDefineObjectTable.CbfDefineObjectEntry, self).__init__()
 
                 self.yang_name = "cbfDefineObjectEntry"
                 self.yang_parent_name = "cbfDefineObjectTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cbfdefinefileindex','cbfdefineobjectindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cbfdefinefileindex', YLeaf(YType.str, 'cbfDefineFileIndex')),
                     ('cbfdefineobjectindex', YLeaf(YType.uint32, 'cbfDefineObjectIndex')),
@@ -664,11 +655,11 @@ class CISCOBULKFILEMIB(Entity):
                 self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/cbfDefineObjectTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOBULKFILEMIB.Cbfdefineobjecttable.Cbfdefineobjectentry, ['cbfdefinefileindex', 'cbfdefineobjectindex', 'cbfdefineobjectclass', 'cbfdefineobjectid', 'cbfdefineobjectentrystatus', 'cbfdefineobjecttableinstance', 'cbfdefineobjectnumentries', 'cbfdefineobjectlastpolledinst'], name, value)
+                self._perform_setattr(CISCOBULKFILEMIB.CbfDefineObjectTable.CbfDefineObjectEntry, ['cbfdefinefileindex', 'cbfdefineobjectindex', 'cbfdefineobjectclass', 'cbfdefineobjectid', 'cbfdefineobjectentrystatus', 'cbfdefineobjecttableinstance', 'cbfdefineobjectnumentries', 'cbfdefineobjectlastpolledinst'], name, value)
 
-            class Cbfdefineobjectclass(Enum):
+            class CbfDefineObjectClass(Enum):
                 """
-                Cbfdefineobjectclass (Enum Class)
+                CbfDefineObjectClass (Enum Class)
 
                 The meaning of each object class is given below\:
 
@@ -704,14 +695,14 @@ class CISCOBULKFILEMIB(Entity):
 
 
 
-    class Cbfstatusfiletable(Entity):
+    class CbfStatusFileTable(Entity):
         """
         A table of bulk file status.
         
         .. attribute:: cbfstatusfileentry
         
         	Status for a particular file.  An entry exists in this table for each time cbfDefineFileNow has been set to 'create' and the corresponding entry here has not been explicitly deleted by the application or bumped to make room for a new entry.  Deleting an entry with cbfStatusFileState 'running' aborts the file creation attempt.  It is implementation and file\-system specific whether deleting the entry also deletes the file
-        	**type**\: list of  		 :py:class:`Cbfstatusfileentry <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfstatusfiletable.Cbfstatusfileentry>`
+        	**type**\: list of  		 :py:class:`CbfStatusFileEntry <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.CbfStatusFileTable.CbfStatusFileEntry>`
         
         
 
@@ -721,15 +712,14 @@ class CISCOBULKFILEMIB(Entity):
         _revision = '2002-06-10'
 
         def __init__(self):
-            super(CISCOBULKFILEMIB.Cbfstatusfiletable, self).__init__()
+            super(CISCOBULKFILEMIB.CbfStatusFileTable, self).__init__()
 
             self.yang_name = "cbfStatusFileTable"
             self.yang_parent_name = "CISCO-BULK-FILE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cbfStatusFileEntry", ("cbfstatusfileentry", CISCOBULKFILEMIB.Cbfstatusfiletable.Cbfstatusfileentry))])
+            self._child_classes = OrderedDict([("cbfStatusFileEntry", ("cbfstatusfileentry", CISCOBULKFILEMIB.CbfStatusFileTable.CbfStatusFileEntry))])
             self._leafs = OrderedDict()
 
             self.cbfstatusfileentry = YList(self)
@@ -737,10 +727,10 @@ class CISCOBULKFILEMIB(Entity):
             self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOBULKFILEMIB.Cbfstatusfiletable, [], name, value)
+            self._perform_setattr(CISCOBULKFILEMIB.CbfStatusFileTable, [], name, value)
 
 
-        class Cbfstatusfileentry(Entity):
+        class CbfStatusFileEntry(Entity):
             """
             Status for a particular file.
             
@@ -762,7 +752,7 @@ class CISCOBULKFILEMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`cbfdefinefileindex <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfdefinefiletable.Cbfdefinefileentry>`
+            	**refers to**\:  :py:class:`cbfdefinefileindex <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.CbfDefineFileTable.CbfDefineFileEntry>`
             
             .. attribute:: cbfstatusfileindex  (key)
             
@@ -774,7 +764,7 @@ class CISCOBULKFILEMIB(Entity):
             .. attribute:: cbfstatusfilestate
             
             	The file state\:  running    data is being written to the file ready      the file is ready to be read emptied    an ephemeral file was successfully consumed noSpace    no data due to insufficient file space badName    no data due to a name or path problem writeErr   no data due to fatal file write error noMem      no data due to insufficient dynamic memory buffErr    implementation buffer too small aborted    short terminated by operator command  Only the 'ready' state implies that the file is available for transfer.  The disposition of files after an error is implementation and file\-syste specific
-            	**type**\:  :py:class:`Cbfstatusfilestate <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.Cbfstatusfiletable.Cbfstatusfileentry.Cbfstatusfilestate>`
+            	**type**\:  :py:class:`CbfStatusFileState <ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB.CISCOBULKFILEMIB.CbfStatusFileTable.CbfStatusFileEntry.CbfStatusFileState>`
             
             .. attribute:: cbfstatusfilecompletiontime
             
@@ -796,15 +786,14 @@ class CISCOBULKFILEMIB(Entity):
             _revision = '2002-06-10'
 
             def __init__(self):
-                super(CISCOBULKFILEMIB.Cbfstatusfiletable.Cbfstatusfileentry, self).__init__()
+                super(CISCOBULKFILEMIB.CbfStatusFileTable.CbfStatusFileEntry, self).__init__()
 
                 self.yang_name = "cbfStatusFileEntry"
                 self.yang_parent_name = "cbfStatusFileTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cbfdefinefileindex','cbfstatusfileindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cbfdefinefileindex', YLeaf(YType.str, 'cbfDefineFileIndex')),
                     ('cbfstatusfileindex', YLeaf(YType.uint32, 'cbfStatusFileIndex')),
@@ -821,11 +810,11 @@ class CISCOBULKFILEMIB(Entity):
                 self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/cbfStatusFileTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOBULKFILEMIB.Cbfstatusfiletable.Cbfstatusfileentry, ['cbfdefinefileindex', 'cbfstatusfileindex', 'cbfstatusfilestate', 'cbfstatusfilecompletiontime', 'cbfstatusfileentrystatus'], name, value)
+                self._perform_setattr(CISCOBULKFILEMIB.CbfStatusFileTable.CbfStatusFileEntry, ['cbfdefinefileindex', 'cbfstatusfileindex', 'cbfstatusfilestate', 'cbfstatusfilecompletiontime', 'cbfstatusfileentrystatus'], name, value)
 
-            class Cbfstatusfilestate(Enum):
+            class CbfStatusFileState(Enum):
                 """
-                Cbfstatusfilestate (Enum Class)
+                CbfStatusFileState (Enum Class)
 
                 The file state\:
 

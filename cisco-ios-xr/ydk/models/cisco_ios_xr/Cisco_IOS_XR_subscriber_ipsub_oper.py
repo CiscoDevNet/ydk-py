@@ -231,15 +231,16 @@ class IpSubscriber(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", IpSubscriber.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", IpSubscriber.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = IpSubscriber.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(IpSubscriber, [], name, value)
 
 
     class Nodes(Entity):
@@ -267,8 +268,7 @@ class IpSubscriber(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", IpSubscriber.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", IpSubscriber.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -320,8 +320,7 @@ class IpSubscriber(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("summary", ("summary", IpSubscriber.Nodes.Node.Summary)), ("interfaces", ("interfaces", IpSubscriber.Nodes.Node.Interfaces)), ("access-interfaces", ("access_interfaces", IpSubscriber.Nodes.Node.AccessInterfaces))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("summary", ("summary", IpSubscriber.Nodes.Node.Summary)), ("interfaces", ("interfaces", IpSubscriber.Nodes.Node.Interfaces)), ("access-interfaces", ("access_interfaces", IpSubscriber.Nodes.Node.AccessInterfaces))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -330,17 +329,14 @@ class IpSubscriber(Entity):
                 self.summary = IpSubscriber.Nodes.Node.Summary()
                 self.summary.parent = self
                 self._children_name_map["summary"] = "summary"
-                self._children_yang_names.add("summary")
 
                 self.interfaces = IpSubscriber.Nodes.Node.Interfaces()
                 self.interfaces.parent = self
                 self._children_name_map["interfaces"] = "interfaces"
-                self._children_yang_names.add("interfaces")
 
                 self.access_interfaces = IpSubscriber.Nodes.Node.AccessInterfaces()
                 self.access_interfaces.parent = self
                 self._children_name_map["access_interfaces"] = "access-interfaces"
-                self._children_yang_names.add("access-interfaces")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/%s" % self._segment_path()
 
@@ -382,19 +378,16 @@ class IpSubscriber(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("access-interface-summary", ("access_interface_summary", IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary)), ("interface-counts", ("interface_counts", IpSubscriber.Nodes.Node.Summary.InterfaceCounts))])
-                    self._child_list_classes = OrderedDict([("vrf", ("vrf", IpSubscriber.Nodes.Node.Summary.Vrf))])
+                    self._child_classes = OrderedDict([("access-interface-summary", ("access_interface_summary", IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary)), ("interface-counts", ("interface_counts", IpSubscriber.Nodes.Node.Summary.InterfaceCounts)), ("vrf", ("vrf", IpSubscriber.Nodes.Node.Summary.Vrf))])
                     self._leafs = OrderedDict()
 
                     self.access_interface_summary = IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary()
                     self.access_interface_summary.parent = self
                     self._children_name_map["access_interface_summary"] = "access-interface-summary"
-                    self._children_yang_names.add("access-interface-summary")
 
                     self.interface_counts = IpSubscriber.Nodes.Node.Summary.InterfaceCounts()
                     self.interface_counts.parent = self
                     self._children_name_map["interface_counts"] = "interface-counts"
-                    self._children_yang_names.add("interface-counts")
 
                     self.vrf = YList(self)
                     self._segment_path = lambda: "summary"
@@ -439,8 +432,7 @@ class IpSubscriber(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("initiators", ("initiators", IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators)), ("ipv6-initiators", ("ipv6_initiators", IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("initiators", ("initiators", IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators)), ("ipv6-initiators", ("ipv6_initiators", IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators))])
                         self._leafs = OrderedDict([
                             ('interfaces', YLeaf(YType.uint32, 'interfaces')),
                         ])
@@ -449,16 +441,14 @@ class IpSubscriber(Entity):
                         self.initiators = IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators()
                         self.initiators.parent = self
                         self._children_name_map["initiators"] = "initiators"
-                        self._children_yang_names.add("initiators")
 
                         self.ipv6_initiators = IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators()
                         self.ipv6_initiators.parent = self
                         self._children_name_map["ipv6_initiators"] = "ipv6-initiators"
-                        self._children_yang_names.add("ipv6-initiators")
                         self._segment_path = lambda: "access-interface-summary"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary, ['interfaces'], name, value)
+                        self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary, [u'interfaces'], name, value)
 
 
                     class Initiators(Entity):
@@ -490,20 +480,20 @@ class IpSubscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("dhcp", ("dhcp", IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.Dhcp)), ("packet-trigger", ("packet_trigger", IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.PacketTrigger))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("dhcp", ("dhcp", IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.Dhcp)), ("packet-trigger", ("packet_trigger", IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.PacketTrigger))])
                             self._leafs = OrderedDict()
 
                             self.dhcp = IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.Dhcp()
                             self.dhcp.parent = self
                             self._children_name_map["dhcp"] = "dhcp"
-                            self._children_yang_names.add("dhcp")
 
                             self.packet_trigger = IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.PacketTrigger()
                             self.packet_trigger.parent = self
                             self._children_name_map["packet_trigger"] = "packet-trigger"
-                            self._children_yang_names.add("packet-trigger")
                             self._segment_path = lambda: "initiators"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators, [], name, value)
 
 
                         class Dhcp(Entity):
@@ -541,8 +531,7 @@ class IpSubscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('fsol_packets', YLeaf(YType.uint32, 'fsol-packets')),
                                     ('fsol_bytes', YLeaf(YType.uint32, 'fsol-bytes')),
@@ -552,7 +541,7 @@ class IpSubscriber(Entity):
                                 self._segment_path = lambda: "dhcp"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.Dhcp, ['fsol_packets', 'fsol_bytes'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.Dhcp, [u'fsol_packets', u'fsol_bytes'], name, value)
 
 
                         class PacketTrigger(Entity):
@@ -590,8 +579,7 @@ class IpSubscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('fsol_packets', YLeaf(YType.uint32, 'fsol-packets')),
                                     ('fsol_bytes', YLeaf(YType.uint32, 'fsol-bytes')),
@@ -601,7 +589,7 @@ class IpSubscriber(Entity):
                                 self._segment_path = lambda: "packet-trigger"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.PacketTrigger, ['fsol_packets', 'fsol_bytes'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.PacketTrigger, [u'fsol_packets', u'fsol_bytes'], name, value)
 
 
                     class Ipv6Initiators(Entity):
@@ -633,20 +621,20 @@ class IpSubscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("dhcp", ("dhcp", IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.Dhcp)), ("packet-trigger", ("packet_trigger", IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.PacketTrigger))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("dhcp", ("dhcp", IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.Dhcp)), ("packet-trigger", ("packet_trigger", IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.PacketTrigger))])
                             self._leafs = OrderedDict()
 
                             self.dhcp = IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.Dhcp()
                             self.dhcp.parent = self
                             self._children_name_map["dhcp"] = "dhcp"
-                            self._children_yang_names.add("dhcp")
 
                             self.packet_trigger = IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.PacketTrigger()
                             self.packet_trigger.parent = self
                             self._children_name_map["packet_trigger"] = "packet-trigger"
-                            self._children_yang_names.add("packet-trigger")
                             self._segment_path = lambda: "ipv6-initiators"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators, [], name, value)
 
 
                         class Dhcp(Entity):
@@ -684,8 +672,7 @@ class IpSubscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('fsol_packets', YLeaf(YType.uint32, 'fsol-packets')),
                                     ('fsol_bytes', YLeaf(YType.uint32, 'fsol-bytes')),
@@ -695,7 +682,7 @@ class IpSubscriber(Entity):
                                 self._segment_path = lambda: "dhcp"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.Dhcp, ['fsol_packets', 'fsol_bytes'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.Dhcp, [u'fsol_packets', u'fsol_bytes'], name, value)
 
 
                         class PacketTrigger(Entity):
@@ -733,8 +720,7 @@ class IpSubscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('fsol_packets', YLeaf(YType.uint32, 'fsol-packets')),
                                     ('fsol_bytes', YLeaf(YType.uint32, 'fsol-bytes')),
@@ -744,7 +730,7 @@ class IpSubscriber(Entity):
                                 self._segment_path = lambda: "packet-trigger"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.PacketTrigger, ['fsol_packets', 'fsol_bytes'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.PacketTrigger, [u'fsol_packets', u'fsol_bytes'], name, value)
 
 
                 class InterfaceCounts(Entity):
@@ -776,20 +762,20 @@ class IpSubscriber(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("initiators", ("initiators", IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators)), ("ipv6-initiators", ("ipv6_initiators", IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("initiators", ("initiators", IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators)), ("ipv6-initiators", ("ipv6_initiators", IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators))])
                         self._leafs = OrderedDict()
 
                         self.initiators = IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators()
                         self.initiators.parent = self
                         self._children_name_map["initiators"] = "initiators"
-                        self._children_yang_names.add("initiators")
 
                         self.ipv6_initiators = IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators()
                         self.ipv6_initiators.parent = self
                         self._children_name_map["ipv6_initiators"] = "ipv6-initiators"
-                        self._children_yang_names.add("ipv6-initiators")
                         self._segment_path = lambda: "interface-counts"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts, [], name, value)
 
 
                     class Initiators(Entity):
@@ -821,20 +807,20 @@ class IpSubscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("dhcp", ("dhcp", IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.Dhcp)), ("packet-trigger", ("packet_trigger", IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.PacketTrigger))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("dhcp", ("dhcp", IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.Dhcp)), ("packet-trigger", ("packet_trigger", IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.PacketTrigger))])
                             self._leafs = OrderedDict()
 
                             self.dhcp = IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.Dhcp()
                             self.dhcp.parent = self
                             self._children_name_map["dhcp"] = "dhcp"
-                            self._children_yang_names.add("dhcp")
 
                             self.packet_trigger = IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.PacketTrigger()
                             self.packet_trigger.parent = self
                             self._children_name_map["packet_trigger"] = "packet-trigger"
-                            self._children_yang_names.add("packet-trigger")
                             self._segment_path = lambda: "initiators"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators, [], name, value)
 
 
                         class Dhcp(Entity):
@@ -961,8 +947,7 @@ class IpSubscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('invalid', YLeaf(YType.uint32, 'invalid')),
                                     ('initialized', YLeaf(YType.uint32, 'initialized')),
@@ -998,7 +983,7 @@ class IpSubscriber(Entity):
                                 self._segment_path = lambda: "dhcp"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.Dhcp, ['invalid', 'initialized', 'session_creation_started', 'control_policy_executing', 'control_policy_executed', 'session_features_applied', 'vrf_configured', 'adding_adjacency', 'adjacency_added', 'up', 'down', 'disconnecting', 'disconnected', 'error', 'total_interfaces'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.Dhcp, [u'invalid', u'initialized', u'session_creation_started', u'control_policy_executing', u'control_policy_executed', u'session_features_applied', u'vrf_configured', u'adding_adjacency', u'adjacency_added', u'up', u'down', u'disconnecting', u'disconnected', u'error', u'total_interfaces'], name, value)
 
 
                         class PacketTrigger(Entity):
@@ -1125,8 +1110,7 @@ class IpSubscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('invalid', YLeaf(YType.uint32, 'invalid')),
                                     ('initialized', YLeaf(YType.uint32, 'initialized')),
@@ -1162,7 +1146,7 @@ class IpSubscriber(Entity):
                                 self._segment_path = lambda: "packet-trigger"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.PacketTrigger, ['invalid', 'initialized', 'session_creation_started', 'control_policy_executing', 'control_policy_executed', 'session_features_applied', 'vrf_configured', 'adding_adjacency', 'adjacency_added', 'up', 'down', 'disconnecting', 'disconnected', 'error', 'total_interfaces'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.PacketTrigger, [u'invalid', u'initialized', u'session_creation_started', u'control_policy_executing', u'control_policy_executed', u'session_features_applied', u'vrf_configured', u'adding_adjacency', u'adjacency_added', u'up', u'down', u'disconnecting', u'disconnected', u'error', u'total_interfaces'], name, value)
 
 
                     class Ipv6Initiators(Entity):
@@ -1194,20 +1178,20 @@ class IpSubscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("dhcp", ("dhcp", IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.Dhcp)), ("packet-trigger", ("packet_trigger", IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.PacketTrigger))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("dhcp", ("dhcp", IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.Dhcp)), ("packet-trigger", ("packet_trigger", IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.PacketTrigger))])
                             self._leafs = OrderedDict()
 
                             self.dhcp = IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.Dhcp()
                             self.dhcp.parent = self
                             self._children_name_map["dhcp"] = "dhcp"
-                            self._children_yang_names.add("dhcp")
 
                             self.packet_trigger = IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.PacketTrigger()
                             self.packet_trigger.parent = self
                             self._children_name_map["packet_trigger"] = "packet-trigger"
-                            self._children_yang_names.add("packet-trigger")
                             self._segment_path = lambda: "ipv6-initiators"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators, [], name, value)
 
 
                         class Dhcp(Entity):
@@ -1334,8 +1318,7 @@ class IpSubscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('invalid', YLeaf(YType.uint32, 'invalid')),
                                     ('initialized', YLeaf(YType.uint32, 'initialized')),
@@ -1371,7 +1354,7 @@ class IpSubscriber(Entity):
                                 self._segment_path = lambda: "dhcp"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.Dhcp, ['invalid', 'initialized', 'session_creation_started', 'control_policy_executing', 'control_policy_executed', 'session_features_applied', 'vrf_configured', 'adding_adjacency', 'adjacency_added', 'up', 'down', 'disconnecting', 'disconnected', 'error', 'total_interfaces'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.Dhcp, [u'invalid', u'initialized', u'session_creation_started', u'control_policy_executing', u'control_policy_executed', u'session_features_applied', u'vrf_configured', u'adding_adjacency', u'adjacency_added', u'up', u'down', u'disconnecting', u'disconnected', u'error', u'total_interfaces'], name, value)
 
 
                         class PacketTrigger(Entity):
@@ -1498,8 +1481,7 @@ class IpSubscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('invalid', YLeaf(YType.uint32, 'invalid')),
                                     ('initialized', YLeaf(YType.uint32, 'initialized')),
@@ -1535,7 +1517,7 @@ class IpSubscriber(Entity):
                                 self._segment_path = lambda: "packet-trigger"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.PacketTrigger, ['invalid', 'initialized', 'session_creation_started', 'control_policy_executing', 'control_policy_executed', 'session_features_applied', 'vrf_configured', 'adding_adjacency', 'adjacency_added', 'up', 'down', 'disconnecting', 'disconnected', 'error', 'total_interfaces'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.PacketTrigger, [u'invalid', u'initialized', u'session_creation_started', u'control_policy_executing', u'control_policy_executed', u'session_features_applied', u'vrf_configured', u'adding_adjacency', u'adjacency_added', u'up', u'down', u'disconnecting', u'disconnected', u'error', u'total_interfaces'], name, value)
 
 
                 class Vrf(Entity):
@@ -1581,8 +1563,7 @@ class IpSubscriber(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                             ('ipv6vrf_name', YLeaf(YType.str, 'ipv6vrf-name')),
@@ -1596,7 +1577,7 @@ class IpSubscriber(Entity):
                         self._segment_path = lambda: "vrf"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(IpSubscriber.Nodes.Node.Summary.Vrf, ['vrf_name', 'ipv6vrf_name', 'interfaces', 'ipv6_interfaces'], name, value)
+                        self._perform_setattr(IpSubscriber.Nodes.Node.Summary.Vrf, [u'vrf_name', u'ipv6vrf_name', u'interfaces', u'ipv6_interfaces'], name, value)
 
 
             class Interfaces(Entity):
@@ -1623,8 +1604,7 @@ class IpSubscriber(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface", ("interface", IpSubscriber.Nodes.Node.Interfaces.Interface))])
+                    self._child_classes = OrderedDict([("interface", ("interface", IpSubscriber.Nodes.Node.Interfaces.Interface))])
                     self._leafs = OrderedDict()
 
                     self.interface = YList(self)
@@ -1653,7 +1633,7 @@ class IpSubscriber(Entity):
                     .. attribute:: ipv6vrf
                     
                     	IPv6 VRF details
-                    	**type**\:  :py:class:`Ipv6Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.Interfaces.Interface.Ipv6Vrf>`
+                    	**type**\:  :py:class:`Ipv6vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.Interfaces.Interface.Ipv6vrf>`
                     
                     .. attribute:: access_interface
                     
@@ -1773,8 +1753,7 @@ class IpSubscriber(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("vrf", ("vrf", IpSubscriber.Nodes.Node.Interfaces.Interface.Vrf)), ("ipv6vrf", ("ipv6vrf", IpSubscriber.Nodes.Node.Interfaces.Interface.Ipv6Vrf))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("vrf", ("vrf", IpSubscriber.Nodes.Node.Interfaces.Interface.Vrf)), ("ipv6vrf", ("ipv6vrf", IpSubscriber.Nodes.Node.Interfaces.Interface.Ipv6vrf))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('access_interface', YLeaf(YType.str, 'access-interface')),
@@ -1821,16 +1800,14 @@ class IpSubscriber(Entity):
                         self.vrf = IpSubscriber.Nodes.Node.Interfaces.Interface.Vrf()
                         self.vrf.parent = self
                         self._children_name_map["vrf"] = "vrf"
-                        self._children_yang_names.add("vrf")
 
-                        self.ipv6vrf = IpSubscriber.Nodes.Node.Interfaces.Interface.Ipv6Vrf()
+                        self.ipv6vrf = IpSubscriber.Nodes.Node.Interfaces.Interface.Ipv6vrf()
                         self.ipv6vrf.parent = self
                         self._children_name_map["ipv6vrf"] = "ipv6vrf"
-                        self._children_yang_names.add("ipv6vrf")
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces.Interface, ['interface_name', 'access_interface', 'subscriber_ipv4_address', 'subscriber_ipv6_address', 'subscriber_mac_addres', 'subscriber_label', 'interface_creation_time', 'age', 'initiator', 'state', 'old_state', 'last_state_change_time', 'current_change_age', 'ipv6_initiator', 'ipv6_state', 'ipv6_old_state', 'ipv6_last_state_change_time', 'ipv6_current_change_age', 'is_l2_connected', 'session_type'], name, value)
+                        self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces.Interface, ['interface_name', u'access_interface', u'subscriber_ipv4_address', u'subscriber_ipv6_address', u'subscriber_mac_addres', u'subscriber_label', u'interface_creation_time', u'age', u'initiator', u'state', u'old_state', u'last_state_change_time', u'current_change_age', u'ipv6_initiator', u'ipv6_state', u'ipv6_old_state', u'ipv6_last_state_change_time', u'ipv6_current_change_age', u'is_l2_connected', u'session_type'], name, value)
 
 
                     class Vrf(Entity):
@@ -1862,8 +1839,7 @@ class IpSubscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                                 ('table_name', YLeaf(YType.str, 'table-name')),
@@ -1873,10 +1849,10 @@ class IpSubscriber(Entity):
                             self._segment_path = lambda: "vrf"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces.Interface.Vrf, ['vrf_name', 'table_name'], name, value)
+                            self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces.Interface.Vrf, [u'vrf_name', u'table_name'], name, value)
 
 
-                    class Ipv6Vrf(Entity):
+                    class Ipv6vrf(Entity):
                         """
                         IPv6 VRF details
                         
@@ -1898,15 +1874,14 @@ class IpSubscriber(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(IpSubscriber.Nodes.Node.Interfaces.Interface.Ipv6Vrf, self).__init__()
+                            super(IpSubscriber.Nodes.Node.Interfaces.Interface.Ipv6vrf, self).__init__()
 
                             self.yang_name = "ipv6vrf"
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                                 ('table_name', YLeaf(YType.str, 'table-name')),
@@ -1916,7 +1891,7 @@ class IpSubscriber(Entity):
                             self._segment_path = lambda: "ipv6vrf"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces.Interface.Ipv6Vrf, ['vrf_name', 'table_name'], name, value)
+                            self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces.Interface.Ipv6vrf, [u'vrf_name', u'table_name'], name, value)
 
 
             class AccessInterfaces(Entity):
@@ -1943,8 +1918,7 @@ class IpSubscriber(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("access-interface", ("access_interface", IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface))])
+                    self._child_classes = OrderedDict([("access-interface", ("access_interface", IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface))])
                     self._leafs = OrderedDict()
 
                     self.access_interface = YList(self)
@@ -2025,8 +1999,7 @@ class IpSubscriber(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("initiators", ("initiators", IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators)), ("ipv6-initiators", ("ipv6_initiators", IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators)), ("session-limit", ("session_limit", IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("initiators", ("initiators", IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators)), ("ipv6-initiators", ("ipv6_initiators", IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators)), ("session-limit", ("session_limit", IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('interface_creation_time', YLeaf(YType.str, 'interface-creation-time')),
@@ -2047,21 +2020,18 @@ class IpSubscriber(Entity):
                         self.initiators = IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators()
                         self.initiators.parent = self
                         self._children_name_map["initiators"] = "initiators"
-                        self._children_yang_names.add("initiators")
 
                         self.ipv6_initiators = IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators()
                         self.ipv6_initiators.parent = self
                         self._children_name_map["ipv6_initiators"] = "ipv6-initiators"
-                        self._children_yang_names.add("ipv6-initiators")
 
                         self.session_limit = IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit()
                         self.session_limit.parent = self
                         self._children_name_map["session_limit"] = "session-limit"
-                        self._children_yang_names.add("session-limit")
                         self._segment_path = lambda: "access-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface, ['interface_name', 'interface_creation_time', 'age', 'interface_type', 'state', 'ipv6_state', 'vlan_type'], name, value)
+                        self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface, ['interface_name', u'interface_creation_time', u'age', u'interface_type', u'state', u'ipv6_state', u'vlan_type'], name, value)
 
 
                     class Initiators(Entity):
@@ -2095,20 +2065,20 @@ class IpSubscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("dhcp", ("dhcp", IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.Dhcp)), ("packet-trigger", ("packet_trigger", IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.PacketTrigger))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("dhcp", ("dhcp", IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.Dhcp)), ("packet-trigger", ("packet_trigger", IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.PacketTrigger))])
                             self._leafs = OrderedDict()
 
                             self.dhcp = IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.Dhcp()
                             self.dhcp.parent = self
                             self._children_name_map["dhcp"] = "dhcp"
-                            self._children_yang_names.add("dhcp")
 
                             self.packet_trigger = IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.PacketTrigger()
                             self.packet_trigger.parent = self
                             self._children_name_map["packet_trigger"] = "packet-trigger"
-                            self._children_yang_names.add("packet-trigger")
                             self._segment_path = lambda: "initiators"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators, [], name, value)
 
 
                         class Dhcp(Entity):
@@ -2200,8 +2170,7 @@ class IpSubscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('is_configured', YLeaf(YType.boolean, 'is-configured')),
                                     ('unique_ip_check', YLeaf(YType.boolean, 'unique-ip-check')),
@@ -2227,7 +2196,7 @@ class IpSubscriber(Entity):
                                 self._segment_path = lambda: "dhcp"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.Dhcp, ['is_configured', 'unique_ip_check', 'sessions', 'fsol_packets', 'fsol_bytes', 'fsol_dropped_packets', 'fsol_dropped_bytes', 'fsol_dropped_packets_flow', 'fsol_dropped_packets_session_limit', 'fsol_dropped_packets_dup_addr'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.Dhcp, [u'is_configured', u'unique_ip_check', u'sessions', u'fsol_packets', u'fsol_bytes', u'fsol_dropped_packets', u'fsol_dropped_bytes', u'fsol_dropped_packets_flow', u'fsol_dropped_packets_session_limit', u'fsol_dropped_packets_dup_addr'], name, value)
 
 
                         class PacketTrigger(Entity):
@@ -2319,8 +2288,7 @@ class IpSubscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('is_configured', YLeaf(YType.boolean, 'is-configured')),
                                     ('unique_ip_check', YLeaf(YType.boolean, 'unique-ip-check')),
@@ -2346,7 +2314,7 @@ class IpSubscriber(Entity):
                                 self._segment_path = lambda: "packet-trigger"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.PacketTrigger, ['is_configured', 'unique_ip_check', 'sessions', 'fsol_packets', 'fsol_bytes', 'fsol_dropped_packets', 'fsol_dropped_bytes', 'fsol_dropped_packets_flow', 'fsol_dropped_packets_session_limit', 'fsol_dropped_packets_dup_addr'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.PacketTrigger, [u'is_configured', u'unique_ip_check', u'sessions', u'fsol_packets', u'fsol_bytes', u'fsol_dropped_packets', u'fsol_dropped_bytes', u'fsol_dropped_packets_flow', u'fsol_dropped_packets_session_limit', u'fsol_dropped_packets_dup_addr'], name, value)
 
 
                     class Ipv6Initiators(Entity):
@@ -2380,20 +2348,20 @@ class IpSubscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("dhcp", ("dhcp", IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.Dhcp)), ("packet-trigger", ("packet_trigger", IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.PacketTrigger))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("dhcp", ("dhcp", IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.Dhcp)), ("packet-trigger", ("packet_trigger", IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.PacketTrigger))])
                             self._leafs = OrderedDict()
 
                             self.dhcp = IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.Dhcp()
                             self.dhcp.parent = self
                             self._children_name_map["dhcp"] = "dhcp"
-                            self._children_yang_names.add("dhcp")
 
                             self.packet_trigger = IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.PacketTrigger()
                             self.packet_trigger.parent = self
                             self._children_name_map["packet_trigger"] = "packet-trigger"
-                            self._children_yang_names.add("packet-trigger")
                             self._segment_path = lambda: "ipv6-initiators"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators, [], name, value)
 
 
                         class Dhcp(Entity):
@@ -2485,8 +2453,7 @@ class IpSubscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('is_configured', YLeaf(YType.boolean, 'is-configured')),
                                     ('unique_ip_check', YLeaf(YType.boolean, 'unique-ip-check')),
@@ -2512,7 +2479,7 @@ class IpSubscriber(Entity):
                                 self._segment_path = lambda: "dhcp"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.Dhcp, ['is_configured', 'unique_ip_check', 'sessions', 'fsol_packets', 'fsol_bytes', 'fsol_dropped_packets', 'fsol_dropped_bytes', 'fsol_dropped_packets_flow', 'fsol_dropped_packets_session_limit', 'fsol_dropped_packets_dup_addr'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.Dhcp, [u'is_configured', u'unique_ip_check', u'sessions', u'fsol_packets', u'fsol_bytes', u'fsol_dropped_packets', u'fsol_dropped_bytes', u'fsol_dropped_packets_flow', u'fsol_dropped_packets_session_limit', u'fsol_dropped_packets_dup_addr'], name, value)
 
 
                         class PacketTrigger(Entity):
@@ -2604,8 +2571,7 @@ class IpSubscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('is_configured', YLeaf(YType.boolean, 'is-configured')),
                                     ('unique_ip_check', YLeaf(YType.boolean, 'unique-ip-check')),
@@ -2631,7 +2597,7 @@ class IpSubscriber(Entity):
                                 self._segment_path = lambda: "packet-trigger"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.PacketTrigger, ['is_configured', 'unique_ip_check', 'sessions', 'fsol_packets', 'fsol_bytes', 'fsol_dropped_packets', 'fsol_dropped_bytes', 'fsol_dropped_packets_flow', 'fsol_dropped_packets_session_limit', 'fsol_dropped_packets_dup_addr'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.PacketTrigger, [u'is_configured', u'unique_ip_check', u'sessions', u'fsol_packets', u'fsol_bytes', u'fsol_dropped_packets', u'fsol_dropped_bytes', u'fsol_dropped_packets_flow', u'fsol_dropped_packets_session_limit', u'fsol_dropped_packets_dup_addr'], name, value)
 
 
                     class SessionLimit(Entity):
@@ -2664,20 +2630,20 @@ class IpSubscriber(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("unclassified-source", ("unclassified_source", IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.UnclassifiedSource)), ("total", ("total", IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.Total))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("unclassified-source", ("unclassified_source", IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.UnclassifiedSource)), ("total", ("total", IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.Total))])
                             self._leafs = OrderedDict()
 
                             self.unclassified_source = IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.UnclassifiedSource()
                             self.unclassified_source.parent = self
                             self._children_name_map["unclassified_source"] = "unclassified-source"
-                            self._children_yang_names.add("unclassified-source")
 
                             self.total = IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.Total()
                             self.total.parent = self
                             self._children_name_map["total"] = "total"
-                            self._children_yang_names.add("total")
                             self._segment_path = lambda: "session-limit"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit, [], name, value)
 
 
                         class UnclassifiedSource(Entity):
@@ -2706,8 +2672,7 @@ class IpSubscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('per_vlan', YLeaf(YType.uint32, 'per-vlan')),
                                 ])
@@ -2715,7 +2680,7 @@ class IpSubscriber(Entity):
                                 self._segment_path = lambda: "unclassified-source"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.UnclassifiedSource, ['per_vlan'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.UnclassifiedSource, [u'per_vlan'], name, value)
 
 
                         class Total(Entity):
@@ -2744,8 +2709,7 @@ class IpSubscriber(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('per_vlan', YLeaf(YType.uint32, 'per-vlan')),
                                 ])
@@ -2753,7 +2717,7 @@ class IpSubscriber(Entity):
                                 self._segment_path = lambda: "total"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.Total, ['per_vlan'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.Total, [u'per_vlan'], name, value)
 
     def clone_ptr(self):
         self._top_entity = IpSubscriber()

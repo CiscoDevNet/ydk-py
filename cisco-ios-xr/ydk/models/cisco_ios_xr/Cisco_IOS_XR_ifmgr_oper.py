@@ -174,20 +174,20 @@ class InterfaceDampening(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("interfaces", ("interfaces", InterfaceDampening.Interfaces)), ("nodes", ("nodes", InterfaceDampening.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("interfaces", ("interfaces", InterfaceDampening.Interfaces)), ("nodes", ("nodes", InterfaceDampening.Nodes))])
         self._leafs = OrderedDict()
 
         self.interfaces = InterfaceDampening.Interfaces()
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
-        self._children_yang_names.add("interfaces")
 
         self.nodes = InterfaceDampening.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-ifmgr-oper:interface-dampening"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(InterfaceDampening, [], name, value)
 
 
     class Interfaces(Entity):
@@ -215,8 +215,7 @@ class InterfaceDampening(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("interface", ("interface", InterfaceDampening.Interfaces.Interface))])
+            self._child_classes = OrderedDict([("interface", ("interface", InterfaceDampening.Interfaces.Interface))])
             self._leafs = OrderedDict()
 
             self.interface = YList(self)
@@ -259,8 +258,7 @@ class InterfaceDampening(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface_name']
-                self._child_container_classes = OrderedDict([("if-dampening", ("if_dampening", InterfaceDampening.Interfaces.Interface.IfDampening))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("if-dampening", ("if_dampening", InterfaceDampening.Interfaces.Interface.IfDampening))])
                 self._leafs = OrderedDict([
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                 ])
@@ -269,7 +267,6 @@ class InterfaceDampening(Entity):
                 self.if_dampening = InterfaceDampening.Interfaces.Interface.IfDampening()
                 self.if_dampening.parent = self
                 self._children_name_map["if_dampening"] = "if-dampening"
-                self._children_yang_names.add("if-dampening")
                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ifmgr-oper:interface-dampening/interfaces/%s" % self._segment_path()
 
@@ -364,8 +361,7 @@ class InterfaceDampening(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("interface-dampening", ("interface_dampening", InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening_))])
-                    self._child_list_classes = OrderedDict([("capsulation", ("capsulation", InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation))])
+                    self._child_classes = OrderedDict([("interface-dampening", ("interface_dampening", InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening_)), ("capsulation", ("capsulation", InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation))])
                     self._leafs = OrderedDict([
                         ('state_transition_count', YLeaf(YType.uint32, 'state-transition-count')),
                         ('last_state_transition_time', YLeaf(YType.uint32, 'last-state-transition-time')),
@@ -388,7 +384,6 @@ class InterfaceDampening(Entity):
                     self.interface_dampening = InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening_()
                     self.interface_dampening.parent = self
                     self._children_name_map["interface_dampening"] = "interface-dampening"
-                    self._children_yang_names.add("interface-dampening")
 
                     self.capsulation = YList(self)
                     self._segment_path = lambda: "if-dampening"
@@ -449,8 +444,7 @@ class InterfaceDampening(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('penalty', YLeaf(YType.uint32, 'penalty')),
                             ('is_suppressed_enabled', YLeaf(YType.boolean, 'is-suppressed-enabled')),
@@ -498,8 +492,7 @@ class InterfaceDampening(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("capsulation-dampening", ("capsulation_dampening", InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation.CapsulationDampening))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("capsulation-dampening", ("capsulation_dampening", InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation.CapsulationDampening))])
                         self._leafs = OrderedDict([
                             ('capsulation_number', YLeaf(YType.str, 'capsulation-number')),
                         ])
@@ -508,7 +501,6 @@ class InterfaceDampening(Entity):
                         self.capsulation_dampening = InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation.CapsulationDampening()
                         self.capsulation_dampening.parent = self
                         self._children_name_map["capsulation_dampening"] = "capsulation-dampening"
-                        self._children_yang_names.add("capsulation-dampening")
                         self._segment_path = lambda: "capsulation"
 
                     def __setattr__(self, name, value):
@@ -567,8 +559,7 @@ class InterfaceDampening(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('penalty', YLeaf(YType.uint32, 'penalty')),
                                 ('is_suppressed_enabled', YLeaf(YType.boolean, 'is-suppressed-enabled')),
@@ -611,8 +602,7 @@ class InterfaceDampening(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", InterfaceDampening.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", InterfaceDampening.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -654,8 +644,7 @@ class InterfaceDampening(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("show", ("show", InterfaceDampening.Nodes.Node.Show))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("show", ("show", InterfaceDampening.Nodes.Node.Show))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -664,7 +653,6 @@ class InterfaceDampening(Entity):
                 self.show = InterfaceDampening.Nodes.Node.Show()
                 self.show.parent = self
                 self._children_name_map["show"] = "show"
-                self._children_yang_names.add("show")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ifmgr-oper:interface-dampening/nodes/%s" % self._segment_path()
 
@@ -696,15 +684,16 @@ class InterfaceDampening(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("dampening", ("dampening", InterfaceDampening.Nodes.Node.Show.Dampening))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("dampening", ("dampening", InterfaceDampening.Nodes.Node.Show.Dampening))])
                     self._leafs = OrderedDict()
 
                     self.dampening = InterfaceDampening.Nodes.Node.Show.Dampening()
                     self.dampening.parent = self
                     self._children_name_map["dampening"] = "dampening"
-                    self._children_yang_names.add("dampening")
                     self._segment_path = lambda: "show"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfaceDampening.Nodes.Node.Show, [], name, value)
 
 
                 class Dampening(Entity):
@@ -737,20 +726,20 @@ class InterfaceDampening(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("if-handles", ("if_handles", InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles)), ("interfaces", ("interfaces", InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("if-handles", ("if_handles", InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles)), ("interfaces", ("interfaces", InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces))])
                         self._leafs = OrderedDict()
 
                         self.if_handles = InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles()
                         self.if_handles.parent = self
                         self._children_name_map["if_handles"] = "if-handles"
-                        self._children_yang_names.add("if-handles")
 
                         self.interfaces = InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces()
                         self.interfaces.parent = self
                         self._children_name_map["interfaces"] = "interfaces"
-                        self._children_yang_names.add("interfaces")
                         self._segment_path = lambda: "dampening"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening, [], name, value)
 
 
                     class IfHandles(Entity):
@@ -778,8 +767,7 @@ class InterfaceDampening(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("if-handle", ("if_handle", InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle))])
+                            self._child_classes = OrderedDict([("if-handle", ("if_handle", InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle))])
                             self._leafs = OrderedDict()
 
                             self.if_handle = YList(self)
@@ -883,8 +871,7 @@ class InterfaceDampening(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['interface_handle_name']
-                                self._child_container_classes = OrderedDict([("interface-dampening", ("interface_dampening", InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening_))])
-                                self._child_list_classes = OrderedDict([("capsulation", ("capsulation", InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation))])
+                                self._child_classes = OrderedDict([("interface-dampening", ("interface_dampening", InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening_)), ("capsulation", ("capsulation", InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation))])
                                 self._leafs = OrderedDict([
                                     ('interface_handle_name', YLeaf(YType.str, 'interface-handle-name')),
                                     ('state_transition_count', YLeaf(YType.uint32, 'state-transition-count')),
@@ -909,7 +896,6 @@ class InterfaceDampening(Entity):
                                 self.interface_dampening = InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening_()
                                 self.interface_dampening.parent = self
                                 self._children_name_map["interface_dampening"] = "interface-dampening"
-                                self._children_yang_names.add("interface-dampening")
 
                                 self.capsulation = YList(self)
                                 self._segment_path = lambda: "if-handle" + "[interface-handle-name='" + str(self.interface_handle_name) + "']"
@@ -970,8 +956,7 @@ class InterfaceDampening(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('penalty', YLeaf(YType.uint32, 'penalty')),
                                         ('is_suppressed_enabled', YLeaf(YType.boolean, 'is-suppressed-enabled')),
@@ -1019,8 +1004,7 @@ class InterfaceDampening(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("capsulation-dampening", ("capsulation_dampening", InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation.CapsulationDampening))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("capsulation-dampening", ("capsulation_dampening", InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation.CapsulationDampening))])
                                     self._leafs = OrderedDict([
                                         ('capsulation_number', YLeaf(YType.str, 'capsulation-number')),
                                     ])
@@ -1029,7 +1013,6 @@ class InterfaceDampening(Entity):
                                     self.capsulation_dampening = InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation.CapsulationDampening()
                                     self.capsulation_dampening.parent = self
                                     self._children_name_map["capsulation_dampening"] = "capsulation-dampening"
-                                    self._children_yang_names.add("capsulation-dampening")
                                     self._segment_path = lambda: "capsulation"
 
                                 def __setattr__(self, name, value):
@@ -1088,8 +1071,7 @@ class InterfaceDampening(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('penalty', YLeaf(YType.uint32, 'penalty')),
                                             ('is_suppressed_enabled', YLeaf(YType.boolean, 'is-suppressed-enabled')),
@@ -1133,8 +1115,7 @@ class InterfaceDampening(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("interface", ("interface", InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface))])
+                            self._child_classes = OrderedDict([("interface", ("interface", InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface))])
                             self._leafs = OrderedDict()
 
                             self.interface = YList(self)
@@ -1238,8 +1219,7 @@ class InterfaceDampening(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['interface_name']
-                                self._child_container_classes = OrderedDict([("interface-dampening", ("interface_dampening", InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening_))])
-                                self._child_list_classes = OrderedDict([("capsulation", ("capsulation", InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation))])
+                                self._child_classes = OrderedDict([("interface-dampening", ("interface_dampening", InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening_)), ("capsulation", ("capsulation", InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation))])
                                 self._leafs = OrderedDict([
                                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                                     ('state_transition_count', YLeaf(YType.uint32, 'state-transition-count')),
@@ -1264,7 +1244,6 @@ class InterfaceDampening(Entity):
                                 self.interface_dampening = InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening_()
                                 self.interface_dampening.parent = self
                                 self._children_name_map["interface_dampening"] = "interface-dampening"
-                                self._children_yang_names.add("interface-dampening")
 
                                 self.capsulation = YList(self)
                                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
@@ -1325,8 +1304,7 @@ class InterfaceDampening(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('penalty', YLeaf(YType.uint32, 'penalty')),
                                         ('is_suppressed_enabled', YLeaf(YType.boolean, 'is-suppressed-enabled')),
@@ -1374,8 +1352,7 @@ class InterfaceDampening(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("capsulation-dampening", ("capsulation_dampening", InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation.CapsulationDampening))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("capsulation-dampening", ("capsulation_dampening", InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation.CapsulationDampening))])
                                     self._leafs = OrderedDict([
                                         ('capsulation_number', YLeaf(YType.str, 'capsulation-number')),
                                     ])
@@ -1384,7 +1361,6 @@ class InterfaceDampening(Entity):
                                     self.capsulation_dampening = InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation.CapsulationDampening()
                                     self.capsulation_dampening.parent = self
                                     self._children_name_map["capsulation_dampening"] = "capsulation-dampening"
-                                    self._children_yang_names.add("capsulation-dampening")
                                     self._segment_path = lambda: "capsulation"
 
                                 def __setattr__(self, name, value):
@@ -1443,8 +1419,7 @@ class InterfaceDampening(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('penalty', YLeaf(YType.uint32, 'penalty')),
                                             ('is_suppressed_enabled', YLeaf(YType.boolean, 'is-suppressed-enabled')),
@@ -1491,15 +1466,16 @@ class InterfaceProperties(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("data-nodes", ("data_nodes", InterfaceProperties.DataNodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("data-nodes", ("data_nodes", InterfaceProperties.DataNodes))])
         self._leafs = OrderedDict()
 
         self.data_nodes = InterfaceProperties.DataNodes()
         self.data_nodes.parent = self
         self._children_name_map["data_nodes"] = "data-nodes"
-        self._children_yang_names.add("data-nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-ifmgr-oper:interface-properties"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(InterfaceProperties, [], name, value)
 
 
     class DataNodes(Entity):
@@ -1526,8 +1502,7 @@ class InterfaceProperties(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("data-node", ("data_node", InterfaceProperties.DataNodes.DataNode))])
+            self._child_classes = OrderedDict([("data-node", ("data_node", InterfaceProperties.DataNodes.DataNode))])
             self._leafs = OrderedDict()
 
             self.data_node = YList(self)
@@ -1580,8 +1555,7 @@ class InterfaceProperties(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['data_node_name']
-                self._child_container_classes = OrderedDict([("locationviews", ("locationviews", InterfaceProperties.DataNodes.DataNode.Locationviews)), ("pq-node-locations", ("pq_node_locations", InterfaceProperties.DataNodes.DataNode.PqNodeLocations)), ("system-view", ("system_view", InterfaceProperties.DataNodes.DataNode.SystemView))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("locationviews", ("locationviews", InterfaceProperties.DataNodes.DataNode.Locationviews)), ("pq-node-locations", ("pq_node_locations", InterfaceProperties.DataNodes.DataNode.PqNodeLocations)), ("system-view", ("system_view", InterfaceProperties.DataNodes.DataNode.SystemView))])
                 self._leafs = OrderedDict([
                     ('data_node_name', YLeaf(YType.str, 'data-node-name')),
                 ])
@@ -1590,17 +1564,14 @@ class InterfaceProperties(Entity):
                 self.locationviews = InterfaceProperties.DataNodes.DataNode.Locationviews()
                 self.locationviews.parent = self
                 self._children_name_map["locationviews"] = "locationviews"
-                self._children_yang_names.add("locationviews")
 
                 self.pq_node_locations = InterfaceProperties.DataNodes.DataNode.PqNodeLocations()
                 self.pq_node_locations.parent = self
                 self._children_name_map["pq_node_locations"] = "pq-node-locations"
-                self._children_yang_names.add("pq-node-locations")
 
                 self.system_view = InterfaceProperties.DataNodes.DataNode.SystemView()
                 self.system_view.parent = self
                 self._children_name_map["system_view"] = "system-view"
-                self._children_yang_names.add("system-view")
                 self._segment_path = lambda: "data-node" + "[data-node-name='" + str(self.data_node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ifmgr-oper:interface-properties/data-nodes/%s" % self._segment_path()
 
@@ -1633,8 +1604,7 @@ class InterfaceProperties(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("locationview", ("locationview", InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview))])
+                    self._child_classes = OrderedDict([("locationview", ("locationview", InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview))])
                     self._leafs = OrderedDict()
 
                     self.locationview = YList(self)
@@ -1676,8 +1646,7 @@ class InterfaceProperties(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['locationview_name']
-                        self._child_container_classes = OrderedDict([("interfaces", ("interfaces", InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview.Interfaces))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("interfaces", ("interfaces", InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview.Interfaces))])
                         self._leafs = OrderedDict([
                             ('locationview_name', YLeaf(YType.str, 'locationview-name')),
                         ])
@@ -1686,7 +1655,6 @@ class InterfaceProperties(Entity):
                         self.interfaces = InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview.Interfaces()
                         self.interfaces.parent = self
                         self._children_name_map["interfaces"] = "interfaces"
-                        self._children_yang_names.add("interfaces")
                         self._segment_path = lambda: "locationview" + "[locationview-name='" + str(self.locationview_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -1718,8 +1686,7 @@ class InterfaceProperties(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("interface", ("interface", InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview.Interfaces.Interface))])
+                            self._child_classes = OrderedDict([("interface", ("interface", InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview.Interfaces.Interface))])
                             self._leafs = OrderedDict()
 
                             self.interface = YList(self)
@@ -1835,8 +1802,7 @@ class InterfaceProperties(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['interface_name']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                                     ('interface', YLeaf(YType.str, 'interface')),
@@ -1898,8 +1864,7 @@ class InterfaceProperties(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("pq-node-location", ("pq_node_location", InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation))])
+                    self._child_classes = OrderedDict([("pq-node-location", ("pq_node_location", InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation))])
                     self._leafs = OrderedDict()
 
                     self.pq_node_location = YList(self)
@@ -1941,8 +1906,7 @@ class InterfaceProperties(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['pq_node_name']
-                        self._child_container_classes = OrderedDict([("interfaces", ("interfaces", InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation.Interfaces))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("interfaces", ("interfaces", InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation.Interfaces))])
                         self._leafs = OrderedDict([
                             ('pq_node_name', YLeaf(YType.str, 'pq-node-name')),
                         ])
@@ -1951,7 +1915,6 @@ class InterfaceProperties(Entity):
                         self.interfaces = InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation.Interfaces()
                         self.interfaces.parent = self
                         self._children_name_map["interfaces"] = "interfaces"
-                        self._children_yang_names.add("interfaces")
                         self._segment_path = lambda: "pq-node-location" + "[pq-node-name='" + str(self.pq_node_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -1983,8 +1946,7 @@ class InterfaceProperties(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("interface", ("interface", InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation.Interfaces.Interface))])
+                            self._child_classes = OrderedDict([("interface", ("interface", InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation.Interfaces.Interface))])
                             self._leafs = OrderedDict()
 
                             self.interface = YList(self)
@@ -2100,8 +2062,7 @@ class InterfaceProperties(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['interface_name']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                                     ('interface', YLeaf(YType.str, 'interface')),
@@ -2162,15 +2123,16 @@ class InterfaceProperties(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("interfaces", ("interfaces", InterfaceProperties.DataNodes.DataNode.SystemView.Interfaces))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("interfaces", ("interfaces", InterfaceProperties.DataNodes.DataNode.SystemView.Interfaces))])
                     self._leafs = OrderedDict()
 
                     self.interfaces = InterfaceProperties.DataNodes.DataNode.SystemView.Interfaces()
                     self.interfaces.parent = self
                     self._children_name_map["interfaces"] = "interfaces"
-                    self._children_yang_names.add("interfaces")
                     self._segment_path = lambda: "system-view"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InterfaceProperties.DataNodes.DataNode.SystemView, [], name, value)
 
 
                 class Interfaces(Entity):
@@ -2198,8 +2160,7 @@ class InterfaceProperties(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("interface", ("interface", InterfaceProperties.DataNodes.DataNode.SystemView.Interfaces.Interface))])
+                        self._child_classes = OrderedDict([("interface", ("interface", InterfaceProperties.DataNodes.DataNode.SystemView.Interfaces.Interface))])
                         self._leafs = OrderedDict()
 
                         self.interface = YList(self)
@@ -2315,8 +2276,7 @@ class InterfaceProperties(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['interface_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                                 ('interface', YLeaf(YType.str, 'interface')),

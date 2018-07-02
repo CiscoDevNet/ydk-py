@@ -45,15 +45,16 @@ class Telnet(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("vrfs", ("vrfs", Telnet.Vrfs))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("vrfs", ("vrfs", Telnet.Vrfs))])
         self._leafs = OrderedDict()
 
         self.vrfs = Telnet.Vrfs()
         self.vrfs.parent = self
         self._children_name_map["vrfs"] = "vrfs"
-        self._children_yang_names.add("vrfs")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-telnet-mgmt-cfg:telnet"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Telnet, [], name, value)
 
 
     class Vrfs(Entity):
@@ -80,8 +81,7 @@ class Telnet(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vrf", ("vrf", Telnet.Vrfs.Vrf))])
+            self._child_classes = OrderedDict([("vrf", ("vrf", Telnet.Vrfs.Vrf))])
             self._leafs = OrderedDict()
 
             self.vrf = YList(self)
@@ -123,8 +123,7 @@ class Telnet(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['vrf_name']
-                self._child_container_classes = OrderedDict([("ipv4", ("ipv4", Telnet.Vrfs.Vrf.Ipv4))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("ipv4", ("ipv4", Telnet.Vrfs.Vrf.Ipv4))])
                 self._leafs = OrderedDict([
                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                 ])
@@ -133,7 +132,6 @@ class Telnet(Entity):
                 self.ipv4 = Telnet.Vrfs.Vrf.Ipv4()
                 self.ipv4.parent = self
                 self._children_name_map["ipv4"] = "ipv4"
-                self._children_yang_names.add("ipv4")
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-telnet-mgmt-cfg:telnet/vrfs/%s" % self._segment_path()
 
@@ -167,8 +165,7 @@ class Telnet(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('dscp', YLeaf(YType.uint32, 'dscp')),
                     ])

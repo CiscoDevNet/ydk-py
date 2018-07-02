@@ -327,6 +327,10 @@ class OspfFastRerouteTiebreakers(Enum):
 
     	SRLG
 
+    .. data:: interface_disjoint = 7
+
+    	Intf Disjoint
+
     """
 
     downstream = Enum.YLeaf(0, "downstream")
@@ -342,6 +346,8 @@ class OspfFastRerouteTiebreakers(Enum):
     secondary_path = Enum.YLeaf(5, "secondary-path")
 
     srlg_disjoint = Enum.YLeaf(6, "srlg-disjoint")
+
+    interface_disjoint = Enum.YLeaf(7, "interface-disjoint")
 
 
 class OspfFastRerouteTiebreakersIntf(Enum):
@@ -378,6 +384,10 @@ class OspfFastRerouteTiebreakersIntf(Enum):
 
     	SRLG
 
+    .. data:: interface_disjoint = 7
+
+    	Intf Disjoint
+
     """
 
     downstream = Enum.YLeaf(0, "downstream")
@@ -393,6 +403,8 @@ class OspfFastRerouteTiebreakersIntf(Enum):
     secondary_path = Enum.YLeaf(5, "secondary-path")
 
     srlg_disjoint = Enum.YLeaf(6, "srlg-disjoint")
+
+    interface_disjoint = Enum.YLeaf(7, "interface-disjoint")
 
 
 class OspfFrrRlfaTunnel(Enum):
@@ -963,20 +975,20 @@ class Ospf(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("processes", ("processes", Ospf.Processes)), ("global", ("global_", Ospf.Global))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("processes", ("processes", Ospf.Processes)), ("global", ("global_", Ospf.Global))])
         self._leafs = OrderedDict()
 
         self.processes = Ospf.Processes()
         self.processes.parent = self
         self._children_name_map["processes"] = "processes"
-        self._children_yang_names.add("processes")
 
         self.global_ = Ospf.Global()
         self.global_.parent = self
         self._children_name_map["global_"] = "global"
-        self._children_yang_names.add("global")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-ospf-cfg:ospf"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Ospf, [], name, value)
 
 
     class Processes(Entity):
@@ -1003,8 +1015,7 @@ class Ospf(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("process", ("process", Ospf.Processes.Process))])
+            self._child_classes = OrderedDict([("process", ("process", Ospf.Processes.Process))])
             self._leafs = OrderedDict()
 
             self.process = YList(self)
@@ -1096,8 +1107,7 @@ class Ospf(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['process_name']
-                self._child_container_classes = OrderedDict([("snmp", ("snmp", Ospf.Processes.Process.Snmp)), ("distribute", ("distribute", Ospf.Processes.Process.Distribute)), ("vrfs", ("vrfs", Ospf.Processes.Process.Vrfs)), ("trace-bufs", ("trace_bufs", Ospf.Processes.Process.TraceBufs)), ("graceful-shutdown-timers", ("graceful_shutdown_timers", Ospf.Processes.Process.GracefulShutdownTimers)), ("default-vrf", ("default_vrf", Ospf.Processes.Process.DefaultVrf))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("snmp", ("snmp", Ospf.Processes.Process.Snmp)), ("distribute", ("distribute", Ospf.Processes.Process.Distribute)), ("vrfs", ("vrfs", Ospf.Processes.Process.Vrfs)), ("trace-bufs", ("trace_bufs", Ospf.Processes.Process.TraceBufs)), ("graceful-shutdown-timers", ("graceful_shutdown_timers", Ospf.Processes.Process.GracefulShutdownTimers)), ("default-vrf", ("default_vrf", Ospf.Processes.Process.DefaultVrf))])
                 self._leafs = OrderedDict([
                     ('process_name', YLeaf(YType.str, 'process-name')),
                     ('start', YLeaf(YType.empty, 'start')),
@@ -1114,31 +1124,25 @@ class Ospf(Entity):
                 self.snmp = Ospf.Processes.Process.Snmp()
                 self.snmp.parent = self
                 self._children_name_map["snmp"] = "snmp"
-                self._children_yang_names.add("snmp")
 
                 self.distribute = None
                 self._children_name_map["distribute"] = "distribute"
-                self._children_yang_names.add("distribute")
 
                 self.vrfs = Ospf.Processes.Process.Vrfs()
                 self.vrfs.parent = self
                 self._children_name_map["vrfs"] = "vrfs"
-                self._children_yang_names.add("vrfs")
 
                 self.trace_bufs = Ospf.Processes.Process.TraceBufs()
                 self.trace_bufs.parent = self
                 self._children_name_map["trace_bufs"] = "trace-bufs"
-                self._children_yang_names.add("trace-bufs")
 
                 self.graceful_shutdown_timers = Ospf.Processes.Process.GracefulShutdownTimers()
                 self.graceful_shutdown_timers.parent = self
                 self._children_name_map["graceful_shutdown_timers"] = "graceful-shutdown-timers"
-                self._children_yang_names.add("graceful-shutdown-timers")
 
                 self.default_vrf = Ospf.Processes.Process.DefaultVrf()
                 self.default_vrf.parent = self
                 self._children_name_map["default_vrf"] = "default-vrf"
-                self._children_yang_names.add("default-vrf")
                 self._segment_path = lambda: "process" + "[process-name='" + str(self.process_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-ospf-cfg:ospf/processes/%s" % self._segment_path()
 
@@ -1172,14 +1176,15 @@ class Ospf(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("trap-rate-limit", ("trap_rate_limit", Ospf.Processes.Process.Snmp.TrapRateLimit))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("trap-rate-limit", ("trap_rate_limit", Ospf.Processes.Process.Snmp.TrapRateLimit))])
                     self._leafs = OrderedDict()
 
                     self.trap_rate_limit = None
                     self._children_name_map["trap_rate_limit"] = "trap-rate-limit"
-                    self._children_yang_names.add("trap-rate-limit")
                     self._segment_path = lambda: "snmp"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ospf.Processes.Process.Snmp, [], name, value)
 
 
                 class TrapRateLimit(Entity):
@@ -1221,8 +1226,7 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('window_size', YLeaf(YType.uint32, 'window-size')),
@@ -1274,8 +1278,7 @@ class Ospf(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('throttle', YLeaf(YType.uint32, 'throttle')),
@@ -1313,8 +1316,7 @@ class Ospf(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("vrf", ("vrf", Ospf.Processes.Process.Vrfs.Vrf))])
+                    self._child_classes = OrderedDict([("vrf", ("vrf", Ospf.Processes.Process.Vrfs.Vrf))])
                     self._leafs = OrderedDict()
 
                     self.vrf = YList(self)
@@ -1545,8 +1547,7 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['vrf_name']
-                        self._child_container_classes = OrderedDict([("domain-id", ("domain_id", Ospf.Processes.Process.Vrfs.Vrf.DomainId)), ("microloop", ("microloop", Ospf.Processes.Process.Vrfs.Vrf.Microloop)), ("maximum-redistribute-prefix", ("maximum_redistribute_prefix", Ospf.Processes.Process.Vrfs.Vrf.MaximumRedistributePrefix)), ("default-information", ("default_information", Ospf.Processes.Process.Vrfs.Vrf.DefaultInformation)), ("af", ("af", Ospf.Processes.Process.Vrfs.Vrf.Af)), ("queue", ("queue", Ospf.Processes.Process.Vrfs.Vrf.Queue)), ("max-metric", ("max_metric", Ospf.Processes.Process.Vrfs.Vrf.MaxMetric)), ("nsf", ("nsf", Ospf.Processes.Process.Vrfs.Vrf.Nsf)), ("process-scope", ("process_scope", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope)), ("redistribution", ("redistribution", Ospf.Processes.Process.Vrfs.Vrf.Redistribution)), ("adjacency-stagger", ("adjacency_stagger", Ospf.Processes.Process.Vrfs.Vrf.AdjacencyStagger)), ("max-lsa", ("max_lsa", Ospf.Processes.Process.Vrfs.Vrf.MaxLsa)), ("auto-cost", ("auto_cost", Ospf.Processes.Process.Vrfs.Vrf.AutoCost)), ("ucmp", ("ucmp", Ospf.Processes.Process.Vrfs.Vrf.Ucmp)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.Vrfs.Vrf.FastReroute)), ("summary-prefixes", ("summary_prefixes", Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes)), ("outgoing-route-updates", ("outgoing_route_updates", Ospf.Processes.Process.Vrfs.Vrf.OutgoingRouteUpdates)), ("distance", ("distance", Ospf.Processes.Process.Vrfs.Vrf.Distance)), ("area-addresses", ("area_addresses", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses)), ("timers", ("timers", Ospf.Processes.Process.Vrfs.Vrf.Timers))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("domain-id", ("domain_id", Ospf.Processes.Process.Vrfs.Vrf.DomainId)), ("microloop", ("microloop", Ospf.Processes.Process.Vrfs.Vrf.Microloop)), ("maximum-redistribute-prefix", ("maximum_redistribute_prefix", Ospf.Processes.Process.Vrfs.Vrf.MaximumRedistributePrefix)), ("default-information", ("default_information", Ospf.Processes.Process.Vrfs.Vrf.DefaultInformation)), ("af", ("af", Ospf.Processes.Process.Vrfs.Vrf.Af)), ("queue", ("queue", Ospf.Processes.Process.Vrfs.Vrf.Queue)), ("max-metric", ("max_metric", Ospf.Processes.Process.Vrfs.Vrf.MaxMetric)), ("nsf", ("nsf", Ospf.Processes.Process.Vrfs.Vrf.Nsf)), ("process-scope", ("process_scope", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope)), ("redistribution", ("redistribution", Ospf.Processes.Process.Vrfs.Vrf.Redistribution)), ("adjacency-stagger", ("adjacency_stagger", Ospf.Processes.Process.Vrfs.Vrf.AdjacencyStagger)), ("max-lsa", ("max_lsa", Ospf.Processes.Process.Vrfs.Vrf.MaxLsa)), ("auto-cost", ("auto_cost", Ospf.Processes.Process.Vrfs.Vrf.AutoCost)), ("ucmp", ("ucmp", Ospf.Processes.Process.Vrfs.Vrf.Ucmp)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.Vrfs.Vrf.FastReroute)), ("summary-prefixes", ("summary_prefixes", Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes)), ("outgoing-route-updates", ("outgoing_route_updates", Ospf.Processes.Process.Vrfs.Vrf.OutgoingRouteUpdates)), ("distance", ("distance", Ospf.Processes.Process.Vrfs.Vrf.Distance)), ("area-addresses", ("area_addresses", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses)), ("timers", ("timers", Ospf.Processes.Process.Vrfs.Vrf.Timers))])
                         self._leafs = OrderedDict([
                             ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                             ('vrf_start', YLeaf(YType.empty, 'vrf-start')),
@@ -1585,100 +1586,80 @@ class Ospf(Entity):
                         self.domain_id = Ospf.Processes.Process.Vrfs.Vrf.DomainId()
                         self.domain_id.parent = self
                         self._children_name_map["domain_id"] = "domain-id"
-                        self._children_yang_names.add("domain-id")
 
                         self.microloop = Ospf.Processes.Process.Vrfs.Vrf.Microloop()
                         self.microloop.parent = self
                         self._children_name_map["microloop"] = "microloop"
-                        self._children_yang_names.add("microloop")
 
                         self.maximum_redistribute_prefix = Ospf.Processes.Process.Vrfs.Vrf.MaximumRedistributePrefix()
                         self.maximum_redistribute_prefix.parent = self
                         self._children_name_map["maximum_redistribute_prefix"] = "maximum-redistribute-prefix"
-                        self._children_yang_names.add("maximum-redistribute-prefix")
 
                         self.default_information = Ospf.Processes.Process.Vrfs.Vrf.DefaultInformation()
                         self.default_information.parent = self
                         self._children_name_map["default_information"] = "default-information"
-                        self._children_yang_names.add("default-information")
 
                         self.af = None
                         self._children_name_map["af"] = "af"
-                        self._children_yang_names.add("af")
 
                         self.queue = Ospf.Processes.Process.Vrfs.Vrf.Queue()
                         self.queue.parent = self
                         self._children_name_map["queue"] = "queue"
-                        self._children_yang_names.add("queue")
 
                         self.max_metric = Ospf.Processes.Process.Vrfs.Vrf.MaxMetric()
                         self.max_metric.parent = self
                         self._children_name_map["max_metric"] = "max-metric"
-                        self._children_yang_names.add("max-metric")
 
                         self.nsf = Ospf.Processes.Process.Vrfs.Vrf.Nsf()
                         self.nsf.parent = self
                         self._children_name_map["nsf"] = "nsf"
-                        self._children_yang_names.add("nsf")
 
                         self.process_scope = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope()
                         self.process_scope.parent = self
                         self._children_name_map["process_scope"] = "process-scope"
-                        self._children_yang_names.add("process-scope")
 
                         self.redistribution = Ospf.Processes.Process.Vrfs.Vrf.Redistribution()
                         self.redistribution.parent = self
                         self._children_name_map["redistribution"] = "redistribution"
-                        self._children_yang_names.add("redistribution")
 
                         self.adjacency_stagger = Ospf.Processes.Process.Vrfs.Vrf.AdjacencyStagger()
                         self.adjacency_stagger.parent = self
                         self._children_name_map["adjacency_stagger"] = "adjacency-stagger"
-                        self._children_yang_names.add("adjacency-stagger")
 
                         self.max_lsa = None
                         self._children_name_map["max_lsa"] = "max-lsa"
-                        self._children_yang_names.add("max-lsa")
 
                         self.auto_cost = Ospf.Processes.Process.Vrfs.Vrf.AutoCost()
                         self.auto_cost.parent = self
                         self._children_name_map["auto_cost"] = "auto-cost"
-                        self._children_yang_names.add("auto-cost")
 
                         self.ucmp = Ospf.Processes.Process.Vrfs.Vrf.Ucmp()
                         self.ucmp.parent = self
                         self._children_name_map["ucmp"] = "ucmp"
-                        self._children_yang_names.add("ucmp")
 
                         self.fast_reroute = Ospf.Processes.Process.Vrfs.Vrf.FastReroute()
                         self.fast_reroute.parent = self
                         self._children_name_map["fast_reroute"] = "fast-reroute"
-                        self._children_yang_names.add("fast-reroute")
 
                         self.summary_prefixes = Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes()
                         self.summary_prefixes.parent = self
                         self._children_name_map["summary_prefixes"] = "summary-prefixes"
-                        self._children_yang_names.add("summary-prefixes")
 
                         self.outgoing_route_updates = Ospf.Processes.Process.Vrfs.Vrf.OutgoingRouteUpdates()
                         self.outgoing_route_updates.parent = self
                         self._children_name_map["outgoing_route_updates"] = "outgoing-route-updates"
-                        self._children_yang_names.add("outgoing-route-updates")
 
                         self.distance = Ospf.Processes.Process.Vrfs.Vrf.Distance()
                         self.distance.parent = self
                         self._children_name_map["distance"] = "distance"
-                        self._children_yang_names.add("distance")
 
                         self.area_addresses = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses()
                         self.area_addresses.parent = self
                         self._children_name_map["area_addresses"] = "area-addresses"
-                        self._children_yang_names.add("area-addresses")
 
                         self.timers = Ospf.Processes.Process.Vrfs.Vrf.Timers()
                         self.timers.parent = self
                         self._children_name_map["timers"] = "timers"
-                        self._children_yang_names.add("timers")
                         self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
 
                     def __setattr__(self, name, value):
@@ -1714,20 +1695,20 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("primary-domain-id", ("primary_domain_id", Ospf.Processes.Process.Vrfs.Vrf.DomainId.PrimaryDomainId)), ("secondary-domain-ids", ("secondary_domain_ids", Ospf.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("primary-domain-id", ("primary_domain_id", Ospf.Processes.Process.Vrfs.Vrf.DomainId.PrimaryDomainId)), ("secondary-domain-ids", ("secondary_domain_ids", Ospf.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds))])
                             self._leafs = OrderedDict()
 
                             self.primary_domain_id = Ospf.Processes.Process.Vrfs.Vrf.DomainId.PrimaryDomainId()
                             self.primary_domain_id.parent = self
                             self._children_name_map["primary_domain_id"] = "primary-domain-id"
-                            self._children_yang_names.add("primary-domain-id")
 
                             self.secondary_domain_ids = Ospf.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds()
                             self.secondary_domain_ids.parent = self
                             self._children_name_map["secondary_domain_ids"] = "secondary-domain-ids"
-                            self._children_yang_names.add("secondary-domain-ids")
                             self._segment_path = lambda: "domain-id"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.DomainId, [], name, value)
 
 
                         class PrimaryDomainId(Entity):
@@ -1759,8 +1740,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('domain_id_type', YLeaf(YType.enumeration, 'domain-id-type')),
                                     ('domain_id_name', YLeaf(YType.str, 'domain-id-name')),
@@ -1797,8 +1777,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("secondary-domain-id", ("secondary_domain_id", Ospf.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds.SecondaryDomainId))])
+                                self._child_classes = OrderedDict([("secondary-domain-id", ("secondary_domain_id", Ospf.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds.SecondaryDomainId))])
                                 self._leafs = OrderedDict()
 
                                 self.secondary_domain_id = YList(self)
@@ -1839,8 +1818,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['domain_id_type','domain_id_name']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('domain_id_type', YLeaf(YType.enumeration, 'domain-id-type')),
                                         ('domain_id_name', YLeaf(YType.str, 'domain-id-name')),
@@ -1877,15 +1855,16 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("avoidance", ("avoidance", Ospf.Processes.Process.Vrfs.Vrf.Microloop.Avoidance))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("avoidance", ("avoidance", Ospf.Processes.Process.Vrfs.Vrf.Microloop.Avoidance))])
                             self._leafs = OrderedDict()
 
                             self.avoidance = Ospf.Processes.Process.Vrfs.Vrf.Microloop.Avoidance()
                             self.avoidance.parent = self
                             self._children_name_map["avoidance"] = "avoidance"
-                            self._children_yang_names.add("avoidance")
                             self._segment_path = lambda: "microloop"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.Microloop, [], name, value)
 
 
                         class Avoidance(Entity):
@@ -1925,8 +1904,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('enable', YLeaf(YType.enumeration, 'enable')),
                                     ('rib_update_delay', YLeaf(YType.uint32, 'rib-update-delay')),
@@ -1978,8 +1956,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('number_of_prefixes', YLeaf(YType.uint32, 'number-of-prefixes')),
                                 ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -2041,8 +2018,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('always_advertise', YLeaf(YType.boolean, 'always-advertise')),
                                 ('metric', YLeaf(YType.uint32, 'metric')),
@@ -2092,8 +2068,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('af_name', YLeaf(YType.enumeration, 'af-name')),
@@ -2190,8 +2165,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('dispatch_rate_limited_flush', YLeaf(YType.uint32, 'dispatch-rate-limited-flush')),
                                 ('limit_high', YLeaf(YType.uint32, 'limit-high')),
@@ -2263,8 +2237,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("max-metric-on-proc-restart", ("max_metric_on_proc_restart", Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnProcRestart)), ("max-metric-on-startup", ("max_metric_on_startup", Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnStartup)), ("max-metric-on-proc-migration", ("max_metric_on_proc_migration", Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnProcMigration)), ("max-metric-always", ("max_metric_always", Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricAlways)), ("max-metric-on-switchover", ("max_metric_on_switchover", Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnSwitchover))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("max-metric-on-proc-restart", ("max_metric_on_proc_restart", Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnProcRestart)), ("max-metric-on-startup", ("max_metric_on_startup", Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnStartup)), ("max-metric-on-proc-migration", ("max_metric_on_proc_migration", Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnProcMigration)), ("max-metric-always", ("max_metric_always", Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricAlways)), ("max-metric-on-switchover", ("max_metric_on_switchover", Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnSwitchover))])
                             self._leafs = OrderedDict([
                                 ('max_metric_no_abr_off', YLeaf(YType.empty, 'max-metric-no-abr-off')),
                             ])
@@ -2273,27 +2246,22 @@ class Ospf(Entity):
                             self.max_metric_on_proc_restart = Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnProcRestart()
                             self.max_metric_on_proc_restart.parent = self
                             self._children_name_map["max_metric_on_proc_restart"] = "max-metric-on-proc-restart"
-                            self._children_yang_names.add("max-metric-on-proc-restart")
 
                             self.max_metric_on_startup = Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnStartup()
                             self.max_metric_on_startup.parent = self
                             self._children_name_map["max_metric_on_startup"] = "max-metric-on-startup"
-                            self._children_yang_names.add("max-metric-on-startup")
 
                             self.max_metric_on_proc_migration = Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnProcMigration()
                             self.max_metric_on_proc_migration.parent = self
                             self._children_name_map["max_metric_on_proc_migration"] = "max-metric-on-proc-migration"
-                            self._children_yang_names.add("max-metric-on-proc-migration")
 
                             self.max_metric_always = Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricAlways()
                             self.max_metric_always.parent = self
                             self._children_name_map["max_metric_always"] = "max-metric-always"
-                            self._children_yang_names.add("max-metric-always")
 
                             self.max_metric_on_switchover = Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnSwitchover()
                             self.max_metric_on_switchover.parent = self
                             self._children_name_map["max_metric_on_switchover"] = "max-metric-on-switchover"
-                            self._children_yang_names.add("max-metric-on-switchover")
                             self._segment_path = lambda: "max-metric"
 
                         def __setattr__(self, name, value):
@@ -2365,8 +2333,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('wait_for_bgp', YLeaf(YType.boolean, 'wait-for-bgp')),
                                     ('startup_max', YLeaf(YType.uint32, 'startup-max')),
@@ -2453,8 +2420,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('wait_for_bgp', YLeaf(YType.boolean, 'wait-for-bgp')),
                                     ('startup_max', YLeaf(YType.uint32, 'startup-max')),
@@ -2542,8 +2508,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('wait_for_bgp', YLeaf(YType.boolean, 'wait-for-bgp')),
                                     ('startup_max', YLeaf(YType.uint32, 'startup-max')),
@@ -2616,8 +2581,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('include_stub', YLeaf(YType.boolean, 'include-stub')),
                                     ('summary_lsa', YLeaf(YType.boolean, 'summary-lsa')),
@@ -2700,8 +2664,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('wait_for_bgp', YLeaf(YType.boolean, 'wait-for-bgp')),
                                     ('startup_max', YLeaf(YType.uint32, 'startup-max')),
@@ -2796,8 +2759,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('lifetime', YLeaf(YType.uint32, 'lifetime')),
                                 ('ietf', YLeaf(YType.enumeration, 'ietf')),
@@ -3040,8 +3002,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("srgb", ("srgb", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Srgb)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute)), ("distribute-list", ("distribute_list", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Authentication)), ("security", ("security", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Security)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.DeadIntervalMinimal)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.CostFallback))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("srgb", ("srgb", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Srgb)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute)), ("distribute-list", ("distribute_list", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Authentication)), ("security", ("security", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Security)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.DeadIntervalMinimal)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.CostFallback))])
                             self._leafs = OrderedDict([
                                 ('cost', YLeaf(YType.uint32, 'cost')),
                                 ('external_out', YLeaf(YType.boolean, 'external-out')),
@@ -3093,41 +3054,33 @@ class Ospf(Entity):
 
                             self.srgb = None
                             self._children_name_map["srgb"] = "srgb"
-                            self._children_yang_names.add("srgb")
 
                             self.fast_reroute = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute()
                             self.fast_reroute.parent = self
                             self._children_name_map["fast_reroute"] = "fast-reroute"
-                            self._children_yang_names.add("fast-reroute")
 
                             self.distribute_list = None
                             self._children_name_map["distribute_list"] = "distribute-list"
-                            self._children_yang_names.add("distribute-list")
 
                             self.bfd = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Bfd()
                             self.bfd.parent = self
                             self._children_name_map["bfd"] = "bfd"
-                            self._children_yang_names.add("bfd")
 
                             self.authentication = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Authentication()
                             self.authentication.parent = self
                             self._children_name_map["authentication"] = "authentication"
-                            self._children_yang_names.add("authentication")
 
                             self.security = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Security()
                             self.security.parent = self
                             self._children_name_map["security"] = "security"
-                            self._children_yang_names.add("security")
 
                             self.dead_interval_minimal = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.DeadIntervalMinimal()
                             self.dead_interval_minimal.parent = self
                             self._children_name_map["dead_interval_minimal"] = "dead-interval-minimal"
-                            self._children_yang_names.add("dead-interval-minimal")
 
                             self.cost_fallback = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.CostFallback()
                             self.cost_fallback.parent = self
                             self._children_name_map["cost_fallback"] = "cost-fallback"
-                            self._children_yang_names.add("cost-fallback")
                             self._segment_path = lambda: "process-scope"
 
                         def __setattr__(self, name, value):
@@ -3173,8 +3126,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('lower_bound', YLeaf(YType.uint32, 'lower-bound')),
@@ -3222,8 +3174,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix))])
                                 self._leafs = OrderedDict([
                                     ('fast_reroute_enable', YLeaf(YType.enumeration, 'fast-reroute-enable')),
                                 ])
@@ -3232,12 +3183,10 @@ class Ospf(Entity):
                                 self.per_link = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink()
                                 self.per_link.parent = self
                                 self._children_name_map["per_link"] = "per-link"
-                                self._children_yang_names.add("per-link")
 
                                 self.per_prefix = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix()
                                 self.per_prefix.parent = self
                                 self._children_name_map["per_prefix"] = "per-prefix"
-                                self._children_yang_names.add("per-prefix")
                                 self._segment_path = lambda: "fast-reroute"
 
                             def __setattr__(self, name, value):
@@ -3280,8 +3229,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces))])
                                     self._leafs = OrderedDict([
                                         ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
                                     ])
@@ -3290,12 +3238,10 @@ class Ospf(Entity):
                                     self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces()
                                     self.candidate_interfaces.parent = self
                                     self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                    self._children_yang_names.add("candidate-interfaces")
 
                                     self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces()
                                     self.exclude_interfaces.parent = self
                                     self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                    self._children_yang_names.add("exclude-interfaces")
                                     self._segment_path = lambda: "per-link"
 
                                 def __setattr__(self, name, value):
@@ -3327,8 +3273,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
+                                        self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
                                         self._leafs = OrderedDict()
 
                                         self.candidate_interface = YList(self)
@@ -3364,8 +3309,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['interface_name']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                                             ])
@@ -3401,8 +3345,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
+                                        self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
                                         self._leafs = OrderedDict()
 
                                         self.exclude_interface = YList(self)
@@ -3439,8 +3382,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['interface_name']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                                             ])
@@ -3497,8 +3439,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces))])
                                     self._leafs = OrderedDict([
                                         ('topology_independent_lfa', YLeaf(YType.boolean, 'topology-independent-lfa')),
                                         ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
@@ -3509,17 +3450,14 @@ class Ospf(Entity):
                                     self.remote_lfa = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa()
                                     self.remote_lfa.parent = self
                                     self._children_name_map["remote_lfa"] = "remote-lfa"
-                                    self._children_yang_names.add("remote-lfa")
 
                                     self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces()
                                     self.candidate_interfaces.parent = self
                                     self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                    self._children_yang_names.add("candidate-interfaces")
 
                                     self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces()
                                     self.exclude_interfaces.parent = self
                                     self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                    self._children_yang_names.add("exclude-interfaces")
                                     self._segment_path = lambda: "per-prefix"
 
                                 def __setattr__(self, name, value):
@@ -3557,8 +3495,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('tunnel', YLeaf(YType.enumeration, 'tunnel')),
                                             ('maximum_cost', YLeaf(YType.uint32, 'maximum-cost')),
@@ -3596,8 +3533,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
+                                        self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
                                         self._leafs = OrderedDict()
 
                                         self.candidate_interface = YList(self)
@@ -3633,8 +3569,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['interface_name']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                                             ])
@@ -3670,8 +3605,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
+                                        self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
                                         self._leafs = OrderedDict()
 
                                         self.exclude_interface = YList(self)
@@ -3708,8 +3642,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['interface_name']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                                             ])
@@ -3752,8 +3685,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -3807,8 +3739,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('interval', YLeaf(YType.uint32, 'interval')),
                                     ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
@@ -3859,8 +3790,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Authentication.MessageDigestKeies))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Authentication.MessageDigestKeies))])
                                 self._leafs = OrderedDict([
                                     ('key', YLeaf(YType.str, 'key')),
                                 ])
@@ -3869,12 +3799,10 @@ class Ospf(Entity):
                                 self.type = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Authentication.Type()
                                 self.type.parent = self
                                 self._children_name_map["type"] = "type"
-                                self._children_yang_names.add("type")
 
                                 self.message_digest_keies = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Authentication.MessageDigestKeies()
                                 self.message_digest_keies.parent = self
                                 self._children_name_map["message_digest_keies"] = "message-digest-keies"
-                                self._children_yang_names.add("message-digest-keies")
                                 self._segment_path = lambda: "authentication"
 
                             def __setattr__(self, name, value):
@@ -3915,8 +3843,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('authen_type', YLeaf(YType.enumeration, 'authen-type')),
                                         ('keychain_authen_type', YLeaf(YType.enumeration, 'keychain-authen-type')),
@@ -3956,8 +3883,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Authentication.MessageDigestKeies.MessageDigestKey))])
+                                    self._child_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Authentication.MessageDigestKeies.MessageDigestKey))])
                                     self._leafs = OrderedDict()
 
                                     self.message_digest_key = YList(self)
@@ -4003,8 +3929,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['key_id']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('key_id', YLeaf(YType.uint32, 'key-id')),
                                             ('password', YLeaf(YType.str, 'password')),
@@ -4042,15 +3967,16 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("ttl", ("ttl", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Security.Ttl))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("ttl", ("ttl", Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Security.Ttl))])
                                 self._leafs = OrderedDict()
 
                                 self.ttl = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Security.Ttl()
                                 self.ttl.parent = self
                                 self._children_name_map["ttl"] = "ttl"
-                                self._children_yang_names.add("ttl")
                                 self._segment_path = lambda: "security"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Security, [], name, value)
 
 
                             class Ttl(Entity):
@@ -4084,8 +4010,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('enable', YLeaf(YType.boolean, 'enable')),
                                         ('hop_count', YLeaf(YType.uint32, 'hop-count')),
@@ -4133,8 +4058,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('interval', YLeaf(YType.uint32, 'interval')),
                                     ('multiplier', YLeaf(YType.uint32, 'multiplier')),
@@ -4180,8 +4104,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('cost', YLeaf(YType.uint32, 'cost')),
                                     ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -4218,15 +4141,16 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("redistributes", ("redistributes", Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("redistributes", ("redistributes", Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes))])
                             self._leafs = OrderedDict()
 
                             self.redistributes = Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes()
                             self.redistributes.parent = self
                             self._children_name_map["redistributes"] = "redistributes"
-                            self._children_yang_names.add("redistributes")
                             self._segment_path = lambda: "redistribution"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.Redistribution, [], name, value)
 
 
                         class Redistributes(Entity):
@@ -4254,8 +4178,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("redistribute", ("redistribute", Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute))])
+                                self._child_classes = OrderedDict([("redistribute", ("redistribute", Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute))])
                                 self._leafs = OrderedDict()
 
                                 self.redistribute = YList(self)
@@ -4312,8 +4235,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['protocol_name']
-                                    self._child_container_classes = OrderedDict([("connected-or-static-or-dagr-or-subscriber-or-mobile-or-rip", ("connected_or_static_or_dagr_or_subscriber_or_mobile_or_rip", Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute.ConnectedOrStaticOrDagrOrSubscriberOrMobileOrRip))])
-                                    self._child_list_classes = OrderedDict([("application-or-isis-or-ospf", ("application_or_isis_or_ospf", Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute.ApplicationOrIsisOrOspf)), ("bgp", ("bgp", Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute.Bgp)), ("eigrp", ("eigrp", Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute.Eigrp))])
+                                    self._child_classes = OrderedDict([("connected-or-static-or-dagr-or-subscriber-or-mobile-or-rip", ("connected_or_static_or_dagr_or_subscriber_or_mobile_or_rip", Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute.ConnectedOrStaticOrDagrOrSubscriberOrMobileOrRip)), ("application-or-isis-or-ospf", ("application_or_isis_or_ospf", Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute.ApplicationOrIsisOrOspf)), ("bgp", ("bgp", Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute.Bgp)), ("eigrp", ("eigrp", Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute.Eigrp))])
                                     self._leafs = OrderedDict([
                                         ('protocol_name', YLeaf(YType.enumeration, 'protocol-name')),
                                     ])
@@ -4321,7 +4243,6 @@ class Ospf(Entity):
 
                                     self.connected_or_static_or_dagr_or_subscriber_or_mobile_or_rip = None
                                     self._children_name_map["connected_or_static_or_dagr_or_subscriber_or_mobile_or_rip"] = "connected-or-static-or-dagr-or-subscriber-or-mobile-or-rip"
-                                    self._children_yang_names.add("connected-or-static-or-dagr-or-subscriber-or-mobile-or-rip")
 
                                     self.application_or_isis_or_ospf = YList(self)
                                     self.bgp = YList(self)
@@ -4437,8 +4358,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('classful', YLeaf(YType.boolean, 'classful')),
@@ -4587,8 +4507,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['instance_name']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('instance_name', YLeaf(YType.str, 'instance-name')),
                                             ('classful', YLeaf(YType.boolean, 'classful')),
@@ -4752,8 +4671,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['instance_name','as_xx','as_yy']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('instance_name', YLeaf(YType.str, 'instance-name')),
                                             ('as_xx', YLeaf(YType.uint32, 'as-xx')),
@@ -4914,8 +4832,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['instance_name','as_xx']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('instance_name', YLeaf(YType.str, 'instance-name')),
                                             ('as_xx', YLeaf(YType.uint32, 'as-xx')),
@@ -5000,8 +4917,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('disable', YLeaf(YType.empty, 'disable')),
                                 ('initial_nbr', YLeaf(YType.uint32, 'initial-nbr')),
@@ -5081,8 +4997,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('max_lsa_limit', YLeaf(YType.uint32, 'max-lsa-limit')),
@@ -5141,8 +5056,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('disable', YLeaf(YType.boolean, 'disable')),
                                 ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
@@ -5195,8 +5109,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("enable", ("enable", Ospf.Processes.Process.Vrfs.Vrf.Ucmp.Enable)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.Ucmp.ExcludeInterfaces))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("enable", ("enable", Ospf.Processes.Process.Vrfs.Vrf.Ucmp.Enable)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.Ucmp.ExcludeInterfaces))])
                             self._leafs = OrderedDict([
                                 ('delay_interval', YLeaf(YType.uint32, 'delay-interval')),
                             ])
@@ -5205,12 +5118,10 @@ class Ospf(Entity):
                             self.enable = Ospf.Processes.Process.Vrfs.Vrf.Ucmp.Enable()
                             self.enable.parent = self
                             self._children_name_map["enable"] = "enable"
-                            self._children_yang_names.add("enable")
 
                             self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.Ucmp.ExcludeInterfaces()
                             self.exclude_interfaces.parent = self
                             self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                            self._children_yang_names.add("exclude-interfaces")
                             self._segment_path = lambda: "ucmp"
 
                         def __setattr__(self, name, value):
@@ -5250,8 +5161,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('variance', YLeaf(YType.uint32, 'variance')),
                                     ('prefix_list_name', YLeaf(YType.str, 'prefix-list-name')),
@@ -5289,8 +5199,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.Ucmp.ExcludeInterfaces.ExcludeInterface))])
+                                self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.Ucmp.ExcludeInterfaces.ExcludeInterface))])
                                 self._leafs = OrderedDict()
 
                                 self.exclude_interface = YList(self)
@@ -5327,8 +5236,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['interface_name']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                     ])
@@ -5368,20 +5276,20 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.Vrfs.Vrf.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.Vrfs.Vrf.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix))])
                             self._leafs = OrderedDict()
 
                             self.per_link = Ospf.Processes.Process.Vrfs.Vrf.FastReroute.PerLink()
                             self.per_link.parent = self
                             self._children_name_map["per_link"] = "per-link"
-                            self._children_yang_names.add("per-link")
 
                             self.per_prefix = Ospf.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix()
                             self.per_prefix.parent = self
                             self._children_name_map["per_prefix"] = "per-prefix"
-                            self._children_yang_names.add("per-prefix")
                             self._segment_path = lambda: "fast-reroute"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.FastReroute, [], name, value)
 
 
                         class PerLink(Entity):
@@ -5408,8 +5316,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('priority', YLeaf(YType.enumeration, 'priority')),
                                 ])
@@ -5454,8 +5361,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("tiebreakers", ("tiebreakers", Ospf.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("tiebreakers", ("tiebreakers", Ospf.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers))])
                                 self._leafs = OrderedDict([
                                     ('load_sharing_disable', YLeaf(YType.empty, 'load-sharing-disable')),
                                     ('priority', YLeaf(YType.enumeration, 'priority')),
@@ -5466,7 +5372,6 @@ class Ospf(Entity):
                                 self.tiebreakers = Ospf.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers()
                                 self.tiebreakers.parent = self
                                 self._children_name_map["tiebreakers"] = "tiebreakers"
-                                self._children_yang_names.add("tiebreakers")
                                 self._segment_path = lambda: "per-prefix"
 
                             def __setattr__(self, name, value):
@@ -5497,8 +5402,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
+                                    self._child_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
                                     self._leafs = OrderedDict()
 
                                     self.tiebreaker = YList(self)
@@ -5541,8 +5445,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['tiebreaker_type']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('tiebreaker_type', YLeaf(YType.enumeration, 'tiebreaker-type')),
                                             ('tiebreaker_index', YLeaf(YType.uint32, 'tiebreaker-index')),
@@ -5594,14 +5497,12 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("summary-prefix-data", ("summary_prefix_data", Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes.SummaryPrefixData))])
-                            self._child_list_classes = OrderedDict([("prefix-and-netmask", ("prefix_and_netmask", Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes.PrefixAndNetmask)), ("prefix", ("prefix", Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes.Prefix)), ("netmask", ("netmask", Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes.Netmask))])
+                            self._child_classes = OrderedDict([("summary-prefix-data", ("summary_prefix_data", Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes.SummaryPrefixData)), ("prefix-and-netmask", ("prefix_and_netmask", Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes.PrefixAndNetmask)), ("prefix", ("prefix", Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes.Prefix)), ("netmask", ("netmask", Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes.Netmask))])
                             self._leafs = OrderedDict()
 
                             self.summary_prefix_data = Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes.SummaryPrefixData()
                             self.summary_prefix_data.parent = self
                             self._children_name_map["summary_prefix_data"] = "summary-prefix-data"
-                            self._children_yang_names.add("summary-prefix-data")
 
                             self.prefix_and_netmask = YList(self)
                             self.prefix = YList(self)
@@ -5645,8 +5546,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('not_advertise', YLeaf(YType.boolean, 'not-advertise')),
                                     ('tag', YLeaf(YType.uint32, 'tag')),
@@ -5706,8 +5606,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['prefix','netmask']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('prefix', YLeaf(YType.str, 'prefix')),
                                     ('netmask', YLeaf(YType.str, 'netmask')),
@@ -5764,8 +5663,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['prefix']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('prefix', YLeaf(YType.str, 'prefix')),
                                     ('not_advertise', YLeaf(YType.boolean, 'not-advertise')),
@@ -5820,8 +5718,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['netmask']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('netmask', YLeaf(YType.str, 'netmask')),
                                     ('not_advertise', YLeaf(YType.boolean, 'not-advertise')),
@@ -5860,8 +5757,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("outgoing-route-update", ("outgoing_route_update", Ospf.Processes.Process.Vrfs.Vrf.OutgoingRouteUpdates.OutgoingRouteUpdate))])
+                            self._child_classes = OrderedDict([("outgoing-route-update", ("outgoing_route_update", Ospf.Processes.Process.Vrfs.Vrf.OutgoingRouteUpdates.OutgoingRouteUpdate))])
                             self._leafs = OrderedDict()
 
                             self.outgoing_route_update = YList(self)
@@ -5920,8 +5816,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['protocol_name']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('protocol_name', YLeaf(YType.enumeration, 'protocol-name')),
                                     ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -5978,8 +5873,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("ospf-distance", ("ospf_distance", Ospf.Processes.Process.Vrfs.Vrf.Distance.OspfDistance)), ("ip-distances", ("ip_distances", Ospf.Processes.Process.Vrfs.Vrf.Distance.IpDistances))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("ospf-distance", ("ospf_distance", Ospf.Processes.Process.Vrfs.Vrf.Distance.OspfDistance)), ("ip-distances", ("ip_distances", Ospf.Processes.Process.Vrfs.Vrf.Distance.IpDistances))])
                             self._leafs = OrderedDict([
                                 ('admin_distance', YLeaf(YType.uint32, 'admin-distance')),
                             ])
@@ -5988,12 +5882,10 @@ class Ospf(Entity):
                             self.ospf_distance = Ospf.Processes.Process.Vrfs.Vrf.Distance.OspfDistance()
                             self.ospf_distance.parent = self
                             self._children_name_map["ospf_distance"] = "ospf-distance"
-                            self._children_yang_names.add("ospf-distance")
 
                             self.ip_distances = Ospf.Processes.Process.Vrfs.Vrf.Distance.IpDistances()
                             self.ip_distances.parent = self
                             self._children_name_map["ip_distances"] = "ip-distances"
-                            self._children_yang_names.add("ip-distances")
                             self._segment_path = lambda: "distance"
 
                         def __setattr__(self, name, value):
@@ -6046,8 +5938,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('intra_area', YLeaf(YType.uint32, 'intra-area')),
                                     ('inter_area', YLeaf(YType.uint32, 'inter-area')),
@@ -6087,8 +5978,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("ip-distance", ("ip_distance", Ospf.Processes.Process.Vrfs.Vrf.Distance.IpDistances.IpDistance))])
+                                self._child_classes = OrderedDict([("ip-distance", ("ip_distance", Ospf.Processes.Process.Vrfs.Vrf.Distance.IpDistances.IpDistance))])
                                 self._leafs = OrderedDict()
 
                                 self.ip_distance = YList(self)
@@ -6146,8 +6036,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['address','wildcard']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('address', YLeaf(YType.str, 'address')),
                                         ('wildcard', YLeaf(YType.str, 'wildcard')),
@@ -6193,8 +6082,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("area-address", ("area_address", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress)), ("area-area-id", ("area_area_id", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId))])
+                            self._child_classes = OrderedDict([("area-address", ("area_address", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress)), ("area-area-id", ("area_area_id", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId))])
                             self._leafs = OrderedDict()
 
                             self.area_address = YList(self)
@@ -6275,6 +6163,11 @@ class Ospf(Entity):
                             	Specify the area as a stub area (send summary LSA stub area)
                             	**type**\: bool
                             
+                            .. attribute:: type7_translate_always
+                            
+                            	Translate Type 7 to Type 5, even if not elected NSSA translator
+                            	**type**\: bool
+                            
                             .. attribute:: mpls_traffic_eng
                             
                             	Configure an OSPF area to run MPLS Traffic Engineering
@@ -6315,14 +6208,14 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['address']
-                                self._child_container_classes = OrderedDict([("virtual-link-scopes", ("virtual_link_scopes", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes)), ("sham-link-scopes", ("sham_link_scopes", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes)), ("area-scope", ("area_scope", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope)), ("name-scopes", ("name_scopes", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes)), ("multi-area-interface-scopes", ("multi_area_interface_scopes", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes)), ("area-ranges", ("area_ranges", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaRanges)), ("nssa", ("nssa", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Nssa))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("virtual-link-scopes", ("virtual_link_scopes", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes)), ("sham-link-scopes", ("sham_link_scopes", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes)), ("area-scope", ("area_scope", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope)), ("name-scopes", ("name_scopes", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes)), ("multi-area-interface-scopes", ("multi_area_interface_scopes", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes)), ("area-ranges", ("area_ranges", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaRanges)), ("nssa", ("nssa", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Nssa))])
                                 self._leafs = OrderedDict([
                                     ('address', YLeaf(YType.str, 'address')),
                                     ('route_policy_in', YLeaf(YType.str, 'route-policy-in')),
                                     ('default_cost', YLeaf(YType.uint32, 'default-cost')),
                                     ('route_policy_out', YLeaf(YType.str, 'route-policy-out')),
                                     ('stub', YLeaf(YType.boolean, 'stub')),
+                                    ('type7_translate_always', YLeaf(YType.boolean, 'type7-translate-always')),
                                     ('mpls_traffic_eng', YLeaf(YType.empty, 'mpls-traffic-eng')),
                                     ('external_out', YLeaf(YType.boolean, 'external-out')),
                                     ('summary_in', YLeaf(YType.boolean, 'summary-in')),
@@ -6334,6 +6227,7 @@ class Ospf(Entity):
                                 self.default_cost = None
                                 self.route_policy_out = None
                                 self.stub = None
+                                self.type7_translate_always = None
                                 self.mpls_traffic_eng = None
                                 self.external_out = None
                                 self.summary_in = None
@@ -6343,41 +6237,34 @@ class Ospf(Entity):
                                 self.virtual_link_scopes = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes()
                                 self.virtual_link_scopes.parent = self
                                 self._children_name_map["virtual_link_scopes"] = "virtual-link-scopes"
-                                self._children_yang_names.add("virtual-link-scopes")
 
                                 self.sham_link_scopes = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes()
                                 self.sham_link_scopes.parent = self
                                 self._children_name_map["sham_link_scopes"] = "sham-link-scopes"
-                                self._children_yang_names.add("sham-link-scopes")
 
                                 self.area_scope = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope()
                                 self.area_scope.parent = self
                                 self._children_name_map["area_scope"] = "area-scope"
-                                self._children_yang_names.add("area-scope")
 
                                 self.name_scopes = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes()
                                 self.name_scopes.parent = self
                                 self._children_name_map["name_scopes"] = "name-scopes"
-                                self._children_yang_names.add("name-scopes")
 
                                 self.multi_area_interface_scopes = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes()
                                 self.multi_area_interface_scopes.parent = self
                                 self._children_name_map["multi_area_interface_scopes"] = "multi-area-interface-scopes"
-                                self._children_yang_names.add("multi-area-interface-scopes")
 
                                 self.area_ranges = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaRanges()
                                 self.area_ranges.parent = self
                                 self._children_name_map["area_ranges"] = "area-ranges"
-                                self._children_yang_names.add("area-ranges")
 
                                 self.nssa = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Nssa()
                                 self.nssa.parent = self
                                 self._children_name_map["nssa"] = "nssa"
-                                self._children_yang_names.add("nssa")
                                 self._segment_path = lambda: "area-address" + "[address='" + str(self.address) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress, ['address', 'route_policy_in', 'default_cost', 'route_policy_out', 'stub', 'mpls_traffic_eng', 'external_out', 'summary_in', 'segment_routing', 'running'], name, value)
+                                self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress, ['address', 'route_policy_in', 'default_cost', 'route_policy_out', 'stub', 'type7_translate_always', 'mpls_traffic_eng', 'external_out', 'summary_in', 'segment_routing', 'running'], name, value)
 
 
                             class VirtualLinkScopes(Entity):
@@ -6404,8 +6291,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("virtual-link-scope", ("virtual_link_scope", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope))])
+                                    self._child_classes = OrderedDict([("virtual-link-scope", ("virtual_link_scope", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope))])
                                     self._leafs = OrderedDict()
 
                                     self.virtual_link_scope = YList(self)
@@ -6487,8 +6373,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['address']
-                                        self._child_container_classes = OrderedDict([("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.DeadIntervalMinimal))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.DeadIntervalMinimal))])
                                         self._leafs = OrderedDict([
                                             ('address', YLeaf(YType.str, 'address')),
                                             ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
@@ -6505,12 +6390,10 @@ class Ospf(Entity):
                                         self.authentication = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication()
                                         self.authentication.parent = self
                                         self._children_name_map["authentication"] = "authentication"
-                                        self._children_yang_names.add("authentication")
 
                                         self.dead_interval_minimal = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.DeadIntervalMinimal()
                                         self.dead_interval_minimal.parent = self
                                         self._children_name_map["dead_interval_minimal"] = "dead-interval-minimal"
-                                        self._children_yang_names.add("dead-interval-minimal")
                                         self._segment_path = lambda: "virtual-link-scope" + "[address='" + str(self.address) + "']"
 
                                     def __setattr__(self, name, value):
@@ -6553,8 +6436,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeies))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeies))])
                                             self._leafs = OrderedDict([
                                                 ('key', YLeaf(YType.str, 'key')),
                                             ])
@@ -6563,12 +6445,10 @@ class Ospf(Entity):
                                             self.type = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.Type()
                                             self.type.parent = self
                                             self._children_name_map["type"] = "type"
-                                            self._children_yang_names.add("type")
 
                                             self.message_digest_keies = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeies()
                                             self.message_digest_keies.parent = self
                                             self._children_name_map["message_digest_keies"] = "message-digest-keies"
-                                            self._children_yang_names.add("message-digest-keies")
                                             self._segment_path = lambda: "authentication"
 
                                         def __setattr__(self, name, value):
@@ -6609,8 +6489,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('authen_type', YLeaf(YType.enumeration, 'authen-type')),
                                                     ('keychain_authen_type', YLeaf(YType.enumeration, 'keychain-authen-type')),
@@ -6650,8 +6529,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeies.MessageDigestKey))])
+                                                self._child_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeies.MessageDigestKey))])
                                                 self._leafs = OrderedDict()
 
                                                 self.message_digest_key = YList(self)
@@ -6697,8 +6575,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['key_id']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('key_id', YLeaf(YType.uint32, 'key-id')),
                                                         ('password', YLeaf(YType.str, 'password')),
@@ -6746,8 +6623,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('interval', YLeaf(YType.uint32, 'interval')),
                                                 ('multiplier', YLeaf(YType.uint32, 'multiplier')),
@@ -6784,8 +6660,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("sham-link-scope", ("sham_link_scope", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope))])
+                                    self._child_classes = OrderedDict([("sham-link-scope", ("sham_link_scope", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope))])
                                     self._leafs = OrderedDict()
 
                                     self.sham_link_scope = YList(self)
@@ -6888,8 +6763,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['source_address','destination_address']
-                                        self._child_container_classes = OrderedDict([("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal))])
                                         self._leafs = OrderedDict([
                                             ('source_address', YLeaf(YType.str, 'source-address')),
                                             ('destination_address', YLeaf(YType.str, 'destination-address')),
@@ -6912,12 +6786,10 @@ class Ospf(Entity):
                                         self.authentication = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication()
                                         self.authentication.parent = self
                                         self._children_name_map["authentication"] = "authentication"
-                                        self._children_yang_names.add("authentication")
 
                                         self.dead_interval_minimal = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal()
                                         self.dead_interval_minimal.parent = self
                                         self._children_name_map["dead_interval_minimal"] = "dead-interval-minimal"
-                                        self._children_yang_names.add("dead-interval-minimal")
                                         self._segment_path = lambda: "sham-link-scope" + "[source-address='" + str(self.source_address) + "']" + "[destination-address='" + str(self.destination_address) + "']"
 
                                     def __setattr__(self, name, value):
@@ -6960,8 +6832,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeies))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeies))])
                                             self._leafs = OrderedDict([
                                                 ('key', YLeaf(YType.str, 'key')),
                                             ])
@@ -6970,12 +6841,10 @@ class Ospf(Entity):
                                             self.type = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.Type()
                                             self.type.parent = self
                                             self._children_name_map["type"] = "type"
-                                            self._children_yang_names.add("type")
 
                                             self.message_digest_keies = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeies()
                                             self.message_digest_keies.parent = self
                                             self._children_name_map["message_digest_keies"] = "message-digest-keies"
-                                            self._children_yang_names.add("message-digest-keies")
                                             self._segment_path = lambda: "authentication"
 
                                         def __setattr__(self, name, value):
@@ -7016,8 +6885,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('authen_type', YLeaf(YType.enumeration, 'authen-type')),
                                                     ('keychain_authen_type', YLeaf(YType.enumeration, 'keychain-authen-type')),
@@ -7057,8 +6925,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeies.MessageDigestKey))])
+                                                self._child_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeies.MessageDigestKey))])
                                                 self._leafs = OrderedDict()
 
                                                 self.message_digest_key = YList(self)
@@ -7104,8 +6971,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['key_id']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('key_id', YLeaf(YType.uint32, 'key-id')),
                                                         ('password', YLeaf(YType.str, 'password')),
@@ -7153,8 +7019,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('interval', YLeaf(YType.uint32, 'interval')),
                                                 ('multiplier', YLeaf(YType.uint32, 'multiplier')),
@@ -7365,8 +7230,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("distribute-list", ("distribute_list", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Authentication)), ("security", ("security", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Security)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.CostFallback))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("distribute-list", ("distribute_list", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Authentication)), ("security", ("security", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Security)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.CostFallback))])
                                     self._leafs = OrderedDict([
                                         ('cost', YLeaf(YType.uint32, 'cost')),
                                         ('prefix_suppression_primary', YLeaf(YType.boolean, 'prefix-suppression-primary')),
@@ -7412,37 +7276,30 @@ class Ospf(Entity):
 
                                     self.distribute_list = None
                                     self._children_name_map["distribute_list"] = "distribute-list"
-                                    self._children_yang_names.add("distribute-list")
 
                                     self.bfd = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Bfd()
                                     self.bfd.parent = self
                                     self._children_name_map["bfd"] = "bfd"
-                                    self._children_yang_names.add("bfd")
 
                                     self.authentication = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Authentication()
                                     self.authentication.parent = self
                                     self._children_name_map["authentication"] = "authentication"
-                                    self._children_yang_names.add("authentication")
 
                                     self.security = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Security()
                                     self.security.parent = self
                                     self._children_name_map["security"] = "security"
-                                    self._children_yang_names.add("security")
 
                                     self.dead_interval_minimal = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.DeadIntervalMinimal()
                                     self.dead_interval_minimal.parent = self
                                     self._children_name_map["dead_interval_minimal"] = "dead-interval-minimal"
-                                    self._children_yang_names.add("dead-interval-minimal")
 
                                     self.fast_reroute = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute()
                                     self.fast_reroute.parent = self
                                     self._children_name_map["fast_reroute"] = "fast-reroute"
-                                    self._children_yang_names.add("fast-reroute")
 
                                     self.cost_fallback = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.CostFallback()
                                     self.cost_fallback.parent = self
                                     self._children_name_map["cost_fallback"] = "cost-fallback"
-                                    self._children_yang_names.add("cost-fallback")
                                     self._segment_path = lambda: "area-scope"
 
                                 def __setattr__(self, name, value):
@@ -7481,8 +7338,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -7536,8 +7392,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('interval', YLeaf(YType.uint32, 'interval')),
                                             ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
@@ -7588,8 +7443,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Authentication.MessageDigestKeies))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Authentication.MessageDigestKeies))])
                                         self._leafs = OrderedDict([
                                             ('key', YLeaf(YType.str, 'key')),
                                         ])
@@ -7598,12 +7452,10 @@ class Ospf(Entity):
                                         self.type = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Authentication.Type()
                                         self.type.parent = self
                                         self._children_name_map["type"] = "type"
-                                        self._children_yang_names.add("type")
 
                                         self.message_digest_keies = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Authentication.MessageDigestKeies()
                                         self.message_digest_keies.parent = self
                                         self._children_name_map["message_digest_keies"] = "message-digest-keies"
-                                        self._children_yang_names.add("message-digest-keies")
                                         self._segment_path = lambda: "authentication"
 
                                     def __setattr__(self, name, value):
@@ -7644,8 +7496,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('authen_type', YLeaf(YType.enumeration, 'authen-type')),
                                                 ('keychain_authen_type', YLeaf(YType.enumeration, 'keychain-authen-type')),
@@ -7685,8 +7536,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Authentication.MessageDigestKeies.MessageDigestKey))])
+                                            self._child_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Authentication.MessageDigestKeies.MessageDigestKey))])
                                             self._leafs = OrderedDict()
 
                                             self.message_digest_key = YList(self)
@@ -7732,8 +7582,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['key_id']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('key_id', YLeaf(YType.uint32, 'key-id')),
                                                     ('password', YLeaf(YType.str, 'password')),
@@ -7771,15 +7620,16 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("ttl", ("ttl", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Security.Ttl))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("ttl", ("ttl", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Security.Ttl))])
                                         self._leafs = OrderedDict()
 
                                         self.ttl = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Security.Ttl()
                                         self.ttl.parent = self
                                         self._children_name_map["ttl"] = "ttl"
-                                        self._children_yang_names.add("ttl")
                                         self._segment_path = lambda: "security"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Security, [], name, value)
 
 
                                     class Ttl(Entity):
@@ -7813,8 +7663,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('enable', YLeaf(YType.boolean, 'enable')),
                                                 ('hop_count', YLeaf(YType.uint32, 'hop-count')),
@@ -7862,8 +7711,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('interval', YLeaf(YType.uint32, 'interval')),
                                             ('multiplier', YLeaf(YType.uint32, 'multiplier')),
@@ -7910,8 +7758,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix))])
                                         self._leafs = OrderedDict([
                                             ('fast_reroute_enable', YLeaf(YType.enumeration, 'fast-reroute-enable')),
                                         ])
@@ -7920,12 +7767,10 @@ class Ospf(Entity):
                                         self.per_link = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink()
                                         self.per_link.parent = self
                                         self._children_name_map["per_link"] = "per-link"
-                                        self._children_yang_names.add("per-link")
 
                                         self.per_prefix = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix()
                                         self.per_prefix.parent = self
                                         self._children_name_map["per_prefix"] = "per-prefix"
-                                        self._children_yang_names.add("per-prefix")
                                         self._segment_path = lambda: "fast-reroute"
 
                                     def __setattr__(self, name, value):
@@ -7968,8 +7813,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces))])
                                             self._leafs = OrderedDict([
                                                 ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
                                             ])
@@ -7978,12 +7822,10 @@ class Ospf(Entity):
                                             self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces()
                                             self.candidate_interfaces.parent = self
                                             self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                            self._children_yang_names.add("candidate-interfaces")
 
                                             self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces()
                                             self.exclude_interfaces.parent = self
                                             self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                            self._children_yang_names.add("exclude-interfaces")
                                             self._segment_path = lambda: "per-link"
 
                                         def __setattr__(self, name, value):
@@ -8015,8 +7857,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
+                                                self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
                                                 self._leafs = OrderedDict()
 
                                                 self.candidate_interface = YList(self)
@@ -8052,8 +7893,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['interface_name']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                     ])
@@ -8089,8 +7929,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
+                                                self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
                                                 self._leafs = OrderedDict()
 
                                                 self.exclude_interface = YList(self)
@@ -8127,8 +7966,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['interface_name']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                     ])
@@ -8190,8 +8028,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.RemoteLfa)), ("tiebreakers", ("tiebreakers", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.RemoteLfa)), ("tiebreakers", ("tiebreakers", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces))])
                                             self._leafs = OrderedDict([
                                                 ('topology_independent_lfa', YLeaf(YType.boolean, 'topology-independent-lfa')),
                                                 ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
@@ -8202,22 +8039,18 @@ class Ospf(Entity):
                                             self.remote_lfa = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.RemoteLfa()
                                             self.remote_lfa.parent = self
                                             self._children_name_map["remote_lfa"] = "remote-lfa"
-                                            self._children_yang_names.add("remote-lfa")
 
                                             self.tiebreakers = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers()
                                             self.tiebreakers.parent = self
                                             self._children_name_map["tiebreakers"] = "tiebreakers"
-                                            self._children_yang_names.add("tiebreakers")
 
                                             self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces()
                                             self.candidate_interfaces.parent = self
                                             self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                            self._children_yang_names.add("candidate-interfaces")
 
                                             self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces()
                                             self.exclude_interfaces.parent = self
                                             self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                            self._children_yang_names.add("exclude-interfaces")
                                             self._segment_path = lambda: "per-prefix"
 
                                         def __setattr__(self, name, value):
@@ -8255,8 +8088,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('tunnel', YLeaf(YType.enumeration, 'tunnel')),
                                                     ('maximum_cost', YLeaf(YType.uint32, 'maximum-cost')),
@@ -8293,8 +8125,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
+                                                self._child_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
                                                 self._leafs = OrderedDict()
 
                                                 self.tiebreaker = YList(self)
@@ -8337,8 +8168,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['tiebreaker_type']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('tiebreaker_type', YLeaf(YType.enumeration, 'tiebreaker-type')),
                                                         ('tiebreaker_index', YLeaf(YType.uint32, 'tiebreaker-index')),
@@ -8376,8 +8206,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
+                                                self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
                                                 self._leafs = OrderedDict()
 
                                                 self.candidate_interface = YList(self)
@@ -8413,8 +8242,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['interface_name']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                     ])
@@ -8450,8 +8278,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
+                                                self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
                                                 self._leafs = OrderedDict()
 
                                                 self.exclude_interface = YList(self)
@@ -8488,8 +8315,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['interface_name']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                     ])
@@ -8533,8 +8359,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('cost', YLeaf(YType.uint32, 'cost')),
                                             ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -8571,8 +8396,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("name-scope", ("name_scope", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope))])
+                                    self._child_classes = OrderedDict([("name-scope", ("name_scope", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope))])
                                     self._leafs = OrderedDict()
 
                                     self.name_scope = YList(self)
@@ -8811,8 +8635,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['interface_name']
-                                        self._child_container_classes = OrderedDict([("prefix-sid", ("prefix_sid", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSid)), ("prefix-sid-strict", ("prefix_sid_strict", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSidStrict)), ("distribute-list", ("distribute_list", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication)), ("security", ("security", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security)), ("neighbors", ("neighbors", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Neighbors)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.CostFallback))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("prefix-sid", ("prefix_sid", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSid)), ("prefix-sid-strict", ("prefix_sid_strict", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSidStrict)), ("distribute-list", ("distribute_list", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication)), ("security", ("security", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security)), ("neighbors", ("neighbors", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Neighbors)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.CostFallback))])
                                         self._leafs = OrderedDict([
                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                             ('cost', YLeaf(YType.uint32, 'cost')),
@@ -8862,50 +8685,40 @@ class Ospf(Entity):
 
                                         self.prefix_sid = None
                                         self._children_name_map["prefix_sid"] = "prefix-sid"
-                                        self._children_yang_names.add("prefix-sid")
 
                                         self.prefix_sid_strict = None
                                         self._children_name_map["prefix_sid_strict"] = "prefix-sid-strict"
-                                        self._children_yang_names.add("prefix-sid-strict")
 
                                         self.distribute_list = None
                                         self._children_name_map["distribute_list"] = "distribute-list"
-                                        self._children_yang_names.add("distribute-list")
 
                                         self.bfd = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Bfd()
                                         self.bfd.parent = self
                                         self._children_name_map["bfd"] = "bfd"
-                                        self._children_yang_names.add("bfd")
 
                                         self.authentication = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication()
                                         self.authentication.parent = self
                                         self._children_name_map["authentication"] = "authentication"
-                                        self._children_yang_names.add("authentication")
 
                                         self.security = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security()
                                         self.security.parent = self
                                         self._children_name_map["security"] = "security"
-                                        self._children_yang_names.add("security")
 
                                         self.neighbors = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Neighbors()
                                         self.neighbors.parent = self
                                         self._children_name_map["neighbors"] = "neighbors"
-                                        self._children_yang_names.add("neighbors")
 
                                         self.dead_interval_minimal = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DeadIntervalMinimal()
                                         self.dead_interval_minimal.parent = self
                                         self._children_name_map["dead_interval_minimal"] = "dead-interval-minimal"
-                                        self._children_yang_names.add("dead-interval-minimal")
 
                                         self.fast_reroute = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute()
                                         self.fast_reroute.parent = self
                                         self._children_name_map["fast_reroute"] = "fast-reroute"
-                                        self._children_yang_names.add("fast-reroute")
 
                                         self.cost_fallback = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.CostFallback()
                                         self.cost_fallback.parent = self
                                         self._children_name_map["cost_fallback"] = "cost-fallback"
-                                        self._children_yang_names.add("cost-fallback")
                                         self._segment_path = lambda: "name-scope" + "[interface-name='" + str(self.interface_name) + "']"
 
                                     def __setattr__(self, name, value):
@@ -8963,8 +8776,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('sid_value', YLeaf(YType.uint32, 'sid-value')),
@@ -9033,8 +8845,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('sid_value', YLeaf(YType.uint32, 'sid-value')),
@@ -9084,8 +8895,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -9139,8 +8949,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('interval', YLeaf(YType.uint32, 'interval')),
                                                 ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
@@ -9191,8 +9000,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.MessageDigestKeies))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.MessageDigestKeies))])
                                             self._leafs = OrderedDict([
                                                 ('key', YLeaf(YType.str, 'key')),
                                             ])
@@ -9201,12 +9009,10 @@ class Ospf(Entity):
                                             self.type = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.Type()
                                             self.type.parent = self
                                             self._children_name_map["type"] = "type"
-                                            self._children_yang_names.add("type")
 
                                             self.message_digest_keies = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.MessageDigestKeies()
                                             self.message_digest_keies.parent = self
                                             self._children_name_map["message_digest_keies"] = "message-digest-keies"
-                                            self._children_yang_names.add("message-digest-keies")
                                             self._segment_path = lambda: "authentication"
 
                                         def __setattr__(self, name, value):
@@ -9247,8 +9053,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('authen_type', YLeaf(YType.enumeration, 'authen-type')),
                                                     ('keychain_authen_type', YLeaf(YType.enumeration, 'keychain-authen-type')),
@@ -9288,8 +9093,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.MessageDigestKeies.MessageDigestKey))])
+                                                self._child_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.MessageDigestKeies.MessageDigestKey))])
                                                 self._leafs = OrderedDict()
 
                                                 self.message_digest_key = YList(self)
@@ -9335,8 +9139,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['key_id']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('key_id', YLeaf(YType.uint32, 'key-id')),
                                                         ('password', YLeaf(YType.str, 'password')),
@@ -9374,15 +9177,16 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("ttl", ("ttl", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security.Ttl))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("ttl", ("ttl", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security.Ttl))])
                                             self._leafs = OrderedDict()
 
                                             self.ttl = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security.Ttl()
                                             self.ttl.parent = self
                                             self._children_name_map["ttl"] = "ttl"
-                                            self._children_yang_names.add("ttl")
                                             self._segment_path = lambda: "security"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security, [], name, value)
 
 
                                         class Ttl(Entity):
@@ -9416,8 +9220,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
                                                     ('hop_count', YLeaf(YType.uint32, 'hop-count')),
@@ -9454,8 +9257,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Neighbors.Neighbor))])
+                                            self._child_classes = OrderedDict([("neighbor", ("neighbor", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Neighbors.Neighbor))])
                                             self._leafs = OrderedDict()
 
                                             self.neighbor = YList(self)
@@ -9528,8 +9330,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['neighbor_address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
                                                     ('priority', YLeaf(YType.uint32, 'priority')),
@@ -9583,8 +9384,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('interval', YLeaf(YType.uint32, 'interval')),
                                                 ('multiplier', YLeaf(YType.uint32, 'multiplier')),
@@ -9631,8 +9431,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix))])
                                             self._leafs = OrderedDict([
                                                 ('fast_reroute_enable', YLeaf(YType.enumeration, 'fast-reroute-enable')),
                                             ])
@@ -9641,12 +9440,10 @@ class Ospf(Entity):
                                             self.per_link = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink()
                                             self.per_link.parent = self
                                             self._children_name_map["per_link"] = "per-link"
-                                            self._children_yang_names.add("per-link")
 
                                             self.per_prefix = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix()
                                             self.per_prefix.parent = self
                                             self._children_name_map["per_prefix"] = "per-prefix"
-                                            self._children_yang_names.add("per-prefix")
                                             self._segment_path = lambda: "fast-reroute"
 
                                         def __setattr__(self, name, value):
@@ -9689,8 +9486,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces))])
                                                 self._leafs = OrderedDict([
                                                     ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
                                                 ])
@@ -9699,12 +9495,10 @@ class Ospf(Entity):
                                                 self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces()
                                                 self.candidate_interfaces.parent = self
                                                 self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                                self._children_yang_names.add("candidate-interfaces")
 
                                                 self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces()
                                                 self.exclude_interfaces.parent = self
                                                 self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                                self._children_yang_names.add("exclude-interfaces")
                                                 self._segment_path = lambda: "per-link"
 
                                             def __setattr__(self, name, value):
@@ -9736,8 +9530,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
+                                                    self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
                                                     self._leafs = OrderedDict()
 
                                                     self.candidate_interface = YList(self)
@@ -9773,8 +9566,7 @@ class Ospf(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['interface_name']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                         ])
@@ -9810,8 +9602,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
+                                                    self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
                                                     self._leafs = OrderedDict()
 
                                                     self.exclude_interface = YList(self)
@@ -9848,8 +9639,7 @@ class Ospf(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['interface_name']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                         ])
@@ -9911,8 +9701,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa)), ("tiebreakers", ("tiebreakers", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa)), ("tiebreakers", ("tiebreakers", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces))])
                                                 self._leafs = OrderedDict([
                                                     ('topology_independent_lfa', YLeaf(YType.boolean, 'topology-independent-lfa')),
                                                     ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
@@ -9923,22 +9712,18 @@ class Ospf(Entity):
                                                 self.remote_lfa = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa()
                                                 self.remote_lfa.parent = self
                                                 self._children_name_map["remote_lfa"] = "remote-lfa"
-                                                self._children_yang_names.add("remote-lfa")
 
                                                 self.tiebreakers = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers()
                                                 self.tiebreakers.parent = self
                                                 self._children_name_map["tiebreakers"] = "tiebreakers"
-                                                self._children_yang_names.add("tiebreakers")
 
                                                 self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces()
                                                 self.candidate_interfaces.parent = self
                                                 self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                                self._children_yang_names.add("candidate-interfaces")
 
                                                 self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces()
                                                 self.exclude_interfaces.parent = self
                                                 self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                                self._children_yang_names.add("exclude-interfaces")
                                                 self._segment_path = lambda: "per-prefix"
 
                                             def __setattr__(self, name, value):
@@ -9976,8 +9761,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('tunnel', YLeaf(YType.enumeration, 'tunnel')),
                                                         ('maximum_cost', YLeaf(YType.uint32, 'maximum-cost')),
@@ -10014,8 +9798,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
+                                                    self._child_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
                                                     self._leafs = OrderedDict()
 
                                                     self.tiebreaker = YList(self)
@@ -10058,8 +9841,7 @@ class Ospf(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['tiebreaker_type']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('tiebreaker_type', YLeaf(YType.enumeration, 'tiebreaker-type')),
                                                             ('tiebreaker_index', YLeaf(YType.uint32, 'tiebreaker-index')),
@@ -10097,8 +9879,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
+                                                    self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
                                                     self._leafs = OrderedDict()
 
                                                     self.candidate_interface = YList(self)
@@ -10134,8 +9915,7 @@ class Ospf(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['interface_name']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                         ])
@@ -10171,8 +9951,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
+                                                    self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
                                                     self._leafs = OrderedDict()
 
                                                     self.exclude_interface = YList(self)
@@ -10209,8 +9988,7 @@ class Ospf(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['interface_name']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                         ])
@@ -10254,8 +10032,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('cost', YLeaf(YType.uint32, 'cost')),
                                                 ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -10292,8 +10069,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("multi-area-interface-scope", ("multi_area_interface_scope", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope))])
+                                    self._child_classes = OrderedDict([("multi-area-interface-scope", ("multi_area_interface_scope", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope))])
                                     self._leafs = OrderedDict()
 
                                     self.multi_area_interface_scope = YList(self)
@@ -10432,8 +10208,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['interface_name']
-                                        self._child_container_classes = OrderedDict([("distribute-list", ("distribute_list", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList)), ("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication)), ("neighbors", ("neighbors", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("distribute-list", ("distribute_list", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList)), ("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication)), ("neighbors", ("neighbors", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback))])
                                         self._leafs = OrderedDict([
                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                             ('cost', YLeaf(YType.uint32, 'cost')),
@@ -10459,32 +10234,26 @@ class Ospf(Entity):
 
                                         self.distribute_list = None
                                         self._children_name_map["distribute_list"] = "distribute-list"
-                                        self._children_yang_names.add("distribute-list")
 
                                         self.authentication = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication()
                                         self.authentication.parent = self
                                         self._children_name_map["authentication"] = "authentication"
-                                        self._children_yang_names.add("authentication")
 
                                         self.neighbors = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors()
                                         self.neighbors.parent = self
                                         self._children_name_map["neighbors"] = "neighbors"
-                                        self._children_yang_names.add("neighbors")
 
                                         self.dead_interval_minimal = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal()
                                         self.dead_interval_minimal.parent = self
                                         self._children_name_map["dead_interval_minimal"] = "dead-interval-minimal"
-                                        self._children_yang_names.add("dead-interval-minimal")
 
                                         self.fast_reroute = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute()
                                         self.fast_reroute.parent = self
                                         self._children_name_map["fast_reroute"] = "fast-reroute"
-                                        self._children_yang_names.add("fast-reroute")
 
                                         self.cost_fallback = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback()
                                         self.cost_fallback.parent = self
                                         self._children_name_map["cost_fallback"] = "cost-fallback"
-                                        self._children_yang_names.add("cost-fallback")
                                         self._segment_path = lambda: "multi-area-interface-scope" + "[interface-name='" + str(self.interface_name) + "']"
 
                                     def __setattr__(self, name, value):
@@ -10523,8 +10292,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -10574,8 +10342,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeies))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeies))])
                                             self._leafs = OrderedDict([
                                                 ('key', YLeaf(YType.str, 'key')),
                                             ])
@@ -10584,12 +10351,10 @@ class Ospf(Entity):
                                             self.type = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type()
                                             self.type.parent = self
                                             self._children_name_map["type"] = "type"
-                                            self._children_yang_names.add("type")
 
                                             self.message_digest_keies = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeies()
                                             self.message_digest_keies.parent = self
                                             self._children_name_map["message_digest_keies"] = "message-digest-keies"
-                                            self._children_yang_names.add("message-digest-keies")
                                             self._segment_path = lambda: "authentication"
 
                                         def __setattr__(self, name, value):
@@ -10630,8 +10395,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('authen_type', YLeaf(YType.enumeration, 'authen-type')),
                                                     ('keychain_authen_type', YLeaf(YType.enumeration, 'keychain-authen-type')),
@@ -10671,8 +10435,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeies.MessageDigestKey))])
+                                                self._child_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeies.MessageDigestKey))])
                                                 self._leafs = OrderedDict()
 
                                                 self.message_digest_key = YList(self)
@@ -10718,8 +10481,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['key_id']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('key_id', YLeaf(YType.uint32, 'key-id')),
                                                         ('password', YLeaf(YType.str, 'password')),
@@ -10756,8 +10518,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors.Neighbor))])
+                                            self._child_classes = OrderedDict([("neighbor", ("neighbor", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors.Neighbor))])
                                             self._leafs = OrderedDict()
 
                                             self.neighbor = YList(self)
@@ -10830,8 +10591,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['neighbor_address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
                                                     ('priority', YLeaf(YType.uint32, 'priority')),
@@ -10885,8 +10645,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('interval', YLeaf(YType.uint32, 'interval')),
                                                 ('multiplier', YLeaf(YType.uint32, 'multiplier')),
@@ -10933,8 +10692,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix))])
                                             self._leafs = OrderedDict([
                                                 ('fast_reroute_enable', YLeaf(YType.enumeration, 'fast-reroute-enable')),
                                             ])
@@ -10943,12 +10701,10 @@ class Ospf(Entity):
                                             self.per_link = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink()
                                             self.per_link.parent = self
                                             self._children_name_map["per_link"] = "per-link"
-                                            self._children_yang_names.add("per-link")
 
                                             self.per_prefix = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix()
                                             self.per_prefix.parent = self
                                             self._children_name_map["per_prefix"] = "per-prefix"
-                                            self._children_yang_names.add("per-prefix")
                                             self._segment_path = lambda: "fast-reroute"
 
                                         def __setattr__(self, name, value):
@@ -10991,8 +10747,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces))])
                                                 self._leafs = OrderedDict([
                                                     ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
                                                 ])
@@ -11001,12 +10756,10 @@ class Ospf(Entity):
                                                 self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces()
                                                 self.candidate_interfaces.parent = self
                                                 self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                                self._children_yang_names.add("candidate-interfaces")
 
                                                 self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces()
                                                 self.exclude_interfaces.parent = self
                                                 self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                                self._children_yang_names.add("exclude-interfaces")
                                                 self._segment_path = lambda: "per-link"
 
                                             def __setattr__(self, name, value):
@@ -11038,8 +10791,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
+                                                    self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
                                                     self._leafs = OrderedDict()
 
                                                     self.candidate_interface = YList(self)
@@ -11075,8 +10827,7 @@ class Ospf(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['interface_name']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                         ])
@@ -11112,8 +10863,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
+                                                    self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
                                                     self._leafs = OrderedDict()
 
                                                     self.exclude_interface = YList(self)
@@ -11150,8 +10900,7 @@ class Ospf(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['interface_name']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                         ])
@@ -11213,8 +10962,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa)), ("tiebreakers", ("tiebreakers", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa)), ("tiebreakers", ("tiebreakers", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces))])
                                                 self._leafs = OrderedDict([
                                                     ('topology_independent_lfa', YLeaf(YType.boolean, 'topology-independent-lfa')),
                                                     ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
@@ -11225,22 +10973,18 @@ class Ospf(Entity):
                                                 self.remote_lfa = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa()
                                                 self.remote_lfa.parent = self
                                                 self._children_name_map["remote_lfa"] = "remote-lfa"
-                                                self._children_yang_names.add("remote-lfa")
 
                                                 self.tiebreakers = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers()
                                                 self.tiebreakers.parent = self
                                                 self._children_name_map["tiebreakers"] = "tiebreakers"
-                                                self._children_yang_names.add("tiebreakers")
 
                                                 self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces()
                                                 self.candidate_interfaces.parent = self
                                                 self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                                self._children_yang_names.add("candidate-interfaces")
 
                                                 self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces()
                                                 self.exclude_interfaces.parent = self
                                                 self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                                self._children_yang_names.add("exclude-interfaces")
                                                 self._segment_path = lambda: "per-prefix"
 
                                             def __setattr__(self, name, value):
@@ -11278,8 +11022,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('tunnel', YLeaf(YType.enumeration, 'tunnel')),
                                                         ('maximum_cost', YLeaf(YType.uint32, 'maximum-cost')),
@@ -11316,8 +11059,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
+                                                    self._child_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
                                                     self._leafs = OrderedDict()
 
                                                     self.tiebreaker = YList(self)
@@ -11360,8 +11102,7 @@ class Ospf(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['tiebreaker_type']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('tiebreaker_type', YLeaf(YType.enumeration, 'tiebreaker-type')),
                                                             ('tiebreaker_index', YLeaf(YType.uint32, 'tiebreaker-index')),
@@ -11399,8 +11140,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
+                                                    self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
                                                     self._leafs = OrderedDict()
 
                                                     self.candidate_interface = YList(self)
@@ -11436,8 +11176,7 @@ class Ospf(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['interface_name']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                         ])
@@ -11473,8 +11212,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
+                                                    self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
                                                     self._leafs = OrderedDict()
 
                                                     self.exclude_interface = YList(self)
@@ -11511,8 +11249,7 @@ class Ospf(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['interface_name']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                         ])
@@ -11556,8 +11293,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('cost', YLeaf(YType.uint32, 'cost')),
                                                 ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -11595,8 +11331,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("area-range", ("area_range", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaRanges.AreaRange))])
+                                    self._child_classes = OrderedDict([("area-range", ("area_range", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaRanges.AreaRange))])
                                     self._leafs = OrderedDict()
 
                                     self.area_range = YList(self)
@@ -11644,8 +11379,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['address','netmask']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('address', YLeaf(YType.str, 'address')),
                                             ('netmask', YLeaf(YType.str, 'netmask')),
@@ -11714,8 +11448,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('no_redistribution', YLeaf(YType.boolean, 'no-redistribution')),
                                         ('default_info_originate', YLeaf(YType.boolean, 'default-info-originate')),
@@ -11804,6 +11537,11 @@ class Ospf(Entity):
                             	Specify the area as a stub area (send summary LSA stub area)
                             	**type**\: bool
                             
+                            .. attribute:: type7_translate_always
+                            
+                            	Translate Type 7 to Type 5, even if not elected NSSA translator
+                            	**type**\: bool
+                            
                             .. attribute:: mpls_traffic_eng
                             
                             	Configure an OSPF area to run MPLS Traffic Engineering
@@ -11844,14 +11582,14 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['area_id']
-                                self._child_container_classes = OrderedDict([("virtual-link-scopes", ("virtual_link_scopes", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes)), ("sham-link-scopes", ("sham_link_scopes", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes)), ("area-scope", ("area_scope", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope)), ("name-scopes", ("name_scopes", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes)), ("multi-area-interface-scopes", ("multi_area_interface_scopes", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes)), ("area-ranges", ("area_ranges", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaRanges)), ("nssa", ("nssa", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Nssa))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("virtual-link-scopes", ("virtual_link_scopes", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes)), ("sham-link-scopes", ("sham_link_scopes", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes)), ("area-scope", ("area_scope", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope)), ("name-scopes", ("name_scopes", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes)), ("multi-area-interface-scopes", ("multi_area_interface_scopes", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes)), ("area-ranges", ("area_ranges", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaRanges)), ("nssa", ("nssa", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Nssa))])
                                 self._leafs = OrderedDict([
                                     ('area_id', YLeaf(YType.uint32, 'area-id')),
                                     ('route_policy_in', YLeaf(YType.str, 'route-policy-in')),
                                     ('default_cost', YLeaf(YType.uint32, 'default-cost')),
                                     ('route_policy_out', YLeaf(YType.str, 'route-policy-out')),
                                     ('stub', YLeaf(YType.boolean, 'stub')),
+                                    ('type7_translate_always', YLeaf(YType.boolean, 'type7-translate-always')),
                                     ('mpls_traffic_eng', YLeaf(YType.empty, 'mpls-traffic-eng')),
                                     ('external_out', YLeaf(YType.boolean, 'external-out')),
                                     ('summary_in', YLeaf(YType.boolean, 'summary-in')),
@@ -11863,6 +11601,7 @@ class Ospf(Entity):
                                 self.default_cost = None
                                 self.route_policy_out = None
                                 self.stub = None
+                                self.type7_translate_always = None
                                 self.mpls_traffic_eng = None
                                 self.external_out = None
                                 self.summary_in = None
@@ -11872,41 +11611,34 @@ class Ospf(Entity):
                                 self.virtual_link_scopes = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes()
                                 self.virtual_link_scopes.parent = self
                                 self._children_name_map["virtual_link_scopes"] = "virtual-link-scopes"
-                                self._children_yang_names.add("virtual-link-scopes")
 
                                 self.sham_link_scopes = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes()
                                 self.sham_link_scopes.parent = self
                                 self._children_name_map["sham_link_scopes"] = "sham-link-scopes"
-                                self._children_yang_names.add("sham-link-scopes")
 
                                 self.area_scope = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope()
                                 self.area_scope.parent = self
                                 self._children_name_map["area_scope"] = "area-scope"
-                                self._children_yang_names.add("area-scope")
 
                                 self.name_scopes = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes()
                                 self.name_scopes.parent = self
                                 self._children_name_map["name_scopes"] = "name-scopes"
-                                self._children_yang_names.add("name-scopes")
 
                                 self.multi_area_interface_scopes = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes()
                                 self.multi_area_interface_scopes.parent = self
                                 self._children_name_map["multi_area_interface_scopes"] = "multi-area-interface-scopes"
-                                self._children_yang_names.add("multi-area-interface-scopes")
 
                                 self.area_ranges = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaRanges()
                                 self.area_ranges.parent = self
                                 self._children_name_map["area_ranges"] = "area-ranges"
-                                self._children_yang_names.add("area-ranges")
 
                                 self.nssa = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Nssa()
                                 self.nssa.parent = self
                                 self._children_name_map["nssa"] = "nssa"
-                                self._children_yang_names.add("nssa")
                                 self._segment_path = lambda: "area-area-id" + "[area-id='" + str(self.area_id) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId, ['area_id', 'route_policy_in', 'default_cost', 'route_policy_out', 'stub', 'mpls_traffic_eng', 'external_out', 'summary_in', 'segment_routing', 'running'], name, value)
+                                self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId, ['area_id', 'route_policy_in', 'default_cost', 'route_policy_out', 'stub', 'type7_translate_always', 'mpls_traffic_eng', 'external_out', 'summary_in', 'segment_routing', 'running'], name, value)
 
 
                             class VirtualLinkScopes(Entity):
@@ -11933,8 +11665,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("virtual-link-scope", ("virtual_link_scope", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope))])
+                                    self._child_classes = OrderedDict([("virtual-link-scope", ("virtual_link_scope", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope))])
                                     self._leafs = OrderedDict()
 
                                     self.virtual_link_scope = YList(self)
@@ -12016,8 +11747,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['address']
-                                        self._child_container_classes = OrderedDict([("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.DeadIntervalMinimal))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.DeadIntervalMinimal))])
                                         self._leafs = OrderedDict([
                                             ('address', YLeaf(YType.str, 'address')),
                                             ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
@@ -12034,12 +11764,10 @@ class Ospf(Entity):
                                         self.authentication = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication()
                                         self.authentication.parent = self
                                         self._children_name_map["authentication"] = "authentication"
-                                        self._children_yang_names.add("authentication")
 
                                         self.dead_interval_minimal = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.DeadIntervalMinimal()
                                         self.dead_interval_minimal.parent = self
                                         self._children_name_map["dead_interval_minimal"] = "dead-interval-minimal"
-                                        self._children_yang_names.add("dead-interval-minimal")
                                         self._segment_path = lambda: "virtual-link-scope" + "[address='" + str(self.address) + "']"
 
                                     def __setattr__(self, name, value):
@@ -12082,8 +11810,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeies))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeies))])
                                             self._leafs = OrderedDict([
                                                 ('key', YLeaf(YType.str, 'key')),
                                             ])
@@ -12092,12 +11819,10 @@ class Ospf(Entity):
                                             self.type = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.Type()
                                             self.type.parent = self
                                             self._children_name_map["type"] = "type"
-                                            self._children_yang_names.add("type")
 
                                             self.message_digest_keies = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeies()
                                             self.message_digest_keies.parent = self
                                             self._children_name_map["message_digest_keies"] = "message-digest-keies"
-                                            self._children_yang_names.add("message-digest-keies")
                                             self._segment_path = lambda: "authentication"
 
                                         def __setattr__(self, name, value):
@@ -12138,8 +11863,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('authen_type', YLeaf(YType.enumeration, 'authen-type')),
                                                     ('keychain_authen_type', YLeaf(YType.enumeration, 'keychain-authen-type')),
@@ -12179,8 +11903,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeies.MessageDigestKey))])
+                                                self._child_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeies.MessageDigestKey))])
                                                 self._leafs = OrderedDict()
 
                                                 self.message_digest_key = YList(self)
@@ -12226,8 +11949,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['key_id']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('key_id', YLeaf(YType.uint32, 'key-id')),
                                                         ('password', YLeaf(YType.str, 'password')),
@@ -12275,8 +11997,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('interval', YLeaf(YType.uint32, 'interval')),
                                                 ('multiplier', YLeaf(YType.uint32, 'multiplier')),
@@ -12313,8 +12034,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("sham-link-scope", ("sham_link_scope", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope))])
+                                    self._child_classes = OrderedDict([("sham-link-scope", ("sham_link_scope", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope))])
                                     self._leafs = OrderedDict()
 
                                     self.sham_link_scope = YList(self)
@@ -12417,8 +12137,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['source_address','destination_address']
-                                        self._child_container_classes = OrderedDict([("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal))])
                                         self._leafs = OrderedDict([
                                             ('source_address', YLeaf(YType.str, 'source-address')),
                                             ('destination_address', YLeaf(YType.str, 'destination-address')),
@@ -12441,12 +12160,10 @@ class Ospf(Entity):
                                         self.authentication = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication()
                                         self.authentication.parent = self
                                         self._children_name_map["authentication"] = "authentication"
-                                        self._children_yang_names.add("authentication")
 
                                         self.dead_interval_minimal = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal()
                                         self.dead_interval_minimal.parent = self
                                         self._children_name_map["dead_interval_minimal"] = "dead-interval-minimal"
-                                        self._children_yang_names.add("dead-interval-minimal")
                                         self._segment_path = lambda: "sham-link-scope" + "[source-address='" + str(self.source_address) + "']" + "[destination-address='" + str(self.destination_address) + "']"
 
                                     def __setattr__(self, name, value):
@@ -12489,8 +12206,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeies))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeies))])
                                             self._leafs = OrderedDict([
                                                 ('key', YLeaf(YType.str, 'key')),
                                             ])
@@ -12499,12 +12215,10 @@ class Ospf(Entity):
                                             self.type = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.Type()
                                             self.type.parent = self
                                             self._children_name_map["type"] = "type"
-                                            self._children_yang_names.add("type")
 
                                             self.message_digest_keies = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeies()
                                             self.message_digest_keies.parent = self
                                             self._children_name_map["message_digest_keies"] = "message-digest-keies"
-                                            self._children_yang_names.add("message-digest-keies")
                                             self._segment_path = lambda: "authentication"
 
                                         def __setattr__(self, name, value):
@@ -12545,8 +12259,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('authen_type', YLeaf(YType.enumeration, 'authen-type')),
                                                     ('keychain_authen_type', YLeaf(YType.enumeration, 'keychain-authen-type')),
@@ -12586,8 +12299,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeies.MessageDigestKey))])
+                                                self._child_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeies.MessageDigestKey))])
                                                 self._leafs = OrderedDict()
 
                                                 self.message_digest_key = YList(self)
@@ -12633,8 +12345,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['key_id']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('key_id', YLeaf(YType.uint32, 'key-id')),
                                                         ('password', YLeaf(YType.str, 'password')),
@@ -12682,8 +12393,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('interval', YLeaf(YType.uint32, 'interval')),
                                                 ('multiplier', YLeaf(YType.uint32, 'multiplier')),
@@ -12894,8 +12604,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("distribute-list", ("distribute_list", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Authentication)), ("security", ("security", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Security)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.CostFallback))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("distribute-list", ("distribute_list", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Authentication)), ("security", ("security", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Security)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.CostFallback))])
                                     self._leafs = OrderedDict([
                                         ('cost', YLeaf(YType.uint32, 'cost')),
                                         ('prefix_suppression_primary', YLeaf(YType.boolean, 'prefix-suppression-primary')),
@@ -12941,37 +12650,30 @@ class Ospf(Entity):
 
                                     self.distribute_list = None
                                     self._children_name_map["distribute_list"] = "distribute-list"
-                                    self._children_yang_names.add("distribute-list")
 
                                     self.bfd = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Bfd()
                                     self.bfd.parent = self
                                     self._children_name_map["bfd"] = "bfd"
-                                    self._children_yang_names.add("bfd")
 
                                     self.authentication = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Authentication()
                                     self.authentication.parent = self
                                     self._children_name_map["authentication"] = "authentication"
-                                    self._children_yang_names.add("authentication")
 
                                     self.security = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Security()
                                     self.security.parent = self
                                     self._children_name_map["security"] = "security"
-                                    self._children_yang_names.add("security")
 
                                     self.dead_interval_minimal = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.DeadIntervalMinimal()
                                     self.dead_interval_minimal.parent = self
                                     self._children_name_map["dead_interval_minimal"] = "dead-interval-minimal"
-                                    self._children_yang_names.add("dead-interval-minimal")
 
                                     self.fast_reroute = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute()
                                     self.fast_reroute.parent = self
                                     self._children_name_map["fast_reroute"] = "fast-reroute"
-                                    self._children_yang_names.add("fast-reroute")
 
                                     self.cost_fallback = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.CostFallback()
                                     self.cost_fallback.parent = self
                                     self._children_name_map["cost_fallback"] = "cost-fallback"
-                                    self._children_yang_names.add("cost-fallback")
                                     self._segment_path = lambda: "area-scope"
 
                                 def __setattr__(self, name, value):
@@ -13010,8 +12712,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -13065,8 +12766,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('interval', YLeaf(YType.uint32, 'interval')),
                                             ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
@@ -13117,8 +12817,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.MessageDigestKeies))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.MessageDigestKeies))])
                                         self._leafs = OrderedDict([
                                             ('key', YLeaf(YType.str, 'key')),
                                         ])
@@ -13127,12 +12826,10 @@ class Ospf(Entity):
                                         self.type = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.Type()
                                         self.type.parent = self
                                         self._children_name_map["type"] = "type"
-                                        self._children_yang_names.add("type")
 
                                         self.message_digest_keies = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.MessageDigestKeies()
                                         self.message_digest_keies.parent = self
                                         self._children_name_map["message_digest_keies"] = "message-digest-keies"
-                                        self._children_yang_names.add("message-digest-keies")
                                         self._segment_path = lambda: "authentication"
 
                                     def __setattr__(self, name, value):
@@ -13173,8 +12870,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('authen_type', YLeaf(YType.enumeration, 'authen-type')),
                                                 ('keychain_authen_type', YLeaf(YType.enumeration, 'keychain-authen-type')),
@@ -13214,8 +12910,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.MessageDigestKeies.MessageDigestKey))])
+                                            self._child_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.MessageDigestKeies.MessageDigestKey))])
                                             self._leafs = OrderedDict()
 
                                             self.message_digest_key = YList(self)
@@ -13261,8 +12956,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['key_id']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('key_id', YLeaf(YType.uint32, 'key-id')),
                                                     ('password', YLeaf(YType.str, 'password')),
@@ -13300,15 +12994,16 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("ttl", ("ttl", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Security.Ttl))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("ttl", ("ttl", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Security.Ttl))])
                                         self._leafs = OrderedDict()
 
                                         self.ttl = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Security.Ttl()
                                         self.ttl.parent = self
                                         self._children_name_map["ttl"] = "ttl"
-                                        self._children_yang_names.add("ttl")
                                         self._segment_path = lambda: "security"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Security, [], name, value)
 
 
                                     class Ttl(Entity):
@@ -13342,8 +13037,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('enable', YLeaf(YType.boolean, 'enable')),
                                                 ('hop_count', YLeaf(YType.uint32, 'hop-count')),
@@ -13391,8 +13085,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('interval', YLeaf(YType.uint32, 'interval')),
                                             ('multiplier', YLeaf(YType.uint32, 'multiplier')),
@@ -13439,8 +13132,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix))])
                                         self._leafs = OrderedDict([
                                             ('fast_reroute_enable', YLeaf(YType.enumeration, 'fast-reroute-enable')),
                                         ])
@@ -13449,12 +13141,10 @@ class Ospf(Entity):
                                         self.per_link = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink()
                                         self.per_link.parent = self
                                         self._children_name_map["per_link"] = "per-link"
-                                        self._children_yang_names.add("per-link")
 
                                         self.per_prefix = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix()
                                         self.per_prefix.parent = self
                                         self._children_name_map["per_prefix"] = "per-prefix"
-                                        self._children_yang_names.add("per-prefix")
                                         self._segment_path = lambda: "fast-reroute"
 
                                     def __setattr__(self, name, value):
@@ -13497,8 +13187,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces))])
                                             self._leafs = OrderedDict([
                                                 ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
                                             ])
@@ -13507,12 +13196,10 @@ class Ospf(Entity):
                                             self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces()
                                             self.candidate_interfaces.parent = self
                                             self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                            self._children_yang_names.add("candidate-interfaces")
 
                                             self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces()
                                             self.exclude_interfaces.parent = self
                                             self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                            self._children_yang_names.add("exclude-interfaces")
                                             self._segment_path = lambda: "per-link"
 
                                         def __setattr__(self, name, value):
@@ -13544,8 +13231,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
+                                                self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
                                                 self._leafs = OrderedDict()
 
                                                 self.candidate_interface = YList(self)
@@ -13581,8 +13267,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['interface_name']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                     ])
@@ -13618,8 +13303,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
+                                                self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
                                                 self._leafs = OrderedDict()
 
                                                 self.exclude_interface = YList(self)
@@ -13656,8 +13340,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['interface_name']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                     ])
@@ -13719,8 +13402,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.RemoteLfa)), ("tiebreakers", ("tiebreakers", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.RemoteLfa)), ("tiebreakers", ("tiebreakers", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces))])
                                             self._leafs = OrderedDict([
                                                 ('topology_independent_lfa', YLeaf(YType.boolean, 'topology-independent-lfa')),
                                                 ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
@@ -13731,22 +13413,18 @@ class Ospf(Entity):
                                             self.remote_lfa = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.RemoteLfa()
                                             self.remote_lfa.parent = self
                                             self._children_name_map["remote_lfa"] = "remote-lfa"
-                                            self._children_yang_names.add("remote-lfa")
 
                                             self.tiebreakers = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers()
                                             self.tiebreakers.parent = self
                                             self._children_name_map["tiebreakers"] = "tiebreakers"
-                                            self._children_yang_names.add("tiebreakers")
 
                                             self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces()
                                             self.candidate_interfaces.parent = self
                                             self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                            self._children_yang_names.add("candidate-interfaces")
 
                                             self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces()
                                             self.exclude_interfaces.parent = self
                                             self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                            self._children_yang_names.add("exclude-interfaces")
                                             self._segment_path = lambda: "per-prefix"
 
                                         def __setattr__(self, name, value):
@@ -13784,8 +13462,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('tunnel', YLeaf(YType.enumeration, 'tunnel')),
                                                     ('maximum_cost', YLeaf(YType.uint32, 'maximum-cost')),
@@ -13822,8 +13499,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
+                                                self._child_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
                                                 self._leafs = OrderedDict()
 
                                                 self.tiebreaker = YList(self)
@@ -13866,8 +13542,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['tiebreaker_type']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('tiebreaker_type', YLeaf(YType.enumeration, 'tiebreaker-type')),
                                                         ('tiebreaker_index', YLeaf(YType.uint32, 'tiebreaker-index')),
@@ -13905,8 +13580,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
+                                                self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
                                                 self._leafs = OrderedDict()
 
                                                 self.candidate_interface = YList(self)
@@ -13942,8 +13616,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['interface_name']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                     ])
@@ -13979,8 +13652,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
+                                                self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
                                                 self._leafs = OrderedDict()
 
                                                 self.exclude_interface = YList(self)
@@ -14017,8 +13689,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['interface_name']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                     ])
@@ -14062,8 +13733,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('cost', YLeaf(YType.uint32, 'cost')),
                                             ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -14100,8 +13770,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("name-scope", ("name_scope", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope))])
+                                    self._child_classes = OrderedDict([("name-scope", ("name_scope", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope))])
                                     self._leafs = OrderedDict()
 
                                     self.name_scope = YList(self)
@@ -14340,8 +14009,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['interface_name']
-                                        self._child_container_classes = OrderedDict([("prefix-sid", ("prefix_sid", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSid)), ("prefix-sid-strict", ("prefix_sid_strict", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSidStrict)), ("distribute-list", ("distribute_list", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication)), ("security", ("security", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security)), ("neighbors", ("neighbors", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Neighbors)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.CostFallback))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("prefix-sid", ("prefix_sid", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSid)), ("prefix-sid-strict", ("prefix_sid_strict", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSidStrict)), ("distribute-list", ("distribute_list", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication)), ("security", ("security", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security)), ("neighbors", ("neighbors", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Neighbors)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.CostFallback))])
                                         self._leafs = OrderedDict([
                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                             ('cost', YLeaf(YType.uint32, 'cost')),
@@ -14391,50 +14059,40 @@ class Ospf(Entity):
 
                                         self.prefix_sid = None
                                         self._children_name_map["prefix_sid"] = "prefix-sid"
-                                        self._children_yang_names.add("prefix-sid")
 
                                         self.prefix_sid_strict = None
                                         self._children_name_map["prefix_sid_strict"] = "prefix-sid-strict"
-                                        self._children_yang_names.add("prefix-sid-strict")
 
                                         self.distribute_list = None
                                         self._children_name_map["distribute_list"] = "distribute-list"
-                                        self._children_yang_names.add("distribute-list")
 
                                         self.bfd = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Bfd()
                                         self.bfd.parent = self
                                         self._children_name_map["bfd"] = "bfd"
-                                        self._children_yang_names.add("bfd")
 
                                         self.authentication = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication()
                                         self.authentication.parent = self
                                         self._children_name_map["authentication"] = "authentication"
-                                        self._children_yang_names.add("authentication")
 
                                         self.security = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security()
                                         self.security.parent = self
                                         self._children_name_map["security"] = "security"
-                                        self._children_yang_names.add("security")
 
                                         self.neighbors = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Neighbors()
                                         self.neighbors.parent = self
                                         self._children_name_map["neighbors"] = "neighbors"
-                                        self._children_yang_names.add("neighbors")
 
                                         self.dead_interval_minimal = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DeadIntervalMinimal()
                                         self.dead_interval_minimal.parent = self
                                         self._children_name_map["dead_interval_minimal"] = "dead-interval-minimal"
-                                        self._children_yang_names.add("dead-interval-minimal")
 
                                         self.fast_reroute = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute()
                                         self.fast_reroute.parent = self
                                         self._children_name_map["fast_reroute"] = "fast-reroute"
-                                        self._children_yang_names.add("fast-reroute")
 
                                         self.cost_fallback = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.CostFallback()
                                         self.cost_fallback.parent = self
                                         self._children_name_map["cost_fallback"] = "cost-fallback"
-                                        self._children_yang_names.add("cost-fallback")
                                         self._segment_path = lambda: "name-scope" + "[interface-name='" + str(self.interface_name) + "']"
 
                                     def __setattr__(self, name, value):
@@ -14492,8 +14150,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('sid_value', YLeaf(YType.uint32, 'sid-value')),
@@ -14562,8 +14219,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('sid_value', YLeaf(YType.uint32, 'sid-value')),
@@ -14613,8 +14269,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -14668,8 +14323,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('interval', YLeaf(YType.uint32, 'interval')),
                                                 ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
@@ -14720,8 +14374,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.MessageDigestKeies))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.MessageDigestKeies))])
                                             self._leafs = OrderedDict([
                                                 ('key', YLeaf(YType.str, 'key')),
                                             ])
@@ -14730,12 +14383,10 @@ class Ospf(Entity):
                                             self.type = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.Type()
                                             self.type.parent = self
                                             self._children_name_map["type"] = "type"
-                                            self._children_yang_names.add("type")
 
                                             self.message_digest_keies = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.MessageDigestKeies()
                                             self.message_digest_keies.parent = self
                                             self._children_name_map["message_digest_keies"] = "message-digest-keies"
-                                            self._children_yang_names.add("message-digest-keies")
                                             self._segment_path = lambda: "authentication"
 
                                         def __setattr__(self, name, value):
@@ -14776,8 +14427,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('authen_type', YLeaf(YType.enumeration, 'authen-type')),
                                                     ('keychain_authen_type', YLeaf(YType.enumeration, 'keychain-authen-type')),
@@ -14817,8 +14467,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.MessageDigestKeies.MessageDigestKey))])
+                                                self._child_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.MessageDigestKeies.MessageDigestKey))])
                                                 self._leafs = OrderedDict()
 
                                                 self.message_digest_key = YList(self)
@@ -14864,8 +14513,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['key_id']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('key_id', YLeaf(YType.uint32, 'key-id')),
                                                         ('password', YLeaf(YType.str, 'password')),
@@ -14903,15 +14551,16 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("ttl", ("ttl", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security.Ttl))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("ttl", ("ttl", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security.Ttl))])
                                             self._leafs = OrderedDict()
 
                                             self.ttl = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security.Ttl()
                                             self.ttl.parent = self
                                             self._children_name_map["ttl"] = "ttl"
-                                            self._children_yang_names.add("ttl")
                                             self._segment_path = lambda: "security"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security, [], name, value)
 
 
                                         class Ttl(Entity):
@@ -14945,8 +14594,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('enable', YLeaf(YType.boolean, 'enable')),
                                                     ('hop_count', YLeaf(YType.uint32, 'hop-count')),
@@ -14983,8 +14631,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Neighbors.Neighbor))])
+                                            self._child_classes = OrderedDict([("neighbor", ("neighbor", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Neighbors.Neighbor))])
                                             self._leafs = OrderedDict()
 
                                             self.neighbor = YList(self)
@@ -15057,8 +14704,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['neighbor_address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
                                                     ('priority', YLeaf(YType.uint32, 'priority')),
@@ -15112,8 +14758,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('interval', YLeaf(YType.uint32, 'interval')),
                                                 ('multiplier', YLeaf(YType.uint32, 'multiplier')),
@@ -15160,8 +14805,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix))])
                                             self._leafs = OrderedDict([
                                                 ('fast_reroute_enable', YLeaf(YType.enumeration, 'fast-reroute-enable')),
                                             ])
@@ -15170,12 +14814,10 @@ class Ospf(Entity):
                                             self.per_link = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink()
                                             self.per_link.parent = self
                                             self._children_name_map["per_link"] = "per-link"
-                                            self._children_yang_names.add("per-link")
 
                                             self.per_prefix = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix()
                                             self.per_prefix.parent = self
                                             self._children_name_map["per_prefix"] = "per-prefix"
-                                            self._children_yang_names.add("per-prefix")
                                             self._segment_path = lambda: "fast-reroute"
 
                                         def __setattr__(self, name, value):
@@ -15218,8 +14860,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces))])
                                                 self._leafs = OrderedDict([
                                                     ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
                                                 ])
@@ -15228,12 +14869,10 @@ class Ospf(Entity):
                                                 self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces()
                                                 self.candidate_interfaces.parent = self
                                                 self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                                self._children_yang_names.add("candidate-interfaces")
 
                                                 self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces()
                                                 self.exclude_interfaces.parent = self
                                                 self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                                self._children_yang_names.add("exclude-interfaces")
                                                 self._segment_path = lambda: "per-link"
 
                                             def __setattr__(self, name, value):
@@ -15265,8 +14904,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
+                                                    self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
                                                     self._leafs = OrderedDict()
 
                                                     self.candidate_interface = YList(self)
@@ -15302,8 +14940,7 @@ class Ospf(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['interface_name']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                         ])
@@ -15339,8 +14976,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
+                                                    self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
                                                     self._leafs = OrderedDict()
 
                                                     self.exclude_interface = YList(self)
@@ -15377,8 +15013,7 @@ class Ospf(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['interface_name']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                         ])
@@ -15440,8 +15075,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa)), ("tiebreakers", ("tiebreakers", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa)), ("tiebreakers", ("tiebreakers", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces))])
                                                 self._leafs = OrderedDict([
                                                     ('topology_independent_lfa', YLeaf(YType.boolean, 'topology-independent-lfa')),
                                                     ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
@@ -15452,22 +15086,18 @@ class Ospf(Entity):
                                                 self.remote_lfa = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa()
                                                 self.remote_lfa.parent = self
                                                 self._children_name_map["remote_lfa"] = "remote-lfa"
-                                                self._children_yang_names.add("remote-lfa")
 
                                                 self.tiebreakers = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers()
                                                 self.tiebreakers.parent = self
                                                 self._children_name_map["tiebreakers"] = "tiebreakers"
-                                                self._children_yang_names.add("tiebreakers")
 
                                                 self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces()
                                                 self.candidate_interfaces.parent = self
                                                 self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                                self._children_yang_names.add("candidate-interfaces")
 
                                                 self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces()
                                                 self.exclude_interfaces.parent = self
                                                 self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                                self._children_yang_names.add("exclude-interfaces")
                                                 self._segment_path = lambda: "per-prefix"
 
                                             def __setattr__(self, name, value):
@@ -15505,8 +15135,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('tunnel', YLeaf(YType.enumeration, 'tunnel')),
                                                         ('maximum_cost', YLeaf(YType.uint32, 'maximum-cost')),
@@ -15543,8 +15172,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
+                                                    self._child_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
                                                     self._leafs = OrderedDict()
 
                                                     self.tiebreaker = YList(self)
@@ -15587,8 +15215,7 @@ class Ospf(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['tiebreaker_type']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('tiebreaker_type', YLeaf(YType.enumeration, 'tiebreaker-type')),
                                                             ('tiebreaker_index', YLeaf(YType.uint32, 'tiebreaker-index')),
@@ -15626,8 +15253,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
+                                                    self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
                                                     self._leafs = OrderedDict()
 
                                                     self.candidate_interface = YList(self)
@@ -15663,8 +15289,7 @@ class Ospf(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['interface_name']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                         ])
@@ -15700,8 +15325,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
+                                                    self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
                                                     self._leafs = OrderedDict()
 
                                                     self.exclude_interface = YList(self)
@@ -15738,8 +15362,7 @@ class Ospf(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['interface_name']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                         ])
@@ -15783,8 +15406,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('cost', YLeaf(YType.uint32, 'cost')),
                                                 ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -15821,8 +15443,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("multi-area-interface-scope", ("multi_area_interface_scope", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope))])
+                                    self._child_classes = OrderedDict([("multi-area-interface-scope", ("multi_area_interface_scope", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope))])
                                     self._leafs = OrderedDict()
 
                                     self.multi_area_interface_scope = YList(self)
@@ -15961,8 +15582,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['interface_name']
-                                        self._child_container_classes = OrderedDict([("distribute-list", ("distribute_list", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList)), ("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication)), ("neighbors", ("neighbors", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("distribute-list", ("distribute_list", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList)), ("authentication", ("authentication", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication)), ("neighbors", ("neighbors", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback))])
                                         self._leafs = OrderedDict([
                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                             ('cost', YLeaf(YType.uint32, 'cost')),
@@ -15988,32 +15608,26 @@ class Ospf(Entity):
 
                                         self.distribute_list = None
                                         self._children_name_map["distribute_list"] = "distribute-list"
-                                        self._children_yang_names.add("distribute-list")
 
                                         self.authentication = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication()
                                         self.authentication.parent = self
                                         self._children_name_map["authentication"] = "authentication"
-                                        self._children_yang_names.add("authentication")
 
                                         self.neighbors = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors()
                                         self.neighbors.parent = self
                                         self._children_name_map["neighbors"] = "neighbors"
-                                        self._children_yang_names.add("neighbors")
 
                                         self.dead_interval_minimal = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal()
                                         self.dead_interval_minimal.parent = self
                                         self._children_name_map["dead_interval_minimal"] = "dead-interval-minimal"
-                                        self._children_yang_names.add("dead-interval-minimal")
 
                                         self.fast_reroute = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute()
                                         self.fast_reroute.parent = self
                                         self._children_name_map["fast_reroute"] = "fast-reroute"
-                                        self._children_yang_names.add("fast-reroute")
 
                                         self.cost_fallback = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback()
                                         self.cost_fallback.parent = self
                                         self._children_name_map["cost_fallback"] = "cost-fallback"
-                                        self._children_yang_names.add("cost-fallback")
                                         self._segment_path = lambda: "multi-area-interface-scope" + "[interface-name='" + str(self.interface_name) + "']"
 
                                     def __setattr__(self, name, value):
@@ -16052,8 +15666,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self.is_presence_container = True
                                             self._leafs = OrderedDict([
                                                 ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -16103,8 +15716,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeies))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeies))])
                                             self._leafs = OrderedDict([
                                                 ('key', YLeaf(YType.str, 'key')),
                                             ])
@@ -16113,12 +15725,10 @@ class Ospf(Entity):
                                             self.type = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type()
                                             self.type.parent = self
                                             self._children_name_map["type"] = "type"
-                                            self._children_yang_names.add("type")
 
                                             self.message_digest_keies = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeies()
                                             self.message_digest_keies.parent = self
                                             self._children_name_map["message_digest_keies"] = "message-digest-keies"
-                                            self._children_yang_names.add("message-digest-keies")
                                             self._segment_path = lambda: "authentication"
 
                                         def __setattr__(self, name, value):
@@ -16159,8 +15769,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('authen_type', YLeaf(YType.enumeration, 'authen-type')),
                                                     ('keychain_authen_type', YLeaf(YType.enumeration, 'keychain-authen-type')),
@@ -16200,8 +15809,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeies.MessageDigestKey))])
+                                                self._child_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeies.MessageDigestKey))])
                                                 self._leafs = OrderedDict()
 
                                                 self.message_digest_key = YList(self)
@@ -16247,8 +15855,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['key_id']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('key_id', YLeaf(YType.uint32, 'key-id')),
                                                         ('password', YLeaf(YType.str, 'password')),
@@ -16285,8 +15892,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors.Neighbor))])
+                                            self._child_classes = OrderedDict([("neighbor", ("neighbor", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors.Neighbor))])
                                             self._leafs = OrderedDict()
 
                                             self.neighbor = YList(self)
@@ -16359,8 +15965,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['neighbor_address']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
                                                     ('priority', YLeaf(YType.uint32, 'priority')),
@@ -16414,8 +16019,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('interval', YLeaf(YType.uint32, 'interval')),
                                                 ('multiplier', YLeaf(YType.uint32, 'multiplier')),
@@ -16462,8 +16066,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix))])
                                             self._leafs = OrderedDict([
                                                 ('fast_reroute_enable', YLeaf(YType.enumeration, 'fast-reroute-enable')),
                                             ])
@@ -16472,12 +16075,10 @@ class Ospf(Entity):
                                             self.per_link = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink()
                                             self.per_link.parent = self
                                             self._children_name_map["per_link"] = "per-link"
-                                            self._children_yang_names.add("per-link")
 
                                             self.per_prefix = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix()
                                             self.per_prefix.parent = self
                                             self._children_name_map["per_prefix"] = "per-prefix"
-                                            self._children_yang_names.add("per-prefix")
                                             self._segment_path = lambda: "fast-reroute"
 
                                         def __setattr__(self, name, value):
@@ -16520,8 +16121,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces))])
                                                 self._leafs = OrderedDict([
                                                     ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
                                                 ])
@@ -16530,12 +16130,10 @@ class Ospf(Entity):
                                                 self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces()
                                                 self.candidate_interfaces.parent = self
                                                 self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                                self._children_yang_names.add("candidate-interfaces")
 
                                                 self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces()
                                                 self.exclude_interfaces.parent = self
                                                 self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                                self._children_yang_names.add("exclude-interfaces")
                                                 self._segment_path = lambda: "per-link"
 
                                             def __setattr__(self, name, value):
@@ -16567,8 +16165,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
+                                                    self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
                                                     self._leafs = OrderedDict()
 
                                                     self.candidate_interface = YList(self)
@@ -16604,8 +16201,7 @@ class Ospf(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['interface_name']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                         ])
@@ -16641,8 +16237,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
+                                                    self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
                                                     self._leafs = OrderedDict()
 
                                                     self.exclude_interface = YList(self)
@@ -16679,8 +16274,7 @@ class Ospf(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['interface_name']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                         ])
@@ -16742,8 +16336,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa)), ("tiebreakers", ("tiebreakers", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa)), ("tiebreakers", ("tiebreakers", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces))])
                                                 self._leafs = OrderedDict([
                                                     ('topology_independent_lfa', YLeaf(YType.boolean, 'topology-independent-lfa')),
                                                     ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
@@ -16754,22 +16347,18 @@ class Ospf(Entity):
                                                 self.remote_lfa = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa()
                                                 self.remote_lfa.parent = self
                                                 self._children_name_map["remote_lfa"] = "remote-lfa"
-                                                self._children_yang_names.add("remote-lfa")
 
                                                 self.tiebreakers = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers()
                                                 self.tiebreakers.parent = self
                                                 self._children_name_map["tiebreakers"] = "tiebreakers"
-                                                self._children_yang_names.add("tiebreakers")
 
                                                 self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces()
                                                 self.candidate_interfaces.parent = self
                                                 self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                                self._children_yang_names.add("candidate-interfaces")
 
                                                 self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces()
                                                 self.exclude_interfaces.parent = self
                                                 self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                                self._children_yang_names.add("exclude-interfaces")
                                                 self._segment_path = lambda: "per-prefix"
 
                                             def __setattr__(self, name, value):
@@ -16807,8 +16396,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('tunnel', YLeaf(YType.enumeration, 'tunnel')),
                                                         ('maximum_cost', YLeaf(YType.uint32, 'maximum-cost')),
@@ -16845,8 +16433,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
+                                                    self._child_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
                                                     self._leafs = OrderedDict()
 
                                                     self.tiebreaker = YList(self)
@@ -16889,8 +16476,7 @@ class Ospf(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['tiebreaker_type']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('tiebreaker_type', YLeaf(YType.enumeration, 'tiebreaker-type')),
                                                             ('tiebreaker_index', YLeaf(YType.uint32, 'tiebreaker-index')),
@@ -16928,8 +16514,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
+                                                    self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
                                                     self._leafs = OrderedDict()
 
                                                     self.candidate_interface = YList(self)
@@ -16965,8 +16550,7 @@ class Ospf(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['interface_name']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                         ])
@@ -17002,8 +16586,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
+                                                    self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
                                                     self._leafs = OrderedDict()
 
                                                     self.exclude_interface = YList(self)
@@ -17040,8 +16623,7 @@ class Ospf(Entity):
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
                                                         self.ylist_key_names = ['interface_name']
-                                                        self._child_container_classes = OrderedDict([])
-                                                        self._child_list_classes = OrderedDict([])
+                                                        self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
                                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                         ])
@@ -17085,8 +16667,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('cost', YLeaf(YType.uint32, 'cost')),
                                                 ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -17124,8 +16705,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("area-range", ("area_range", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaRanges.AreaRange))])
+                                    self._child_classes = OrderedDict([("area-range", ("area_range", Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaRanges.AreaRange))])
                                     self._leafs = OrderedDict()
 
                                     self.area_range = YList(self)
@@ -17173,8 +16753,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['address','netmask']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('address', YLeaf(YType.str, 'address')),
                                             ('netmask', YLeaf(YType.str, 'netmask')),
@@ -17243,8 +16822,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('no_redistribution', YLeaf(YType.boolean, 'no-redistribution')),
                                         ('default_info_originate', YLeaf(YType.boolean, 'default-info-originate')),
@@ -17345,8 +16923,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("spf-timer", ("spf_timer", Ospf.Processes.Process.Vrfs.Vrf.Timers.SpfTimer)), ("lsa-generation-timer", ("lsa_generation_timer", Ospf.Processes.Process.Vrfs.Vrf.Timers.LsaGenerationTimer))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("spf-timer", ("spf_timer", Ospf.Processes.Process.Vrfs.Vrf.Timers.SpfTimer)), ("lsa-generation-timer", ("lsa_generation_timer", Ospf.Processes.Process.Vrfs.Vrf.Timers.LsaGenerationTimer))])
                             self._leafs = OrderedDict([
                                 ('lsa_pacing_flood', YLeaf(YType.uint32, 'lsa-pacing-flood')),
                                 ('fast_reroute_timer', YLeaf(YType.uint32, 'fast-reroute-timer')),
@@ -17363,12 +16940,10 @@ class Ospf(Entity):
                             self.spf_timer = Ospf.Processes.Process.Vrfs.Vrf.Timers.SpfTimer()
                             self.spf_timer.parent = self
                             self._children_name_map["spf_timer"] = "spf-timer"
-                            self._children_yang_names.add("spf-timer")
 
                             self.lsa_generation_timer = Ospf.Processes.Process.Vrfs.Vrf.Timers.LsaGenerationTimer()
                             self.lsa_generation_timer.parent = self
                             self._children_name_map["lsa_generation_timer"] = "lsa-generation-timer"
-                            self._children_yang_names.add("lsa-generation-timer")
                             self._segment_path = lambda: "timers"
 
                         def __setattr__(self, name, value):
@@ -17427,8 +17002,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('initial_delay', YLeaf(YType.uint32, 'initial-delay')),
                                     ('backoff_increment', YLeaf(YType.uint32, 'backoff-increment')),
@@ -17495,8 +17069,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('initial_delay', YLeaf(YType.uint32, 'initial-delay')),
                                     ('backoff_increment', YLeaf(YType.uint32, 'backoff-increment')),
@@ -17535,8 +17108,7 @@ class Ospf(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("trace-buf", ("trace_buf", Ospf.Processes.Process.TraceBufs.TraceBuf))])
+                    self._child_classes = OrderedDict([("trace-buf", ("trace_buf", Ospf.Processes.Process.TraceBufs.TraceBuf))])
                     self._leafs = OrderedDict()
 
                     self.trace_buf = YList(self)
@@ -17580,8 +17152,7 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['trace_buf_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('trace_buf_name', YLeaf(YType.str, 'trace-buf-name')),
                             ('bufsize', YLeaf(YType.enumeration, 'bufsize')),
@@ -17635,8 +17206,7 @@ class Ospf(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('graceful_shutdown_retain_routes', YLeaf(YType.uint32, 'graceful-shutdown-retain-routes')),
                         ('graceful_shutdown_initial_delay', YLeaf(YType.uint32, 'graceful-shutdown-initial-delay')),
@@ -17844,8 +17414,7 @@ class Ospf(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("monitor-convergence", ("monitor_convergence", Ospf.Processes.Process.DefaultVrf.MonitorConvergence)), ("segment-routing", ("segment_routing", Ospf.Processes.Process.DefaultVrf.SegmentRouting)), ("mpls", ("mpls", Ospf.Processes.Process.DefaultVrf.Mpls)), ("microloop", ("microloop", Ospf.Processes.Process.DefaultVrf.Microloop)), ("maximum-redistribute-prefix", ("maximum_redistribute_prefix", Ospf.Processes.Process.DefaultVrf.MaximumRedistributePrefix)), ("default-information", ("default_information", Ospf.Processes.Process.DefaultVrf.DefaultInformation)), ("af", ("af", Ospf.Processes.Process.DefaultVrf.Af)), ("queue", ("queue", Ospf.Processes.Process.DefaultVrf.Queue)), ("max-metric", ("max_metric", Ospf.Processes.Process.DefaultVrf.MaxMetric)), ("nsf", ("nsf", Ospf.Processes.Process.DefaultVrf.Nsf)), ("process-scope", ("process_scope", Ospf.Processes.Process.DefaultVrf.ProcessScope)), ("redistribution", ("redistribution", Ospf.Processes.Process.DefaultVrf.Redistribution)), ("adjacency-stagger", ("adjacency_stagger", Ospf.Processes.Process.DefaultVrf.AdjacencyStagger)), ("max-lsa", ("max_lsa", Ospf.Processes.Process.DefaultVrf.MaxLsa)), ("auto-cost", ("auto_cost", Ospf.Processes.Process.DefaultVrf.AutoCost)), ("ucmp", ("ucmp", Ospf.Processes.Process.DefaultVrf.Ucmp)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.DefaultVrf.FastReroute)), ("summary-prefixes", ("summary_prefixes", Ospf.Processes.Process.DefaultVrf.SummaryPrefixes)), ("outgoing-route-updates", ("outgoing_route_updates", Ospf.Processes.Process.DefaultVrf.OutgoingRouteUpdates)), ("distance", ("distance", Ospf.Processes.Process.DefaultVrf.Distance)), ("area-addresses", ("area_addresses", Ospf.Processes.Process.DefaultVrf.AreaAddresses)), ("timers", ("timers", Ospf.Processes.Process.DefaultVrf.Timers))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("monitor-convergence", ("monitor_convergence", Ospf.Processes.Process.DefaultVrf.MonitorConvergence)), ("segment-routing", ("segment_routing", Ospf.Processes.Process.DefaultVrf.SegmentRouting)), ("mpls", ("mpls", Ospf.Processes.Process.DefaultVrf.Mpls)), ("microloop", ("microloop", Ospf.Processes.Process.DefaultVrf.Microloop)), ("maximum-redistribute-prefix", ("maximum_redistribute_prefix", Ospf.Processes.Process.DefaultVrf.MaximumRedistributePrefix)), ("default-information", ("default_information", Ospf.Processes.Process.DefaultVrf.DefaultInformation)), ("af", ("af", Ospf.Processes.Process.DefaultVrf.Af)), ("queue", ("queue", Ospf.Processes.Process.DefaultVrf.Queue)), ("max-metric", ("max_metric", Ospf.Processes.Process.DefaultVrf.MaxMetric)), ("nsf", ("nsf", Ospf.Processes.Process.DefaultVrf.Nsf)), ("process-scope", ("process_scope", Ospf.Processes.Process.DefaultVrf.ProcessScope)), ("redistribution", ("redistribution", Ospf.Processes.Process.DefaultVrf.Redistribution)), ("adjacency-stagger", ("adjacency_stagger", Ospf.Processes.Process.DefaultVrf.AdjacencyStagger)), ("max-lsa", ("max_lsa", Ospf.Processes.Process.DefaultVrf.MaxLsa)), ("auto-cost", ("auto_cost", Ospf.Processes.Process.DefaultVrf.AutoCost)), ("ucmp", ("ucmp", Ospf.Processes.Process.DefaultVrf.Ucmp)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.DefaultVrf.FastReroute)), ("summary-prefixes", ("summary_prefixes", Ospf.Processes.Process.DefaultVrf.SummaryPrefixes)), ("outgoing-route-updates", ("outgoing_route_updates", Ospf.Processes.Process.DefaultVrf.OutgoingRouteUpdates)), ("distance", ("distance", Ospf.Processes.Process.DefaultVrf.Distance)), ("area-addresses", ("area_addresses", Ospf.Processes.Process.DefaultVrf.AreaAddresses)), ("timers", ("timers", Ospf.Processes.Process.DefaultVrf.Timers))])
                     self._leafs = OrderedDict([
                         ('ignore_mospf', YLeaf(YType.empty, 'ignore-mospf')),
                         ('router_id', YLeaf(YType.str, 'router-id')),
@@ -17872,110 +17441,88 @@ class Ospf(Entity):
                     self.monitor_convergence = Ospf.Processes.Process.DefaultVrf.MonitorConvergence()
                     self.monitor_convergence.parent = self
                     self._children_name_map["monitor_convergence"] = "monitor-convergence"
-                    self._children_yang_names.add("monitor-convergence")
 
                     self.segment_routing = Ospf.Processes.Process.DefaultVrf.SegmentRouting()
                     self.segment_routing.parent = self
                     self._children_name_map["segment_routing"] = "segment-routing"
-                    self._children_yang_names.add("segment-routing")
 
                     self.mpls = Ospf.Processes.Process.DefaultVrf.Mpls()
                     self.mpls.parent = self
                     self._children_name_map["mpls"] = "mpls"
-                    self._children_yang_names.add("mpls")
 
                     self.microloop = Ospf.Processes.Process.DefaultVrf.Microloop()
                     self.microloop.parent = self
                     self._children_name_map["microloop"] = "microloop"
-                    self._children_yang_names.add("microloop")
 
                     self.maximum_redistribute_prefix = Ospf.Processes.Process.DefaultVrf.MaximumRedistributePrefix()
                     self.maximum_redistribute_prefix.parent = self
                     self._children_name_map["maximum_redistribute_prefix"] = "maximum-redistribute-prefix"
-                    self._children_yang_names.add("maximum-redistribute-prefix")
 
                     self.default_information = Ospf.Processes.Process.DefaultVrf.DefaultInformation()
                     self.default_information.parent = self
                     self._children_name_map["default_information"] = "default-information"
-                    self._children_yang_names.add("default-information")
 
                     self.af = None
                     self._children_name_map["af"] = "af"
-                    self._children_yang_names.add("af")
 
                     self.queue = Ospf.Processes.Process.DefaultVrf.Queue()
                     self.queue.parent = self
                     self._children_name_map["queue"] = "queue"
-                    self._children_yang_names.add("queue")
 
                     self.max_metric = Ospf.Processes.Process.DefaultVrf.MaxMetric()
                     self.max_metric.parent = self
                     self._children_name_map["max_metric"] = "max-metric"
-                    self._children_yang_names.add("max-metric")
 
                     self.nsf = Ospf.Processes.Process.DefaultVrf.Nsf()
                     self.nsf.parent = self
                     self._children_name_map["nsf"] = "nsf"
-                    self._children_yang_names.add("nsf")
 
                     self.process_scope = Ospf.Processes.Process.DefaultVrf.ProcessScope()
                     self.process_scope.parent = self
                     self._children_name_map["process_scope"] = "process-scope"
-                    self._children_yang_names.add("process-scope")
 
                     self.redistribution = Ospf.Processes.Process.DefaultVrf.Redistribution()
                     self.redistribution.parent = self
                     self._children_name_map["redistribution"] = "redistribution"
-                    self._children_yang_names.add("redistribution")
 
                     self.adjacency_stagger = Ospf.Processes.Process.DefaultVrf.AdjacencyStagger()
                     self.adjacency_stagger.parent = self
                     self._children_name_map["adjacency_stagger"] = "adjacency-stagger"
-                    self._children_yang_names.add("adjacency-stagger")
 
                     self.max_lsa = None
                     self._children_name_map["max_lsa"] = "max-lsa"
-                    self._children_yang_names.add("max-lsa")
 
                     self.auto_cost = Ospf.Processes.Process.DefaultVrf.AutoCost()
                     self.auto_cost.parent = self
                     self._children_name_map["auto_cost"] = "auto-cost"
-                    self._children_yang_names.add("auto-cost")
 
                     self.ucmp = Ospf.Processes.Process.DefaultVrf.Ucmp()
                     self.ucmp.parent = self
                     self._children_name_map["ucmp"] = "ucmp"
-                    self._children_yang_names.add("ucmp")
 
                     self.fast_reroute = Ospf.Processes.Process.DefaultVrf.FastReroute()
                     self.fast_reroute.parent = self
                     self._children_name_map["fast_reroute"] = "fast-reroute"
-                    self._children_yang_names.add("fast-reroute")
 
                     self.summary_prefixes = Ospf.Processes.Process.DefaultVrf.SummaryPrefixes()
                     self.summary_prefixes.parent = self
                     self._children_name_map["summary_prefixes"] = "summary-prefixes"
-                    self._children_yang_names.add("summary-prefixes")
 
                     self.outgoing_route_updates = Ospf.Processes.Process.DefaultVrf.OutgoingRouteUpdates()
                     self.outgoing_route_updates.parent = self
                     self._children_name_map["outgoing_route_updates"] = "outgoing-route-updates"
-                    self._children_yang_names.add("outgoing-route-updates")
 
                     self.distance = Ospf.Processes.Process.DefaultVrf.Distance()
                     self.distance.parent = self
                     self._children_name_map["distance"] = "distance"
-                    self._children_yang_names.add("distance")
 
                     self.area_addresses = Ospf.Processes.Process.DefaultVrf.AreaAddresses()
                     self.area_addresses.parent = self
                     self._children_name_map["area_addresses"] = "area-addresses"
-                    self._children_yang_names.add("area-addresses")
 
                     self.timers = Ospf.Processes.Process.DefaultVrf.Timers()
                     self.timers.parent = self
                     self._children_name_map["timers"] = "timers"
-                    self._children_yang_names.add("timers")
                     self._segment_path = lambda: "default-vrf"
 
                 def __setattr__(self, name, value):
@@ -18026,8 +17573,7 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('enable', YLeaf(YType.empty, 'enable')),
                             ('prefix_list', YLeaf(YType.str, 'prefix-list')),
@@ -18085,8 +17631,7 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("sr-prefer", ("sr_prefer", Ospf.Processes.Process.DefaultVrf.SegmentRouting.SrPrefer))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("sr-prefer", ("sr_prefer", Ospf.Processes.Process.DefaultVrf.SegmentRouting.SrPrefer))])
                         self._leafs = OrderedDict([
                             ('prefix_sid_map_receive_disable', YLeaf(YType.empty, 'prefix-sid-map-receive-disable')),
                             ('prefix_sid_map_advertise_local', YLeaf(YType.empty, 'prefix-sid-map-advertise-local')),
@@ -18099,7 +17644,6 @@ class Ospf(Entity):
                         self.sr_prefer = Ospf.Processes.Process.DefaultVrf.SegmentRouting.SrPrefer()
                         self.sr_prefer.parent = self
                         self._children_name_map["sr_prefer"] = "sr-prefer"
-                        self._children_yang_names.add("sr-prefer")
                         self._segment_path = lambda: "segment-routing"
 
                     def __setattr__(self, name, value):
@@ -18136,8 +17680,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('enable', YLeaf(YType.boolean, 'enable')),
                                 ('prefix_list_name', YLeaf(YType.str, 'prefix-list-name')),
@@ -18194,8 +17737,7 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("mpls-router-id", ("mpls_router_id", Ospf.Processes.Process.DefaultVrf.Mpls.MplsRouterId))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("mpls-router-id", ("mpls_router_id", Ospf.Processes.Process.DefaultVrf.Mpls.MplsRouterId))])
                         self._leafs = OrderedDict([
                             ('igp_intact', YLeaf(YType.empty, 'igp-intact')),
                             ('ldp_sync_update', YLeaf(YType.empty, 'ldp-sync-update')),
@@ -18210,7 +17752,6 @@ class Ospf(Entity):
                         self.mpls_router_id = Ospf.Processes.Process.DefaultVrf.Mpls.MplsRouterId()
                         self.mpls_router_id.parent = self
                         self._children_name_map["mpls_router_id"] = "mpls-router-id"
-                        self._children_yang_names.add("mpls-router-id")
                         self._segment_path = lambda: "mpls"
 
                     def __setattr__(self, name, value):
@@ -18253,8 +17794,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('address', YLeaf(YType.str, 'address')),
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
@@ -18291,15 +17831,16 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("avoidance", ("avoidance", Ospf.Processes.Process.DefaultVrf.Microloop.Avoidance))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("avoidance", ("avoidance", Ospf.Processes.Process.DefaultVrf.Microloop.Avoidance))])
                         self._leafs = OrderedDict()
 
                         self.avoidance = Ospf.Processes.Process.DefaultVrf.Microloop.Avoidance()
                         self.avoidance.parent = self
                         self._children_name_map["avoidance"] = "avoidance"
-                        self._children_yang_names.add("avoidance")
                         self._segment_path = lambda: "microloop"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ospf.Processes.Process.DefaultVrf.Microloop, [], name, value)
 
 
                     class Avoidance(Entity):
@@ -18339,8 +17880,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('enable', YLeaf(YType.enumeration, 'enable')),
                                 ('rib_update_delay', YLeaf(YType.uint32, 'rib-update-delay')),
@@ -18392,8 +17932,7 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('number_of_prefixes', YLeaf(YType.uint32, 'number-of-prefixes')),
                             ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -18455,8 +17994,7 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('always_advertise', YLeaf(YType.boolean, 'always-advertise')),
                             ('metric', YLeaf(YType.uint32, 'metric')),
@@ -18506,8 +18044,7 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('af_name', YLeaf(YType.enumeration, 'af-name')),
@@ -18604,8 +18141,7 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('dispatch_rate_limited_flush', YLeaf(YType.uint32, 'dispatch-rate-limited-flush')),
                             ('limit_high', YLeaf(YType.uint32, 'limit-high')),
@@ -18677,8 +18213,7 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("max-metric-on-proc-restart", ("max_metric_on_proc_restart", Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnProcRestart)), ("max-metric-on-startup", ("max_metric_on_startup", Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnStartup)), ("max-metric-on-proc-migration", ("max_metric_on_proc_migration", Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnProcMigration)), ("max-metric-always", ("max_metric_always", Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricAlways)), ("max-metric-on-switchover", ("max_metric_on_switchover", Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnSwitchover))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("max-metric-on-proc-restart", ("max_metric_on_proc_restart", Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnProcRestart)), ("max-metric-on-startup", ("max_metric_on_startup", Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnStartup)), ("max-metric-on-proc-migration", ("max_metric_on_proc_migration", Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnProcMigration)), ("max-metric-always", ("max_metric_always", Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricAlways)), ("max-metric-on-switchover", ("max_metric_on_switchover", Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnSwitchover))])
                         self._leafs = OrderedDict([
                             ('max_metric_no_abr_off', YLeaf(YType.empty, 'max-metric-no-abr-off')),
                         ])
@@ -18687,27 +18222,22 @@ class Ospf(Entity):
                         self.max_metric_on_proc_restart = Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnProcRestart()
                         self.max_metric_on_proc_restart.parent = self
                         self._children_name_map["max_metric_on_proc_restart"] = "max-metric-on-proc-restart"
-                        self._children_yang_names.add("max-metric-on-proc-restart")
 
                         self.max_metric_on_startup = Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnStartup()
                         self.max_metric_on_startup.parent = self
                         self._children_name_map["max_metric_on_startup"] = "max-metric-on-startup"
-                        self._children_yang_names.add("max-metric-on-startup")
 
                         self.max_metric_on_proc_migration = Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnProcMigration()
                         self.max_metric_on_proc_migration.parent = self
                         self._children_name_map["max_metric_on_proc_migration"] = "max-metric-on-proc-migration"
-                        self._children_yang_names.add("max-metric-on-proc-migration")
 
                         self.max_metric_always = Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricAlways()
                         self.max_metric_always.parent = self
                         self._children_name_map["max_metric_always"] = "max-metric-always"
-                        self._children_yang_names.add("max-metric-always")
 
                         self.max_metric_on_switchover = Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnSwitchover()
                         self.max_metric_on_switchover.parent = self
                         self._children_name_map["max_metric_on_switchover"] = "max-metric-on-switchover"
-                        self._children_yang_names.add("max-metric-on-switchover")
                         self._segment_path = lambda: "max-metric"
 
                     def __setattr__(self, name, value):
@@ -18779,8 +18309,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('wait_for_bgp', YLeaf(YType.boolean, 'wait-for-bgp')),
                                 ('startup_max', YLeaf(YType.uint32, 'startup-max')),
@@ -18867,8 +18396,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('wait_for_bgp', YLeaf(YType.boolean, 'wait-for-bgp')),
                                 ('startup_max', YLeaf(YType.uint32, 'startup-max')),
@@ -18956,8 +18484,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('wait_for_bgp', YLeaf(YType.boolean, 'wait-for-bgp')),
                                 ('startup_max', YLeaf(YType.uint32, 'startup-max')),
@@ -19030,8 +18557,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('include_stub', YLeaf(YType.boolean, 'include-stub')),
                                 ('summary_lsa', YLeaf(YType.boolean, 'summary-lsa')),
@@ -19114,8 +18640,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('wait_for_bgp', YLeaf(YType.boolean, 'wait-for-bgp')),
                                 ('startup_max', YLeaf(YType.uint32, 'startup-max')),
@@ -19210,8 +18735,7 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('lifetime', YLeaf(YType.uint32, 'lifetime')),
                             ('ietf', YLeaf(YType.enumeration, 'ietf')),
@@ -19454,8 +18978,7 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("srgb", ("srgb", Ospf.Processes.Process.DefaultVrf.ProcessScope.Srgb)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute)), ("distribute-list", ("distribute_list", Ospf.Processes.Process.DefaultVrf.ProcessScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.DefaultVrf.ProcessScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.ProcessScope.Authentication)), ("security", ("security", Ospf.Processes.Process.DefaultVrf.ProcessScope.Security)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.ProcessScope.DeadIntervalMinimal)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.DefaultVrf.ProcessScope.CostFallback))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("srgb", ("srgb", Ospf.Processes.Process.DefaultVrf.ProcessScope.Srgb)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute)), ("distribute-list", ("distribute_list", Ospf.Processes.Process.DefaultVrf.ProcessScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.DefaultVrf.ProcessScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.ProcessScope.Authentication)), ("security", ("security", Ospf.Processes.Process.DefaultVrf.ProcessScope.Security)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.ProcessScope.DeadIntervalMinimal)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.DefaultVrf.ProcessScope.CostFallback))])
                         self._leafs = OrderedDict([
                             ('cost', YLeaf(YType.uint32, 'cost')),
                             ('external_out', YLeaf(YType.boolean, 'external-out')),
@@ -19507,41 +19030,33 @@ class Ospf(Entity):
 
                         self.srgb = None
                         self._children_name_map["srgb"] = "srgb"
-                        self._children_yang_names.add("srgb")
 
                         self.fast_reroute = Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute()
                         self.fast_reroute.parent = self
                         self._children_name_map["fast_reroute"] = "fast-reroute"
-                        self._children_yang_names.add("fast-reroute")
 
                         self.distribute_list = None
                         self._children_name_map["distribute_list"] = "distribute-list"
-                        self._children_yang_names.add("distribute-list")
 
                         self.bfd = Ospf.Processes.Process.DefaultVrf.ProcessScope.Bfd()
                         self.bfd.parent = self
                         self._children_name_map["bfd"] = "bfd"
-                        self._children_yang_names.add("bfd")
 
                         self.authentication = Ospf.Processes.Process.DefaultVrf.ProcessScope.Authentication()
                         self.authentication.parent = self
                         self._children_name_map["authentication"] = "authentication"
-                        self._children_yang_names.add("authentication")
 
                         self.security = Ospf.Processes.Process.DefaultVrf.ProcessScope.Security()
                         self.security.parent = self
                         self._children_name_map["security"] = "security"
-                        self._children_yang_names.add("security")
 
                         self.dead_interval_minimal = Ospf.Processes.Process.DefaultVrf.ProcessScope.DeadIntervalMinimal()
                         self.dead_interval_minimal.parent = self
                         self._children_name_map["dead_interval_minimal"] = "dead-interval-minimal"
-                        self._children_yang_names.add("dead-interval-minimal")
 
                         self.cost_fallback = Ospf.Processes.Process.DefaultVrf.ProcessScope.CostFallback()
                         self.cost_fallback.parent = self
                         self._children_name_map["cost_fallback"] = "cost-fallback"
-                        self._children_yang_names.add("cost-fallback")
                         self._segment_path = lambda: "process-scope"
 
                     def __setattr__(self, name, value):
@@ -19587,8 +19102,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('lower_bound', YLeaf(YType.uint32, 'lower-bound')),
@@ -19636,8 +19150,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix))])
                             self._leafs = OrderedDict([
                                 ('fast_reroute_enable', YLeaf(YType.enumeration, 'fast-reroute-enable')),
                             ])
@@ -19646,12 +19159,10 @@ class Ospf(Entity):
                             self.per_link = Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink()
                             self.per_link.parent = self
                             self._children_name_map["per_link"] = "per-link"
-                            self._children_yang_names.add("per-link")
 
                             self.per_prefix = Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix()
                             self.per_prefix.parent = self
                             self._children_name_map["per_prefix"] = "per-prefix"
-                            self._children_yang_names.add("per-prefix")
                             self._segment_path = lambda: "fast-reroute"
 
                         def __setattr__(self, name, value):
@@ -19694,8 +19205,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces))])
                                 self._leafs = OrderedDict([
                                     ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
                                 ])
@@ -19704,12 +19214,10 @@ class Ospf(Entity):
                                 self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces()
                                 self.candidate_interfaces.parent = self
                                 self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                self._children_yang_names.add("candidate-interfaces")
 
                                 self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces()
                                 self.exclude_interfaces.parent = self
                                 self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                self._children_yang_names.add("exclude-interfaces")
                                 self._segment_path = lambda: "per-link"
 
                             def __setattr__(self, name, value):
@@ -19741,8 +19249,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
+                                    self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
                                     self._leafs = OrderedDict()
 
                                     self.candidate_interface = YList(self)
@@ -19778,8 +19285,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['interface_name']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                         ])
@@ -19815,8 +19321,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
+                                    self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
                                     self._leafs = OrderedDict()
 
                                     self.exclude_interface = YList(self)
@@ -19853,8 +19358,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['interface_name']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                         ])
@@ -19911,8 +19415,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces))])
                                 self._leafs = OrderedDict([
                                     ('topology_independent_lfa', YLeaf(YType.boolean, 'topology-independent-lfa')),
                                     ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
@@ -19923,17 +19426,14 @@ class Ospf(Entity):
                                 self.remote_lfa = Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa()
                                 self.remote_lfa.parent = self
                                 self._children_name_map["remote_lfa"] = "remote-lfa"
-                                self._children_yang_names.add("remote-lfa")
 
                                 self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces()
                                 self.candidate_interfaces.parent = self
                                 self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                self._children_yang_names.add("candidate-interfaces")
 
                                 self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces()
                                 self.exclude_interfaces.parent = self
                                 self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                self._children_yang_names.add("exclude-interfaces")
                                 self._segment_path = lambda: "per-prefix"
 
                             def __setattr__(self, name, value):
@@ -19971,8 +19471,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('tunnel', YLeaf(YType.enumeration, 'tunnel')),
                                         ('maximum_cost', YLeaf(YType.uint32, 'maximum-cost')),
@@ -20010,8 +19509,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
+                                    self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
                                     self._leafs = OrderedDict()
 
                                     self.candidate_interface = YList(self)
@@ -20047,8 +19545,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['interface_name']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                         ])
@@ -20084,8 +19581,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
+                                    self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
                                     self._leafs = OrderedDict()
 
                                     self.exclude_interface = YList(self)
@@ -20122,8 +19618,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['interface_name']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                                         ])
@@ -20166,8 +19661,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
                                 ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -20221,8 +19715,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('interval', YLeaf(YType.uint32, 'interval')),
                                 ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
@@ -20273,8 +19766,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.DefaultVrf.ProcessScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.DefaultVrf.ProcessScope.Authentication.MessageDigestKeies))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.DefaultVrf.ProcessScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.DefaultVrf.ProcessScope.Authentication.MessageDigestKeies))])
                             self._leafs = OrderedDict([
                                 ('key', YLeaf(YType.str, 'key')),
                             ])
@@ -20283,12 +19775,10 @@ class Ospf(Entity):
                             self.type = Ospf.Processes.Process.DefaultVrf.ProcessScope.Authentication.Type()
                             self.type.parent = self
                             self._children_name_map["type"] = "type"
-                            self._children_yang_names.add("type")
 
                             self.message_digest_keies = Ospf.Processes.Process.DefaultVrf.ProcessScope.Authentication.MessageDigestKeies()
                             self.message_digest_keies.parent = self
                             self._children_name_map["message_digest_keies"] = "message-digest-keies"
-                            self._children_yang_names.add("message-digest-keies")
                             self._segment_path = lambda: "authentication"
 
                         def __setattr__(self, name, value):
@@ -20329,8 +19819,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('authen_type', YLeaf(YType.enumeration, 'authen-type')),
                                     ('keychain_authen_type', YLeaf(YType.enumeration, 'keychain-authen-type')),
@@ -20370,8 +19859,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.DefaultVrf.ProcessScope.Authentication.MessageDigestKeies.MessageDigestKey))])
+                                self._child_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.DefaultVrf.ProcessScope.Authentication.MessageDigestKeies.MessageDigestKey))])
                                 self._leafs = OrderedDict()
 
                                 self.message_digest_key = YList(self)
@@ -20417,8 +19905,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['key_id']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('key_id', YLeaf(YType.uint32, 'key-id')),
                                         ('password', YLeaf(YType.str, 'password')),
@@ -20456,15 +19943,16 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("ttl", ("ttl", Ospf.Processes.Process.DefaultVrf.ProcessScope.Security.Ttl))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("ttl", ("ttl", Ospf.Processes.Process.DefaultVrf.ProcessScope.Security.Ttl))])
                             self._leafs = OrderedDict()
 
                             self.ttl = Ospf.Processes.Process.DefaultVrf.ProcessScope.Security.Ttl()
                             self.ttl.parent = self
                             self._children_name_map["ttl"] = "ttl"
-                            self._children_yang_names.add("ttl")
                             self._segment_path = lambda: "security"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ospf.Processes.Process.DefaultVrf.ProcessScope.Security, [], name, value)
 
 
                         class Ttl(Entity):
@@ -20498,8 +19986,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('enable', YLeaf(YType.boolean, 'enable')),
                                     ('hop_count', YLeaf(YType.uint32, 'hop-count')),
@@ -20547,8 +20034,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('interval', YLeaf(YType.uint32, 'interval')),
                                 ('multiplier', YLeaf(YType.uint32, 'multiplier')),
@@ -20594,8 +20080,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('cost', YLeaf(YType.uint32, 'cost')),
                                 ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -20632,15 +20117,16 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("redistributes", ("redistributes", Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("redistributes", ("redistributes", Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes))])
                         self._leafs = OrderedDict()
 
                         self.redistributes = Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes()
                         self.redistributes.parent = self
                         self._children_name_map["redistributes"] = "redistributes"
-                        self._children_yang_names.add("redistributes")
                         self._segment_path = lambda: "redistribution"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ospf.Processes.Process.DefaultVrf.Redistribution, [], name, value)
 
 
                     class Redistributes(Entity):
@@ -20668,8 +20154,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("redistribute", ("redistribute", Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute))])
+                            self._child_classes = OrderedDict([("redistribute", ("redistribute", Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute))])
                             self._leafs = OrderedDict()
 
                             self.redistribute = YList(self)
@@ -20726,8 +20211,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['protocol_name']
-                                self._child_container_classes = OrderedDict([("connected-or-static-or-dagr-or-subscriber-or-mobile-or-rip", ("connected_or_static_or_dagr_or_subscriber_or_mobile_or_rip", Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute.ConnectedOrStaticOrDagrOrSubscriberOrMobileOrRip))])
-                                self._child_list_classes = OrderedDict([("application-or-isis-or-ospf", ("application_or_isis_or_ospf", Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute.ApplicationOrIsisOrOspf)), ("bgp", ("bgp", Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute.Bgp)), ("eigrp", ("eigrp", Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute.Eigrp))])
+                                self._child_classes = OrderedDict([("connected-or-static-or-dagr-or-subscriber-or-mobile-or-rip", ("connected_or_static_or_dagr_or_subscriber_or_mobile_or_rip", Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute.ConnectedOrStaticOrDagrOrSubscriberOrMobileOrRip)), ("application-or-isis-or-ospf", ("application_or_isis_or_ospf", Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute.ApplicationOrIsisOrOspf)), ("bgp", ("bgp", Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute.Bgp)), ("eigrp", ("eigrp", Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute.Eigrp))])
                                 self._leafs = OrderedDict([
                                     ('protocol_name', YLeaf(YType.enumeration, 'protocol-name')),
                                 ])
@@ -20735,7 +20219,6 @@ class Ospf(Entity):
 
                                 self.connected_or_static_or_dagr_or_subscriber_or_mobile_or_rip = None
                                 self._children_name_map["connected_or_static_or_dagr_or_subscriber_or_mobile_or_rip"] = "connected-or-static-or-dagr-or-subscriber-or-mobile-or-rip"
-                                self._children_yang_names.add("connected-or-static-or-dagr-or-subscriber-or-mobile-or-rip")
 
                                 self.application_or_isis_or_ospf = YList(self)
                                 self.bgp = YList(self)
@@ -20851,8 +20334,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self.is_presence_container = True
                                     self._leafs = OrderedDict([
                                         ('classful', YLeaf(YType.boolean, 'classful')),
@@ -21001,8 +20483,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['instance_name']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('instance_name', YLeaf(YType.str, 'instance-name')),
                                         ('classful', YLeaf(YType.boolean, 'classful')),
@@ -21166,8 +20647,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['instance_name','as_xx','as_yy']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('instance_name', YLeaf(YType.str, 'instance-name')),
                                         ('as_xx', YLeaf(YType.uint32, 'as-xx')),
@@ -21328,8 +20808,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['instance_name','as_xx']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('instance_name', YLeaf(YType.str, 'instance-name')),
                                         ('as_xx', YLeaf(YType.uint32, 'as-xx')),
@@ -21414,8 +20893,7 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('disable', YLeaf(YType.empty, 'disable')),
                             ('initial_nbr', YLeaf(YType.uint32, 'initial-nbr')),
@@ -21495,8 +20973,7 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
                             ('max_lsa_limit', YLeaf(YType.uint32, 'max-lsa-limit')),
@@ -21555,8 +21032,7 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('disable', YLeaf(YType.boolean, 'disable')),
                             ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
@@ -21609,8 +21085,7 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("enable", ("enable", Ospf.Processes.Process.DefaultVrf.Ucmp.Enable)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.Ucmp.ExcludeInterfaces))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("enable", ("enable", Ospf.Processes.Process.DefaultVrf.Ucmp.Enable)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.Ucmp.ExcludeInterfaces))])
                         self._leafs = OrderedDict([
                             ('delay_interval', YLeaf(YType.uint32, 'delay-interval')),
                         ])
@@ -21619,12 +21094,10 @@ class Ospf(Entity):
                         self.enable = Ospf.Processes.Process.DefaultVrf.Ucmp.Enable()
                         self.enable.parent = self
                         self._children_name_map["enable"] = "enable"
-                        self._children_yang_names.add("enable")
 
                         self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.Ucmp.ExcludeInterfaces()
                         self.exclude_interfaces.parent = self
                         self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                        self._children_yang_names.add("exclude-interfaces")
                         self._segment_path = lambda: "ucmp"
 
                     def __setattr__(self, name, value):
@@ -21664,8 +21137,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('variance', YLeaf(YType.uint32, 'variance')),
                                 ('prefix_list_name', YLeaf(YType.str, 'prefix-list-name')),
@@ -21703,8 +21175,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.Ucmp.ExcludeInterfaces.ExcludeInterface))])
+                            self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.Ucmp.ExcludeInterfaces.ExcludeInterface))])
                             self._leafs = OrderedDict()
 
                             self.exclude_interface = YList(self)
@@ -21741,8 +21212,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['interface_name']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                                 ])
@@ -21782,20 +21252,20 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.DefaultVrf.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.DefaultVrf.FastReroute.PerPrefix))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.DefaultVrf.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.DefaultVrf.FastReroute.PerPrefix))])
                         self._leafs = OrderedDict()
 
                         self.per_link = Ospf.Processes.Process.DefaultVrf.FastReroute.PerLink()
                         self.per_link.parent = self
                         self._children_name_map["per_link"] = "per-link"
-                        self._children_yang_names.add("per-link")
 
                         self.per_prefix = Ospf.Processes.Process.DefaultVrf.FastReroute.PerPrefix()
                         self.per_prefix.parent = self
                         self._children_name_map["per_prefix"] = "per-prefix"
-                        self._children_yang_names.add("per-prefix")
                         self._segment_path = lambda: "fast-reroute"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ospf.Processes.Process.DefaultVrf.FastReroute, [], name, value)
 
 
                     class PerLink(Entity):
@@ -21822,8 +21292,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('priority', YLeaf(YType.enumeration, 'priority')),
                             ])
@@ -21868,8 +21337,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("tiebreakers", ("tiebreakers", Ospf.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("tiebreakers", ("tiebreakers", Ospf.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers))])
                             self._leafs = OrderedDict([
                                 ('load_sharing_disable', YLeaf(YType.empty, 'load-sharing-disable')),
                                 ('priority', YLeaf(YType.enumeration, 'priority')),
@@ -21880,7 +21348,6 @@ class Ospf(Entity):
                             self.tiebreakers = Ospf.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers()
                             self.tiebreakers.parent = self
                             self._children_name_map["tiebreakers"] = "tiebreakers"
-                            self._children_yang_names.add("tiebreakers")
                             self._segment_path = lambda: "per-prefix"
 
                         def __setattr__(self, name, value):
@@ -21911,8 +21378,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
+                                self._child_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
                                 self._leafs = OrderedDict()
 
                                 self.tiebreaker = YList(self)
@@ -21955,8 +21421,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['tiebreaker_type']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('tiebreaker_type', YLeaf(YType.enumeration, 'tiebreaker-type')),
                                         ('tiebreaker_index', YLeaf(YType.uint32, 'tiebreaker-index')),
@@ -22008,14 +21473,12 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("summary-prefix-data", ("summary_prefix_data", Ospf.Processes.Process.DefaultVrf.SummaryPrefixes.SummaryPrefixData))])
-                        self._child_list_classes = OrderedDict([("prefix-and-netmask", ("prefix_and_netmask", Ospf.Processes.Process.DefaultVrf.SummaryPrefixes.PrefixAndNetmask)), ("prefix", ("prefix", Ospf.Processes.Process.DefaultVrf.SummaryPrefixes.Prefix)), ("netmask", ("netmask", Ospf.Processes.Process.DefaultVrf.SummaryPrefixes.Netmask))])
+                        self._child_classes = OrderedDict([("summary-prefix-data", ("summary_prefix_data", Ospf.Processes.Process.DefaultVrf.SummaryPrefixes.SummaryPrefixData)), ("prefix-and-netmask", ("prefix_and_netmask", Ospf.Processes.Process.DefaultVrf.SummaryPrefixes.PrefixAndNetmask)), ("prefix", ("prefix", Ospf.Processes.Process.DefaultVrf.SummaryPrefixes.Prefix)), ("netmask", ("netmask", Ospf.Processes.Process.DefaultVrf.SummaryPrefixes.Netmask))])
                         self._leafs = OrderedDict()
 
                         self.summary_prefix_data = Ospf.Processes.Process.DefaultVrf.SummaryPrefixes.SummaryPrefixData()
                         self.summary_prefix_data.parent = self
                         self._children_name_map["summary_prefix_data"] = "summary-prefix-data"
-                        self._children_yang_names.add("summary-prefix-data")
 
                         self.prefix_and_netmask = YList(self)
                         self.prefix = YList(self)
@@ -22059,8 +21522,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('not_advertise', YLeaf(YType.boolean, 'not-advertise')),
                                 ('tag', YLeaf(YType.uint32, 'tag')),
@@ -22120,8 +21582,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['prefix','netmask']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('prefix', YLeaf(YType.str, 'prefix')),
                                 ('netmask', YLeaf(YType.str, 'netmask')),
@@ -22178,8 +21639,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['prefix']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('prefix', YLeaf(YType.str, 'prefix')),
                                 ('not_advertise', YLeaf(YType.boolean, 'not-advertise')),
@@ -22234,8 +21694,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['netmask']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('netmask', YLeaf(YType.str, 'netmask')),
                                 ('not_advertise', YLeaf(YType.boolean, 'not-advertise')),
@@ -22274,8 +21733,7 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("outgoing-route-update", ("outgoing_route_update", Ospf.Processes.Process.DefaultVrf.OutgoingRouteUpdates.OutgoingRouteUpdate))])
+                        self._child_classes = OrderedDict([("outgoing-route-update", ("outgoing_route_update", Ospf.Processes.Process.DefaultVrf.OutgoingRouteUpdates.OutgoingRouteUpdate))])
                         self._leafs = OrderedDict()
 
                         self.outgoing_route_update = YList(self)
@@ -22334,8 +21792,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['protocol_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('protocol_name', YLeaf(YType.enumeration, 'protocol-name')),
                                 ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -22392,8 +21849,7 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("ospf-distance", ("ospf_distance", Ospf.Processes.Process.DefaultVrf.Distance.OspfDistance)), ("ip-distances", ("ip_distances", Ospf.Processes.Process.DefaultVrf.Distance.IpDistances))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("ospf-distance", ("ospf_distance", Ospf.Processes.Process.DefaultVrf.Distance.OspfDistance)), ("ip-distances", ("ip_distances", Ospf.Processes.Process.DefaultVrf.Distance.IpDistances))])
                         self._leafs = OrderedDict([
                             ('admin_distance', YLeaf(YType.uint32, 'admin-distance')),
                         ])
@@ -22402,12 +21858,10 @@ class Ospf(Entity):
                         self.ospf_distance = Ospf.Processes.Process.DefaultVrf.Distance.OspfDistance()
                         self.ospf_distance.parent = self
                         self._children_name_map["ospf_distance"] = "ospf-distance"
-                        self._children_yang_names.add("ospf-distance")
 
                         self.ip_distances = Ospf.Processes.Process.DefaultVrf.Distance.IpDistances()
                         self.ip_distances.parent = self
                         self._children_name_map["ip_distances"] = "ip-distances"
-                        self._children_yang_names.add("ip-distances")
                         self._segment_path = lambda: "distance"
 
                     def __setattr__(self, name, value):
@@ -22460,8 +21914,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('intra_area', YLeaf(YType.uint32, 'intra-area')),
                                 ('inter_area', YLeaf(YType.uint32, 'inter-area')),
@@ -22501,8 +21954,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("ip-distance", ("ip_distance", Ospf.Processes.Process.DefaultVrf.Distance.IpDistances.IpDistance))])
+                            self._child_classes = OrderedDict([("ip-distance", ("ip_distance", Ospf.Processes.Process.DefaultVrf.Distance.IpDistances.IpDistance))])
                             self._leafs = OrderedDict()
 
                             self.ip_distance = YList(self)
@@ -22560,8 +22012,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['address','wildcard']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('address', YLeaf(YType.str, 'address')),
                                     ('wildcard', YLeaf(YType.str, 'wildcard')),
@@ -22607,8 +22058,7 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("area-address", ("area_address", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress)), ("area-area-id", ("area_area_id", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId))])
+                        self._child_classes = OrderedDict([("area-address", ("area_address", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress)), ("area-area-id", ("area_area_id", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId))])
                         self._leafs = OrderedDict()
 
                         self.area_address = YList(self)
@@ -22689,6 +22139,11 @@ class Ospf(Entity):
                         	Specify the area as a stub area (send summary LSA stub area)
                         	**type**\: bool
                         
+                        .. attribute:: type7_translate_always
+                        
+                        	Translate Type 7 to Type 5, even if not elected NSSA translator
+                        	**type**\: bool
+                        
                         .. attribute:: mpls_traffic_eng
                         
                         	Configure an OSPF area to run MPLS Traffic Engineering
@@ -22729,14 +22184,14 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['address']
-                            self._child_container_classes = OrderedDict([("virtual-link-scopes", ("virtual_link_scopes", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes)), ("sham-link-scopes", ("sham_link_scopes", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes)), ("area-scope", ("area_scope", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope)), ("name-scopes", ("name_scopes", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes)), ("multi-area-interface-scopes", ("multi_area_interface_scopes", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes)), ("area-ranges", ("area_ranges", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaRanges)), ("nssa", ("nssa", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Nssa))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("virtual-link-scopes", ("virtual_link_scopes", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes)), ("sham-link-scopes", ("sham_link_scopes", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes)), ("area-scope", ("area_scope", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope)), ("name-scopes", ("name_scopes", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes)), ("multi-area-interface-scopes", ("multi_area_interface_scopes", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes)), ("area-ranges", ("area_ranges", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaRanges)), ("nssa", ("nssa", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Nssa))])
                             self._leafs = OrderedDict([
                                 ('address', YLeaf(YType.str, 'address')),
                                 ('route_policy_in', YLeaf(YType.str, 'route-policy-in')),
                                 ('default_cost', YLeaf(YType.uint32, 'default-cost')),
                                 ('route_policy_out', YLeaf(YType.str, 'route-policy-out')),
                                 ('stub', YLeaf(YType.boolean, 'stub')),
+                                ('type7_translate_always', YLeaf(YType.boolean, 'type7-translate-always')),
                                 ('mpls_traffic_eng', YLeaf(YType.empty, 'mpls-traffic-eng')),
                                 ('external_out', YLeaf(YType.boolean, 'external-out')),
                                 ('summary_in', YLeaf(YType.boolean, 'summary-in')),
@@ -22748,6 +22203,7 @@ class Ospf(Entity):
                             self.default_cost = None
                             self.route_policy_out = None
                             self.stub = None
+                            self.type7_translate_always = None
                             self.mpls_traffic_eng = None
                             self.external_out = None
                             self.summary_in = None
@@ -22757,41 +22213,34 @@ class Ospf(Entity):
                             self.virtual_link_scopes = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes()
                             self.virtual_link_scopes.parent = self
                             self._children_name_map["virtual_link_scopes"] = "virtual-link-scopes"
-                            self._children_yang_names.add("virtual-link-scopes")
 
                             self.sham_link_scopes = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes()
                             self.sham_link_scopes.parent = self
                             self._children_name_map["sham_link_scopes"] = "sham-link-scopes"
-                            self._children_yang_names.add("sham-link-scopes")
 
                             self.area_scope = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope()
                             self.area_scope.parent = self
                             self._children_name_map["area_scope"] = "area-scope"
-                            self._children_yang_names.add("area-scope")
 
                             self.name_scopes = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes()
                             self.name_scopes.parent = self
                             self._children_name_map["name_scopes"] = "name-scopes"
-                            self._children_yang_names.add("name-scopes")
 
                             self.multi_area_interface_scopes = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes()
                             self.multi_area_interface_scopes.parent = self
                             self._children_name_map["multi_area_interface_scopes"] = "multi-area-interface-scopes"
-                            self._children_yang_names.add("multi-area-interface-scopes")
 
                             self.area_ranges = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaRanges()
                             self.area_ranges.parent = self
                             self._children_name_map["area_ranges"] = "area-ranges"
-                            self._children_yang_names.add("area-ranges")
 
                             self.nssa = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Nssa()
                             self.nssa.parent = self
                             self._children_name_map["nssa"] = "nssa"
-                            self._children_yang_names.add("nssa")
                             self._segment_path = lambda: "area-address" + "[address='" + str(self.address) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress, ['address', 'route_policy_in', 'default_cost', 'route_policy_out', 'stub', 'mpls_traffic_eng', 'external_out', 'summary_in', 'segment_routing', 'running'], name, value)
+                            self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress, ['address', 'route_policy_in', 'default_cost', 'route_policy_out', 'stub', 'type7_translate_always', 'mpls_traffic_eng', 'external_out', 'summary_in', 'segment_routing', 'running'], name, value)
 
 
                         class VirtualLinkScopes(Entity):
@@ -22818,8 +22267,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("virtual-link-scope", ("virtual_link_scope", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope))])
+                                self._child_classes = OrderedDict([("virtual-link-scope", ("virtual_link_scope", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope))])
                                 self._leafs = OrderedDict()
 
                                 self.virtual_link_scope = YList(self)
@@ -22901,8 +22349,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['address']
-                                    self._child_container_classes = OrderedDict([("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.DeadIntervalMinimal))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.DeadIntervalMinimal))])
                                     self._leafs = OrderedDict([
                                         ('address', YLeaf(YType.str, 'address')),
                                         ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
@@ -22919,12 +22366,10 @@ class Ospf(Entity):
                                     self.authentication = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication()
                                     self.authentication.parent = self
                                     self._children_name_map["authentication"] = "authentication"
-                                    self._children_yang_names.add("authentication")
 
                                     self.dead_interval_minimal = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.DeadIntervalMinimal()
                                     self.dead_interval_minimal.parent = self
                                     self._children_name_map["dead_interval_minimal"] = "dead-interval-minimal"
-                                    self._children_yang_names.add("dead-interval-minimal")
                                     self._segment_path = lambda: "virtual-link-scope" + "[address='" + str(self.address) + "']"
 
                                 def __setattr__(self, name, value):
@@ -22967,8 +22412,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeies))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeies))])
                                         self._leafs = OrderedDict([
                                             ('key', YLeaf(YType.str, 'key')),
                                         ])
@@ -22977,12 +22421,10 @@ class Ospf(Entity):
                                         self.type = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.Type()
                                         self.type.parent = self
                                         self._children_name_map["type"] = "type"
-                                        self._children_yang_names.add("type")
 
                                         self.message_digest_keies = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeies()
                                         self.message_digest_keies.parent = self
                                         self._children_name_map["message_digest_keies"] = "message-digest-keies"
-                                        self._children_yang_names.add("message-digest-keies")
                                         self._segment_path = lambda: "authentication"
 
                                     def __setattr__(self, name, value):
@@ -23023,8 +22465,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('authen_type', YLeaf(YType.enumeration, 'authen-type')),
                                                 ('keychain_authen_type', YLeaf(YType.enumeration, 'keychain-authen-type')),
@@ -23064,8 +22505,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeies.MessageDigestKey))])
+                                            self._child_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeies.MessageDigestKey))])
                                             self._leafs = OrderedDict()
 
                                             self.message_digest_key = YList(self)
@@ -23111,8 +22551,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['key_id']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('key_id', YLeaf(YType.uint32, 'key-id')),
                                                     ('password', YLeaf(YType.str, 'password')),
@@ -23160,8 +22599,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('interval', YLeaf(YType.uint32, 'interval')),
                                             ('multiplier', YLeaf(YType.uint32, 'multiplier')),
@@ -23198,8 +22636,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("sham-link-scope", ("sham_link_scope", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope))])
+                                self._child_classes = OrderedDict([("sham-link-scope", ("sham_link_scope", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope))])
                                 self._leafs = OrderedDict()
 
                                 self.sham_link_scope = YList(self)
@@ -23302,8 +22739,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['source_address','destination_address']
-                                    self._child_container_classes = OrderedDict([("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal))])
                                     self._leafs = OrderedDict([
                                         ('source_address', YLeaf(YType.str, 'source-address')),
                                         ('destination_address', YLeaf(YType.str, 'destination-address')),
@@ -23326,12 +22762,10 @@ class Ospf(Entity):
                                     self.authentication = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication()
                                     self.authentication.parent = self
                                     self._children_name_map["authentication"] = "authentication"
-                                    self._children_yang_names.add("authentication")
 
                                     self.dead_interval_minimal = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal()
                                     self.dead_interval_minimal.parent = self
                                     self._children_name_map["dead_interval_minimal"] = "dead-interval-minimal"
-                                    self._children_yang_names.add("dead-interval-minimal")
                                     self._segment_path = lambda: "sham-link-scope" + "[source-address='" + str(self.source_address) + "']" + "[destination-address='" + str(self.destination_address) + "']"
 
                                 def __setattr__(self, name, value):
@@ -23374,8 +22808,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeies))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeies))])
                                         self._leafs = OrderedDict([
                                             ('key', YLeaf(YType.str, 'key')),
                                         ])
@@ -23384,12 +22817,10 @@ class Ospf(Entity):
                                         self.type = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.Type()
                                         self.type.parent = self
                                         self._children_name_map["type"] = "type"
-                                        self._children_yang_names.add("type")
 
                                         self.message_digest_keies = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeies()
                                         self.message_digest_keies.parent = self
                                         self._children_name_map["message_digest_keies"] = "message-digest-keies"
-                                        self._children_yang_names.add("message-digest-keies")
                                         self._segment_path = lambda: "authentication"
 
                                     def __setattr__(self, name, value):
@@ -23430,8 +22861,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('authen_type', YLeaf(YType.enumeration, 'authen-type')),
                                                 ('keychain_authen_type', YLeaf(YType.enumeration, 'keychain-authen-type')),
@@ -23471,8 +22901,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeies.MessageDigestKey))])
+                                            self._child_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeies.MessageDigestKey))])
                                             self._leafs = OrderedDict()
 
                                             self.message_digest_key = YList(self)
@@ -23518,8 +22947,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['key_id']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('key_id', YLeaf(YType.uint32, 'key-id')),
                                                     ('password', YLeaf(YType.str, 'password')),
@@ -23567,8 +22995,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('interval', YLeaf(YType.uint32, 'interval')),
                                             ('multiplier', YLeaf(YType.uint32, 'multiplier')),
@@ -23779,8 +23206,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("distribute-list", ("distribute_list", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Authentication)), ("security", ("security", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Security)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.CostFallback))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("distribute-list", ("distribute_list", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Authentication)), ("security", ("security", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Security)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.CostFallback))])
                                 self._leafs = OrderedDict([
                                     ('cost', YLeaf(YType.uint32, 'cost')),
                                     ('prefix_suppression_primary', YLeaf(YType.boolean, 'prefix-suppression-primary')),
@@ -23826,37 +23252,30 @@ class Ospf(Entity):
 
                                 self.distribute_list = None
                                 self._children_name_map["distribute_list"] = "distribute-list"
-                                self._children_yang_names.add("distribute-list")
 
                                 self.bfd = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Bfd()
                                 self.bfd.parent = self
                                 self._children_name_map["bfd"] = "bfd"
-                                self._children_yang_names.add("bfd")
 
                                 self.authentication = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Authentication()
                                 self.authentication.parent = self
                                 self._children_name_map["authentication"] = "authentication"
-                                self._children_yang_names.add("authentication")
 
                                 self.security = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Security()
                                 self.security.parent = self
                                 self._children_name_map["security"] = "security"
-                                self._children_yang_names.add("security")
 
                                 self.dead_interval_minimal = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.DeadIntervalMinimal()
                                 self.dead_interval_minimal.parent = self
                                 self._children_name_map["dead_interval_minimal"] = "dead-interval-minimal"
-                                self._children_yang_names.add("dead-interval-minimal")
 
                                 self.fast_reroute = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute()
                                 self.fast_reroute.parent = self
                                 self._children_name_map["fast_reroute"] = "fast-reroute"
-                                self._children_yang_names.add("fast-reroute")
 
                                 self.cost_fallback = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.CostFallback()
                                 self.cost_fallback.parent = self
                                 self._children_name_map["cost_fallback"] = "cost-fallback"
-                                self._children_yang_names.add("cost-fallback")
                                 self._segment_path = lambda: "area-scope"
 
                             def __setattr__(self, name, value):
@@ -23895,8 +23314,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self.is_presence_container = True
                                     self._leafs = OrderedDict([
                                         ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -23950,8 +23368,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('interval', YLeaf(YType.uint32, 'interval')),
                                         ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
@@ -24002,8 +23419,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Authentication.MessageDigestKeies))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Authentication.MessageDigestKeies))])
                                     self._leafs = OrderedDict([
                                         ('key', YLeaf(YType.str, 'key')),
                                     ])
@@ -24012,12 +23428,10 @@ class Ospf(Entity):
                                     self.type = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Authentication.Type()
                                     self.type.parent = self
                                     self._children_name_map["type"] = "type"
-                                    self._children_yang_names.add("type")
 
                                     self.message_digest_keies = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Authentication.MessageDigestKeies()
                                     self.message_digest_keies.parent = self
                                     self._children_name_map["message_digest_keies"] = "message-digest-keies"
-                                    self._children_yang_names.add("message-digest-keies")
                                     self._segment_path = lambda: "authentication"
 
                                 def __setattr__(self, name, value):
@@ -24058,8 +23472,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('authen_type', YLeaf(YType.enumeration, 'authen-type')),
                                             ('keychain_authen_type', YLeaf(YType.enumeration, 'keychain-authen-type')),
@@ -24099,8 +23512,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Authentication.MessageDigestKeies.MessageDigestKey))])
+                                        self._child_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Authentication.MessageDigestKeies.MessageDigestKey))])
                                         self._leafs = OrderedDict()
 
                                         self.message_digest_key = YList(self)
@@ -24146,8 +23558,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['key_id']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('key_id', YLeaf(YType.uint32, 'key-id')),
                                                 ('password', YLeaf(YType.str, 'password')),
@@ -24185,15 +23596,16 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("ttl", ("ttl", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Security.Ttl))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("ttl", ("ttl", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Security.Ttl))])
                                     self._leafs = OrderedDict()
 
                                     self.ttl = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Security.Ttl()
                                     self.ttl.parent = self
                                     self._children_name_map["ttl"] = "ttl"
-                                    self._children_yang_names.add("ttl")
                                     self._segment_path = lambda: "security"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Security, [], name, value)
 
 
                                 class Ttl(Entity):
@@ -24227,8 +23639,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('enable', YLeaf(YType.boolean, 'enable')),
                                             ('hop_count', YLeaf(YType.uint32, 'hop-count')),
@@ -24276,8 +23687,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('interval', YLeaf(YType.uint32, 'interval')),
                                         ('multiplier', YLeaf(YType.uint32, 'multiplier')),
@@ -24324,8 +23734,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix))])
                                     self._leafs = OrderedDict([
                                         ('fast_reroute_enable', YLeaf(YType.enumeration, 'fast-reroute-enable')),
                                     ])
@@ -24334,12 +23743,10 @@ class Ospf(Entity):
                                     self.per_link = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink()
                                     self.per_link.parent = self
                                     self._children_name_map["per_link"] = "per-link"
-                                    self._children_yang_names.add("per-link")
 
                                     self.per_prefix = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix()
                                     self.per_prefix.parent = self
                                     self._children_name_map["per_prefix"] = "per-prefix"
-                                    self._children_yang_names.add("per-prefix")
                                     self._segment_path = lambda: "fast-reroute"
 
                                 def __setattr__(self, name, value):
@@ -24382,8 +23789,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces))])
                                         self._leafs = OrderedDict([
                                             ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
                                         ])
@@ -24392,12 +23798,10 @@ class Ospf(Entity):
                                         self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces()
                                         self.candidate_interfaces.parent = self
                                         self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                        self._children_yang_names.add("candidate-interfaces")
 
                                         self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces()
                                         self.exclude_interfaces.parent = self
                                         self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                        self._children_yang_names.add("exclude-interfaces")
                                         self._segment_path = lambda: "per-link"
 
                                     def __setattr__(self, name, value):
@@ -24429,8 +23833,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
+                                            self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
                                             self._leafs = OrderedDict()
 
                                             self.candidate_interface = YList(self)
@@ -24466,8 +23869,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['interface_name']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                 ])
@@ -24503,8 +23905,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
+                                            self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
                                             self._leafs = OrderedDict()
 
                                             self.exclude_interface = YList(self)
@@ -24541,8 +23942,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['interface_name']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                 ])
@@ -24604,8 +24004,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.RemoteLfa)), ("tiebreakers", ("tiebreakers", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.RemoteLfa)), ("tiebreakers", ("tiebreakers", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces))])
                                         self._leafs = OrderedDict([
                                             ('topology_independent_lfa', YLeaf(YType.boolean, 'topology-independent-lfa')),
                                             ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
@@ -24616,22 +24015,18 @@ class Ospf(Entity):
                                         self.remote_lfa = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.RemoteLfa()
                                         self.remote_lfa.parent = self
                                         self._children_name_map["remote_lfa"] = "remote-lfa"
-                                        self._children_yang_names.add("remote-lfa")
 
                                         self.tiebreakers = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers()
                                         self.tiebreakers.parent = self
                                         self._children_name_map["tiebreakers"] = "tiebreakers"
-                                        self._children_yang_names.add("tiebreakers")
 
                                         self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces()
                                         self.candidate_interfaces.parent = self
                                         self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                        self._children_yang_names.add("candidate-interfaces")
 
                                         self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces()
                                         self.exclude_interfaces.parent = self
                                         self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                        self._children_yang_names.add("exclude-interfaces")
                                         self._segment_path = lambda: "per-prefix"
 
                                     def __setattr__(self, name, value):
@@ -24669,8 +24064,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('tunnel', YLeaf(YType.enumeration, 'tunnel')),
                                                 ('maximum_cost', YLeaf(YType.uint32, 'maximum-cost')),
@@ -24707,8 +24101,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
+                                            self._child_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
                                             self._leafs = OrderedDict()
 
                                             self.tiebreaker = YList(self)
@@ -24751,8 +24144,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['tiebreaker_type']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('tiebreaker_type', YLeaf(YType.enumeration, 'tiebreaker-type')),
                                                     ('tiebreaker_index', YLeaf(YType.uint32, 'tiebreaker-index')),
@@ -24790,8 +24182,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
+                                            self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
                                             self._leafs = OrderedDict()
 
                                             self.candidate_interface = YList(self)
@@ -24827,8 +24218,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['interface_name']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                 ])
@@ -24864,8 +24254,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
+                                            self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
                                             self._leafs = OrderedDict()
 
                                             self.exclude_interface = YList(self)
@@ -24902,8 +24291,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['interface_name']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                 ])
@@ -24947,8 +24335,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('cost', YLeaf(YType.uint32, 'cost')),
                                         ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -24985,8 +24372,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("name-scope", ("name_scope", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope))])
+                                self._child_classes = OrderedDict([("name-scope", ("name_scope", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope))])
                                 self._leafs = OrderedDict()
 
                                 self.name_scope = YList(self)
@@ -25225,8 +24611,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['interface_name']
-                                    self._child_container_classes = OrderedDict([("prefix-sid", ("prefix_sid", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSid)), ("prefix-sid-strict", ("prefix_sid_strict", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSidStrict)), ("distribute-list", ("distribute_list", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication)), ("security", ("security", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security)), ("neighbors", ("neighbors", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Neighbors)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.CostFallback))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("prefix-sid", ("prefix_sid", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSid)), ("prefix-sid-strict", ("prefix_sid_strict", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSidStrict)), ("distribute-list", ("distribute_list", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication)), ("security", ("security", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security)), ("neighbors", ("neighbors", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Neighbors)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.CostFallback))])
                                     self._leafs = OrderedDict([
                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                         ('cost', YLeaf(YType.uint32, 'cost')),
@@ -25276,50 +24661,40 @@ class Ospf(Entity):
 
                                     self.prefix_sid = None
                                     self._children_name_map["prefix_sid"] = "prefix-sid"
-                                    self._children_yang_names.add("prefix-sid")
 
                                     self.prefix_sid_strict = None
                                     self._children_name_map["prefix_sid_strict"] = "prefix-sid-strict"
-                                    self._children_yang_names.add("prefix-sid-strict")
 
                                     self.distribute_list = None
                                     self._children_name_map["distribute_list"] = "distribute-list"
-                                    self._children_yang_names.add("distribute-list")
 
                                     self.bfd = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Bfd()
                                     self.bfd.parent = self
                                     self._children_name_map["bfd"] = "bfd"
-                                    self._children_yang_names.add("bfd")
 
                                     self.authentication = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication()
                                     self.authentication.parent = self
                                     self._children_name_map["authentication"] = "authentication"
-                                    self._children_yang_names.add("authentication")
 
                                     self.security = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security()
                                     self.security.parent = self
                                     self._children_name_map["security"] = "security"
-                                    self._children_yang_names.add("security")
 
                                     self.neighbors = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Neighbors()
                                     self.neighbors.parent = self
                                     self._children_name_map["neighbors"] = "neighbors"
-                                    self._children_yang_names.add("neighbors")
 
                                     self.dead_interval_minimal = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DeadIntervalMinimal()
                                     self.dead_interval_minimal.parent = self
                                     self._children_name_map["dead_interval_minimal"] = "dead-interval-minimal"
-                                    self._children_yang_names.add("dead-interval-minimal")
 
                                     self.fast_reroute = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute()
                                     self.fast_reroute.parent = self
                                     self._children_name_map["fast_reroute"] = "fast-reroute"
-                                    self._children_yang_names.add("fast-reroute")
 
                                     self.cost_fallback = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.CostFallback()
                                     self.cost_fallback.parent = self
                                     self._children_name_map["cost_fallback"] = "cost-fallback"
-                                    self._children_yang_names.add("cost-fallback")
                                     self._segment_path = lambda: "name-scope" + "[interface-name='" + str(self.interface_name) + "']"
 
                                 def __setattr__(self, name, value):
@@ -25377,8 +24752,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('sid_value', YLeaf(YType.uint32, 'sid-value')),
@@ -25447,8 +24821,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('sid_value', YLeaf(YType.uint32, 'sid-value')),
@@ -25498,8 +24871,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -25553,8 +24925,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('interval', YLeaf(YType.uint32, 'interval')),
                                             ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
@@ -25605,8 +24976,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.MessageDigestKeies))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.MessageDigestKeies))])
                                         self._leafs = OrderedDict([
                                             ('key', YLeaf(YType.str, 'key')),
                                         ])
@@ -25615,12 +24985,10 @@ class Ospf(Entity):
                                         self.type = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.Type()
                                         self.type.parent = self
                                         self._children_name_map["type"] = "type"
-                                        self._children_yang_names.add("type")
 
                                         self.message_digest_keies = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.MessageDigestKeies()
                                         self.message_digest_keies.parent = self
                                         self._children_name_map["message_digest_keies"] = "message-digest-keies"
-                                        self._children_yang_names.add("message-digest-keies")
                                         self._segment_path = lambda: "authentication"
 
                                     def __setattr__(self, name, value):
@@ -25661,8 +25029,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('authen_type', YLeaf(YType.enumeration, 'authen-type')),
                                                 ('keychain_authen_type', YLeaf(YType.enumeration, 'keychain-authen-type')),
@@ -25702,8 +25069,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.MessageDigestKeies.MessageDigestKey))])
+                                            self._child_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.MessageDigestKeies.MessageDigestKey))])
                                             self._leafs = OrderedDict()
 
                                             self.message_digest_key = YList(self)
@@ -25749,8 +25115,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['key_id']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('key_id', YLeaf(YType.uint32, 'key-id')),
                                                     ('password', YLeaf(YType.str, 'password')),
@@ -25788,15 +25153,16 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("ttl", ("ttl", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security.Ttl))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("ttl", ("ttl", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security.Ttl))])
                                         self._leafs = OrderedDict()
 
                                         self.ttl = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security.Ttl()
                                         self.ttl.parent = self
                                         self._children_name_map["ttl"] = "ttl"
-                                        self._children_yang_names.add("ttl")
                                         self._segment_path = lambda: "security"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security, [], name, value)
 
 
                                     class Ttl(Entity):
@@ -25830,8 +25196,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('enable', YLeaf(YType.boolean, 'enable')),
                                                 ('hop_count', YLeaf(YType.uint32, 'hop-count')),
@@ -25868,8 +25233,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Neighbors.Neighbor))])
+                                        self._child_classes = OrderedDict([("neighbor", ("neighbor", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Neighbors.Neighbor))])
                                         self._leafs = OrderedDict()
 
                                         self.neighbor = YList(self)
@@ -25942,8 +25306,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['neighbor_address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
                                                 ('priority', YLeaf(YType.uint32, 'priority')),
@@ -25997,8 +25360,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('interval', YLeaf(YType.uint32, 'interval')),
                                             ('multiplier', YLeaf(YType.uint32, 'multiplier')),
@@ -26045,8 +25407,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix))])
                                         self._leafs = OrderedDict([
                                             ('fast_reroute_enable', YLeaf(YType.enumeration, 'fast-reroute-enable')),
                                         ])
@@ -26055,12 +25416,10 @@ class Ospf(Entity):
                                         self.per_link = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink()
                                         self.per_link.parent = self
                                         self._children_name_map["per_link"] = "per-link"
-                                        self._children_yang_names.add("per-link")
 
                                         self.per_prefix = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix()
                                         self.per_prefix.parent = self
                                         self._children_name_map["per_prefix"] = "per-prefix"
-                                        self._children_yang_names.add("per-prefix")
                                         self._segment_path = lambda: "fast-reroute"
 
                                     def __setattr__(self, name, value):
@@ -26103,8 +25462,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces))])
                                             self._leafs = OrderedDict([
                                                 ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
                                             ])
@@ -26113,12 +25471,10 @@ class Ospf(Entity):
                                             self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces()
                                             self.candidate_interfaces.parent = self
                                             self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                            self._children_yang_names.add("candidate-interfaces")
 
                                             self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces()
                                             self.exclude_interfaces.parent = self
                                             self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                            self._children_yang_names.add("exclude-interfaces")
                                             self._segment_path = lambda: "per-link"
 
                                         def __setattr__(self, name, value):
@@ -26150,8 +25506,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
+                                                self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
                                                 self._leafs = OrderedDict()
 
                                                 self.candidate_interface = YList(self)
@@ -26187,8 +25542,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['interface_name']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                     ])
@@ -26224,8 +25578,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
+                                                self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
                                                 self._leafs = OrderedDict()
 
                                                 self.exclude_interface = YList(self)
@@ -26262,8 +25615,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['interface_name']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                     ])
@@ -26325,8 +25677,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa)), ("tiebreakers", ("tiebreakers", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa)), ("tiebreakers", ("tiebreakers", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces))])
                                             self._leafs = OrderedDict([
                                                 ('topology_independent_lfa', YLeaf(YType.boolean, 'topology-independent-lfa')),
                                                 ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
@@ -26337,22 +25688,18 @@ class Ospf(Entity):
                                             self.remote_lfa = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa()
                                             self.remote_lfa.parent = self
                                             self._children_name_map["remote_lfa"] = "remote-lfa"
-                                            self._children_yang_names.add("remote-lfa")
 
                                             self.tiebreakers = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers()
                                             self.tiebreakers.parent = self
                                             self._children_name_map["tiebreakers"] = "tiebreakers"
-                                            self._children_yang_names.add("tiebreakers")
 
                                             self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces()
                                             self.candidate_interfaces.parent = self
                                             self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                            self._children_yang_names.add("candidate-interfaces")
 
                                             self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces()
                                             self.exclude_interfaces.parent = self
                                             self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                            self._children_yang_names.add("exclude-interfaces")
                                             self._segment_path = lambda: "per-prefix"
 
                                         def __setattr__(self, name, value):
@@ -26390,8 +25737,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('tunnel', YLeaf(YType.enumeration, 'tunnel')),
                                                     ('maximum_cost', YLeaf(YType.uint32, 'maximum-cost')),
@@ -26428,8 +25774,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
+                                                self._child_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
                                                 self._leafs = OrderedDict()
 
                                                 self.tiebreaker = YList(self)
@@ -26472,8 +25817,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['tiebreaker_type']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('tiebreaker_type', YLeaf(YType.enumeration, 'tiebreaker-type')),
                                                         ('tiebreaker_index', YLeaf(YType.uint32, 'tiebreaker-index')),
@@ -26511,8 +25855,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
+                                                self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
                                                 self._leafs = OrderedDict()
 
                                                 self.candidate_interface = YList(self)
@@ -26548,8 +25891,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['interface_name']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                     ])
@@ -26585,8 +25927,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
+                                                self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
                                                 self._leafs = OrderedDict()
 
                                                 self.exclude_interface = YList(self)
@@ -26623,8 +25964,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['interface_name']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                     ])
@@ -26668,8 +26008,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('cost', YLeaf(YType.uint32, 'cost')),
                                             ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -26706,8 +26045,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("multi-area-interface-scope", ("multi_area_interface_scope", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope))])
+                                self._child_classes = OrderedDict([("multi-area-interface-scope", ("multi_area_interface_scope", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope))])
                                 self._leafs = OrderedDict()
 
                                 self.multi_area_interface_scope = YList(self)
@@ -26846,8 +26184,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['interface_name']
-                                    self._child_container_classes = OrderedDict([("distribute-list", ("distribute_list", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList)), ("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication)), ("neighbors", ("neighbors", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("distribute-list", ("distribute_list", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList)), ("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication)), ("neighbors", ("neighbors", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback))])
                                     self._leafs = OrderedDict([
                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                         ('cost', YLeaf(YType.uint32, 'cost')),
@@ -26873,32 +26210,26 @@ class Ospf(Entity):
 
                                     self.distribute_list = None
                                     self._children_name_map["distribute_list"] = "distribute-list"
-                                    self._children_yang_names.add("distribute-list")
 
                                     self.authentication = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication()
                                     self.authentication.parent = self
                                     self._children_name_map["authentication"] = "authentication"
-                                    self._children_yang_names.add("authentication")
 
                                     self.neighbors = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors()
                                     self.neighbors.parent = self
                                     self._children_name_map["neighbors"] = "neighbors"
-                                    self._children_yang_names.add("neighbors")
 
                                     self.dead_interval_minimal = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal()
                                     self.dead_interval_minimal.parent = self
                                     self._children_name_map["dead_interval_minimal"] = "dead-interval-minimal"
-                                    self._children_yang_names.add("dead-interval-minimal")
 
                                     self.fast_reroute = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute()
                                     self.fast_reroute.parent = self
                                     self._children_name_map["fast_reroute"] = "fast-reroute"
-                                    self._children_yang_names.add("fast-reroute")
 
                                     self.cost_fallback = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback()
                                     self.cost_fallback.parent = self
                                     self._children_name_map["cost_fallback"] = "cost-fallback"
-                                    self._children_yang_names.add("cost-fallback")
                                     self._segment_path = lambda: "multi-area-interface-scope" + "[interface-name='" + str(self.interface_name) + "']"
 
                                 def __setattr__(self, name, value):
@@ -26937,8 +26268,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -26988,8 +26318,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeies))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeies))])
                                         self._leafs = OrderedDict([
                                             ('key', YLeaf(YType.str, 'key')),
                                         ])
@@ -26998,12 +26327,10 @@ class Ospf(Entity):
                                         self.type = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type()
                                         self.type.parent = self
                                         self._children_name_map["type"] = "type"
-                                        self._children_yang_names.add("type")
 
                                         self.message_digest_keies = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeies()
                                         self.message_digest_keies.parent = self
                                         self._children_name_map["message_digest_keies"] = "message-digest-keies"
-                                        self._children_yang_names.add("message-digest-keies")
                                         self._segment_path = lambda: "authentication"
 
                                     def __setattr__(self, name, value):
@@ -27044,8 +26371,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('authen_type', YLeaf(YType.enumeration, 'authen-type')),
                                                 ('keychain_authen_type', YLeaf(YType.enumeration, 'keychain-authen-type')),
@@ -27085,8 +26411,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeies.MessageDigestKey))])
+                                            self._child_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeies.MessageDigestKey))])
                                             self._leafs = OrderedDict()
 
                                             self.message_digest_key = YList(self)
@@ -27132,8 +26457,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['key_id']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('key_id', YLeaf(YType.uint32, 'key-id')),
                                                     ('password', YLeaf(YType.str, 'password')),
@@ -27170,8 +26494,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors.Neighbor))])
+                                        self._child_classes = OrderedDict([("neighbor", ("neighbor", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors.Neighbor))])
                                         self._leafs = OrderedDict()
 
                                         self.neighbor = YList(self)
@@ -27244,8 +26567,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['neighbor_address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
                                                 ('priority', YLeaf(YType.uint32, 'priority')),
@@ -27299,8 +26621,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('interval', YLeaf(YType.uint32, 'interval')),
                                             ('multiplier', YLeaf(YType.uint32, 'multiplier')),
@@ -27347,8 +26668,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix))])
                                         self._leafs = OrderedDict([
                                             ('fast_reroute_enable', YLeaf(YType.enumeration, 'fast-reroute-enable')),
                                         ])
@@ -27357,12 +26677,10 @@ class Ospf(Entity):
                                         self.per_link = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink()
                                         self.per_link.parent = self
                                         self._children_name_map["per_link"] = "per-link"
-                                        self._children_yang_names.add("per-link")
 
                                         self.per_prefix = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix()
                                         self.per_prefix.parent = self
                                         self._children_name_map["per_prefix"] = "per-prefix"
-                                        self._children_yang_names.add("per-prefix")
                                         self._segment_path = lambda: "fast-reroute"
 
                                     def __setattr__(self, name, value):
@@ -27405,8 +26723,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces))])
                                             self._leafs = OrderedDict([
                                                 ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
                                             ])
@@ -27415,12 +26732,10 @@ class Ospf(Entity):
                                             self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces()
                                             self.candidate_interfaces.parent = self
                                             self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                            self._children_yang_names.add("candidate-interfaces")
 
                                             self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces()
                                             self.exclude_interfaces.parent = self
                                             self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                            self._children_yang_names.add("exclude-interfaces")
                                             self._segment_path = lambda: "per-link"
 
                                         def __setattr__(self, name, value):
@@ -27452,8 +26767,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
+                                                self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
                                                 self._leafs = OrderedDict()
 
                                                 self.candidate_interface = YList(self)
@@ -27489,8 +26803,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['interface_name']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                     ])
@@ -27526,8 +26839,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
+                                                self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
                                                 self._leafs = OrderedDict()
 
                                                 self.exclude_interface = YList(self)
@@ -27564,8 +26876,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['interface_name']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                     ])
@@ -27627,8 +26938,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa)), ("tiebreakers", ("tiebreakers", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa)), ("tiebreakers", ("tiebreakers", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces))])
                                             self._leafs = OrderedDict([
                                                 ('topology_independent_lfa', YLeaf(YType.boolean, 'topology-independent-lfa')),
                                                 ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
@@ -27639,22 +26949,18 @@ class Ospf(Entity):
                                             self.remote_lfa = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa()
                                             self.remote_lfa.parent = self
                                             self._children_name_map["remote_lfa"] = "remote-lfa"
-                                            self._children_yang_names.add("remote-lfa")
 
                                             self.tiebreakers = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers()
                                             self.tiebreakers.parent = self
                                             self._children_name_map["tiebreakers"] = "tiebreakers"
-                                            self._children_yang_names.add("tiebreakers")
 
                                             self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces()
                                             self.candidate_interfaces.parent = self
                                             self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                            self._children_yang_names.add("candidate-interfaces")
 
                                             self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces()
                                             self.exclude_interfaces.parent = self
                                             self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                            self._children_yang_names.add("exclude-interfaces")
                                             self._segment_path = lambda: "per-prefix"
 
                                         def __setattr__(self, name, value):
@@ -27692,8 +26998,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('tunnel', YLeaf(YType.enumeration, 'tunnel')),
                                                     ('maximum_cost', YLeaf(YType.uint32, 'maximum-cost')),
@@ -27730,8 +27035,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
+                                                self._child_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
                                                 self._leafs = OrderedDict()
 
                                                 self.tiebreaker = YList(self)
@@ -27774,8 +27078,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['tiebreaker_type']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('tiebreaker_type', YLeaf(YType.enumeration, 'tiebreaker-type')),
                                                         ('tiebreaker_index', YLeaf(YType.uint32, 'tiebreaker-index')),
@@ -27813,8 +27116,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
+                                                self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
                                                 self._leafs = OrderedDict()
 
                                                 self.candidate_interface = YList(self)
@@ -27850,8 +27152,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['interface_name']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                     ])
@@ -27887,8 +27188,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
+                                                self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
                                                 self._leafs = OrderedDict()
 
                                                 self.exclude_interface = YList(self)
@@ -27925,8 +27225,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['interface_name']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                     ])
@@ -27970,8 +27269,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('cost', YLeaf(YType.uint32, 'cost')),
                                             ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -28009,8 +27307,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("area-range", ("area_range", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaRanges.AreaRange))])
+                                self._child_classes = OrderedDict([("area-range", ("area_range", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaRanges.AreaRange))])
                                 self._leafs = OrderedDict()
 
                                 self.area_range = YList(self)
@@ -28058,8 +27355,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['address','netmask']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('address', YLeaf(YType.str, 'address')),
                                         ('netmask', YLeaf(YType.str, 'netmask')),
@@ -28128,8 +27424,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('no_redistribution', YLeaf(YType.boolean, 'no-redistribution')),
                                     ('default_info_originate', YLeaf(YType.boolean, 'default-info-originate')),
@@ -28218,6 +27513,11 @@ class Ospf(Entity):
                         	Specify the area as a stub area (send summary LSA stub area)
                         	**type**\: bool
                         
+                        .. attribute:: type7_translate_always
+                        
+                        	Translate Type 7 to Type 5, even if not elected NSSA translator
+                        	**type**\: bool
+                        
                         .. attribute:: mpls_traffic_eng
                         
                         	Configure an OSPF area to run MPLS Traffic Engineering
@@ -28258,14 +27558,14 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['area_id']
-                            self._child_container_classes = OrderedDict([("virtual-link-scopes", ("virtual_link_scopes", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes)), ("sham-link-scopes", ("sham_link_scopes", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes)), ("area-scope", ("area_scope", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope)), ("name-scopes", ("name_scopes", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes)), ("multi-area-interface-scopes", ("multi_area_interface_scopes", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes)), ("area-ranges", ("area_ranges", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaRanges)), ("nssa", ("nssa", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Nssa))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("virtual-link-scopes", ("virtual_link_scopes", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes)), ("sham-link-scopes", ("sham_link_scopes", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes)), ("area-scope", ("area_scope", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope)), ("name-scopes", ("name_scopes", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes)), ("multi-area-interface-scopes", ("multi_area_interface_scopes", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes)), ("area-ranges", ("area_ranges", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaRanges)), ("nssa", ("nssa", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Nssa))])
                             self._leafs = OrderedDict([
                                 ('area_id', YLeaf(YType.uint32, 'area-id')),
                                 ('route_policy_in', YLeaf(YType.str, 'route-policy-in')),
                                 ('default_cost', YLeaf(YType.uint32, 'default-cost')),
                                 ('route_policy_out', YLeaf(YType.str, 'route-policy-out')),
                                 ('stub', YLeaf(YType.boolean, 'stub')),
+                                ('type7_translate_always', YLeaf(YType.boolean, 'type7-translate-always')),
                                 ('mpls_traffic_eng', YLeaf(YType.empty, 'mpls-traffic-eng')),
                                 ('external_out', YLeaf(YType.boolean, 'external-out')),
                                 ('summary_in', YLeaf(YType.boolean, 'summary-in')),
@@ -28277,6 +27577,7 @@ class Ospf(Entity):
                             self.default_cost = None
                             self.route_policy_out = None
                             self.stub = None
+                            self.type7_translate_always = None
                             self.mpls_traffic_eng = None
                             self.external_out = None
                             self.summary_in = None
@@ -28286,41 +27587,34 @@ class Ospf(Entity):
                             self.virtual_link_scopes = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes()
                             self.virtual_link_scopes.parent = self
                             self._children_name_map["virtual_link_scopes"] = "virtual-link-scopes"
-                            self._children_yang_names.add("virtual-link-scopes")
 
                             self.sham_link_scopes = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes()
                             self.sham_link_scopes.parent = self
                             self._children_name_map["sham_link_scopes"] = "sham-link-scopes"
-                            self._children_yang_names.add("sham-link-scopes")
 
                             self.area_scope = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope()
                             self.area_scope.parent = self
                             self._children_name_map["area_scope"] = "area-scope"
-                            self._children_yang_names.add("area-scope")
 
                             self.name_scopes = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes()
                             self.name_scopes.parent = self
                             self._children_name_map["name_scopes"] = "name-scopes"
-                            self._children_yang_names.add("name-scopes")
 
                             self.multi_area_interface_scopes = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes()
                             self.multi_area_interface_scopes.parent = self
                             self._children_name_map["multi_area_interface_scopes"] = "multi-area-interface-scopes"
-                            self._children_yang_names.add("multi-area-interface-scopes")
 
                             self.area_ranges = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaRanges()
                             self.area_ranges.parent = self
                             self._children_name_map["area_ranges"] = "area-ranges"
-                            self._children_yang_names.add("area-ranges")
 
                             self.nssa = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Nssa()
                             self.nssa.parent = self
                             self._children_name_map["nssa"] = "nssa"
-                            self._children_yang_names.add("nssa")
                             self._segment_path = lambda: "area-area-id" + "[area-id='" + str(self.area_id) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId, ['area_id', 'route_policy_in', 'default_cost', 'route_policy_out', 'stub', 'mpls_traffic_eng', 'external_out', 'summary_in', 'segment_routing', 'running'], name, value)
+                            self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId, ['area_id', 'route_policy_in', 'default_cost', 'route_policy_out', 'stub', 'type7_translate_always', 'mpls_traffic_eng', 'external_out', 'summary_in', 'segment_routing', 'running'], name, value)
 
 
                         class VirtualLinkScopes(Entity):
@@ -28347,8 +27641,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("virtual-link-scope", ("virtual_link_scope", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope))])
+                                self._child_classes = OrderedDict([("virtual-link-scope", ("virtual_link_scope", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope))])
                                 self._leafs = OrderedDict()
 
                                 self.virtual_link_scope = YList(self)
@@ -28430,8 +27723,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['address']
-                                    self._child_container_classes = OrderedDict([("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.DeadIntervalMinimal))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.DeadIntervalMinimal))])
                                     self._leafs = OrderedDict([
                                         ('address', YLeaf(YType.str, 'address')),
                                         ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
@@ -28448,12 +27740,10 @@ class Ospf(Entity):
                                     self.authentication = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication()
                                     self.authentication.parent = self
                                     self._children_name_map["authentication"] = "authentication"
-                                    self._children_yang_names.add("authentication")
 
                                     self.dead_interval_minimal = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.DeadIntervalMinimal()
                                     self.dead_interval_minimal.parent = self
                                     self._children_name_map["dead_interval_minimal"] = "dead-interval-minimal"
-                                    self._children_yang_names.add("dead-interval-minimal")
                                     self._segment_path = lambda: "virtual-link-scope" + "[address='" + str(self.address) + "']"
 
                                 def __setattr__(self, name, value):
@@ -28496,8 +27786,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeies))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeies))])
                                         self._leafs = OrderedDict([
                                             ('key', YLeaf(YType.str, 'key')),
                                         ])
@@ -28506,12 +27795,10 @@ class Ospf(Entity):
                                         self.type = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.Type()
                                         self.type.parent = self
                                         self._children_name_map["type"] = "type"
-                                        self._children_yang_names.add("type")
 
                                         self.message_digest_keies = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeies()
                                         self.message_digest_keies.parent = self
                                         self._children_name_map["message_digest_keies"] = "message-digest-keies"
-                                        self._children_yang_names.add("message-digest-keies")
                                         self._segment_path = lambda: "authentication"
 
                                     def __setattr__(self, name, value):
@@ -28552,8 +27839,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('authen_type', YLeaf(YType.enumeration, 'authen-type')),
                                                 ('keychain_authen_type', YLeaf(YType.enumeration, 'keychain-authen-type')),
@@ -28593,8 +27879,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeies.MessageDigestKey))])
+                                            self._child_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeies.MessageDigestKey))])
                                             self._leafs = OrderedDict()
 
                                             self.message_digest_key = YList(self)
@@ -28640,8 +27925,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['key_id']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('key_id', YLeaf(YType.uint32, 'key-id')),
                                                     ('password', YLeaf(YType.str, 'password')),
@@ -28689,8 +27973,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('interval', YLeaf(YType.uint32, 'interval')),
                                             ('multiplier', YLeaf(YType.uint32, 'multiplier')),
@@ -28727,8 +28010,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("sham-link-scope", ("sham_link_scope", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope))])
+                                self._child_classes = OrderedDict([("sham-link-scope", ("sham_link_scope", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope))])
                                 self._leafs = OrderedDict()
 
                                 self.sham_link_scope = YList(self)
@@ -28831,8 +28113,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['source_address','destination_address']
-                                    self._child_container_classes = OrderedDict([("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal))])
                                     self._leafs = OrderedDict([
                                         ('source_address', YLeaf(YType.str, 'source-address')),
                                         ('destination_address', YLeaf(YType.str, 'destination-address')),
@@ -28855,12 +28136,10 @@ class Ospf(Entity):
                                     self.authentication = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication()
                                     self.authentication.parent = self
                                     self._children_name_map["authentication"] = "authentication"
-                                    self._children_yang_names.add("authentication")
 
                                     self.dead_interval_minimal = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal()
                                     self.dead_interval_minimal.parent = self
                                     self._children_name_map["dead_interval_minimal"] = "dead-interval-minimal"
-                                    self._children_yang_names.add("dead-interval-minimal")
                                     self._segment_path = lambda: "sham-link-scope" + "[source-address='" + str(self.source_address) + "']" + "[destination-address='" + str(self.destination_address) + "']"
 
                                 def __setattr__(self, name, value):
@@ -28903,8 +28182,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeies))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeies))])
                                         self._leafs = OrderedDict([
                                             ('key', YLeaf(YType.str, 'key')),
                                         ])
@@ -28913,12 +28191,10 @@ class Ospf(Entity):
                                         self.type = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.Type()
                                         self.type.parent = self
                                         self._children_name_map["type"] = "type"
-                                        self._children_yang_names.add("type")
 
                                         self.message_digest_keies = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeies()
                                         self.message_digest_keies.parent = self
                                         self._children_name_map["message_digest_keies"] = "message-digest-keies"
-                                        self._children_yang_names.add("message-digest-keies")
                                         self._segment_path = lambda: "authentication"
 
                                     def __setattr__(self, name, value):
@@ -28959,8 +28235,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('authen_type', YLeaf(YType.enumeration, 'authen-type')),
                                                 ('keychain_authen_type', YLeaf(YType.enumeration, 'keychain-authen-type')),
@@ -29000,8 +28275,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeies.MessageDigestKey))])
+                                            self._child_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeies.MessageDigestKey))])
                                             self._leafs = OrderedDict()
 
                                             self.message_digest_key = YList(self)
@@ -29047,8 +28321,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['key_id']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('key_id', YLeaf(YType.uint32, 'key-id')),
                                                     ('password', YLeaf(YType.str, 'password')),
@@ -29096,8 +28369,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('interval', YLeaf(YType.uint32, 'interval')),
                                             ('multiplier', YLeaf(YType.uint32, 'multiplier')),
@@ -29308,8 +28580,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("distribute-list", ("distribute_list", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Authentication)), ("security", ("security", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Security)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.CostFallback))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("distribute-list", ("distribute_list", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Authentication)), ("security", ("security", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Security)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.CostFallback))])
                                 self._leafs = OrderedDict([
                                     ('cost', YLeaf(YType.uint32, 'cost')),
                                     ('prefix_suppression_primary', YLeaf(YType.boolean, 'prefix-suppression-primary')),
@@ -29355,37 +28626,30 @@ class Ospf(Entity):
 
                                 self.distribute_list = None
                                 self._children_name_map["distribute_list"] = "distribute-list"
-                                self._children_yang_names.add("distribute-list")
 
                                 self.bfd = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Bfd()
                                 self.bfd.parent = self
                                 self._children_name_map["bfd"] = "bfd"
-                                self._children_yang_names.add("bfd")
 
                                 self.authentication = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Authentication()
                                 self.authentication.parent = self
                                 self._children_name_map["authentication"] = "authentication"
-                                self._children_yang_names.add("authentication")
 
                                 self.security = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Security()
                                 self.security.parent = self
                                 self._children_name_map["security"] = "security"
-                                self._children_yang_names.add("security")
 
                                 self.dead_interval_minimal = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.DeadIntervalMinimal()
                                 self.dead_interval_minimal.parent = self
                                 self._children_name_map["dead_interval_minimal"] = "dead-interval-minimal"
-                                self._children_yang_names.add("dead-interval-minimal")
 
                                 self.fast_reroute = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute()
                                 self.fast_reroute.parent = self
                                 self._children_name_map["fast_reroute"] = "fast-reroute"
-                                self._children_yang_names.add("fast-reroute")
 
                                 self.cost_fallback = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.CostFallback()
                                 self.cost_fallback.parent = self
                                 self._children_name_map["cost_fallback"] = "cost-fallback"
-                                self._children_yang_names.add("cost-fallback")
                                 self._segment_path = lambda: "area-scope"
 
                             def __setattr__(self, name, value):
@@ -29424,8 +28688,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self.is_presence_container = True
                                     self._leafs = OrderedDict([
                                         ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -29479,8 +28742,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('interval', YLeaf(YType.uint32, 'interval')),
                                         ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
@@ -29531,8 +28793,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.MessageDigestKeies))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.MessageDigestKeies))])
                                     self._leafs = OrderedDict([
                                         ('key', YLeaf(YType.str, 'key')),
                                     ])
@@ -29541,12 +28802,10 @@ class Ospf(Entity):
                                     self.type = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.Type()
                                     self.type.parent = self
                                     self._children_name_map["type"] = "type"
-                                    self._children_yang_names.add("type")
 
                                     self.message_digest_keies = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.MessageDigestKeies()
                                     self.message_digest_keies.parent = self
                                     self._children_name_map["message_digest_keies"] = "message-digest-keies"
-                                    self._children_yang_names.add("message-digest-keies")
                                     self._segment_path = lambda: "authentication"
 
                                 def __setattr__(self, name, value):
@@ -29587,8 +28846,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('authen_type', YLeaf(YType.enumeration, 'authen-type')),
                                             ('keychain_authen_type', YLeaf(YType.enumeration, 'keychain-authen-type')),
@@ -29628,8 +28886,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.MessageDigestKeies.MessageDigestKey))])
+                                        self._child_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.MessageDigestKeies.MessageDigestKey))])
                                         self._leafs = OrderedDict()
 
                                         self.message_digest_key = YList(self)
@@ -29675,8 +28932,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['key_id']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('key_id', YLeaf(YType.uint32, 'key-id')),
                                                 ('password', YLeaf(YType.str, 'password')),
@@ -29714,15 +28970,16 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("ttl", ("ttl", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Security.Ttl))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("ttl", ("ttl", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Security.Ttl))])
                                     self._leafs = OrderedDict()
 
                                     self.ttl = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Security.Ttl()
                                     self.ttl.parent = self
                                     self._children_name_map["ttl"] = "ttl"
-                                    self._children_yang_names.add("ttl")
                                     self._segment_path = lambda: "security"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Security, [], name, value)
 
 
                                 class Ttl(Entity):
@@ -29756,8 +29013,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('enable', YLeaf(YType.boolean, 'enable')),
                                             ('hop_count', YLeaf(YType.uint32, 'hop-count')),
@@ -29805,8 +29061,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('interval', YLeaf(YType.uint32, 'interval')),
                                         ('multiplier', YLeaf(YType.uint32, 'multiplier')),
@@ -29853,8 +29108,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix))])
                                     self._leafs = OrderedDict([
                                         ('fast_reroute_enable', YLeaf(YType.enumeration, 'fast-reroute-enable')),
                                     ])
@@ -29863,12 +29117,10 @@ class Ospf(Entity):
                                     self.per_link = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink()
                                     self.per_link.parent = self
                                     self._children_name_map["per_link"] = "per-link"
-                                    self._children_yang_names.add("per-link")
 
                                     self.per_prefix = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix()
                                     self.per_prefix.parent = self
                                     self._children_name_map["per_prefix"] = "per-prefix"
-                                    self._children_yang_names.add("per-prefix")
                                     self._segment_path = lambda: "fast-reroute"
 
                                 def __setattr__(self, name, value):
@@ -29911,8 +29163,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces))])
                                         self._leafs = OrderedDict([
                                             ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
                                         ])
@@ -29921,12 +29172,10 @@ class Ospf(Entity):
                                         self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces()
                                         self.candidate_interfaces.parent = self
                                         self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                        self._children_yang_names.add("candidate-interfaces")
 
                                         self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces()
                                         self.exclude_interfaces.parent = self
                                         self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                        self._children_yang_names.add("exclude-interfaces")
                                         self._segment_path = lambda: "per-link"
 
                                     def __setattr__(self, name, value):
@@ -29958,8 +29207,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
+                                            self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
                                             self._leafs = OrderedDict()
 
                                             self.candidate_interface = YList(self)
@@ -29995,8 +29243,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['interface_name']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                 ])
@@ -30032,8 +29279,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
+                                            self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
                                             self._leafs = OrderedDict()
 
                                             self.exclude_interface = YList(self)
@@ -30070,8 +29316,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['interface_name']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                 ])
@@ -30133,8 +29378,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.RemoteLfa)), ("tiebreakers", ("tiebreakers", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.RemoteLfa)), ("tiebreakers", ("tiebreakers", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces))])
                                         self._leafs = OrderedDict([
                                             ('topology_independent_lfa', YLeaf(YType.boolean, 'topology-independent-lfa')),
                                             ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
@@ -30145,22 +29389,18 @@ class Ospf(Entity):
                                         self.remote_lfa = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.RemoteLfa()
                                         self.remote_lfa.parent = self
                                         self._children_name_map["remote_lfa"] = "remote-lfa"
-                                        self._children_yang_names.add("remote-lfa")
 
                                         self.tiebreakers = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers()
                                         self.tiebreakers.parent = self
                                         self._children_name_map["tiebreakers"] = "tiebreakers"
-                                        self._children_yang_names.add("tiebreakers")
 
                                         self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces()
                                         self.candidate_interfaces.parent = self
                                         self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                        self._children_yang_names.add("candidate-interfaces")
 
                                         self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces()
                                         self.exclude_interfaces.parent = self
                                         self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                        self._children_yang_names.add("exclude-interfaces")
                                         self._segment_path = lambda: "per-prefix"
 
                                     def __setattr__(self, name, value):
@@ -30198,8 +29438,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('tunnel', YLeaf(YType.enumeration, 'tunnel')),
                                                 ('maximum_cost', YLeaf(YType.uint32, 'maximum-cost')),
@@ -30236,8 +29475,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
+                                            self._child_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
                                             self._leafs = OrderedDict()
 
                                             self.tiebreaker = YList(self)
@@ -30280,8 +29518,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['tiebreaker_type']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('tiebreaker_type', YLeaf(YType.enumeration, 'tiebreaker-type')),
                                                     ('tiebreaker_index', YLeaf(YType.uint32, 'tiebreaker-index')),
@@ -30319,8 +29556,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
+                                            self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
                                             self._leafs = OrderedDict()
 
                                             self.candidate_interface = YList(self)
@@ -30356,8 +29592,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['interface_name']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                 ])
@@ -30393,8 +29628,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
+                                            self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
                                             self._leafs = OrderedDict()
 
                                             self.exclude_interface = YList(self)
@@ -30431,8 +29665,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['interface_name']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                 ])
@@ -30476,8 +29709,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('cost', YLeaf(YType.uint32, 'cost')),
                                         ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -30514,8 +29746,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("name-scope", ("name_scope", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope))])
+                                self._child_classes = OrderedDict([("name-scope", ("name_scope", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope))])
                                 self._leafs = OrderedDict()
 
                                 self.name_scope = YList(self)
@@ -30754,8 +29985,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['interface_name']
-                                    self._child_container_classes = OrderedDict([("prefix-sid", ("prefix_sid", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSid)), ("prefix-sid-strict", ("prefix_sid_strict", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSidStrict)), ("distribute-list", ("distribute_list", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication)), ("security", ("security", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security)), ("neighbors", ("neighbors", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Neighbors)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.CostFallback))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("prefix-sid", ("prefix_sid", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSid)), ("prefix-sid-strict", ("prefix_sid_strict", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSidStrict)), ("distribute-list", ("distribute_list", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DistributeList)), ("bfd", ("bfd", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Bfd)), ("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication)), ("security", ("security", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security)), ("neighbors", ("neighbors", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Neighbors)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.CostFallback))])
                                     self._leafs = OrderedDict([
                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                         ('cost', YLeaf(YType.uint32, 'cost')),
@@ -30805,50 +30035,40 @@ class Ospf(Entity):
 
                                     self.prefix_sid = None
                                     self._children_name_map["prefix_sid"] = "prefix-sid"
-                                    self._children_yang_names.add("prefix-sid")
 
                                     self.prefix_sid_strict = None
                                     self._children_name_map["prefix_sid_strict"] = "prefix-sid-strict"
-                                    self._children_yang_names.add("prefix-sid-strict")
 
                                     self.distribute_list = None
                                     self._children_name_map["distribute_list"] = "distribute-list"
-                                    self._children_yang_names.add("distribute-list")
 
                                     self.bfd = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Bfd()
                                     self.bfd.parent = self
                                     self._children_name_map["bfd"] = "bfd"
-                                    self._children_yang_names.add("bfd")
 
                                     self.authentication = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication()
                                     self.authentication.parent = self
                                     self._children_name_map["authentication"] = "authentication"
-                                    self._children_yang_names.add("authentication")
 
                                     self.security = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security()
                                     self.security.parent = self
                                     self._children_name_map["security"] = "security"
-                                    self._children_yang_names.add("security")
 
                                     self.neighbors = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Neighbors()
                                     self.neighbors.parent = self
                                     self._children_name_map["neighbors"] = "neighbors"
-                                    self._children_yang_names.add("neighbors")
 
                                     self.dead_interval_minimal = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DeadIntervalMinimal()
                                     self.dead_interval_minimal.parent = self
                                     self._children_name_map["dead_interval_minimal"] = "dead-interval-minimal"
-                                    self._children_yang_names.add("dead-interval-minimal")
 
                                     self.fast_reroute = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute()
                                     self.fast_reroute.parent = self
                                     self._children_name_map["fast_reroute"] = "fast-reroute"
-                                    self._children_yang_names.add("fast-reroute")
 
                                     self.cost_fallback = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.CostFallback()
                                     self.cost_fallback.parent = self
                                     self._children_name_map["cost_fallback"] = "cost-fallback"
-                                    self._children_yang_names.add("cost-fallback")
                                     self._segment_path = lambda: "name-scope" + "[interface-name='" + str(self.interface_name) + "']"
 
                                 def __setattr__(self, name, value):
@@ -30906,8 +30126,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('sid_value', YLeaf(YType.uint32, 'sid-value')),
@@ -30976,8 +30195,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('sid_value', YLeaf(YType.uint32, 'sid-value')),
@@ -31027,8 +30245,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -31082,8 +30299,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('interval', YLeaf(YType.uint32, 'interval')),
                                             ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
@@ -31134,8 +30350,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.MessageDigestKeies))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.MessageDigestKeies))])
                                         self._leafs = OrderedDict([
                                             ('key', YLeaf(YType.str, 'key')),
                                         ])
@@ -31144,12 +30359,10 @@ class Ospf(Entity):
                                         self.type = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.Type()
                                         self.type.parent = self
                                         self._children_name_map["type"] = "type"
-                                        self._children_yang_names.add("type")
 
                                         self.message_digest_keies = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.MessageDigestKeies()
                                         self.message_digest_keies.parent = self
                                         self._children_name_map["message_digest_keies"] = "message-digest-keies"
-                                        self._children_yang_names.add("message-digest-keies")
                                         self._segment_path = lambda: "authentication"
 
                                     def __setattr__(self, name, value):
@@ -31190,8 +30403,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('authen_type', YLeaf(YType.enumeration, 'authen-type')),
                                                 ('keychain_authen_type', YLeaf(YType.enumeration, 'keychain-authen-type')),
@@ -31231,8 +30443,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.MessageDigestKeies.MessageDigestKey))])
+                                            self._child_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.MessageDigestKeies.MessageDigestKey))])
                                             self._leafs = OrderedDict()
 
                                             self.message_digest_key = YList(self)
@@ -31278,8 +30489,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['key_id']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('key_id', YLeaf(YType.uint32, 'key-id')),
                                                     ('password', YLeaf(YType.str, 'password')),
@@ -31317,15 +30527,16 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("ttl", ("ttl", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security.Ttl))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("ttl", ("ttl", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security.Ttl))])
                                         self._leafs = OrderedDict()
 
                                         self.ttl = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security.Ttl()
                                         self.ttl.parent = self
                                         self._children_name_map["ttl"] = "ttl"
-                                        self._children_yang_names.add("ttl")
                                         self._segment_path = lambda: "security"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security, [], name, value)
 
 
                                     class Ttl(Entity):
@@ -31359,8 +30570,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('enable', YLeaf(YType.boolean, 'enable')),
                                                 ('hop_count', YLeaf(YType.uint32, 'hop-count')),
@@ -31397,8 +30607,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Neighbors.Neighbor))])
+                                        self._child_classes = OrderedDict([("neighbor", ("neighbor", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Neighbors.Neighbor))])
                                         self._leafs = OrderedDict()
 
                                         self.neighbor = YList(self)
@@ -31471,8 +30680,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['neighbor_address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
                                                 ('priority', YLeaf(YType.uint32, 'priority')),
@@ -31526,8 +30734,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('interval', YLeaf(YType.uint32, 'interval')),
                                             ('multiplier', YLeaf(YType.uint32, 'multiplier')),
@@ -31574,8 +30781,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix))])
                                         self._leafs = OrderedDict([
                                             ('fast_reroute_enable', YLeaf(YType.enumeration, 'fast-reroute-enable')),
                                         ])
@@ -31584,12 +30790,10 @@ class Ospf(Entity):
                                         self.per_link = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink()
                                         self.per_link.parent = self
                                         self._children_name_map["per_link"] = "per-link"
-                                        self._children_yang_names.add("per-link")
 
                                         self.per_prefix = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix()
                                         self.per_prefix.parent = self
                                         self._children_name_map["per_prefix"] = "per-prefix"
-                                        self._children_yang_names.add("per-prefix")
                                         self._segment_path = lambda: "fast-reroute"
 
                                     def __setattr__(self, name, value):
@@ -31632,8 +30836,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces))])
                                             self._leafs = OrderedDict([
                                                 ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
                                             ])
@@ -31642,12 +30845,10 @@ class Ospf(Entity):
                                             self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces()
                                             self.candidate_interfaces.parent = self
                                             self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                            self._children_yang_names.add("candidate-interfaces")
 
                                             self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces()
                                             self.exclude_interfaces.parent = self
                                             self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                            self._children_yang_names.add("exclude-interfaces")
                                             self._segment_path = lambda: "per-link"
 
                                         def __setattr__(self, name, value):
@@ -31679,8 +30880,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
+                                                self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
                                                 self._leafs = OrderedDict()
 
                                                 self.candidate_interface = YList(self)
@@ -31716,8 +30916,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['interface_name']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                     ])
@@ -31753,8 +30952,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
+                                                self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
                                                 self._leafs = OrderedDict()
 
                                                 self.exclude_interface = YList(self)
@@ -31791,8 +30989,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['interface_name']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                     ])
@@ -31854,8 +31051,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa)), ("tiebreakers", ("tiebreakers", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa)), ("tiebreakers", ("tiebreakers", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces))])
                                             self._leafs = OrderedDict([
                                                 ('topology_independent_lfa', YLeaf(YType.boolean, 'topology-independent-lfa')),
                                                 ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
@@ -31866,22 +31062,18 @@ class Ospf(Entity):
                                             self.remote_lfa = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa()
                                             self.remote_lfa.parent = self
                                             self._children_name_map["remote_lfa"] = "remote-lfa"
-                                            self._children_yang_names.add("remote-lfa")
 
                                             self.tiebreakers = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers()
                                             self.tiebreakers.parent = self
                                             self._children_name_map["tiebreakers"] = "tiebreakers"
-                                            self._children_yang_names.add("tiebreakers")
 
                                             self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces()
                                             self.candidate_interfaces.parent = self
                                             self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                            self._children_yang_names.add("candidate-interfaces")
 
                                             self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces()
                                             self.exclude_interfaces.parent = self
                                             self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                            self._children_yang_names.add("exclude-interfaces")
                                             self._segment_path = lambda: "per-prefix"
 
                                         def __setattr__(self, name, value):
@@ -31919,8 +31111,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('tunnel', YLeaf(YType.enumeration, 'tunnel')),
                                                     ('maximum_cost', YLeaf(YType.uint32, 'maximum-cost')),
@@ -31957,8 +31148,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
+                                                self._child_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
                                                 self._leafs = OrderedDict()
 
                                                 self.tiebreaker = YList(self)
@@ -32001,8 +31191,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['tiebreaker_type']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('tiebreaker_type', YLeaf(YType.enumeration, 'tiebreaker-type')),
                                                         ('tiebreaker_index', YLeaf(YType.uint32, 'tiebreaker-index')),
@@ -32040,8 +31229,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
+                                                self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
                                                 self._leafs = OrderedDict()
 
                                                 self.candidate_interface = YList(self)
@@ -32077,8 +31265,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['interface_name']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                     ])
@@ -32114,8 +31301,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
+                                                self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
                                                 self._leafs = OrderedDict()
 
                                                 self.exclude_interface = YList(self)
@@ -32152,8 +31338,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['interface_name']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                     ])
@@ -32197,8 +31382,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('cost', YLeaf(YType.uint32, 'cost')),
                                             ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -32235,8 +31419,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("multi-area-interface-scope", ("multi_area_interface_scope", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope))])
+                                self._child_classes = OrderedDict([("multi-area-interface-scope", ("multi_area_interface_scope", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope))])
                                 self._leafs = OrderedDict()
 
                                 self.multi_area_interface_scope = YList(self)
@@ -32375,8 +31558,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['interface_name']
-                                    self._child_container_classes = OrderedDict([("distribute-list", ("distribute_list", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList)), ("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication)), ("neighbors", ("neighbors", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("distribute-list", ("distribute_list", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList)), ("authentication", ("authentication", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication)), ("neighbors", ("neighbors", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors)), ("dead-interval-minimal", ("dead_interval_minimal", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal)), ("fast-reroute", ("fast_reroute", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute)), ("cost-fallback", ("cost_fallback", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback))])
                                     self._leafs = OrderedDict([
                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                         ('cost', YLeaf(YType.uint32, 'cost')),
@@ -32402,32 +31584,26 @@ class Ospf(Entity):
 
                                     self.distribute_list = None
                                     self._children_name_map["distribute_list"] = "distribute-list"
-                                    self._children_yang_names.add("distribute-list")
 
                                     self.authentication = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication()
                                     self.authentication.parent = self
                                     self._children_name_map["authentication"] = "authentication"
-                                    self._children_yang_names.add("authentication")
 
                                     self.neighbors = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors()
                                     self.neighbors.parent = self
                                     self._children_name_map["neighbors"] = "neighbors"
-                                    self._children_yang_names.add("neighbors")
 
                                     self.dead_interval_minimal = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal()
                                     self.dead_interval_minimal.parent = self
                                     self._children_name_map["dead_interval_minimal"] = "dead-interval-minimal"
-                                    self._children_yang_names.add("dead-interval-minimal")
 
                                     self.fast_reroute = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute()
                                     self.fast_reroute.parent = self
                                     self._children_name_map["fast_reroute"] = "fast-reroute"
-                                    self._children_yang_names.add("fast-reroute")
 
                                     self.cost_fallback = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback()
                                     self.cost_fallback.parent = self
                                     self._children_name_map["cost_fallback"] = "cost-fallback"
-                                    self._children_yang_names.add("cost-fallback")
                                     self._segment_path = lambda: "multi-area-interface-scope" + "[interface-name='" + str(self.interface_name) + "']"
 
                                 def __setattr__(self, name, value):
@@ -32466,8 +31642,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
                                             ('access_list_name', YLeaf(YType.str, 'access-list-name')),
@@ -32517,8 +31692,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeies))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("type", ("type", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type)), ("message-digest-keies", ("message_digest_keies", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeies))])
                                         self._leafs = OrderedDict([
                                             ('key', YLeaf(YType.str, 'key')),
                                         ])
@@ -32527,12 +31701,10 @@ class Ospf(Entity):
                                         self.type = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type()
                                         self.type.parent = self
                                         self._children_name_map["type"] = "type"
-                                        self._children_yang_names.add("type")
 
                                         self.message_digest_keies = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeies()
                                         self.message_digest_keies.parent = self
                                         self._children_name_map["message_digest_keies"] = "message-digest-keies"
-                                        self._children_yang_names.add("message-digest-keies")
                                         self._segment_path = lambda: "authentication"
 
                                     def __setattr__(self, name, value):
@@ -32573,8 +31745,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('authen_type', YLeaf(YType.enumeration, 'authen-type')),
                                                 ('keychain_authen_type', YLeaf(YType.enumeration, 'keychain-authen-type')),
@@ -32614,8 +31785,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeies.MessageDigestKey))])
+                                            self._child_classes = OrderedDict([("message-digest-key", ("message_digest_key", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeies.MessageDigestKey))])
                                             self._leafs = OrderedDict()
 
                                             self.message_digest_key = YList(self)
@@ -32661,8 +31831,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = ['key_id']
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('key_id', YLeaf(YType.uint32, 'key-id')),
                                                     ('password', YLeaf(YType.str, 'password')),
@@ -32699,8 +31868,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors.Neighbor))])
+                                        self._child_classes = OrderedDict([("neighbor", ("neighbor", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors.Neighbor))])
                                         self._leafs = OrderedDict()
 
                                         self.neighbor = YList(self)
@@ -32773,8 +31941,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = ['neighbor_address']
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
                                                 ('priority', YLeaf(YType.uint32, 'priority')),
@@ -32828,8 +31995,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('interval', YLeaf(YType.uint32, 'interval')),
                                             ('multiplier', YLeaf(YType.uint32, 'multiplier')),
@@ -32876,8 +32042,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("per-link", ("per_link", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix))])
                                         self._leafs = OrderedDict([
                                             ('fast_reroute_enable', YLeaf(YType.enumeration, 'fast-reroute-enable')),
                                         ])
@@ -32886,12 +32051,10 @@ class Ospf(Entity):
                                         self.per_link = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink()
                                         self.per_link.parent = self
                                         self._children_name_map["per_link"] = "per-link"
-                                        self._children_yang_names.add("per-link")
 
                                         self.per_prefix = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix()
                                         self.per_prefix.parent = self
                                         self._children_name_map["per_prefix"] = "per-prefix"
-                                        self._children_yang_names.add("per-prefix")
                                         self._segment_path = lambda: "fast-reroute"
 
                                     def __setattr__(self, name, value):
@@ -32934,8 +32097,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces))])
                                             self._leafs = OrderedDict([
                                                 ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
                                             ])
@@ -32944,12 +32106,10 @@ class Ospf(Entity):
                                             self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces()
                                             self.candidate_interfaces.parent = self
                                             self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                            self._children_yang_names.add("candidate-interfaces")
 
                                             self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces()
                                             self.exclude_interfaces.parent = self
                                             self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                            self._children_yang_names.add("exclude-interfaces")
                                             self._segment_path = lambda: "per-link"
 
                                         def __setattr__(self, name, value):
@@ -32981,8 +32141,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
+                                                self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
                                                 self._leafs = OrderedDict()
 
                                                 self.candidate_interface = YList(self)
@@ -33018,8 +32177,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['interface_name']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                     ])
@@ -33055,8 +32213,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
+                                                self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
                                                 self._leafs = OrderedDict()
 
                                                 self.exclude_interface = YList(self)
@@ -33093,8 +32250,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['interface_name']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                     ])
@@ -33156,8 +32312,7 @@ class Ospf(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa)), ("tiebreakers", ("tiebreakers", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("remote-lfa", ("remote_lfa", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa)), ("tiebreakers", ("tiebreakers", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers)), ("candidate-interfaces", ("candidate_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces))])
                                             self._leafs = OrderedDict([
                                                 ('topology_independent_lfa', YLeaf(YType.boolean, 'topology-independent-lfa')),
                                                 ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
@@ -33168,22 +32323,18 @@ class Ospf(Entity):
                                             self.remote_lfa = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa()
                                             self.remote_lfa.parent = self
                                             self._children_name_map["remote_lfa"] = "remote-lfa"
-                                            self._children_yang_names.add("remote-lfa")
 
                                             self.tiebreakers = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers()
                                             self.tiebreakers.parent = self
                                             self._children_name_map["tiebreakers"] = "tiebreakers"
-                                            self._children_yang_names.add("tiebreakers")
 
                                             self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces()
                                             self.candidate_interfaces.parent = self
                                             self._children_name_map["candidate_interfaces"] = "candidate-interfaces"
-                                            self._children_yang_names.add("candidate-interfaces")
 
                                             self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces()
                                             self.exclude_interfaces.parent = self
                                             self._children_name_map["exclude_interfaces"] = "exclude-interfaces"
-                                            self._children_yang_names.add("exclude-interfaces")
                                             self._segment_path = lambda: "per-prefix"
 
                                         def __setattr__(self, name, value):
@@ -33221,8 +32372,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('tunnel', YLeaf(YType.enumeration, 'tunnel')),
                                                     ('maximum_cost', YLeaf(YType.uint32, 'maximum-cost')),
@@ -33259,8 +32409,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
+                                                self._child_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
                                                 self._leafs = OrderedDict()
 
                                                 self.tiebreaker = YList(self)
@@ -33303,8 +32452,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['tiebreaker_type']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('tiebreaker_type', YLeaf(YType.enumeration, 'tiebreaker-type')),
                                                         ('tiebreaker_index', YLeaf(YType.uint32, 'tiebreaker-index')),
@@ -33342,8 +32490,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
+                                                self._child_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
                                                 self._leafs = OrderedDict()
 
                                                 self.candidate_interface = YList(self)
@@ -33379,8 +32526,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['interface_name']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                     ])
@@ -33416,8 +32562,7 @@ class Ospf(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
+                                                self._child_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
                                                 self._leafs = OrderedDict()
 
                                                 self.exclude_interface = YList(self)
@@ -33454,8 +32599,7 @@ class Ospf(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = ['interface_name']
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                     ])
@@ -33499,8 +32643,7 @@ class Ospf(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('cost', YLeaf(YType.uint32, 'cost')),
                                             ('threshold', YLeaf(YType.uint32, 'threshold')),
@@ -33538,8 +32681,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("area-range", ("area_range", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaRanges.AreaRange))])
+                                self._child_classes = OrderedDict([("area-range", ("area_range", Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaRanges.AreaRange))])
                                 self._leafs = OrderedDict()
 
                                 self.area_range = YList(self)
@@ -33587,8 +32729,7 @@ class Ospf(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['address','netmask']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('address', YLeaf(YType.str, 'address')),
                                         ('netmask', YLeaf(YType.str, 'netmask')),
@@ -33657,8 +32798,7 @@ class Ospf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('no_redistribution', YLeaf(YType.boolean, 'no-redistribution')),
                                     ('default_info_originate', YLeaf(YType.boolean, 'default-info-originate')),
@@ -33759,8 +32899,7 @@ class Ospf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("spf-timer", ("spf_timer", Ospf.Processes.Process.DefaultVrf.Timers.SpfTimer)), ("lsa-generation-timer", ("lsa_generation_timer", Ospf.Processes.Process.DefaultVrf.Timers.LsaGenerationTimer))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("spf-timer", ("spf_timer", Ospf.Processes.Process.DefaultVrf.Timers.SpfTimer)), ("lsa-generation-timer", ("lsa_generation_timer", Ospf.Processes.Process.DefaultVrf.Timers.LsaGenerationTimer))])
                         self._leafs = OrderedDict([
                             ('lsa_pacing_flood', YLeaf(YType.uint32, 'lsa-pacing-flood')),
                             ('fast_reroute_timer', YLeaf(YType.uint32, 'fast-reroute-timer')),
@@ -33777,12 +32916,10 @@ class Ospf(Entity):
                         self.spf_timer = Ospf.Processes.Process.DefaultVrf.Timers.SpfTimer()
                         self.spf_timer.parent = self
                         self._children_name_map["spf_timer"] = "spf-timer"
-                        self._children_yang_names.add("spf-timer")
 
                         self.lsa_generation_timer = Ospf.Processes.Process.DefaultVrf.Timers.LsaGenerationTimer()
                         self.lsa_generation_timer.parent = self
                         self._children_name_map["lsa_generation_timer"] = "lsa-generation-timer"
-                        self._children_yang_names.add("lsa-generation-timer")
                         self._segment_path = lambda: "timers"
 
                     def __setattr__(self, name, value):
@@ -33841,8 +32978,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('initial_delay', YLeaf(YType.uint32, 'initial-delay')),
                                 ('backoff_increment', YLeaf(YType.uint32, 'backoff-increment')),
@@ -33909,8 +33045,7 @@ class Ospf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('initial_delay', YLeaf(YType.uint32, 'initial-delay')),
                                 ('backoff_increment', YLeaf(YType.uint32, 'backoff-increment')),
@@ -33949,8 +33084,7 @@ class Ospf(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('dns_name_lookup', YLeaf(YType.empty, 'dns-name-lookup')),
             ])

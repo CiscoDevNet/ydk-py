@@ -306,92 +306,92 @@ class CISCOQOSPIBMIB(Entity):
     .. attribute:: qosdevicepibincarnationtable
     
     	This class contains a single policy instance that identifies the current incarnation of the PIB and the PDP that installed this incarnation.  The instance of this class is reported to the PDP at client connect time so that the PDP can (attempt to) ascertain the current state of the PIB
-    	**type**\:  :py:class:`Qosdevicepibincarnationtable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosdevicepibincarnationtable>`
+    	**type**\:  :py:class:`QosDevicePibIncarnationTable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosDevicePibIncarnationTable>`
     
     .. attribute:: qosdeviceattributetable
     
     	The single instance of this class indicates specific attributes of the device.  These include configuration values such as the configured PDP addresses, the maximum message size, and specific device capabilities.  The latter include input port\-based and output port\-based classification and/or policing, support for flow based policing, aggregate based policing, traffic shaping capabilities, etc
-    	**type**\:  :py:class:`Qosdeviceattributetable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosdeviceattributetable>`
+    	**type**\:  :py:class:`QosDeviceAttributeTable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosDeviceAttributeTable>`
     
     .. attribute:: qosinterfacetypetable
     
     	This class describes the interface types of the interfaces that exist on the device.  It includes the queue type, role combination and capabilities of interfaces.  The PEP does not report which specific interfaces have which characteristics
-    	**type**\:  :py:class:`Qosinterfacetypetable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosinterfacetypetable>`
+    	**type**\:  :py:class:`QosInterfaceTypeTable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosInterfaceTypeTable>`
     
     .. attribute:: qosdiffservmappingtable
     
     	Maps each DSCP to a marked\-down DSCP.  Also maps each DSCP to an IP precedence and QosLayer2Cos.  When configured for the first time, all 64 entries of the table must be specified. Thereafter, instances may be modified (with a delete and install in a single decision) but not deleted unless all instances are deleted
-    	**type**\:  :py:class:`Qosdiffservmappingtable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosdiffservmappingtable>`
+    	**type**\:  :py:class:`QosDiffServMappingTable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosDiffServMappingTable>`
     
     .. attribute:: qoscostodscptable
     
     	Maps each of eight CoS values to a DSCP.  When configured for the first time, all 8 entries of the table must be specified. Thereafter, instances may be modified (with a delete and install in a single decision) but not deleted unless all instances are deleted
-    	**type**\:  :py:class:`Qoscostodscptable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qoscostodscptable>`
+    	**type**\:  :py:class:`QosCosToDscpTable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosCosToDscpTable>`
     
     .. attribute:: qosunmatchedpolicytable
     
     	A policy class that specifies what QoS to apply to a packet that does not match any other policy configured for this role combination for a particular direction of traffic
-    	**type**\:  :py:class:`Qosunmatchedpolicytable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosunmatchedpolicytable>`
+    	**type**\:  :py:class:`QosUnmatchedPolicyTable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosUnmatchedPolicyTable>`
     
     .. attribute:: qospolicertable
     
     	A class specifying policing parameters for both microflows and aggregate flows.  This table is designed for policing according to a token bucket scheme where an average rate and burst size is specified
-    	**type**\:  :py:class:`Qospolicertable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qospolicertable>`
+    	**type**\:  :py:class:`QosPolicerTable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosPolicerTable>`
     
     .. attribute:: qosaggregatetable
     
     	Instances of this class identify aggregate flows and the policer to apply to each
-    	**type**\:  :py:class:`Qosaggregatetable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosaggregatetable>`
+    	**type**\:  :py:class:`QosAggregateTable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosAggregateTable>`
     
     .. attribute:: qosmacclassificationtable
     
     	A class of MAC/Vlan tuples and their associated CoS values
-    	**type**\:  :py:class:`Qosmacclassificationtable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosmacclassificationtable>`
+    	**type**\:  :py:class:`QosMacClassificationTable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosMacClassificationTable>`
     
     .. attribute:: qosipacetable
     
     	ACE definitions
-    	**type**\:  :py:class:`Qosipacetable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosipacetable>`
+    	**type**\:  :py:class:`QosIpAceTable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosIpAceTable>`
     
     .. attribute:: qosipacldefinitiontable
     
     	A class that defines a set of ACLs each being an ordered list of ACEs
-    	**type**\:  :py:class:`Qosipacldefinitiontable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosipacldefinitiontable>`
+    	**type**\:  :py:class:`QosIpAclDefinitionTable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosIpAclDefinitionTable>`
     
     .. attribute:: qosipaclactiontable
     
     	A class that applies a set of ACLs to interfaces specifying, for each interface the order of the ACL with respect to other ACLs applied to the same interface and, for each ACL the action to take for a packet that matches a permit ACE in that ACL.  Interfaces are specified abstractly in terms of interface role combinations
-    	**type**\:  :py:class:`Qosipaclactiontable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosipaclactiontable>`
+    	**type**\:  :py:class:`QosIpAclActionTable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosIpAclActionTable>`
     
     .. attribute:: qosifschedulingpreferencestable
     
     	This class specifies the scheduling preference an interface chooses if it supports multiple scheduling types.  Higher values are preferred over lower values
-    	**type**\:  :py:class:`Qosifschedulingpreferencestable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosifschedulingpreferencestable>`
+    	**type**\:  :py:class:`QosIfSchedulingPreferencesTable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosIfSchedulingPreferencesTable>`
     
     .. attribute:: qosifdroppreferencetable
     
     	This class specifies the preference of the drop mechanism an interface chooses if it supports multiple drop mechanisms. Higher values are preferred over lower values
-    	**type**\:  :py:class:`Qosifdroppreferencetable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosifdroppreferencetable>`
+    	**type**\:  :py:class:`QosIfDropPreferenceTable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosIfDropPreferenceTable>`
     
     .. attribute:: qosifdscpassignmenttable
     
     	The assignment of each DSCP to a queue and threshold for each interface queue type
-    	**type**\:  :py:class:`Qosifdscpassignmenttable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosifdscpassignmenttable>`
+    	**type**\:  :py:class:`QosIfDscpAssignmentTable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosIfDscpAssignmentTable>`
     
     .. attribute:: qosifredtable
     
     	A class of lower and upper values for each threshold set in a queue supporting WRED.  If the size of the queue for a given threshold is below the lower value then packets assigned to that threshold are always accepted into the queue.  If the size of the queue is above upper value then packets are always dropped.  If the size of the queue is between the lower and the upper then packets are randomly dropped
-    	**type**\:  :py:class:`Qosifredtable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosifredtable>`
+    	**type**\:  :py:class:`QosIfRedTable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosIfRedTable>`
     
     .. attribute:: qosiftaildroptable
     
     	A class for threshold sets in a queue supporting tail drop. If the size of the queue for a given threshold set is at or below the specified value then packets assigned to that threshold set are always accepted into the queue.  If the size of the queue is above the specified value then packets are always dropped
-    	**type**\:  :py:class:`Qosiftaildroptable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosiftaildroptable>`
+    	**type**\:  :py:class:`QosIfTailDropTable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosIfTailDropTable>`
     
     .. attribute:: qosifweightstable
     
     	A class of scheduling weights for each queue of an interface that supports weighted round robin scheduling or a mix of priority queueing and weighted round robin.  For a queue with N priority queues, the N highest queue numbers are the priority queues with the highest queue number having the highest priority.  WRR is applied to the non\-priority queues
-    	**type**\:  :py:class:`Qosifweightstable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosifweightstable>`
+    	**type**\:  :py:class:`QosIfWeightsTable <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosIfWeightsTable>`
     
     
 
@@ -409,103 +409,87 @@ class CISCOQOSPIBMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("qosDevicePibIncarnationTable", ("qosdevicepibincarnationtable", CISCOQOSPIBMIB.Qosdevicepibincarnationtable)), ("qosDeviceAttributeTable", ("qosdeviceattributetable", CISCOQOSPIBMIB.Qosdeviceattributetable)), ("qosInterfaceTypeTable", ("qosinterfacetypetable", CISCOQOSPIBMIB.Qosinterfacetypetable)), ("qosDiffServMappingTable", ("qosdiffservmappingtable", CISCOQOSPIBMIB.Qosdiffservmappingtable)), ("qosCosToDscpTable", ("qoscostodscptable", CISCOQOSPIBMIB.Qoscostodscptable)), ("qosUnmatchedPolicyTable", ("qosunmatchedpolicytable", CISCOQOSPIBMIB.Qosunmatchedpolicytable)), ("qosPolicerTable", ("qospolicertable", CISCOQOSPIBMIB.Qospolicertable)), ("qosAggregateTable", ("qosaggregatetable", CISCOQOSPIBMIB.Qosaggregatetable)), ("qosMacClassificationTable", ("qosmacclassificationtable", CISCOQOSPIBMIB.Qosmacclassificationtable)), ("qosIpAceTable", ("qosipacetable", CISCOQOSPIBMIB.Qosipacetable)), ("qosIpAclDefinitionTable", ("qosipacldefinitiontable", CISCOQOSPIBMIB.Qosipacldefinitiontable)), ("qosIpAclActionTable", ("qosipaclactiontable", CISCOQOSPIBMIB.Qosipaclactiontable)), ("qosIfSchedulingPreferencesTable", ("qosifschedulingpreferencestable", CISCOQOSPIBMIB.Qosifschedulingpreferencestable)), ("qosIfDropPreferenceTable", ("qosifdroppreferencetable", CISCOQOSPIBMIB.Qosifdroppreferencetable)), ("qosIfDscpAssignmentTable", ("qosifdscpassignmenttable", CISCOQOSPIBMIB.Qosifdscpassignmenttable)), ("qosIfRedTable", ("qosifredtable", CISCOQOSPIBMIB.Qosifredtable)), ("qosIfTailDropTable", ("qosiftaildroptable", CISCOQOSPIBMIB.Qosiftaildroptable)), ("qosIfWeightsTable", ("qosifweightstable", CISCOQOSPIBMIB.Qosifweightstable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("qosDevicePibIncarnationTable", ("qosdevicepibincarnationtable", CISCOQOSPIBMIB.QosDevicePibIncarnationTable)), ("qosDeviceAttributeTable", ("qosdeviceattributetable", CISCOQOSPIBMIB.QosDeviceAttributeTable)), ("qosInterfaceTypeTable", ("qosinterfacetypetable", CISCOQOSPIBMIB.QosInterfaceTypeTable)), ("qosDiffServMappingTable", ("qosdiffservmappingtable", CISCOQOSPIBMIB.QosDiffServMappingTable)), ("qosCosToDscpTable", ("qoscostodscptable", CISCOQOSPIBMIB.QosCosToDscpTable)), ("qosUnmatchedPolicyTable", ("qosunmatchedpolicytable", CISCOQOSPIBMIB.QosUnmatchedPolicyTable)), ("qosPolicerTable", ("qospolicertable", CISCOQOSPIBMIB.QosPolicerTable)), ("qosAggregateTable", ("qosaggregatetable", CISCOQOSPIBMIB.QosAggregateTable)), ("qosMacClassificationTable", ("qosmacclassificationtable", CISCOQOSPIBMIB.QosMacClassificationTable)), ("qosIpAceTable", ("qosipacetable", CISCOQOSPIBMIB.QosIpAceTable)), ("qosIpAclDefinitionTable", ("qosipacldefinitiontable", CISCOQOSPIBMIB.QosIpAclDefinitionTable)), ("qosIpAclActionTable", ("qosipaclactiontable", CISCOQOSPIBMIB.QosIpAclActionTable)), ("qosIfSchedulingPreferencesTable", ("qosifschedulingpreferencestable", CISCOQOSPIBMIB.QosIfSchedulingPreferencesTable)), ("qosIfDropPreferenceTable", ("qosifdroppreferencetable", CISCOQOSPIBMIB.QosIfDropPreferenceTable)), ("qosIfDscpAssignmentTable", ("qosifdscpassignmenttable", CISCOQOSPIBMIB.QosIfDscpAssignmentTable)), ("qosIfRedTable", ("qosifredtable", CISCOQOSPIBMIB.QosIfRedTable)), ("qosIfTailDropTable", ("qosiftaildroptable", CISCOQOSPIBMIB.QosIfTailDropTable)), ("qosIfWeightsTable", ("qosifweightstable", CISCOQOSPIBMIB.QosIfWeightsTable))])
         self._leafs = OrderedDict()
 
-        self.qosdevicepibincarnationtable = CISCOQOSPIBMIB.Qosdevicepibincarnationtable()
+        self.qosdevicepibincarnationtable = CISCOQOSPIBMIB.QosDevicePibIncarnationTable()
         self.qosdevicepibincarnationtable.parent = self
         self._children_name_map["qosdevicepibincarnationtable"] = "qosDevicePibIncarnationTable"
-        self._children_yang_names.add("qosDevicePibIncarnationTable")
 
-        self.qosdeviceattributetable = CISCOQOSPIBMIB.Qosdeviceattributetable()
+        self.qosdeviceattributetable = CISCOQOSPIBMIB.QosDeviceAttributeTable()
         self.qosdeviceattributetable.parent = self
         self._children_name_map["qosdeviceattributetable"] = "qosDeviceAttributeTable"
-        self._children_yang_names.add("qosDeviceAttributeTable")
 
-        self.qosinterfacetypetable = CISCOQOSPIBMIB.Qosinterfacetypetable()
+        self.qosinterfacetypetable = CISCOQOSPIBMIB.QosInterfaceTypeTable()
         self.qosinterfacetypetable.parent = self
         self._children_name_map["qosinterfacetypetable"] = "qosInterfaceTypeTable"
-        self._children_yang_names.add("qosInterfaceTypeTable")
 
-        self.qosdiffservmappingtable = CISCOQOSPIBMIB.Qosdiffservmappingtable()
+        self.qosdiffservmappingtable = CISCOQOSPIBMIB.QosDiffServMappingTable()
         self.qosdiffservmappingtable.parent = self
         self._children_name_map["qosdiffservmappingtable"] = "qosDiffServMappingTable"
-        self._children_yang_names.add("qosDiffServMappingTable")
 
-        self.qoscostodscptable = CISCOQOSPIBMIB.Qoscostodscptable()
+        self.qoscostodscptable = CISCOQOSPIBMIB.QosCosToDscpTable()
         self.qoscostodscptable.parent = self
         self._children_name_map["qoscostodscptable"] = "qosCosToDscpTable"
-        self._children_yang_names.add("qosCosToDscpTable")
 
-        self.qosunmatchedpolicytable = CISCOQOSPIBMIB.Qosunmatchedpolicytable()
+        self.qosunmatchedpolicytable = CISCOQOSPIBMIB.QosUnmatchedPolicyTable()
         self.qosunmatchedpolicytable.parent = self
         self._children_name_map["qosunmatchedpolicytable"] = "qosUnmatchedPolicyTable"
-        self._children_yang_names.add("qosUnmatchedPolicyTable")
 
-        self.qospolicertable = CISCOQOSPIBMIB.Qospolicertable()
+        self.qospolicertable = CISCOQOSPIBMIB.QosPolicerTable()
         self.qospolicertable.parent = self
         self._children_name_map["qospolicertable"] = "qosPolicerTable"
-        self._children_yang_names.add("qosPolicerTable")
 
-        self.qosaggregatetable = CISCOQOSPIBMIB.Qosaggregatetable()
+        self.qosaggregatetable = CISCOQOSPIBMIB.QosAggregateTable()
         self.qosaggregatetable.parent = self
         self._children_name_map["qosaggregatetable"] = "qosAggregateTable"
-        self._children_yang_names.add("qosAggregateTable")
 
-        self.qosmacclassificationtable = CISCOQOSPIBMIB.Qosmacclassificationtable()
+        self.qosmacclassificationtable = CISCOQOSPIBMIB.QosMacClassificationTable()
         self.qosmacclassificationtable.parent = self
         self._children_name_map["qosmacclassificationtable"] = "qosMacClassificationTable"
-        self._children_yang_names.add("qosMacClassificationTable")
 
-        self.qosipacetable = CISCOQOSPIBMIB.Qosipacetable()
+        self.qosipacetable = CISCOQOSPIBMIB.QosIpAceTable()
         self.qosipacetable.parent = self
         self._children_name_map["qosipacetable"] = "qosIpAceTable"
-        self._children_yang_names.add("qosIpAceTable")
 
-        self.qosipacldefinitiontable = CISCOQOSPIBMIB.Qosipacldefinitiontable()
+        self.qosipacldefinitiontable = CISCOQOSPIBMIB.QosIpAclDefinitionTable()
         self.qosipacldefinitiontable.parent = self
         self._children_name_map["qosipacldefinitiontable"] = "qosIpAclDefinitionTable"
-        self._children_yang_names.add("qosIpAclDefinitionTable")
 
-        self.qosipaclactiontable = CISCOQOSPIBMIB.Qosipaclactiontable()
+        self.qosipaclactiontable = CISCOQOSPIBMIB.QosIpAclActionTable()
         self.qosipaclactiontable.parent = self
         self._children_name_map["qosipaclactiontable"] = "qosIpAclActionTable"
-        self._children_yang_names.add("qosIpAclActionTable")
 
-        self.qosifschedulingpreferencestable = CISCOQOSPIBMIB.Qosifschedulingpreferencestable()
+        self.qosifschedulingpreferencestable = CISCOQOSPIBMIB.QosIfSchedulingPreferencesTable()
         self.qosifschedulingpreferencestable.parent = self
         self._children_name_map["qosifschedulingpreferencestable"] = "qosIfSchedulingPreferencesTable"
-        self._children_yang_names.add("qosIfSchedulingPreferencesTable")
 
-        self.qosifdroppreferencetable = CISCOQOSPIBMIB.Qosifdroppreferencetable()
+        self.qosifdroppreferencetable = CISCOQOSPIBMIB.QosIfDropPreferenceTable()
         self.qosifdroppreferencetable.parent = self
         self._children_name_map["qosifdroppreferencetable"] = "qosIfDropPreferenceTable"
-        self._children_yang_names.add("qosIfDropPreferenceTable")
 
-        self.qosifdscpassignmenttable = CISCOQOSPIBMIB.Qosifdscpassignmenttable()
+        self.qosifdscpassignmenttable = CISCOQOSPIBMIB.QosIfDscpAssignmentTable()
         self.qosifdscpassignmenttable.parent = self
         self._children_name_map["qosifdscpassignmenttable"] = "qosIfDscpAssignmentTable"
-        self._children_yang_names.add("qosIfDscpAssignmentTable")
 
-        self.qosifredtable = CISCOQOSPIBMIB.Qosifredtable()
+        self.qosifredtable = CISCOQOSPIBMIB.QosIfRedTable()
         self.qosifredtable.parent = self
         self._children_name_map["qosifredtable"] = "qosIfRedTable"
-        self._children_yang_names.add("qosIfRedTable")
 
-        self.qosiftaildroptable = CISCOQOSPIBMIB.Qosiftaildroptable()
+        self.qosiftaildroptable = CISCOQOSPIBMIB.QosIfTailDropTable()
         self.qosiftaildroptable.parent = self
         self._children_name_map["qosiftaildroptable"] = "qosIfTailDropTable"
-        self._children_yang_names.add("qosIfTailDropTable")
 
-        self.qosifweightstable = CISCOQOSPIBMIB.Qosifweightstable()
+        self.qosifweightstable = CISCOQOSPIBMIB.QosIfWeightsTable()
         self.qosifweightstable.parent = self
         self._children_name_map["qosifweightstable"] = "qosIfWeightsTable"
-        self._children_yang_names.add("qosIfWeightsTable")
         self._segment_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOQOSPIBMIB, [], name, value)
 
-    class Qosdevicepibincarnationtable(Entity):
+
+    class QosDevicePibIncarnationTable(Entity):
         """
         This class contains a single policy instance that identifies
         the current incarnation of the PIB and the PDP that installed
@@ -516,7 +500,7 @@ class CISCOQOSPIBMIB(Entity):
         .. attribute:: qosdevicepibincarnationentry
         
         	The single policy instance of this class identifies the current incarnation of the PIB and the PDP that installed this incarnation
-        	**type**\: list of  		 :py:class:`Qosdevicepibincarnationentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosdevicepibincarnationtable.Qosdevicepibincarnationentry>`
+        	**type**\: list of  		 :py:class:`QosDevicePibIncarnationEntry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosDevicePibIncarnationTable.QosDevicePibIncarnationEntry>`
         
         
 
@@ -526,15 +510,14 @@ class CISCOQOSPIBMIB(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CISCOQOSPIBMIB.Qosdevicepibincarnationtable, self).__init__()
+            super(CISCOQOSPIBMIB.QosDevicePibIncarnationTable, self).__init__()
 
             self.yang_name = "qosDevicePibIncarnationTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("qosDevicePibIncarnationEntry", ("qosdevicepibincarnationentry", CISCOQOSPIBMIB.Qosdevicepibincarnationtable.Qosdevicepibincarnationentry))])
+            self._child_classes = OrderedDict([("qosDevicePibIncarnationEntry", ("qosdevicepibincarnationentry", CISCOQOSPIBMIB.QosDevicePibIncarnationTable.QosDevicePibIncarnationEntry))])
             self._leafs = OrderedDict()
 
             self.qosdevicepibincarnationentry = YList(self)
@@ -542,10 +525,10 @@ class CISCOQOSPIBMIB(Entity):
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOQOSPIBMIB.Qosdevicepibincarnationtable, [], name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.QosDevicePibIncarnationTable, [], name, value)
 
 
-        class Qosdevicepibincarnationentry(Entity):
+        class QosDevicePibIncarnationEntry(Entity):
             """
             The single policy instance of this class identifies the
             current incarnation of the PIB and the PDP that installed
@@ -585,15 +568,14 @@ class CISCOQOSPIBMIB(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CISCOQOSPIBMIB.Qosdevicepibincarnationtable.Qosdevicepibincarnationentry, self).__init__()
+                super(CISCOQOSPIBMIB.QosDevicePibIncarnationTable.QosDevicePibIncarnationEntry, self).__init__()
 
                 self.yang_name = "qosDevicePibIncarnationEntry"
                 self.yang_parent_name = "qosDevicePibIncarnationTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['qosdeviceincarnationid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('qosdeviceincarnationid', YLeaf(YType.uint32, 'qosDeviceIncarnationId')),
                     ('qosdevicepdpname', YLeaf(YType.str, 'qosDevicePdpName')),
@@ -608,10 +590,10 @@ class CISCOQOSPIBMIB(Entity):
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosDevicePibIncarnationTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.Qosdevicepibincarnationtable.Qosdevicepibincarnationentry, ['qosdeviceincarnationid', 'qosdevicepdpname', 'qosdevicepibincarnation', 'qosdevicepibttl'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosDevicePibIncarnationTable.QosDevicePibIncarnationEntry, [u'qosdeviceincarnationid', u'qosdevicepdpname', u'qosdevicepibincarnation', u'qosdevicepibttl'], name, value)
 
 
-    class Qosdeviceattributetable(Entity):
+    class QosDeviceAttributeTable(Entity):
         """
         The single instance of this class indicates specific
         attributes of the device.  These include configuration values
@@ -624,7 +606,7 @@ class CISCOQOSPIBMIB(Entity):
         .. attribute:: qosdeviceattributeentry
         
         	The single instance of this class indicates specific attributes of the device
-        	**type**\: list of  		 :py:class:`Qosdeviceattributeentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosdeviceattributetable.Qosdeviceattributeentry>`
+        	**type**\: list of  		 :py:class:`QosDeviceAttributeEntry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosDeviceAttributeTable.QosDeviceAttributeEntry>`
         
         
 
@@ -634,15 +616,14 @@ class CISCOQOSPIBMIB(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CISCOQOSPIBMIB.Qosdeviceattributetable, self).__init__()
+            super(CISCOQOSPIBMIB.QosDeviceAttributeTable, self).__init__()
 
             self.yang_name = "qosDeviceAttributeTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("qosDeviceAttributeEntry", ("qosdeviceattributeentry", CISCOQOSPIBMIB.Qosdeviceattributetable.Qosdeviceattributeentry))])
+            self._child_classes = OrderedDict([("qosDeviceAttributeEntry", ("qosdeviceattributeentry", CISCOQOSPIBMIB.QosDeviceAttributeTable.QosDeviceAttributeEntry))])
             self._leafs = OrderedDict()
 
             self.qosdeviceattributeentry = YList(self)
@@ -650,10 +631,10 @@ class CISCOQOSPIBMIB(Entity):
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOQOSPIBMIB.Qosdeviceattributetable, [], name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.QosDeviceAttributeTable, [], name, value)
 
 
-        class Qosdeviceattributeentry(Entity):
+        class QosDeviceAttributeEntry(Entity):
             """
             The single instance of this class indicates specific
             attributes of the device.
@@ -694,7 +675,7 @@ class CISCOQOSPIBMIB(Entity):
             .. attribute:: qosdevicecapabilities
             
             	An enumeration of device capabilities.  Used by the PDP to select policies and configuration to push to the PEP
-            	**type**\:  :py:class:`Qosdevicecapabilities <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosdeviceattributetable.Qosdeviceattributeentry.Qosdevicecapabilities>`
+            	**type**\:  :py:class:`QosDeviceCapabilities <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosDeviceAttributeTable.QosDeviceAttributeEntry.QosDeviceCapabilities>`
             
             
 
@@ -704,15 +685,14 @@ class CISCOQOSPIBMIB(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CISCOQOSPIBMIB.Qosdeviceattributetable.Qosdeviceattributeentry, self).__init__()
+                super(CISCOQOSPIBMIB.QosDeviceAttributeTable.QosDeviceAttributeEntry, self).__init__()
 
                 self.yang_name = "qosDeviceAttributeEntry"
                 self.yang_parent_name = "qosDeviceAttributeTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['qosdeviceattributeid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('qosdeviceattributeid', YLeaf(YType.uint32, 'qosDeviceAttributeId')),
                     ('qosdevicepepdomain', YLeaf(YType.str, 'qosDevicePepDomain')),
@@ -731,10 +711,10 @@ class CISCOQOSPIBMIB(Entity):
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosDeviceAttributeTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.Qosdeviceattributetable.Qosdeviceattributeentry, ['qosdeviceattributeid', 'qosdevicepepdomain', 'qosdeviceprimarypdp', 'qosdevicesecondarypdp', 'qosdevicemaxmessagesize', 'qosdevicecapabilities'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosDeviceAttributeTable.QosDeviceAttributeEntry, [u'qosdeviceattributeid', u'qosdevicepepdomain', u'qosdeviceprimarypdp', u'qosdevicesecondarypdp', u'qosdevicemaxmessagesize', u'qosdevicecapabilities'], name, value)
 
 
-    class Qosinterfacetypetable(Entity):
+    class QosInterfaceTypeTable(Entity):
         """
         This class describes the interface types of the interfaces
         that exist on the device.  It includes the queue type, role
@@ -744,7 +724,7 @@ class CISCOQOSPIBMIB(Entity):
         .. attribute:: qosinterfacetypeentry
         
         	An instance of this class describes a role combination for an interface type of an interface that exists on the device
-        	**type**\: list of  		 :py:class:`Qosinterfacetypeentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosinterfacetypetable.Qosinterfacetypeentry>`
+        	**type**\: list of  		 :py:class:`QosInterfaceTypeEntry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosInterfaceTypeTable.QosInterfaceTypeEntry>`
         
         
 
@@ -754,15 +734,14 @@ class CISCOQOSPIBMIB(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CISCOQOSPIBMIB.Qosinterfacetypetable, self).__init__()
+            super(CISCOQOSPIBMIB.QosInterfaceTypeTable, self).__init__()
 
             self.yang_name = "qosInterfaceTypeTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("qosInterfaceTypeEntry", ("qosinterfacetypeentry", CISCOQOSPIBMIB.Qosinterfacetypetable.Qosinterfacetypeentry))])
+            self._child_classes = OrderedDict([("qosInterfaceTypeEntry", ("qosinterfacetypeentry", CISCOQOSPIBMIB.QosInterfaceTypeTable.QosInterfaceTypeEntry))])
             self._leafs = OrderedDict()
 
             self.qosinterfacetypeentry = YList(self)
@@ -770,10 +749,10 @@ class CISCOQOSPIBMIB(Entity):
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOQOSPIBMIB.Qosinterfacetypetable, [], name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.QosInterfaceTypeTable, [], name, value)
 
 
-        class Qosinterfacetypeentry(Entity):
+        class QosInterfaceTypeEntry(Entity):
             """
             An instance of this class describes a role combination for
             an interface type of an interface that exists on the device.
@@ -810,15 +789,14 @@ class CISCOQOSPIBMIB(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CISCOQOSPIBMIB.Qosinterfacetypetable.Qosinterfacetypeentry, self).__init__()
+                super(CISCOQOSPIBMIB.QosInterfaceTypeTable.QosInterfaceTypeEntry, self).__init__()
 
                 self.yang_name = "qosInterfaceTypeEntry"
                 self.yang_parent_name = "qosInterfaceTypeTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['qosinterfacetypeid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('qosinterfacetypeid', YLeaf(YType.uint32, 'qosInterfaceTypeId')),
                     ('qosinterfacequeuetype', YLeaf(YType.enumeration, 'qosInterfaceQueueType')),
@@ -833,10 +811,10 @@ class CISCOQOSPIBMIB(Entity):
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosInterfaceTypeTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.Qosinterfacetypetable.Qosinterfacetypeentry, ['qosinterfacetypeid', 'qosinterfacequeuetype', 'qosinterfacetyperoles', 'qosinterfacetypecapabilities'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosInterfaceTypeTable.QosInterfaceTypeEntry, [u'qosinterfacetypeid', u'qosinterfacequeuetype', u'qosinterfacetyperoles', u'qosinterfacetypecapabilities'], name, value)
 
 
-    class Qosdiffservmappingtable(Entity):
+    class QosDiffServMappingTable(Entity):
         """
         Maps each DSCP to a marked\-down DSCP.  Also maps each DSCP to
         an IP precedence and QosLayer2Cos.  When configured for the
@@ -848,7 +826,7 @@ class CISCOQOSPIBMIB(Entity):
         .. attribute:: qosdiffservmappingentry
         
         	An instance of this class represents mappings from a DSCP
-        	**type**\: list of  		 :py:class:`Qosdiffservmappingentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosdiffservmappingtable.Qosdiffservmappingentry>`
+        	**type**\: list of  		 :py:class:`QosDiffServMappingEntry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosDiffServMappingTable.QosDiffServMappingEntry>`
         
         
 
@@ -858,15 +836,14 @@ class CISCOQOSPIBMIB(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CISCOQOSPIBMIB.Qosdiffservmappingtable, self).__init__()
+            super(CISCOQOSPIBMIB.QosDiffServMappingTable, self).__init__()
 
             self.yang_name = "qosDiffServMappingTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("qosDiffServMappingEntry", ("qosdiffservmappingentry", CISCOQOSPIBMIB.Qosdiffservmappingtable.Qosdiffservmappingentry))])
+            self._child_classes = OrderedDict([("qosDiffServMappingEntry", ("qosdiffservmappingentry", CISCOQOSPIBMIB.QosDiffServMappingTable.QosDiffServMappingEntry))])
             self._leafs = OrderedDict()
 
             self.qosdiffservmappingentry = YList(self)
@@ -874,10 +851,10 @@ class CISCOQOSPIBMIB(Entity):
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOQOSPIBMIB.Qosdiffservmappingtable, [], name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.QosDiffServMappingTable, [], name, value)
 
 
-        class Qosdiffservmappingentry(Entity):
+        class QosDiffServMappingEntry(Entity):
             """
             An instance of this class represents mappings from a DSCP.
             
@@ -910,15 +887,14 @@ class CISCOQOSPIBMIB(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CISCOQOSPIBMIB.Qosdiffservmappingtable.Qosdiffservmappingentry, self).__init__()
+                super(CISCOQOSPIBMIB.QosDiffServMappingTable.QosDiffServMappingEntry, self).__init__()
 
                 self.yang_name = "qosDiffServMappingEntry"
                 self.yang_parent_name = "qosDiffServMappingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['qosdscp']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('qosdscp', YLeaf(YType.int32, 'qosDscp')),
                     ('qosmarkeddscp', YLeaf(YType.int32, 'qosMarkedDscp')),
@@ -931,10 +907,10 @@ class CISCOQOSPIBMIB(Entity):
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosDiffServMappingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.Qosdiffservmappingtable.Qosdiffservmappingentry, ['qosdscp', 'qosmarkeddscp', 'qosl2cos'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosDiffServMappingTable.QosDiffServMappingEntry, [u'qosdscp', u'qosmarkeddscp', u'qosl2cos'], name, value)
 
 
-    class Qoscostodscptable(Entity):
+    class QosCosToDscpTable(Entity):
         """
         Maps each of eight CoS values to a DSCP.  When configured for
         the first time, all 8 entries of the table must be
@@ -945,7 +921,7 @@ class CISCOQOSPIBMIB(Entity):
         .. attribute:: qoscostodscpentry
         
         	An instance of this class maps a CoS value to a DSCP
-        	**type**\: list of  		 :py:class:`Qoscostodscpentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qoscostodscptable.Qoscostodscpentry>`
+        	**type**\: list of  		 :py:class:`QosCosToDscpEntry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosCosToDscpTable.QosCosToDscpEntry>`
         
         
 
@@ -955,15 +931,14 @@ class CISCOQOSPIBMIB(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CISCOQOSPIBMIB.Qoscostodscptable, self).__init__()
+            super(CISCOQOSPIBMIB.QosCosToDscpTable, self).__init__()
 
             self.yang_name = "qosCosToDscpTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("qosCosToDscpEntry", ("qoscostodscpentry", CISCOQOSPIBMIB.Qoscostodscptable.Qoscostodscpentry))])
+            self._child_classes = OrderedDict([("qosCosToDscpEntry", ("qoscostodscpentry", CISCOQOSPIBMIB.QosCosToDscpTable.QosCosToDscpEntry))])
             self._leafs = OrderedDict()
 
             self.qoscostodscpentry = YList(self)
@@ -971,10 +946,10 @@ class CISCOQOSPIBMIB(Entity):
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOQOSPIBMIB.Qoscostodscptable, [], name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.QosCosToDscpTable, [], name, value)
 
 
-        class Qoscostodscpentry(Entity):
+        class QosCosToDscpEntry(Entity):
             """
             An instance of this class maps a CoS value to a DSCP.
             
@@ -1000,15 +975,14 @@ class CISCOQOSPIBMIB(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CISCOQOSPIBMIB.Qoscostodscptable.Qoscostodscpentry, self).__init__()
+                super(CISCOQOSPIBMIB.QosCosToDscpTable.QosCosToDscpEntry, self).__init__()
 
                 self.yang_name = "qosCosToDscpEntry"
                 self.yang_parent_name = "qosCosToDscpTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['qoscostodscpcos']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('qoscostodscpcos', YLeaf(YType.int32, 'qosCosToDscpCos')),
                     ('qoscostodscpdscp', YLeaf(YType.int32, 'qosCosToDscpDscp')),
@@ -1019,10 +993,10 @@ class CISCOQOSPIBMIB(Entity):
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosCosToDscpTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.Qoscostodscptable.Qoscostodscpentry, ['qoscostodscpcos', 'qoscostodscpdscp'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosCosToDscpTable.QosCosToDscpEntry, [u'qoscostodscpcos', u'qoscostodscpdscp'], name, value)
 
 
-    class Qosunmatchedpolicytable(Entity):
+    class QosUnmatchedPolicyTable(Entity):
         """
         A policy class that specifies what QoS to apply to a packet
         that does not match any other policy configured for this role
@@ -1031,7 +1005,7 @@ class CISCOQOSPIBMIB(Entity):
         .. attribute:: qosunmatchedpolicyentry
         
         	An instance of this class specifies the unmatched policy for a particular role combination for incoming or outgoing traffic
-        	**type**\: list of  		 :py:class:`Qosunmatchedpolicyentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosunmatchedpolicytable.Qosunmatchedpolicyentry>`
+        	**type**\: list of  		 :py:class:`QosUnmatchedPolicyEntry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosUnmatchedPolicyTable.QosUnmatchedPolicyEntry>`
         
         
 
@@ -1041,15 +1015,14 @@ class CISCOQOSPIBMIB(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CISCOQOSPIBMIB.Qosunmatchedpolicytable, self).__init__()
+            super(CISCOQOSPIBMIB.QosUnmatchedPolicyTable, self).__init__()
 
             self.yang_name = "qosUnmatchedPolicyTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("qosUnmatchedPolicyEntry", ("qosunmatchedpolicyentry", CISCOQOSPIBMIB.Qosunmatchedpolicytable.Qosunmatchedpolicyentry))])
+            self._child_classes = OrderedDict([("qosUnmatchedPolicyEntry", ("qosunmatchedpolicyentry", CISCOQOSPIBMIB.QosUnmatchedPolicyTable.QosUnmatchedPolicyEntry))])
             self._leafs = OrderedDict()
 
             self.qosunmatchedpolicyentry = YList(self)
@@ -1057,10 +1030,10 @@ class CISCOQOSPIBMIB(Entity):
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOQOSPIBMIB.Qosunmatchedpolicytable, [], name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.QosUnmatchedPolicyTable, [], name, value)
 
 
-        class Qosunmatchedpolicyentry(Entity):
+        class QosUnmatchedPolicyEntry(Entity):
             """
             An instance of this class specifies the unmatched policy
             for a particular role combination for incoming or outgoing
@@ -1083,7 +1056,7 @@ class CISCOQOSPIBMIB(Entity):
             .. attribute:: qosunmatchedpolicydirection
             
             	The direction of packet flow at the interface in question to which this instance applies
-            	**type**\:  :py:class:`Qosunmatchedpolicydirection <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosunmatchedpolicytable.Qosunmatchedpolicyentry.Qosunmatchedpolicydirection>`
+            	**type**\:  :py:class:`QosUnmatchedPolicyDirection <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosUnmatchedPolicyTable.QosUnmatchedPolicyEntry.QosUnmatchedPolicyDirection>`
             
             .. attribute:: qosunmatchedpolicydscp
             
@@ -1119,15 +1092,14 @@ class CISCOQOSPIBMIB(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CISCOQOSPIBMIB.Qosunmatchedpolicytable.Qosunmatchedpolicyentry, self).__init__()
+                super(CISCOQOSPIBMIB.QosUnmatchedPolicyTable.QosUnmatchedPolicyEntry, self).__init__()
 
                 self.yang_name = "qosUnmatchedPolicyEntry"
                 self.yang_parent_name = "qosUnmatchedPolicyTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['qosunmatchedpolicyid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('qosunmatchedpolicyid', YLeaf(YType.uint32, 'qosUnmatchedPolicyId')),
                     ('qosunmatchedpolicyrole', YLeaf(YType.str, 'qosUnmatchedPolicyRole')),
@@ -1148,11 +1120,11 @@ class CISCOQOSPIBMIB(Entity):
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosUnmatchedPolicyTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.Qosunmatchedpolicytable.Qosunmatchedpolicyentry, ['qosunmatchedpolicyid', 'qosunmatchedpolicyrole', 'qosunmatchedpolicydirection', 'qosunmatchedpolicydscp', 'qosunmatchedpolicydscptrusted', 'qosunmatchpolmicroflowpolicerid', 'qosunmatchedpolicyaggregateid'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosUnmatchedPolicyTable.QosUnmatchedPolicyEntry, [u'qosunmatchedpolicyid', u'qosunmatchedpolicyrole', u'qosunmatchedpolicydirection', u'qosunmatchedpolicydscp', u'qosunmatchedpolicydscptrusted', u'qosunmatchpolmicroflowpolicerid', u'qosunmatchedpolicyaggregateid'], name, value)
 
-            class Qosunmatchedpolicydirection(Enum):
+            class QosUnmatchedPolicyDirection(Enum):
                 """
-                Qosunmatchedpolicydirection (Enum Class)
+                QosUnmatchedPolicyDirection (Enum Class)
 
                 The direction of packet flow at the interface in question to
 
@@ -1170,7 +1142,7 @@ class CISCOQOSPIBMIB(Entity):
 
 
 
-    class Qospolicertable(Entity):
+    class QosPolicerTable(Entity):
         """
         A class specifying policing parameters for both microflows
         and aggregate flows.  This table is designed for policing
@@ -1180,7 +1152,7 @@ class CISCOQOSPIBMIB(Entity):
         .. attribute:: qospolicerentry
         
         	An instance of this class specifies a set of policing parameters
-        	**type**\: list of  		 :py:class:`Qospolicerentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qospolicertable.Qospolicerentry>`
+        	**type**\: list of  		 :py:class:`QosPolicerEntry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosPolicerTable.QosPolicerEntry>`
         
         
 
@@ -1190,15 +1162,14 @@ class CISCOQOSPIBMIB(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CISCOQOSPIBMIB.Qospolicertable, self).__init__()
+            super(CISCOQOSPIBMIB.QosPolicerTable, self).__init__()
 
             self.yang_name = "qosPolicerTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("qosPolicerEntry", ("qospolicerentry", CISCOQOSPIBMIB.Qospolicertable.Qospolicerentry))])
+            self._child_classes = OrderedDict([("qosPolicerEntry", ("qospolicerentry", CISCOQOSPIBMIB.QosPolicerTable.QosPolicerEntry))])
             self._leafs = OrderedDict()
 
             self.qospolicerentry = YList(self)
@@ -1206,10 +1177,10 @@ class CISCOQOSPIBMIB(Entity):
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOQOSPIBMIB.Qospolicertable, [], name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.QosPolicerTable, [], name, value)
 
 
-        class Qospolicerentry(Entity):
+        class QosPolicerEntry(Entity):
             """
             An instance of this class specifies a set of policing
             parameters.
@@ -1245,7 +1216,7 @@ class CISCOQOSPIBMIB(Entity):
             .. attribute:: qospoliceraction
             
             	An indication of how to handle out of profile packets.  When the shape action is chosen then traffic is shaped to the rate specified by qosPolicerRate
-            	**type**\:  :py:class:`Qospoliceraction <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qospolicertable.Qospolicerentry.Qospoliceraction>`
+            	**type**\:  :py:class:`QosPolicerAction <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosPolicerTable.QosPolicerEntry.QosPolicerAction>`
             
             
 
@@ -1255,15 +1226,14 @@ class CISCOQOSPIBMIB(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CISCOQOSPIBMIB.Qospolicertable.Qospolicerentry, self).__init__()
+                super(CISCOQOSPIBMIB.QosPolicerTable.QosPolicerEntry, self).__init__()
 
                 self.yang_name = "qosPolicerEntry"
                 self.yang_parent_name = "qosPolicerTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['qospolicerid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('qospolicerid', YLeaf(YType.uint32, 'qosPolicerId')),
                     ('qospolicerrate', YLeaf(YType.uint32, 'qosPolicerRate')),
@@ -1280,11 +1250,11 @@ class CISCOQOSPIBMIB(Entity):
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosPolicerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.Qospolicertable.Qospolicerentry, ['qospolicerid', 'qospolicerrate', 'qospolicernormalburst', 'qospolicerexcessburst', 'qospoliceraction'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosPolicerTable.QosPolicerEntry, [u'qospolicerid', u'qospolicerrate', u'qospolicernormalburst', u'qospolicerexcessburst', u'qospoliceraction'], name, value)
 
-            class Qospoliceraction(Enum):
+            class QosPolicerAction(Enum):
                 """
-                Qospoliceraction (Enum Class)
+                QosPolicerAction (Enum Class)
 
                 An indication of how to handle out of profile packets.  When
 
@@ -1308,7 +1278,7 @@ class CISCOQOSPIBMIB(Entity):
 
 
 
-    class Qosaggregatetable(Entity):
+    class QosAggregateTable(Entity):
         """
         Instances of this class identify aggregate flows and the
         policer to apply to each.
@@ -1316,7 +1286,7 @@ class CISCOQOSPIBMIB(Entity):
         .. attribute:: qosaggregateentry
         
         	An instance of this class specifies the policer to apply to an aggregate flow
-        	**type**\: list of  		 :py:class:`Qosaggregateentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosaggregatetable.Qosaggregateentry>`
+        	**type**\: list of  		 :py:class:`QosAggregateEntry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosAggregateTable.QosAggregateEntry>`
         
         
 
@@ -1326,15 +1296,14 @@ class CISCOQOSPIBMIB(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CISCOQOSPIBMIB.Qosaggregatetable, self).__init__()
+            super(CISCOQOSPIBMIB.QosAggregateTable, self).__init__()
 
             self.yang_name = "qosAggregateTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("qosAggregateEntry", ("qosaggregateentry", CISCOQOSPIBMIB.Qosaggregatetable.Qosaggregateentry))])
+            self._child_classes = OrderedDict([("qosAggregateEntry", ("qosaggregateentry", CISCOQOSPIBMIB.QosAggregateTable.QosAggregateEntry))])
             self._leafs = OrderedDict()
 
             self.qosaggregateentry = YList(self)
@@ -1342,10 +1311,10 @@ class CISCOQOSPIBMIB(Entity):
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOQOSPIBMIB.Qosaggregatetable, [], name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.QosAggregateTable, [], name, value)
 
 
-        class Qosaggregateentry(Entity):
+        class QosAggregateEntry(Entity):
             """
             An instance of this class specifies the policer to apply to
             an aggregate flow.
@@ -1372,15 +1341,14 @@ class CISCOQOSPIBMIB(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CISCOQOSPIBMIB.Qosaggregatetable.Qosaggregateentry, self).__init__()
+                super(CISCOQOSPIBMIB.QosAggregateTable.QosAggregateEntry, self).__init__()
 
                 self.yang_name = "qosAggregateEntry"
                 self.yang_parent_name = "qosAggregateTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['qosaggregateid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('qosaggregateid', YLeaf(YType.uint32, 'qosAggregateId')),
                     ('qosaggregatepolicerid', YLeaf(YType.uint32, 'qosAggregatePolicerId')),
@@ -1391,17 +1359,17 @@ class CISCOQOSPIBMIB(Entity):
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosAggregateTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.Qosaggregatetable.Qosaggregateentry, ['qosaggregateid', 'qosaggregatepolicerid'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosAggregateTable.QosAggregateEntry, [u'qosaggregateid', u'qosaggregatepolicerid'], name, value)
 
 
-    class Qosmacclassificationtable(Entity):
+    class QosMacClassificationTable(Entity):
         """
         A class of MAC/Vlan tuples and their associated CoS values.
         
         .. attribute:: qosmacclassificationentry
         
         	An instance of this class specifies the mapping of a VLAN and a MAC address to a CoS value
-        	**type**\: list of  		 :py:class:`Qosmacclassificationentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosmacclassificationtable.Qosmacclassificationentry>`
+        	**type**\: list of  		 :py:class:`QosMacClassificationEntry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosMacClassificationTable.QosMacClassificationEntry>`
         
         
 
@@ -1411,15 +1379,14 @@ class CISCOQOSPIBMIB(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CISCOQOSPIBMIB.Qosmacclassificationtable, self).__init__()
+            super(CISCOQOSPIBMIB.QosMacClassificationTable, self).__init__()
 
             self.yang_name = "qosMacClassificationTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("qosMacClassificationEntry", ("qosmacclassificationentry", CISCOQOSPIBMIB.Qosmacclassificationtable.Qosmacclassificationentry))])
+            self._child_classes = OrderedDict([("qosMacClassificationEntry", ("qosmacclassificationentry", CISCOQOSPIBMIB.QosMacClassificationTable.QosMacClassificationEntry))])
             self._leafs = OrderedDict()
 
             self.qosmacclassificationentry = YList(self)
@@ -1427,10 +1394,10 @@ class CISCOQOSPIBMIB(Entity):
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOQOSPIBMIB.Qosmacclassificationtable, [], name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.QosMacClassificationTable, [], name, value)
 
 
-        class Qosmacclassificationentry(Entity):
+        class QosMacClassificationEntry(Entity):
             """
             An instance of this class specifies the mapping of a VLAN
             and a MAC address to a CoS value.
@@ -1471,15 +1438,14 @@ class CISCOQOSPIBMIB(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CISCOQOSPIBMIB.Qosmacclassificationtable.Qosmacclassificationentry, self).__init__()
+                super(CISCOQOSPIBMIB.QosMacClassificationTable.QosMacClassificationEntry, self).__init__()
 
                 self.yang_name = "qosMacClassificationEntry"
                 self.yang_parent_name = "qosMacClassificationTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['qosmacclassificationid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('qosmacclassificationid', YLeaf(YType.uint32, 'qosMacClassificationId')),
                     ('qosdstmacvlan', YLeaf(YType.int32, 'qosDstMacVlan')),
@@ -1494,17 +1460,17 @@ class CISCOQOSPIBMIB(Entity):
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosMacClassificationTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.Qosmacclassificationtable.Qosmacclassificationentry, ['qosmacclassificationid', 'qosdstmacvlan', 'qosdstmacaddress', 'qosdstmaccos'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosMacClassificationTable.QosMacClassificationEntry, [u'qosmacclassificationid', u'qosdstmacvlan', u'qosdstmacaddress', u'qosdstmaccos'], name, value)
 
 
-    class Qosipacetable(Entity):
+    class QosIpAceTable(Entity):
         """
         ACE definitions.
         
         .. attribute:: qosipaceentry
         
         	An instance of this class specifies an ACE
-        	**type**\: list of  		 :py:class:`Qosipaceentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosipacetable.Qosipaceentry>`
+        	**type**\: list of  		 :py:class:`QosIpAceEntry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosIpAceTable.QosIpAceEntry>`
         
         
 
@@ -1514,15 +1480,14 @@ class CISCOQOSPIBMIB(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CISCOQOSPIBMIB.Qosipacetable, self).__init__()
+            super(CISCOQOSPIBMIB.QosIpAceTable, self).__init__()
 
             self.yang_name = "qosIpAceTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("qosIpAceEntry", ("qosipaceentry", CISCOQOSPIBMIB.Qosipacetable.Qosipaceentry))])
+            self._child_classes = OrderedDict([("qosIpAceEntry", ("qosipaceentry", CISCOQOSPIBMIB.QosIpAceTable.QosIpAceEntry))])
             self._leafs = OrderedDict()
 
             self.qosipaceentry = YList(self)
@@ -1530,10 +1495,10 @@ class CISCOQOSPIBMIB(Entity):
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOQOSPIBMIB.Qosipacetable, [], name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.QosIpAceTable, [], name, value)
 
 
-        class Qosipaceentry(Entity):
+        class QosIpAceEntry(Entity):
             """
             An instance of this class specifies an ACE.
             
@@ -1634,15 +1599,14 @@ class CISCOQOSPIBMIB(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CISCOQOSPIBMIB.Qosipacetable.Qosipaceentry, self).__init__()
+                super(CISCOQOSPIBMIB.QosIpAceTable.QosIpAceEntry, self).__init__()
 
                 self.yang_name = "qosIpAceEntry"
                 self.yang_parent_name = "qosIpAceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['qosipaceid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('qosipaceid', YLeaf(YType.uint32, 'qosIpAceId')),
                     ('qosipacedstaddr', YLeaf(YType.str, 'qosIpAceDstAddr')),
@@ -1675,10 +1639,10 @@ class CISCOQOSPIBMIB(Entity):
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIpAceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.Qosipacetable.Qosipaceentry, ['qosipaceid', 'qosipacedstaddr', 'qosipacedstaddrmask', 'qosipacesrcaddr', 'qosipacesrcaddrmask', 'qosipacedscpmin', 'qosipacedscpmax', 'qosipaceprotocol', 'qosipacedstl4portmin', 'qosipacedstl4portmax', 'qosipacesrcl4portmin', 'qosipacesrcl4portmax', 'qosipacepermit'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosIpAceTable.QosIpAceEntry, [u'qosipaceid', u'qosipacedstaddr', u'qosipacedstaddrmask', u'qosipacesrcaddr', u'qosipacesrcaddrmask', u'qosipacedscpmin', u'qosipacedscpmax', u'qosipaceprotocol', u'qosipacedstl4portmin', u'qosipacedstl4portmax', u'qosipacesrcl4portmin', u'qosipacesrcl4portmax', u'qosipacepermit'], name, value)
 
 
-    class Qosipacldefinitiontable(Entity):
+    class QosIpAclDefinitionTable(Entity):
         """
         A class that defines a set of ACLs each being an ordered list
         of ACEs.
@@ -1686,7 +1650,7 @@ class CISCOQOSPIBMIB(Entity):
         .. attribute:: qosipacldefinitionentry
         
         	An instance of this class specifies an ACE in an ACL and its order with respect to other ACEs in the same ACL
-        	**type**\: list of  		 :py:class:`Qosipacldefinitionentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosipacldefinitiontable.Qosipacldefinitionentry>`
+        	**type**\: list of  		 :py:class:`QosIpAclDefinitionEntry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosIpAclDefinitionTable.QosIpAclDefinitionEntry>`
         
         
 
@@ -1696,15 +1660,14 @@ class CISCOQOSPIBMIB(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CISCOQOSPIBMIB.Qosipacldefinitiontable, self).__init__()
+            super(CISCOQOSPIBMIB.QosIpAclDefinitionTable, self).__init__()
 
             self.yang_name = "qosIpAclDefinitionTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("qosIpAclDefinitionEntry", ("qosipacldefinitionentry", CISCOQOSPIBMIB.Qosipacldefinitiontable.Qosipacldefinitionentry))])
+            self._child_classes = OrderedDict([("qosIpAclDefinitionEntry", ("qosipacldefinitionentry", CISCOQOSPIBMIB.QosIpAclDefinitionTable.QosIpAclDefinitionEntry))])
             self._leafs = OrderedDict()
 
             self.qosipacldefinitionentry = YList(self)
@@ -1712,10 +1675,10 @@ class CISCOQOSPIBMIB(Entity):
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOQOSPIBMIB.Qosipacldefinitiontable, [], name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.QosIpAclDefinitionTable, [], name, value)
 
 
-        class Qosipacldefinitionentry(Entity):
+        class QosIpAclDefinitionEntry(Entity):
             """
             An instance of this class specifies an ACE in an ACL and its
             order with respect to other ACEs in the same ACL.
@@ -1756,15 +1719,14 @@ class CISCOQOSPIBMIB(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CISCOQOSPIBMIB.Qosipacldefinitiontable.Qosipacldefinitionentry, self).__init__()
+                super(CISCOQOSPIBMIB.QosIpAclDefinitionTable.QosIpAclDefinitionEntry, self).__init__()
 
                 self.yang_name = "qosIpAclDefinitionEntry"
                 self.yang_parent_name = "qosIpAclDefinitionTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['qosipacldefinitionid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('qosipacldefinitionid', YLeaf(YType.uint32, 'qosIpAclDefinitionId')),
                     ('qosipaclid', YLeaf(YType.uint32, 'qosIpAclId')),
@@ -1779,10 +1741,10 @@ class CISCOQOSPIBMIB(Entity):
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIpAclDefinitionTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.Qosipacldefinitiontable.Qosipacldefinitionentry, ['qosipacldefinitionid', 'qosipaclid', 'qosipaceorder', 'qosipacldefaceid'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosIpAclDefinitionTable.QosIpAclDefinitionEntry, [u'qosipacldefinitionid', u'qosipaclid', u'qosipaceorder', u'qosipacldefaceid'], name, value)
 
 
-    class Qosipaclactiontable(Entity):
+    class QosIpAclActionTable(Entity):
         """
         A class that applies a set of ACLs to interfaces specifying,
         for each interface the order of the ACL with respect to other
@@ -1794,7 +1756,7 @@ class CISCOQOSPIBMIB(Entity):
         .. attribute:: qosipaclactionentry
         
         	An instance of this class applies an ACL to traffic in a particular direction on an interface with a particular role combination, and specifies the action for packets which match the ACL
-        	**type**\: list of  		 :py:class:`Qosipaclactionentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosipaclactiontable.Qosipaclactionentry>`
+        	**type**\: list of  		 :py:class:`QosIpAclActionEntry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosIpAclActionTable.QosIpAclActionEntry>`
         
         
 
@@ -1804,15 +1766,14 @@ class CISCOQOSPIBMIB(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CISCOQOSPIBMIB.Qosipaclactiontable, self).__init__()
+            super(CISCOQOSPIBMIB.QosIpAclActionTable, self).__init__()
 
             self.yang_name = "qosIpAclActionTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("qosIpAclActionEntry", ("qosipaclactionentry", CISCOQOSPIBMIB.Qosipaclactiontable.Qosipaclactionentry))])
+            self._child_classes = OrderedDict([("qosIpAclActionEntry", ("qosipaclactionentry", CISCOQOSPIBMIB.QosIpAclActionTable.QosIpAclActionEntry))])
             self._leafs = OrderedDict()
 
             self.qosipaclactionentry = YList(self)
@@ -1820,10 +1781,10 @@ class CISCOQOSPIBMIB(Entity):
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOQOSPIBMIB.Qosipaclactiontable, [], name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.QosIpAclActionTable, [], name, value)
 
 
-        class Qosipaclactionentry(Entity):
+        class QosIpAclActionEntry(Entity):
             """
             An instance of this class applies an ACL to traffic in a
             particular direction on an interface with a particular role
@@ -1854,7 +1815,7 @@ class CISCOQOSPIBMIB(Entity):
             .. attribute:: qosipaclinterfacedirection
             
             	The direction of packet flow at the interface in question to which this ACL applies
-            	**type**\:  :py:class:`Qosipaclinterfacedirection <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosipaclactiontable.Qosipaclactionentry.Qosipaclinterfacedirection>`
+            	**type**\:  :py:class:`QosIpAclInterfaceDirection <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosIpAclActionTable.QosIpAclActionEntry.QosIpAclInterfaceDirection>`
             
             .. attribute:: qosipaclorder
             
@@ -1897,15 +1858,14 @@ class CISCOQOSPIBMIB(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CISCOQOSPIBMIB.Qosipaclactiontable.Qosipaclactionentry, self).__init__()
+                super(CISCOQOSPIBMIB.QosIpAclActionTable.QosIpAclActionEntry, self).__init__()
 
                 self.yang_name = "qosIpAclActionEntry"
                 self.yang_parent_name = "qosIpAclActionTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['qosipaclactionid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('qosipaclactionid', YLeaf(YType.uint32, 'qosIpAclActionId')),
                     ('qosipaclactaclid', YLeaf(YType.uint32, 'qosIpAclActAclId')),
@@ -1930,11 +1890,11 @@ class CISCOQOSPIBMIB(Entity):
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIpAclActionTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.Qosipaclactiontable.Qosipaclactionentry, ['qosipaclactionid', 'qosipaclactaclid', 'qosipaclinterfaceroles', 'qosipaclinterfacedirection', 'qosipaclorder', 'qosipacldscp', 'qosipacldscptrusted', 'qosipaclmicroflowpolicerid', 'qosipaclaggregateid'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosIpAclActionTable.QosIpAclActionEntry, [u'qosipaclactionid', u'qosipaclactaclid', u'qosipaclinterfaceroles', u'qosipaclinterfacedirection', u'qosipaclorder', u'qosipacldscp', u'qosipacldscptrusted', u'qosipaclmicroflowpolicerid', u'qosipaclaggregateid'], name, value)
 
-            class Qosipaclinterfacedirection(Enum):
+            class QosIpAclInterfaceDirection(Enum):
                 """
-                Qosipaclinterfacedirection (Enum Class)
+                QosIpAclInterfaceDirection (Enum Class)
 
                 The direction of packet flow at the interface in question to
 
@@ -1952,7 +1912,7 @@ class CISCOQOSPIBMIB(Entity):
 
 
 
-    class Qosifschedulingpreferencestable(Entity):
+    class QosIfSchedulingPreferencesTable(Entity):
         """
         This class specifies the scheduling preference an interface
         chooses if it supports multiple scheduling types.  Higher
@@ -1961,7 +1921,7 @@ class CISCOQOSPIBMIB(Entity):
         .. attribute:: qosifschedulingpreferenceentry
         
         	An instance of this class specifies a scheduling preference for a queue\-type on an interface with a particular role combination
-        	**type**\: list of  		 :py:class:`Qosifschedulingpreferenceentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosifschedulingpreferencestable.Qosifschedulingpreferenceentry>`
+        	**type**\: list of  		 :py:class:`QosIfSchedulingPreferenceEntry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosIfSchedulingPreferencesTable.QosIfSchedulingPreferenceEntry>`
         
         
 
@@ -1971,15 +1931,14 @@ class CISCOQOSPIBMIB(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CISCOQOSPIBMIB.Qosifschedulingpreferencestable, self).__init__()
+            super(CISCOQOSPIBMIB.QosIfSchedulingPreferencesTable, self).__init__()
 
             self.yang_name = "qosIfSchedulingPreferencesTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("qosIfSchedulingPreferenceEntry", ("qosifschedulingpreferenceentry", CISCOQOSPIBMIB.Qosifschedulingpreferencestable.Qosifschedulingpreferenceentry))])
+            self._child_classes = OrderedDict([("qosIfSchedulingPreferenceEntry", ("qosifschedulingpreferenceentry", CISCOQOSPIBMIB.QosIfSchedulingPreferencesTable.QosIfSchedulingPreferenceEntry))])
             self._leafs = OrderedDict()
 
             self.qosifschedulingpreferenceentry = YList(self)
@@ -1987,10 +1946,10 @@ class CISCOQOSPIBMIB(Entity):
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOQOSPIBMIB.Qosifschedulingpreferencestable, [], name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.QosIfSchedulingPreferencesTable, [], name, value)
 
 
-        class Qosifschedulingpreferenceentry(Entity):
+        class QosIfSchedulingPreferenceEntry(Entity):
             """
             An instance of this class specifies a scheduling preference
             for a queue\-type on an interface with a particular role
@@ -2020,7 +1979,7 @@ class CISCOQOSPIBMIB(Entity):
             .. attribute:: qosifschedulingdiscipline
             
             	An enumerate type for all the known scheduling disciplines
-            	**type**\:  :py:class:`Qosifschedulingdiscipline <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosifschedulingpreferencestable.Qosifschedulingpreferenceentry.Qosifschedulingdiscipline>`
+            	**type**\:  :py:class:`QosIfSchedulingDiscipline <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosIfSchedulingPreferencesTable.QosIfSchedulingPreferenceEntry.QosIfSchedulingDiscipline>`
             
             .. attribute:: qosifschedulingqueuetype
             
@@ -2035,15 +1994,14 @@ class CISCOQOSPIBMIB(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CISCOQOSPIBMIB.Qosifschedulingpreferencestable.Qosifschedulingpreferenceentry, self).__init__()
+                super(CISCOQOSPIBMIB.QosIfSchedulingPreferencesTable.QosIfSchedulingPreferenceEntry, self).__init__()
 
                 self.yang_name = "qosIfSchedulingPreferenceEntry"
                 self.yang_parent_name = "qosIfSchedulingPreferencesTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['qosifschedulingpreferenceid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('qosifschedulingpreferenceid', YLeaf(YType.uint32, 'qosIfSchedulingPreferenceId')),
                     ('qosifschedulingroles', YLeaf(YType.str, 'qosIfSchedulingRoles')),
@@ -2060,11 +2018,11 @@ class CISCOQOSPIBMIB(Entity):
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfSchedulingPreferencesTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.Qosifschedulingpreferencestable.Qosifschedulingpreferenceentry, ['qosifschedulingpreferenceid', 'qosifschedulingroles', 'qosifschedulingpreference', 'qosifschedulingdiscipline', 'qosifschedulingqueuetype'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosIfSchedulingPreferencesTable.QosIfSchedulingPreferenceEntry, [u'qosifschedulingpreferenceid', u'qosifschedulingroles', u'qosifschedulingpreference', u'qosifschedulingdiscipline', u'qosifschedulingqueuetype'], name, value)
 
-            class Qosifschedulingdiscipline(Enum):
+            class QosIfSchedulingDiscipline(Enum):
                 """
-                Qosifschedulingdiscipline (Enum Class)
+                QosIfSchedulingDiscipline (Enum Class)
 
                 An enumerate type for all the known scheduling disciplines.
 
@@ -2104,7 +2062,7 @@ class CISCOQOSPIBMIB(Entity):
 
 
 
-    class Qosifdroppreferencetable(Entity):
+    class QosIfDropPreferenceTable(Entity):
         """
         This class specifies the preference of the drop mechanism an
         interface chooses if it supports multiple drop mechanisms.
@@ -2113,7 +2071,7 @@ class CISCOQOSPIBMIB(Entity):
         .. attribute:: qosifdroppreferenceentry
         
         	An instance of this class specifies a drop preference for a drop mechanism on an interface with a particular role combination
-        	**type**\: list of  		 :py:class:`Qosifdroppreferenceentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosifdroppreferencetable.Qosifdroppreferenceentry>`
+        	**type**\: list of  		 :py:class:`QosIfDropPreferenceEntry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosIfDropPreferenceTable.QosIfDropPreferenceEntry>`
         
         
 
@@ -2123,15 +2081,14 @@ class CISCOQOSPIBMIB(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CISCOQOSPIBMIB.Qosifdroppreferencetable, self).__init__()
+            super(CISCOQOSPIBMIB.QosIfDropPreferenceTable, self).__init__()
 
             self.yang_name = "qosIfDropPreferenceTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("qosIfDropPreferenceEntry", ("qosifdroppreferenceentry", CISCOQOSPIBMIB.Qosifdroppreferencetable.Qosifdroppreferenceentry))])
+            self._child_classes = OrderedDict([("qosIfDropPreferenceEntry", ("qosifdroppreferenceentry", CISCOQOSPIBMIB.QosIfDropPreferenceTable.QosIfDropPreferenceEntry))])
             self._leafs = OrderedDict()
 
             self.qosifdroppreferenceentry = YList(self)
@@ -2139,10 +2096,10 @@ class CISCOQOSPIBMIB(Entity):
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOQOSPIBMIB.Qosifdroppreferencetable, [], name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.QosIfDropPreferenceTable, [], name, value)
 
 
-        class Qosifdroppreferenceentry(Entity):
+        class QosIfDropPreferenceEntry(Entity):
             """
             An instance of this class specifies a drop preference for
             a drop mechanism on an interface with a particular role
@@ -2172,7 +2129,7 @@ class CISCOQOSPIBMIB(Entity):
             .. attribute:: qosifdropdiscipline
             
             	An enumerate type for all the known drop mechanisms
-            	**type**\:  :py:class:`Qosifdropdiscipline <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosifdroppreferencetable.Qosifdroppreferenceentry.Qosifdropdiscipline>`
+            	**type**\:  :py:class:`QosIfDropDiscipline <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosIfDropPreferenceTable.QosIfDropPreferenceEntry.QosIfDropDiscipline>`
             
             
 
@@ -2182,15 +2139,14 @@ class CISCOQOSPIBMIB(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CISCOQOSPIBMIB.Qosifdroppreferencetable.Qosifdroppreferenceentry, self).__init__()
+                super(CISCOQOSPIBMIB.QosIfDropPreferenceTable.QosIfDropPreferenceEntry, self).__init__()
 
                 self.yang_name = "qosIfDropPreferenceEntry"
                 self.yang_parent_name = "qosIfDropPreferenceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['qosifdroppreferenceid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('qosifdroppreferenceid', YLeaf(YType.uint32, 'qosIfDropPreferenceId')),
                     ('qosifdroproles', YLeaf(YType.str, 'qosIfDropRoles')),
@@ -2205,11 +2161,11 @@ class CISCOQOSPIBMIB(Entity):
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfDropPreferenceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.Qosifdroppreferencetable.Qosifdroppreferenceentry, ['qosifdroppreferenceid', 'qosifdroproles', 'qosifdroppreference', 'qosifdropdiscipline'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosIfDropPreferenceTable.QosIfDropPreferenceEntry, [u'qosifdroppreferenceid', u'qosifdroproles', u'qosifdroppreference', u'qosifdropdiscipline'], name, value)
 
-            class Qosifdropdiscipline(Enum):
+            class QosIfDropDiscipline(Enum):
                 """
-                Qosifdropdiscipline (Enum Class)
+                QosIfDropDiscipline (Enum Class)
 
                 An enumerate type for all the known drop mechanisms.
 
@@ -2225,7 +2181,7 @@ class CISCOQOSPIBMIB(Entity):
 
 
 
-    class Qosifdscpassignmenttable(Entity):
+    class QosIfDscpAssignmentTable(Entity):
         """
         The assignment of each DSCP to a queue and threshold for each
         interface queue type.
@@ -2233,7 +2189,7 @@ class CISCOQOSPIBMIB(Entity):
         .. attribute:: qosifdscpassignmententry
         
         	An instance of this class specifies the queue and threshold set for a packet with a particular DSCP on an interface of a particular type with a particular role combination
-        	**type**\: list of  		 :py:class:`Qosifdscpassignmententry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosifdscpassignmenttable.Qosifdscpassignmententry>`
+        	**type**\: list of  		 :py:class:`QosIfDscpAssignmentEntry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosIfDscpAssignmentTable.QosIfDscpAssignmentEntry>`
         
         
 
@@ -2243,15 +2199,14 @@ class CISCOQOSPIBMIB(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CISCOQOSPIBMIB.Qosifdscpassignmenttable, self).__init__()
+            super(CISCOQOSPIBMIB.QosIfDscpAssignmentTable, self).__init__()
 
             self.yang_name = "qosIfDscpAssignmentTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("qosIfDscpAssignmentEntry", ("qosifdscpassignmententry", CISCOQOSPIBMIB.Qosifdscpassignmenttable.Qosifdscpassignmententry))])
+            self._child_classes = OrderedDict([("qosIfDscpAssignmentEntry", ("qosifdscpassignmententry", CISCOQOSPIBMIB.QosIfDscpAssignmentTable.QosIfDscpAssignmentEntry))])
             self._leafs = OrderedDict()
 
             self.qosifdscpassignmententry = YList(self)
@@ -2259,10 +2214,10 @@ class CISCOQOSPIBMIB(Entity):
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOQOSPIBMIB.Qosifdscpassignmenttable, [], name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.QosIfDscpAssignmentTable, [], name, value)
 
 
-        class Qosifdscpassignmententry(Entity):
+        class QosIfDscpAssignmentEntry(Entity):
             """
             An instance of this class specifies the queue and threshold
             set for a packet with a particular DSCP on an interface of
@@ -2316,15 +2271,14 @@ class CISCOQOSPIBMIB(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CISCOQOSPIBMIB.Qosifdscpassignmenttable.Qosifdscpassignmententry, self).__init__()
+                super(CISCOQOSPIBMIB.QosIfDscpAssignmentTable.QosIfDscpAssignmentEntry, self).__init__()
 
                 self.yang_name = "qosIfDscpAssignmentEntry"
                 self.yang_parent_name = "qosIfDscpAssignmentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['qosifdscpassignmentid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('qosifdscpassignmentid', YLeaf(YType.uint32, 'qosIfDscpAssignmentId')),
                     ('qosifdscproles', YLeaf(YType.str, 'qosIfDscpRoles')),
@@ -2343,10 +2297,10 @@ class CISCOQOSPIBMIB(Entity):
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfDscpAssignmentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.Qosifdscpassignmenttable.Qosifdscpassignmententry, ['qosifdscpassignmentid', 'qosifdscproles', 'qosifqueuetype', 'qosifdscp', 'qosifqueue', 'qosifthresholdset'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosIfDscpAssignmentTable.QosIfDscpAssignmentEntry, [u'qosifdscpassignmentid', u'qosifdscproles', u'qosifqueuetype', u'qosifdscp', u'qosifqueue', u'qosifthresholdset'], name, value)
 
 
-    class Qosifredtable(Entity):
+    class QosIfRedTable(Entity):
         """
         A class of lower and upper values for each threshold set in a
         queue supporting WRED.  If the size of the queue for a given
@@ -2359,7 +2313,7 @@ class CISCOQOSPIBMIB(Entity):
         .. attribute:: qosifredentry
         
         	An instance of this class specifies threshold limits for a particular RED threshold of a given threshold set on an interface and with a particular role combination
-        	**type**\: list of  		 :py:class:`Qosifredentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosifredtable.Qosifredentry>`
+        	**type**\: list of  		 :py:class:`QosIfRedEntry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosIfRedTable.QosIfRedEntry>`
         
         
 
@@ -2369,15 +2323,14 @@ class CISCOQOSPIBMIB(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CISCOQOSPIBMIB.Qosifredtable, self).__init__()
+            super(CISCOQOSPIBMIB.QosIfRedTable, self).__init__()
 
             self.yang_name = "qosIfRedTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("qosIfRedEntry", ("qosifredentry", CISCOQOSPIBMIB.Qosifredtable.Qosifredentry))])
+            self._child_classes = OrderedDict([("qosIfRedEntry", ("qosifredentry", CISCOQOSPIBMIB.QosIfRedTable.QosIfRedEntry))])
             self._leafs = OrderedDict()
 
             self.qosifredentry = YList(self)
@@ -2385,10 +2338,10 @@ class CISCOQOSPIBMIB(Entity):
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOQOSPIBMIB.Qosifredtable, [], name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.QosIfRedTable, [], name, value)
 
 
-        class Qosifredentry(Entity):
+        class QosIfRedEntry(Entity):
             """
             An instance of this class specifies threshold limits for a
             particular RED threshold of a given threshold set on an
@@ -2442,15 +2395,14 @@ class CISCOQOSPIBMIB(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CISCOQOSPIBMIB.Qosifredtable.Qosifredentry, self).__init__()
+                super(CISCOQOSPIBMIB.QosIfRedTable.QosIfRedEntry, self).__init__()
 
                 self.yang_name = "qosIfRedEntry"
                 self.yang_parent_name = "qosIfRedTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['qosifredid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('qosifredid', YLeaf(YType.uint32, 'qosIfRedId')),
                     ('qosifredroles', YLeaf(YType.str, 'qosIfRedRoles')),
@@ -2469,10 +2421,10 @@ class CISCOQOSPIBMIB(Entity):
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfRedTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.Qosifredtable.Qosifredentry, ['qosifredid', 'qosifredroles', 'qosifrednumthresholdsets', 'qosifredthresholdset', 'qosifredthresholdsetlower', 'qosifredthresholdsetupper'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosIfRedTable.QosIfRedEntry, [u'qosifredid', u'qosifredroles', u'qosifrednumthresholdsets', u'qosifredthresholdset', u'qosifredthresholdsetlower', u'qosifredthresholdsetupper'], name, value)
 
 
-    class Qosiftaildroptable(Entity):
+    class QosIfTailDropTable(Entity):
         """
         A class for threshold sets in a queue supporting tail drop.
         If the size of the queue for a given threshold set is at or
@@ -2484,7 +2436,7 @@ class CISCOQOSPIBMIB(Entity):
         .. attribute:: qosiftaildropentry
         
         	An instance of this class specifies the queue depth for a particular tail\-drop threshold set on an interface with a particular role combination
-        	**type**\: list of  		 :py:class:`Qosiftaildropentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosiftaildroptable.Qosiftaildropentry>`
+        	**type**\: list of  		 :py:class:`QosIfTailDropEntry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosIfTailDropTable.QosIfTailDropEntry>`
         
         
 
@@ -2494,15 +2446,14 @@ class CISCOQOSPIBMIB(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CISCOQOSPIBMIB.Qosiftaildroptable, self).__init__()
+            super(CISCOQOSPIBMIB.QosIfTailDropTable, self).__init__()
 
             self.yang_name = "qosIfTailDropTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("qosIfTailDropEntry", ("qosiftaildropentry", CISCOQOSPIBMIB.Qosiftaildroptable.Qosiftaildropentry))])
+            self._child_classes = OrderedDict([("qosIfTailDropEntry", ("qosiftaildropentry", CISCOQOSPIBMIB.QosIfTailDropTable.QosIfTailDropEntry))])
             self._leafs = OrderedDict()
 
             self.qosiftaildropentry = YList(self)
@@ -2510,10 +2461,10 @@ class CISCOQOSPIBMIB(Entity):
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOQOSPIBMIB.Qosiftaildroptable, [], name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.QosIfTailDropTable, [], name, value)
 
 
-        class Qosiftaildropentry(Entity):
+        class QosIfTailDropEntry(Entity):
             """
             An instance of this class specifies the queue depth for a
             particular tail\-drop threshold set on an interface with a
@@ -2560,15 +2511,14 @@ class CISCOQOSPIBMIB(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CISCOQOSPIBMIB.Qosiftaildroptable.Qosiftaildropentry, self).__init__()
+                super(CISCOQOSPIBMIB.QosIfTailDropTable.QosIfTailDropEntry, self).__init__()
 
                 self.yang_name = "qosIfTailDropEntry"
                 self.yang_parent_name = "qosIfTailDropTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['qosiftaildropid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('qosiftaildropid', YLeaf(YType.uint32, 'qosIfTailDropId')),
                     ('qosiftaildroproles', YLeaf(YType.str, 'qosIfTailDropRoles')),
@@ -2585,10 +2535,10 @@ class CISCOQOSPIBMIB(Entity):
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfTailDropTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.Qosiftaildroptable.Qosiftaildropentry, ['qosiftaildropid', 'qosiftaildroproles', 'qosiftaildropnumthresholdsets', 'qosiftaildropthresholdset', 'qosiftaildropthresholdsetvalue'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosIfTailDropTable.QosIfTailDropEntry, [u'qosiftaildropid', u'qosiftaildroproles', u'qosiftaildropnumthresholdsets', u'qosiftaildropthresholdset', u'qosiftaildropthresholdsetvalue'], name, value)
 
 
-    class Qosifweightstable(Entity):
+    class QosIfWeightsTable(Entity):
         """
         A class of scheduling weights for each queue of an interface
         that supports weighted round robin scheduling or a mix of
@@ -2600,7 +2550,7 @@ class CISCOQOSPIBMIB(Entity):
         .. attribute:: qosifweightsentry
         
         	An instance of this class specifies the scheduling weight for a particular queue of an interface with a particular number of queues and with a particular role combination
-        	**type**\: list of  		 :py:class:`Qosifweightsentry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.Qosifweightstable.Qosifweightsentry>`
+        	**type**\: list of  		 :py:class:`QosIfWeightsEntry <ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB.CISCOQOSPIBMIB.QosIfWeightsTable.QosIfWeightsEntry>`
         
         
 
@@ -2610,15 +2560,14 @@ class CISCOQOSPIBMIB(Entity):
         _revision = '2007-08-29'
 
         def __init__(self):
-            super(CISCOQOSPIBMIB.Qosifweightstable, self).__init__()
+            super(CISCOQOSPIBMIB.QosIfWeightsTable, self).__init__()
 
             self.yang_name = "qosIfWeightsTable"
             self.yang_parent_name = "CISCO-QOS-PIB-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("qosIfWeightsEntry", ("qosifweightsentry", CISCOQOSPIBMIB.Qosifweightstable.Qosifweightsentry))])
+            self._child_classes = OrderedDict([("qosIfWeightsEntry", ("qosifweightsentry", CISCOQOSPIBMIB.QosIfWeightsTable.QosIfWeightsEntry))])
             self._leafs = OrderedDict()
 
             self.qosifweightsentry = YList(self)
@@ -2626,10 +2575,10 @@ class CISCOQOSPIBMIB(Entity):
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOQOSPIBMIB.Qosifweightstable, [], name, value)
+            self._perform_setattr(CISCOQOSPIBMIB.QosIfWeightsTable, [], name, value)
 
 
-        class Qosifweightsentry(Entity):
+        class QosIfWeightsEntry(Entity):
             """
             An instance of this class specifies the scheduling weight for
             a particular queue of an interface with a particular number
@@ -2683,15 +2632,14 @@ class CISCOQOSPIBMIB(Entity):
             _revision = '2007-08-29'
 
             def __init__(self):
-                super(CISCOQOSPIBMIB.Qosifweightstable.Qosifweightsentry, self).__init__()
+                super(CISCOQOSPIBMIB.QosIfWeightsTable.QosIfWeightsEntry, self).__init__()
 
                 self.yang_name = "qosIfWeightsEntry"
                 self.yang_parent_name = "qosIfWeightsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['qosifweightsid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('qosifweightsid', YLeaf(YType.uint32, 'qosIfWeightsId')),
                     ('qosifweightsroles', YLeaf(YType.str, 'qosIfWeightsRoles')),
@@ -2710,7 +2658,7 @@ class CISCOQOSPIBMIB(Entity):
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfWeightsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOQOSPIBMIB.Qosifweightstable.Qosifweightsentry, ['qosifweightsid', 'qosifweightsroles', 'qosifweightsnumqueues', 'qosifweightsqueue', 'qosifweightsdrainsize', 'qosifweightsqueuesize'], name, value)
+                self._perform_setattr(CISCOQOSPIBMIB.QosIfWeightsTable.QosIfWeightsEntry, [u'qosifweightsid', u'qosifweightsroles', u'qosifweightsnumqueues', u'qosifweightsqueue', u'qosifweightsdrainsize', u'qosifweightsqueuesize'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOQOSPIBMIB()

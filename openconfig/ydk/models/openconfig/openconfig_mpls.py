@@ -125,9 +125,9 @@ class MplsSrlgFloodingType(Enum):
 
     """
 
-    FLOODED_SRLG = Enum.YLeaf(0, "FLOODED-SRLG")
+    FLOODED_SRLG = Enum.YLeaf(0, "FLOODED_SRLG")
 
-    STATIC_SRLG = Enum.YLeaf(1, "STATIC-SRLG")
+    STATIC_SRLG = Enum.YLeaf(1, "STATIC_SRLG")
 
 
 class TeBandwidthType(Enum):
@@ -173,22 +173,6 @@ class TeMetricType(Enum):
 
 
 
-class PathComputationMethod(Identity):
-    """
-    base identity for supported path computation
-    mechanisms
-    
-    
-
-    """
-
-    _prefix = 'mpls'
-    _revision = '2015-11-05'
-
-    def __init__(self):
-        super(PathComputationMethod, self).__init__("http://openconfig.net/yang/mpls", "openconfig-mpls", "openconfig-mpls:path-computation-method")
-
-
 class Mpls(Entity):
     """
     Anchor point for mpls configuration and operational
@@ -221,12 +205,10 @@ class Mpls(Entity):
     
     
 
-    This class is a :ref:`presence class<presence-class>`
-
     """
 
-    _prefix = 'mpls'
-    _revision = '2015-11-05'
+    _prefix = 'oc-mpls'
+    _revision = '2017-03-22'
 
     def __init__(self):
         super(Mpls, self).__init__()
@@ -237,36 +219,32 @@ class Mpls(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("global", ("global_", Mpls.Global)), ("te-global-attributes", ("te_global_attributes", Mpls.TeGlobalAttributes)), ("te-interface-attributes", ("te_interface_attributes", Mpls.TeInterfaceAttributes)), ("signaling-protocols", ("signaling_protocols", Mpls.SignalingProtocols)), ("lsps", ("lsps", Mpls.Lsps))])
-        self._child_list_classes = OrderedDict([])
-        self.is_presence_container = True
+        self._child_classes = OrderedDict([("global", ("global_", Mpls.Global)), ("te-global-attributes", ("te_global_attributes", Mpls.TeGlobalAttributes)), ("te-interface-attributes", ("te_interface_attributes", Mpls.TeInterfaceAttributes)), ("signaling-protocols", ("signaling_protocols", Mpls.SignalingProtocols)), ("lsps", ("lsps", Mpls.Lsps))])
         self._leafs = OrderedDict()
 
         self.global_ = Mpls.Global()
         self.global_.parent = self
         self._children_name_map["global_"] = "global"
-        self._children_yang_names.add("global")
 
         self.te_global_attributes = Mpls.TeGlobalAttributes()
         self.te_global_attributes.parent = self
         self._children_name_map["te_global_attributes"] = "te-global-attributes"
-        self._children_yang_names.add("te-global-attributes")
 
         self.te_interface_attributes = Mpls.TeInterfaceAttributes()
         self.te_interface_attributes.parent = self
         self._children_name_map["te_interface_attributes"] = "te-interface-attributes"
-        self._children_yang_names.add("te-interface-attributes")
 
         self.signaling_protocols = Mpls.SignalingProtocols()
         self.signaling_protocols.parent = self
         self._children_name_map["signaling_protocols"] = "signaling-protocols"
-        self._children_yang_names.add("signaling-protocols")
 
         self.lsps = Mpls.Lsps()
         self.lsps.parent = self
         self._children_name_map["lsps"] = "lsps"
-        self._children_yang_names.add("lsps")
         self._segment_path = lambda: "openconfig-mpls:mpls"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Mpls, [], name, value)
 
 
     class Global(Entity):
@@ -285,17 +263,22 @@ class Mpls(Entity):
         	Top level global MPLS state
         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Global.State>`
         
-        .. attribute:: mpls_interface_attributes
+        .. attribute:: interface_attributes
         
         	Parameters related to MPLS interfaces
-        	**type**\:  :py:class:`MplsInterfaceAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.Global.MplsInterfaceAttributes>`
+        	**type**\:  :py:class:`InterfaceAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.Global.InterfaceAttributes>`
+        
+        .. attribute:: reserved_label_blocks
+        
+        	A range of labels starting with the start\-label and up\-to and including the end label that should be allocated as reserved. These labels should not be utilised by any dynamic label allocation on the local system unless the allocating protocol is explicitly configured to specify that allocation of labels should be out of the label block specified
+        	**type**\:  :py:class:`ReservedLabelBlocks <ydk.models.openconfig.openconfig_mpls.Mpls.Global.ReservedLabelBlocks>`
         
         
 
         """
 
-        _prefix = 'mpls'
-        _revision = '2015-11-05'
+        _prefix = 'oc-mpls'
+        _revision = '2017-03-22'
 
         def __init__(self):
             super(Mpls.Global, self).__init__()
@@ -305,26 +288,29 @@ class Mpls(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("config", ("config", Mpls.Global.Config)), ("state", ("state", Mpls.Global.State)), ("mpls-interface-attributes", ("mpls_interface_attributes", Mpls.Global.MplsInterfaceAttributes))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("config", ("config", Mpls.Global.Config)), ("state", ("state", Mpls.Global.State)), ("interface-attributes", ("interface_attributes", Mpls.Global.InterfaceAttributes)), ("reserved-label-blocks", ("reserved_label_blocks", Mpls.Global.ReservedLabelBlocks))])
             self._leafs = OrderedDict()
 
             self.config = Mpls.Global.Config()
             self.config.parent = self
             self._children_name_map["config"] = "config"
-            self._children_yang_names.add("config")
 
             self.state = Mpls.Global.State()
             self.state.parent = self
             self._children_name_map["state"] = "state"
-            self._children_yang_names.add("state")
 
-            self.mpls_interface_attributes = Mpls.Global.MplsInterfaceAttributes()
-            self.mpls_interface_attributes.parent = self
-            self._children_name_map["mpls_interface_attributes"] = "mpls-interface-attributes"
-            self._children_yang_names.add("mpls-interface-attributes")
+            self.interface_attributes = Mpls.Global.InterfaceAttributes()
+            self.interface_attributes.parent = self
+            self._children_name_map["interface_attributes"] = "interface-attributes"
+
+            self.reserved_label_blocks = Mpls.Global.ReservedLabelBlocks()
+            self.reserved_label_blocks.parent = self
+            self._children_name_map["reserved_label_blocks"] = "reserved-label-blocks"
             self._segment_path = lambda: "global"
             self._absolute_path = lambda: "openconfig-mpls:mpls/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Mpls.Global, [], name, value)
 
 
         class Config(Entity):
@@ -334,16 +320,16 @@ class Mpls(Entity):
             .. attribute:: null_label
             
             	The null\-label type used, implicit or explicit
-            	**type**\:  :py:class:`NullLabelType <ydk.models.openconfig.openconfig_mpls_types.NullLabelType>`
+            	**type**\:  :py:class:`NULLLABELTYPE <ydk.models.openconfig.openconfig_mpls_types.NULLLABELTYPE>`
             
-            	**default value**\: mplst:IMPLICIT
+            	**default value**\: oc-mplst:IMPLICIT
             
             
 
             """
 
-            _prefix = 'mpls'
-            _revision = '2015-11-05'
+            _prefix = 'oc-mpls'
+            _revision = '2017-03-22'
 
             def __init__(self):
                 super(Mpls.Global.Config, self).__init__()
@@ -353,8 +339,7 @@ class Mpls(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('null_label', YLeaf(YType.identityref, 'null-label')),
                 ])
@@ -363,7 +348,7 @@ class Mpls(Entity):
                 self._absolute_path = lambda: "openconfig-mpls:mpls/global/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Mpls.Global.Config, ['null_label'], name, value)
+                self._perform_setattr(Mpls.Global.Config, [u'null_label'], name, value)
 
 
         class State(Entity):
@@ -373,16 +358,16 @@ class Mpls(Entity):
             .. attribute:: null_label
             
             	The null\-label type used, implicit or explicit
-            	**type**\:  :py:class:`NullLabelType <ydk.models.openconfig.openconfig_mpls_types.NullLabelType>`
+            	**type**\:  :py:class:`NULLLABELTYPE <ydk.models.openconfig.openconfig_mpls_types.NULLLABELTYPE>`
             
-            	**default value**\: mplst:IMPLICIT
+            	**default value**\: oc-mplst:IMPLICIT
             
             
 
             """
 
-            _prefix = 'mpls'
-            _revision = '2015-11-05'
+            _prefix = 'oc-mpls'
+            _revision = '2017-03-22'
 
             def __init__(self):
                 super(Mpls.Global.State, self).__init__()
@@ -392,8 +377,7 @@ class Mpls(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('null_label', YLeaf(YType.identityref, 'null-label')),
                 ])
@@ -402,118 +386,121 @@ class Mpls(Entity):
                 self._absolute_path = lambda: "openconfig-mpls:mpls/global/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Mpls.Global.State, ['null_label'], name, value)
+                self._perform_setattr(Mpls.Global.State, [u'null_label'], name, value)
 
 
-        class MplsInterfaceAttributes(Entity):
+        class InterfaceAttributes(Entity):
             """
             Parameters related to MPLS interfaces
             
             .. attribute:: interface
             
             	List of TE interfaces
-            	**type**\: list of  		 :py:class:`Interface <ydk.models.openconfig.openconfig_mpls.Mpls.Global.MplsInterfaceAttributes.Interface>`
+            	**type**\: list of  		 :py:class:`Interface <ydk.models.openconfig.openconfig_mpls.Mpls.Global.InterfaceAttributes.Interface>`
             
             
 
             """
 
-            _prefix = 'mpls'
-            _revision = '2015-11-05'
+            _prefix = 'oc-mpls'
+            _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.Global.MplsInterfaceAttributes, self).__init__()
+                super(Mpls.Global.InterfaceAttributes, self).__init__()
 
-                self.yang_name = "mpls-interface-attributes"
+                self.yang_name = "interface-attributes"
                 self.yang_parent_name = "global"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("interface", ("interface", Mpls.Global.MplsInterfaceAttributes.Interface))])
+                self._child_classes = OrderedDict([("interface", ("interface", Mpls.Global.InterfaceAttributes.Interface))])
                 self._leafs = OrderedDict()
 
                 self.interface = YList(self)
-                self._segment_path = lambda: "mpls-interface-attributes"
+                self._segment_path = lambda: "interface-attributes"
                 self._absolute_path = lambda: "openconfig-mpls:mpls/global/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Mpls.Global.MplsInterfaceAttributes, [], name, value)
+                self._perform_setattr(Mpls.Global.InterfaceAttributes, [], name, value)
 
 
             class Interface(Entity):
                 """
                 List of TE interfaces
                 
-                .. attribute:: name  (key)
+                .. attribute:: interface_id  (key)
                 
-                	The interface name
+                	Reference to the interface id list key
                 	**type**\: str
                 
-                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Global.MplsInterfaceAttributes.Interface.Config>`
+                	**refers to**\:  :py:class:`interface_id <ydk.models.openconfig.openconfig_mpls.Mpls.Global.InterfaceAttributes.Interface.Config>`
                 
                 .. attribute:: config
                 
                 	Configuration parameters related to MPLS interfaces\:
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Global.MplsInterfaceAttributes.Interface.Config>`
+                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Global.InterfaceAttributes.Interface.Config>`
                 
                 .. attribute:: state
                 
                 	State parameters related to TE interfaces
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Global.MplsInterfaceAttributes.Interface.State>`
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Global.InterfaceAttributes.Interface.State>`
+                
+                .. attribute:: interface_ref
+                
+                	Reference to an interface or subinterface
+                	**type**\:  :py:class:`InterfaceRef <ydk.models.openconfig.openconfig_mpls.Mpls.Global.InterfaceAttributes.Interface.InterfaceRef>`
                 
                 
 
                 """
 
-                _prefix = 'mpls'
-                _revision = '2015-11-05'
+                _prefix = 'oc-mpls'
+                _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.Global.MplsInterfaceAttributes.Interface, self).__init__()
+                    super(Mpls.Global.InterfaceAttributes.Interface, self).__init__()
 
                     self.yang_name = "interface"
-                    self.yang_parent_name = "mpls-interface-attributes"
+                    self.yang_parent_name = "interface-attributes"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([("config", ("config", Mpls.Global.MplsInterfaceAttributes.Interface.Config)), ("state", ("state", Mpls.Global.MplsInterfaceAttributes.Interface.State))])
-                    self._child_list_classes = OrderedDict([])
+                    self.ylist_key_names = ['interface_id']
+                    self._child_classes = OrderedDict([("config", ("config", Mpls.Global.InterfaceAttributes.Interface.Config)), ("state", ("state", Mpls.Global.InterfaceAttributes.Interface.State)), ("interface-ref", ("interface_ref", Mpls.Global.InterfaceAttributes.Interface.InterfaceRef))])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('interface_id', YLeaf(YType.str, 'interface-id')),
                     ])
-                    self.name = None
+                    self.interface_id = None
 
-                    self.config = Mpls.Global.MplsInterfaceAttributes.Interface.Config()
+                    self.config = Mpls.Global.InterfaceAttributes.Interface.Config()
                     self.config.parent = self
                     self._children_name_map["config"] = "config"
-                    self._children_yang_names.add("config")
 
-                    self.state = Mpls.Global.MplsInterfaceAttributes.Interface.State()
+                    self.state = Mpls.Global.InterfaceAttributes.Interface.State()
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
-                    self._children_yang_names.add("state")
-                    self._segment_path = lambda: "interface" + "[name='" + str(self.name) + "']"
-                    self._absolute_path = lambda: "openconfig-mpls:mpls/global/mpls-interface-attributes/%s" % self._segment_path()
+
+                    self.interface_ref = Mpls.Global.InterfaceAttributes.Interface.InterfaceRef()
+                    self.interface_ref.parent = self
+                    self._children_name_map["interface_ref"] = "interface-ref"
+                    self._segment_path = lambda: "interface" + "[interface-id='" + str(self.interface_id) + "']"
+                    self._absolute_path = lambda: "openconfig-mpls:mpls/global/interface-attributes/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.Global.MplsInterfaceAttributes.Interface, ['name'], name, value)
+                    self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface, [u'interface_id'], name, value)
 
 
                 class Config(Entity):
                     """
                     Configuration parameters related to MPLS interfaces\:
                     
-                    .. attribute:: name
+                    .. attribute:: interface_id
                     
-                    	reference to interface name
+                    	Indentifier for the MPLS interface
                     	**type**\: str
-                    
-                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                     
                     .. attribute:: mpls_enabled
                     
-                    	Enable MPLS forwarding on this interfacek
+                    	Enable MPLS forwarding on this interface
                     	**type**\: bool
                     
                     	**default value**\: false
@@ -522,45 +509,42 @@ class Mpls(Entity):
 
                     """
 
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Global.MplsInterfaceAttributes.Interface.Config, self).__init__()
+                        super(Mpls.Global.InterfaceAttributes.Interface.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('name', YLeaf(YType.str, 'name')),
+                            ('interface_id', YLeaf(YType.str, 'interface-id')),
                             ('mpls_enabled', YLeaf(YType.boolean, 'mpls-enabled')),
                         ])
-                        self.name = None
+                        self.interface_id = None
                         self.mpls_enabled = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Global.MplsInterfaceAttributes.Interface.Config, ['name', 'mpls_enabled'], name, value)
+                        self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface.Config, [u'interface_id', u'mpls_enabled'], name, value)
 
 
                 class State(Entity):
                     """
                     State parameters related to TE interfaces
                     
-                    .. attribute:: name
+                    .. attribute:: interface_id
                     
-                    	reference to interface name
+                    	Indentifier for the MPLS interface
                     	**type**\: str
-                    
-                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                     
                     .. attribute:: mpls_enabled
                     
-                    	Enable MPLS forwarding on this interfacek
+                    	Enable MPLS forwarding on this interface
                     	**type**\: bool
                     
                     	**default value**\: false
@@ -569,44 +553,397 @@ class Mpls(Entity):
 
                     """
 
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Global.MplsInterfaceAttributes.Interface.State, self).__init__()
+                        super(Mpls.Global.InterfaceAttributes.Interface.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('name', YLeaf(YType.str, 'name')),
+                            ('interface_id', YLeaf(YType.str, 'interface-id')),
                             ('mpls_enabled', YLeaf(YType.boolean, 'mpls-enabled')),
                         ])
-                        self.name = None
+                        self.interface_id = None
                         self.mpls_enabled = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Global.MplsInterfaceAttributes.Interface.State, ['name', 'mpls_enabled'], name, value)
+                        self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface.State, [u'interface_id', u'mpls_enabled'], name, value)
+
+
+                class InterfaceRef(Entity):
+                    """
+                    Reference to an interface or subinterface
+                    
+                    .. attribute:: config
+                    
+                    	Configured reference to interface / subinterface
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.Config>`
+                    
+                    .. attribute:: state
+                    
+                    	Operational state for interface\-ref
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.State>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
+
+                    def __init__(self):
+                        super(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef, self).__init__()
+
+                        self.yang_name = "interface-ref"
+                        self.yang_parent_name = "interface"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("config", ("config", Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.Config)), ("state", ("state", Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.State))])
+                        self._leafs = OrderedDict()
+
+                        self.config = Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.Config()
+                        self.config.parent = self
+                        self._children_name_map["config"] = "config"
+
+                        self.state = Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.State()
+                        self.state.parent = self
+                        self._children_name_map["state"] = "state"
+                        self._segment_path = lambda: "interface-ref"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef, [], name, value)
+
+
+                    class Config(Entity):
+                        """
+                        Configured reference to interface / subinterface
+                        
+                        .. attribute:: interface
+                        
+                        	Reference to a base interface.  If a reference to a subinterface is required, this leaf must be specified to indicate the base interface
+                        	**type**\: str
+                        
+                        	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                        
+                        .. attribute:: subinterface
+                        
+                        	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
+
+                        def __init__(self):
+                            super(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.Config, self).__init__()
+
+                            self.yang_name = "config"
+                            self.yang_parent_name = "interface-ref"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interface', YLeaf(YType.str, 'interface')),
+                                ('subinterface', YLeaf(YType.str, 'subinterface')),
+                            ])
+                            self.interface = None
+                            self.subinterface = None
+                            self._segment_path = lambda: "config"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
+
+
+                    class State(Entity):
+                        """
+                        Operational state for interface\-ref
+                        
+                        .. attribute:: interface
+                        
+                        	Reference to a base interface.  If a reference to a subinterface is required, this leaf must be specified to indicate the base interface
+                        	**type**\: str
+                        
+                        	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                        
+                        .. attribute:: subinterface
+                        
+                        	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
+
+                        def __init__(self):
+                            super(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.State, self).__init__()
+
+                            self.yang_name = "state"
+                            self.yang_parent_name = "interface-ref"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interface', YLeaf(YType.str, 'interface')),
+                                ('subinterface', YLeaf(YType.str, 'subinterface')),
+                            ])
+                            self.interface = None
+                            self.subinterface = None
+                            self._segment_path = lambda: "state"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+
+
+        class ReservedLabelBlocks(Entity):
+            """
+            A range of labels starting with the start\-label and up\-to and including
+            the end label that should be allocated as reserved. These labels should
+            not be utilised by any dynamic label allocation on the local system unless
+            the allocating protocol is explicitly configured to specify that
+            allocation of labels should be out of the label block specified.
+            
+            .. attribute:: reserved_label_block
+            
+            	A range of labels starting with the start\-label up to and including the end label that should be allocated for use by a specific protocol
+            	**type**\: list of  		 :py:class:`ReservedLabelBlock <ydk.models.openconfig.openconfig_mpls.Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock>`
+            
+            
+
+            """
+
+            _prefix = 'oc-mpls'
+            _revision = '2017-03-22'
+
+            def __init__(self):
+                super(Mpls.Global.ReservedLabelBlocks, self).__init__()
+
+                self.yang_name = "reserved-label-blocks"
+                self.yang_parent_name = "global"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("reserved-label-block", ("reserved_label_block", Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock))])
+                self._leafs = OrderedDict()
+
+                self.reserved_label_block = YList(self)
+                self._segment_path = lambda: "reserved-label-blocks"
+                self._absolute_path = lambda: "openconfig-mpls:mpls/global/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Mpls.Global.ReservedLabelBlocks, [], name, value)
+
+
+            class ReservedLabelBlock(Entity):
+                """
+                A range of labels starting with the start\-label up to and including
+                the end label that should be allocated for use by a specific protocol.
+                
+                .. attribute:: local_id  (key)
+                
+                	A reference to a unique local identifier for this label block
+                	**type**\: str
+                
+                	**refers to**\:  :py:class:`local_id <ydk.models.openconfig.openconfig_mpls.Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.Config>`
+                
+                .. attribute:: config
+                
+                	Configuration parameters relating to the label block
+                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.Config>`
+                
+                .. attribute:: state
+                
+                	State parameters relating to the label block
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.State>`
+                
+                
+
+                """
+
+                _prefix = 'oc-mpls'
+                _revision = '2017-03-22'
+
+                def __init__(self):
+                    super(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock, self).__init__()
+
+                    self.yang_name = "reserved-label-block"
+                    self.yang_parent_name = "reserved-label-blocks"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['local_id']
+                    self._child_classes = OrderedDict([("config", ("config", Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.Config)), ("state", ("state", Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.State))])
+                    self._leafs = OrderedDict([
+                        ('local_id', YLeaf(YType.str, 'local-id')),
+                    ])
+                    self.local_id = None
+
+                    self.config = Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.Config()
+                    self.config.parent = self
+                    self._children_name_map["config"] = "config"
+
+                    self.state = Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.State()
+                    self.state.parent = self
+                    self._children_name_map["state"] = "state"
+                    self._segment_path = lambda: "reserved-label-block" + "[local-id='" + str(self.local_id) + "']"
+                    self._absolute_path = lambda: "openconfig-mpls:mpls/global/reserved-label-blocks/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock, [u'local_id'], name, value)
+
+
+                class Config(Entity):
+                    """
+                    Configuration parameters relating to the label block.
+                    
+                    .. attribute:: local_id
+                    
+                    	A local identifier for the global label block allocation
+                    	**type**\: str
+                    
+                    .. attribute:: lower_bound
+                    
+                    	Lower bound of the global label block. The block is defined to include this label
+                    	**type**\: union of the below types:
+                    
+                    		**type**\: int
+                    
+                    			**range:** 16..1048575
+                    
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                    
+                    .. attribute:: upper_bound
+                    
+                    	Upper bound for the global label block. The block is defined to include this label
+                    	**type**\: union of the below types:
+                    
+                    		**type**\: int
+                    
+                    			**range:** 16..1048575
+                    
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
+
+                    def __init__(self):
+                        super(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.Config, self).__init__()
+
+                        self.yang_name = "config"
+                        self.yang_parent_name = "reserved-label-block"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('local_id', YLeaf(YType.str, 'local-id')),
+                            ('lower_bound', YLeaf(YType.str, 'lower-bound')),
+                            ('upper_bound', YLeaf(YType.str, 'upper-bound')),
+                        ])
+                        self.local_id = None
+                        self.lower_bound = None
+                        self.upper_bound = None
+                        self._segment_path = lambda: "config"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.Config, [u'local_id', u'lower_bound', u'upper_bound'], name, value)
+
+
+                class State(Entity):
+                    """
+                    State parameters relating to the label block.
+                    
+                    .. attribute:: local_id
+                    
+                    	A local identifier for the global label block allocation
+                    	**type**\: str
+                    
+                    .. attribute:: lower_bound
+                    
+                    	Lower bound of the global label block. The block is defined to include this label
+                    	**type**\: union of the below types:
+                    
+                    		**type**\: int
+                    
+                    			**range:** 16..1048575
+                    
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                    
+                    .. attribute:: upper_bound
+                    
+                    	Upper bound for the global label block. The block is defined to include this label
+                    	**type**\: union of the below types:
+                    
+                    		**type**\: int
+                    
+                    			**range:** 16..1048575
+                    
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
+
+                    def __init__(self):
+                        super(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.State, self).__init__()
+
+                        self.yang_name = "state"
+                        self.yang_parent_name = "reserved-label-block"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('local_id', YLeaf(YType.str, 'local-id')),
+                            ('lower_bound', YLeaf(YType.str, 'lower-bound')),
+                            ('upper_bound', YLeaf(YType.str, 'upper-bound')),
+                        ])
+                        self.local_id = None
+                        self.lower_bound = None
+                        self.upper_bound = None
+                        self._segment_path = lambda: "state"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.State, [u'local_id', u'lower_bound', u'upper_bound'], name, value)
 
 
     class TeGlobalAttributes(Entity):
         """
         traffic\-engineering global attributes
         
-        .. attribute:: srlg
+        .. attribute:: srlgs
         
         	Shared risk link groups attributes
-        	**type**\:  :py:class:`Srlg <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg>`
-        
-        .. attribute:: igp_flooding_bandwidth
-        
-        	Interface bandwidth change percentages that trigger update events into the IGP traffic engineering database (TED)
-        	**type**\:  :py:class:`IgpFloodingBandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth>`
+        	**type**\:  :py:class:`Srlgs <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlgs>`
         
         .. attribute:: mpls_admin_groups
         
@@ -622,8 +959,8 @@ class Mpls(Entity):
 
         """
 
-        _prefix = 'mpls'
-        _revision = '2015-11-05'
+        _prefix = 'oc-mpls'
+        _revision = '2017-03-22'
 
         def __init__(self):
             super(Mpls.TeGlobalAttributes, self).__init__()
@@ -633,70 +970,63 @@ class Mpls(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("srlg", ("srlg", Mpls.TeGlobalAttributes.Srlg)), ("igp-flooding-bandwidth", ("igp_flooding_bandwidth", Mpls.TeGlobalAttributes.IgpFloodingBandwidth)), ("mpls-admin-groups", ("mpls_admin_groups", Mpls.TeGlobalAttributes.MplsAdminGroups)), ("te-lsp-timers", ("te_lsp_timers", Mpls.TeGlobalAttributes.TeLspTimers))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("srlgs", ("srlgs", Mpls.TeGlobalAttributes.Srlgs)), ("mpls-admin-groups", ("mpls_admin_groups", Mpls.TeGlobalAttributes.MplsAdminGroups)), ("te-lsp-timers", ("te_lsp_timers", Mpls.TeGlobalAttributes.TeLspTimers))])
             self._leafs = OrderedDict()
 
-            self.srlg = Mpls.TeGlobalAttributes.Srlg()
-            self.srlg.parent = self
-            self._children_name_map["srlg"] = "srlg"
-            self._children_yang_names.add("srlg")
-
-            self.igp_flooding_bandwidth = Mpls.TeGlobalAttributes.IgpFloodingBandwidth()
-            self.igp_flooding_bandwidth.parent = self
-            self._children_name_map["igp_flooding_bandwidth"] = "igp-flooding-bandwidth"
-            self._children_yang_names.add("igp-flooding-bandwidth")
+            self.srlgs = Mpls.TeGlobalAttributes.Srlgs()
+            self.srlgs.parent = self
+            self._children_name_map["srlgs"] = "srlgs"
 
             self.mpls_admin_groups = Mpls.TeGlobalAttributes.MplsAdminGroups()
             self.mpls_admin_groups.parent = self
             self._children_name_map["mpls_admin_groups"] = "mpls-admin-groups"
-            self._children_yang_names.add("mpls-admin-groups")
 
             self.te_lsp_timers = Mpls.TeGlobalAttributes.TeLspTimers()
             self.te_lsp_timers.parent = self
             self._children_name_map["te_lsp_timers"] = "te-lsp-timers"
-            self._children_yang_names.add("te-lsp-timers")
             self._segment_path = lambda: "te-global-attributes"
             self._absolute_path = lambda: "openconfig-mpls:mpls/%s" % self._segment_path()
 
+        def __setattr__(self, name, value):
+            self._perform_setattr(Mpls.TeGlobalAttributes, [], name, value)
 
-        class Srlg(Entity):
+
+        class Srlgs(Entity):
             """
             Shared risk link groups attributes
             
             .. attribute:: srlg
             
             	List of shared risk link groups
-            	**type**\: list of  		 :py:class:`Srlg_ <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_>`
+            	**type**\: list of  		 :py:class:`Srlg <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlgs.Srlg>`
             
             
 
             """
 
-            _prefix = 'mpls'
-            _revision = '2015-11-05'
+            _prefix = 'oc-mpls'
+            _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.TeGlobalAttributes.Srlg, self).__init__()
+                super(Mpls.TeGlobalAttributes.Srlgs, self).__init__()
 
-                self.yang_name = "srlg"
+                self.yang_name = "srlgs"
                 self.yang_parent_name = "te-global-attributes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("srlg", ("srlg", Mpls.TeGlobalAttributes.Srlg.Srlg_))])
+                self._child_classes = OrderedDict([("srlg", ("srlg", Mpls.TeGlobalAttributes.Srlgs.Srlg))])
                 self._leafs = OrderedDict()
 
                 self.srlg = YList(self)
-                self._segment_path = lambda: "srlg"
+                self._segment_path = lambda: "srlgs"
                 self._absolute_path = lambda: "openconfig-mpls:mpls/te-global-attributes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Mpls.TeGlobalAttributes.Srlg, [], name, value)
+                self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs, [], name, value)
 
 
-            class Srlg_(Entity):
+            class Srlg(Entity):
                 """
                 List of shared risk link groups
                 
@@ -705,64 +1035,60 @@ class Mpls(Entity):
                 	The SRLG group identifier
                 	**type**\: str
                 
-                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_.Config>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlgs.Srlg.Config>`
                 
                 .. attribute:: config
                 
                 	Configuration parameters related to the SRLG
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_.Config>`
+                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlgs.Srlg.Config>`
                 
                 .. attribute:: state
                 
                 	State parameters related to the SRLG
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_.State>`
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlgs.Srlg.State>`
                 
                 .. attribute:: static_srlg_members
                 
                 	SRLG members for static (not flooded) SRLGs 
-                	**type**\:  :py:class:`StaticSrlgMembers <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers>`
+                	**type**\:  :py:class:`StaticSrlgMembers <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers>`
                 
                 
 
                 """
 
-                _prefix = 'mpls'
-                _revision = '2015-11-05'
+                _prefix = 'oc-mpls'
+                _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.TeGlobalAttributes.Srlg.Srlg_, self).__init__()
+                    super(Mpls.TeGlobalAttributes.Srlgs.Srlg, self).__init__()
 
                     self.yang_name = "srlg"
-                    self.yang_parent_name = "srlg"
+                    self.yang_parent_name = "srlgs"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([("config", ("config", Mpls.TeGlobalAttributes.Srlg.Srlg_.Config)), ("state", ("state", Mpls.TeGlobalAttributes.Srlg.Srlg_.State)), ("static-srlg-members", ("static_srlg_members", Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("config", ("config", Mpls.TeGlobalAttributes.Srlgs.Srlg.Config)), ("state", ("state", Mpls.TeGlobalAttributes.Srlgs.Srlg.State)), ("static-srlg-members", ("static_srlg_members", Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers))])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                     ])
                     self.name = None
 
-                    self.config = Mpls.TeGlobalAttributes.Srlg.Srlg_.Config()
+                    self.config = Mpls.TeGlobalAttributes.Srlgs.Srlg.Config()
                     self.config.parent = self
                     self._children_name_map["config"] = "config"
-                    self._children_yang_names.add("config")
 
-                    self.state = Mpls.TeGlobalAttributes.Srlg.Srlg_.State()
+                    self.state = Mpls.TeGlobalAttributes.Srlgs.Srlg.State()
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
-                    self._children_yang_names.add("state")
 
-                    self.static_srlg_members = Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers()
+                    self.static_srlg_members = Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers()
                     self.static_srlg_members.parent = self
                     self._children_name_map["static_srlg_members"] = "static-srlg-members"
-                    self._children_yang_names.add("static-srlg-members")
                     self._segment_path = lambda: "srlg" + "[name='" + str(self.name) + "']"
-                    self._absolute_path = lambda: "openconfig-mpls:mpls/te-global-attributes/srlg/%s" % self._segment_path()
+                    self._absolute_path = lambda: "openconfig-mpls:mpls/te-global-attributes/srlgs/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.TeGlobalAttributes.Srlg.Srlg_, ['name'], name, value)
+                    self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg, [u'name'], name, value)
 
 
                 class Config(Entity):
@@ -793,25 +1119,24 @@ class Mpls(Entity):
                     	The type of SRLG, either flooded in the IGP or statically configured
                     	**type**\:  :py:class:`MplsSrlgFloodingType <ydk.models.openconfig.openconfig_mpls.MplsSrlgFloodingType>`
                     
-                    	**default value**\: FLOODED-SRLG
+                    	**default value**\: FLOODED_SRLG
                     
                     
 
                     """
 
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.TeGlobalAttributes.Srlg.Srlg_.Config, self).__init__()
+                        super(Mpls.TeGlobalAttributes.Srlgs.Srlg.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "srlg"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('name', YLeaf(YType.str, 'name')),
                             ('value', YLeaf(YType.uint32, 'value')),
@@ -825,7 +1150,7 @@ class Mpls(Entity):
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.TeGlobalAttributes.Srlg.Srlg_.Config, ['name', 'value', 'cost', 'flooding_type'], name, value)
+                        self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg.Config, [u'name', u'value', u'cost', u'flooding_type'], name, value)
 
 
                 class State(Entity):
@@ -856,25 +1181,24 @@ class Mpls(Entity):
                     	The type of SRLG, either flooded in the IGP or statically configured
                     	**type**\:  :py:class:`MplsSrlgFloodingType <ydk.models.openconfig.openconfig_mpls.MplsSrlgFloodingType>`
                     
-                    	**default value**\: FLOODED-SRLG
+                    	**default value**\: FLOODED_SRLG
                     
                     
 
                     """
 
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.TeGlobalAttributes.Srlg.Srlg_.State, self).__init__()
+                        super(Mpls.TeGlobalAttributes.Srlgs.Srlg.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "srlg"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('name', YLeaf(YType.str, 'name')),
                             ('value', YLeaf(YType.uint32, 'value')),
@@ -888,7 +1212,7 @@ class Mpls(Entity):
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.TeGlobalAttributes.Srlg.Srlg_.State, ['name', 'value', 'cost', 'flooding_type'], name, value)
+                        self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg.State, [u'name', u'value', u'cost', u'flooding_type'], name, value)
 
 
                 class StaticSrlgMembers(Entity):
@@ -898,32 +1222,31 @@ class Mpls(Entity):
                     .. attribute:: members_list
                     
                     	List of SRLG members, which are expressed as IP address endpoints of links contained in the SRLG
-                    	**type**\: list of  		 :py:class:`MembersList <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList>`
+                    	**type**\: list of  		 :py:class:`MembersList <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList>`
                     
                     
 
                     """
 
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers, self).__init__()
+                        super(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers, self).__init__()
 
                         self.yang_name = "static-srlg-members"
                         self.yang_parent_name = "srlg"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("members-list", ("members_list", Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList))])
+                        self._child_classes = OrderedDict([("members-list", ("members_list", Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList))])
                         self._leafs = OrderedDict()
 
                         self.members_list = YList(self)
                         self._segment_path = lambda: "static-srlg-members"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers, [], name, value)
+                        self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers, [], name, value)
 
 
                     class MembersList(Entity):
@@ -939,59 +1262,56 @@ class Mpls(Entity):
                         
                         		**type**\: str
                         
-                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                         
                         		**type**\: str
                         
-                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                         
-                        	**refers to**\:  :py:class:`from_address <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.Config>`
+                        	**refers to**\:  :py:class:`from_address <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.Config>`
                         
                         .. attribute:: config
                         
                         	Configuration parameters relating to the SRLG members
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.Config>`
                         
                         .. attribute:: state
                         
                         	State parameters relating to the SRLG members
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.State>`
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.State>`
                         
                         
 
                         """
 
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList, self).__init__()
+                            super(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList, self).__init__()
 
                             self.yang_name = "members-list"
                             self.yang_parent_name = "static-srlg-members"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['from_address']
-                            self._child_container_classes = OrderedDict([("config", ("config", Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.Config)), ("state", ("state", Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.State))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("config", ("config", Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.Config)), ("state", ("state", Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.State))])
                             self._leafs = OrderedDict([
                                 ('from_address', YLeaf(YType.str, 'from-address')),
                             ])
                             self.from_address = None
 
-                            self.config = Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.Config()
+                            self.config = Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
-                            self._children_yang_names.add("config")
 
-                            self.state = Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.State()
+                            self.state = Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
-                            self._children_yang_names.add("state")
                             self._segment_path = lambda: "members-list" + "[from-address='" + str(self.from_address) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList, ['from_address'], name, value)
+                            self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList, [u'from_address'], name, value)
 
 
                         class Config(Entity):
@@ -1006,11 +1326,11 @@ class Mpls(Entity):
                             
                             		**type**\: str
                             
-                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                             
                             		**type**\: str
                             
-                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                             
                             .. attribute:: to_address
                             
@@ -1019,29 +1339,28 @@ class Mpls(Entity):
                             
                             		**type**\: str
                             
-                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                             
                             		**type**\: str
                             
-                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                             
                             
 
                             """
 
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.Config, self).__init__()
+                                super(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "members-list"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('from_address', YLeaf(YType.str, 'from-address')),
                                     ('to_address', YLeaf(YType.str, 'to-address')),
@@ -1051,7 +1370,7 @@ class Mpls(Entity):
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.Config, ['from_address', 'to_address'], name, value)
+                                self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.Config, [u'from_address', u'to_address'], name, value)
 
 
                         class State(Entity):
@@ -1066,11 +1385,11 @@ class Mpls(Entity):
                             
                             		**type**\: str
                             
-                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                             
                             		**type**\: str
                             
-                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                             
                             .. attribute:: to_address
                             
@@ -1079,29 +1398,28 @@ class Mpls(Entity):
                             
                             		**type**\: str
                             
-                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                             
                             		**type**\: str
                             
-                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                             
                             
 
                             """
 
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.State, self).__init__()
+                                super(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "members-list"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('from_address', YLeaf(YType.str, 'from-address')),
                                     ('to_address', YLeaf(YType.str, 'to-address')),
@@ -1111,420 +1429,7 @@ class Mpls(Entity):
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.State, ['from_address', 'to_address'], name, value)
-
-
-        class IgpFloodingBandwidth(Entity):
-            """
-            Interface bandwidth change percentages
-            that trigger update events into the IGP traffic
-            engineering database (TED)
-            
-            .. attribute:: config
-            
-            	Configuration parameters for TED update threshold 
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config>`
-            
-            .. attribute:: state
-            
-            	State parameters for TED update threshold 
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State>`
-            
-            
-
-            """
-
-            _prefix = 'mpls'
-            _revision = '2015-11-05'
-
-            def __init__(self):
-                super(Mpls.TeGlobalAttributes.IgpFloodingBandwidth, self).__init__()
-
-                self.yang_name = "igp-flooding-bandwidth"
-                self.yang_parent_name = "te-global-attributes"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("config", ("config", Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config)), ("state", ("state", Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State))])
-                self._child_list_classes = OrderedDict([])
-                self._leafs = OrderedDict()
-
-                self.config = Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config()
-                self.config.parent = self
-                self._children_name_map["config"] = "config"
-                self._children_yang_names.add("config")
-
-                self.state = Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State()
-                self.state.parent = self
-                self._children_name_map["state"] = "state"
-                self._children_yang_names.add("state")
-                self._segment_path = lambda: "igp-flooding-bandwidth"
-                self._absolute_path = lambda: "openconfig-mpls:mpls/te-global-attributes/%s" % self._segment_path()
-
-
-            class Config(Entity):
-                """
-                Configuration parameters for TED
-                update threshold 
-                
-                .. attribute:: threshold_type
-                
-                	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\-CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
-                	**type**\:  :py:class:`ThresholdType <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdType>`
-                
-                .. attribute:: delta_percentage
-                
-                	The percentage of the maximum\-reservable\-bandwidth considered as the delta that results in an IGP update being flooded
-                	**type**\: int
-                
-                	**range:** 0..100
-                
-                .. attribute:: threshold_specification
-                
-                	This value specifies whether a single set of threshold values should be used for both increasing and decreasing bandwidth when determining whether to trigger updated bandwidth values to be flooded in the IGP TE extensions. MIRRORED\-UP\-DOWN indicates that a single value (or set of values) should be used for both increasing and decreasing values, where SEPARATE\-UP\-DOWN specifies that the increasing and decreasing values will be separately specified
-                	**type**\:  :py:class:`ThresholdSpecification <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdSpecification>`
-                
-                .. attribute:: up_thresholds
-                
-                	The thresholds (expressed as a percentage of the maximum reservable bandwidth) at which bandwidth updates are to be triggered when the bandwidth is increasing
-                	**type**\: list of int
-                
-                	**range:** 0..100
-                
-                .. attribute:: down_thresholds
-                
-                	The thresholds (expressed as a percentage of the maximum reservable bandwidth) at which bandwidth updates are to be triggered when the bandwidth is decreasing
-                	**type**\: list of int
-                
-                	**range:** 0..100
-                
-                .. attribute:: up_down_thresholds
-                
-                	The thresholds (expressed as a percentage of the maximum reservable bandwidth of the interface) at which bandwidth updates are flooded \- used both when the bandwidth is increasing and decreasing
-                	**type**\: list of int
-                
-                	**range:** 0..100
-                
-                
-
-                """
-
-                _prefix = 'mpls'
-                _revision = '2015-11-05'
-
-                def __init__(self):
-                    super(Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config, self).__init__()
-
-                    self.yang_name = "config"
-                    self.yang_parent_name = "igp-flooding-bandwidth"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('threshold_type', YLeaf(YType.enumeration, 'threshold-type')),
-                        ('delta_percentage', YLeaf(YType.uint8, 'delta-percentage')),
-                        ('threshold_specification', YLeaf(YType.enumeration, 'threshold-specification')),
-                        ('up_thresholds', YLeafList(YType.uint8, 'up-thresholds')),
-                        ('down_thresholds', YLeafList(YType.uint8, 'down-thresholds')),
-                        ('up_down_thresholds', YLeafList(YType.uint8, 'up-down-thresholds')),
-                    ])
-                    self.threshold_type = None
-                    self.delta_percentage = None
-                    self.threshold_specification = None
-                    self.up_thresholds = []
-                    self.down_thresholds = []
-                    self.up_down_thresholds = []
-                    self._segment_path = lambda: "config"
-                    self._absolute_path = lambda: "openconfig-mpls:mpls/te-global-attributes/igp-flooding-bandwidth/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config, ['threshold_type', 'delta_percentage', 'threshold_specification', 'up_thresholds', 'down_thresholds', 'up_down_thresholds'], name, value)
-
-                class ThresholdSpecification(Enum):
-                    """
-                    ThresholdSpecification (Enum Class)
-
-                    This value specifies whether a single set of threshold
-
-                    values should be used for both increasing and decreasing
-
-                    bandwidth when determining whether to trigger updated
-
-                    bandwidth values to be flooded in the IGP TE extensions.
-
-                    MIRRORED\-UP\-DOWN indicates that a single value (or set of
-
-                    values) should be used for both increasing and decreasing
-
-                    values, where SEPARATE\-UP\-DOWN specifies that the increasing
-
-                    and decreasing values will be separately specified
-
-                    .. data:: MIRRORED_UP_DOWN = 0
-
-                    	MIRRORED-UP-DOWN indicates that a single set of
-
-                    	threshold values should be used for both increasing
-
-                    	and decreasing bandwidth when determining whether
-
-                    	to trigger updated bandwidth values to be flooded
-
-                    	in the IGP TE extensions.
-
-                    .. data:: SEPARATE_UP_DOWN = 1
-
-                    	SEPARATE-UP-DOWN indicates that a separate
-
-                    	threshold values should be used for the increasing
-
-                    	and decreasing bandwidth when determining whether
-
-                    	to trigger updated bandwidth values to be flooded
-
-                    	in the IGP TE extensions.
-
-                    """
-
-                    MIRRORED_UP_DOWN = Enum.YLeaf(0, "MIRRORED-UP-DOWN")
-
-                    SEPARATE_UP_DOWN = Enum.YLeaf(1, "SEPARATE-UP-DOWN")
-
-
-                class ThresholdType(Enum):
-                    """
-                    ThresholdType (Enum Class)
-
-                    The type of threshold that should be used to specify the
-
-                    values at which bandwidth is flooded. DELTA indicates that
-
-                    the local system should flood IGP updates when a change in
-
-                    reserved bandwidth >= the specified delta occurs on the
-
-                    interface. Where THRESHOLD\-CROSSED is specified, the local
-
-                    system should trigger an update (and hence flood) the
-
-                    reserved bandwidth when the reserved bandwidth changes such
-
-                    that it crosses, or becomes equal to one of the threshold
-
-                    values
-
-                    .. data:: DELTA = 0
-
-                    	DELTA indicates that the local
-
-                    	system should flood IGP updates when a
-
-                    	change in reserved bandwidth >= the specified
-
-                    	delta occurs on the interface.
-
-                    .. data:: THRESHOLD_CROSSED = 1
-
-                    	THRESHOLD-CROSSED indicates that
-
-                    	the local system should trigger an update (and
-
-                    	hence flood) the reserved bandwidth when the
-
-                    	reserved bandwidth changes such that it crosses,
-
-                    	or becomes equal to one of the threshold values.
-
-                    """
-
-                    DELTA = Enum.YLeaf(0, "DELTA")
-
-                    THRESHOLD_CROSSED = Enum.YLeaf(1, "THRESHOLD-CROSSED")
-
-
-
-            class State(Entity):
-                """
-                State parameters for TED update threshold 
-                
-                .. attribute:: threshold_type
-                
-                	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\-CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
-                	**type**\:  :py:class:`ThresholdType <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdType>`
-                
-                .. attribute:: delta_percentage
-                
-                	The percentage of the maximum\-reservable\-bandwidth considered as the delta that results in an IGP update being flooded
-                	**type**\: int
-                
-                	**range:** 0..100
-                
-                .. attribute:: threshold_specification
-                
-                	This value specifies whether a single set of threshold values should be used for both increasing and decreasing bandwidth when determining whether to trigger updated bandwidth values to be flooded in the IGP TE extensions. MIRRORED\-UP\-DOWN indicates that a single value (or set of values) should be used for both increasing and decreasing values, where SEPARATE\-UP\-DOWN specifies that the increasing and decreasing values will be separately specified
-                	**type**\:  :py:class:`ThresholdSpecification <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdSpecification>`
-                
-                .. attribute:: up_thresholds
-                
-                	The thresholds (expressed as a percentage of the maximum reservable bandwidth) at which bandwidth updates are to be triggered when the bandwidth is increasing
-                	**type**\: list of int
-                
-                	**range:** 0..100
-                
-                .. attribute:: down_thresholds
-                
-                	The thresholds (expressed as a percentage of the maximum reservable bandwidth) at which bandwidth updates are to be triggered when the bandwidth is decreasing
-                	**type**\: list of int
-                
-                	**range:** 0..100
-                
-                .. attribute:: up_down_thresholds
-                
-                	The thresholds (expressed as a percentage of the maximum reservable bandwidth of the interface) at which bandwidth updates are flooded \- used both when the bandwidth is increasing and decreasing
-                	**type**\: list of int
-                
-                	**range:** 0..100
-                
-                
-
-                """
-
-                _prefix = 'mpls'
-                _revision = '2015-11-05'
-
-                def __init__(self):
-                    super(Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State, self).__init__()
-
-                    self.yang_name = "state"
-                    self.yang_parent_name = "igp-flooding-bandwidth"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('threshold_type', YLeaf(YType.enumeration, 'threshold-type')),
-                        ('delta_percentage', YLeaf(YType.uint8, 'delta-percentage')),
-                        ('threshold_specification', YLeaf(YType.enumeration, 'threshold-specification')),
-                        ('up_thresholds', YLeafList(YType.uint8, 'up-thresholds')),
-                        ('down_thresholds', YLeafList(YType.uint8, 'down-thresholds')),
-                        ('up_down_thresholds', YLeafList(YType.uint8, 'up-down-thresholds')),
-                    ])
-                    self.threshold_type = None
-                    self.delta_percentage = None
-                    self.threshold_specification = None
-                    self.up_thresholds = []
-                    self.down_thresholds = []
-                    self.up_down_thresholds = []
-                    self._segment_path = lambda: "state"
-                    self._absolute_path = lambda: "openconfig-mpls:mpls/te-global-attributes/igp-flooding-bandwidth/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State, ['threshold_type', 'delta_percentage', 'threshold_specification', 'up_thresholds', 'down_thresholds', 'up_down_thresholds'], name, value)
-
-                class ThresholdSpecification(Enum):
-                    """
-                    ThresholdSpecification (Enum Class)
-
-                    This value specifies whether a single set of threshold
-
-                    values should be used for both increasing and decreasing
-
-                    bandwidth when determining whether to trigger updated
-
-                    bandwidth values to be flooded in the IGP TE extensions.
-
-                    MIRRORED\-UP\-DOWN indicates that a single value (or set of
-
-                    values) should be used for both increasing and decreasing
-
-                    values, where SEPARATE\-UP\-DOWN specifies that the increasing
-
-                    and decreasing values will be separately specified
-
-                    .. data:: MIRRORED_UP_DOWN = 0
-
-                    	MIRRORED-UP-DOWN indicates that a single set of
-
-                    	threshold values should be used for both increasing
-
-                    	and decreasing bandwidth when determining whether
-
-                    	to trigger updated bandwidth values to be flooded
-
-                    	in the IGP TE extensions.
-
-                    .. data:: SEPARATE_UP_DOWN = 1
-
-                    	SEPARATE-UP-DOWN indicates that a separate
-
-                    	threshold values should be used for the increasing
-
-                    	and decreasing bandwidth when determining whether
-
-                    	to trigger updated bandwidth values to be flooded
-
-                    	in the IGP TE extensions.
-
-                    """
-
-                    MIRRORED_UP_DOWN = Enum.YLeaf(0, "MIRRORED-UP-DOWN")
-
-                    SEPARATE_UP_DOWN = Enum.YLeaf(1, "SEPARATE-UP-DOWN")
-
-
-                class ThresholdType(Enum):
-                    """
-                    ThresholdType (Enum Class)
-
-                    The type of threshold that should be used to specify the
-
-                    values at which bandwidth is flooded. DELTA indicates that
-
-                    the local system should flood IGP updates when a change in
-
-                    reserved bandwidth >= the specified delta occurs on the
-
-                    interface. Where THRESHOLD\-CROSSED is specified, the local
-
-                    system should trigger an update (and hence flood) the
-
-                    reserved bandwidth when the reserved bandwidth changes such
-
-                    that it crosses, or becomes equal to one of the threshold
-
-                    values
-
-                    .. data:: DELTA = 0
-
-                    	DELTA indicates that the local
-
-                    	system should flood IGP updates when a
-
-                    	change in reserved bandwidth >= the specified
-
-                    	delta occurs on the interface.
-
-                    .. data:: THRESHOLD_CROSSED = 1
-
-                    	THRESHOLD-CROSSED indicates that
-
-                    	the local system should trigger an update (and
-
-                    	hence flood) the reserved bandwidth when the
-
-                    	reserved bandwidth changes such that it crosses,
-
-                    	or becomes equal to one of the threshold values.
-
-                    """
-
-                    DELTA = Enum.YLeaf(0, "DELTA")
-
-                    THRESHOLD_CROSSED = Enum.YLeaf(1, "THRESHOLD-CROSSED")
-
+                                self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.State, [u'from_address', u'to_address'], name, value)
 
 
         class MplsAdminGroups(Entity):
@@ -1541,8 +1446,8 @@ class Mpls(Entity):
 
             """
 
-            _prefix = 'mpls'
-            _revision = '2015-11-05'
+            _prefix = 'oc-mpls'
+            _revision = '2017-03-22'
 
             def __init__(self):
                 super(Mpls.TeGlobalAttributes.MplsAdminGroups, self).__init__()
@@ -1552,8 +1457,7 @@ class Mpls(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("admin-group", ("admin_group", Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup))])
+                self._child_classes = OrderedDict([("admin-group", ("admin_group", Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup))])
                 self._leafs = OrderedDict()
 
                 self.admin_group = YList(self)
@@ -1590,8 +1494,8 @@ class Mpls(Entity):
 
                 """
 
-                _prefix = 'mpls'
-                _revision = '2015-11-05'
+                _prefix = 'oc-mpls'
+                _revision = '2017-03-22'
 
                 def __init__(self):
                     super(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup, self).__init__()
@@ -1601,8 +1505,7 @@ class Mpls(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['admin_group_name']
-                    self._child_container_classes = OrderedDict([("config", ("config", Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.Config)), ("state", ("state", Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.State))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("config", ("config", Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.Config)), ("state", ("state", Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.State))])
                     self._leafs = OrderedDict([
                         ('admin_group_name', YLeaf(YType.str, 'admin-group-name')),
                     ])
@@ -1611,17 +1514,15 @@ class Mpls(Entity):
                     self.config = Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.Config()
                     self.config.parent = self
                     self._children_name_map["config"] = "config"
-                    self._children_yang_names.add("config")
 
                     self.state = Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.State()
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
-                    self._children_yang_names.add("state")
                     self._segment_path = lambda: "admin-group" + "[admin-group-name='" + str(self.admin_group_name) + "']"
                     self._absolute_path = lambda: "openconfig-mpls:mpls/te-global-attributes/mpls-admin-groups/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup, ['admin_group_name'], name, value)
+                    self._perform_setattr(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup, [u'admin_group_name'], name, value)
 
 
                 class Config(Entity):
@@ -1644,8 +1545,8 @@ class Mpls(Entity):
 
                     """
 
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
 
                     def __init__(self):
                         super(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.Config, self).__init__()
@@ -1655,8 +1556,7 @@ class Mpls(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('admin_group_name', YLeaf(YType.str, 'admin-group-name')),
                             ('bit_position', YLeaf(YType.uint32, 'bit-position')),
@@ -1666,7 +1566,7 @@ class Mpls(Entity):
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.Config, ['admin_group_name', 'bit_position'], name, value)
+                        self._perform_setattr(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.Config, [u'admin_group_name', u'bit_position'], name, value)
 
 
                 class State(Entity):
@@ -1689,8 +1589,8 @@ class Mpls(Entity):
 
                     """
 
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
 
                     def __init__(self):
                         super(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.State, self).__init__()
@@ -1700,8 +1600,7 @@ class Mpls(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('admin_group_name', YLeaf(YType.str, 'admin-group-name')),
                             ('bit_position', YLeaf(YType.uint32, 'bit-position')),
@@ -1711,7 +1610,7 @@ class Mpls(Entity):
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.State, ['admin_group_name', 'bit_position'], name, value)
+                        self._perform_setattr(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.State, [u'admin_group_name', u'bit_position'], name, value)
 
 
         class TeLspTimers(Entity):
@@ -1733,8 +1632,8 @@ class Mpls(Entity):
 
             """
 
-            _prefix = 'mpls'
-            _revision = '2015-11-05'
+            _prefix = 'oc-mpls'
+            _revision = '2017-03-22'
 
             def __init__(self):
                 super(Mpls.TeGlobalAttributes.TeLspTimers, self).__init__()
@@ -1744,21 +1643,21 @@ class Mpls(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("config", ("config", Mpls.TeGlobalAttributes.TeLspTimers.Config)), ("state", ("state", Mpls.TeGlobalAttributes.TeLspTimers.State))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("config", ("config", Mpls.TeGlobalAttributes.TeLspTimers.Config)), ("state", ("state", Mpls.TeGlobalAttributes.TeLspTimers.State))])
                 self._leafs = OrderedDict()
 
                 self.config = Mpls.TeGlobalAttributes.TeLspTimers.Config()
                 self.config.parent = self
                 self._children_name_map["config"] = "config"
-                self._children_yang_names.add("config")
 
                 self.state = Mpls.TeGlobalAttributes.TeLspTimers.State()
                 self.state.parent = self
                 self._children_name_map["state"] = "state"
-                self._children_yang_names.add("state")
                 self._segment_path = lambda: "te-lsp-timers"
                 self._absolute_path = lambda: "openconfig-mpls:mpls/te-global-attributes/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Mpls.TeGlobalAttributes.TeLspTimers, [], name, value)
 
 
             class Config(Entity):
@@ -1797,8 +1696,8 @@ class Mpls(Entity):
 
                 """
 
-                _prefix = 'mpls'
-                _revision = '2015-11-05'
+                _prefix = 'oc-mpls'
+                _revision = '2017-03-22'
 
                 def __init__(self):
                     super(Mpls.TeGlobalAttributes.TeLspTimers.Config, self).__init__()
@@ -1808,8 +1707,7 @@ class Mpls(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('install_delay', YLeaf(YType.uint16, 'install-delay')),
                         ('cleanup_delay', YLeaf(YType.uint16, 'cleanup-delay')),
@@ -1822,7 +1720,7 @@ class Mpls(Entity):
                     self._absolute_path = lambda: "openconfig-mpls:mpls/te-global-attributes/te-lsp-timers/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.TeGlobalAttributes.TeLspTimers.Config, ['install_delay', 'cleanup_delay', 'reoptimize_timer'], name, value)
+                    self._perform_setattr(Mpls.TeGlobalAttributes.TeLspTimers.Config, [u'install_delay', u'cleanup_delay', u'reoptimize_timer'], name, value)
 
 
             class State(Entity):
@@ -1860,8 +1758,8 @@ class Mpls(Entity):
 
                 """
 
-                _prefix = 'mpls'
-                _revision = '2015-11-05'
+                _prefix = 'oc-mpls'
+                _revision = '2017-03-22'
 
                 def __init__(self):
                     super(Mpls.TeGlobalAttributes.TeLspTimers.State, self).__init__()
@@ -1871,8 +1769,7 @@ class Mpls(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('install_delay', YLeaf(YType.uint16, 'install-delay')),
                         ('cleanup_delay', YLeaf(YType.uint16, 'cleanup-delay')),
@@ -1885,7 +1782,7 @@ class Mpls(Entity):
                     self._absolute_path = lambda: "openconfig-mpls:mpls/te-global-attributes/te-lsp-timers/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.TeGlobalAttributes.TeLspTimers.State, ['install_delay', 'cleanup_delay', 'reoptimize_timer'], name, value)
+                    self._perform_setattr(Mpls.TeGlobalAttributes.TeLspTimers.State, [u'install_delay', u'cleanup_delay', u'reoptimize_timer'], name, value)
 
 
     class TeInterfaceAttributes(Entity):
@@ -1902,8 +1799,8 @@ class Mpls(Entity):
 
         """
 
-        _prefix = 'mpls'
-        _revision = '2015-11-05'
+        _prefix = 'oc-mpls'
+        _revision = '2017-03-22'
 
         def __init__(self):
             super(Mpls.TeInterfaceAttributes, self).__init__()
@@ -1913,8 +1810,7 @@ class Mpls(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("interface", ("interface", Mpls.TeInterfaceAttributes.Interface))])
+            self._child_classes = OrderedDict([("interface", ("interface", Mpls.TeInterfaceAttributes.Interface))])
             self._leafs = OrderedDict()
 
             self.interface = YList(self)
@@ -1929,12 +1825,12 @@ class Mpls(Entity):
             """
             List of TE interfaces
             
-            .. attribute:: name  (key)
+            .. attribute:: interface_id  (key)
             
-            	The interface name
+            	Reference to the interface id list key
             	**type**\: str
             
-            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.Config>`
+            	**refers to**\:  :py:class:`interface_id <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.Config>`
             
             .. attribute:: config
             
@@ -1946,6 +1842,11 @@ class Mpls(Entity):
             	State parameters related to TE interfaces
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.State>`
             
+            .. attribute:: interface_ref
+            
+            	Reference to an interface or subinterface
+            	**type**\:  :py:class:`InterfaceRef <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.InterfaceRef>`
+            
             .. attribute:: igp_flooding_bandwidth
             
             	Interface bandwidth change percentages that trigger update events into the IGP traffic engineering database (TED)
@@ -1955,8 +1856,8 @@ class Mpls(Entity):
 
             """
 
-            _prefix = 'mpls'
-            _revision = '2015-11-05'
+            _prefix = 'oc-mpls'
+            _revision = '2017-03-22'
 
             def __init__(self):
                 super(Mpls.TeInterfaceAttributes.Interface, self).__init__()
@@ -1965,45 +1866,43 @@ class Mpls(Entity):
                 self.yang_parent_name = "te-interface-attributes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([("config", ("config", Mpls.TeInterfaceAttributes.Interface.Config)), ("state", ("state", Mpls.TeInterfaceAttributes.Interface.State)), ("igp-flooding-bandwidth", ("igp_flooding_bandwidth", Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth))])
-                self._child_list_classes = OrderedDict([])
+                self.ylist_key_names = ['interface_id']
+                self._child_classes = OrderedDict([("config", ("config", Mpls.TeInterfaceAttributes.Interface.Config)), ("state", ("state", Mpls.TeInterfaceAttributes.Interface.State)), ("interface-ref", ("interface_ref", Mpls.TeInterfaceAttributes.Interface.InterfaceRef)), ("igp-flooding-bandwidth", ("igp_flooding_bandwidth", Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth))])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
+                    ('interface_id', YLeaf(YType.str, 'interface-id')),
                 ])
-                self.name = None
+                self.interface_id = None
 
                 self.config = Mpls.TeInterfaceAttributes.Interface.Config()
                 self.config.parent = self
                 self._children_name_map["config"] = "config"
-                self._children_yang_names.add("config")
 
                 self.state = Mpls.TeInterfaceAttributes.Interface.State()
                 self.state.parent = self
                 self._children_name_map["state"] = "state"
-                self._children_yang_names.add("state")
+
+                self.interface_ref = Mpls.TeInterfaceAttributes.Interface.InterfaceRef()
+                self.interface_ref.parent = self
+                self._children_name_map["interface_ref"] = "interface-ref"
 
                 self.igp_flooding_bandwidth = Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth()
                 self.igp_flooding_bandwidth.parent = self
                 self._children_name_map["igp_flooding_bandwidth"] = "igp-flooding-bandwidth"
-                self._children_yang_names.add("igp-flooding-bandwidth")
-                self._segment_path = lambda: "interface" + "[name='" + str(self.name) + "']"
+                self._segment_path = lambda: "interface" + "[interface-id='" + str(self.interface_id) + "']"
                 self._absolute_path = lambda: "openconfig-mpls:mpls/te-interface-attributes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Mpls.TeInterfaceAttributes.Interface, ['name'], name, value)
+                self._perform_setattr(Mpls.TeInterfaceAttributes.Interface, [u'interface_id'], name, value)
 
 
             class Config(Entity):
                 """
                 Configuration parameters related to TE interfaces\:
                 
-                .. attribute:: name
+                .. attribute:: interface_id
                 
-                	reference to interface name
+                	Id of the interface
                 	**type**\: str
-                
-                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                 
                 .. attribute:: te_metric
                 
@@ -2017,7 +1916,7 @@ class Mpls(Entity):
                 	list of references to named shared risk link groups that the interface belongs to
                 	**type**\: list of str
                 
-                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlgs.Srlg>`
                 
                 .. attribute:: admin_group
                 
@@ -2028,8 +1927,8 @@ class Mpls(Entity):
 
                 """
 
-                _prefix = 'mpls'
-                _revision = '2015-11-05'
+                _prefix = 'oc-mpls'
+                _revision = '2017-03-22'
 
                 def __init__(self):
                     super(Mpls.TeInterfaceAttributes.Interface.Config, self).__init__()
@@ -2039,34 +1938,31 @@ class Mpls(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('interface_id', YLeaf(YType.str, 'interface-id')),
                         ('te_metric', YLeaf(YType.uint32, 'te-metric')),
                         ('srlg_membership', YLeafList(YType.str, 'srlg-membership')),
                         ('admin_group', YLeafList(YType.str, 'admin-group')),
                     ])
-                    self.name = None
+                    self.interface_id = None
                     self.te_metric = None
                     self.srlg_membership = []
                     self.admin_group = []
                     self._segment_path = lambda: "config"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.Config, ['name', 'te_metric', 'srlg_membership', 'admin_group'], name, value)
+                    self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.Config, [u'interface_id', u'te_metric', u'srlg_membership', u'admin_group'], name, value)
 
 
             class State(Entity):
                 """
                 State parameters related to TE interfaces
                 
-                .. attribute:: name
+                .. attribute:: interface_id
                 
-                	reference to interface name
+                	Id of the interface
                 	**type**\: str
-                
-                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                 
                 .. attribute:: te_metric
                 
@@ -2080,7 +1976,7 @@ class Mpls(Entity):
                 	list of references to named shared risk link groups that the interface belongs to
                 	**type**\: list of str
                 
-                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlgs.Srlg>`
                 
                 .. attribute:: admin_group
                 
@@ -2091,8 +1987,8 @@ class Mpls(Entity):
 
                 """
 
-                _prefix = 'mpls'
-                _revision = '2015-11-05'
+                _prefix = 'oc-mpls'
+                _revision = '2017-03-22'
 
                 def __init__(self):
                     super(Mpls.TeInterfaceAttributes.Interface.State, self).__init__()
@@ -2102,22 +1998,162 @@ class Mpls(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('interface_id', YLeaf(YType.str, 'interface-id')),
                         ('te_metric', YLeaf(YType.uint32, 'te-metric')),
                         ('srlg_membership', YLeafList(YType.str, 'srlg-membership')),
                         ('admin_group', YLeafList(YType.str, 'admin-group')),
                     ])
-                    self.name = None
+                    self.interface_id = None
                     self.te_metric = None
                     self.srlg_membership = []
                     self.admin_group = []
                     self._segment_path = lambda: "state"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.State, ['name', 'te_metric', 'srlg_membership', 'admin_group'], name, value)
+                    self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.State, [u'interface_id', u'te_metric', u'srlg_membership', u'admin_group'], name, value)
+
+
+            class InterfaceRef(Entity):
+                """
+                Reference to an interface or subinterface
+                
+                .. attribute:: config
+                
+                	Configured reference to interface / subinterface
+                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.InterfaceRef.Config>`
+                
+                .. attribute:: state
+                
+                	Operational state for interface\-ref
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.InterfaceRef.State>`
+                
+                
+
+                """
+
+                _prefix = 'oc-mpls'
+                _revision = '2017-03-22'
+
+                def __init__(self):
+                    super(Mpls.TeInterfaceAttributes.Interface.InterfaceRef, self).__init__()
+
+                    self.yang_name = "interface-ref"
+                    self.yang_parent_name = "interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("config", ("config", Mpls.TeInterfaceAttributes.Interface.InterfaceRef.Config)), ("state", ("state", Mpls.TeInterfaceAttributes.Interface.InterfaceRef.State))])
+                    self._leafs = OrderedDict()
+
+                    self.config = Mpls.TeInterfaceAttributes.Interface.InterfaceRef.Config()
+                    self.config.parent = self
+                    self._children_name_map["config"] = "config"
+
+                    self.state = Mpls.TeInterfaceAttributes.Interface.InterfaceRef.State()
+                    self.state.parent = self
+                    self._children_name_map["state"] = "state"
+                    self._segment_path = lambda: "interface-ref"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.InterfaceRef, [], name, value)
+
+
+                class Config(Entity):
+                    """
+                    Configured reference to interface / subinterface
+                    
+                    .. attribute:: interface
+                    
+                    	Reference to a base interface.  If a reference to a subinterface is required, this leaf must be specified to indicate the base interface
+                    	**type**\: str
+                    
+                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                    
+                    .. attribute:: subinterface
+                    
+                    	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
+
+                    def __init__(self):
+                        super(Mpls.TeInterfaceAttributes.Interface.InterfaceRef.Config, self).__init__()
+
+                        self.yang_name = "config"
+                        self.yang_parent_name = "interface-ref"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface', YLeaf(YType.str, 'interface')),
+                            ('subinterface', YLeaf(YType.str, 'subinterface')),
+                        ])
+                        self.interface = None
+                        self.subinterface = None
+                        self._segment_path = lambda: "config"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
+
+
+                class State(Entity):
+                    """
+                    Operational state for interface\-ref
+                    
+                    .. attribute:: interface
+                    
+                    	Reference to a base interface.  If a reference to a subinterface is required, this leaf must be specified to indicate the base interface
+                    	**type**\: str
+                    
+                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                    
+                    .. attribute:: subinterface
+                    
+                    	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
+
+                    def __init__(self):
+                        super(Mpls.TeInterfaceAttributes.Interface.InterfaceRef.State, self).__init__()
+
+                        self.yang_name = "state"
+                        self.yang_parent_name = "interface-ref"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface', YLeaf(YType.str, 'interface')),
+                            ('subinterface', YLeaf(YType.str, 'subinterface')),
+                        ])
+                        self.interface = None
+                        self.subinterface = None
+                        self._segment_path = lambda: "state"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
 
 
             class IgpFloodingBandwidth(Entity):
@@ -2140,8 +2176,8 @@ class Mpls(Entity):
 
                 """
 
-                _prefix = 'mpls'
-                _revision = '2015-11-05'
+                _prefix = 'oc-mpls'
+                _revision = '2017-03-22'
 
                 def __init__(self):
                     super(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth, self).__init__()
@@ -2151,20 +2187,20 @@ class Mpls(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("config", ("config", Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config)), ("state", ("state", Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("config", ("config", Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config)), ("state", ("state", Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State))])
                     self._leafs = OrderedDict()
 
                     self.config = Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config()
                     self.config.parent = self
                     self._children_name_map["config"] = "config"
-                    self._children_yang_names.add("config")
 
                     self.state = Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State()
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
-                    self._children_yang_names.add("state")
                     self._segment_path = lambda: "igp-flooding-bandwidth"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth, [], name, value)
 
 
                 class Config(Entity):
@@ -2174,7 +2210,7 @@ class Mpls(Entity):
                     
                     .. attribute:: threshold_type
                     
-                    	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\-CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
+                    	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\_CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
                     	**type**\:  :py:class:`ThresholdType <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdType>`
                     
                     .. attribute:: delta_percentage
@@ -2214,8 +2250,8 @@ class Mpls(Entity):
 
                     """
 
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
 
                     def __init__(self):
                         super(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config, self).__init__()
@@ -2225,8 +2261,7 @@ class Mpls(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('threshold_type', YLeaf(YType.enumeration, 'threshold-type')),
                             ('delta_percentage', YLeaf(YType.uint8, 'delta-percentage')),
@@ -2244,7 +2279,7 @@ class Mpls(Entity):
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config, ['threshold_type', 'delta_percentage', 'threshold_specification', 'up_thresholds', 'down_thresholds', 'up_down_thresholds'], name, value)
+                        self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config, [u'threshold_type', u'delta_percentage', u'threshold_specification', u'up_thresholds', u'down_thresholds', u'up_down_thresholds'], name, value)
 
                     class ThresholdSpecification(Enum):
                         """
@@ -2268,7 +2303,7 @@ class Mpls(Entity):
 
                         .. data:: MIRRORED_UP_DOWN = 0
 
-                        	MIRRORED-UP-DOWN indicates that a single set of
+                        	MIRRORED_UP_DOWN indicates that a single set of
 
                         	threshold values should be used for both increasing
 
@@ -2280,7 +2315,7 @@ class Mpls(Entity):
 
                         .. data:: SEPARATE_UP_DOWN = 1
 
-                        	SEPARATE-UP-DOWN indicates that a separate
+                        	SEPARATE_UP_DOWN indicates that a separate
 
                         	threshold values should be used for the increasing
 
@@ -2292,9 +2327,9 @@ class Mpls(Entity):
 
                         """
 
-                        MIRRORED_UP_DOWN = Enum.YLeaf(0, "MIRRORED-UP-DOWN")
+                        MIRRORED_UP_DOWN = Enum.YLeaf(0, "MIRRORED_UP_DOWN")
 
-                        SEPARATE_UP_DOWN = Enum.YLeaf(1, "SEPARATE-UP-DOWN")
+                        SEPARATE_UP_DOWN = Enum.YLeaf(1, "SEPARATE_UP_DOWN")
 
 
                     class ThresholdType(Enum):
@@ -2309,7 +2344,7 @@ class Mpls(Entity):
 
                         reserved bandwidth >= the specified delta occurs on the
 
-                        interface. Where THRESHOLD\-CROSSED is specified, the local
+                        interface. Where THRESHOLD\_CROSSED is specified, the local
 
                         system should trigger an update (and hence flood) the
 
@@ -2345,7 +2380,7 @@ class Mpls(Entity):
 
                         DELTA = Enum.YLeaf(0, "DELTA")
 
-                        THRESHOLD_CROSSED = Enum.YLeaf(1, "THRESHOLD-CROSSED")
+                        THRESHOLD_CROSSED = Enum.YLeaf(1, "THRESHOLD_CROSSED")
 
 
 
@@ -2355,7 +2390,7 @@ class Mpls(Entity):
                     
                     .. attribute:: threshold_type
                     
-                    	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\-CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
+                    	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\_CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
                     	**type**\:  :py:class:`ThresholdType <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdType>`
                     
                     .. attribute:: delta_percentage
@@ -2395,8 +2430,8 @@ class Mpls(Entity):
 
                     """
 
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
 
                     def __init__(self):
                         super(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State, self).__init__()
@@ -2406,8 +2441,7 @@ class Mpls(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('threshold_type', YLeaf(YType.enumeration, 'threshold-type')),
                             ('delta_percentage', YLeaf(YType.uint8, 'delta-percentage')),
@@ -2425,7 +2459,7 @@ class Mpls(Entity):
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State, ['threshold_type', 'delta_percentage', 'threshold_specification', 'up_thresholds', 'down_thresholds', 'up_down_thresholds'], name, value)
+                        self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State, [u'threshold_type', u'delta_percentage', u'threshold_specification', u'up_thresholds', u'down_thresholds', u'up_down_thresholds'], name, value)
 
                     class ThresholdSpecification(Enum):
                         """
@@ -2449,7 +2483,7 @@ class Mpls(Entity):
 
                         .. data:: MIRRORED_UP_DOWN = 0
 
-                        	MIRRORED-UP-DOWN indicates that a single set of
+                        	MIRRORED_UP_DOWN indicates that a single set of
 
                         	threshold values should be used for both increasing
 
@@ -2461,7 +2495,7 @@ class Mpls(Entity):
 
                         .. data:: SEPARATE_UP_DOWN = 1
 
-                        	SEPARATE-UP-DOWN indicates that a separate
+                        	SEPARATE_UP_DOWN indicates that a separate
 
                         	threshold values should be used for the increasing
 
@@ -2473,9 +2507,9 @@ class Mpls(Entity):
 
                         """
 
-                        MIRRORED_UP_DOWN = Enum.YLeaf(0, "MIRRORED-UP-DOWN")
+                        MIRRORED_UP_DOWN = Enum.YLeaf(0, "MIRRORED_UP_DOWN")
 
-                        SEPARATE_UP_DOWN = Enum.YLeaf(1, "SEPARATE-UP-DOWN")
+                        SEPARATE_UP_DOWN = Enum.YLeaf(1, "SEPARATE_UP_DOWN")
 
 
                     class ThresholdType(Enum):
@@ -2490,7 +2524,7 @@ class Mpls(Entity):
 
                         reserved bandwidth >= the specified delta occurs on the
 
-                        interface. Where THRESHOLD\-CROSSED is specified, the local
+                        interface. Where THRESHOLD\_CROSSED is specified, the local
 
                         system should trigger an update (and hence flood) the
 
@@ -2526,7 +2560,7 @@ class Mpls(Entity):
 
                         DELTA = Enum.YLeaf(0, "DELTA")
 
-                        THRESHOLD_CROSSED = Enum.YLeaf(1, "THRESHOLD-CROSSED")
+                        THRESHOLD_CROSSED = Enum.YLeaf(1, "THRESHOLD_CROSSED")
 
 
 
@@ -2539,22 +2573,22 @@ class Mpls(Entity):
         	RSVP\-TE global signaling protocol configuration
         	**type**\:  :py:class:`RsvpTe <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe>`
         
-        .. attribute:: segment_routing
-        
-        	SR global signaling config
-        	**type**\:  :py:class:`SegmentRouting <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting>`
-        
         .. attribute:: ldp
         
         	LDP global signaling configuration
         	**type**\:  :py:class:`Ldp <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.Ldp>`
         
+        .. attribute:: segment_routing
+        
+        	MPLS\-specific Segment Routing configuration and operational state parameters
+        	**type**\:  :py:class:`SegmentRouting <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting>`
+        
         
 
         """
 
-        _prefix = 'mpls'
-        _revision = '2015-11-05'
+        _prefix = 'oc-mpls'
+        _revision = '2017-03-22'
 
         def __init__(self):
             super(Mpls.SignalingProtocols, self).__init__()
@@ -2564,26 +2598,25 @@ class Mpls(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("rsvp-te", ("rsvp_te", Mpls.SignalingProtocols.RsvpTe)), ("segment-routing", ("segment_routing", Mpls.SignalingProtocols.SegmentRouting)), ("ldp", ("ldp", Mpls.SignalingProtocols.Ldp))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("rsvp-te", ("rsvp_te", Mpls.SignalingProtocols.RsvpTe)), ("ldp", ("ldp", Mpls.SignalingProtocols.Ldp)), ("segment-routing", ("segment_routing", Mpls.SignalingProtocols.SegmentRouting))])
             self._leafs = OrderedDict()
 
             self.rsvp_te = Mpls.SignalingProtocols.RsvpTe()
             self.rsvp_te.parent = self
             self._children_name_map["rsvp_te"] = "rsvp-te"
-            self._children_yang_names.add("rsvp-te")
-
-            self.segment_routing = Mpls.SignalingProtocols.SegmentRouting()
-            self.segment_routing.parent = self
-            self._children_name_map["segment_routing"] = "segment-routing"
-            self._children_yang_names.add("segment-routing")
 
             self.ldp = Mpls.SignalingProtocols.Ldp()
             self.ldp.parent = self
             self._children_name_map["ldp"] = "ldp"
-            self._children_yang_names.add("ldp")
+
+            self.segment_routing = Mpls.SignalingProtocols.SegmentRouting()
+            self.segment_routing.parent = self
+            self._children_name_map["segment_routing"] = "segment-routing"
             self._segment_path = lambda: "signaling-protocols"
             self._absolute_path = lambda: "openconfig-mpls:mpls/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Mpls.SignalingProtocols, [], name, value)
 
 
         class RsvpTe(Entity):
@@ -2592,7 +2625,7 @@ class Mpls(Entity):
             
             .. attribute:: sessions
             
-            	Configuration and state of RSVP sessions
+            	Enclosing container for sessions
             	**type**\:  :py:class:`Sessions <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions>`
             
             .. attribute:: neighbors
@@ -2614,8 +2647,8 @@ class Mpls(Entity):
 
             """
 
-            _prefix = 'mpls'
-            _revision = '2015-11-05'
+            _prefix = 'oc-mpls'
+            _revision = '2017-03-22'
 
             def __init__(self):
                 super(Mpls.SignalingProtocols.RsvpTe, self).__init__()
@@ -2625,53 +2658,46 @@ class Mpls(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("sessions", ("sessions", Mpls.SignalingProtocols.RsvpTe.Sessions)), ("neighbors", ("neighbors", Mpls.SignalingProtocols.RsvpTe.Neighbors)), ("global", ("global_", Mpls.SignalingProtocols.RsvpTe.Global)), ("interface-attributes", ("interface_attributes", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("sessions", ("sessions", Mpls.SignalingProtocols.RsvpTe.Sessions)), ("neighbors", ("neighbors", Mpls.SignalingProtocols.RsvpTe.Neighbors)), ("global", ("global_", Mpls.SignalingProtocols.RsvpTe.Global)), ("interface-attributes", ("interface_attributes", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes))])
                 self._leafs = OrderedDict()
 
                 self.sessions = Mpls.SignalingProtocols.RsvpTe.Sessions()
                 self.sessions.parent = self
                 self._children_name_map["sessions"] = "sessions"
-                self._children_yang_names.add("sessions")
 
                 self.neighbors = Mpls.SignalingProtocols.RsvpTe.Neighbors()
                 self.neighbors.parent = self
                 self._children_name_map["neighbors"] = "neighbors"
-                self._children_yang_names.add("neighbors")
 
                 self.global_ = Mpls.SignalingProtocols.RsvpTe.Global()
                 self.global_.parent = self
                 self._children_name_map["global_"] = "global"
-                self._children_yang_names.add("global")
 
                 self.interface_attributes = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes()
                 self.interface_attributes.parent = self
                 self._children_name_map["interface_attributes"] = "interface-attributes"
-                self._children_yang_names.add("interface-attributes")
                 self._segment_path = lambda: "rsvp-te"
                 self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe, [], name, value)
 
 
             class Sessions(Entity):
                 """
-                Configuration and state of RSVP sessions
+                Enclosing container for sessions
                 
-                .. attribute:: config
+                .. attribute:: session
                 
-                	Configuration of RSVP sessions on the device
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Config>`
-                
-                .. attribute:: state
-                
-                	State information relating to RSVP sessions on the device
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State>`
+                	List of RSVP sessions
+                	**type**\: list of  		 :py:class:`Session <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Session>`
                 
                 
 
                 """
 
-                _prefix = 'mpls'
-                _revision = '2015-11-05'
+                _prefix = 'oc-mpls'
+                _revision = '2017-03-22'
 
                 def __init__(self):
                     super(Mpls.SignalingProtocols.RsvpTe.Sessions, self).__init__()
@@ -2681,146 +2707,307 @@ class Mpls(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.Sessions.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.Sessions.State))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("session", ("session", Mpls.SignalingProtocols.RsvpTe.Sessions.Session))])
                     self._leafs = OrderedDict()
 
-                    self.config = Mpls.SignalingProtocols.RsvpTe.Sessions.Config()
-                    self.config.parent = self
-                    self._children_name_map["config"] = "config"
-                    self._children_yang_names.add("config")
-
-                    self.state = Mpls.SignalingProtocols.RsvpTe.Sessions.State()
-                    self.state.parent = self
-                    self._children_name_map["state"] = "state"
-                    self._children_yang_names.add("state")
+                    self.session = YList(self)
                     self._segment_path = lambda: "sessions"
                     self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/%s" % self._segment_path()
 
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Sessions, [], name, value)
 
-                class Config(Entity):
+
+                class Session(Entity):
                     """
-                    Configuration of RSVP sessions on the device
+                    List of RSVP sessions
+                    
+                    .. attribute:: local_index  (key)
+                    
+                    	Reference to the local index for the RSVP session
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**refers to**\:  :py:class:`local_index <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State>`
+                    
+                    .. attribute:: record_route_objects
+                    
+                    	Enclosing container for MPLS RRO objects associated with the traffic engineered tunnel
+                    	**type**\:  :py:class:`RecordRouteObjects <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects>`
+                    
+                    .. attribute:: state
+                    
+                    	Operational state parameters relating to the RSVP session
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State>`
                     
                     
 
                     """
 
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.SignalingProtocols.RsvpTe.Sessions.Config, self).__init__()
+                        super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session, self).__init__()
 
-                        self.yang_name = "config"
+                        self.yang_name = "session"
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
-                        self._leafs = OrderedDict()
-                        self._segment_path = lambda: "config"
-                        self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/sessions/%s" % self._segment_path()
+                        self.ylist_key_names = ['local_index']
+                        self._child_classes = OrderedDict([("record-route-objects", ("record_route_objects", Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State))])
+                        self._leafs = OrderedDict([
+                            ('local_index', YLeaf(YType.str, 'local-index')),
+                        ])
+                        self.local_index = None
 
+                        self.record_route_objects = Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects()
+                        self.record_route_objects.parent = self
+                        self._children_name_map["record_route_objects"] = "record-route-objects"
 
-                class State(Entity):
-                    """
-                    State information relating to RSVP sessions
-                    on the device
-                    
-                    .. attribute:: session
-                    
-                    	List of RSVP sessions
-                    	**type**\: list of  		 :py:class:`Session <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
-
-                    def __init__(self):
-                        super(Mpls.SignalingProtocols.RsvpTe.Sessions.State, self).__init__()
-
-                        self.yang_name = "state"
-                        self.yang_parent_name = "sessions"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("session", ("session", Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session))])
-                        self._leafs = OrderedDict()
-
-                        self.session = YList(self)
-                        self._segment_path = lambda: "state"
+                        self.state = Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State()
+                        self.state.parent = self
+                        self._children_name_map["state"] = "state"
+                        self._segment_path = lambda: "session" + "[local-index='" + str(self.local_index) + "']"
                         self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/sessions/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Sessions.State, [], name, value)
+                        self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Sessions.Session, ['local_index'], name, value)
 
 
-                    class Session(Entity):
+                    class RecordRouteObjects(Entity):
                         """
-                        List of RSVP sessions
+                        Enclosing container for MPLS RRO objects associated with the
+                        traffic engineered tunnel.
                         
-                        .. attribute:: source_port  (key)
+                        .. attribute:: record_route_object
                         
-                        	RSVP source port
+                        	Read\-only list of record route objects associated with the traffic engineered tunnel. Each entry in the list may contain a hop IP address, MPLS label allocated at the hop, and the flags associated with the entry
+                        	**type**\: list of  		 :py:class:`RecordRouteObject <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
+
+                        def __init__(self):
+                            super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects, self).__init__()
+
+                            self.yang_name = "record-route-objects"
+                            self.yang_parent_name = "session"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("record-route-object", ("record_route_object", Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject))])
+                            self._leafs = OrderedDict()
+
+                            self.record_route_object = YList(self)
+                            self._segment_path = lambda: "record-route-objects"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects, [], name, value)
+
+
+                        class RecordRouteObject(Entity):
+                            """
+                            Read\-only list of record route objects associated with the
+                            traffic engineered tunnel. Each entry in the list
+                            may contain a hop IP address, MPLS label allocated
+                            at the hop, and the flags associated with the entry.
+                            
+                            .. attribute:: index  (key)
+                            
+                            	Reference to the index of the record route object. The index is used to indicate the ordering of hops in the path
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject.State>`
+                            
+                            .. attribute:: state
+                            
+                            	Information related to RRO objects. The hop, label, and optional flags are present for each entry in the list
+                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject.State>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
+
+                            def __init__(self):
+                                super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject, self).__init__()
+
+                                self.yang_name = "record-route-object"
+                                self.yang_parent_name = "record-route-objects"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['index']
+                                self._child_classes = OrderedDict([("state", ("state", Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject.State))])
+                                self._leafs = OrderedDict([
+                                    ('index', YLeaf(YType.str, 'index')),
+                                ])
+                                self.index = None
+
+                                self.state = Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject.State()
+                                self.state.parent = self
+                                self._children_name_map["state"] = "state"
+                                self._segment_path = lambda: "record-route-object" + "[index='" + str(self.index) + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject, ['index'], name, value)
+
+
+                            class State(Entity):
+                                """
+                                Information related to RRO objects. The hop, label, and
+                                optional flags are present for each entry in the list.
+                                
+                                .. attribute:: index
+                                
+                                	Index of object in the list. Used for ordering
+                                	**type**\: int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: address
+                                
+                                	IP router hop for RRO entry
+                                	**type**\: union of the below types:
+                                
+                                		**type**\: str
+                                
+                                			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
+                                
+                                		**type**\: str
+                                
+                                			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                                
+                                .. attribute:: reported_label
+                                
+                                	Label reported for RRO hop
+                                	**type**\: union of the below types:
+                                
+                                		**type**\: int
+                                
+                                			**range:** 16..1048575
+                                
+                                		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                                
+                                .. attribute:: reported_flags
+                                
+                                	Subobject flags for MPLS label
+                                	**type**\: int
+                                
+                                	**range:** 0..255
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-mpls'
+                                _revision = '2017-03-22'
+
+                                def __init__(self):
+                                    super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject.State, self).__init__()
+
+                                    self.yang_name = "state"
+                                    self.yang_parent_name = "record-route-object"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('index', YLeaf(YType.uint8, 'index')),
+                                        ('address', YLeaf(YType.str, 'address')),
+                                        ('reported_label', YLeaf(YType.str, 'reported-label')),
+                                        ('reported_flags', YLeaf(YType.uint8, 'reported-flags')),
+                                    ])
+                                    self.index = None
+                                    self.address = None
+                                    self.reported_label = None
+                                    self.reported_flags = None
+                                    self._segment_path = lambda: "state"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject.State, ['index', 'address', 'reported_label', 'reported_flags'], name, value)
+
+
+                    class State(Entity):
+                        """
+                        Operational state parameters relating to the
+                        RSVP session
+                        
+                        .. attribute:: local_index
+                        
+                        	The index used to identify the RSVP session on the local network element. This index is generated by the device and is unique only to the local network element
                         	**type**\: int
                         
-                        	**range:** 0..65535
+                        	**range:** 0..18446744073709551615
                         
-                        .. attribute:: destination_port  (key)
-                        
-                        	RSVP source port
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: source_address  (key)
+                        .. attribute:: source_address
                         
                         	Origin address of RSVP session
                         	**type**\: union of the below types:
                         
                         		**type**\: str
                         
-                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                         
                         		**type**\: str
                         
-                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                         
-                        .. attribute:: destination_address  (key)
+                        .. attribute:: destination_address
                         
                         	Destination address of RSVP session
                         	**type**\: union of the below types:
                         
                         		**type**\: str
                         
-                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                         
                         		**type**\: str
                         
-                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                        
+                        .. attribute:: tunnel_id
+                        
+                        	The tunnel ID is an identifier used in the RSVP session, which remains constant over the life of the tunnel
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: lsp_id
+                        
+                        	The LSP ID distinguishes between two LSPs originated from the same headend, and is commonly used to distinguish RSVP sessions during make before break operations
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: session_name
+                        
+                        	The signaled name of this RSVP session
+                        	**type**\: str
                         
                         .. attribute:: status
                         
                         	Enumeration of RSVP session states
-                        	**type**\:  :py:class:`Status <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.Status>`
+                        	**type**\:  :py:class:`Status <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.Status>`
                         
                         .. attribute:: type
                         
-                        	Enumeration of possible RSVP session types
-                        	**type**\:  :py:class:`Type <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.Type>`
+                        	The type/role of the RSVP session, signifing the session's role on the current device, such as a transit session vs. an ingress session
+                        	**type**\:  :py:class:`LSPROLE <ydk.models.openconfig.openconfig_mpls_types.LSPROLE>`
                         
-                        .. attribute:: tunnel_id
+                        .. attribute:: protection_requested
                         
-                        	Unique identifier of RSVP session
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
+                        	The type of protection requested for the RSVP session
+                        	**type**\:  :py:class:`PROTECTIONTYPE <ydk.models.openconfig.openconfig_mpls_types.PROTECTIONTYPE>`
                         
                         .. attribute:: label_in
                         
@@ -2844,57 +3031,59 @@ class Mpls(Entity):
                         
                         		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                         
-                        .. attribute:: associated_lsps
+                        .. attribute:: sender_tspec
                         
-                        	List of label switched paths associated with this RSVP session
-                        	**type**\: list of str
-                        
-                        	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Config>`
+                        	Operational state statistics relating to the SENDER\_TSPEC received for the RSVP session
+                        	**type**\:  :py:class:`SenderTspec <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec>`
                         
                         
 
                         """
 
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session, self).__init__()
+                            super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State, self).__init__()
 
-                            self.yang_name = "session"
-                            self.yang_parent_name = "state"
+                            self.yang_name = "state"
+                            self.yang_parent_name = "session"
                             self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self.ylist_key_names = ['source_port','destination_port','source_address','destination_address']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("sender-tspec", ("sender_tspec", Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec))])
                             self._leafs = OrderedDict([
-                                ('source_port', YLeaf(YType.uint16, 'source-port')),
-                                ('destination_port', YLeaf(YType.uint16, 'destination-port')),
+                                ('local_index', YLeaf(YType.uint64, 'local-index')),
                                 ('source_address', YLeaf(YType.str, 'source-address')),
                                 ('destination_address', YLeaf(YType.str, 'destination-address')),
-                                ('status', YLeaf(YType.enumeration, 'status')),
-                                ('type', YLeaf(YType.enumeration, 'type')),
                                 ('tunnel_id', YLeaf(YType.uint16, 'tunnel-id')),
+                                ('lsp_id', YLeaf(YType.uint16, 'lsp-id')),
+                                ('session_name', YLeaf(YType.str, 'session-name')),
+                                ('status', YLeaf(YType.enumeration, 'status')),
+                                ('type', YLeaf(YType.identityref, 'type')),
+                                ('protection_requested', YLeaf(YType.identityref, 'protection-requested')),
                                 ('label_in', YLeaf(YType.str, 'label-in')),
                                 ('label_out', YLeaf(YType.str, 'label-out')),
-                                ('associated_lsps', YLeafList(YType.str, 'associated-lsps')),
                             ])
-                            self.source_port = None
-                            self.destination_port = None
+                            self.local_index = None
                             self.source_address = None
                             self.destination_address = None
+                            self.tunnel_id = None
+                            self.lsp_id = None
+                            self.session_name = None
                             self.status = None
                             self.type = None
-                            self.tunnel_id = None
+                            self.protection_requested = None
                             self.label_in = None
                             self.label_out = None
-                            self.associated_lsps = []
-                            self._segment_path = lambda: "session" + "[source-port='" + str(self.source_port) + "']" + "[destination-port='" + str(self.destination_port) + "']" + "[source-address='" + str(self.source_address) + "']" + "[destination-address='" + str(self.destination_address) + "']"
-                            self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/sessions/state/%s" % self._segment_path()
+
+                            self.sender_tspec = Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec()
+                            self.sender_tspec.parent = self
+                            self._children_name_map["sender_tspec"] = "sender-tspec"
+                            self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session, ['source_port', 'destination_port', 'source_address', 'destination_address', 'status', 'type', 'tunnel_id', 'label_in', 'label_out', 'associated_lsps'], name, value)
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State, ['local_index', 'source_address', 'destination_address', 'tunnel_id', 'lsp_id', 'session_name', 'status', 'type', 'protection_requested', 'label_in', 'label_out'], name, value)
 
                         class Status(Enum):
                             """
@@ -2917,31 +3106,87 @@ class Mpls(Entity):
                             DOWN = Enum.YLeaf(1, "DOWN")
 
 
-                        class Type(Enum):
+
+                        class SenderTspec(Entity):
                             """
-                            Type (Enum Class)
-
-                            Enumeration of possible RSVP session types
-
-                            .. data:: SOURCE = 0
-
-                            	RSVP session originates on this device
-
-                            .. data:: TRANSIT = 1
-
-                            	RSVP session transits this device only
-
-                            .. data:: DESTINATION = 2
-
-                            	RSVP session terminates on this device
+                            Operational state statistics relating to the SENDER\_TSPEC
+                            received for the RSVP session
+                            
+                            .. attribute:: rate
+                            
+                            	The rate at which the head\-end device generates traffic, expressed in bytes per second
+                            	**type**\: str
+                            
+                            	**length:** 32
+                            
+                            	**units**\: Bps
+                            
+                            .. attribute:: size
+                            
+                            	The size of the token bucket that is used to determine the rate at which the head\-end device generates traffic, expressed in bytes per second
+                            	**type**\: str
+                            
+                            	**length:** 32
+                            
+                            	**units**\: bytes per second
+                            
+                            .. attribute:: peak_data_rate
+                            
+                            	The maximum traffic generation rate that the head\-end device sends traffic at
+                            	**type**\: union of the below types:
+                            
+                            		**type**\: str
+                            
+                            			**length:** 32
+                            
+                            		**type**\:  :py:class:`PeakDataRate <ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec.PeakDataRate>`
+                            
+                            	**units**\: bytes per second
+                            
+                            
 
                             """
 
-                            SOURCE = Enum.YLeaf(0, "SOURCE")
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
 
-                            TRANSIT = Enum.YLeaf(1, "TRANSIT")
+                            def __init__(self):
+                                super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec, self).__init__()
 
-                            DESTINATION = Enum.YLeaf(2, "DESTINATION")
+                                self.yang_name = "sender-tspec"
+                                self.yang_parent_name = "state"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('rate', YLeaf(YType.str, 'rate')),
+                                    ('size', YLeaf(YType.str, 'size')),
+                                    ('peak_data_rate', YLeaf(YType.str, 'peak-data-rate')),
+                                ])
+                                self.rate = None
+                                self.size = None
+                                self.peak_data_rate = None
+                                self._segment_path = lambda: "sender-tspec"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec, ['rate', 'size', 'peak_data_rate'], name, value)
+
+                            class PeakDataRate(Enum):
+                                """
+                                PeakDataRate (Enum Class)
+
+                                The maximum traffic generation rate that the head\-end
+
+                                device sends traffic at.
+
+                                .. data:: INFINITY = 0
+
+                                	The head-end device has no maximum data rate.
+
+                                """
+
+                                INFINITY = Enum.YLeaf(0, "INFINITY")
 
 
 
@@ -2950,22 +3195,17 @@ class Mpls(Entity):
                 Configuration and state for RSVP neighbors connecting
                 to the device
                 
-                .. attribute:: config
+                .. attribute:: neighbor
                 
-                	Configuration of RSVP neighbor information
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.Config>`
-                
-                .. attribute:: state
-                
-                	State information relating to RSVP neighbors
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.State>`
+                	List of RSVP neighbors of the local system
+                	**type**\: list of  		 :py:class:`Neighbor <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor>`
                 
                 
 
                 """
 
-                _prefix = 'mpls'
-                _revision = '2015-11-05'
+                _prefix = 'oc-mpls'
+                _revision = '2017-03-22'
 
                 def __init__(self):
                     super(Mpls.SignalingProtocols.RsvpTe.Neighbors, self).__init__()
@@ -2975,102 +3215,89 @@ class Mpls(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.Neighbors.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.Neighbors.State))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("neighbor", ("neighbor", Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor))])
                     self._leafs = OrderedDict()
 
-                    self.config = Mpls.SignalingProtocols.RsvpTe.Neighbors.Config()
-                    self.config.parent = self
-                    self._children_name_map["config"] = "config"
-                    self._children_yang_names.add("config")
-
-                    self.state = Mpls.SignalingProtocols.RsvpTe.Neighbors.State()
-                    self.state.parent = self
-                    self._children_name_map["state"] = "state"
-                    self._children_yang_names.add("state")
+                    self.neighbor = YList(self)
                     self._segment_path = lambda: "neighbors"
                     self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/%s" % self._segment_path()
 
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Neighbors, [], name, value)
 
-                class Config(Entity):
+
+                class Neighbor(Entity):
                     """
-                    Configuration of RSVP neighbor information
+                    List of RSVP neighbors of the local system
+                    
+                    .. attribute:: address  (key)
+                    
+                    	Reference to the address of the RSVP neighbor
+                    	**type**\: union of the below types:
+                    
+                    		**type**\: str
+                    
+                    			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
+                    
+                    		**type**\: str
+                    
+                    			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                    
+                    	**refers to**\:  :py:class:`address <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor.State>`
+                    
+                    .. attribute:: state
+                    
+                    	Operational state parameters relating to the RSVP neighbor
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor.State>`
                     
                     
 
                     """
 
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.SignalingProtocols.RsvpTe.Neighbors.Config, self).__init__()
+                        super(Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor, self).__init__()
 
-                        self.yang_name = "config"
+                        self.yang_name = "neighbor"
                         self.yang_parent_name = "neighbors"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
-                        self._leafs = OrderedDict()
-                        self._segment_path = lambda: "config"
-                        self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/neighbors/%s" % self._segment_path()
+                        self.ylist_key_names = ['address']
+                        self._child_classes = OrderedDict([("state", ("state", Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor.State))])
+                        self._leafs = OrderedDict([
+                            ('address', YLeaf(YType.str, 'address')),
+                        ])
+                        self.address = None
 
-
-                class State(Entity):
-                    """
-                    State information relating to RSVP neighbors
-                    
-                    .. attribute:: neighbor
-                    
-                    	List of RSVP neighbors connecting to the device, keyed by neighbor address
-                    	**type**\: list of  		 :py:class:`Neighbor <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.State.Neighbor>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
-
-                    def __init__(self):
-                        super(Mpls.SignalingProtocols.RsvpTe.Neighbors.State, self).__init__()
-
-                        self.yang_name = "state"
-                        self.yang_parent_name = "neighbors"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Mpls.SignalingProtocols.RsvpTe.Neighbors.State.Neighbor))])
-                        self._leafs = OrderedDict()
-
-                        self.neighbor = YList(self)
-                        self._segment_path = lambda: "state"
+                        self.state = Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor.State()
+                        self.state.parent = self
+                        self._children_name_map["state"] = "state"
+                        self._segment_path = lambda: "neighbor" + "[address='" + str(self.address) + "']"
                         self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/neighbors/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Neighbors.State, [], name, value)
+                        self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor, ['address'], name, value)
 
 
-                    class Neighbor(Entity):
+                    class State(Entity):
                         """
-                        List of RSVP neighbors connecting to the device,
-                        keyed by neighbor address
+                        Operational state parameters relating to the
+                        RSVP neighbor
                         
-                        .. attribute:: address  (key)
+                        .. attribute:: address
                         
                         	Address of RSVP neighbor
                         	**type**\: union of the below types:
                         
                         		**type**\: str
                         
-                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                         
                         		**type**\: str
                         
-                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                         
                         .. attribute:: detected_interface
                         
@@ -3080,7 +3307,7 @@ class Mpls(Entity):
                         .. attribute:: neighbor_status
                         
                         	Enumuration of possible RSVP neighbor states
-                        	**type**\:  :py:class:`NeighborStatus <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.State.Neighbor.NeighborStatus>`
+                        	**type**\:  :py:class:`NeighborStatus <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor.State.NeighborStatus>`
                         
                         .. attribute:: refresh_reduction
                         
@@ -3091,19 +3318,18 @@ class Mpls(Entity):
 
                         """
 
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Neighbors.State.Neighbor, self).__init__()
+                            super(Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor.State, self).__init__()
 
-                            self.yang_name = "neighbor"
-                            self.yang_parent_name = "state"
+                            self.yang_name = "state"
+                            self.yang_parent_name = "neighbor"
                             self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self.ylist_key_names = ['address']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('address', YLeaf(YType.str, 'address')),
                                 ('detected_interface', YLeaf(YType.str, 'detected-interface')),
@@ -3114,11 +3340,10 @@ class Mpls(Entity):
                             self.detected_interface = None
                             self.neighbor_status = None
                             self.refresh_reduction = None
-                            self._segment_path = lambda: "neighbor" + "[address='" + str(self.address) + "']"
-                            self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/neighbors/state/%s" % self._segment_path()
+                            self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Neighbors.State.Neighbor, ['address', 'detected_interface', 'neighbor_status', 'refresh_reduction'], name, value)
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor.State, ['address', 'detected_interface', 'neighbor_status', 'refresh_reduction'], name, value)
 
                         class NeighborStatus(Enum):
                             """
@@ -3174,8 +3399,8 @@ class Mpls(Entity):
 
                 """
 
-                _prefix = 'mpls'
-                _revision = '2015-11-05'
+                _prefix = 'oc-mpls'
+                _revision = '2017-03-22'
 
                 def __init__(self):
                     super(Mpls.SignalingProtocols.RsvpTe.Global, self).__init__()
@@ -3185,31 +3410,29 @@ class Mpls(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("graceful-restart", ("graceful_restart", Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart)), ("soft-preemption", ("soft_preemption", Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption)), ("hellos", ("hellos", Mpls.SignalingProtocols.RsvpTe.Global.Hellos)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.Global.State))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("graceful-restart", ("graceful_restart", Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart)), ("soft-preemption", ("soft_preemption", Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption)), ("hellos", ("hellos", Mpls.SignalingProtocols.RsvpTe.Global.Hellos)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.Global.State))])
                     self._leafs = OrderedDict()
 
                     self.graceful_restart = Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart()
                     self.graceful_restart.parent = self
                     self._children_name_map["graceful_restart"] = "graceful-restart"
-                    self._children_yang_names.add("graceful-restart")
 
                     self.soft_preemption = Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption()
                     self.soft_preemption.parent = self
                     self._children_name_map["soft_preemption"] = "soft-preemption"
-                    self._children_yang_names.add("soft-preemption")
 
                     self.hellos = Mpls.SignalingProtocols.RsvpTe.Global.Hellos()
                     self.hellos.parent = self
                     self._children_name_map["hellos"] = "hellos"
-                    self._children_yang_names.add("hellos")
 
                     self.state = Mpls.SignalingProtocols.RsvpTe.Global.State()
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
-                    self._children_yang_names.add("state")
                     self._segment_path = lambda: "global"
                     self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global, [], name, value)
 
 
                 class GracefulRestart(Entity):
@@ -3231,8 +3454,8 @@ class Mpls(Entity):
 
                     """
 
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
 
                     def __init__(self):
                         super(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart, self).__init__()
@@ -3242,21 +3465,21 @@ class Mpls(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.State))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.State))])
                         self._leafs = OrderedDict()
 
                         self.config = Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.Config()
                         self.config.parent = self
                         self._children_name_map["config"] = "config"
-                        self._children_yang_names.add("config")
 
                         self.state = Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
-                        self._children_yang_names.add("state")
                         self._segment_path = lambda: "graceful-restart"
                         self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/global/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart, [], name, value)
 
 
                     class Config(Entity):
@@ -3289,8 +3512,8 @@ class Mpls(Entity):
 
                         """
 
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
 
                         def __init__(self):
                             super(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.Config, self).__init__()
@@ -3300,8 +3523,7 @@ class Mpls(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('enable', YLeaf(YType.boolean, 'enable')),
                                 ('restart_time', YLeaf(YType.uint32, 'restart-time')),
@@ -3347,8 +3569,8 @@ class Mpls(Entity):
 
                         """
 
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
 
                         def __init__(self):
                             super(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.State, self).__init__()
@@ -3358,8 +3580,7 @@ class Mpls(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('enable', YLeaf(YType.boolean, 'enable')),
                                 ('restart_time', YLeaf(YType.uint32, 'restart-time')),
@@ -3394,8 +3615,8 @@ class Mpls(Entity):
 
                     """
 
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
 
                     def __init__(self):
                         super(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption, self).__init__()
@@ -3405,21 +3626,21 @@ class Mpls(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.State))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.State))])
                         self._leafs = OrderedDict()
 
                         self.config = Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.Config()
                         self.config.parent = self
                         self._children_name_map["config"] = "config"
-                        self._children_yang_names.add("config")
 
                         self.state = Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
-                        self._children_yang_names.add("state")
                         self._segment_path = lambda: "soft-preemption"
                         self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/global/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption, [], name, value)
 
 
                     class Config(Entity):
@@ -3436,19 +3657,19 @@ class Mpls(Entity):
                         
                         .. attribute:: soft_preemption_timeout
                         
-                        	Timeout value for soft preemption to revert to hard preemption
+                        	Timeout value for soft preemption to revert to hard preemption. The default timeout for soft\-preemption is 30 seconds \- after which the local system reverts to hard pre\-emption
                         	**type**\: int
                         
                         	**range:** 0..65535
                         
-                        	**default value**\: 0
+                        	**default value**\: 30
                         
                         
 
                         """
 
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
 
                         def __init__(self):
                             super(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.Config, self).__init__()
@@ -3458,8 +3679,7 @@ class Mpls(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('enable', YLeaf(YType.boolean, 'enable')),
                                 ('soft_preemption_timeout', YLeaf(YType.uint16, 'soft-preemption-timeout')),
@@ -3487,19 +3707,19 @@ class Mpls(Entity):
                         
                         .. attribute:: soft_preemption_timeout
                         
-                        	Timeout value for soft preemption to revert to hard preemption
+                        	Timeout value for soft preemption to revert to hard preemption. The default timeout for soft\-preemption is 30 seconds \- after which the local system reverts to hard pre\-emption
                         	**type**\: int
                         
                         	**range:** 0..65535
                         
-                        	**default value**\: 0
+                        	**default value**\: 30
                         
                         
 
                         """
 
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
 
                         def __init__(self):
                             super(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.State, self).__init__()
@@ -3509,8 +3729,7 @@ class Mpls(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('enable', YLeaf(YType.boolean, 'enable')),
                                 ('soft_preemption_timeout', YLeaf(YType.uint16, 'soft-preemption-timeout')),
@@ -3542,8 +3761,8 @@ class Mpls(Entity):
 
                     """
 
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
 
                     def __init__(self):
                         super(Mpls.SignalingProtocols.RsvpTe.Global.Hellos, self).__init__()
@@ -3553,21 +3772,21 @@ class Mpls(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.Global.Hellos.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.Global.Hellos.State))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.Global.Hellos.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.Global.Hellos.State))])
                         self._leafs = OrderedDict()
 
                         self.config = Mpls.SignalingProtocols.RsvpTe.Global.Hellos.Config()
                         self.config.parent = self
                         self._children_name_map["config"] = "config"
-                        self._children_yang_names.add("config")
 
                         self.state = Mpls.SignalingProtocols.RsvpTe.Global.Hellos.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
-                        self._children_yang_names.add("state")
                         self._segment_path = lambda: "hellos"
                         self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/global/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.Hellos, [], name, value)
 
 
                     class Config(Entity):
@@ -3597,8 +3816,8 @@ class Mpls(Entity):
 
                         """
 
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
 
                         def __init__(self):
                             super(Mpls.SignalingProtocols.RsvpTe.Global.Hellos.Config, self).__init__()
@@ -3608,8 +3827,7 @@ class Mpls(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('hello_interval', YLeaf(YType.uint16, 'hello-interval')),
                                 ('refresh_reduction', YLeaf(YType.boolean, 'refresh-reduction')),
@@ -3649,8 +3867,8 @@ class Mpls(Entity):
 
                         """
 
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
 
                         def __init__(self):
                             super(Mpls.SignalingProtocols.RsvpTe.Global.Hellos.State, self).__init__()
@@ -3660,8 +3878,7 @@ class Mpls(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('hello_interval', YLeaf(YType.uint16, 'hello-interval')),
                                 ('refresh_reduction', YLeaf(YType.boolean, 'refresh-reduction')),
@@ -3688,8 +3905,8 @@ class Mpls(Entity):
 
                     """
 
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
 
                     def __init__(self):
                         super(Mpls.SignalingProtocols.RsvpTe.Global.State, self).__init__()
@@ -3699,16 +3916,17 @@ class Mpls(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("counters", ("counters", Mpls.SignalingProtocols.RsvpTe.Global.State.Counters))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("counters", ("counters", Mpls.SignalingProtocols.RsvpTe.Global.State.Counters))])
                         self._leafs = OrderedDict()
 
                         self.counters = Mpls.SignalingProtocols.RsvpTe.Global.State.Counters()
                         self.counters.parent = self
                         self._children_name_map["counters"] = "counters"
-                        self._children_yang_names.add("counters")
                         self._segment_path = lambda: "state"
                         self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/global/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.State, [], name, value)
 
 
                     class Counters(Entity):
@@ -3866,8 +4084,8 @@ class Mpls(Entity):
 
                         """
 
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
 
                         def __init__(self):
                             super(Mpls.SignalingProtocols.RsvpTe.Global.State.Counters, self).__init__()
@@ -3877,8 +4095,7 @@ class Mpls(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('path_timeouts', YLeaf(YType.uint64, 'path-timeouts')),
                                 ('reservation_timeouts', YLeaf(YType.uint64, 'reservation-timeouts')),
@@ -3943,8 +4160,8 @@ class Mpls(Entity):
 
                 """
 
-                _prefix = 'mpls'
-                _revision = '2015-11-05'
+                _prefix = 'oc-mpls'
+                _revision = '2017-03-22'
 
                 def __init__(self):
                     super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes, self).__init__()
@@ -3954,8 +4171,7 @@ class Mpls(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface", ("interface", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface))])
+                    self._child_classes = OrderedDict([("interface", ("interface", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface))])
                     self._leafs = OrderedDict()
 
                     self.interface = YList(self)
@@ -3970,12 +4186,12 @@ class Mpls(Entity):
                     """
                     list of per\-interface RSVP configurations
                     
-                    .. attribute:: interface_name  (key)
+                    .. attribute:: interface_id  (key)
                     
-                    	references a configured IP interface
+                    	reference to the interface\-id data
                     	**type**\: str
                     
-                    	**refers to**\:  :py:class:`interface_name <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config>`
+                    	**refers to**\:  :py:class:`interface_id <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config>`
                     
                     .. attribute:: config
                     
@@ -3986,6 +4202,16 @@ class Mpls(Entity):
                     
                     	Per\-interface RSVP protocol and state information
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State>`
+                    
+                    .. attribute:: interface_ref
+                    
+                    	Reference to an interface or subinterface
+                    	**type**\:  :py:class:`InterfaceRef <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef>`
+                    
+                    .. attribute:: bandwidth_reservations
+                    
+                    	Enclosing container for bandwidth reservation
+                    	**type**\:  :py:class:`BandwidthReservations <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations>`
                     
                     .. attribute:: hellos
                     
@@ -4011,8 +4237,8 @@ class Mpls(Entity):
 
                     """
 
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
 
                     def __init__(self):
                         super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface, self).__init__()
@@ -4021,67 +4247,66 @@ class Mpls(Entity):
                         self.yang_parent_name = "interface-attributes"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State)), ("hellos", ("hellos", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos)), ("authentication", ("authentication", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication)), ("subscription", ("subscription", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription)), ("protection", ("protection", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection))])
-                        self._child_list_classes = OrderedDict([])
+                        self.ylist_key_names = ['interface_id']
+                        self._child_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State)), ("interface-ref", ("interface_ref", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef)), ("bandwidth-reservations", ("bandwidth_reservations", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations)), ("hellos", ("hellos", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos)), ("authentication", ("authentication", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication)), ("subscription", ("subscription", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription)), ("protection", ("protection", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface_id', YLeaf(YType.str, 'interface-id')),
                         ])
-                        self.interface_name = None
+                        self.interface_id = None
 
                         self.config = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config()
                         self.config.parent = self
                         self._children_name_map["config"] = "config"
-                        self._children_yang_names.add("config")
 
                         self.state = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
-                        self._children_yang_names.add("state")
+
+                        self.interface_ref = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef()
+                        self.interface_ref.parent = self
+                        self._children_name_map["interface_ref"] = "interface-ref"
+
+                        self.bandwidth_reservations = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations()
+                        self.bandwidth_reservations.parent = self
+                        self._children_name_map["bandwidth_reservations"] = "bandwidth-reservations"
 
                         self.hellos = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos()
                         self.hellos.parent = self
                         self._children_name_map["hellos"] = "hellos"
-                        self._children_yang_names.add("hellos")
 
                         self.authentication = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication()
                         self.authentication.parent = self
                         self._children_name_map["authentication"] = "authentication"
-                        self._children_yang_names.add("authentication")
 
                         self.subscription = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription()
                         self.subscription.parent = self
                         self._children_name_map["subscription"] = "subscription"
-                        self._children_yang_names.add("subscription")
 
                         self.protection = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection()
                         self.protection.parent = self
                         self._children_name_map["protection"] = "protection"
-                        self._children_yang_names.add("protection")
-                        self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                        self._segment_path = lambda: "interface" + "[interface-id='" + str(self.interface_id) + "']"
                         self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/interface-attributes/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface, ['interface_name'], name, value)
+                        self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface, ['interface_id'], name, value)
 
 
                     class Config(Entity):
                         """
                         Configuration of per\-interface RSVP parameters
                         
-                        .. attribute:: interface_name
+                        .. attribute:: interface_id
                         
-                        	Name of configured IP interface
+                        	Identifier for the interface
                         	**type**\: str
-                        
-                        	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                         
                         
 
                         """
 
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
 
                         def __init__(self):
                             super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config, self).__init__()
@@ -4091,40 +4316,25 @@ class Mpls(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('interface_id', YLeaf(YType.str, 'interface-id')),
                             ])
-                            self.interface_name = None
+                            self.interface_id = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config, ['interface_name'], name, value)
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config, ['interface_id'], name, value)
 
 
                     class State(Entity):
                         """
                         Per\-interface RSVP protocol and state information
                         
-                        .. attribute:: bandwidth
+                        .. attribute:: interface_id
                         
-                        	Available and reserved bandwidth by priority on the interface
-                        	**type**\: list of  		 :py:class:`Bandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Bandwidth>`
-                        
-                        .. attribute:: highwater_mark
-                        
-                        	Maximum bandwidth ever reserved
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: active_reservation_count
-                        
-                        	Number of active RSVP reservations
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
+                        	Identifier for the interface
+                        	**type**\: str
                         
                         .. attribute:: counters
                         
@@ -4135,8 +4345,8 @@ class Mpls(Entity):
 
                         """
 
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
 
                         def __init__(self):
                             super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State, self).__init__()
@@ -4146,82 +4356,19 @@ class Mpls(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("counters", ("counters", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters))])
-                            self._child_list_classes = OrderedDict([("bandwidth", ("bandwidth", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Bandwidth))])
+                            self._child_classes = OrderedDict([("counters", ("counters", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters))])
                             self._leafs = OrderedDict([
-                                ('highwater_mark', YLeaf(YType.uint64, 'highwater-mark')),
-                                ('active_reservation_count', YLeaf(YType.uint64, 'active-reservation-count')),
+                                ('interface_id', YLeaf(YType.str, 'interface-id')),
                             ])
-                            self.highwater_mark = None
-                            self.active_reservation_count = None
+                            self.interface_id = None
 
                             self.counters = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters()
                             self.counters.parent = self
                             self._children_name_map["counters"] = "counters"
-                            self._children_yang_names.add("counters")
-
-                            self.bandwidth = YList(self)
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State, ['highwater_mark', 'active_reservation_count'], name, value)
-
-
-                        class Bandwidth(Entity):
-                            """
-                            Available and reserved bandwidth by priority on
-                            the interface.
-                            
-                            .. attribute:: priority  (key)
-                            
-                            	RSVP priority level for LSPs traversing the interface
-                            	**type**\: int
-                            
-                            	**range:** 0..7
-                            
-                            .. attribute:: available_bandwidth
-                            
-                            	Bandwidth currently available
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: reserved_bandwidth
-                            
-                            	Bandwidth currently reserved
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            
-
-                            """
-
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
-
-                            def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Bandwidth, self).__init__()
-
-                                self.yang_name = "bandwidth"
-                                self.yang_parent_name = "state"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = ['priority']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('priority', YLeaf(YType.uint8, 'priority')),
-                                    ('available_bandwidth', YLeaf(YType.uint64, 'available-bandwidth')),
-                                    ('reserved_bandwidth', YLeaf(YType.uint64, 'reserved-bandwidth')),
-                                ])
-                                self.priority = None
-                                self.available_bandwidth = None
-                                self.reserved_bandwidth = None
-                                self._segment_path = lambda: "bandwidth" + "[priority='" + str(self.priority) + "']"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Bandwidth, ['priority', 'available_bandwidth', 'reserved_bandwidth'], name, value)
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State, ['interface_id'], name, value)
 
 
                         class Counters(Entity):
@@ -4358,8 +4505,8 @@ class Mpls(Entity):
 
                             """
 
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
 
                             def __init__(self):
                                 super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters, self).__init__()
@@ -4369,8 +4516,7 @@ class Mpls(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('in_path_messages', YLeaf(YType.uint64, 'in-path-messages')),
                                     ('in_path_error_messages', YLeaf(YType.uint64, 'in-path-error-messages')),
@@ -4415,6 +4561,331 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters, ['in_path_messages', 'in_path_error_messages', 'in_path_tear_messages', 'in_reservation_messages', 'in_reservation_error_messages', 'in_reservation_tear_messages', 'in_hello_messages', 'in_srefresh_messages', 'in_ack_messages', 'out_path_messages', 'out_path_error_messages', 'out_path_tear_messages', 'out_reservation_messages', 'out_reservation_error_messages', 'out_reservation_tear_messages', 'out_hello_messages', 'out_srefresh_messages', 'out_ack_messages'], name, value)
 
 
+                    class InterfaceRef(Entity):
+                        """
+                        Reference to an interface or subinterface
+                        
+                        .. attribute:: config
+                        
+                        	Configured reference to interface / subinterface
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.Config>`
+                        
+                        .. attribute:: state
+                        
+                        	Operational state for interface\-ref
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.State>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
+
+                        def __init__(self):
+                            super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef, self).__init__()
+
+                            self.yang_name = "interface-ref"
+                            self.yang_parent_name = "interface"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.State))])
+                            self._leafs = OrderedDict()
+
+                            self.config = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.Config()
+                            self.config.parent = self
+                            self._children_name_map["config"] = "config"
+
+                            self.state = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.State()
+                            self.state.parent = self
+                            self._children_name_map["state"] = "state"
+                            self._segment_path = lambda: "interface-ref"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef, [], name, value)
+
+
+                        class Config(Entity):
+                            """
+                            Configured reference to interface / subinterface
+                            
+                            .. attribute:: interface
+                            
+                            	Reference to a base interface.  If a reference to a subinterface is required, this leaf must be specified to indicate the base interface
+                            	**type**\: str
+                            
+                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                            
+                            .. attribute:: subinterface
+                            
+                            	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
+
+                            def __init__(self):
+                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.Config, self).__init__()
+
+                                self.yang_name = "config"
+                                self.yang_parent_name = "interface-ref"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interface', YLeaf(YType.str, 'interface')),
+                                    ('subinterface', YLeaf(YType.str, 'subinterface')),
+                                ])
+                                self.interface = None
+                                self.subinterface = None
+                                self._segment_path = lambda: "config"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
+
+
+                        class State(Entity):
+                            """
+                            Operational state for interface\-ref
+                            
+                            .. attribute:: interface
+                            
+                            	Reference to a base interface.  If a reference to a subinterface is required, this leaf must be specified to indicate the base interface
+                            	**type**\: str
+                            
+                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                            
+                            .. attribute:: subinterface
+                            
+                            	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
+
+                            def __init__(self):
+                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.State, self).__init__()
+
+                                self.yang_name = "state"
+                                self.yang_parent_name = "interface-ref"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interface', YLeaf(YType.str, 'interface')),
+                                    ('subinterface', YLeaf(YType.str, 'subinterface')),
+                                ])
+                                self.interface = None
+                                self.subinterface = None
+                                self._segment_path = lambda: "state"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+
+
+                    class BandwidthReservations(Entity):
+                        """
+                        Enclosing container for bandwidth reservation
+                        
+                        .. attribute:: bandwidth_reservation
+                        
+                        	Available and reserved bandwidth by priority on the interface
+                        	**type**\: list of  		 :py:class:`BandwidthReservation <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
+
+                        def __init__(self):
+                            super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations, self).__init__()
+
+                            self.yang_name = "bandwidth-reservations"
+                            self.yang_parent_name = "interface"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("bandwidth-reservation", ("bandwidth_reservation", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation))])
+                            self._leafs = OrderedDict()
+
+                            self.bandwidth_reservation = YList(self)
+                            self._segment_path = lambda: "bandwidth-reservations"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations, [], name, value)
+
+
+                        class BandwidthReservation(Entity):
+                            """
+                            Available and reserved bandwidth by priority on
+                            the interface.
+                            
+                            .. attribute:: priority  (key)
+                            
+                            	Reference to the RSVP priority level
+                            	**type**\: union of the below types:
+                            
+                            		**type**\: int
+                            
+                            			**range:** 0..7
+                            
+                            		**type**\:  :py:class:`Priority <ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State.Priority>`
+                            
+                            	**refers to**\:  :py:class:`priority <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State>`
+                            
+                            .. attribute:: state
+                            
+                            	Operational state parameters relating to a bandwidth reservation at a certain priority
+                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
+
+                            def __init__(self):
+                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation, self).__init__()
+
+                                self.yang_name = "bandwidth-reservation"
+                                self.yang_parent_name = "bandwidth-reservations"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['priority']
+                                self._child_classes = OrderedDict([("state", ("state", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State))])
+                                self._leafs = OrderedDict([
+                                    ('priority', YLeaf(YType.str, 'priority')),
+                                ])
+                                self.priority = None
+
+                                self.state = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State()
+                                self.state.parent = self
+                                self._children_name_map["state"] = "state"
+                                self._segment_path = lambda: "bandwidth-reservation" + "[priority='" + str(self.priority) + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation, ['priority'], name, value)
+
+
+                            class State(Entity):
+                                """
+                                Operational state parameters relating to a
+                                bandwidth reservation at a certain priority
+                                
+                                .. attribute:: priority
+                                
+                                	RSVP priority level for LSPs traversing the interface
+                                	**type**\: union of the below types:
+                                
+                                		**type**\: int
+                                
+                                			**range:** 0..7
+                                
+                                		**type**\:  :py:class:`Priority <ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State.Priority>`
+                                
+                                .. attribute:: available_bandwidth
+                                
+                                	Bandwidth currently available with the priority level, or for the entire interface when the priority is set to ALL
+                                	**type**\: int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: reserved_bandwidth
+                                
+                                	Bandwidth currently reserved within the priority level, or the sum of all priority levels when the keyword is set to ALL
+                                	**type**\: int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: active_reservations_count
+                                
+                                	Number of active RSVP reservations in the associated priority, or the sum of all reservations when the priority level is set to ALL
+                                	**type**\: int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: highwater_mark
+                                
+                                	Maximum bandwidth reserved on the interface within the priority, or across all priorities in the case that the priority level is set to ALL
+                                	**type**\: int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-mpls'
+                                _revision = '2017-03-22'
+
+                                def __init__(self):
+                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State, self).__init__()
+
+                                    self.yang_name = "state"
+                                    self.yang_parent_name = "bandwidth-reservation"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('priority', YLeaf(YType.str, 'priority')),
+                                        ('available_bandwidth', YLeaf(YType.uint64, 'available-bandwidth')),
+                                        ('reserved_bandwidth', YLeaf(YType.uint64, 'reserved-bandwidth')),
+                                        ('active_reservations_count', YLeaf(YType.uint64, 'active-reservations-count')),
+                                        ('highwater_mark', YLeaf(YType.uint64, 'highwater-mark')),
+                                    ])
+                                    self.priority = None
+                                    self.available_bandwidth = None
+                                    self.reserved_bandwidth = None
+                                    self.active_reservations_count = None
+                                    self.highwater_mark = None
+                                    self._segment_path = lambda: "state"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State, ['priority', 'available_bandwidth', 'reserved_bandwidth', 'active_reservations_count', 'highwater_mark'], name, value)
+
+                                class Priority(Enum):
+                                    """
+                                    Priority (Enum Class)
+
+                                    RSVP priority level for LSPs traversing the interface
+
+                                    .. data:: ALL = 0
+
+                                    	The ALL keyword represents the overall
+
+                                    	state of the interface - i.e., the union
+
+                                    	of all of the priority levels
+
+                                    """
+
+                                    ALL = Enum.YLeaf(0, "ALL")
+
+
+
                     class Hellos(Entity):
                         """
                         Top level container for RSVP hello parameters
@@ -4433,8 +4904,8 @@ class Mpls(Entity):
 
                         """
 
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
 
                         def __init__(self):
                             super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos, self).__init__()
@@ -4444,20 +4915,20 @@ class Mpls(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.State))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.State))])
                             self._leafs = OrderedDict()
 
                             self.config = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
-                            self._children_yang_names.add("config")
 
                             self.state = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
-                            self._children_yang_names.add("state")
                             self._segment_path = lambda: "hellos"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos, [], name, value)
 
 
                         class Config(Entity):
@@ -4487,8 +4958,8 @@ class Mpls(Entity):
 
                             """
 
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
 
                             def __init__(self):
                                 super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.Config, self).__init__()
@@ -4498,8 +4969,7 @@ class Mpls(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('hello_interval', YLeaf(YType.uint16, 'hello-interval')),
                                     ('refresh_reduction', YLeaf(YType.boolean, 'refresh-reduction')),
@@ -4538,8 +5008,8 @@ class Mpls(Entity):
 
                             """
 
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
 
                             def __init__(self):
                                 super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.State, self).__init__()
@@ -4549,8 +5019,7 @@ class Mpls(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('hello_interval', YLeaf(YType.uint16, 'hello-interval')),
                                     ('refresh_reduction', YLeaf(YType.boolean, 'refresh-reduction')),
@@ -4582,8 +5051,8 @@ class Mpls(Entity):
 
                         """
 
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
 
                         def __init__(self):
                             super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication, self).__init__()
@@ -4593,20 +5062,20 @@ class Mpls(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.State))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.State))])
                             self._leafs = OrderedDict()
 
                             self.config = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
-                            self._children_yang_names.add("config")
 
                             self.state = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
-                            self._children_yang_names.add("state")
                             self._segment_path = lambda: "authentication"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication, [], name, value)
 
 
                         class Config(Entity):
@@ -4632,8 +5101,8 @@ class Mpls(Entity):
 
                             """
 
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
 
                             def __init__(self):
                                 super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.Config, self).__init__()
@@ -4643,8 +5112,7 @@ class Mpls(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('enable', YLeaf(YType.boolean, 'enable')),
                                     ('authentication_key', YLeaf(YType.str, 'authentication-key')),
@@ -4680,8 +5148,8 @@ class Mpls(Entity):
 
                             """
 
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
 
                             def __init__(self):
                                 super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.State, self).__init__()
@@ -4691,8 +5159,7 @@ class Mpls(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('enable', YLeaf(YType.boolean, 'enable')),
                                     ('authentication_key', YLeaf(YType.str, 'authentication-key')),
@@ -4724,8 +5191,8 @@ class Mpls(Entity):
 
                         """
 
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
 
                         def __init__(self):
                             super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription, self).__init__()
@@ -4735,20 +5202,20 @@ class Mpls(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.State))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.State))])
                             self._leafs = OrderedDict()
 
                             self.config = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
-                            self._children_yang_names.add("config")
 
                             self.state = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
-                            self._children_yang_names.add("state")
                             self._segment_path = lambda: "subscription"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription, [], name, value)
 
 
                         class Config(Entity):
@@ -4767,8 +5234,8 @@ class Mpls(Entity):
 
                             """
 
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
 
                             def __init__(self):
                                 super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.Config, self).__init__()
@@ -4778,8 +5245,7 @@ class Mpls(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('subscription', YLeaf(YType.uint8, 'subscription')),
                                 ])
@@ -4802,12 +5268,21 @@ class Mpls(Entity):
                             
                             	**range:** 0..100
                             
+                            .. attribute:: calculated_absolute_subscription_bw
+                            
+                            	The calculated absolute value of the bandwidth which is reservable to RSVP\-TE on the interface prior to any adjustments that may be made from external sources
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**units**\: kbps
+                            
                             
 
                             """
 
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
 
                             def __init__(self):
                                 super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.State, self).__init__()
@@ -4817,16 +5292,17 @@ class Mpls(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('subscription', YLeaf(YType.uint8, 'subscription')),
+                                    ('calculated_absolute_subscription_bw', YLeaf(YType.uint64, 'calculated-absolute-subscription-bw')),
                                 ])
                                 self.subscription = None
+                                self.calculated_absolute_subscription_bw = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.State, ['subscription'], name, value)
+                                self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.State, ['subscription', 'calculated_absolute_subscription_bw'], name, value)
 
 
                     class Protection(Entity):
@@ -4847,8 +5323,8 @@ class Mpls(Entity):
 
                         """
 
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
 
                         def __init__(self):
                             super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection, self).__init__()
@@ -4858,20 +5334,20 @@ class Mpls(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.State))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.State))])
                             self._leafs = OrderedDict()
 
                             self.config = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
-                            self._children_yang_names.add("config")
 
                             self.state = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
-                            self._children_yang_names.add("state")
                             self._segment_path = lambda: "protection"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection, [], name, value)
 
 
                         class Config(Entity):
@@ -4881,9 +5357,9 @@ class Mpls(Entity):
                             .. attribute:: link_protection_style_requested
                             
                             	Style of mpls frr protection desired\: link, link\-node, or unprotected
-                            	**type**\:  :py:class:`ProtectionType <ydk.models.openconfig.openconfig_mpls_types.ProtectionType>`
+                            	**type**\:  :py:class:`PROTECTIONTYPE <ydk.models.openconfig.openconfig_mpls_types.PROTECTIONTYPE>`
                             
-                            	**default value**\: mplst:link-node-protection-requested
+                            	**default value**\: oc-mplst:LINK_NODE_PROTECTION_REQUESTED
                             
                             .. attribute:: bypass_optimize_interval
                             
@@ -4898,8 +5374,8 @@ class Mpls(Entity):
 
                             """
 
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
 
                             def __init__(self):
                                 super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.Config, self).__init__()
@@ -4909,8 +5385,7 @@ class Mpls(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('link_protection_style_requested', YLeaf(YType.identityref, 'link-protection-style-requested')),
                                     ('bypass_optimize_interval', YLeaf(YType.uint16, 'bypass-optimize-interval')),
@@ -4930,9 +5405,9 @@ class Mpls(Entity):
                             .. attribute:: link_protection_style_requested
                             
                             	Style of mpls frr protection desired\: link, link\-node, or unprotected
-                            	**type**\:  :py:class:`ProtectionType <ydk.models.openconfig.openconfig_mpls_types.ProtectionType>`
+                            	**type**\:  :py:class:`PROTECTIONTYPE <ydk.models.openconfig.openconfig_mpls_types.PROTECTIONTYPE>`
                             
-                            	**default value**\: mplst:link-node-protection-requested
+                            	**default value**\: oc-mplst:LINK_NODE_PROTECTION_REQUESTED
                             
                             .. attribute:: bypass_optimize_interval
                             
@@ -4947,8 +5422,8 @@ class Mpls(Entity):
 
                             """
 
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
 
                             def __init__(self):
                                 super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.State, self).__init__()
@@ -4958,8 +5433,7 @@ class Mpls(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('link_protection_style_requested', YLeaf(YType.identityref, 'link-protection-style-requested')),
                                     ('bypass_optimize_interval', YLeaf(YType.uint16, 'bypass-optimize-interval')),
@@ -4972,612 +5446,16 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.State, ['link_protection_style_requested', 'bypass_optimize_interval'], name, value)
 
 
-        class SegmentRouting(Entity):
-            """
-            SR global signaling config
-            
-            .. attribute:: srgb
-            
-            	List of Segment Routing Global Block (SRGB) entries. These label blocks are reserved to be allocated as domain\-wide entries
-            	**type**\: list of  		 :py:class:`Srgb <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Srgb>`
-            
-            .. attribute:: interfaces
-            
-            	List of interfaces with associated segment routing configuration
-            	**type**\: list of  		 :py:class:`Interfaces <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces>`
-            
-            
-
-            """
-
-            _prefix = 'mpls'
-            _revision = '2015-11-05'
-
-            def __init__(self):
-                super(Mpls.SignalingProtocols.SegmentRouting, self).__init__()
-
-                self.yang_name = "segment-routing"
-                self.yang_parent_name = "signaling-protocols"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("srgb", ("srgb", Mpls.SignalingProtocols.SegmentRouting.Srgb)), ("interfaces", ("interfaces", Mpls.SignalingProtocols.SegmentRouting.Interfaces))])
-                self._leafs = OrderedDict()
-
-                self.srgb = YList(self)
-                self.interfaces = YList(self)
-                self._segment_path = lambda: "segment-routing"
-                self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting, [], name, value)
-
-
-            class Srgb(Entity):
-                """
-                List of Segment Routing Global Block (SRGB) entries. These
-                label blocks are reserved to be allocated as domain\-wide
-                entries.
-                
-                .. attribute:: lower_bound  (key)
-                
-                	Lower value in the block
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: upper_bound  (key)
-                
-                	Upper value in the block
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: config
-                
-                	Configuration parameters relating to the Segment Routing Global Block (SRGB)
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Srgb.Config>`
-                
-                .. attribute:: state
-                
-                	State parameters relating to the Segment Routing Global Block (SRGB)
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Srgb.State>`
-                
-                
-
-                """
-
-                _prefix = 'mpls'
-                _revision = '2015-11-05'
-
-                def __init__(self):
-                    super(Mpls.SignalingProtocols.SegmentRouting.Srgb, self).__init__()
-
-                    self.yang_name = "srgb"
-                    self.yang_parent_name = "segment-routing"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = ['lower_bound','upper_bound']
-                    self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.SegmentRouting.Srgb.Config)), ("state", ("state", Mpls.SignalingProtocols.SegmentRouting.Srgb.State))])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('lower_bound', YLeaf(YType.uint32, 'lower-bound')),
-                        ('upper_bound', YLeaf(YType.uint32, 'upper-bound')),
-                    ])
-                    self.lower_bound = None
-                    self.upper_bound = None
-
-                    self.config = Mpls.SignalingProtocols.SegmentRouting.Srgb.Config()
-                    self.config.parent = self
-                    self._children_name_map["config"] = "config"
-                    self._children_yang_names.add("config")
-
-                    self.state = Mpls.SignalingProtocols.SegmentRouting.Srgb.State()
-                    self.state.parent = self
-                    self._children_name_map["state"] = "state"
-                    self._children_yang_names.add("state")
-                    self._segment_path = lambda: "srgb" + "[lower-bound='" + str(self.lower_bound) + "']" + "[upper-bound='" + str(self.upper_bound) + "']"
-                    self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/segment-routing/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Srgb, ['lower_bound', 'upper_bound'], name, value)
-
-
-                class Config(Entity):
-                    """
-                    Configuration parameters relating to the Segment Routing
-                    Global Block (SRGB)
-                    
-                    .. attribute:: lower_bound
-                    
-                    	Lower value in the block
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: upper_bound
-                    
-                    	Upper value in the block
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
-
-                    def __init__(self):
-                        super(Mpls.SignalingProtocols.SegmentRouting.Srgb.Config, self).__init__()
-
-                        self.yang_name = "config"
-                        self.yang_parent_name = "srgb"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('lower_bound', YLeaf(YType.uint32, 'lower-bound')),
-                            ('upper_bound', YLeaf(YType.uint32, 'upper-bound')),
-                        ])
-                        self.lower_bound = None
-                        self.upper_bound = None
-                        self._segment_path = lambda: "config"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Srgb.Config, ['lower_bound', 'upper_bound'], name, value)
-
-
-                class State(Entity):
-                    """
-                    State parameters relating to the Segment Routing Global
-                    Block (SRGB)
-                    
-                    .. attribute:: lower_bound
-                    
-                    	Lower value in the block
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: upper_bound
-                    
-                    	Upper value in the block
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: size
-                    
-                    	Number of indexes in the SRGB block
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: free
-                    
-                    	Number of SRGB indexes that have not yet been allocated
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: used
-                    
-                    	Number of SRGB indexes that are currently allocated
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
-
-                    def __init__(self):
-                        super(Mpls.SignalingProtocols.SegmentRouting.Srgb.State, self).__init__()
-
-                        self.yang_name = "state"
-                        self.yang_parent_name = "srgb"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('lower_bound', YLeaf(YType.uint32, 'lower-bound')),
-                            ('upper_bound', YLeaf(YType.uint32, 'upper-bound')),
-                            ('size', YLeaf(YType.uint32, 'size')),
-                            ('free', YLeaf(YType.uint32, 'free')),
-                            ('used', YLeaf(YType.uint32, 'used')),
-                        ])
-                        self.lower_bound = None
-                        self.upper_bound = None
-                        self.size = None
-                        self.free = None
-                        self.used = None
-                        self._segment_path = lambda: "state"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Srgb.State, ['lower_bound', 'upper_bound', 'size', 'free', 'used'], name, value)
-
-
-            class Interfaces(Entity):
-                """
-                List of interfaces with associated segment routing
-                configuration
-                
-                .. attribute:: interface  (key)
-                
-                	Reference to the interface for which segment routing configuration is to be applied
-                	**type**\: str
-                
-                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
-                
-                .. attribute:: config
-                
-                	Interface configuration parameters for Segment Routing relating to the specified interface
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Config>`
-                
-                .. attribute:: state
-                
-                	State parameters for Segment Routing features relating to the specified interface
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.State>`
-                
-                .. attribute:: adjacency_sid
-                
-                	Configuration for Adjacency SIDs that are related to the specified interface
-                	**type**\:  :py:class:`AdjacencySid <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid>`
-                
-                
-
-                """
-
-                _prefix = 'mpls'
-                _revision = '2015-11-05'
-
-                def __init__(self):
-                    super(Mpls.SignalingProtocols.SegmentRouting.Interfaces, self).__init__()
-
-                    self.yang_name = "interfaces"
-                    self.yang_parent_name = "segment-routing"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = ['interface']
-                    self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.SegmentRouting.Interfaces.Config)), ("state", ("state", Mpls.SignalingProtocols.SegmentRouting.Interfaces.State)), ("adjacency-sid", ("adjacency_sid", Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid))])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('interface', YLeaf(YType.str, 'interface')),
-                    ])
-                    self.interface = None
-
-                    self.config = Mpls.SignalingProtocols.SegmentRouting.Interfaces.Config()
-                    self.config.parent = self
-                    self._children_name_map["config"] = "config"
-                    self._children_yang_names.add("config")
-
-                    self.state = Mpls.SignalingProtocols.SegmentRouting.Interfaces.State()
-                    self.state.parent = self
-                    self._children_name_map["state"] = "state"
-                    self._children_yang_names.add("state")
-
-                    self.adjacency_sid = Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid()
-                    self.adjacency_sid.parent = self
-                    self._children_name_map["adjacency_sid"] = "adjacency-sid"
-                    self._children_yang_names.add("adjacency-sid")
-                    self._segment_path = lambda: "interfaces" + "[interface='" + str(self.interface) + "']"
-                    self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/segment-routing/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces, ['interface'], name, value)
-
-
-                class Config(Entity):
-                    """
-                    Interface configuration parameters for Segment Routing
-                    relating to the specified interface
-                    
-                    .. attribute:: interface
-                    
-                    	Reference to the interface for which segment routing configuration is to be applied
-                    	**type**\: str
-                    
-                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
-
-                    def __init__(self):
-                        super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Config, self).__init__()
-
-                        self.yang_name = "config"
-                        self.yang_parent_name = "interfaces"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('interface', YLeaf(YType.str, 'interface')),
-                        ])
-                        self.interface = None
-                        self._segment_path = lambda: "config"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Config, ['interface'], name, value)
-
-
-                class State(Entity):
-                    """
-                    State parameters for Segment Routing features relating
-                    to the specified interface
-                    
-                    .. attribute:: interface
-                    
-                    	Reference to the interface for which segment routing configuration is to be applied
-                    	**type**\: str
-                    
-                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
-
-                    def __init__(self):
-                        super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.State, self).__init__()
-
-                        self.yang_name = "state"
-                        self.yang_parent_name = "interfaces"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('interface', YLeaf(YType.str, 'interface')),
-                        ])
-                        self.interface = None
-                        self._segment_path = lambda: "state"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.State, ['interface'], name, value)
-
-
-                class AdjacencySid(Entity):
-                    """
-                    Configuration for Adjacency SIDs that are related to
-                    the specified interface
-                    
-                    .. attribute:: config
-                    
-                    	Configuration parameters for the Adjacency\-SIDs that are related to this interface
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config>`
-                    
-                    .. attribute:: state
-                    
-                    	State parameters for the Adjacency\-SIDs that are related to this interface
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.State>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
-
-                    def __init__(self):
-                        super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid, self).__init__()
-
-                        self.yang_name = "adjacency-sid"
-                        self.yang_parent_name = "interfaces"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config)), ("state", ("state", Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.State))])
-                        self._child_list_classes = OrderedDict([])
-                        self._leafs = OrderedDict()
-
-                        self.config = Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config()
-                        self.config.parent = self
-                        self._children_name_map["config"] = "config"
-                        self._children_yang_names.add("config")
-
-                        self.state = Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.State()
-                        self.state.parent = self
-                        self._children_name_map["state"] = "state"
-                        self._children_yang_names.add("state")
-                        self._segment_path = lambda: "adjacency-sid"
-
-
-                    class Config(Entity):
-                        """
-                        Configuration parameters for the Adjacency\-SIDs
-                        that are related to this interface
-                        
-                        .. attribute:: advertise
-                        
-                        	Specifies the type of adjacency SID which should be advertised for the specified entity
-                        	**type**\: list of   :py:class:`Advertise <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config.Advertise>`
-                        
-                        .. attribute:: groups
-                        
-                        	Specifies the groups to which this interface belongs. Setting a value in this list results in an additional AdjSID being advertised, with the S\-bit set to 1. The AdjSID is assumed to be protected
-                        	**type**\: list of int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
-
-                        def __init__(self):
-                            super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config, self).__init__()
-
-                            self.yang_name = "config"
-                            self.yang_parent_name = "adjacency-sid"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('advertise', YLeafList(YType.enumeration, 'advertise')),
-                                ('groups', YLeafList(YType.uint32, 'groups')),
-                            ])
-                            self.advertise = []
-                            self.groups = []
-                            self._segment_path = lambda: "config"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config, ['advertise', 'groups'], name, value)
-
-                        class Advertise(Enum):
-                            """
-                            Advertise (Enum Class)
-
-                            Specifies the type of adjacency SID which should be
-
-                            advertised for the specified entity.
-
-                            .. data:: PROTECTED = 0
-
-                            	Advertise an Adjacency-SID for this interface, which is
-
-                            	eligible to be protected using a local protection
-
-                            	mechanism on the local LSR. The local protection
-
-                            	mechanism selected is dependent upon the configuration
-
-                            	of RSVP-TE FRR or LFA elsewhere on the system
-
-                            .. data:: UNPROTECTED = 1
-
-                            	Advertise an Adajcency-SID for this interface, which is
-
-                            	explicitly excluded from being protected by any local
-
-                            	protection mechanism
-
-                            """
-
-                            PROTECTED = Enum.YLeaf(0, "PROTECTED")
-
-                            UNPROTECTED = Enum.YLeaf(1, "UNPROTECTED")
-
-
-
-                    class State(Entity):
-                        """
-                        State parameters for the Adjacency\-SIDs that are
-                        related to this interface
-                        
-                        .. attribute:: advertise
-                        
-                        	Specifies the type of adjacency SID which should be advertised for the specified entity
-                        	**type**\: list of   :py:class:`Advertise <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.State.Advertise>`
-                        
-                        .. attribute:: groups
-                        
-                        	Specifies the groups to which this interface belongs. Setting a value in this list results in an additional AdjSID being advertised, with the S\-bit set to 1. The AdjSID is assumed to be protected
-                        	**type**\: list of int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
-
-                        def __init__(self):
-                            super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.State, self).__init__()
-
-                            self.yang_name = "state"
-                            self.yang_parent_name = "adjacency-sid"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('advertise', YLeafList(YType.enumeration, 'advertise')),
-                                ('groups', YLeafList(YType.uint32, 'groups')),
-                            ])
-                            self.advertise = []
-                            self.groups = []
-                            self._segment_path = lambda: "state"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.State, ['advertise', 'groups'], name, value)
-
-                        class Advertise(Enum):
-                            """
-                            Advertise (Enum Class)
-
-                            Specifies the type of adjacency SID which should be
-
-                            advertised for the specified entity.
-
-                            .. data:: PROTECTED = 0
-
-                            	Advertise an Adjacency-SID for this interface, which is
-
-                            	eligible to be protected using a local protection
-
-                            	mechanism on the local LSR. The local protection
-
-                            	mechanism selected is dependent upon the configuration
-
-                            	of RSVP-TE FRR or LFA elsewhere on the system
-
-                            .. data:: UNPROTECTED = 1
-
-                            	Advertise an Adajcency-SID for this interface, which is
-
-                            	explicitly excluded from being protected by any local
-
-                            	protection mechanism
-
-                            """
-
-                            PROTECTED = Enum.YLeaf(0, "PROTECTED")
-
-                            UNPROTECTED = Enum.YLeaf(1, "UNPROTECTED")
-
-
-
         class Ldp(Entity):
             """
             LDP global signaling configuration
             
-            .. attribute:: timers
-            
-            	LDP timers
-            	**type**\:  :py:class:`Timers <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.Ldp.Timers>`
-            
             
 
             """
 
-            _prefix = 'mpls'
-            _revision = '2015-11-05'
+            _prefix = 'oc-mpls'
+            _revision = '2017-03-22'
 
             def __init__(self):
                 super(Mpls.SignalingProtocols.Ldp, self).__init__()
@@ -5587,42 +5465,912 @@ class Mpls(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("timers", ("timers", Mpls.SignalingProtocols.Ldp.Timers))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict()
-
-                self.timers = Mpls.SignalingProtocols.Ldp.Timers()
-                self.timers.parent = self
-                self._children_name_map["timers"] = "timers"
-                self._children_yang_names.add("timers")
                 self._segment_path = lambda: "ldp"
                 self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/%s" % self._segment_path()
 
 
-            class Timers(Entity):
+        class SegmentRouting(Entity):
+            """
+            MPLS\-specific Segment Routing configuration and operational state
+            parameters
+            
+            .. attribute:: aggregate_sid_counters
+            
+            	Per\-SID counters aggregated across all interfaces on the local system
+            	**type**\:  :py:class:`AggregateSidCounters <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters>`
+            
+            .. attribute:: interfaces
+            
+            	Interface related Segment Routing parameters
+            	**type**\:  :py:class:`Interfaces <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces>`
+            
+            
+
+            """
+
+            _prefix = 'oc-mpls'
+            _revision = '2017-03-22'
+
+            def __init__(self):
+                super(Mpls.SignalingProtocols.SegmentRouting, self).__init__()
+
+                self.yang_name = "segment-routing"
+                self.yang_parent_name = "signaling-protocols"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("aggregate-sid-counters", ("aggregate_sid_counters", Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters)), ("interfaces", ("interfaces", Mpls.SignalingProtocols.SegmentRouting.Interfaces))])
+                self._leafs = OrderedDict()
+
+                self.aggregate_sid_counters = Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters()
+                self.aggregate_sid_counters.parent = self
+                self._children_name_map["aggregate_sid_counters"] = "aggregate-sid-counters"
+
+                self.interfaces = Mpls.SignalingProtocols.SegmentRouting.Interfaces()
+                self.interfaces.parent = self
+                self._children_name_map["interfaces"] = "interfaces"
+                self._segment_path = lambda: "segment-routing"
+                self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting, [], name, value)
+
+
+            class AggregateSidCounters(Entity):
                 """
-                LDP timers
+                Per\-SID counters aggregated across all interfaces on the local system
+                
+                .. attribute:: aggregate_sid_counter
+                
+                	Counters aggregated across all of the interfaces of the local system corresponding to traffic received or forwarded with a particular SID
+                	**type**\: list of  		 :py:class:`AggregateSidCounter <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter>`
                 
                 
 
                 """
 
-                _prefix = 'mpls'
-                _revision = '2015-11-05'
+                _prefix = 'oc-mpls'
+                _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.SignalingProtocols.Ldp.Timers, self).__init__()
+                    super(Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters, self).__init__()
 
-                    self.yang_name = "timers"
-                    self.yang_parent_name = "ldp"
+                    self.yang_name = "aggregate-sid-counters"
+                    self.yang_parent_name = "segment-routing"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("aggregate-sid-counter", ("aggregate_sid_counter", Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter))])
                     self._leafs = OrderedDict()
-                    self._segment_path = lambda: "timers"
-                    self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/ldp/%s" % self._segment_path()
+
+                    self.aggregate_sid_counter = YList(self)
+                    self._segment_path = lambda: "aggregate-sid-counters"
+                    self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/segment-routing/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters, [], name, value)
+
+
+                class AggregateSidCounter(Entity):
+                    """
+                    Counters aggregated across all of the interfaces of the local
+                    system corresponding to traffic received or forwarded with a
+                    particular SID
+                    
+                    .. attribute:: mpls_label  (key)
+                    
+                    	The MPLS label representing the segment identifier
+                    	**type**\: union of the below types:
+                    
+                    		**type**\: int
+                    
+                    			**range:** 16..1048575
+                    
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                    
+                    	**refers to**\:  :py:class:`mpls_label <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter.State>`
+                    
+                    .. attribute:: state
+                    
+                    	State parameters for per\-SID statistics
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter.State>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
+
+                    def __init__(self):
+                        super(Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter, self).__init__()
+
+                        self.yang_name = "aggregate-sid-counter"
+                        self.yang_parent_name = "aggregate-sid-counters"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = ['mpls_label']
+                        self._child_classes = OrderedDict([("state", ("state", Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter.State))])
+                        self._leafs = OrderedDict([
+                            ('mpls_label', YLeaf(YType.str, 'mpls-label')),
+                        ])
+                        self.mpls_label = None
+
+                        self.state = Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter.State()
+                        self.state.parent = self
+                        self._children_name_map["state"] = "state"
+                        self._segment_path = lambda: "aggregate-sid-counter" + "[mpls-label='" + str(self.mpls_label) + "']"
+                        self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/segment-routing/aggregate-sid-counters/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter, [u'mpls_label'], name, value)
+
+
+                    class State(Entity):
+                        """
+                        State parameters for per\-SID statistics
+                        
+                        .. attribute:: mpls_label
+                        
+                        	The MPLS label used for the segment identifier
+                        	**type**\: union of the below types:
+                        
+                        		**type**\: int
+                        
+                        			**range:** 16..1048575
+                        
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        
+                        .. attribute:: in_pkts
+                        
+                        	A cumulative counter of the packets received within the context which have matched a label corresponding to an SR Segment Identifier
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: in_octets
+                        
+                        	The cumulative counter of the total bytes received within the context which have matched a label corresponding to an SR Segment Identifier
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: out_pkts
+                        
+                        	A cumulative counter of the total number of packets transmitted by the local system within the context which have a label imposed that corresponds to an Segment Identifier
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: out_octets
+                        
+                        	A cumulative counter of the total bytes transmitted by the local system within the context which have a label imported that corresponds to an SR Segment Identifier
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
+
+                        def __init__(self):
+                            super(Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter.State, self).__init__()
+
+                            self.yang_name = "state"
+                            self.yang_parent_name = "aggregate-sid-counter"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('mpls_label', YLeaf(YType.str, 'mpls-label')),
+                                ('in_pkts', YLeaf(YType.uint64, 'in-pkts')),
+                                ('in_octets', YLeaf(YType.uint64, 'in-octets')),
+                                ('out_pkts', YLeaf(YType.uint64, 'out-pkts')),
+                                ('out_octets', YLeaf(YType.uint64, 'out-octets')),
+                            ])
+                            self.mpls_label = None
+                            self.in_pkts = None
+                            self.in_octets = None
+                            self.out_pkts = None
+                            self.out_octets = None
+                            self._segment_path = lambda: "state"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter.State, [u'mpls_label', u'in_pkts', u'in_octets', u'out_pkts', u'out_octets'], name, value)
+
+
+            class Interfaces(Entity):
+                """
+                Interface related Segment Routing parameters.
+                
+                .. attribute:: interface
+                
+                	Parameters and MPLS\-specific configuration relating to Segment Routing on an interface
+                	**type**\: list of  		 :py:class:`Interface <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface>`
+                
+                
+
+                """
+
+                _prefix = 'oc-mpls'
+                _revision = '2017-03-22'
+
+                def __init__(self):
+                    super(Mpls.SignalingProtocols.SegmentRouting.Interfaces, self).__init__()
+
+                    self.yang_name = "interfaces"
+                    self.yang_parent_name = "segment-routing"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("interface", ("interface", Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface))])
+                    self._leafs = OrderedDict()
+
+                    self.interface = YList(self)
+                    self._segment_path = lambda: "interfaces"
+                    self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/segment-routing/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces, [], name, value)
+
+
+                class Interface(Entity):
+                    """
+                    Parameters and MPLS\-specific configuration relating to Segment
+                    Routing on an interface.
+                    
+                    .. attribute:: interface_id  (key)
+                    
+                    	A reference to the ID for the interface for which SR is configured
+                    	**type**\: str
+                    
+                    	**refers to**\:  :py:class:`interface_id <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.Config>`
+                    
+                    .. attribute:: config
+                    
+                    	MPLS\-specific Segment Routing configuration parameters related to an interface
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.Config>`
+                    
+                    .. attribute:: state
+                    
+                    	MPLS\-specific Segment Routing operational state parameters related to an interface
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.State>`
+                    
+                    .. attribute:: sid_counters
+                    
+                    	Per\-SID statistics for MPLS
+                    	**type**\:  :py:class:`SidCounters <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters>`
+                    
+                    .. attribute:: interface_ref
+                    
+                    	Reference to an interface or subinterface
+                    	**type**\:  :py:class:`InterfaceRef <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
+
+                    def __init__(self):
+                        super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface, self).__init__()
+
+                        self.yang_name = "interface"
+                        self.yang_parent_name = "interfaces"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = ['interface_id']
+                        self._child_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.Config)), ("state", ("state", Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.State)), ("sid-counters", ("sid_counters", Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters)), ("interface-ref", ("interface_ref", Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef))])
+                        self._leafs = OrderedDict([
+                            ('interface_id', YLeaf(YType.str, 'interface-id')),
+                        ])
+                        self.interface_id = None
+
+                        self.config = Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.Config()
+                        self.config.parent = self
+                        self._children_name_map["config"] = "config"
+
+                        self.state = Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.State()
+                        self.state.parent = self
+                        self._children_name_map["state"] = "state"
+
+                        self.sid_counters = Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters()
+                        self.sid_counters.parent = self
+                        self._children_name_map["sid_counters"] = "sid-counters"
+
+                        self.interface_ref = Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef()
+                        self.interface_ref.parent = self
+                        self._children_name_map["interface_ref"] = "interface-ref"
+                        self._segment_path = lambda: "interface" + "[interface-id='" + str(self.interface_id) + "']"
+                        self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/segment-routing/interfaces/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface, [u'interface_id'], name, value)
+
+
+                    class Config(Entity):
+                        """
+                        MPLS\-specific Segment Routing configuration parameters
+                        related to an interface.
+                        
+                        .. attribute:: interface_id
+                        
+                        	A unique identifier for the interface
+                        	**type**\: str
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
+
+                        def __init__(self):
+                            super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.Config, self).__init__()
+
+                            self.yang_name = "config"
+                            self.yang_parent_name = "interface"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interface_id', YLeaf(YType.str, 'interface-id')),
+                            ])
+                            self.interface_id = None
+                            self._segment_path = lambda: "config"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.Config, [u'interface_id'], name, value)
+
+
+                    class State(Entity):
+                        """
+                        MPLS\-specific Segment Routing operational state parameters
+                        related to an interface.
+                        
+                        .. attribute:: interface_id
+                        
+                        	A unique identifier for the interface
+                        	**type**\: str
+                        
+                        .. attribute:: in_pkts
+                        
+                        	A cumulative counter of the packets received within the context which have matched a label corresponding to an SR Segment Identifier
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: in_octets
+                        
+                        	The cumulative counter of the total bytes received within the context which have matched a label corresponding to an SR Segment Identifier
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: out_pkts
+                        
+                        	A cumulative counter of the total number of packets transmitted by the local system within the context which have a label imposed that corresponds to an Segment Identifier
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: out_octets
+                        
+                        	A cumulative counter of the total bytes transmitted by the local system within the context which have a label imported that corresponds to an SR Segment Identifier
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
+
+                        def __init__(self):
+                            super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.State, self).__init__()
+
+                            self.yang_name = "state"
+                            self.yang_parent_name = "interface"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interface_id', YLeaf(YType.str, 'interface-id')),
+                                ('in_pkts', YLeaf(YType.uint64, 'in-pkts')),
+                                ('in_octets', YLeaf(YType.uint64, 'in-octets')),
+                                ('out_pkts', YLeaf(YType.uint64, 'out-pkts')),
+                                ('out_octets', YLeaf(YType.uint64, 'out-octets')),
+                            ])
+                            self.interface_id = None
+                            self.in_pkts = None
+                            self.in_octets = None
+                            self.out_pkts = None
+                            self.out_octets = None
+                            self._segment_path = lambda: "state"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.State, [u'interface_id', u'in_pkts', u'in_octets', u'out_pkts', u'out_octets'], name, value)
+
+
+                    class SidCounters(Entity):
+                        """
+                        Per\-SID statistics for MPLS
+                        
+                        .. attribute:: sid_counter
+                        
+                        	Per segment identifier counters for the MPLS dataplane
+                        	**type**\: list of  		 :py:class:`SidCounter <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
+
+                        def __init__(self):
+                            super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters, self).__init__()
+
+                            self.yang_name = "sid-counters"
+                            self.yang_parent_name = "interface"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("sid-counter", ("sid_counter", Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter))])
+                            self._leafs = OrderedDict()
+
+                            self.sid_counter = YList(self)
+                            self._segment_path = lambda: "sid-counters"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters, [], name, value)
+
+
+                        class SidCounter(Entity):
+                            """
+                            Per segment identifier counters for the MPLS dataplane.
+                            
+                            .. attribute:: mpls_label  (key)
+                            
+                            	The MPLS label representing the segment identifier
+                            	**type**\: union of the below types:
+                            
+                            		**type**\: int
+                            
+                            			**range:** 16..1048575
+                            
+                            		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                            
+                            	**refers to**\:  :py:class:`mpls_label <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.State>`
+                            
+                            .. attribute:: state
+                            
+                            	State parameters for per\-SID statistics
+                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.State>`
+                            
+                            .. attribute:: forwarding_classes
+                            
+                            	Per\-SID per\-forwarding class counters for Segment Routing
+                            	**type**\:  :py:class:`ForwardingClasses <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
+
+                            def __init__(self):
+                                super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter, self).__init__()
+
+                                self.yang_name = "sid-counter"
+                                self.yang_parent_name = "sid-counters"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['mpls_label']
+                                self._child_classes = OrderedDict([("state", ("state", Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.State)), ("forwarding-classes", ("forwarding_classes", Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses))])
+                                self._leafs = OrderedDict([
+                                    ('mpls_label', YLeaf(YType.str, 'mpls-label')),
+                                ])
+                                self.mpls_label = None
+
+                                self.state = Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.State()
+                                self.state.parent = self
+                                self._children_name_map["state"] = "state"
+
+                                self.forwarding_classes = Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses()
+                                self.forwarding_classes.parent = self
+                                self._children_name_map["forwarding_classes"] = "forwarding-classes"
+                                self._segment_path = lambda: "sid-counter" + "[mpls-label='" + str(self.mpls_label) + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter, [u'mpls_label'], name, value)
+
+
+                            class State(Entity):
+                                """
+                                State parameters for per\-SID statistics
+                                
+                                .. attribute:: mpls_label
+                                
+                                	The MPLS label used for the segment identifier
+                                	**type**\: union of the below types:
+                                
+                                		**type**\: int
+                                
+                                			**range:** 16..1048575
+                                
+                                		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                                
+                                .. attribute:: in_pkts
+                                
+                                	A cumulative counter of the packets received within the context which have matched a label corresponding to an SR Segment Identifier
+                                	**type**\: int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: in_octets
+                                
+                                	The cumulative counter of the total bytes received within the context which have matched a label corresponding to an SR Segment Identifier
+                                	**type**\: int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: out_pkts
+                                
+                                	A cumulative counter of the total number of packets transmitted by the local system within the context which have a label imposed that corresponds to an Segment Identifier
+                                	**type**\: int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: out_octets
+                                
+                                	A cumulative counter of the total bytes transmitted by the local system within the context which have a label imported that corresponds to an SR Segment Identifier
+                                	**type**\: int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-mpls'
+                                _revision = '2017-03-22'
+
+                                def __init__(self):
+                                    super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.State, self).__init__()
+
+                                    self.yang_name = "state"
+                                    self.yang_parent_name = "sid-counter"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('mpls_label', YLeaf(YType.str, 'mpls-label')),
+                                        ('in_pkts', YLeaf(YType.uint64, 'in-pkts')),
+                                        ('in_octets', YLeaf(YType.uint64, 'in-octets')),
+                                        ('out_pkts', YLeaf(YType.uint64, 'out-pkts')),
+                                        ('out_octets', YLeaf(YType.uint64, 'out-octets')),
+                                    ])
+                                    self.mpls_label = None
+                                    self.in_pkts = None
+                                    self.in_octets = None
+                                    self.out_pkts = None
+                                    self.out_octets = None
+                                    self._segment_path = lambda: "state"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.State, [u'mpls_label', u'in_pkts', u'in_octets', u'out_pkts', u'out_octets'], name, value)
+
+
+                            class ForwardingClasses(Entity):
+                                """
+                                Per\-SID per\-forwarding class counters for Segment Routing.
+                                
+                                .. attribute:: forwarding_class
+                                
+                                	SID entries for the forwarding class associated with the referenced MPLS EXP
+                                	**type**\: list of  		 :py:class:`ForwardingClass <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-mpls'
+                                _revision = '2017-03-22'
+
+                                def __init__(self):
+                                    super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses, self).__init__()
+
+                                    self.yang_name = "forwarding-classes"
+                                    self.yang_parent_name = "sid-counter"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([("forwarding-class", ("forwarding_class", Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass))])
+                                    self._leafs = OrderedDict()
+
+                                    self.forwarding_class = YList(self)
+                                    self._segment_path = lambda: "forwarding-classes"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses, [], name, value)
+
+
+                                class ForwardingClass(Entity):
+                                    """
+                                    SID entries for the forwarding class associated with the
+                                    referenced MPLS EXP.
+                                    
+                                    .. attribute:: exp  (key)
+                                    
+                                    	Reference to the value of the EXP bits of the segment identifier
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..7
+                                    
+                                    	**refers to**\:  :py:class:`exp <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass.State>`
+                                    
+                                    .. attribute:: state
+                                    
+                                    	Per\-SID, per forwarding class counters for Segment Routing with the MPLS dataplane
+                                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass.State>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'oc-mpls'
+                                    _revision = '2017-03-22'
+
+                                    def __init__(self):
+                                        super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass, self).__init__()
+
+                                        self.yang_name = "forwarding-class"
+                                        self.yang_parent_name = "forwarding-classes"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = ['exp']
+                                        self._child_classes = OrderedDict([("state", ("state", Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass.State))])
+                                        self._leafs = OrderedDict([
+                                            ('exp', YLeaf(YType.str, 'exp')),
+                                        ])
+                                        self.exp = None
+
+                                        self.state = Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass.State()
+                                        self.state.parent = self
+                                        self._children_name_map["state"] = "state"
+                                        self._segment_path = lambda: "forwarding-class" + "[exp='" + str(self.exp) + "']"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass, [u'exp'], name, value)
+
+
+                                    class State(Entity):
+                                        """
+                                        Per\-SID, per forwarding class counters for Segment Routing
+                                        with the MPLS dataplane
+                                        
+                                        .. attribute:: exp
+                                        
+                                        	The value of the MPLS EXP (experimental) or Traffic Class bits that the SID statistics relate to. Packets received with a MPLS label value equal to the SID's MPLS label and EXP bits equal to the this value should be counted towards the associated ingress statistics. Packets that are forwarded to the destination MPLS label corresponding to the SID should be counted towards this value. In the egress direction, where forwarding follows a SID value that requires PHP at the local node, packets should still be counted towards the egress counters
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..7
+                                        
+                                        .. attribute:: in_pkts
+                                        
+                                        	A cumulative counter of the packets received within the context which have matched a label corresponding to an SR Segment Identifier
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: in_octets
+                                        
+                                        	The cumulative counter of the total bytes received within the context which have matched a label corresponding to an SR Segment Identifier
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: out_pkts
+                                        
+                                        	A cumulative counter of the total number of packets transmitted by the local system within the context which have a label imposed that corresponds to an Segment Identifier
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: out_octets
+                                        
+                                        	A cumulative counter of the total bytes transmitted by the local system within the context which have a label imported that corresponds to an SR Segment Identifier
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'oc-mpls'
+                                        _revision = '2017-03-22'
+
+                                        def __init__(self):
+                                            super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass.State, self).__init__()
+
+                                            self.yang_name = "state"
+                                            self.yang_parent_name = "forwarding-class"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('exp', YLeaf(YType.uint8, 'exp')),
+                                                ('in_pkts', YLeaf(YType.uint64, 'in-pkts')),
+                                                ('in_octets', YLeaf(YType.uint64, 'in-octets')),
+                                                ('out_pkts', YLeaf(YType.uint64, 'out-pkts')),
+                                                ('out_octets', YLeaf(YType.uint64, 'out-octets')),
+                                            ])
+                                            self.exp = None
+                                            self.in_pkts = None
+                                            self.in_octets = None
+                                            self.out_pkts = None
+                                            self.out_octets = None
+                                            self._segment_path = lambda: "state"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass.State, [u'exp', u'in_pkts', u'in_octets', u'out_pkts', u'out_octets'], name, value)
+
+
+                    class InterfaceRef(Entity):
+                        """
+                        Reference to an interface or subinterface
+                        
+                        .. attribute:: config
+                        
+                        	Configured reference to interface / subinterface
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.Config>`
+                        
+                        .. attribute:: state
+                        
+                        	Operational state for interface\-ref
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.State>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
+
+                        def __init__(self):
+                            super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef, self).__init__()
+
+                            self.yang_name = "interface-ref"
+                            self.yang_parent_name = "interface"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.Config)), ("state", ("state", Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.State))])
+                            self._leafs = OrderedDict()
+
+                            self.config = Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.Config()
+                            self.config.parent = self
+                            self._children_name_map["config"] = "config"
+
+                            self.state = Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.State()
+                            self.state.parent = self
+                            self._children_name_map["state"] = "state"
+                            self._segment_path = lambda: "interface-ref"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef, [], name, value)
+
+
+                        class Config(Entity):
+                            """
+                            Configured reference to interface / subinterface
+                            
+                            .. attribute:: interface
+                            
+                            	Reference to a base interface.  If a reference to a subinterface is required, this leaf must be specified to indicate the base interface
+                            	**type**\: str
+                            
+                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                            
+                            .. attribute:: subinterface
+                            
+                            	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
+
+                            def __init__(self):
+                                super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.Config, self).__init__()
+
+                                self.yang_name = "config"
+                                self.yang_parent_name = "interface-ref"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interface', YLeaf(YType.str, 'interface')),
+                                    ('subinterface', YLeaf(YType.str, 'subinterface')),
+                                ])
+                                self.interface = None
+                                self.subinterface = None
+                                self._segment_path = lambda: "config"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
+
+
+                        class State(Entity):
+                            """
+                            Operational state for interface\-ref
+                            
+                            .. attribute:: interface
+                            
+                            	Reference to a base interface.  If a reference to a subinterface is required, this leaf must be specified to indicate the base interface
+                            	**type**\: str
+                            
+                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                            
+                            .. attribute:: subinterface
+                            
+                            	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
+
+                            def __init__(self):
+                                super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.State, self).__init__()
+
+                                self.yang_name = "state"
+                                self.yang_parent_name = "interface-ref"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interface', YLeaf(YType.str, 'interface')),
+                                    ('subinterface', YLeaf(YType.str, 'subinterface')),
+                                ])
+                                self.interface = None
+                                self.subinterface = None
+                                self._segment_path = lambda: "state"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
 
 
     class Lsps(Entity):
@@ -5648,8 +6396,8 @@ class Mpls(Entity):
 
         """
 
-        _prefix = 'mpls'
-        _revision = '2015-11-05'
+        _prefix = 'oc-mpls'
+        _revision = '2017-03-22'
 
         def __init__(self):
             super(Mpls.Lsps, self).__init__()
@@ -5659,26 +6407,25 @@ class Mpls(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("constrained-path", ("constrained_path", Mpls.Lsps.ConstrainedPath)), ("unconstrained-path", ("unconstrained_path", Mpls.Lsps.UnconstrainedPath)), ("static-lsps", ("static_lsps", Mpls.Lsps.StaticLsps))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("constrained-path", ("constrained_path", Mpls.Lsps.ConstrainedPath)), ("unconstrained-path", ("unconstrained_path", Mpls.Lsps.UnconstrainedPath)), ("static-lsps", ("static_lsps", Mpls.Lsps.StaticLsps))])
             self._leafs = OrderedDict()
 
             self.constrained_path = Mpls.Lsps.ConstrainedPath()
             self.constrained_path.parent = self
             self._children_name_map["constrained_path"] = "constrained-path"
-            self._children_yang_names.add("constrained-path")
 
             self.unconstrained_path = Mpls.Lsps.UnconstrainedPath()
             self.unconstrained_path.parent = self
             self._children_name_map["unconstrained_path"] = "unconstrained-path"
-            self._children_yang_names.add("unconstrained-path")
 
             self.static_lsps = Mpls.Lsps.StaticLsps()
             self.static_lsps.parent = self
             self._children_name_map["static_lsps"] = "static-lsps"
-            self._children_yang_names.add("static-lsps")
             self._segment_path = lambda: "lsps"
             self._absolute_path = lambda: "openconfig-mpls:mpls/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Mpls.Lsps, [], name, value)
 
 
         class ConstrainedPath(Entity):
@@ -5688,20 +6435,20 @@ class Mpls(Entity):
             
             .. attribute:: named_explicit_paths
             
-            	A list of explicit paths
-            	**type**\: list of  		 :py:class:`NamedExplicitPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths>`
+            	Enclosing container for the named explicit paths
+            	**type**\:  :py:class:`NamedExplicitPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths>`
             
-            .. attribute:: tunnel
+            .. attribute:: tunnels
             
-            	List of TE tunnels
-            	**type**\: list of  		 :py:class:`Tunnel <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel>`
+            	Enclosing container for tunnels
+            	**type**\:  :py:class:`Tunnels <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels>`
             
             
 
             """
 
-            _prefix = 'mpls'
-            _revision = '2015-11-05'
+            _prefix = 'oc-mpls'
+            _revision = '2017-03-22'
 
             def __init__(self):
                 super(Mpls.Lsps.ConstrainedPath, self).__init__()
@@ -5711,12 +6458,16 @@ class Mpls(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("named-explicit-paths", ("named_explicit_paths", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths)), ("tunnel", ("tunnel", Mpls.Lsps.ConstrainedPath.Tunnel))])
+                self._child_classes = OrderedDict([("named-explicit-paths", ("named_explicit_paths", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths)), ("tunnels", ("tunnels", Mpls.Lsps.ConstrainedPath.Tunnels))])
                 self._leafs = OrderedDict()
 
-                self.named_explicit_paths = YList(self)
-                self.tunnel = YList(self)
+                self.named_explicit_paths = Mpls.Lsps.ConstrainedPath.NamedExplicitPaths()
+                self.named_explicit_paths.parent = self
+                self._children_name_map["named_explicit_paths"] = "named-explicit-paths"
+
+                self.tunnels = Mpls.Lsps.ConstrainedPath.Tunnels()
+                self.tunnels.parent = self
+                self._children_name_map["tunnels"] = "tunnels"
                 self._segment_path = lambda: "constrained-path"
                 self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/%s" % self._segment_path()
 
@@ -5726,36 +6477,19 @@ class Mpls(Entity):
 
             class NamedExplicitPaths(Entity):
                 """
-                A list of explicit paths
+                Enclosing container for the named explicit paths
                 
-                .. attribute:: name  (key)
+                .. attribute:: named_explicit_path
                 
-                	A string name that uniquely identifies an explicit path
-                	**type**\: str
-                
-                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
-                
-                .. attribute:: config
-                
-                	Configuration parameters relating to named explicit paths
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
-                
-                .. attribute:: state
-                
-                	Operational state parameters relating to the named explicit paths
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.State>`
-                
-                .. attribute:: explicit_route_objects
-                
-                	List of explicit route objects
-                	**type**\: list of  		 :py:class:`ExplicitRouteObjects <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects>`
+                	A list of explicit paths
+                	**type**\: list of  		 :py:class:`NamedExplicitPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath>`
                 
                 
 
                 """
 
-                _prefix = 'mpls'
-                _revision = '2015-11-05'
+                _prefix = 'oc-mpls'
+                _revision = '2017-03-22'
 
                 def __init__(self):
                     super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths, self).__init__()
@@ -5764,2105 +6498,1461 @@ class Mpls(Entity):
                     self.yang_parent_name = "constrained-path"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.State))])
-                    self._child_list_classes = OrderedDict([("explicit-route-objects", ("explicit_route_objects", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects))])
-                    self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                    ])
-                    self.name = None
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("named-explicit-path", ("named_explicit_path", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath))])
+                    self._leafs = OrderedDict()
 
-                    self.config = Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config()
-                    self.config.parent = self
-                    self._children_name_map["config"] = "config"
-                    self._children_yang_names.add("config")
-
-                    self.state = Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.State()
-                    self.state.parent = self
-                    self._children_name_map["state"] = "state"
-                    self._children_yang_names.add("state")
-
-                    self.explicit_route_objects = YList(self)
-                    self._segment_path = lambda: "named-explicit-paths" + "[name='" + str(self.name) + "']"
+                    self.named_explicit_path = YList(self)
+                    self._segment_path = lambda: "named-explicit-paths"
                     self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/constrained-path/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths, ['name'], name, value)
+                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths, [], name, value)
 
 
-                class Config(Entity):
+                class NamedExplicitPath(Entity):
                     """
-                    Configuration parameters relating to named explicit
-                    paths
+                    A list of explicit paths
                     
-                    .. attribute:: name
+                    .. attribute:: name  (key)
                     
                     	A string name that uniquely identifies an explicit path
                     	**type**\: str
                     
-                    
-
-                    """
-
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
-
-                    def __init__(self):
-                        super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config, self).__init__()
-
-                        self.yang_name = "config"
-                        self.yang_parent_name = "named-explicit-paths"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('name', YLeaf(YType.str, 'name')),
-                        ])
-                        self.name = None
-                        self._segment_path = lambda: "config"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config, ['name'], name, value)
-
-
-                class State(Entity):
-                    """
-                    Operational state parameters relating to the named
-                    explicit paths
-                    
-                    .. attribute:: name
-                    
-                    	A string name that uniquely identifies an explicit path
-                    	**type**\: str
-                    
-                    
-
-                    """
-
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
-
-                    def __init__(self):
-                        super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.State, self).__init__()
-
-                        self.yang_name = "state"
-                        self.yang_parent_name = "named-explicit-paths"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('name', YLeaf(YType.str, 'name')),
-                        ])
-                        self.name = None
-                        self._segment_path = lambda: "state"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.State, ['name'], name, value)
-
-
-                class ExplicitRouteObjects(Entity):
-                    """
-                    List of explicit route objects
-                    
-                    .. attribute:: index  (key)
-                    
-                    	Index of this explicit route object, to express the order of hops in path
-                    	**type**\: int
-                    
-                    	**range:** 0..255
-                    
-                    	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.Config>`
+                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.Config>`
                     
                     .. attribute:: config
                     
-                    	Configuration parameters relating to an explicit route
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.Config>`
+                    	Configuration parameters relating to named explicit paths
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.Config>`
                     
                     .. attribute:: state
                     
-                    	State parameters relating to an explicit route
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.State>`
+                    	Operational state parameters relating to the named explicit paths
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.State>`
+                    
+                    .. attribute:: explicit_route_objects
+                    
+                    	Enclosing container for EROs
+                    	**type**\:  :py:class:`ExplicitRouteObjects <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects>`
                     
                     
 
                     """
 
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects, self).__init__()
+                        super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath, self).__init__()
 
-                        self.yang_name = "explicit-route-objects"
+                        self.yang_name = "named-explicit-path"
                         self.yang_parent_name = "named-explicit-paths"
                         self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = ['index']
-                        self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.State))])
-                        self._child_list_classes = OrderedDict([])
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = ['name']
+                        self._child_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.State)), ("explicit-route-objects", ("explicit_route_objects", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects))])
                         self._leafs = OrderedDict([
-                            ('index', YLeaf(YType.str, 'index')),
+                            ('name', YLeaf(YType.str, 'name')),
                         ])
-                        self.index = None
+                        self.name = None
 
-                        self.config = Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.Config()
+                        self.config = Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.Config()
                         self.config.parent = self
                         self._children_name_map["config"] = "config"
-                        self._children_yang_names.add("config")
 
-                        self.state = Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.State()
+                        self.state = Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
-                        self._children_yang_names.add("state")
-                        self._segment_path = lambda: "explicit-route-objects" + "[index='" + str(self.index) + "']"
+
+                        self.explicit_route_objects = Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects()
+                        self.explicit_route_objects.parent = self
+                        self._children_name_map["explicit_route_objects"] = "explicit-route-objects"
+                        self._segment_path = lambda: "named-explicit-path" + "[name='" + str(self.name) + "']"
+                        self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/constrained-path/named-explicit-paths/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects, ['index'], name, value)
+                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath, [u'name'], name, value)
 
 
                     class Config(Entity):
                         """
-                        Configuration parameters relating to an explicit
-                        route
+                        Configuration parameters relating to named explicit
+                        paths
                         
-                        .. attribute:: address
+                        .. attribute:: name
                         
-                        	router hop for the LSP path
-                        	**type**\: union of the below types:
+                        	A string name that uniquely identifies an explicit path
+                        	**type**\: str
                         
-                        		**type**\: str
+                        .. attribute:: sid_selection_mode
                         
-                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        	The restrictions placed on the SIDs to be selected by the calculation method for the explicit path when it is instantiated for a SR\-TE LSP
+                        	**type**\:  :py:class:`SidSelectionMode <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.Config.SidSelectionMode>`
                         
-                        		**type**\: str
+                        	**default value**\: MIXED_MODE
                         
-                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        .. attribute:: sid_protection_required
                         
-                        .. attribute:: hop_type
+                        	When this value is set to true, only SIDs that are protected are to be selected by the calculating method when the explicit path is instantiated by a SR\-TE LSP
+                        	**type**\: bool
                         
-                        	strict or loose hop
-                        	**type**\:  :py:class:`MplsHopType <ydk.models.openconfig.openconfig_mpls.MplsHopType>`
-                        
-                        .. attribute:: index
-                        
-                        	Index of this explicit route object to express the order of hops in the path
-                        	**type**\: int
-                        
-                        	**range:** 0..255
+                        	**default value**\: false
                         
                         
 
                         """
 
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.Config, self).__init__()
+                            super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.Config, self).__init__()
 
                             self.yang_name = "config"
-                            self.yang_parent_name = "explicit-route-objects"
+                            self.yang_parent_name = "named-explicit-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('address', YLeaf(YType.str, 'address')),
-                                ('hop_type', YLeaf(YType.enumeration, 'hop-type')),
-                                ('index', YLeaf(YType.uint8, 'index')),
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('sid_selection_mode', YLeaf(YType.enumeration, 'sid-selection-mode')),
+                                ('sid_protection_required', YLeaf(YType.boolean, 'sid-protection-required')),
                             ])
-                            self.address = None
-                            self.hop_type = None
-                            self.index = None
+                            self.name = None
+                            self.sid_selection_mode = None
+                            self.sid_protection_required = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.Config, ['address', 'hop_type', 'index'], name, value)
+                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.Config, [u'name', u'sid_selection_mode', u'sid_protection_required'], name, value)
+
+                        class SidSelectionMode(Enum):
+                            """
+                            SidSelectionMode (Enum Class)
+
+                            The restrictions placed on the SIDs to be selected by the
+
+                            calculation method for the explicit path when it is
+
+                            instantiated for a SR\-TE LSP
+
+                            .. data:: ADJ_SID_ONLY = 0
+
+                            	The SR-TE tunnel should only use adjacency SIDs
+
+                            	to build the SID stack to be pushed for the LSP
+
+                            .. data:: MIXED_MODE = 1
+
+                            	The SR-TE tunnel can use a mix of adjacency
+
+                            	and prefix SIDs to build the SID stack to be pushed
+
+                            	to the LSP
+
+                            """
+
+                            ADJ_SID_ONLY = Enum.YLeaf(0, "ADJ_SID_ONLY")
+
+                            MIXED_MODE = Enum.YLeaf(1, "MIXED_MODE")
+
 
 
                     class State(Entity):
                         """
-                        State parameters relating to an explicit route
+                        Operational state parameters relating to the named
+                        explicit paths
                         
-                        .. attribute:: address
+                        .. attribute:: name
                         
-                        	router hop for the LSP path
-                        	**type**\: union of the below types:
+                        	A string name that uniquely identifies an explicit path
+                        	**type**\: str
                         
-                        		**type**\: str
+                        .. attribute:: sid_selection_mode
                         
-                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        	The restrictions placed on the SIDs to be selected by the calculation method for the explicit path when it is instantiated for a SR\-TE LSP
+                        	**type**\:  :py:class:`SidSelectionMode <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.State.SidSelectionMode>`
                         
-                        		**type**\: str
+                        	**default value**\: MIXED_MODE
                         
-                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        .. attribute:: sid_protection_required
                         
-                        .. attribute:: hop_type
+                        	When this value is set to true, only SIDs that are protected are to be selected by the calculating method when the explicit path is instantiated by a SR\-TE LSP
+                        	**type**\: bool
                         
-                        	strict or loose hop
-                        	**type**\:  :py:class:`MplsHopType <ydk.models.openconfig.openconfig_mpls.MplsHopType>`
-                        
-                        .. attribute:: index
-                        
-                        	Index of this explicit route object to express the order of hops in the path
-                        	**type**\: int
-                        
-                        	**range:** 0..255
+                        	**default value**\: false
                         
                         
 
                         """
 
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.State, self).__init__()
+                            super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.State, self).__init__()
 
                             self.yang_name = "state"
-                            self.yang_parent_name = "explicit-route-objects"
+                            self.yang_parent_name = "named-explicit-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('address', YLeaf(YType.str, 'address')),
-                                ('hop_type', YLeaf(YType.enumeration, 'hop-type')),
-                                ('index', YLeaf(YType.uint8, 'index')),
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('sid_selection_mode', YLeaf(YType.enumeration, 'sid-selection-mode')),
+                                ('sid_protection_required', YLeaf(YType.boolean, 'sid-protection-required')),
                             ])
-                            self.address = None
-                            self.hop_type = None
-                            self.index = None
+                            self.name = None
+                            self.sid_selection_mode = None
+                            self.sid_protection_required = None
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.State, ['address', 'hop_type', 'index'], name, value)
+                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.State, [u'name', u'sid_selection_mode', u'sid_protection_required'], name, value)
+
+                        class SidSelectionMode(Enum):
+                            """
+                            SidSelectionMode (Enum Class)
+
+                            The restrictions placed on the SIDs to be selected by the
+
+                            calculation method for the explicit path when it is
+
+                            instantiated for a SR\-TE LSP
+
+                            .. data:: ADJ_SID_ONLY = 0
+
+                            	The SR-TE tunnel should only use adjacency SIDs
+
+                            	to build the SID stack to be pushed for the LSP
+
+                            .. data:: MIXED_MODE = 1
+
+                            	The SR-TE tunnel can use a mix of adjacency
+
+                            	and prefix SIDs to build the SID stack to be pushed
+
+                            	to the LSP
+
+                            """
+
+                            ADJ_SID_ONLY = Enum.YLeaf(0, "ADJ_SID_ONLY")
+
+                            MIXED_MODE = Enum.YLeaf(1, "MIXED_MODE")
 
 
-            class Tunnel(Entity):
+
+                    class ExplicitRouteObjects(Entity):
+                        """
+                        Enclosing container for EROs
+                        
+                        .. attribute:: explicit_route_object
+                        
+                        	List of explicit route objects
+                        	**type**\: list of  		 :py:class:`ExplicitRouteObject <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
+
+                        def __init__(self):
+                            super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects, self).__init__()
+
+                            self.yang_name = "explicit-route-objects"
+                            self.yang_parent_name = "named-explicit-path"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("explicit-route-object", ("explicit_route_object", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject))])
+                            self._leafs = OrderedDict()
+
+                            self.explicit_route_object = YList(self)
+                            self._segment_path = lambda: "explicit-route-objects"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects, [], name, value)
+
+
+                        class ExplicitRouteObject(Entity):
+                            """
+                            List of explicit route objects
+                            
+                            .. attribute:: index  (key)
+                            
+                            	Index of this explicit route object, to express the order of hops in path
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.Config>`
+                            
+                            .. attribute:: config
+                            
+                            	Configuration parameters relating to an explicit route
+                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.Config>`
+                            
+                            .. attribute:: state
+                            
+                            	State parameters relating to an explicit route
+                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.State>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
+
+                            def __init__(self):
+                                super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject, self).__init__()
+
+                                self.yang_name = "explicit-route-object"
+                                self.yang_parent_name = "explicit-route-objects"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['index']
+                                self._child_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.State))])
+                                self._leafs = OrderedDict([
+                                    ('index', YLeaf(YType.str, 'index')),
+                                ])
+                                self.index = None
+
+                                self.config = Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.Config()
+                                self.config.parent = self
+                                self._children_name_map["config"] = "config"
+
+                                self.state = Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.State()
+                                self.state.parent = self
+                                self._children_name_map["state"] = "state"
+                                self._segment_path = lambda: "explicit-route-object" + "[index='" + str(self.index) + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject, [u'index'], name, value)
+
+
+                            class Config(Entity):
+                                """
+                                Configuration parameters relating to an explicit
+                                route
+                                
+                                .. attribute:: address
+                                
+                                	router hop for the LSP path
+                                	**type**\: union of the below types:
+                                
+                                		**type**\: str
+                                
+                                			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
+                                
+                                		**type**\: str
+                                
+                                			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                                
+                                .. attribute:: hop_type
+                                
+                                	strict or loose hop
+                                	**type**\:  :py:class:`MplsHopType <ydk.models.openconfig.openconfig_mpls.MplsHopType>`
+                                
+                                .. attribute:: index
+                                
+                                	Index of this explicit route object to express the order of hops in the path
+                                	**type**\: int
+                                
+                                	**range:** 0..255
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-mpls'
+                                _revision = '2017-03-22'
+
+                                def __init__(self):
+                                    super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.Config, self).__init__()
+
+                                    self.yang_name = "config"
+                                    self.yang_parent_name = "explicit-route-object"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('address', YLeaf(YType.str, 'address')),
+                                        ('hop_type', YLeaf(YType.enumeration, 'hop-type')),
+                                        ('index', YLeaf(YType.uint8, 'index')),
+                                    ])
+                                    self.address = None
+                                    self.hop_type = None
+                                    self.index = None
+                                    self._segment_path = lambda: "config"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.Config, [u'address', u'hop_type', u'index'], name, value)
+
+
+                            class State(Entity):
+                                """
+                                State parameters relating to an explicit route
+                                
+                                .. attribute:: address
+                                
+                                	router hop for the LSP path
+                                	**type**\: union of the below types:
+                                
+                                		**type**\: str
+                                
+                                			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
+                                
+                                		**type**\: str
+                                
+                                			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                                
+                                .. attribute:: hop_type
+                                
+                                	strict or loose hop
+                                	**type**\:  :py:class:`MplsHopType <ydk.models.openconfig.openconfig_mpls.MplsHopType>`
+                                
+                                .. attribute:: index
+                                
+                                	Index of this explicit route object to express the order of hops in the path
+                                	**type**\: int
+                                
+                                	**range:** 0..255
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-mpls'
+                                _revision = '2017-03-22'
+
+                                def __init__(self):
+                                    super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.State, self).__init__()
+
+                                    self.yang_name = "state"
+                                    self.yang_parent_name = "explicit-route-object"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('address', YLeaf(YType.str, 'address')),
+                                        ('hop_type', YLeaf(YType.enumeration, 'hop-type')),
+                                        ('index', YLeaf(YType.uint8, 'index')),
+                                    ])
+                                    self.address = None
+                                    self.hop_type = None
+                                    self.index = None
+                                    self._segment_path = lambda: "state"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.State, [u'address', u'hop_type', u'index'], name, value)
+
+
+            class Tunnels(Entity):
                 """
-                List of TE tunnels
+                Enclosing container for tunnels
                 
-                .. attribute:: name  (key)
+                .. attribute:: tunnel
                 
-                	The tunnel name
-                	**type**\: str
-                
-                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Config>`
-                
-                .. attribute:: type  (key)
-                
-                	The tunnel type, p2p or p2mp
-                	**type**\:  :py:class:`TunnelType <ydk.models.openconfig.openconfig_mpls_types.TunnelType>`
-                
-                .. attribute:: config
-                
-                	Configuration parameters related to TE tunnels\:
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Config>`
-                
-                .. attribute:: state
-                
-                	State parameters related to TE tunnels
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.State>`
-                
-                .. attribute:: bandwidth
-                
-                	Bandwidth configuration for TE LSPs
-                	**type**\:  :py:class:`Bandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth>`
-                
-                .. attribute:: p2p_tunnel_attributes
-                
-                	Parameters related to LSPs of type P2P
-                	**type**\:  :py:class:`P2PTunnelAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes>`
+                	List of TE tunnels. This list contains only the LSPs that the current device originates (i.e., for which it is the head\-end). Where the signaling protocol utilised for an LSP allows a mid\-point or tail device to be aware of the LSP (e.g., RSVP\-TE), then the associated sessions are maintained per protocol
+                	**type**\: list of  		 :py:class:`Tunnel <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel>`
                 
                 
 
                 """
 
-                _prefix = 'mpls'
-                _revision = '2015-11-05'
+                _prefix = 'oc-mpls'
+                _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.Lsps.ConstrainedPath.Tunnel, self).__init__()
+                    super(Mpls.Lsps.ConstrainedPath.Tunnels, self).__init__()
 
-                    self.yang_name = "tunnel"
+                    self.yang_name = "tunnels"
                     self.yang_parent_name = "constrained-path"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self.ylist_key_names = ['name','type']
-                    self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnel.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnel.State)), ("bandwidth", ("bandwidth", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth)), ("p2p-tunnel-attributes", ("p2p_tunnel_attributes", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes))])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('type', YLeaf(YType.identityref, 'type')),
-                    ])
-                    self.name = None
-                    self.type = None
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("tunnel", ("tunnel", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel))])
+                    self._leafs = OrderedDict()
 
-                    self.config = Mpls.Lsps.ConstrainedPath.Tunnel.Config()
-                    self.config.parent = self
-                    self._children_name_map["config"] = "config"
-                    self._children_yang_names.add("config")
-
-                    self.state = Mpls.Lsps.ConstrainedPath.Tunnel.State()
-                    self.state.parent = self
-                    self._children_name_map["state"] = "state"
-                    self._children_yang_names.add("state")
-
-                    self.bandwidth = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth()
-                    self.bandwidth.parent = self
-                    self._children_name_map["bandwidth"] = "bandwidth"
-                    self._children_yang_names.add("bandwidth")
-
-                    self.p2p_tunnel_attributes = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes()
-                    self.p2p_tunnel_attributes.parent = self
-                    self._children_name_map["p2p_tunnel_attributes"] = "p2p-tunnel-attributes"
-                    self._children_yang_names.add("p2p-tunnel-attributes")
-                    self._segment_path = lambda: "tunnel" + "[name='" + str(self.name) + "']" + "[type='" + str(self.type) + "']"
+                    self.tunnel = YList(self)
+                    self._segment_path = lambda: "tunnels"
                     self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/constrained-path/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel, ['name', 'type'], name, value)
+                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels, [], name, value)
 
 
-                class Config(Entity):
+                class Tunnel(Entity):
                     """
-                    Configuration parameters related to TE tunnels\:
+                    List of TE tunnels. This list contains only the LSPs that the
+                    current device originates (i.e., for which it is the head\-end).
+                    Where the signaling protocol utilised for an LSP allows a mid\-point
+                    or tail device to be aware of the LSP (e.g., RSVP\-TE), then the
+                    associated sessions are maintained per protocol
                     
-                    .. attribute:: name
+                    .. attribute:: name  (key)
                     
                     	The tunnel name
                     	**type**\: str
                     
-                    .. attribute:: type
-                    
-                    	Tunnel type, p2p or p2mp
-                    	**type**\:  :py:class:`TunnelType <ydk.models.openconfig.openconfig_mpls_types.TunnelType>`
-                    
-                    .. attribute:: signaling_protocol
-                    
-                    	Signaling protocol used to set up this tunnel
-                    	**type**\:  :py:class:`TunnelType <ydk.models.openconfig.openconfig_mpls_types.TunnelType>`
-                    
-                    .. attribute:: local_id
-                    
-                    	locally signficant optional identifier for the tunnel; may be a numerical or string value
-                    	**type**\: union of the below types:
-                    
-                    		**type**\: int
-                    
-                    			**range:** 0..4294967295
-                    
-                    		**type**\: str
-                    
-                    .. attribute:: description
-                    
-                    	optional text description for the tunnel
-                    	**type**\: str
-                    
-                    .. attribute:: admin_status
-                    
-                    	TE tunnel administrative state
-                    	**type**\:  :py:class:`TunnelAdminStatus <ydk.models.openconfig.openconfig_mpls_types.TunnelAdminStatus>`
-                    
-                    	**default value**\: mplst:ADMIN_UP
-                    
-                    .. attribute:: preference
-                    
-                    	Specifies a preference for this tunnel. A lower number signifies a better preference
-                    	**type**\: int
-                    
-                    	**range:** 1..255
-                    
-                    .. attribute:: metric
-                    
-                    	LSP metric, either explicit or IGP
-                    	**type**\: union of the below types:
-                    
-                    		**type**\:  :py:class:`TeMetricType <ydk.models.openconfig.openconfig_mpls.TeMetricType>`
-                    
-                    		**type**\: int
-                    
-                    			**range:** 0..4294967295
-                    
-                    .. attribute:: protection_style_requested
-                    
-                    	style of mpls frr protection desired\: can be link, link\-node or unprotected
-                    	**type**\:  :py:class:`ProtectionType <ydk.models.openconfig.openconfig_mpls_types.ProtectionType>`
-                    
-                    	**default value**\: mplst:unprotected
-                    
-                    .. attribute:: reoptimize_timer
-                    
-                    	frequency of reoptimization of a traffic engineered LSP
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
-                    
-                    	**units**\: seconds
-                    
-                    .. attribute:: source
-                    
-                    	RSVP\-TE tunnel source address
-                    	**type**\: union of the below types:
-                    
-                    		**type**\: str
-                    
-                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    		**type**\: str
-                    
-                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    .. attribute:: soft_preemption
-                    
-                    	Enables RSVP soft\-preemption on this LSP
-                    	**type**\: bool
-                    
-                    	**default value**\: false
-                    
-                    .. attribute:: setup_priority
-                    
-                    	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
-                    	**type**\: int
-                    
-                    	**range:** 0..7
-                    
-                    	**default value**\: 7
-                    
-                    .. attribute:: hold_priority
-                    
-                    	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
-                    	**type**\: int
-                    
-                    	**range:** 0..7
-                    
-                    	**default value**\: 0
-                    
-                    
-
-                    """
-
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
-
-                    def __init__(self):
-                        super(Mpls.Lsps.ConstrainedPath.Tunnel.Config, self).__init__()
-
-                        self.yang_name = "config"
-                        self.yang_parent_name = "tunnel"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('name', YLeaf(YType.str, 'name')),
-                            ('type', YLeaf(YType.identityref, 'type')),
-                            ('signaling_protocol', YLeaf(YType.identityref, 'signaling-protocol')),
-                            ('local_id', YLeaf(YType.str, 'local-id')),
-                            ('description', YLeaf(YType.str, 'description')),
-                            ('admin_status', YLeaf(YType.identityref, 'admin-status')),
-                            ('preference', YLeaf(YType.uint8, 'preference')),
-                            ('metric', YLeaf(YType.str, 'metric')),
-                            ('protection_style_requested', YLeaf(YType.identityref, 'protection-style-requested')),
-                            ('reoptimize_timer', YLeaf(YType.uint16, 'reoptimize-timer')),
-                            ('source', YLeaf(YType.str, 'source')),
-                            ('soft_preemption', YLeaf(YType.boolean, 'soft-preemption')),
-                            ('setup_priority', YLeaf(YType.uint8, 'setup-priority')),
-                            ('hold_priority', YLeaf(YType.uint8, 'hold-priority')),
-                        ])
-                        self.name = None
-                        self.type = None
-                        self.signaling_protocol = None
-                        self.local_id = None
-                        self.description = None
-                        self.admin_status = None
-                        self.preference = None
-                        self.metric = None
-                        self.protection_style_requested = None
-                        self.reoptimize_timer = None
-                        self.source = None
-                        self.soft_preemption = None
-                        self.setup_priority = None
-                        self.hold_priority = None
-                        self._segment_path = lambda: "config"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.Config, ['name', 'type', 'signaling_protocol', 'local_id', 'description', 'admin_status', 'preference', 'metric', 'protection_style_requested', 'reoptimize_timer', 'source', 'soft_preemption', 'setup_priority', 'hold_priority'], name, value)
-
-
-                class State(Entity):
-                    """
-                    State parameters related to TE tunnels
-                    
-                    .. attribute:: name
-                    
-                    	The tunnel name
-                    	**type**\: str
-                    
-                    .. attribute:: type
-                    
-                    	Tunnel type, p2p or p2mp
-                    	**type**\:  :py:class:`TunnelType <ydk.models.openconfig.openconfig_mpls_types.TunnelType>`
-                    
-                    .. attribute:: signaling_protocol
-                    
-                    	Signaling protocol used to set up this tunnel
-                    	**type**\:  :py:class:`TunnelType <ydk.models.openconfig.openconfig_mpls_types.TunnelType>`
-                    
-                    .. attribute:: local_id
-                    
-                    	locally signficant optional identifier for the tunnel; may be a numerical or string value
-                    	**type**\: union of the below types:
-                    
-                    		**type**\: int
-                    
-                    			**range:** 0..4294967295
-                    
-                    		**type**\: str
-                    
-                    .. attribute:: description
-                    
-                    	optional text description for the tunnel
-                    	**type**\: str
-                    
-                    .. attribute:: admin_status
-                    
-                    	TE tunnel administrative state
-                    	**type**\:  :py:class:`TunnelAdminStatus <ydk.models.openconfig.openconfig_mpls_types.TunnelAdminStatus>`
-                    
-                    	**default value**\: mplst:ADMIN_UP
-                    
-                    .. attribute:: preference
-                    
-                    	Specifies a preference for this tunnel. A lower number signifies a better preference
-                    	**type**\: int
-                    
-                    	**range:** 1..255
-                    
-                    .. attribute:: metric
-                    
-                    	LSP metric, either explicit or IGP
-                    	**type**\: union of the below types:
-                    
-                    		**type**\:  :py:class:`TeMetricType <ydk.models.openconfig.openconfig_mpls.TeMetricType>`
-                    
-                    		**type**\: int
-                    
-                    			**range:** 0..4294967295
-                    
-                    .. attribute:: protection_style_requested
-                    
-                    	style of mpls frr protection desired\: can be link, link\-node or unprotected
-                    	**type**\:  :py:class:`ProtectionType <ydk.models.openconfig.openconfig_mpls_types.ProtectionType>`
-                    
-                    	**default value**\: mplst:unprotected
-                    
-                    .. attribute:: reoptimize_timer
-                    
-                    	frequency of reoptimization of a traffic engineered LSP
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
-                    
-                    	**units**\: seconds
-                    
-                    .. attribute:: source
-                    
-                    	RSVP\-TE tunnel source address
-                    	**type**\: union of the below types:
-                    
-                    		**type**\: str
-                    
-                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    		**type**\: str
-                    
-                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    .. attribute:: soft_preemption
-                    
-                    	Enables RSVP soft\-preemption on this LSP
-                    	**type**\: bool
-                    
-                    	**default value**\: false
-                    
-                    .. attribute:: setup_priority
-                    
-                    	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
-                    	**type**\: int
-                    
-                    	**range:** 0..7
-                    
-                    	**default value**\: 7
-                    
-                    .. attribute:: hold_priority
-                    
-                    	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
-                    	**type**\: int
-                    
-                    	**range:** 0..7
-                    
-                    	**default value**\: 0
-                    
-                    .. attribute:: oper_status
-                    
-                    	The operational status of the TE tunnel
-                    	**type**\:  :py:class:`LspOperStatus <ydk.models.openconfig.openconfig_mpls_types.LspOperStatus>`
-                    
-                    .. attribute:: role
-                    
-                    	The lsp role at the current node, whether it is headend, transit or tailend
-                    	**type**\:  :py:class:`LspRole <ydk.models.openconfig.openconfig_mpls_types.LspRole>`
-                    
-                    .. attribute:: counters
-                    
-                    	State data for MPLS label switched paths. This state data is specific to a single label switched path
-                    	**type**\:  :py:class:`Counters <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.State.Counters>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
-
-                    def __init__(self):
-                        super(Mpls.Lsps.ConstrainedPath.Tunnel.State, self).__init__()
-
-                        self.yang_name = "state"
-                        self.yang_parent_name = "tunnel"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("counters", ("counters", Mpls.Lsps.ConstrainedPath.Tunnel.State.Counters))])
-                        self._child_list_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('name', YLeaf(YType.str, 'name')),
-                            ('type', YLeaf(YType.identityref, 'type')),
-                            ('signaling_protocol', YLeaf(YType.identityref, 'signaling-protocol')),
-                            ('local_id', YLeaf(YType.str, 'local-id')),
-                            ('description', YLeaf(YType.str, 'description')),
-                            ('admin_status', YLeaf(YType.identityref, 'admin-status')),
-                            ('preference', YLeaf(YType.uint8, 'preference')),
-                            ('metric', YLeaf(YType.str, 'metric')),
-                            ('protection_style_requested', YLeaf(YType.identityref, 'protection-style-requested')),
-                            ('reoptimize_timer', YLeaf(YType.uint16, 'reoptimize-timer')),
-                            ('source', YLeaf(YType.str, 'source')),
-                            ('soft_preemption', YLeaf(YType.boolean, 'soft-preemption')),
-                            ('setup_priority', YLeaf(YType.uint8, 'setup-priority')),
-                            ('hold_priority', YLeaf(YType.uint8, 'hold-priority')),
-                            ('oper_status', YLeaf(YType.identityref, 'oper-status')),
-                            ('role', YLeaf(YType.identityref, 'role')),
-                        ])
-                        self.name = None
-                        self.type = None
-                        self.signaling_protocol = None
-                        self.local_id = None
-                        self.description = None
-                        self.admin_status = None
-                        self.preference = None
-                        self.metric = None
-                        self.protection_style_requested = None
-                        self.reoptimize_timer = None
-                        self.source = None
-                        self.soft_preemption = None
-                        self.setup_priority = None
-                        self.hold_priority = None
-                        self.oper_status = None
-                        self.role = None
-
-                        self.counters = Mpls.Lsps.ConstrainedPath.Tunnel.State.Counters()
-                        self.counters.parent = self
-                        self._children_name_map["counters"] = "counters"
-                        self._children_yang_names.add("counters")
-                        self._segment_path = lambda: "state"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.State, ['name', 'type', 'signaling_protocol', 'local_id', 'description', 'admin_status', 'preference', 'metric', 'protection_style_requested', 'reoptimize_timer', 'source', 'soft_preemption', 'setup_priority', 'hold_priority', 'oper_status', 'role'], name, value)
-
-
-                    class Counters(Entity):
-                        """
-                        State data for MPLS label switched paths. This state
-                        data is specific to a single label switched path.
-                        
-                        .. attribute:: bytes
-                        
-                        	Number of bytes that have been forwarded over the label switched path
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: packets
-                        
-                        	Number of pacets that have been forwarded over the label switched path
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: path_changes
-                        
-                        	Number of path changes for the label switched path
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: state_changes
-                        
-                        	Number of state changes for the label switched path
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: online_time
-                        
-                        	Indication of the time the label switched path transitioned to an Oper Up or in\-service state
-                        	**type**\: str
-                        
-                        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
-                        
-                        .. attribute:: current_path_time
-                        
-                        	Indicates the time the LSP switched onto its current path. This is reset upon a LSP path change
-                        	**type**\: str
-                        
-                        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
-                        
-                        .. attribute:: next_reoptimization_time
-                        
-                        	Indicates the next scheduled time the LSP will be reoptimized
-                        	**type**\: str
-                        
-                        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
-                        
-                        
-
-                        """
-
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
-
-                        def __init__(self):
-                            super(Mpls.Lsps.ConstrainedPath.Tunnel.State.Counters, self).__init__()
-
-                            self.yang_name = "counters"
-                            self.yang_parent_name = "state"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('bytes', YLeaf(YType.uint64, 'bytes')),
-                                ('packets', YLeaf(YType.uint64, 'packets')),
-                                ('path_changes', YLeaf(YType.uint64, 'path-changes')),
-                                ('state_changes', YLeaf(YType.uint64, 'state-changes')),
-                                ('online_time', YLeaf(YType.str, 'online-time')),
-                                ('current_path_time', YLeaf(YType.str, 'current-path-time')),
-                                ('next_reoptimization_time', YLeaf(YType.str, 'next-reoptimization-time')),
-                            ])
-                            self.bytes = None
-                            self.packets = None
-                            self.path_changes = None
-                            self.state_changes = None
-                            self.online_time = None
-                            self.current_path_time = None
-                            self.next_reoptimization_time = None
-                            self._segment_path = lambda: "counters"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.State.Counters, ['bytes', 'packets', 'path_changes', 'state_changes', 'online_time', 'current_path_time', 'next_reoptimization_time'], name, value)
-
-
-                class Bandwidth(Entity):
-                    """
-                    Bandwidth configuration for TE LSPs
+                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Config>`
                     
                     .. attribute:: config
                     
-                    	Configuration parameters related to bandwidth on TE tunnels\:
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.Config>`
+                    	Configuration parameters related to TE tunnels\:
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Config>`
                     
                     .. attribute:: state
                     
-                    	State parameters related to bandwidth configuration of TE tunnels
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.State>`
+                    	State parameters related to TE tunnels
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State>`
                     
-                    .. attribute:: auto_bandwidth
+                    .. attribute:: bandwidth
                     
-                    	Parameters related to auto\-bandwidth
-                    	**type**\:  :py:class:`AutoBandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth>`
+                    	Bandwidth configuration for TE LSPs
+                    	**type**\:  :py:class:`Bandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth>`
+                    
+                    .. attribute:: p2p_tunnel_attributes
+                    
+                    	Parameters related to LSPs of type P2P
+                    	**type**\:  :py:class:`P2pTunnelAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes>`
                     
                     
 
                     """
 
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth, self).__init__()
+                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel, self).__init__()
 
-                        self.yang_name = "bandwidth"
-                        self.yang_parent_name = "tunnel"
+                        self.yang_name = "tunnel"
+                        self.yang_parent_name = "tunnels"
                         self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.State)), ("auto-bandwidth", ("auto_bandwidth", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth))])
-                        self._child_list_classes = OrderedDict([])
-                        self._leafs = OrderedDict()
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = ['name']
+                        self._child_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State)), ("bandwidth", ("bandwidth", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth)), ("p2p-tunnel-attributes", ("p2p_tunnel_attributes", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes))])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                        ])
+                        self.name = None
 
-                        self.config = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.Config()
+                        self.config = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Config()
                         self.config.parent = self
                         self._children_name_map["config"] = "config"
-                        self._children_yang_names.add("config")
 
-                        self.state = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.State()
+                        self.state = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
-                        self._children_yang_names.add("state")
 
-                        self.auto_bandwidth = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth()
-                        self.auto_bandwidth.parent = self
-                        self._children_name_map["auto_bandwidth"] = "auto-bandwidth"
-                        self._children_yang_names.add("auto-bandwidth")
-                        self._segment_path = lambda: "bandwidth"
+                        self.bandwidth = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth()
+                        self.bandwidth.parent = self
+                        self._children_name_map["bandwidth"] = "bandwidth"
+
+                        self.p2p_tunnel_attributes = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes()
+                        self.p2p_tunnel_attributes.parent = self
+                        self._children_name_map["p2p_tunnel_attributes"] = "p2p-tunnel-attributes"
+                        self._segment_path = lambda: "tunnel" + "[name='" + str(self.name) + "']"
+                        self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/constrained-path/tunnels/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel, [u'name'], name, value)
 
 
                     class Config(Entity):
                         """
-                        Configuration parameters related to bandwidth on TE
-                        tunnels\:
+                        Configuration parameters related to TE tunnels\:
                         
-                        .. attribute:: specification_type
+                        .. attribute:: name
                         
-                        	The method used for settign the bandwidth, either explicitly specified or configured
-                        	**type**\:  :py:class:`TeBandwidthType <ydk.models.openconfig.openconfig_mpls.TeBandwidthType>`
-                        
-                        	**default value**\: SPECIFIED
-                        
-                        .. attribute:: set_bandwidth
-                        
-                        	set bandwidth explicitly, e.g., using offline calculation
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
-
-                        def __init__(self):
-                            super(Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.Config, self).__init__()
-
-                            self.yang_name = "config"
-                            self.yang_parent_name = "bandwidth"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('specification_type', YLeaf(YType.enumeration, 'specification-type')),
-                                ('set_bandwidth', YLeaf(YType.uint32, 'set-bandwidth')),
-                            ])
-                            self.specification_type = None
-                            self.set_bandwidth = None
-                            self._segment_path = lambda: "config"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.Config, ['specification_type', 'set_bandwidth'], name, value)
-
-
-                    class State(Entity):
-                        """
-                        State parameters related to bandwidth
-                        configuration of TE tunnels
-                        
-                        .. attribute:: specification_type
-                        
-                        	The method used for settign the bandwidth, either explicitly specified or configured
-                        	**type**\:  :py:class:`TeBandwidthType <ydk.models.openconfig.openconfig_mpls.TeBandwidthType>`
-                        
-                        	**default value**\: SPECIFIED
-                        
-                        .. attribute:: set_bandwidth
-                        
-                        	set bandwidth explicitly, e.g., using offline calculation
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
-
-                        def __init__(self):
-                            super(Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.State, self).__init__()
-
-                            self.yang_name = "state"
-                            self.yang_parent_name = "bandwidth"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('specification_type', YLeaf(YType.enumeration, 'specification-type')),
-                                ('set_bandwidth', YLeaf(YType.uint32, 'set-bandwidth')),
-                            ])
-                            self.specification_type = None
-                            self.set_bandwidth = None
-                            self._segment_path = lambda: "state"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.State, ['specification_type', 'set_bandwidth'], name, value)
-
-
-                    class AutoBandwidth(Entity):
-                        """
-                        Parameters related to auto\-bandwidth
-                        
-                        .. attribute:: config
-                        
-                        	Configuration parameters relating to MPLS auto\-bandwidth on the tunnel
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Config>`
-                        
-                        .. attribute:: state
-                        
-                        	State parameters relating to MPLS auto\-bandwidth on the tunnel
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.State>`
-                        
-                        .. attribute:: overflow
-                        
-                        	configuration of MPLS overflow bandwidth adjustement for the LSP
-                        	**type**\:  :py:class:`Overflow <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow>`
-                        
-                        .. attribute:: underflow
-                        
-                        	configuration of MPLS underflow bandwidth           adjustement for the LSP
-                        	**type**\:  :py:class:`Underflow <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
-
-                        def __init__(self):
-                            super(Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth, self).__init__()
-
-                            self.yang_name = "auto-bandwidth"
-                            self.yang_parent_name = "bandwidth"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.State)), ("overflow", ("overflow", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow)), ("underflow", ("underflow", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow))])
-                            self._child_list_classes = OrderedDict([])
-                            self._leafs = OrderedDict()
-
-                            self.config = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Config()
-                            self.config.parent = self
-                            self._children_name_map["config"] = "config"
-                            self._children_yang_names.add("config")
-
-                            self.state = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.State()
-                            self.state.parent = self
-                            self._children_name_map["state"] = "state"
-                            self._children_yang_names.add("state")
-
-                            self.overflow = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow()
-                            self.overflow.parent = self
-                            self._children_name_map["overflow"] = "overflow"
-                            self._children_yang_names.add("overflow")
-
-                            self.underflow = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow()
-                            self.underflow.parent = self
-                            self._children_name_map["underflow"] = "underflow"
-                            self._children_yang_names.add("underflow")
-                            self._segment_path = lambda: "auto-bandwidth"
-
-
-                        class Config(Entity):
-                            """
-                            Configuration parameters relating to MPLS
-                            auto\-bandwidth on the tunnel.
-                            
-                            .. attribute:: enabled
-                            
-                            	enables mpls auto\-bandwidth on the lsp
-                            	**type**\: bool
-                            
-                            	**default value**\: false
-                            
-                            .. attribute:: min_bw
-                            
-                            	set the minimum bandwidth in Mbps for an auto\-bandwidth LSP
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: max_bw
-                            
-                            	set the maximum bandwidth in Mbps for an auto\-bandwidth LSP
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: adjust_interval
-                            
-                            	time in seconds between adjustments to LSP bandwidth
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: adjust_threshold
-                            
-                            	percentage difference between the LSP's specified bandwidth and its current bandwidth allocation \-\- if the difference is greater than the specified percentage, auto\-bandwidth adjustment is triggered
-                            	**type**\: int
-                            
-                            	**range:** 0..100
-                            
-                            
-
-                            """
-
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
-
-                            def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Config, self).__init__()
-
-                                self.yang_name = "config"
-                                self.yang_parent_name = "auto-bandwidth"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('enabled', YLeaf(YType.boolean, 'enabled')),
-                                    ('min_bw', YLeaf(YType.uint32, 'min-bw')),
-                                    ('max_bw', YLeaf(YType.uint32, 'max-bw')),
-                                    ('adjust_interval', YLeaf(YType.uint32, 'adjust-interval')),
-                                    ('adjust_threshold', YLeaf(YType.uint8, 'adjust-threshold')),
-                                ])
-                                self.enabled = None
-                                self.min_bw = None
-                                self.max_bw = None
-                                self.adjust_interval = None
-                                self.adjust_threshold = None
-                                self._segment_path = lambda: "config"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Config, ['enabled', 'min_bw', 'max_bw', 'adjust_interval', 'adjust_threshold'], name, value)
-
-
-                        class State(Entity):
-                            """
-                            State parameters relating to MPLS
-                            auto\-bandwidth on the tunnel.
-                            
-                            .. attribute:: enabled
-                            
-                            	enables mpls auto\-bandwidth on the lsp
-                            	**type**\: bool
-                            
-                            	**default value**\: false
-                            
-                            .. attribute:: min_bw
-                            
-                            	set the minimum bandwidth in Mbps for an auto\-bandwidth LSP
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: max_bw
-                            
-                            	set the maximum bandwidth in Mbps for an auto\-bandwidth LSP
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: adjust_interval
-                            
-                            	time in seconds between adjustments to LSP bandwidth
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: adjust_threshold
-                            
-                            	percentage difference between the LSP's specified bandwidth and its current bandwidth allocation \-\- if the difference is greater than the specified percentage, auto\-bandwidth adjustment is triggered
-                            	**type**\: int
-                            
-                            	**range:** 0..100
-                            
-                            
-
-                            """
-
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
-
-                            def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.State, self).__init__()
-
-                                self.yang_name = "state"
-                                self.yang_parent_name = "auto-bandwidth"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('enabled', YLeaf(YType.boolean, 'enabled')),
-                                    ('min_bw', YLeaf(YType.uint32, 'min-bw')),
-                                    ('max_bw', YLeaf(YType.uint32, 'max-bw')),
-                                    ('adjust_interval', YLeaf(YType.uint32, 'adjust-interval')),
-                                    ('adjust_threshold', YLeaf(YType.uint8, 'adjust-threshold')),
-                                ])
-                                self.enabled = None
-                                self.min_bw = None
-                                self.max_bw = None
-                                self.adjust_interval = None
-                                self.adjust_threshold = None
-                                self._segment_path = lambda: "state"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.State, ['enabled', 'min_bw', 'max_bw', 'adjust_interval', 'adjust_threshold'], name, value)
-
-
-                        class Overflow(Entity):
-                            """
-                            configuration of MPLS overflow bandwidth
-                            adjustement for the LSP
-                            
-                            .. attribute:: config
-                            
-                            	Config information for MPLS overflow bandwidth adjustment
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow.Config>`
-                            
-                            .. attribute:: state
-                            
-                            	Config information for MPLS overflow bandwidth adjustment
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow.State>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
-
-                            def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow, self).__init__()
-
-                                self.yang_name = "overflow"
-                                self.yang_parent_name = "auto-bandwidth"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow.State))])
-                                self._child_list_classes = OrderedDict([])
-                                self._leafs = OrderedDict()
-
-                                self.config = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow.Config()
-                                self.config.parent = self
-                                self._children_name_map["config"] = "config"
-                                self._children_yang_names.add("config")
-
-                                self.state = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow.State()
-                                self.state.parent = self
-                                self._children_name_map["state"] = "state"
-                                self._children_yang_names.add("state")
-                                self._segment_path = lambda: "overflow"
-
-
-                            class Config(Entity):
-                                """
-                                Config information for MPLS overflow bandwidth
-                                adjustment
-                                
-                                .. attribute:: enabled
-                                
-                                	enables mpls lsp bandwidth overflow adjustment on the lsp
-                                	**type**\: bool
-                                
-                                	**default value**\: false
-                                
-                                .. attribute:: overflow_threshold
-                                
-                                	bandwidth percentage change to trigger an overflow event
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
-                                .. attribute:: trigger_event_count
-                                
-                                	number of consecutive overflow sample events needed to trigger an overflow adjustment
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'mpls'
-                                _revision = '2015-11-05'
-
-                                def __init__(self):
-                                    super(Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow.Config, self).__init__()
-
-                                    self.yang_name = "config"
-                                    self.yang_parent_name = "overflow"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('enabled', YLeaf(YType.boolean, 'enabled')),
-                                        ('overflow_threshold', YLeaf(YType.uint8, 'overflow-threshold')),
-                                        ('trigger_event_count', YLeaf(YType.uint16, 'trigger-event-count')),
-                                    ])
-                                    self.enabled = None
-                                    self.overflow_threshold = None
-                                    self.trigger_event_count = None
-                                    self._segment_path = lambda: "config"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow.Config, ['enabled', 'overflow_threshold', 'trigger_event_count'], name, value)
-
-
-                            class State(Entity):
-                                """
-                                Config information for MPLS overflow bandwidth
-                                adjustment
-                                
-                                .. attribute:: enabled
-                                
-                                	enables mpls lsp bandwidth overflow adjustment on the lsp
-                                	**type**\: bool
-                                
-                                	**default value**\: false
-                                
-                                .. attribute:: overflow_threshold
-                                
-                                	bandwidth percentage change to trigger an overflow event
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
-                                .. attribute:: trigger_event_count
-                                
-                                	number of consecutive overflow sample events needed to trigger an overflow adjustment
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'mpls'
-                                _revision = '2015-11-05'
-
-                                def __init__(self):
-                                    super(Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow.State, self).__init__()
-
-                                    self.yang_name = "state"
-                                    self.yang_parent_name = "overflow"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('enabled', YLeaf(YType.boolean, 'enabled')),
-                                        ('overflow_threshold', YLeaf(YType.uint8, 'overflow-threshold')),
-                                        ('trigger_event_count', YLeaf(YType.uint16, 'trigger-event-count')),
-                                    ])
-                                    self.enabled = None
-                                    self.overflow_threshold = None
-                                    self.trigger_event_count = None
-                                    self._segment_path = lambda: "state"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow.State, ['enabled', 'overflow_threshold', 'trigger_event_count'], name, value)
-
-
-                        class Underflow(Entity):
-                            """
-                            configuration of MPLS underflow bandwidth
-                                      adjustement for the LSP
-                            
-                            .. attribute:: config
-                            
-                            	Config information for MPLS underflow bandwidth           adjustment
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow.Config>`
-                            
-                            .. attribute:: state
-                            
-                            	State information for MPLS underflow bandwidth           adjustment
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow.State>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
-
-                            def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow, self).__init__()
-
-                                self.yang_name = "underflow"
-                                self.yang_parent_name = "auto-bandwidth"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow.State))])
-                                self._child_list_classes = OrderedDict([])
-                                self._leafs = OrderedDict()
-
-                                self.config = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow.Config()
-                                self.config.parent = self
-                                self._children_name_map["config"] = "config"
-                                self._children_yang_names.add("config")
-
-                                self.state = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow.State()
-                                self.state.parent = self
-                                self._children_name_map["state"] = "state"
-                                self._children_yang_names.add("state")
-                                self._segment_path = lambda: "underflow"
-
-
-                            class Config(Entity):
-                                """
-                                Config information for MPLS underflow bandwidth
-                                          adjustment
-                                
-                                .. attribute:: enabled
-                                
-                                	enables bandwidth underflow adjustment on the lsp
-                                	**type**\: bool
-                                
-                                	**default value**\: false
-                                
-                                .. attribute:: underflow_threshold
-                                
-                                	bandwidth percentage change to trigger and underflow event
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
-                                .. attribute:: trigger_event_count
-                                
-                                	number of consecutive underflow sample events needed to trigger an underflow adjustment
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'mpls'
-                                _revision = '2015-11-05'
-
-                                def __init__(self):
-                                    super(Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow.Config, self).__init__()
-
-                                    self.yang_name = "config"
-                                    self.yang_parent_name = "underflow"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('enabled', YLeaf(YType.boolean, 'enabled')),
-                                        ('underflow_threshold', YLeaf(YType.uint8, 'underflow-threshold')),
-                                        ('trigger_event_count', YLeaf(YType.uint16, 'trigger-event-count')),
-                                    ])
-                                    self.enabled = None
-                                    self.underflow_threshold = None
-                                    self.trigger_event_count = None
-                                    self._segment_path = lambda: "config"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow.Config, ['enabled', 'underflow_threshold', 'trigger_event_count'], name, value)
-
-
-                            class State(Entity):
-                                """
-                                State information for MPLS underflow bandwidth
-                                          adjustment
-                                
-                                .. attribute:: enabled
-                                
-                                	enables bandwidth underflow adjustment on the lsp
-                                	**type**\: bool
-                                
-                                	**default value**\: false
-                                
-                                .. attribute:: underflow_threshold
-                                
-                                	bandwidth percentage change to trigger and underflow event
-                                	**type**\: int
-                                
-                                	**range:** 0..100
-                                
-                                .. attribute:: trigger_event_count
-                                
-                                	number of consecutive underflow sample events needed to trigger an underflow adjustment
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'mpls'
-                                _revision = '2015-11-05'
-
-                                def __init__(self):
-                                    super(Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow.State, self).__init__()
-
-                                    self.yang_name = "state"
-                                    self.yang_parent_name = "underflow"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('enabled', YLeaf(YType.boolean, 'enabled')),
-                                        ('underflow_threshold', YLeaf(YType.uint8, 'underflow-threshold')),
-                                        ('trigger_event_count', YLeaf(YType.uint16, 'trigger-event-count')),
-                                    ])
-                                    self.enabled = None
-                                    self.underflow_threshold = None
-                                    self.trigger_event_count = None
-                                    self._segment_path = lambda: "state"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow.State, ['enabled', 'underflow_threshold', 'trigger_event_count'], name, value)
-
-
-                class P2PTunnelAttributes(Entity):
-                    """
-                    Parameters related to LSPs of type P2P
-                    
-                    .. attribute:: config
-                    
-                    	Configuration parameters for P2P LSPs
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.Config>`
-                    
-                    .. attribute:: state
-                    
-                    	State parameters for P2P LSPs
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.State>`
-                    
-                    .. attribute:: p2p_primary_paths
-                    
-                    	List of p2p primary paths for a tunnel
-                    	**type**\: list of  		 :py:class:`P2PPrimaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths>`
-                    
-                    .. attribute:: p2p_secondary_paths
-                    
-                    	List of p2p primary paths for a tunnel
-                    	**type**\: list of  		 :py:class:`P2PSecondaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
-
-                    def __init__(self):
-                        super(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes, self).__init__()
-
-                        self.yang_name = "p2p-tunnel-attributes"
-                        self.yang_parent_name = "tunnel"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.State))])
-                        self._child_list_classes = OrderedDict([("p2p-primary-paths", ("p2p_primary_paths", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths)), ("p2p-secondary-paths", ("p2p_secondary_paths", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths))])
-                        self._leafs = OrderedDict()
-
-                        self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.Config()
-                        self.config.parent = self
-                        self._children_name_map["config"] = "config"
-                        self._children_yang_names.add("config")
-
-                        self.state = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.State()
-                        self.state.parent = self
-                        self._children_name_map["state"] = "state"
-                        self._children_yang_names.add("state")
-
-                        self.p2p_primary_paths = YList(self)
-                        self.p2p_secondary_paths = YList(self)
-                        self._segment_path = lambda: "p2p-tunnel-attributes"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes, [], name, value)
-
-
-                    class Config(Entity):
-                        """
-                        Configuration parameters for P2P LSPs
-                        
-                        .. attribute:: destination
-                        
-                        	P2P tunnel destination address
-                        	**type**\: union of the below types:
-                        
-                        		**type**\: str
-                        
-                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        		**type**\: str
-                        
-                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
-
-                        def __init__(self):
-                            super(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.Config, self).__init__()
-
-                            self.yang_name = "config"
-                            self.yang_parent_name = "p2p-tunnel-attributes"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('destination', YLeaf(YType.str, 'destination')),
-                            ])
-                            self.destination = None
-                            self._segment_path = lambda: "config"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.Config, ['destination'], name, value)
-
-
-                    class State(Entity):
-                        """
-                        State parameters for P2P LSPs
-                        
-                        .. attribute:: destination
-                        
-                        	P2P tunnel destination address
-                        	**type**\: union of the below types:
-                        
-                        		**type**\: str
-                        
-                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        		**type**\: str
-                        
-                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
-
-                        def __init__(self):
-                            super(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.State, self).__init__()
-
-                            self.yang_name = "state"
-                            self.yang_parent_name = "p2p-tunnel-attributes"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('destination', YLeaf(YType.str, 'destination')),
-                            ])
-                            self.destination = None
-                            self._segment_path = lambda: "state"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.State, ['destination'], name, value)
-
-
-                    class P2PPrimaryPaths(Entity):
-                        """
-                        List of p2p primary paths for a tunnel
-                        
-                        .. attribute:: name  (key)
-                        
-                        	Path name
+                        	The tunnel name
                         	**type**\: str
                         
-                        	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config>`
+                        .. attribute:: type
                         
-                        .. attribute:: config
+                        	Tunnel type, p2p or p2mp
+                        	**type**\:  :py:class:`TUNNELTYPE <ydk.models.openconfig.openconfig_mpls_types.TUNNELTYPE>`
                         
-                        	Configuration parameters related to paths
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config>`
+                        .. attribute:: signaling_protocol
                         
-                        .. attribute:: state
+                        	Signaling protocol used to set up this tunnel
+                        	**type**\:  :py:class:`PATHSETUPPROTOCOL <ydk.models.openconfig.openconfig_mpls_types.PATHSETUPPROTOCOL>`
                         
-                        	State parameters related to paths
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.State>`
+                        .. attribute:: description
                         
-                        .. attribute:: candidate_secondary_paths
+                        	optional text description for the tunnel
+                        	**type**\: str
                         
-                        	The set of candidate secondary paths which may be used for this primary path. When secondary paths are specified in the list the path of the secondary LSP in use must be restricted to those path options referenced. The priority of the secondary paths is specified within the list. Higher priority values are less preferred \- that is to say that a path with priority 0 is the most preferred path. In the case that the list is empty, any secondary path option may be utilised when the current primary path is in use
-                        	**type**\:  :py:class:`CandidateSecondaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths>`
+                        .. attribute:: admin_status
                         
-                        .. attribute:: admin_groups
+                        	TE tunnel administrative state
+                        	**type**\:  :py:class:`TUNNELADMINSTATUS <ydk.models.openconfig.openconfig_mpls_types.TUNNELADMINSTATUS>`
                         
-                        	Top\-level container for include/exclude constraints for link affinities
-                        	**type**\:  :py:class:`AdminGroups <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups>`
+                        	**default value**\: oc-mplst:ADMIN_UP
+                        
+                        .. attribute:: preference
+                        
+                        	Specifies a preference for this tunnel. A lower number signifies a better preference
+                        	**type**\: int
+                        
+                        	**range:** 1..255
+                        
+                        .. attribute:: metric_type
+                        
+                        	The type of metric specification that should be used to set the LSP(s) metric
+                        	**type**\:  :py:class:`LSPMETRICTYPE <ydk.models.openconfig.openconfig_mpls_types.LSPMETRICTYPE>`
+                        
+                        	**default value**\: oc-mplst:LSP_METRIC_INHERITED
+                        
+                        .. attribute:: metric
+                        
+                        	The value of the metric that should be specified. The value supplied in this leaf is used in conjunction with the metric type to determine the value of the metric used by the system. Where the metric\-type is set to LSP\_METRIC\_ABSOLUTE \- the value of this leaf is used directly; where it is set to LSP\_METRIC\_RELATIVE, the relevant (positive or negative) offset is used to formulate the metric; where metric\-type is LSP\_METRIC\_INHERITED, the value of this leaf is not utilised
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: shortcut_eligible
+                        
+                        	Whether this LSP is considered to be eligible for us as a shortcut in the IGP. In the case that this leaf is set to true, the IGP SPF calculation uses the metric specified to determine whether traffic should be carried over this LSP
+                        	**type**\: bool
+                        
+                        	**default value**\: true
+                        
+                        .. attribute:: protection_style_requested
+                        
+                        	style of mpls frr protection desired\: can be link, link\-node or unprotected
+                        	**type**\:  :py:class:`PROTECTIONTYPE <ydk.models.openconfig.openconfig_mpls_types.PROTECTIONTYPE>`
+                        
+                        	**default value**\: oc-mplst:UNPROTECTED
+                        
+                        .. attribute:: reoptimize_timer
+                        
+                        	frequency of reoptimization of a traffic engineered LSP
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        	**units**\: seconds
+                        
+                        .. attribute:: source
+                        
+                        	RSVP\-TE tunnel source address
+                        	**type**\: union of the below types:
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                        
+                        .. attribute:: soft_preemption
+                        
+                        	Enables RSVP soft\-preemption on this LSP
+                        	**type**\: bool
+                        
+                        	**default value**\: false
+                        
+                        .. attribute:: setup_priority
+                        
+                        	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
+                        	**type**\: int
+                        
+                        	**range:** 0..7
+                        
+                        	**default value**\: 7
+                        
+                        .. attribute:: hold_priority
+                        
+                        	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
+                        	**type**\: int
+                        
+                        	**range:** 0..7
+                        
+                        	**default value**\: 0
                         
                         
 
                         """
 
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths, self).__init__()
+                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Config, self).__init__()
 
-                            self.yang_name = "p2p-primary-paths"
-                            self.yang_parent_name = "p2p-tunnel-attributes"
+                            self.yang_name = "config"
+                            self.yang_parent_name = "tunnel"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self.ylist_key_names = ['name']
-                            self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.State)), ("candidate-secondary-paths", ("candidate_secondary_paths", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths)), ("admin-groups", ("admin_groups", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups))])
-                            self._child_list_classes = OrderedDict([])
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('name', YLeaf(YType.str, 'name')),
+                                ('type', YLeaf(YType.identityref, 'type')),
+                                ('signaling_protocol', YLeaf(YType.identityref, 'signaling-protocol')),
+                                ('description', YLeaf(YType.str, 'description')),
+                                ('admin_status', YLeaf(YType.identityref, 'admin-status')),
+                                ('preference', YLeaf(YType.uint8, 'preference')),
+                                ('metric_type', YLeaf(YType.identityref, 'metric-type')),
+                                ('metric', YLeaf(YType.int32, 'metric')),
+                                ('shortcut_eligible', YLeaf(YType.boolean, 'shortcut-eligible')),
+                                ('protection_style_requested', YLeaf(YType.identityref, 'protection-style-requested')),
+                                ('reoptimize_timer', YLeaf(YType.uint16, 'reoptimize-timer')),
+                                ('source', YLeaf(YType.str, 'source')),
+                                ('soft_preemption', YLeaf(YType.boolean, 'soft-preemption')),
+                                ('setup_priority', YLeaf(YType.uint8, 'setup-priority')),
+                                ('hold_priority', YLeaf(YType.uint8, 'hold-priority')),
                             ])
                             self.name = None
-
-                            self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config()
-                            self.config.parent = self
-                            self._children_name_map["config"] = "config"
-                            self._children_yang_names.add("config")
-
-                            self.state = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.State()
-                            self.state.parent = self
-                            self._children_name_map["state"] = "state"
-                            self._children_yang_names.add("state")
-
-                            self.candidate_secondary_paths = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths()
-                            self.candidate_secondary_paths.parent = self
-                            self._children_name_map["candidate_secondary_paths"] = "candidate-secondary-paths"
-                            self._children_yang_names.add("candidate-secondary-paths")
-
-                            self.admin_groups = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups()
-                            self.admin_groups.parent = self
-                            self._children_name_map["admin_groups"] = "admin-groups"
-                            self._children_yang_names.add("admin-groups")
-                            self._segment_path = lambda: "p2p-primary-paths" + "[name='" + str(self.name) + "']"
+                            self.type = None
+                            self.signaling_protocol = None
+                            self.description = None
+                            self.admin_status = None
+                            self.preference = None
+                            self.metric_type = None
+                            self.metric = None
+                            self.shortcut_eligible = None
+                            self.protection_style_requested = None
+                            self.reoptimize_timer = None
+                            self.source = None
+                            self.soft_preemption = None
+                            self.setup_priority = None
+                            self.hold_priority = None
+                            self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths, ['name'], name, value)
+                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Config, [u'name', u'type', u'signaling_protocol', u'description', u'admin_status', u'preference', u'metric_type', u'metric', u'shortcut_eligible', u'protection_style_requested', u'reoptimize_timer', 'source', 'soft_preemption', 'setup_priority', 'hold_priority'], name, value)
+
+
+                    class State(Entity):
+                        """
+                        State parameters related to TE tunnels
+                        
+                        .. attribute:: name
+                        
+                        	The tunnel name
+                        	**type**\: str
+                        
+                        .. attribute:: type
+                        
+                        	Tunnel type, p2p or p2mp
+                        	**type**\:  :py:class:`TUNNELTYPE <ydk.models.openconfig.openconfig_mpls_types.TUNNELTYPE>`
+                        
+                        .. attribute:: signaling_protocol
+                        
+                        	Signaling protocol used to set up this tunnel
+                        	**type**\:  :py:class:`PATHSETUPPROTOCOL <ydk.models.openconfig.openconfig_mpls_types.PATHSETUPPROTOCOL>`
+                        
+                        .. attribute:: description
+                        
+                        	optional text description for the tunnel
+                        	**type**\: str
+                        
+                        .. attribute:: admin_status
+                        
+                        	TE tunnel administrative state
+                        	**type**\:  :py:class:`TUNNELADMINSTATUS <ydk.models.openconfig.openconfig_mpls_types.TUNNELADMINSTATUS>`
+                        
+                        	**default value**\: oc-mplst:ADMIN_UP
+                        
+                        .. attribute:: preference
+                        
+                        	Specifies a preference for this tunnel. A lower number signifies a better preference
+                        	**type**\: int
+                        
+                        	**range:** 1..255
+                        
+                        .. attribute:: metric_type
+                        
+                        	The type of metric specification that should be used to set the LSP(s) metric
+                        	**type**\:  :py:class:`LSPMETRICTYPE <ydk.models.openconfig.openconfig_mpls_types.LSPMETRICTYPE>`
+                        
+                        	**default value**\: oc-mplst:LSP_METRIC_INHERITED
+                        
+                        .. attribute:: metric
+                        
+                        	The value of the metric that should be specified. The value supplied in this leaf is used in conjunction with the metric type to determine the value of the metric used by the system. Where the metric\-type is set to LSP\_METRIC\_ABSOLUTE \- the value of this leaf is used directly; where it is set to LSP\_METRIC\_RELATIVE, the relevant (positive or negative) offset is used to formulate the metric; where metric\-type is LSP\_METRIC\_INHERITED, the value of this leaf is not utilised
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: shortcut_eligible
+                        
+                        	Whether this LSP is considered to be eligible for us as a shortcut in the IGP. In the case that this leaf is set to true, the IGP SPF calculation uses the metric specified to determine whether traffic should be carried over this LSP
+                        	**type**\: bool
+                        
+                        	**default value**\: true
+                        
+                        .. attribute:: protection_style_requested
+                        
+                        	style of mpls frr protection desired\: can be link, link\-node or unprotected
+                        	**type**\:  :py:class:`PROTECTIONTYPE <ydk.models.openconfig.openconfig_mpls_types.PROTECTIONTYPE>`
+                        
+                        	**default value**\: oc-mplst:UNPROTECTED
+                        
+                        .. attribute:: reoptimize_timer
+                        
+                        	frequency of reoptimization of a traffic engineered LSP
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        	**units**\: seconds
+                        
+                        .. attribute:: source
+                        
+                        	RSVP\-TE tunnel source address
+                        	**type**\: union of the below types:
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                        
+                        .. attribute:: soft_preemption
+                        
+                        	Enables RSVP soft\-preemption on this LSP
+                        	**type**\: bool
+                        
+                        	**default value**\: false
+                        
+                        .. attribute:: setup_priority
+                        
+                        	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
+                        	**type**\: int
+                        
+                        	**range:** 0..7
+                        
+                        	**default value**\: 7
+                        
+                        .. attribute:: hold_priority
+                        
+                        	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
+                        	**type**\: int
+                        
+                        	**range:** 0..7
+                        
+                        	**default value**\: 0
+                        
+                        .. attribute:: oper_status
+                        
+                        	The operational status of the TE tunnel
+                        	**type**\:  :py:class:`LSPOPERSTATUS <ydk.models.openconfig.openconfig_mpls_types.LSPOPERSTATUS>`
+                        
+                        .. attribute:: role
+                        
+                        	The lsp role at the current node, whether it is headend, transit or tailend
+                        	**type**\:  :py:class:`LSPROLE <ydk.models.openconfig.openconfig_mpls_types.LSPROLE>`
+                        
+                        .. attribute:: counters
+                        
+                        	State data for MPLS label switched paths. This state data is specific to a single label switched path
+                        	**type**\:  :py:class:`Counters <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State.Counters>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
+
+                        def __init__(self):
+                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State, self).__init__()
+
+                            self.yang_name = "state"
+                            self.yang_parent_name = "tunnel"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("counters", ("counters", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State.Counters))])
+                            self._leafs = OrderedDict([
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('type', YLeaf(YType.identityref, 'type')),
+                                ('signaling_protocol', YLeaf(YType.identityref, 'signaling-protocol')),
+                                ('description', YLeaf(YType.str, 'description')),
+                                ('admin_status', YLeaf(YType.identityref, 'admin-status')),
+                                ('preference', YLeaf(YType.uint8, 'preference')),
+                                ('metric_type', YLeaf(YType.identityref, 'metric-type')),
+                                ('metric', YLeaf(YType.int32, 'metric')),
+                                ('shortcut_eligible', YLeaf(YType.boolean, 'shortcut-eligible')),
+                                ('protection_style_requested', YLeaf(YType.identityref, 'protection-style-requested')),
+                                ('reoptimize_timer', YLeaf(YType.uint16, 'reoptimize-timer')),
+                                ('source', YLeaf(YType.str, 'source')),
+                                ('soft_preemption', YLeaf(YType.boolean, 'soft-preemption')),
+                                ('setup_priority', YLeaf(YType.uint8, 'setup-priority')),
+                                ('hold_priority', YLeaf(YType.uint8, 'hold-priority')),
+                                ('oper_status', YLeaf(YType.identityref, 'oper-status')),
+                                ('role', YLeaf(YType.identityref, 'role')),
+                            ])
+                            self.name = None
+                            self.type = None
+                            self.signaling_protocol = None
+                            self.description = None
+                            self.admin_status = None
+                            self.preference = None
+                            self.metric_type = None
+                            self.metric = None
+                            self.shortcut_eligible = None
+                            self.protection_style_requested = None
+                            self.reoptimize_timer = None
+                            self.source = None
+                            self.soft_preemption = None
+                            self.setup_priority = None
+                            self.hold_priority = None
+                            self.oper_status = None
+                            self.role = None
+
+                            self.counters = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State.Counters()
+                            self.counters.parent = self
+                            self._children_name_map["counters"] = "counters"
+                            self._segment_path = lambda: "state"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State, [u'name', u'type', u'signaling_protocol', u'description', u'admin_status', u'preference', u'metric_type', u'metric', u'shortcut_eligible', u'protection_style_requested', u'reoptimize_timer', 'source', 'soft_preemption', 'setup_priority', 'hold_priority', u'oper_status', u'role'], name, value)
+
+
+                        class Counters(Entity):
+                            """
+                            State data for MPLS label switched paths. This state
+                            data is specific to a single label switched path.
+                            
+                            .. attribute:: bytes
+                            
+                            	Number of bytes that have been forwarded over the label switched path
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: packets
+                            
+                            	Number of pacets that have been forwarded over the label switched path
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: path_changes
+                            
+                            	Number of path changes for the label switched path
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: state_changes
+                            
+                            	Number of state changes for the label switched path
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: online_time
+                            
+                            	Indication of the time the label switched path transitioned to an Oper Up or in\-service state
+                            	**type**\: str
+                            
+                            	**pattern:** ^[0\-9]{4}\\\-[0\-9]{2}\\\-[0\-9]{2}T[0\-9]{2}\:[0\-9]{2}\:[0\-9]{2}(\\.[0\-9]+)?Z[+\-][0\-9]{2}\:[0\-9]{2}$
+                            
+                            .. attribute:: current_path_time
+                            
+                            	Indicates the time the LSP switched onto its current path. This is reset upon a LSP path change
+                            	**type**\: str
+                            
+                            	**pattern:** ^[0\-9]{4}\\\-[0\-9]{2}\\\-[0\-9]{2}T[0\-9]{2}\:[0\-9]{2}\:[0\-9]{2}(\\.[0\-9]+)?Z[+\-][0\-9]{2}\:[0\-9]{2}$
+                            
+                            .. attribute:: next_reoptimization_time
+                            
+                            	Indicates the next scheduled time the LSP will be reoptimized
+                            	**type**\: str
+                            
+                            	**pattern:** ^[0\-9]{4}\\\-[0\-9]{2}\\\-[0\-9]{2}T[0\-9]{2}\:[0\-9]{2}\:[0\-9]{2}(\\.[0\-9]+)?Z[+\-][0\-9]{2}\:[0\-9]{2}$
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
+
+                            def __init__(self):
+                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State.Counters, self).__init__()
+
+                                self.yang_name = "counters"
+                                self.yang_parent_name = "state"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', YLeaf(YType.uint64, 'packets')),
+                                    ('path_changes', YLeaf(YType.uint64, 'path-changes')),
+                                    ('state_changes', YLeaf(YType.uint64, 'state-changes')),
+                                    ('online_time', YLeaf(YType.str, 'online-time')),
+                                    ('current_path_time', YLeaf(YType.str, 'current-path-time')),
+                                    ('next_reoptimization_time', YLeaf(YType.str, 'next-reoptimization-time')),
+                                ])
+                                self.bytes = None
+                                self.packets = None
+                                self.path_changes = None
+                                self.state_changes = None
+                                self.online_time = None
+                                self.current_path_time = None
+                                self.next_reoptimization_time = None
+                                self._segment_path = lambda: "counters"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State.Counters, [u'bytes', u'packets', u'path_changes', u'state_changes', u'online_time', u'current_path_time', u'next_reoptimization_time'], name, value)
+
+
+                    class Bandwidth(Entity):
+                        """
+                        Bandwidth configuration for TE LSPs
+                        
+                        .. attribute:: config
+                        
+                        	Configuration parameters related to bandwidth on TE tunnels\:
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.Config>`
+                        
+                        .. attribute:: state
+                        
+                        	State parameters related to bandwidth configuration of TE tunnels
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.State>`
+                        
+                        .. attribute:: auto_bandwidth
+                        
+                        	Parameters related to auto\-bandwidth
+                        	**type**\:  :py:class:`AutoBandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
+
+                        def __init__(self):
+                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth, self).__init__()
+
+                            self.yang_name = "bandwidth"
+                            self.yang_parent_name = "tunnel"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.State)), ("auto-bandwidth", ("auto_bandwidth", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth))])
+                            self._leafs = OrderedDict()
+
+                            self.config = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.Config()
+                            self.config.parent = self
+                            self._children_name_map["config"] = "config"
+
+                            self.state = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.State()
+                            self.state.parent = self
+                            self._children_name_map["state"] = "state"
+
+                            self.auto_bandwidth = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth()
+                            self.auto_bandwidth.parent = self
+                            self._children_name_map["auto_bandwidth"] = "auto-bandwidth"
+                            self._segment_path = lambda: "bandwidth"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth, [], name, value)
 
 
                         class Config(Entity):
                             """
-                            Configuration parameters related to paths
+                            Configuration parameters related to bandwidth on TE
+                            tunnels\:
                             
-                            .. attribute:: name
+                            .. attribute:: specification_type
                             
-                            	Path name
-                            	**type**\: str
+                            	The method used for settign the bandwidth, either explicitly specified or configured
+                            	**type**\:  :py:class:`TeBandwidthType <ydk.models.openconfig.openconfig_mpls.TeBandwidthType>`
                             
-                            .. attribute:: path_computation_method
+                            	**default value**\: SPECIFIED
                             
-                            	The method used for computing the path, either locally computed, queried from a server or not computed at all (explicitly configured)
-                            	**type**\:  :py:class:`PathComputationMethod <ydk.models.openconfig.openconfig_mpls.PathComputationMethod>`
+                            .. attribute:: set_bandwidth
                             
-                            	**default value**\: locally-computed
-                            
-                            .. attribute:: use_cspf
-                            
-                            	Flag to enable CSPF for locally computed LSPs
-                            	**type**\: bool
-                            
-                            .. attribute:: cspf_tiebreaker
-                            
-                            	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
-                            	**type**\:  :py:class:`CspfTieBreaking <ydk.models.openconfig.openconfig_mpls.CspfTieBreaking>`
-                            
-                            .. attribute:: path_computation_server
-                            
-                            	Address of the external path computation server
-                            	**type**\: union of the below types:
-                            
-                            		**type**\: str
-                            
-                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            		**type**\: str
-                            
-                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: explicit_path_name
-                            
-                            	reference to a defined path
-                            	**type**\: str
-                            
-                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
-                            
-                            .. attribute:: preference
-                            
-                            	Specifies a preference for this path. The lower the number higher the preference
+                            	set bandwidth explicitly, e.g., using offline calculation
                             	**type**\: int
                             
-                            	**range:** 1..255
-                            
-                            .. attribute:: setup_priority
-                            
-                            	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
-                            	**type**\: int
-                            
-                            	**range:** 0..7
-                            
-                            	**default value**\: 7
-                            
-                            .. attribute:: hold_priority
-                            
-                            	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
-                            	**type**\: int
-                            
-                            	**range:** 0..7
-                            
-                            	**default value**\: 0
-                            
-                            .. attribute:: retry_timer
-                            
-                            	sets the time between attempts to establish the LSP
-                            	**type**\: int
-                            
-                            	**range:** 1..600
-                            
-                            	**units**\: seconds
+                            	**range:** 0..18446744073709551615
                             
                             
 
                             """
 
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config, self).__init__()
+                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.Config, self).__init__()
 
                                 self.yang_name = "config"
-                                self.yang_parent_name = "p2p-primary-paths"
+                                self.yang_parent_name = "bandwidth"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('name', YLeaf(YType.str, 'name')),
-                                    ('path_computation_method', YLeaf(YType.identityref, 'path-computation-method')),
-                                    ('use_cspf', YLeaf(YType.boolean, 'use-cspf')),
-                                    ('cspf_tiebreaker', YLeaf(YType.enumeration, 'cspf-tiebreaker')),
-                                    ('path_computation_server', YLeaf(YType.str, 'path-computation-server')),
-                                    ('explicit_path_name', YLeaf(YType.str, 'explicit-path-name')),
-                                    ('preference', YLeaf(YType.uint8, 'preference')),
-                                    ('setup_priority', YLeaf(YType.uint8, 'setup-priority')),
-                                    ('hold_priority', YLeaf(YType.uint8, 'hold-priority')),
-                                    ('retry_timer', YLeaf(YType.uint16, 'retry-timer')),
+                                    ('specification_type', YLeaf(YType.enumeration, 'specification-type')),
+                                    ('set_bandwidth', YLeaf(YType.uint64, 'set-bandwidth')),
                                 ])
-                                self.name = None
-                                self.path_computation_method = None
-                                self.use_cspf = None
-                                self.cspf_tiebreaker = None
-                                self.path_computation_server = None
-                                self.explicit_path_name = None
-                                self.preference = None
-                                self.setup_priority = None
-                                self.hold_priority = None
-                                self.retry_timer = None
+                                self.specification_type = None
+                                self.set_bandwidth = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config, ['name', 'path_computation_method', 'use_cspf', 'cspf_tiebreaker', 'path_computation_server', 'explicit_path_name', 'preference', 'setup_priority', 'hold_priority', 'retry_timer'], name, value)
+                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.Config, [u'specification_type', u'set_bandwidth'], name, value)
 
 
                         class State(Entity):
                             """
-                            State parameters related to paths
+                            State parameters related to bandwidth
+                            configuration of TE tunnels
                             
-                            .. attribute:: name
+                            .. attribute:: specification_type
                             
-                            	Path name
-                            	**type**\: str
+                            	The method used for settign the bandwidth, either explicitly specified or configured
+                            	**type**\:  :py:class:`TeBandwidthType <ydk.models.openconfig.openconfig_mpls.TeBandwidthType>`
                             
-                            .. attribute:: path_computation_method
+                            	**default value**\: SPECIFIED
                             
-                            	The method used for computing the path, either locally computed, queried from a server or not computed at all (explicitly configured)
-                            	**type**\:  :py:class:`PathComputationMethod <ydk.models.openconfig.openconfig_mpls.PathComputationMethod>`
+                            .. attribute:: set_bandwidth
                             
-                            	**default value**\: locally-computed
-                            
-                            .. attribute:: use_cspf
-                            
-                            	Flag to enable CSPF for locally computed LSPs
-                            	**type**\: bool
-                            
-                            .. attribute:: cspf_tiebreaker
-                            
-                            	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
-                            	**type**\:  :py:class:`CspfTieBreaking <ydk.models.openconfig.openconfig_mpls.CspfTieBreaking>`
-                            
-                            .. attribute:: path_computation_server
-                            
-                            	Address of the external path computation server
-                            	**type**\: union of the below types:
-                            
-                            		**type**\: str
-                            
-                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            		**type**\: str
-                            
-                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: explicit_path_name
-                            
-                            	reference to a defined path
-                            	**type**\: str
-                            
-                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
-                            
-                            .. attribute:: preference
-                            
-                            	Specifies a preference for this path. The lower the number higher the preference
+                            	set bandwidth explicitly, e.g., using offline calculation
                             	**type**\: int
                             
-                            	**range:** 1..255
+                            	**range:** 0..18446744073709551615
                             
-                            .. attribute:: setup_priority
+                            .. attribute:: signaled_bandwidth
                             
-                            	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
+                            	The currently signaled bandwidth of the LSP. In the case where the bandwidth is specified explicitly, then this will match the value of the set\-bandwidth leaf; in cases where the bandwidth is dynamically computed by the system, the current value of the bandwidth should be reflected
                             	**type**\: int
                             
-                            	**range:** 0..7
-                            
-                            	**default value**\: 7
-                            
-                            .. attribute:: hold_priority
-                            
-                            	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
-                            	**type**\: int
-                            
-                            	**range:** 0..7
-                            
-                            	**default value**\: 0
-                            
-                            .. attribute:: retry_timer
-                            
-                            	sets the time between attempts to establish the LSP
-                            	**type**\: int
-                            
-                            	**range:** 1..600
-                            
-                            	**units**\: seconds
+                            	**range:** 0..18446744073709551615
                             
                             
 
                             """
 
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.State, self).__init__()
+                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.State, self).__init__()
 
                                 self.yang_name = "state"
-                                self.yang_parent_name = "p2p-primary-paths"
+                                self.yang_parent_name = "bandwidth"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('name', YLeaf(YType.str, 'name')),
-                                    ('path_computation_method', YLeaf(YType.identityref, 'path-computation-method')),
-                                    ('use_cspf', YLeaf(YType.boolean, 'use-cspf')),
-                                    ('cspf_tiebreaker', YLeaf(YType.enumeration, 'cspf-tiebreaker')),
-                                    ('path_computation_server', YLeaf(YType.str, 'path-computation-server')),
-                                    ('explicit_path_name', YLeaf(YType.str, 'explicit-path-name')),
-                                    ('preference', YLeaf(YType.uint8, 'preference')),
-                                    ('setup_priority', YLeaf(YType.uint8, 'setup-priority')),
-                                    ('hold_priority', YLeaf(YType.uint8, 'hold-priority')),
-                                    ('retry_timer', YLeaf(YType.uint16, 'retry-timer')),
+                                    ('specification_type', YLeaf(YType.enumeration, 'specification-type')),
+                                    ('set_bandwidth', YLeaf(YType.uint64, 'set-bandwidth')),
+                                    ('signaled_bandwidth', YLeaf(YType.uint64, 'signaled-bandwidth')),
                                 ])
-                                self.name = None
-                                self.path_computation_method = None
-                                self.use_cspf = None
-                                self.cspf_tiebreaker = None
-                                self.path_computation_server = None
-                                self.explicit_path_name = None
-                                self.preference = None
-                                self.setup_priority = None
-                                self.hold_priority = None
-                                self.retry_timer = None
+                                self.specification_type = None
+                                self.set_bandwidth = None
+                                self.signaled_bandwidth = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.State, ['name', 'path_computation_method', 'use_cspf', 'cspf_tiebreaker', 'path_computation_server', 'explicit_path_name', 'preference', 'setup_priority', 'hold_priority', 'retry_timer'], name, value)
+                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.State, [u'specification_type', u'set_bandwidth', u'signaled_bandwidth'], name, value)
 
 
-                        class CandidateSecondaryPaths(Entity):
+                        class AutoBandwidth(Entity):
                             """
-                            The set of candidate secondary paths which may be used
-                            for this primary path. When secondary paths are specified
-                            in the list the path of the secondary LSP in use must be
-                            restricted to those path options referenced. The
-                            priority of the secondary paths is specified within the
-                            list. Higher priority values are less preferred \- that is
-                            to say that a path with priority 0 is the most preferred
-                            path. In the case that the list is empty, any secondary
-                            path option may be utilised when the current primary path
-                            is in use.
+                            Parameters related to auto\-bandwidth
                             
-                            .. attribute:: candidate_secondary_path
+                            .. attribute:: config
                             
-                            	List of secondary paths which may be utilised when the current primary path is in use
-                            	**type**\: list of  		 :py:class:`CandidateSecondaryPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath>`
+                            	Configuration parameters relating to MPLS auto\-bandwidth on the tunnel
+                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Config>`
+                            
+                            .. attribute:: state
+                            
+                            	State parameters relating to MPLS auto\-bandwidth on the tunnel
+                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.State>`
+                            
+                            .. attribute:: overflow
+                            
+                            	configuration of MPLS overflow bandwidth adjustement for the LSP
+                            	**type**\:  :py:class:`Overflow <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow>`
+                            
+                            .. attribute:: underflow
+                            
+                            	configuration of MPLS underflow bandwidth adjustement for the LSP
+                            	**type**\:  :py:class:`Underflow <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow>`
                             
                             
 
                             """
 
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths, self).__init__()
+                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth, self).__init__()
 
-                                self.yang_name = "candidate-secondary-paths"
-                                self.yang_parent_name = "p2p-primary-paths"
+                                self.yang_name = "auto-bandwidth"
+                                self.yang_parent_name = "bandwidth"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("candidate-secondary-path", ("candidate_secondary_path", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath))])
+                                self._child_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.State)), ("overflow", ("overflow", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow)), ("underflow", ("underflow", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow))])
                                 self._leafs = OrderedDict()
 
-                                self.candidate_secondary_path = YList(self)
-                                self._segment_path = lambda: "candidate-secondary-paths"
+                                self.config = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Config()
+                                self.config.parent = self
+                                self._children_name_map["config"] = "config"
+
+                                self.state = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.State()
+                                self.state.parent = self
+                                self._children_name_map["state"] = "state"
+
+                                self.overflow = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow()
+                                self.overflow.parent = self
+                                self._children_name_map["overflow"] = "overflow"
+
+                                self.underflow = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow()
+                                self.underflow.parent = self
+                                self._children_name_map["underflow"] = "underflow"
+                                self._segment_path = lambda: "auto-bandwidth"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths, [], name, value)
+                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth, [], name, value)
 
 
-                            class CandidateSecondaryPath(Entity):
+                            class Config(Entity):
                                 """
-                                List of secondary paths which may be utilised when the
-                                current primary path is in use
+                                Configuration parameters relating to MPLS
+                                auto\-bandwidth on the tunnel.
                                 
-                                .. attribute:: secondary_path  (key)
+                                .. attribute:: enabled
                                 
-                                	A reference to the secondary path option reference which acts as the key of the candidate\-secondary\-path list
-                                	**type**\: str
+                                	enables mpls auto\-bandwidth on the lsp
+                                	**type**\: bool
                                 
-                                	**refers to**\:  :py:class:`secondary_path <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config>`
+                                	**default value**\: false
+                                
+                                .. attribute:: min_bw
+                                
+                                	set the minimum bandwidth in Kbps for an auto\-bandwidth LSP
+                                	**type**\: int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: max_bw
+                                
+                                	set the maximum bandwidth in Kbps for an auto\-bandwidth LSP
+                                	**type**\: int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: adjust_interval
+                                
+                                	time in seconds between adjustments to LSP bandwidth
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: adjust_threshold
+                                
+                                	percentage difference between the LSP's specified bandwidth and its current bandwidth allocation \-\- if the difference is greater than the specified percentage, auto\-bandwidth adjustment is triggered
+                                	**type**\: int
+                                
+                                	**range:** 0..100
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-mpls'
+                                _revision = '2017-03-22'
+
+                                def __init__(self):
+                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Config, self).__init__()
+
+                                    self.yang_name = "config"
+                                    self.yang_parent_name = "auto-bandwidth"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                        ('min_bw', YLeaf(YType.uint64, 'min-bw')),
+                                        ('max_bw', YLeaf(YType.uint64, 'max-bw')),
+                                        ('adjust_interval', YLeaf(YType.uint32, 'adjust-interval')),
+                                        ('adjust_threshold', YLeaf(YType.uint8, 'adjust-threshold')),
+                                    ])
+                                    self.enabled = None
+                                    self.min_bw = None
+                                    self.max_bw = None
+                                    self.adjust_interval = None
+                                    self.adjust_threshold = None
+                                    self._segment_path = lambda: "config"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Config, [u'enabled', u'min_bw', u'max_bw', u'adjust_interval', u'adjust_threshold'], name, value)
+
+
+                            class State(Entity):
+                                """
+                                State parameters relating to MPLS
+                                auto\-bandwidth on the tunnel.
+                                
+                                .. attribute:: enabled
+                                
+                                	enables mpls auto\-bandwidth on the lsp
+                                	**type**\: bool
+                                
+                                	**default value**\: false
+                                
+                                .. attribute:: min_bw
+                                
+                                	set the minimum bandwidth in Kbps for an auto\-bandwidth LSP
+                                	**type**\: int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: max_bw
+                                
+                                	set the maximum bandwidth in Kbps for an auto\-bandwidth LSP
+                                	**type**\: int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: adjust_interval
+                                
+                                	time in seconds between adjustments to LSP bandwidth
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: adjust_threshold
+                                
+                                	percentage difference between the LSP's specified bandwidth and its current bandwidth allocation \-\- if the difference is greater than the specified percentage, auto\-bandwidth adjustment is triggered
+                                	**type**\: int
+                                
+                                	**range:** 0..100
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-mpls'
+                                _revision = '2017-03-22'
+
+                                def __init__(self):
+                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.State, self).__init__()
+
+                                    self.yang_name = "state"
+                                    self.yang_parent_name = "auto-bandwidth"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                        ('min_bw', YLeaf(YType.uint64, 'min-bw')),
+                                        ('max_bw', YLeaf(YType.uint64, 'max-bw')),
+                                        ('adjust_interval', YLeaf(YType.uint32, 'adjust-interval')),
+                                        ('adjust_threshold', YLeaf(YType.uint8, 'adjust-threshold')),
+                                    ])
+                                    self.enabled = None
+                                    self.min_bw = None
+                                    self.max_bw = None
+                                    self.adjust_interval = None
+                                    self.adjust_threshold = None
+                                    self._segment_path = lambda: "state"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.State, [u'enabled', u'min_bw', u'max_bw', u'adjust_interval', u'adjust_threshold'], name, value)
+
+
+                            class Overflow(Entity):
+                                """
+                                configuration of MPLS overflow bandwidth
+                                adjustement for the LSP
                                 
                                 .. attribute:: config
                                 
-                                	Configuration parameters relating to the candidate secondary path
-                                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config>`
+                                	Config information for MPLS overflow bandwidth adjustment
+                                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow.Config>`
                                 
                                 .. attribute:: state
                                 
-                                	Operational state parameters relating to the candidate secondary path
-                                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State>`
+                                	Config information for MPLS overflow bandwidth adjustment
+                                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow.State>`
                                 
                                 
 
                                 """
 
-                                _prefix = 'mpls'
-                                _revision = '2015-11-05'
+                                _prefix = 'oc-mpls'
+                                _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath, self).__init__()
+                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow, self).__init__()
 
-                                    self.yang_name = "candidate-secondary-path"
-                                    self.yang_parent_name = "candidate-secondary-paths"
+                                    self.yang_name = "overflow"
+                                    self.yang_parent_name = "auto-bandwidth"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self.ylist_key_names = ['secondary_path']
-                                    self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State))])
-                                    self._child_list_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('secondary_path', YLeaf(YType.str, 'secondary-path')),
-                                    ])
-                                    self.secondary_path = None
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow.State))])
+                                    self._leafs = OrderedDict()
 
-                                    self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config()
+                                    self.config = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow.Config()
                                     self.config.parent = self
                                     self._children_name_map["config"] = "config"
-                                    self._children_yang_names.add("config")
 
-                                    self.state = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State()
+                                    self.state = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow.State()
                                     self.state.parent = self
                                     self._children_name_map["state"] = "state"
-                                    self._children_yang_names.add("state")
-                                    self._segment_path = lambda: "candidate-secondary-path" + "[secondary-path='" + str(self.secondary_path) + "']"
+                                    self._segment_path = lambda: "overflow"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath, ['secondary_path'], name, value)
+                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow, [], name, value)
 
 
                                 class Config(Entity):
                                     """
-                                    Configuration parameters relating to the candidate
-                                    secondary path
+                                    Config information for MPLS overflow bandwidth
+                                    adjustment
                                     
-                                    .. attribute:: secondary_path
+                                    .. attribute:: enabled
                                     
-                                    	A reference to the secondary path that should be utilised when the containing primary path option is in use
-                                    	**type**\: str
+                                    	enables mpls lsp bandwidth overflow adjustment on the lsp
+                                    	**type**\: bool
                                     
-                                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config>`
+                                    	**default value**\: false
                                     
-                                    .. attribute:: priority
+                                    .. attribute:: overflow_threshold
                                     
-                                    	The priority of the specified secondary path option. Higher priority options are less preferable \- such that a secondary path reference with a priority of 0 is the most preferred
+                                    	bandwidth percentage change to trigger an overflow event
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..100
+                                    
+                                    .. attribute:: trigger_event_count
+                                    
+                                    	number of consecutive overflow sample events needed to trigger an overflow adjustment
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
@@ -7871,718 +7961,1628 @@ class Mpls(Entity):
 
                                     """
 
-                                    _prefix = 'mpls'
-                                    _revision = '2015-11-05'
+                                    _prefix = 'oc-mpls'
+                                    _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config, self).__init__()
+                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow.Config, self).__init__()
 
                                         self.yang_name = "config"
-                                        self.yang_parent_name = "candidate-secondary-path"
+                                        self.yang_parent_name = "overflow"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('secondary_path', YLeaf(YType.str, 'secondary-path')),
-                                            ('priority', YLeaf(YType.uint16, 'priority')),
+                                            ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                            ('overflow_threshold', YLeaf(YType.uint8, 'overflow-threshold')),
+                                            ('trigger_event_count', YLeaf(YType.uint16, 'trigger-event-count')),
                                         ])
-                                        self.secondary_path = None
-                                        self.priority = None
+                                        self.enabled = None
+                                        self.overflow_threshold = None
+                                        self.trigger_event_count = None
                                         self._segment_path = lambda: "config"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config, ['secondary_path', 'priority'], name, value)
+                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow.Config, [u'enabled', u'overflow_threshold', u'trigger_event_count'], name, value)
 
 
                                 class State(Entity):
                                     """
-                                    Operational state parameters relating to the candidate
-                                    secondary path
+                                    Config information for MPLS overflow bandwidth
+                                    adjustment
                                     
-                                    .. attribute:: secondary_path
+                                    .. attribute:: enabled
                                     
-                                    	A reference to the secondary path that should be utilised when the containing primary path option is in use
-                                    	**type**\: str
+                                    	enables mpls lsp bandwidth overflow adjustment on the lsp
+                                    	**type**\: bool
                                     
-                                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config>`
+                                    	**default value**\: false
                                     
-                                    .. attribute:: priority
+                                    .. attribute:: overflow_threshold
                                     
-                                    	The priority of the specified secondary path option. Higher priority options are less preferable \- such that a secondary path reference with a priority of 0 is the most preferred
+                                    	bandwidth percentage change to trigger an overflow event
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..100
+                                    
+                                    .. attribute:: trigger_event_count
+                                    
+                                    	number of consecutive overflow sample events needed to trigger an overflow adjustment
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
-                                    
-                                    .. attribute:: active
-                                    
-                                    	Indicates the current active path option that has been selected of the candidate secondary paths
-                                    	**type**\: bool
                                     
                                     
 
                                     """
 
-                                    _prefix = 'mpls'
-                                    _revision = '2015-11-05'
+                                    _prefix = 'oc-mpls'
+                                    _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State, self).__init__()
+                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow.State, self).__init__()
 
                                         self.yang_name = "state"
-                                        self.yang_parent_name = "candidate-secondary-path"
+                                        self.yang_parent_name = "overflow"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('secondary_path', YLeaf(YType.str, 'secondary-path')),
-                                            ('priority', YLeaf(YType.uint16, 'priority')),
-                                            ('active', YLeaf(YType.boolean, 'active')),
+                                            ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                            ('overflow_threshold', YLeaf(YType.uint8, 'overflow-threshold')),
+                                            ('trigger_event_count', YLeaf(YType.uint16, 'trigger-event-count')),
                                         ])
-                                        self.secondary_path = None
-                                        self.priority = None
-                                        self.active = None
+                                        self.enabled = None
+                                        self.overflow_threshold = None
+                                        self.trigger_event_count = None
                                         self._segment_path = lambda: "state"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State, ['secondary_path', 'priority', 'active'], name, value)
+                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow.State, [u'enabled', u'overflow_threshold', u'trigger_event_count'], name, value)
 
 
-                        class AdminGroups(Entity):
-                            """
-                            Top\-level container for include/exclude constraints for
-                            link affinities
-                            
-                            .. attribute:: config
-                            
-                            	Configuration data 
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.Config>`
-                            
-                            .. attribute:: state
-                            
-                            	Operational state data 
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.State>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
-
-                            def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups, self).__init__()
-
-                                self.yang_name = "admin-groups"
-                                self.yang_parent_name = "p2p-primary-paths"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.State))])
-                                self._child_list_classes = OrderedDict([])
-                                self._leafs = OrderedDict()
-
-                                self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.Config()
-                                self.config.parent = self
-                                self._children_name_map["config"] = "config"
-                                self._children_yang_names.add("config")
-
-                                self.state = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.State()
-                                self.state.parent = self
-                                self._children_name_map["state"] = "state"
-                                self._children_yang_names.add("state")
-                                self._segment_path = lambda: "admin-groups"
-
-
-                            class Config(Entity):
+                            class Underflow(Entity):
                                 """
-                                Configuration data 
+                                configuration of MPLS underflow bandwidth
+                                adjustement for the LSP
                                 
-                                .. attribute:: exclude_group
+                                .. attribute:: config
                                 
-                                	list of references to named admin\-groups to exclude in path calculation
-                                	**type**\: list of str
+                                	Config information for MPLS underflow bandwidth adjustment
+                                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow.Config>`
                                 
-                                	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                .. attribute:: state
                                 
-                                .. attribute:: include_all_group
-                                
-                                	list of references to named admin\-groups of which all must be included
-                                	**type**\: list of str
-                                
-                                	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
-                                
-                                .. attribute:: include_any_group
-                                
-                                	list of references to named admin\-groups of which one must be included
-                                	**type**\: list of str
-                                
-                                	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                	State information for MPLS underflow bandwidth adjustment
+                                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow.State>`
                                 
                                 
 
                                 """
 
-                                _prefix = 'mpls'
-                                _revision = '2015-11-05'
+                                _prefix = 'oc-mpls'
+                                _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.Config, self).__init__()
+                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow, self).__init__()
 
-                                    self.yang_name = "config"
-                                    self.yang_parent_name = "admin-groups"
+                                    self.yang_name = "underflow"
+                                    self.yang_parent_name = "auto-bandwidth"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('exclude_group', YLeafList(YType.str, 'exclude-group')),
-                                        ('include_all_group', YLeafList(YType.str, 'include-all-group')),
-                                        ('include_any_group', YLeafList(YType.str, 'include-any-group')),
-                                    ])
-                                    self.exclude_group = []
-                                    self.include_all_group = []
-                                    self.include_any_group = []
-                                    self._segment_path = lambda: "config"
+                                    self._child_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow.State))])
+                                    self._leafs = OrderedDict()
+
+                                    self.config = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow.Config()
+                                    self.config.parent = self
+                                    self._children_name_map["config"] = "config"
+
+                                    self.state = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow.State()
+                                    self.state.parent = self
+                                    self._children_name_map["state"] = "state"
+                                    self._segment_path = lambda: "underflow"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.Config, ['exclude_group', 'include_all_group', 'include_any_group'], name, value)
+                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow, [], name, value)
 
 
-                            class State(Entity):
-                                """
-                                Operational state data 
-                                
-                                .. attribute:: exclude_group
-                                
-                                	list of references to named admin\-groups to exclude in path calculation
-                                	**type**\: list of str
-                                
-                                	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
-                                
-                                .. attribute:: include_all_group
-                                
-                                	list of references to named admin\-groups of which all must be included
-                                	**type**\: list of str
-                                
-                                	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
-                                
-                                .. attribute:: include_any_group
-                                
-                                	list of references to named admin\-groups of which one must be included
-                                	**type**\: list of str
-                                
-                                	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
-                                
-                                
+                                class Config(Entity):
+                                    """
+                                    Config information for MPLS underflow bandwidth
+                                    adjustment
+                                    
+                                    .. attribute:: enabled
+                                    
+                                    	enables bandwidth underflow adjustment on the lsp
+                                    	**type**\: bool
+                                    
+                                    	**default value**\: false
+                                    
+                                    .. attribute:: underflow_threshold
+                                    
+                                    	bandwidth percentage change to trigger and underflow event
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..100
+                                    
+                                    .. attribute:: trigger_event_count
+                                    
+                                    	number of consecutive underflow sample events needed to trigger an underflow adjustment
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    
 
-                                """
+                                    """
 
-                                _prefix = 'mpls'
-                                _revision = '2015-11-05'
+                                    _prefix = 'oc-mpls'
+                                    _revision = '2017-03-22'
 
-                                def __init__(self):
-                                    super(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.State, self).__init__()
+                                    def __init__(self):
+                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow.Config, self).__init__()
 
-                                    self.yang_name = "state"
-                                    self.yang_parent_name = "admin-groups"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('exclude_group', YLeafList(YType.str, 'exclude-group')),
-                                        ('include_all_group', YLeafList(YType.str, 'include-all-group')),
-                                        ('include_any_group', YLeafList(YType.str, 'include-any-group')),
-                                    ])
-                                    self.exclude_group = []
-                                    self.include_all_group = []
-                                    self.include_any_group = []
-                                    self._segment_path = lambda: "state"
+                                        self.yang_name = "config"
+                                        self.yang_parent_name = "underflow"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                            ('underflow_threshold', YLeaf(YType.uint8, 'underflow-threshold')),
+                                            ('trigger_event_count', YLeaf(YType.uint16, 'trigger-event-count')),
+                                        ])
+                                        self.enabled = None
+                                        self.underflow_threshold = None
+                                        self.trigger_event_count = None
+                                        self._segment_path = lambda: "config"
 
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.State, ['exclude_group', 'include_all_group', 'include_any_group'], name, value)
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow.Config, [u'enabled', u'underflow_threshold', u'trigger_event_count'], name, value)
 
 
-                    class P2PSecondaryPaths(Entity):
+                                class State(Entity):
+                                    """
+                                    State information for MPLS underflow bandwidth
+                                    adjustment
+                                    
+                                    .. attribute:: enabled
+                                    
+                                    	enables bandwidth underflow adjustment on the lsp
+                                    	**type**\: bool
+                                    
+                                    	**default value**\: false
+                                    
+                                    .. attribute:: underflow_threshold
+                                    
+                                    	bandwidth percentage change to trigger and underflow event
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..100
+                                    
+                                    .. attribute:: trigger_event_count
+                                    
+                                    	number of consecutive underflow sample events needed to trigger an underflow adjustment
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'oc-mpls'
+                                    _revision = '2017-03-22'
+
+                                    def __init__(self):
+                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow.State, self).__init__()
+
+                                        self.yang_name = "state"
+                                        self.yang_parent_name = "underflow"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                            ('underflow_threshold', YLeaf(YType.uint8, 'underflow-threshold')),
+                                            ('trigger_event_count', YLeaf(YType.uint16, 'trigger-event-count')),
+                                        ])
+                                        self.enabled = None
+                                        self.underflow_threshold = None
+                                        self.trigger_event_count = None
+                                        self._segment_path = lambda: "state"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow.State, [u'enabled', u'underflow_threshold', u'trigger_event_count'], name, value)
+
+
+                    class P2pTunnelAttributes(Entity):
                         """
-                        List of p2p primary paths for a tunnel
-                        
-                        .. attribute:: name  (key)
-                        
-                        	Path name
-                        	**type**\: str
-                        
-                        	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config>`
+                        Parameters related to LSPs of type P2P
                         
                         .. attribute:: config
                         
-                        	Configuration parameters related to paths
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config>`
+                        	Configuration parameters for P2P LSPs
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.Config>`
                         
                         .. attribute:: state
                         
-                        	State parameters related to paths
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.State>`
+                        	State parameters for P2P LSPs
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.State>`
                         
-                        .. attribute:: admin_groups
+                        .. attribute:: p2p_primary_path
                         
-                        	Top\-level container for include/exclude constraints for link affinities
-                        	**type**\:  :py:class:`AdminGroups <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups>`
+                        	Primary paths associated with the LSP
+                        	**type**\:  :py:class:`P2pPrimaryPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath>`
+                        
+                        .. attribute:: p2p_secondary_paths
+                        
+                        	Secondary paths for the LSP
+                        	**type**\:  :py:class:`P2pSecondaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths>`
                         
                         
 
                         """
 
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths, self).__init__()
+                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes, self).__init__()
 
-                            self.yang_name = "p2p-secondary-paths"
-                            self.yang_parent_name = "p2p-tunnel-attributes"
+                            self.yang_name = "p2p-tunnel-attributes"
+                            self.yang_parent_name = "tunnel"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self.ylist_key_names = ['name']
-                            self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.State)), ("admin-groups", ("admin_groups", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups))])
-                            self._child_list_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('name', YLeaf(YType.str, 'name')),
-                            ])
-                            self.name = None
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.State)), ("p2p-primary-path", ("p2p_primary_path", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath)), ("p2p-secondary-paths", ("p2p_secondary_paths", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths))])
+                            self._leafs = OrderedDict()
 
-                            self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config()
+                            self.config = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
-                            self._children_yang_names.add("config")
 
-                            self.state = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.State()
+                            self.state = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
-                            self._children_yang_names.add("state")
 
-                            self.admin_groups = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups()
-                            self.admin_groups.parent = self
-                            self._children_name_map["admin_groups"] = "admin-groups"
-                            self._children_yang_names.add("admin-groups")
-                            self._segment_path = lambda: "p2p-secondary-paths" + "[name='" + str(self.name) + "']"
+                            self.p2p_primary_path = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath()
+                            self.p2p_primary_path.parent = self
+                            self._children_name_map["p2p_primary_path"] = "p2p-primary-path"
+
+                            self.p2p_secondary_paths = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths()
+                            self.p2p_secondary_paths.parent = self
+                            self._children_name_map["p2p_secondary_paths"] = "p2p-secondary-paths"
+                            self._segment_path = lambda: "p2p-tunnel-attributes"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths, ['name'], name, value)
+                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes, [], name, value)
 
 
                         class Config(Entity):
                             """
-                            Configuration parameters related to paths
+                            Configuration parameters for P2P LSPs
                             
-                            .. attribute:: name
+                            .. attribute:: destination
                             
-                            	Path name
-                            	**type**\: str
-                            
-                            .. attribute:: path_computation_method
-                            
-                            	The method used for computing the path, either locally computed, queried from a server or not computed at all (explicitly configured)
-                            	**type**\:  :py:class:`PathComputationMethod <ydk.models.openconfig.openconfig_mpls.PathComputationMethod>`
-                            
-                            	**default value**\: locally-computed
-                            
-                            .. attribute:: use_cspf
-                            
-                            	Flag to enable CSPF for locally computed LSPs
-                            	**type**\: bool
-                            
-                            .. attribute:: cspf_tiebreaker
-                            
-                            	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
-                            	**type**\:  :py:class:`CspfTieBreaking <ydk.models.openconfig.openconfig_mpls.CspfTieBreaking>`
-                            
-                            .. attribute:: path_computation_server
-                            
-                            	Address of the external path computation server
+                            	P2P tunnel destination address
                             	**type**\: union of the below types:
                             
                             		**type**\: str
                             
-                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                             
                             		**type**\: str
                             
-                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: explicit_path_name
-                            
-                            	reference to a defined path
-                            	**type**\: str
-                            
-                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
-                            
-                            .. attribute:: preference
-                            
-                            	Specifies a preference for this path. The lower the number higher the preference
-                            	**type**\: int
-                            
-                            	**range:** 1..255
-                            
-                            .. attribute:: setup_priority
-                            
-                            	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
-                            	**type**\: int
-                            
-                            	**range:** 0..7
-                            
-                            	**default value**\: 7
-                            
-                            .. attribute:: hold_priority
-                            
-                            	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
-                            	**type**\: int
-                            
-                            	**range:** 0..7
-                            
-                            	**default value**\: 0
-                            
-                            .. attribute:: retry_timer
-                            
-                            	sets the time between attempts to establish the LSP
-                            	**type**\: int
-                            
-                            	**range:** 1..600
-                            
-                            	**units**\: seconds
+                            			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                             
                             
 
                             """
 
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config, self).__init__()
+                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.Config, self).__init__()
 
                                 self.yang_name = "config"
-                                self.yang_parent_name = "p2p-secondary-paths"
+                                self.yang_parent_name = "p2p-tunnel-attributes"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('name', YLeaf(YType.str, 'name')),
-                                    ('path_computation_method', YLeaf(YType.identityref, 'path-computation-method')),
-                                    ('use_cspf', YLeaf(YType.boolean, 'use-cspf')),
-                                    ('cspf_tiebreaker', YLeaf(YType.enumeration, 'cspf-tiebreaker')),
-                                    ('path_computation_server', YLeaf(YType.str, 'path-computation-server')),
-                                    ('explicit_path_name', YLeaf(YType.str, 'explicit-path-name')),
-                                    ('preference', YLeaf(YType.uint8, 'preference')),
-                                    ('setup_priority', YLeaf(YType.uint8, 'setup-priority')),
-                                    ('hold_priority', YLeaf(YType.uint8, 'hold-priority')),
-                                    ('retry_timer', YLeaf(YType.uint16, 'retry-timer')),
+                                    ('destination', YLeaf(YType.str, 'destination')),
                                 ])
-                                self.name = None
-                                self.path_computation_method = None
-                                self.use_cspf = None
-                                self.cspf_tiebreaker = None
-                                self.path_computation_server = None
-                                self.explicit_path_name = None
-                                self.preference = None
-                                self.setup_priority = None
-                                self.hold_priority = None
-                                self.retry_timer = None
+                                self.destination = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config, ['name', 'path_computation_method', 'use_cspf', 'cspf_tiebreaker', 'path_computation_server', 'explicit_path_name', 'preference', 'setup_priority', 'hold_priority', 'retry_timer'], name, value)
+                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.Config, [u'destination'], name, value)
 
 
                         class State(Entity):
                             """
-                            State parameters related to paths
+                            State parameters for P2P LSPs
                             
-                            .. attribute:: name
+                            .. attribute:: destination
                             
-                            	Path name
-                            	**type**\: str
-                            
-                            .. attribute:: path_computation_method
-                            
-                            	The method used for computing the path, either locally computed, queried from a server or not computed at all (explicitly configured)
-                            	**type**\:  :py:class:`PathComputationMethod <ydk.models.openconfig.openconfig_mpls.PathComputationMethod>`
-                            
-                            	**default value**\: locally-computed
-                            
-                            .. attribute:: use_cspf
-                            
-                            	Flag to enable CSPF for locally computed LSPs
-                            	**type**\: bool
-                            
-                            .. attribute:: cspf_tiebreaker
-                            
-                            	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
-                            	**type**\:  :py:class:`CspfTieBreaking <ydk.models.openconfig.openconfig_mpls.CspfTieBreaking>`
-                            
-                            .. attribute:: path_computation_server
-                            
-                            	Address of the external path computation server
+                            	P2P tunnel destination address
                             	**type**\: union of the below types:
                             
                             		**type**\: str
                             
-                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                             
                             		**type**\: str
                             
-                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: explicit_path_name
-                            
-                            	reference to a defined path
-                            	**type**\: str
-                            
-                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
-                            
-                            .. attribute:: preference
-                            
-                            	Specifies a preference for this path. The lower the number higher the preference
-                            	**type**\: int
-                            
-                            	**range:** 1..255
-                            
-                            .. attribute:: setup_priority
-                            
-                            	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
-                            	**type**\: int
-                            
-                            	**range:** 0..7
-                            
-                            	**default value**\: 7
-                            
-                            .. attribute:: hold_priority
-                            
-                            	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
-                            	**type**\: int
-                            
-                            	**range:** 0..7
-                            
-                            	**default value**\: 0
-                            
-                            .. attribute:: retry_timer
-                            
-                            	sets the time between attempts to establish the LSP
-                            	**type**\: int
-                            
-                            	**range:** 1..600
-                            
-                            	**units**\: seconds
+                            			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                             
                             
 
                             """
 
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.State, self).__init__()
+                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.State, self).__init__()
 
                                 self.yang_name = "state"
-                                self.yang_parent_name = "p2p-secondary-paths"
+                                self.yang_parent_name = "p2p-tunnel-attributes"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('name', YLeaf(YType.str, 'name')),
-                                    ('path_computation_method', YLeaf(YType.identityref, 'path-computation-method')),
-                                    ('use_cspf', YLeaf(YType.boolean, 'use-cspf')),
-                                    ('cspf_tiebreaker', YLeaf(YType.enumeration, 'cspf-tiebreaker')),
-                                    ('path_computation_server', YLeaf(YType.str, 'path-computation-server')),
-                                    ('explicit_path_name', YLeaf(YType.str, 'explicit-path-name')),
-                                    ('preference', YLeaf(YType.uint8, 'preference')),
-                                    ('setup_priority', YLeaf(YType.uint8, 'setup-priority')),
-                                    ('hold_priority', YLeaf(YType.uint8, 'hold-priority')),
-                                    ('retry_timer', YLeaf(YType.uint16, 'retry-timer')),
+                                    ('destination', YLeaf(YType.str, 'destination')),
                                 ])
-                                self.name = None
-                                self.path_computation_method = None
-                                self.use_cspf = None
-                                self.cspf_tiebreaker = None
-                                self.path_computation_server = None
-                                self.explicit_path_name = None
-                                self.preference = None
-                                self.setup_priority = None
-                                self.hold_priority = None
-                                self.retry_timer = None
+                                self.destination = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.State, ['name', 'path_computation_method', 'use_cspf', 'cspf_tiebreaker', 'path_computation_server', 'explicit_path_name', 'preference', 'setup_priority', 'hold_priority', 'retry_timer'], name, value)
+                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.State, [u'destination'], name, value)
 
 
-                        class AdminGroups(Entity):
+                        class P2pPrimaryPath(Entity):
                             """
-                            Top\-level container for include/exclude constraints for
-                            link affinities
+                            Primary paths associated with the LSP
                             
-                            .. attribute:: config
+                            .. attribute:: p2p_primary_path
                             
-                            	Configuration data 
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.Config>`
-                            
-                            .. attribute:: state
-                            
-                            	Operational state data 
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.State>`
+                            	List of p2p primary paths for a tunnel
+                            	**type**\: list of  		 :py:class:`P2pPrimaryPath_ <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_>`
                             
                             
 
                             """
 
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups, self).__init__()
+                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath, self).__init__()
 
-                                self.yang_name = "admin-groups"
-                                self.yang_parent_name = "p2p-secondary-paths"
+                                self.yang_name = "p2p-primary-path"
+                                self.yang_parent_name = "p2p-tunnel-attributes"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.State))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("p2p-primary-path", ("p2p_primary_path", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_))])
                                 self._leafs = OrderedDict()
 
-                                self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.Config()
-                                self.config.parent = self
-                                self._children_name_map["config"] = "config"
-                                self._children_yang_names.add("config")
+                                self.p2p_primary_path = YList(self)
+                                self._segment_path = lambda: "p2p-primary-path"
 
-                                self.state = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.State()
-                                self.state.parent = self
-                                self._children_name_map["state"] = "state"
-                                self._children_yang_names.add("state")
-                                self._segment_path = lambda: "admin-groups"
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath, [], name, value)
 
 
-                            class Config(Entity):
+                            class P2pPrimaryPath_(Entity):
                                 """
-                                Configuration data 
+                                List of p2p primary paths for a tunnel
                                 
-                                .. attribute:: exclude_group
+                                .. attribute:: name  (key)
                                 
-                                	list of references to named admin\-groups to exclude in path calculation
-                                	**type**\: list of str
+                                	Path name
+                                	**type**\: str
                                 
-                                	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.Config>`
                                 
-                                .. attribute:: include_all_group
+                                .. attribute:: config
                                 
-                                	list of references to named admin\-groups of which all must be included
-                                	**type**\: list of str
+                                	Configuration parameters related to paths
+                                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.Config>`
                                 
-                                	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                .. attribute:: state
                                 
-                                .. attribute:: include_any_group
+                                	State parameters related to paths
+                                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.State>`
                                 
-                                	list of references to named admin\-groups of which one must be included
-                                	**type**\: list of str
+                                .. attribute:: candidate_secondary_paths
                                 
-                                	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                	The set of candidate secondary paths which may be used for this primary path. When secondary paths are specified in the list the path of the secondary LSP in use must be restricted to those path options referenced. The priority of the secondary paths is specified within the list. Higher priority values are less preferred \- that is to say that a path with priority 0 is the most preferred path. In the case that the list is empty, any secondary path option may be utilised when the current primary path is in use
+                                	**type**\:  :py:class:`CandidateSecondaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths>`
+                                
+                                .. attribute:: admin_groups
+                                
+                                	Top\-level container for include/exclude constraints for link affinities
+                                	**type**\:  :py:class:`AdminGroups <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups>`
                                 
                                 
 
                                 """
 
-                                _prefix = 'mpls'
-                                _revision = '2015-11-05'
+                                _prefix = 'oc-mpls'
+                                _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.Config, self).__init__()
+                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_, self).__init__()
 
-                                    self.yang_name = "config"
-                                    self.yang_parent_name = "admin-groups"
+                                    self.yang_name = "p2p-primary-path"
+                                    self.yang_parent_name = "p2p-primary-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self.ylist_key_names = ['name']
+                                    self._child_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.State)), ("candidate-secondary-paths", ("candidate_secondary_paths", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths)), ("admin-groups", ("admin_groups", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups))])
                                     self._leafs = OrderedDict([
-                                        ('exclude_group', YLeafList(YType.str, 'exclude-group')),
-                                        ('include_all_group', YLeafList(YType.str, 'include-all-group')),
-                                        ('include_any_group', YLeafList(YType.str, 'include-any-group')),
+                                        ('name', YLeaf(YType.str, 'name')),
                                     ])
-                                    self.exclude_group = []
-                                    self.include_all_group = []
-                                    self.include_any_group = []
-                                    self._segment_path = lambda: "config"
+                                    self.name = None
+
+                                    self.config = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.Config()
+                                    self.config.parent = self
+                                    self._children_name_map["config"] = "config"
+
+                                    self.state = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.State()
+                                    self.state.parent = self
+                                    self._children_name_map["state"] = "state"
+
+                                    self.candidate_secondary_paths = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths()
+                                    self.candidate_secondary_paths.parent = self
+                                    self._children_name_map["candidate_secondary_paths"] = "candidate-secondary-paths"
+
+                                    self.admin_groups = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups()
+                                    self.admin_groups.parent = self
+                                    self._children_name_map["admin_groups"] = "admin-groups"
+                                    self._segment_path = lambda: "p2p-primary-path" + "[name='" + str(self.name) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.Config, ['exclude_group', 'include_all_group', 'include_any_group'], name, value)
+                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_, [u'name'], name, value)
 
 
-                            class State(Entity):
+                                class Config(Entity):
+                                    """
+                                    Configuration parameters related to paths
+                                    
+                                    .. attribute:: name
+                                    
+                                    	Path name
+                                    	**type**\: str
+                                    
+                                    .. attribute:: path_computation_method
+                                    
+                                    	The method used for computing the path, either locally computed, queried from a server or not computed at all (explicitly configured)
+                                    	**type**\:  :py:class:`PATHCOMPUTATIONMETHOD <ydk.models.openconfig.openconfig_mpls_types.PATHCOMPUTATIONMETHOD>`
+                                    
+                                    	**default value**\: oc-mplst:LOCALLY_COMPUTED
+                                    
+                                    .. attribute:: use_cspf
+                                    
+                                    	Flag to enable CSPF for locally computed LSPs
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: cspf_tiebreaker
+                                    
+                                    	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
+                                    	**type**\:  :py:class:`CspfTieBreaking <ydk.models.openconfig.openconfig_mpls.CspfTieBreaking>`
+                                    
+                                    .. attribute:: path_computation_server
+                                    
+                                    	Address of the external path computation server
+                                    	**type**\: union of the below types:
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                                    
+                                    .. attribute:: explicit_path_name
+                                    
+                                    	reference to a defined path
+                                    	**type**\: str
+                                    
+                                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.Config>`
+                                    
+                                    .. attribute:: preference
+                                    
+                                    	Specifies a preference for this path. The lower the number higher the preference
+                                    	**type**\: int
+                                    
+                                    	**range:** 1..255
+                                    
+                                    .. attribute:: setup_priority
+                                    
+                                    	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..7
+                                    
+                                    	**default value**\: 7
+                                    
+                                    .. attribute:: hold_priority
+                                    
+                                    	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..7
+                                    
+                                    	**default value**\: 0
+                                    
+                                    .. attribute:: retry_timer
+                                    
+                                    	sets the time between attempts to establish the LSP
+                                    	**type**\: int
+                                    
+                                    	**range:** 1..600
+                                    
+                                    	**units**\: seconds
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'oc-mpls'
+                                    _revision = '2017-03-22'
+
+                                    def __init__(self):
+                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.Config, self).__init__()
+
+                                        self.yang_name = "config"
+                                        self.yang_parent_name = "p2p-primary-path"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('path_computation_method', YLeaf(YType.identityref, 'path-computation-method')),
+                                            ('use_cspf', YLeaf(YType.boolean, 'use-cspf')),
+                                            ('cspf_tiebreaker', YLeaf(YType.enumeration, 'cspf-tiebreaker')),
+                                            ('path_computation_server', YLeaf(YType.str, 'path-computation-server')),
+                                            ('explicit_path_name', YLeaf(YType.str, 'explicit-path-name')),
+                                            ('preference', YLeaf(YType.uint8, 'preference')),
+                                            ('setup_priority', YLeaf(YType.uint8, 'setup-priority')),
+                                            ('hold_priority', YLeaf(YType.uint8, 'hold-priority')),
+                                            ('retry_timer', YLeaf(YType.uint16, 'retry-timer')),
+                                        ])
+                                        self.name = None
+                                        self.path_computation_method = None
+                                        self.use_cspf = None
+                                        self.cspf_tiebreaker = None
+                                        self.path_computation_server = None
+                                        self.explicit_path_name = None
+                                        self.preference = None
+                                        self.setup_priority = None
+                                        self.hold_priority = None
+                                        self.retry_timer = None
+                                        self._segment_path = lambda: "config"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.Config, [u'name', u'path_computation_method', u'use_cspf', u'cspf_tiebreaker', u'path_computation_server', u'explicit_path_name', u'preference', 'setup_priority', 'hold_priority', 'retry_timer'], name, value)
+
+
+                                class State(Entity):
+                                    """
+                                    State parameters related to paths
+                                    
+                                    .. attribute:: name
+                                    
+                                    	Path name
+                                    	**type**\: str
+                                    
+                                    .. attribute:: path_computation_method
+                                    
+                                    	The method used for computing the path, either locally computed, queried from a server or not computed at all (explicitly configured)
+                                    	**type**\:  :py:class:`PATHCOMPUTATIONMETHOD <ydk.models.openconfig.openconfig_mpls_types.PATHCOMPUTATIONMETHOD>`
+                                    
+                                    	**default value**\: oc-mplst:LOCALLY_COMPUTED
+                                    
+                                    .. attribute:: use_cspf
+                                    
+                                    	Flag to enable CSPF for locally computed LSPs
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: cspf_tiebreaker
+                                    
+                                    	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
+                                    	**type**\:  :py:class:`CspfTieBreaking <ydk.models.openconfig.openconfig_mpls.CspfTieBreaking>`
+                                    
+                                    .. attribute:: path_computation_server
+                                    
+                                    	Address of the external path computation server
+                                    	**type**\: union of the below types:
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                                    
+                                    .. attribute:: explicit_path_name
+                                    
+                                    	reference to a defined path
+                                    	**type**\: str
+                                    
+                                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.Config>`
+                                    
+                                    .. attribute:: preference
+                                    
+                                    	Specifies a preference for this path. The lower the number higher the preference
+                                    	**type**\: int
+                                    
+                                    	**range:** 1..255
+                                    
+                                    .. attribute:: setup_priority
+                                    
+                                    	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..7
+                                    
+                                    	**default value**\: 7
+                                    
+                                    .. attribute:: hold_priority
+                                    
+                                    	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..7
+                                    
+                                    	**default value**\: 0
+                                    
+                                    .. attribute:: retry_timer
+                                    
+                                    	sets the time between attempts to establish the LSP
+                                    	**type**\: int
+                                    
+                                    	**range:** 1..600
+                                    
+                                    	**units**\: seconds
+                                    
+                                    .. attribute:: associated_rsvp_session
+                                    
+                                    	If the signalling protocol specified for this path is RSVP\-TE, this leaf provides a reference to the associated session within the RSVP\-TE protocol sessions list, such that details of the signaling can be retrieved
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**refers to**\:  :py:class:`local_index <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Session>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'oc-mpls'
+                                    _revision = '2017-03-22'
+
+                                    def __init__(self):
+                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.State, self).__init__()
+
+                                        self.yang_name = "state"
+                                        self.yang_parent_name = "p2p-primary-path"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('path_computation_method', YLeaf(YType.identityref, 'path-computation-method')),
+                                            ('use_cspf', YLeaf(YType.boolean, 'use-cspf')),
+                                            ('cspf_tiebreaker', YLeaf(YType.enumeration, 'cspf-tiebreaker')),
+                                            ('path_computation_server', YLeaf(YType.str, 'path-computation-server')),
+                                            ('explicit_path_name', YLeaf(YType.str, 'explicit-path-name')),
+                                            ('preference', YLeaf(YType.uint8, 'preference')),
+                                            ('setup_priority', YLeaf(YType.uint8, 'setup-priority')),
+                                            ('hold_priority', YLeaf(YType.uint8, 'hold-priority')),
+                                            ('retry_timer', YLeaf(YType.uint16, 'retry-timer')),
+                                            ('associated_rsvp_session', YLeaf(YType.str, 'associated-rsvp-session')),
+                                        ])
+                                        self.name = None
+                                        self.path_computation_method = None
+                                        self.use_cspf = None
+                                        self.cspf_tiebreaker = None
+                                        self.path_computation_server = None
+                                        self.explicit_path_name = None
+                                        self.preference = None
+                                        self.setup_priority = None
+                                        self.hold_priority = None
+                                        self.retry_timer = None
+                                        self.associated_rsvp_session = None
+                                        self._segment_path = lambda: "state"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.State, [u'name', u'path_computation_method', u'use_cspf', u'cspf_tiebreaker', u'path_computation_server', u'explicit_path_name', u'preference', 'setup_priority', 'hold_priority', 'retry_timer', u'associated_rsvp_session'], name, value)
+
+
+                                class CandidateSecondaryPaths(Entity):
+                                    """
+                                    The set of candidate secondary paths which may be used
+                                    for this primary path. When secondary paths are specified
+                                    in the list the path of the secondary LSP in use must be
+                                    restricted to those path options referenced. The
+                                    priority of the secondary paths is specified within the
+                                    list. Higher priority values are less preferred \- that is
+                                    to say that a path with priority 0 is the most preferred
+                                    path. In the case that the list is empty, any secondary
+                                    path option may be utilised when the current primary path
+                                    is in use.
+                                    
+                                    .. attribute:: candidate_secondary_path
+                                    
+                                    	List of secondary paths which may be utilised when the current primary path is in use
+                                    	**type**\: list of  		 :py:class:`CandidateSecondaryPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'oc-mpls'
+                                    _revision = '2017-03-22'
+
+                                    def __init__(self):
+                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths, self).__init__()
+
+                                        self.yang_name = "candidate-secondary-paths"
+                                        self.yang_parent_name = "p2p-primary-path"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("candidate-secondary-path", ("candidate_secondary_path", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath))])
+                                        self._leafs = OrderedDict()
+
+                                        self.candidate_secondary_path = YList(self)
+                                        self._segment_path = lambda: "candidate-secondary-paths"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths, [], name, value)
+
+
+                                    class CandidateSecondaryPath(Entity):
+                                        """
+                                        List of secondary paths which may be utilised when the
+                                        current primary path is in use
+                                        
+                                        .. attribute:: secondary_path  (key)
+                                        
+                                        	A reference to the secondary path option reference which acts as the key of the candidate\-secondary\-path list
+                                        	**type**\: str
+                                        
+                                        	**refers to**\:  :py:class:`secondary_path <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.Config>`
+                                        
+                                        .. attribute:: config
+                                        
+                                        	Configuration parameters relating to the candidate secondary path
+                                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.Config>`
+                                        
+                                        .. attribute:: state
+                                        
+                                        	Operational state parameters relating to the candidate secondary path
+                                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.State>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'oc-mpls'
+                                        _revision = '2017-03-22'
+
+                                        def __init__(self):
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath, self).__init__()
+
+                                            self.yang_name = "candidate-secondary-path"
+                                            self.yang_parent_name = "candidate-secondary-paths"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = ['secondary_path']
+                                            self._child_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.State))])
+                                            self._leafs = OrderedDict([
+                                                ('secondary_path', YLeaf(YType.str, 'secondary-path')),
+                                            ])
+                                            self.secondary_path = None
+
+                                            self.config = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.Config()
+                                            self.config.parent = self
+                                            self._children_name_map["config"] = "config"
+
+                                            self.state = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.State()
+                                            self.state.parent = self
+                                            self._children_name_map["state"] = "state"
+                                            self._segment_path = lambda: "candidate-secondary-path" + "[secondary-path='" + str(self.secondary_path) + "']"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath, [u'secondary_path'], name, value)
+
+
+                                        class Config(Entity):
+                                            """
+                                            Configuration parameters relating to the candidate
+                                            secondary path
+                                            
+                                            .. attribute:: secondary_path
+                                            
+                                            	A reference to the secondary path that should be utilised when the containing primary path option is in use
+                                            	**type**\: str
+                                            
+                                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.Config>`
+                                            
+                                            .. attribute:: priority
+                                            
+                                            	The priority of the specified secondary path option. Higher priority options are less preferable \- such that a secondary path reference with a priority of 0 is the most preferred
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..65535
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'oc-mpls'
+                                            _revision = '2017-03-22'
+
+                                            def __init__(self):
+                                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.Config, self).__init__()
+
+                                                self.yang_name = "config"
+                                                self.yang_parent_name = "candidate-secondary-path"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('secondary_path', YLeaf(YType.str, 'secondary-path')),
+                                                    ('priority', YLeaf(YType.uint16, 'priority')),
+                                                ])
+                                                self.secondary_path = None
+                                                self.priority = None
+                                                self._segment_path = lambda: "config"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.Config, [u'secondary_path', u'priority'], name, value)
+
+
+                                        class State(Entity):
+                                            """
+                                            Operational state parameters relating to the candidate
+                                            secondary path
+                                            
+                                            .. attribute:: secondary_path
+                                            
+                                            	A reference to the secondary path that should be utilised when the containing primary path option is in use
+                                            	**type**\: str
+                                            
+                                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.Config>`
+                                            
+                                            .. attribute:: priority
+                                            
+                                            	The priority of the specified secondary path option. Higher priority options are less preferable \- such that a secondary path reference with a priority of 0 is the most preferred
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..65535
+                                            
+                                            .. attribute:: active
+                                            
+                                            	Indicates the current active path option that has been selected of the candidate secondary paths
+                                            	**type**\: bool
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'oc-mpls'
+                                            _revision = '2017-03-22'
+
+                                            def __init__(self):
+                                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.State, self).__init__()
+
+                                                self.yang_name = "state"
+                                                self.yang_parent_name = "candidate-secondary-path"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('secondary_path', YLeaf(YType.str, 'secondary-path')),
+                                                    ('priority', YLeaf(YType.uint16, 'priority')),
+                                                    ('active', YLeaf(YType.boolean, 'active')),
+                                                ])
+                                                self.secondary_path = None
+                                                self.priority = None
+                                                self.active = None
+                                                self._segment_path = lambda: "state"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.State, [u'secondary_path', u'priority', u'active'], name, value)
+
+
+                                class AdminGroups(Entity):
+                                    """
+                                    Top\-level container for include/exclude constraints for
+                                    link affinities
+                                    
+                                    .. attribute:: config
+                                    
+                                    	Configuration data 
+                                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups.Config>`
+                                    
+                                    .. attribute:: state
+                                    
+                                    	Operational state data 
+                                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups.State>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'oc-mpls'
+                                    _revision = '2017-03-22'
+
+                                    def __init__(self):
+                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups, self).__init__()
+
+                                        self.yang_name = "admin-groups"
+                                        self.yang_parent_name = "p2p-primary-path"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups.State))])
+                                        self._leafs = OrderedDict()
+
+                                        self.config = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups.Config()
+                                        self.config.parent = self
+                                        self._children_name_map["config"] = "config"
+
+                                        self.state = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups.State()
+                                        self.state.parent = self
+                                        self._children_name_map["state"] = "state"
+                                        self._segment_path = lambda: "admin-groups"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups, [], name, value)
+
+
+                                    class Config(Entity):
+                                        """
+                                        Configuration data 
+                                        
+                                        .. attribute:: exclude_group
+                                        
+                                        	list of references to named admin\-groups to exclude in path calculation
+                                        	**type**\: list of str
+                                        
+                                        	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                        
+                                        .. attribute:: include_all_group
+                                        
+                                        	list of references to named admin\-groups of which all must be included
+                                        	**type**\: list of str
+                                        
+                                        	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                        
+                                        .. attribute:: include_any_group
+                                        
+                                        	list of references to named admin\-groups of which one must be included
+                                        	**type**\: list of str
+                                        
+                                        	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'oc-mpls'
+                                        _revision = '2017-03-22'
+
+                                        def __init__(self):
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups.Config, self).__init__()
+
+                                            self.yang_name = "config"
+                                            self.yang_parent_name = "admin-groups"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('exclude_group', YLeafList(YType.str, 'exclude-group')),
+                                                ('include_all_group', YLeafList(YType.str, 'include-all-group')),
+                                                ('include_any_group', YLeafList(YType.str, 'include-any-group')),
+                                            ])
+                                            self.exclude_group = []
+                                            self.include_all_group = []
+                                            self.include_any_group = []
+                                            self._segment_path = lambda: "config"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups.Config, [u'exclude_group', u'include_all_group', u'include_any_group'], name, value)
+
+
+                                    class State(Entity):
+                                        """
+                                        Operational state data 
+                                        
+                                        .. attribute:: exclude_group
+                                        
+                                        	list of references to named admin\-groups to exclude in path calculation
+                                        	**type**\: list of str
+                                        
+                                        	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                        
+                                        .. attribute:: include_all_group
+                                        
+                                        	list of references to named admin\-groups of which all must be included
+                                        	**type**\: list of str
+                                        
+                                        	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                        
+                                        .. attribute:: include_any_group
+                                        
+                                        	list of references to named admin\-groups of which one must be included
+                                        	**type**\: list of str
+                                        
+                                        	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'oc-mpls'
+                                        _revision = '2017-03-22'
+
+                                        def __init__(self):
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups.State, self).__init__()
+
+                                            self.yang_name = "state"
+                                            self.yang_parent_name = "admin-groups"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('exclude_group', YLeafList(YType.str, 'exclude-group')),
+                                                ('include_all_group', YLeafList(YType.str, 'include-all-group')),
+                                                ('include_any_group', YLeafList(YType.str, 'include-any-group')),
+                                            ])
+                                            self.exclude_group = []
+                                            self.include_all_group = []
+                                            self.include_any_group = []
+                                            self._segment_path = lambda: "state"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups.State, [u'exclude_group', u'include_all_group', u'include_any_group'], name, value)
+
+
+                        class P2pSecondaryPaths(Entity):
+                            """
+                            Secondary paths for the LSP
+                            
+                            .. attribute:: p2p_secondary_path
+                            
+                            	List of p2p primary paths for a tunnel
+                            	**type**\: list of  		 :py:class:`P2pSecondaryPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-mpls'
+                            _revision = '2017-03-22'
+
+                            def __init__(self):
+                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths, self).__init__()
+
+                                self.yang_name = "p2p-secondary-paths"
+                                self.yang_parent_name = "p2p-tunnel-attributes"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("p2p-secondary-path", ("p2p_secondary_path", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath))])
+                                self._leafs = OrderedDict()
+
+                                self.p2p_secondary_path = YList(self)
+                                self._segment_path = lambda: "p2p-secondary-paths"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths, [], name, value)
+
+
+                            class P2pSecondaryPath(Entity):
                                 """
-                                Operational state data 
+                                List of p2p primary paths for a tunnel
                                 
-                                .. attribute:: exclude_group
+                                .. attribute:: name  (key)
                                 
-                                	list of references to named admin\-groups to exclude in path calculation
-                                	**type**\: list of str
+                                	Path name
+                                	**type**\: str
                                 
-                                	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.Config>`
                                 
-                                .. attribute:: include_all_group
+                                .. attribute:: config
                                 
-                                	list of references to named admin\-groups of which all must be included
-                                	**type**\: list of str
+                                	Configuration parameters related to paths
+                                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.Config>`
                                 
-                                	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                .. attribute:: state
                                 
-                                .. attribute:: include_any_group
+                                	State parameters related to paths
+                                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.State>`
                                 
-                                	list of references to named admin\-groups of which one must be included
-                                	**type**\: list of str
+                                .. attribute:: admin_groups
                                 
-                                	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                	Top\-level container for include/exclude constraints for link affinities
+                                	**type**\:  :py:class:`AdminGroups <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups>`
                                 
                                 
 
                                 """
 
-                                _prefix = 'mpls'
-                                _revision = '2015-11-05'
+                                _prefix = 'oc-mpls'
+                                _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.State, self).__init__()
+                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath, self).__init__()
 
-                                    self.yang_name = "state"
-                                    self.yang_parent_name = "admin-groups"
+                                    self.yang_name = "p2p-secondary-path"
+                                    self.yang_parent_name = "p2p-secondary-paths"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self.ylist_key_names = ['name']
+                                    self._child_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.State)), ("admin-groups", ("admin_groups", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups))])
                                     self._leafs = OrderedDict([
-                                        ('exclude_group', YLeafList(YType.str, 'exclude-group')),
-                                        ('include_all_group', YLeafList(YType.str, 'include-all-group')),
-                                        ('include_any_group', YLeafList(YType.str, 'include-any-group')),
+                                        ('name', YLeaf(YType.str, 'name')),
                                     ])
-                                    self.exclude_group = []
-                                    self.include_all_group = []
-                                    self.include_any_group = []
-                                    self._segment_path = lambda: "state"
+                                    self.name = None
+
+                                    self.config = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.Config()
+                                    self.config.parent = self
+                                    self._children_name_map["config"] = "config"
+
+                                    self.state = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.State()
+                                    self.state.parent = self
+                                    self._children_name_map["state"] = "state"
+
+                                    self.admin_groups = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups()
+                                    self.admin_groups.parent = self
+                                    self._children_name_map["admin_groups"] = "admin-groups"
+                                    self._segment_path = lambda: "p2p-secondary-path" + "[name='" + str(self.name) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.State, ['exclude_group', 'include_all_group', 'include_any_group'], name, value)
+                                    self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath, [u'name'], name, value)
+
+
+                                class Config(Entity):
+                                    """
+                                    Configuration parameters related to paths
+                                    
+                                    .. attribute:: name
+                                    
+                                    	Path name
+                                    	**type**\: str
+                                    
+                                    .. attribute:: path_computation_method
+                                    
+                                    	The method used for computing the path, either locally computed, queried from a server or not computed at all (explicitly configured)
+                                    	**type**\:  :py:class:`PATHCOMPUTATIONMETHOD <ydk.models.openconfig.openconfig_mpls_types.PATHCOMPUTATIONMETHOD>`
+                                    
+                                    	**default value**\: oc-mplst:LOCALLY_COMPUTED
+                                    
+                                    .. attribute:: use_cspf
+                                    
+                                    	Flag to enable CSPF for locally computed LSPs
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: cspf_tiebreaker
+                                    
+                                    	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
+                                    	**type**\:  :py:class:`CspfTieBreaking <ydk.models.openconfig.openconfig_mpls.CspfTieBreaking>`
+                                    
+                                    .. attribute:: path_computation_server
+                                    
+                                    	Address of the external path computation server
+                                    	**type**\: union of the below types:
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                                    
+                                    .. attribute:: explicit_path_name
+                                    
+                                    	reference to a defined path
+                                    	**type**\: str
+                                    
+                                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.Config>`
+                                    
+                                    .. attribute:: preference
+                                    
+                                    	Specifies a preference for this path. The lower the number higher the preference
+                                    	**type**\: int
+                                    
+                                    	**range:** 1..255
+                                    
+                                    .. attribute:: setup_priority
+                                    
+                                    	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..7
+                                    
+                                    	**default value**\: 7
+                                    
+                                    .. attribute:: hold_priority
+                                    
+                                    	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..7
+                                    
+                                    	**default value**\: 0
+                                    
+                                    .. attribute:: retry_timer
+                                    
+                                    	sets the time between attempts to establish the LSP
+                                    	**type**\: int
+                                    
+                                    	**range:** 1..600
+                                    
+                                    	**units**\: seconds
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'oc-mpls'
+                                    _revision = '2017-03-22'
+
+                                    def __init__(self):
+                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.Config, self).__init__()
+
+                                        self.yang_name = "config"
+                                        self.yang_parent_name = "p2p-secondary-path"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('path_computation_method', YLeaf(YType.identityref, 'path-computation-method')),
+                                            ('use_cspf', YLeaf(YType.boolean, 'use-cspf')),
+                                            ('cspf_tiebreaker', YLeaf(YType.enumeration, 'cspf-tiebreaker')),
+                                            ('path_computation_server', YLeaf(YType.str, 'path-computation-server')),
+                                            ('explicit_path_name', YLeaf(YType.str, 'explicit-path-name')),
+                                            ('preference', YLeaf(YType.uint8, 'preference')),
+                                            ('setup_priority', YLeaf(YType.uint8, 'setup-priority')),
+                                            ('hold_priority', YLeaf(YType.uint8, 'hold-priority')),
+                                            ('retry_timer', YLeaf(YType.uint16, 'retry-timer')),
+                                        ])
+                                        self.name = None
+                                        self.path_computation_method = None
+                                        self.use_cspf = None
+                                        self.cspf_tiebreaker = None
+                                        self.path_computation_server = None
+                                        self.explicit_path_name = None
+                                        self.preference = None
+                                        self.setup_priority = None
+                                        self.hold_priority = None
+                                        self.retry_timer = None
+                                        self._segment_path = lambda: "config"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.Config, [u'name', u'path_computation_method', u'use_cspf', u'cspf_tiebreaker', u'path_computation_server', u'explicit_path_name', u'preference', 'setup_priority', 'hold_priority', 'retry_timer'], name, value)
+
+
+                                class State(Entity):
+                                    """
+                                    State parameters related to paths
+                                    
+                                    .. attribute:: name
+                                    
+                                    	Path name
+                                    	**type**\: str
+                                    
+                                    .. attribute:: path_computation_method
+                                    
+                                    	The method used for computing the path, either locally computed, queried from a server or not computed at all (explicitly configured)
+                                    	**type**\:  :py:class:`PATHCOMPUTATIONMETHOD <ydk.models.openconfig.openconfig_mpls_types.PATHCOMPUTATIONMETHOD>`
+                                    
+                                    	**default value**\: oc-mplst:LOCALLY_COMPUTED
+                                    
+                                    .. attribute:: use_cspf
+                                    
+                                    	Flag to enable CSPF for locally computed LSPs
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: cspf_tiebreaker
+                                    
+                                    	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
+                                    	**type**\:  :py:class:`CspfTieBreaking <ydk.models.openconfig.openconfig_mpls.CspfTieBreaking>`
+                                    
+                                    .. attribute:: path_computation_server
+                                    
+                                    	Address of the external path computation server
+                                    	**type**\: union of the below types:
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
+                                    
+                                    		**type**\: str
+                                    
+                                    			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                                    
+                                    .. attribute:: explicit_path_name
+                                    
+                                    	reference to a defined path
+                                    	**type**\: str
+                                    
+                                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.Config>`
+                                    
+                                    .. attribute:: preference
+                                    
+                                    	Specifies a preference for this path. The lower the number higher the preference
+                                    	**type**\: int
+                                    
+                                    	**range:** 1..255
+                                    
+                                    .. attribute:: setup_priority
+                                    
+                                    	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..7
+                                    
+                                    	**default value**\: 7
+                                    
+                                    .. attribute:: hold_priority
+                                    
+                                    	preemption priority once the LSP is established, lower is higher priority; default 0 indicates other LSPs will not preempt the LSPs once established
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..7
+                                    
+                                    	**default value**\: 0
+                                    
+                                    .. attribute:: retry_timer
+                                    
+                                    	sets the time between attempts to establish the LSP
+                                    	**type**\: int
+                                    
+                                    	**range:** 1..600
+                                    
+                                    	**units**\: seconds
+                                    
+                                    .. attribute:: associated_rsvp_session
+                                    
+                                    	If the signalling protocol specified for this path is RSVP\-TE, this leaf provides a reference to the associated session within the RSVP\-TE protocol sessions list, such that details of the signaling can be retrieved
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**refers to**\:  :py:class:`local_index <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Session>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'oc-mpls'
+                                    _revision = '2017-03-22'
+
+                                    def __init__(self):
+                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.State, self).__init__()
+
+                                        self.yang_name = "state"
+                                        self.yang_parent_name = "p2p-secondary-path"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('path_computation_method', YLeaf(YType.identityref, 'path-computation-method')),
+                                            ('use_cspf', YLeaf(YType.boolean, 'use-cspf')),
+                                            ('cspf_tiebreaker', YLeaf(YType.enumeration, 'cspf-tiebreaker')),
+                                            ('path_computation_server', YLeaf(YType.str, 'path-computation-server')),
+                                            ('explicit_path_name', YLeaf(YType.str, 'explicit-path-name')),
+                                            ('preference', YLeaf(YType.uint8, 'preference')),
+                                            ('setup_priority', YLeaf(YType.uint8, 'setup-priority')),
+                                            ('hold_priority', YLeaf(YType.uint8, 'hold-priority')),
+                                            ('retry_timer', YLeaf(YType.uint16, 'retry-timer')),
+                                            ('associated_rsvp_session', YLeaf(YType.str, 'associated-rsvp-session')),
+                                        ])
+                                        self.name = None
+                                        self.path_computation_method = None
+                                        self.use_cspf = None
+                                        self.cspf_tiebreaker = None
+                                        self.path_computation_server = None
+                                        self.explicit_path_name = None
+                                        self.preference = None
+                                        self.setup_priority = None
+                                        self.hold_priority = None
+                                        self.retry_timer = None
+                                        self.associated_rsvp_session = None
+                                        self._segment_path = lambda: "state"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.State, [u'name', u'path_computation_method', u'use_cspf', u'cspf_tiebreaker', u'path_computation_server', u'explicit_path_name', u'preference', 'setup_priority', 'hold_priority', 'retry_timer', u'associated_rsvp_session'], name, value)
+
+
+                                class AdminGroups(Entity):
+                                    """
+                                    Top\-level container for include/exclude constraints for
+                                    link affinities
+                                    
+                                    .. attribute:: config
+                                    
+                                    	Configuration data 
+                                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups.Config>`
+                                    
+                                    .. attribute:: state
+                                    
+                                    	Operational state data 
+                                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups.State>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'oc-mpls'
+                                    _revision = '2017-03-22'
+
+                                    def __init__(self):
+                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups, self).__init__()
+
+                                        self.yang_name = "admin-groups"
+                                        self.yang_parent_name = "p2p-secondary-path"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups.State))])
+                                        self._leafs = OrderedDict()
+
+                                        self.config = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups.Config()
+                                        self.config.parent = self
+                                        self._children_name_map["config"] = "config"
+
+                                        self.state = Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups.State()
+                                        self.state.parent = self
+                                        self._children_name_map["state"] = "state"
+                                        self._segment_path = lambda: "admin-groups"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups, [], name, value)
+
+
+                                    class Config(Entity):
+                                        """
+                                        Configuration data 
+                                        
+                                        .. attribute:: exclude_group
+                                        
+                                        	list of references to named admin\-groups to exclude in path calculation
+                                        	**type**\: list of str
+                                        
+                                        	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                        
+                                        .. attribute:: include_all_group
+                                        
+                                        	list of references to named admin\-groups of which all must be included
+                                        	**type**\: list of str
+                                        
+                                        	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                        
+                                        .. attribute:: include_any_group
+                                        
+                                        	list of references to named admin\-groups of which one must be included
+                                        	**type**\: list of str
+                                        
+                                        	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'oc-mpls'
+                                        _revision = '2017-03-22'
+
+                                        def __init__(self):
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups.Config, self).__init__()
+
+                                            self.yang_name = "config"
+                                            self.yang_parent_name = "admin-groups"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('exclude_group', YLeafList(YType.str, 'exclude-group')),
+                                                ('include_all_group', YLeafList(YType.str, 'include-all-group')),
+                                                ('include_any_group', YLeafList(YType.str, 'include-any-group')),
+                                            ])
+                                            self.exclude_group = []
+                                            self.include_all_group = []
+                                            self.include_any_group = []
+                                            self._segment_path = lambda: "config"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups.Config, [u'exclude_group', u'include_all_group', u'include_any_group'], name, value)
+
+
+                                    class State(Entity):
+                                        """
+                                        Operational state data 
+                                        
+                                        .. attribute:: exclude_group
+                                        
+                                        	list of references to named admin\-groups to exclude in path calculation
+                                        	**type**\: list of str
+                                        
+                                        	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                        
+                                        .. attribute:: include_all_group
+                                        
+                                        	list of references to named admin\-groups of which all must be included
+                                        	**type**\: list of str
+                                        
+                                        	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                        
+                                        .. attribute:: include_any_group
+                                        
+                                        	list of references to named admin\-groups of which one must be included
+                                        	**type**\: list of str
+                                        
+                                        	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'oc-mpls'
+                                        _revision = '2017-03-22'
+
+                                        def __init__(self):
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups.State, self).__init__()
+
+                                            self.yang_name = "state"
+                                            self.yang_parent_name = "admin-groups"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('exclude_group', YLeafList(YType.str, 'exclude-group')),
+                                                ('include_all_group', YLeafList(YType.str, 'include-all-group')),
+                                                ('include_any_group', YLeafList(YType.str, 'include-any-group')),
+                                            ])
+                                            self.exclude_group = []
+                                            self.include_all_group = []
+                                            self.include_any_group = []
+                                            self._segment_path = lambda: "state"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups.State, [u'exclude_group', u'include_all_group', u'include_any_group'], name, value)
 
 
         class UnconstrainedPath(Entity):
@@ -8599,8 +9599,8 @@ class Mpls(Entity):
 
             """
 
-            _prefix = 'mpls'
-            _revision = '2015-11-05'
+            _prefix = 'oc-mpls'
+            _revision = '2017-03-22'
 
             def __init__(self):
                 super(Mpls.Lsps.UnconstrainedPath, self).__init__()
@@ -8610,16 +9610,17 @@ class Mpls(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("path-setup-protocol", ("path_setup_protocol", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("path-setup-protocol", ("path_setup_protocol", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol))])
                 self._leafs = OrderedDict()
 
                 self.path_setup_protocol = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol()
                 self.path_setup_protocol.parent = self
                 self._children_name_map["path_setup_protocol"] = "path-setup-protocol"
-                self._children_yang_names.add("path-setup-protocol")
                 self._segment_path = lambda: "unconstrained-path"
                 self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Mpls.Lsps.UnconstrainedPath, [], name, value)
 
 
             class PathSetupProtocol(Entity):
@@ -8632,21 +9633,12 @@ class Mpls(Entity):
                 	LDP signaling setup for IGP\-congruent LSPs
                 	**type**\:  :py:class:`Ldp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp>`
                 
-                	**presence node**\: True
-                
-                .. attribute:: segment_routing
-                
-                	segment routing signaling extensions for IGP\-confgruent LSPs
-                	**type**\:  :py:class:`SegmentRouting <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting>`
-                
-                	**presence node**\: True
-                
                 
 
                 """
 
-                _prefix = 'mpls'
-                _revision = '2015-11-05'
+                _prefix = 'oc-mpls'
+                _revision = '2017-03-22'
 
                 def __init__(self):
                     super(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol, self).__init__()
@@ -8656,38 +9648,29 @@ class Mpls(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("ldp", ("ldp", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp)), ("segment-routing", ("segment_routing", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("ldp", ("ldp", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp))])
                     self._leafs = OrderedDict()
 
-                    self.ldp = None
+                    self.ldp = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp()
+                    self.ldp.parent = self
                     self._children_name_map["ldp"] = "ldp"
-                    self._children_yang_names.add("ldp")
-
-                    self.segment_routing = None
-                    self._children_name_map["segment_routing"] = "segment-routing"
-                    self._children_yang_names.add("segment-routing")
                     self._segment_path = lambda: "path-setup-protocol"
                     self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/unconstrained-path/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol, [], name, value)
 
 
                 class Ldp(Entity):
                     """
                     LDP signaling setup for IGP\-congruent LSPs
                     
-                    .. attribute:: tunnel
                     
-                    	contains configuration stanzas for different LSP tunnel types (P2P, P2MP, etc.)
-                    	**type**\:  :py:class:`Tunnel <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel>`
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
 
                     """
 
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
 
                     def __init__(self):
                         super(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp, self).__init__()
@@ -8697,798 +9680,10 @@ class Mpls(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("tunnel", ("tunnel", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel))])
-                        self._child_list_classes = OrderedDict([])
-                        self.is_presence_container = True
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict()
-
-                        self.tunnel = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel()
-                        self.tunnel.parent = self
-                        self._children_name_map["tunnel"] = "tunnel"
-                        self._children_yang_names.add("tunnel")
                         self._segment_path = lambda: "ldp"
                         self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/unconstrained-path/path-setup-protocol/%s" % self._segment_path()
-
-
-                    class Tunnel(Entity):
-                        """
-                        contains configuration stanzas for different LSP
-                        tunnel types (P2P, P2MP, etc.)
-                        
-                        .. attribute:: tunnel_type
-                        
-                        	specifies the type of LSP, e.g., P2P or P2MP
-                        	**type**\:  :py:class:`TunnelType_ <ydk.models.openconfig.openconfig_mpls_types.TunnelType_>`
-                        
-                        .. attribute:: ldp_type
-                        
-                        	specify basic or targeted LDP LSP
-                        	**type**\:  :py:class:`LdpType <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.LdpType>`
-                        
-                        .. attribute:: p2p_lsp
-                        
-                        	properties of point\-to\-point tunnels
-                        	**type**\:  :py:class:`P2PLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2PLsp>`
-                        
-                        .. attribute:: p2mp_lsp
-                        
-                        	properties of point\-to\-multipoint tunnels
-                        	**type**\:  :py:class:`P2MpLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2MpLsp>`
-                        
-                        .. attribute:: mp2mp_lsp
-                        
-                        	properties of multipoint\-to\-multipoint tunnels
-                        	**type**\:  :py:class:`Mp2MpLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2MpLsp>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
-
-                        def __init__(self):
-                            super(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel, self).__init__()
-
-                            self.yang_name = "tunnel"
-                            self.yang_parent_name = "ldp"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("p2p-lsp", ("p2p_lsp", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2PLsp)), ("p2mp-lsp", ("p2mp_lsp", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2MpLsp)), ("mp2mp-lsp", ("mp2mp_lsp", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2MpLsp))])
-                            self._child_list_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('tunnel_type', YLeaf(YType.enumeration, 'tunnel-type')),
-                                ('ldp_type', YLeaf(YType.enumeration, 'ldp-type')),
-                            ])
-                            self.tunnel_type = None
-                            self.ldp_type = None
-
-                            self.p2p_lsp = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2PLsp()
-                            self.p2p_lsp.parent = self
-                            self._children_name_map["p2p_lsp"] = "p2p-lsp"
-                            self._children_yang_names.add("p2p-lsp")
-
-                            self.p2mp_lsp = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2MpLsp()
-                            self.p2mp_lsp.parent = self
-                            self._children_name_map["p2mp_lsp"] = "p2mp-lsp"
-                            self._children_yang_names.add("p2mp-lsp")
-
-                            self.mp2mp_lsp = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2MpLsp()
-                            self.mp2mp_lsp.parent = self
-                            self._children_name_map["mp2mp_lsp"] = "mp2mp-lsp"
-                            self._children_yang_names.add("mp2mp-lsp")
-                            self._segment_path = lambda: "tunnel"
-                            self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/unconstrained-path/path-setup-protocol/ldp/%s" % self._segment_path()
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel, ['tunnel_type', 'ldp_type'], name, value)
-
-                        class LdpType(Enum):
-                            """
-                            LdpType (Enum Class)
-
-                            specify basic or targeted LDP LSP
-
-                            .. data:: BASIC = 0
-
-                            	basic hop-by-hop LSP
-
-                            .. data:: TARGETED = 1
-
-                            	tLDP LSP
-
-                            """
-
-                            BASIC = Enum.YLeaf(0, "BASIC")
-
-                            TARGETED = Enum.YLeaf(1, "TARGETED")
-
-
-
-                        class P2PLsp(Entity):
-                            """
-                            properties of point\-to\-point tunnels
-                            
-                            .. attribute:: fec_address
-                            
-                            	Address prefix for packets sharing the same forwarding equivalence class for the IGP\-based LSP
-                            	**type**\: union of the below types:
-                            
-                            		**type**\: list of str
-                            
-                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
-                            
-                            		**type**\: list of str
-                            
-                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
-                            
-                            
-
-                            """
-
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
-
-                            def __init__(self):
-                                super(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2PLsp, self).__init__()
-
-                                self.yang_name = "p2p-lsp"
-                                self.yang_parent_name = "tunnel"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('fec_address', YLeafList(YType.str, 'fec-address')),
-                                ])
-                                self.fec_address = []
-                                self._segment_path = lambda: "p2p-lsp"
-                                self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/unconstrained-path/path-setup-protocol/ldp/tunnel/%s" % self._segment_path()
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2PLsp, ['fec_address'], name, value)
-
-
-                        class P2MpLsp(Entity):
-                            """
-                            properties of point\-to\-multipoint tunnels
-                            
-                            
-
-                            """
-
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
-
-                            def __init__(self):
-                                super(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2MpLsp, self).__init__()
-
-                                self.yang_name = "p2mp-lsp"
-                                self.yang_parent_name = "tunnel"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
-                                self._leafs = OrderedDict()
-                                self._segment_path = lambda: "p2mp-lsp"
-                                self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/unconstrained-path/path-setup-protocol/ldp/tunnel/%s" % self._segment_path()
-
-
-                        class Mp2MpLsp(Entity):
-                            """
-                            properties of multipoint\-to\-multipoint tunnels
-                            
-                            
-
-                            """
-
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
-
-                            def __init__(self):
-                                super(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2MpLsp, self).__init__()
-
-                                self.yang_name = "mp2mp-lsp"
-                                self.yang_parent_name = "tunnel"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
-                                self._leafs = OrderedDict()
-                                self._segment_path = lambda: "mp2mp-lsp"
-                                self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/unconstrained-path/path-setup-protocol/ldp/tunnel/%s" % self._segment_path()
-
-
-                class SegmentRouting(Entity):
-                    """
-                    segment routing signaling extensions for
-                    IGP\-confgruent LSPs
-                    
-                    .. attribute:: tunnel
-                    
-                    	contains configuration stanzas for different LSP tunnel types (P2P, P2MP, etc.)
-                    	**type**\:  :py:class:`Tunnel <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel>`
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
-
-                    def __init__(self):
-                        super(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting, self).__init__()
-
-                        self.yang_name = "segment-routing"
-                        self.yang_parent_name = "path-setup-protocol"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("tunnel", ("tunnel", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel))])
-                        self._child_list_classes = OrderedDict([])
-                        self.is_presence_container = True
-                        self._leafs = OrderedDict()
-
-                        self.tunnel = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel()
-                        self.tunnel.parent = self
-                        self._children_name_map["tunnel"] = "tunnel"
-                        self._children_yang_names.add("tunnel")
-                        self._segment_path = lambda: "segment-routing"
-                        self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/unconstrained-path/path-setup-protocol/%s" % self._segment_path()
-
-
-                    class Tunnel(Entity):
-                        """
-                        contains configuration stanzas for different LSP
-                        tunnel types (P2P, P2MP, etc.)
-                        
-                        .. attribute:: tunnel_type
-                        
-                        	specifies the type of LSP, e.g., P2P or P2MP
-                        	**type**\:  :py:class:`TunnelType_ <ydk.models.openconfig.openconfig_mpls_types.TunnelType_>`
-                        
-                        .. attribute:: p2p_lsp
-                        
-                        	properties of point\-to\-point tunnels
-                        	**type**\:  :py:class:`P2PLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'mpls'
-                        _revision = '2015-11-05'
-
-                        def __init__(self):
-                            super(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel, self).__init__()
-
-                            self.yang_name = "tunnel"
-                            self.yang_parent_name = "segment-routing"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("p2p-lsp", ("p2p_lsp", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp))])
-                            self._child_list_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('tunnel_type', YLeaf(YType.enumeration, 'tunnel-type')),
-                            ])
-                            self.tunnel_type = None
-
-                            self.p2p_lsp = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp()
-                            self.p2p_lsp.parent = self
-                            self._children_name_map["p2p_lsp"] = "p2p-lsp"
-                            self._children_yang_names.add("p2p-lsp")
-                            self._segment_path = lambda: "tunnel"
-                            self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/unconstrained-path/path-setup-protocol/segment-routing/%s" % self._segment_path()
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel, ['tunnel_type'], name, value)
-
-
-                        class P2PLsp(Entity):
-                            """
-                            properties of point\-to\-point tunnels
-                            
-                            .. attribute:: fec
-                            
-                            	List of FECs that are to be originated as SR LSPs
-                            	**type**\: list of  		 :py:class:`Fec <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'mpls'
-                            _revision = '2015-11-05'
-
-                            def __init__(self):
-                                super(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp, self).__init__()
-
-                                self.yang_name = "p2p-lsp"
-                                self.yang_parent_name = "tunnel"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("fec", ("fec", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec))])
-                                self._leafs = OrderedDict()
-
-                                self.fec = YList(self)
-                                self._segment_path = lambda: "p2p-lsp"
-                                self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/unconstrained-path/path-setup-protocol/segment-routing/tunnel/%s" % self._segment_path()
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp, [], name, value)
-
-
-                            class Fec(Entity):
-                                """
-                                List of FECs that are to be originated as SR LSPs
-                                
-                                .. attribute:: fec_address  (key)
-                                
-                                	FEC that is to be advertised as part of the Prefix\-SID
-                                	**type**\: union of the below types:
-                                
-                                		**type**\: str
-                                
-                                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
-                                
-                                		**type**\: str
-                                
-                                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
-                                
-                                .. attribute:: config
-                                
-                                	Configuration parameters relating to the FEC to be advertised by SR
-                                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.Config>`
-                                
-                                .. attribute:: state
-                                
-                                	Operational state relating to a FEC advertised by SR
-                                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.State>`
-                                
-                                .. attribute:: prefix_sid
-                                
-                                	Parameters relating to the Prefix\-SID used for the originated FEC
-                                	**type**\:  :py:class:`PrefixSid <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'mpls'
-                                _revision = '2015-11-05'
-
-                                def __init__(self):
-                                    super(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec, self).__init__()
-
-                                    self.yang_name = "fec"
-                                    self.yang_parent_name = "p2p-lsp"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = False
-                                    self.ylist_key_names = ['fec_address']
-                                    self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.Config)), ("state", ("state", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.State)), ("prefix-sid", ("prefix_sid", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid))])
-                                    self._child_list_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('fec_address', YLeaf(YType.str, 'fec-address')),
-                                    ])
-                                    self.fec_address = None
-
-                                    self.config = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.Config()
-                                    self.config.parent = self
-                                    self._children_name_map["config"] = "config"
-                                    self._children_yang_names.add("config")
-
-                                    self.state = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.State()
-                                    self.state.parent = self
-                                    self._children_name_map["state"] = "state"
-                                    self._children_yang_names.add("state")
-
-                                    self.prefix_sid = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid()
-                                    self.prefix_sid.parent = self
-                                    self._children_name_map["prefix_sid"] = "prefix-sid"
-                                    self._children_yang_names.add("prefix-sid")
-                                    self._segment_path = lambda: "fec" + "[fec-address='" + str(self.fec_address) + "']"
-                                    self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/unconstrained-path/path-setup-protocol/segment-routing/tunnel/p2p-lsp/%s" % self._segment_path()
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec, ['fec_address'], name, value)
-
-
-                                class Config(Entity):
-                                    """
-                                    Configuration parameters relating to the FEC to be
-                                    advertised by SR
-                                    
-                                    .. attribute:: fec_address
-                                    
-                                    	FEC that is to be advertised as part of the Prefix\-SID
-                                    	**type**\: union of the below types:
-                                    
-                                    		**type**\: str
-                                    
-                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
-                                    
-                                    		**type**\: str
-                                    
-                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'mpls'
-                                    _revision = '2015-11-05'
-
-                                    def __init__(self):
-                                        super(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.Config, self).__init__()
-
-                                        self.yang_name = "config"
-                                        self.yang_parent_name = "fec"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
-                                        self._leafs = OrderedDict([
-                                            ('fec_address', YLeaf(YType.str, 'fec-address')),
-                                        ])
-                                        self.fec_address = None
-                                        self._segment_path = lambda: "config"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.Config, ['fec_address'], name, value)
-
-
-                                class State(Entity):
-                                    """
-                                    Operational state relating to a FEC advertised by SR
-                                    
-                                    .. attribute:: fec_address
-                                    
-                                    	FEC that is to be advertised as part of the Prefix\-SID
-                                    	**type**\: union of the below types:
-                                    
-                                    		**type**\: str
-                                    
-                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
-                                    
-                                    		**type**\: str
-                                    
-                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'mpls'
-                                    _revision = '2015-11-05'
-
-                                    def __init__(self):
-                                        super(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.State, self).__init__()
-
-                                        self.yang_name = "state"
-                                        self.yang_parent_name = "fec"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
-                                        self._leafs = OrderedDict([
-                                            ('fec_address', YLeaf(YType.str, 'fec-address')),
-                                        ])
-                                        self.fec_address = None
-                                        self._segment_path = lambda: "state"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.State, ['fec_address'], name, value)
-
-
-                                class PrefixSid(Entity):
-                                    """
-                                    Parameters relating to the Prefix\-SID
-                                    used for the originated FEC
-                                    
-                                    .. attribute:: config
-                                    
-                                    	Configuration parameters relating to the Prefix\-SID used for the originated FEC
-                                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config>`
-                                    
-                                    .. attribute:: state
-                                    
-                                    	Operational state parameters relating to the Prefix\-SID used for the originated FEC
-                                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'mpls'
-                                    _revision = '2015-11-05'
-
-                                    def __init__(self):
-                                        super(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid, self).__init__()
-
-                                        self.yang_name = "prefix-sid"
-                                        self.yang_parent_name = "fec"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config)), ("state", ("state", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State))])
-                                        self._child_list_classes = OrderedDict([])
-                                        self._leafs = OrderedDict()
-
-                                        self.config = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config()
-                                        self.config.parent = self
-                                        self._children_name_map["config"] = "config"
-                                        self._children_yang_names.add("config")
-
-                                        self.state = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State()
-                                        self.state.parent = self
-                                        self._children_name_map["state"] = "state"
-                                        self._children_yang_names.add("state")
-                                        self._segment_path = lambda: "prefix-sid"
-
-
-                                    class Config(Entity):
-                                        """
-                                        Configuration parameters relating to the Prefix\-SID
-                                        used for the originated FEC
-                                        
-                                        .. attribute:: type
-                                        
-                                        	Specifies how the value of the Prefix\-SID should be interpreted \- whether as an offset to the SRGB, or as an absolute value
-                                        	**type**\:  :py:class:`Type <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.Type>`
-                                        
-                                        	**default value**\: INDEX
-                                        
-                                        .. attribute:: node_flag
-                                        
-                                        	Specifies that the Prefix\-SID is to be treated as a Node\-SID by setting the N\-flag in the advertised Prefix\-SID TLV in the IGP
-                                        	**type**\: bool
-                                        
-                                        .. attribute:: last_hop_behavior
-                                        
-                                        	Configuration relating to the LFIB actions for the Prefix\-SID to be used by the penultimate\-hop
-                                        	**type**\:  :py:class:`LastHopBehavior <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.LastHopBehavior>`
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'mpls'
-                                        _revision = '2015-11-05'
-
-                                        def __init__(self):
-                                            super(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config, self).__init__()
-
-                                            self.yang_name = "config"
-                                            self.yang_parent_name = "prefix-sid"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
-                                            self._leafs = OrderedDict([
-                                                ('type', YLeaf(YType.enumeration, 'type')),
-                                                ('node_flag', YLeaf(YType.boolean, 'node-flag')),
-                                                ('last_hop_behavior', YLeaf(YType.enumeration, 'last-hop-behavior')),
-                                            ])
-                                            self.type = None
-                                            self.node_flag = None
-                                            self.last_hop_behavior = None
-                                            self._segment_path = lambda: "config"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config, ['type', 'node_flag', 'last_hop_behavior'], name, value)
-
-                                        class LastHopBehavior(Enum):
-                                            """
-                                            LastHopBehavior (Enum Class)
-
-                                            Configuration relating to the LFIB actions for the
-
-                                            Prefix\-SID to be used by the penultimate\-hop
-
-                                            .. data:: EXPLICIT_NULL = 0
-
-                                            	Specifies that the explicit null label is to be used
-
-                                            	when the penultimate hop forwards a labelled packet to
-
-                                            	this Prefix-SID
-
-                                            .. data:: UNCHANGED = 1
-
-                                            	Specicies that the Prefix-SID's label value is to be
-
-                                            	left in place when the penultimate hop forwards to this
-
-                                            	Prefix-SID
-
-                                            .. data:: PHP = 2
-
-                                            	Specicies that the penultimate hop should pop the
-
-                                            	Prefix-SID label before forwarding to the eLER
-
-                                            """
-
-                                            EXPLICIT_NULL = Enum.YLeaf(0, "EXPLICIT-NULL")
-
-                                            UNCHANGED = Enum.YLeaf(1, "UNCHANGED")
-
-                                            PHP = Enum.YLeaf(2, "PHP")
-
-
-                                        class Type(Enum):
-                                            """
-                                            Type (Enum Class)
-
-                                            Specifies how the value of the Prefix\-SID should be
-
-                                            interpreted \- whether as an offset to the SRGB, or as an
-
-                                            absolute value
-
-                                            .. data:: INDEX = 0
-
-                                            	Set when the value of the prefix SID should be specified
-
-                                            	as an off-set from the SRGB's zero-value. When multiple
-
-                                            	SRGBs are specified, the zero-value is the minimum
-
-                                            	of their lower bounds
-
-                                            .. data:: ABSOLUTE = 1
-
-                                            	Set when the value of a prefix SID is specified as the
-
-                                            	absolute value within an SRGB. It is an error to specify
-
-                                            	an absolute value outside of a specified SRGB
-
-                                            """
-
-                                            INDEX = Enum.YLeaf(0, "INDEX")
-
-                                            ABSOLUTE = Enum.YLeaf(1, "ABSOLUTE")
-
-
-
-                                    class State(Entity):
-                                        """
-                                        Operational state parameters relating to the
-                                        Prefix\-SID used for the originated FEC
-                                        
-                                        .. attribute:: type
-                                        
-                                        	Specifies how the value of the Prefix\-SID should be interpreted \- whether as an offset to the SRGB, or as an absolute value
-                                        	**type**\:  :py:class:`Type <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.Type>`
-                                        
-                                        	**default value**\: INDEX
-                                        
-                                        .. attribute:: node_flag
-                                        
-                                        	Specifies that the Prefix\-SID is to be treated as a Node\-SID by setting the N\-flag in the advertised Prefix\-SID TLV in the IGP
-                                        	**type**\: bool
-                                        
-                                        .. attribute:: last_hop_behavior
-                                        
-                                        	Configuration relating to the LFIB actions for the Prefix\-SID to be used by the penultimate\-hop
-                                        	**type**\:  :py:class:`LastHopBehavior <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.LastHopBehavior>`
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'mpls'
-                                        _revision = '2015-11-05'
-
-                                        def __init__(self):
-                                            super(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State, self).__init__()
-
-                                            self.yang_name = "state"
-                                            self.yang_parent_name = "prefix-sid"
-                                            self.is_top_level_class = False
-                                            self.has_list_ancestor = True
-                                            self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
-                                            self._leafs = OrderedDict([
-                                                ('type', YLeaf(YType.enumeration, 'type')),
-                                                ('node_flag', YLeaf(YType.boolean, 'node-flag')),
-                                                ('last_hop_behavior', YLeaf(YType.enumeration, 'last-hop-behavior')),
-                                            ])
-                                            self.type = None
-                                            self.node_flag = None
-                                            self.last_hop_behavior = None
-                                            self._segment_path = lambda: "state"
-
-                                        def __setattr__(self, name, value):
-                                            self._perform_setattr(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State, ['type', 'node_flag', 'last_hop_behavior'], name, value)
-
-                                        class LastHopBehavior(Enum):
-                                            """
-                                            LastHopBehavior (Enum Class)
-
-                                            Configuration relating to the LFIB actions for the
-
-                                            Prefix\-SID to be used by the penultimate\-hop
-
-                                            .. data:: EXPLICIT_NULL = 0
-
-                                            	Specifies that the explicit null label is to be used
-
-                                            	when the penultimate hop forwards a labelled packet to
-
-                                            	this Prefix-SID
-
-                                            .. data:: UNCHANGED = 1
-
-                                            	Specicies that the Prefix-SID's label value is to be
-
-                                            	left in place when the penultimate hop forwards to this
-
-                                            	Prefix-SID
-
-                                            .. data:: PHP = 2
-
-                                            	Specicies that the penultimate hop should pop the
-
-                                            	Prefix-SID label before forwarding to the eLER
-
-                                            """
-
-                                            EXPLICIT_NULL = Enum.YLeaf(0, "EXPLICIT-NULL")
-
-                                            UNCHANGED = Enum.YLeaf(1, "UNCHANGED")
-
-                                            PHP = Enum.YLeaf(2, "PHP")
-
-
-                                        class Type(Enum):
-                                            """
-                                            Type (Enum Class)
-
-                                            Specifies how the value of the Prefix\-SID should be
-
-                                            interpreted \- whether as an offset to the SRGB, or as an
-
-                                            absolute value
-
-                                            .. data:: INDEX = 0
-
-                                            	Set when the value of the prefix SID should be specified
-
-                                            	as an off-set from the SRGB's zero-value. When multiple
-
-                                            	SRGBs are specified, the zero-value is the minimum
-
-                                            	of their lower bounds
-
-                                            .. data:: ABSOLUTE = 1
-
-                                            	Set when the value of a prefix SID is specified as the
-
-                                            	absolute value within an SRGB. It is an error to specify
-
-                                            	an absolute value outside of a specified SRGB
-
-                                            """
-
-                                            INDEX = Enum.YLeaf(0, "INDEX")
-
-                                            ABSOLUTE = Enum.YLeaf(1, "ABSOLUTE")
-
 
 
         class StaticLsps(Entity):
@@ -9496,17 +9691,17 @@ class Mpls(Entity):
             statically configured LSPs, without dynamic
             signaling
             
-            .. attribute:: label_switched_path
+            .. attribute:: static_lsp
             
             	list of defined static LSPs
-            	**type**\: list of  		 :py:class:`LabelSwitchedPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.LabelSwitchedPath>`
+            	**type**\: list of  		 :py:class:`StaticLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.StaticLsp>`
             
             
 
             """
 
-            _prefix = 'mpls'
-            _revision = '2015-11-05'
+            _prefix = 'oc-mpls'
+            _revision = '2017-03-22'
 
             def __init__(self):
                 super(Mpls.Lsps.StaticLsps, self).__init__()
@@ -9516,11 +9711,10 @@ class Mpls(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("label-switched-path", ("label_switched_path", Mpls.Lsps.StaticLsps.LabelSwitchedPath))])
+                self._child_classes = OrderedDict([("static-lsp", ("static_lsp", Mpls.Lsps.StaticLsps.StaticLsp))])
                 self._leafs = OrderedDict()
 
-                self.label_switched_path = YList(self)
+                self.static_lsp = YList(self)
                 self._segment_path = lambda: "static-lsps"
                 self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/%s" % self._segment_path()
 
@@ -9528,335 +9722,711 @@ class Mpls(Entity):
                 self._perform_setattr(Mpls.Lsps.StaticLsps, [], name, value)
 
 
-            class LabelSwitchedPath(Entity):
+            class StaticLsp(Entity):
                 """
                 list of defined static LSPs
                 
                 .. attribute:: name  (key)
                 
-                	name to identify the LSP
+                	Reference the name list key
                 	**type**\: str
+                
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.StaticLsp.Config>`
+                
+                .. attribute:: config
+                
+                	Configuration data for the static lsp
+                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.StaticLsp.Config>`
+                
+                .. attribute:: state
+                
+                	Operational state data for the static lsp
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.StaticLsp.State>`
                 
                 .. attribute:: ingress
                 
-                	Static LSPs for which the router is an ingress node
-                	**type**\:  :py:class:`Ingress <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.LabelSwitchedPath.Ingress>`
+                	Static LSPs for which the router is an  ingress node
+                	**type**\:  :py:class:`Ingress <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.StaticLsp.Ingress>`
                 
                 .. attribute:: transit
                 
-                	static LSPs for which the router is a transit node
-                	**type**\:  :py:class:`Transit <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.LabelSwitchedPath.Transit>`
+                	Static LSPs for which the router is an  transit node
+                	**type**\:  :py:class:`Transit <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.StaticLsp.Transit>`
                 
                 .. attribute:: egress
                 
-                	static LSPs for which the router is a egress  node
-                	**type**\:  :py:class:`Egress <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.LabelSwitchedPath.Egress>`
+                	Static LSPs for which the router is an  egress node
+                	**type**\:  :py:class:`Egress <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.StaticLsp.Egress>`
                 
                 
 
                 """
 
-                _prefix = 'mpls'
-                _revision = '2015-11-05'
+                _prefix = 'oc-mpls'
+                _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.Lsps.StaticLsps.LabelSwitchedPath, self).__init__()
+                    super(Mpls.Lsps.StaticLsps.StaticLsp, self).__init__()
 
-                    self.yang_name = "label-switched-path"
+                    self.yang_name = "static-lsp"
                     self.yang_parent_name = "static-lsps"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([("ingress", ("ingress", Mpls.Lsps.StaticLsps.LabelSwitchedPath.Ingress)), ("transit", ("transit", Mpls.Lsps.StaticLsps.LabelSwitchedPath.Transit)), ("egress", ("egress", Mpls.Lsps.StaticLsps.LabelSwitchedPath.Egress))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("config", ("config", Mpls.Lsps.StaticLsps.StaticLsp.Config)), ("state", ("state", Mpls.Lsps.StaticLsps.StaticLsp.State)), ("ingress", ("ingress", Mpls.Lsps.StaticLsps.StaticLsp.Ingress)), ("transit", ("transit", Mpls.Lsps.StaticLsps.StaticLsp.Transit)), ("egress", ("egress", Mpls.Lsps.StaticLsps.StaticLsp.Egress))])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                     ])
                     self.name = None
 
-                    self.ingress = Mpls.Lsps.StaticLsps.LabelSwitchedPath.Ingress()
+                    self.config = Mpls.Lsps.StaticLsps.StaticLsp.Config()
+                    self.config.parent = self
+                    self._children_name_map["config"] = "config"
+
+                    self.state = Mpls.Lsps.StaticLsps.StaticLsp.State()
+                    self.state.parent = self
+                    self._children_name_map["state"] = "state"
+
+                    self.ingress = Mpls.Lsps.StaticLsps.StaticLsp.Ingress()
                     self.ingress.parent = self
                     self._children_name_map["ingress"] = "ingress"
-                    self._children_yang_names.add("ingress")
 
-                    self.transit = Mpls.Lsps.StaticLsps.LabelSwitchedPath.Transit()
+                    self.transit = Mpls.Lsps.StaticLsps.StaticLsp.Transit()
                     self.transit.parent = self
                     self._children_name_map["transit"] = "transit"
-                    self._children_yang_names.add("transit")
 
-                    self.egress = Mpls.Lsps.StaticLsps.LabelSwitchedPath.Egress()
+                    self.egress = Mpls.Lsps.StaticLsps.StaticLsp.Egress()
                     self.egress.parent = self
                     self._children_name_map["egress"] = "egress"
-                    self._children_yang_names.add("egress")
-                    self._segment_path = lambda: "label-switched-path" + "[name='" + str(self.name) + "']"
+                    self._segment_path = lambda: "static-lsp" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/static-lsps/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.Lsps.StaticLsps.LabelSwitchedPath, ['name'], name, value)
+                    self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp, [u'name'], name, value)
+
+
+                class Config(Entity):
+                    """
+                    Configuration data for the static lsp
+                    
+                    .. attribute:: name
+                    
+                    	name to identify the LSP
+                    	**type**\: str
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
+
+                    def __init__(self):
+                        super(Mpls.Lsps.StaticLsps.StaticLsp.Config, self).__init__()
+
+                        self.yang_name = "config"
+                        self.yang_parent_name = "static-lsp"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                        ])
+                        self.name = None
+                        self._segment_path = lambda: "config"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Config, [u'name'], name, value)
+
+
+                class State(Entity):
+                    """
+                    Operational state data for the static lsp
+                    
+                    .. attribute:: name
+                    
+                    	name to identify the LSP
+                    	**type**\: str
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
+
+                    def __init__(self):
+                        super(Mpls.Lsps.StaticLsps.StaticLsp.State, self).__init__()
+
+                        self.yang_name = "state"
+                        self.yang_parent_name = "static-lsp"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                        ])
+                        self.name = None
+                        self._segment_path = lambda: "state"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.State, [u'name'], name, value)
 
 
                 class Ingress(Entity):
                     """
                     Static LSPs for which the router is an
-                    ingress node
+                     ingress node
                     
-                    .. attribute:: next_hop
+                    .. attribute:: config
                     
-                    	next hop IP address for the LSP
-                    	**type**\: union of the below types:
+                    	Configuration data for ingress LSPs
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.StaticLsp.Ingress.Config>`
                     
-                    		**type**\: str
+                    .. attribute:: state
                     
-                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    		**type**\: str
-                    
-                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    .. attribute:: incoming_label
-                    
-                    	label value on the incoming packet
-                    	**type**\: union of the below types:
-                    
-                    		**type**\: int
-                    
-                    			**range:** 16..1048575
-                    
-                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
-                    
-                    .. attribute:: push_label
-                    
-                    	label value to push at the current hop for the LSP
-                    	**type**\: union of the below types:
-                    
-                    		**type**\: int
-                    
-                    			**range:** 16..1048575
-                    
-                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                    	Operational state data for ingress LSPs
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.StaticLsp.Ingress.State>`
                     
                     
 
                     """
 
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Lsps.StaticLsps.LabelSwitchedPath.Ingress, self).__init__()
+                        super(Mpls.Lsps.StaticLsps.StaticLsp.Ingress, self).__init__()
 
                         self.yang_name = "ingress"
-                        self.yang_parent_name = "label-switched-path"
+                        self.yang_parent_name = "static-lsp"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('next_hop', YLeaf(YType.str, 'next-hop')),
-                            ('incoming_label', YLeaf(YType.str, 'incoming-label')),
-                            ('push_label', YLeaf(YType.str, 'push-label')),
-                        ])
-                        self.next_hop = None
-                        self.incoming_label = None
-                        self.push_label = None
+                        self._child_classes = OrderedDict([("config", ("config", Mpls.Lsps.StaticLsps.StaticLsp.Ingress.Config)), ("state", ("state", Mpls.Lsps.StaticLsps.StaticLsp.Ingress.State))])
+                        self._leafs = OrderedDict()
+
+                        self.config = Mpls.Lsps.StaticLsps.StaticLsp.Ingress.Config()
+                        self.config.parent = self
+                        self._children_name_map["config"] = "config"
+
+                        self.state = Mpls.Lsps.StaticLsps.StaticLsp.Ingress.State()
+                        self.state.parent = self
+                        self._children_name_map["state"] = "state"
                         self._segment_path = lambda: "ingress"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Lsps.StaticLsps.LabelSwitchedPath.Ingress, ['next_hop', 'incoming_label', 'push_label'], name, value)
+                        self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Ingress, [], name, value)
+
+
+                    class Config(Entity):
+                        """
+                        Configuration data for ingress LSPs
+                        
+                        .. attribute:: next_hop
+                        
+                        	next hop IP address for the LSP
+                        	**type**\: union of the below types:
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                        
+                        .. attribute:: incoming_label
+                        
+                        	label value on the incoming packet
+                        	**type**\: union of the below types:
+                        
+                        		**type**\: int
+                        
+                        			**range:** 16..1048575
+                        
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        
+                        .. attribute:: push_label
+                        
+                        	label value to push at the current hop for the LSP
+                        	**type**\: union of the below types:
+                        
+                        		**type**\: int
+                        
+                        			**range:** 16..1048575
+                        
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
+
+                        def __init__(self):
+                            super(Mpls.Lsps.StaticLsps.StaticLsp.Ingress.Config, self).__init__()
+
+                            self.yang_name = "config"
+                            self.yang_parent_name = "ingress"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                ('incoming_label', YLeaf(YType.str, 'incoming-label')),
+                                ('push_label', YLeaf(YType.str, 'push-label')),
+                            ])
+                            self.next_hop = None
+                            self.incoming_label = None
+                            self.push_label = None
+                            self._segment_path = lambda: "config"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Ingress.Config, [u'next_hop', u'incoming_label', u'push_label'], name, value)
+
+
+                    class State(Entity):
+                        """
+                        Operational state data for ingress LSPs
+                        
+                        .. attribute:: next_hop
+                        
+                        	next hop IP address for the LSP
+                        	**type**\: union of the below types:
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                        
+                        .. attribute:: incoming_label
+                        
+                        	label value on the incoming packet
+                        	**type**\: union of the below types:
+                        
+                        		**type**\: int
+                        
+                        			**range:** 16..1048575
+                        
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        
+                        .. attribute:: push_label
+                        
+                        	label value to push at the current hop for the LSP
+                        	**type**\: union of the below types:
+                        
+                        		**type**\: int
+                        
+                        			**range:** 16..1048575
+                        
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
+
+                        def __init__(self):
+                            super(Mpls.Lsps.StaticLsps.StaticLsp.Ingress.State, self).__init__()
+
+                            self.yang_name = "state"
+                            self.yang_parent_name = "ingress"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                ('incoming_label', YLeaf(YType.str, 'incoming-label')),
+                                ('push_label', YLeaf(YType.str, 'push-label')),
+                            ])
+                            self.next_hop = None
+                            self.incoming_label = None
+                            self.push_label = None
+                            self._segment_path = lambda: "state"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Ingress.State, [u'next_hop', u'incoming_label', u'push_label'], name, value)
 
 
                 class Transit(Entity):
                     """
-                    static LSPs for which the router is a
-                    transit node
+                    Static LSPs for which the router is an
+                     transit node
                     
-                    .. attribute:: next_hop
+                    .. attribute:: config
                     
-                    	next hop IP address for the LSP
-                    	**type**\: union of the below types:
+                    	Configuration data for transit LSPs
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.StaticLsp.Transit.Config>`
                     
-                    		**type**\: str
+                    .. attribute:: state
                     
-                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    		**type**\: str
-                    
-                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    .. attribute:: incoming_label
-                    
-                    	label value on the incoming packet
-                    	**type**\: union of the below types:
-                    
-                    		**type**\: int
-                    
-                    			**range:** 16..1048575
-                    
-                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
-                    
-                    .. attribute:: push_label
-                    
-                    	label value to push at the current hop for the LSP
-                    	**type**\: union of the below types:
-                    
-                    		**type**\: int
-                    
-                    			**range:** 16..1048575
-                    
-                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                    	Operational state data for transit LSPs
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.StaticLsp.Transit.State>`
                     
                     
 
                     """
 
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Lsps.StaticLsps.LabelSwitchedPath.Transit, self).__init__()
+                        super(Mpls.Lsps.StaticLsps.StaticLsp.Transit, self).__init__()
 
                         self.yang_name = "transit"
-                        self.yang_parent_name = "label-switched-path"
+                        self.yang_parent_name = "static-lsp"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('next_hop', YLeaf(YType.str, 'next-hop')),
-                            ('incoming_label', YLeaf(YType.str, 'incoming-label')),
-                            ('push_label', YLeaf(YType.str, 'push-label')),
-                        ])
-                        self.next_hop = None
-                        self.incoming_label = None
-                        self.push_label = None
+                        self._child_classes = OrderedDict([("config", ("config", Mpls.Lsps.StaticLsps.StaticLsp.Transit.Config)), ("state", ("state", Mpls.Lsps.StaticLsps.StaticLsp.Transit.State))])
+                        self._leafs = OrderedDict()
+
+                        self.config = Mpls.Lsps.StaticLsps.StaticLsp.Transit.Config()
+                        self.config.parent = self
+                        self._children_name_map["config"] = "config"
+
+                        self.state = Mpls.Lsps.StaticLsps.StaticLsp.Transit.State()
+                        self.state.parent = self
+                        self._children_name_map["state"] = "state"
                         self._segment_path = lambda: "transit"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Lsps.StaticLsps.LabelSwitchedPath.Transit, ['next_hop', 'incoming_label', 'push_label'], name, value)
+                        self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Transit, [], name, value)
+
+
+                    class Config(Entity):
+                        """
+                        Configuration data for transit LSPs
+                        
+                        .. attribute:: next_hop
+                        
+                        	next hop IP address for the LSP
+                        	**type**\: union of the below types:
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                        
+                        .. attribute:: incoming_label
+                        
+                        	label value on the incoming packet
+                        	**type**\: union of the below types:
+                        
+                        		**type**\: int
+                        
+                        			**range:** 16..1048575
+                        
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        
+                        .. attribute:: push_label
+                        
+                        	label value to push at the current hop for the LSP
+                        	**type**\: union of the below types:
+                        
+                        		**type**\: int
+                        
+                        			**range:** 16..1048575
+                        
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
+
+                        def __init__(self):
+                            super(Mpls.Lsps.StaticLsps.StaticLsp.Transit.Config, self).__init__()
+
+                            self.yang_name = "config"
+                            self.yang_parent_name = "transit"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                ('incoming_label', YLeaf(YType.str, 'incoming-label')),
+                                ('push_label', YLeaf(YType.str, 'push-label')),
+                            ])
+                            self.next_hop = None
+                            self.incoming_label = None
+                            self.push_label = None
+                            self._segment_path = lambda: "config"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Transit.Config, [u'next_hop', u'incoming_label', u'push_label'], name, value)
+
+
+                    class State(Entity):
+                        """
+                        Operational state data for transit LSPs
+                        
+                        .. attribute:: next_hop
+                        
+                        	next hop IP address for the LSP
+                        	**type**\: union of the below types:
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                        
+                        .. attribute:: incoming_label
+                        
+                        	label value on the incoming packet
+                        	**type**\: union of the below types:
+                        
+                        		**type**\: int
+                        
+                        			**range:** 16..1048575
+                        
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        
+                        .. attribute:: push_label
+                        
+                        	label value to push at the current hop for the LSP
+                        	**type**\: union of the below types:
+                        
+                        		**type**\: int
+                        
+                        			**range:** 16..1048575
+                        
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
+
+                        def __init__(self):
+                            super(Mpls.Lsps.StaticLsps.StaticLsp.Transit.State, self).__init__()
+
+                            self.yang_name = "state"
+                            self.yang_parent_name = "transit"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                ('incoming_label', YLeaf(YType.str, 'incoming-label')),
+                                ('push_label', YLeaf(YType.str, 'push-label')),
+                            ])
+                            self.next_hop = None
+                            self.incoming_label = None
+                            self.push_label = None
+                            self._segment_path = lambda: "state"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Transit.State, [u'next_hop', u'incoming_label', u'push_label'], name, value)
 
 
                 class Egress(Entity):
                     """
-                    static LSPs for which the router is a
-                    egress  node
+                    Static LSPs for which the router is an
+                     egress node
                     
-                    .. attribute:: next_hop
+                    .. attribute:: config
                     
-                    	next hop IP address for the LSP
-                    	**type**\: union of the below types:
+                    	Configuration data for egress LSPs
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.StaticLsp.Egress.Config>`
                     
-                    		**type**\: str
+                    .. attribute:: state
                     
-                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    		**type**\: str
-                    
-                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    .. attribute:: incoming_label
-                    
-                    	label value on the incoming packet
-                    	**type**\: union of the below types:
-                    
-                    		**type**\: int
-                    
-                    			**range:** 16..1048575
-                    
-                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
-                    
-                    .. attribute:: push_label
-                    
-                    	label value to push at the current hop for the LSP
-                    	**type**\: union of the below types:
-                    
-                    		**type**\: int
-                    
-                    			**range:** 16..1048575
-                    
-                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                    	Operational state data for egress LSPs
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.StaticLsp.Egress.State>`
                     
                     
 
                     """
 
-                    _prefix = 'mpls'
-                    _revision = '2015-11-05'
+                    _prefix = 'oc-mpls'
+                    _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Lsps.StaticLsps.LabelSwitchedPath.Egress, self).__init__()
+                        super(Mpls.Lsps.StaticLsps.StaticLsp.Egress, self).__init__()
 
                         self.yang_name = "egress"
-                        self.yang_parent_name = "label-switched-path"
+                        self.yang_parent_name = "static-lsp"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('next_hop', YLeaf(YType.str, 'next-hop')),
-                            ('incoming_label', YLeaf(YType.str, 'incoming-label')),
-                            ('push_label', YLeaf(YType.str, 'push-label')),
-                        ])
-                        self.next_hop = None
-                        self.incoming_label = None
-                        self.push_label = None
+                        self._child_classes = OrderedDict([("config", ("config", Mpls.Lsps.StaticLsps.StaticLsp.Egress.Config)), ("state", ("state", Mpls.Lsps.StaticLsps.StaticLsp.Egress.State))])
+                        self._leafs = OrderedDict()
+
+                        self.config = Mpls.Lsps.StaticLsps.StaticLsp.Egress.Config()
+                        self.config.parent = self
+                        self._children_name_map["config"] = "config"
+
+                        self.state = Mpls.Lsps.StaticLsps.StaticLsp.Egress.State()
+                        self.state.parent = self
+                        self._children_name_map["state"] = "state"
                         self._segment_path = lambda: "egress"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Lsps.StaticLsps.LabelSwitchedPath.Egress, ['next_hop', 'incoming_label', 'push_label'], name, value)
+                        self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Egress, [], name, value)
+
+
+                    class Config(Entity):
+                        """
+                        Configuration data for egress LSPs
+                        
+                        .. attribute:: next_hop
+                        
+                        	next hop IP address for the LSP
+                        	**type**\: union of the below types:
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                        
+                        .. attribute:: incoming_label
+                        
+                        	label value on the incoming packet
+                        	**type**\: union of the below types:
+                        
+                        		**type**\: int
+                        
+                        			**range:** 16..1048575
+                        
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        
+                        .. attribute:: push_label
+                        
+                        	label value to push at the current hop for the LSP
+                        	**type**\: union of the below types:
+                        
+                        		**type**\: int
+                        
+                        			**range:** 16..1048575
+                        
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
+
+                        def __init__(self):
+                            super(Mpls.Lsps.StaticLsps.StaticLsp.Egress.Config, self).__init__()
+
+                            self.yang_name = "config"
+                            self.yang_parent_name = "egress"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                ('incoming_label', YLeaf(YType.str, 'incoming-label')),
+                                ('push_label', YLeaf(YType.str, 'push-label')),
+                            ])
+                            self.next_hop = None
+                            self.incoming_label = None
+                            self.push_label = None
+                            self._segment_path = lambda: "config"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Egress.Config, [u'next_hop', u'incoming_label', u'push_label'], name, value)
+
+
+                    class State(Entity):
+                        """
+                        Operational state data for egress LSPs
+                        
+                        .. attribute:: next_hop
+                        
+                        	next hop IP address for the LSP
+                        	**type**\: union of the below types:
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                        
+                        .. attribute:: incoming_label
+                        
+                        	label value on the incoming packet
+                        	**type**\: union of the below types:
+                        
+                        		**type**\: int
+                        
+                        			**range:** 16..1048575
+                        
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        
+                        .. attribute:: push_label
+                        
+                        	label value to push at the current hop for the LSP
+                        	**type**\: union of the below types:
+                        
+                        		**type**\: int
+                        
+                        			**range:** 16..1048575
+                        
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-mpls'
+                        _revision = '2017-03-22'
+
+                        def __init__(self):
+                            super(Mpls.Lsps.StaticLsps.StaticLsp.Egress.State, self).__init__()
+
+                            self.yang_name = "state"
+                            self.yang_parent_name = "egress"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                ('incoming_label', YLeaf(YType.str, 'incoming-label')),
+                                ('push_label', YLeaf(YType.str, 'push-label')),
+                            ])
+                            self.next_hop = None
+                            self.incoming_label = None
+                            self.push_label = None
+                            self._segment_path = lambda: "state"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Egress.State, [u'next_hop', u'incoming_label', u'push_label'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Mpls()
         return self._top_entity
-
-class LocallyComputed(Identity):
-    """
-    indicates a constrained\-path LSP in which the
-    path is computed by the local LER
-    
-    
-
-    """
-
-    _prefix = 'mpls'
-    _revision = '2015-11-05'
-
-    def __init__(self):
-        super(LocallyComputed, self).__init__("http://openconfig.net/yang/mpls", "openconfig-mpls", "openconfig-mpls:locally-computed")
-
-
-class ExternallyQueried(Identity):
-    """
-    constrained\-path LSP in which the path is
-    obtained by querying an external source, such as a PCE server
-    
-    
-
-    """
-
-    _prefix = 'mpls'
-    _revision = '2015-11-05'
-
-    def __init__(self):
-        super(ExternallyQueried, self).__init__("http://openconfig.net/yang/mpls", "openconfig-mpls", "openconfig-mpls:externally-queried")
-
-
-class ExplicitlyDefined(Identity):
-    """
-    constrained\-path LSP in which the path is
-    explicitly specified as a collection of strict or/and loose
-    hops
-    
-    
-
-    """
-
-    _prefix = 'mpls'
-    _revision = '2015-11-05'
-
-    def __init__(self):
-        super(ExplicitlyDefined, self).__init__("http://openconfig.net/yang/mpls", "openconfig-mpls", "openconfig-mpls:explicitly-defined")
-
 

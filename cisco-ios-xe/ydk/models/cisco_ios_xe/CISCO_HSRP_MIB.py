@@ -86,12 +86,12 @@ class CISCOHSRPMIB(Entity):
     .. attribute:: chsrpglobalconfig
     
     	
-    	**type**\:  :py:class:`Chsrpglobalconfig <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.CISCOHSRPMIB.Chsrpglobalconfig>`
+    	**type**\:  :py:class:`CHsrpGlobalConfig <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.CISCOHSRPMIB.CHsrpGlobalConfig>`
     
     .. attribute:: chsrpgrptable
     
     	A table containing information on each HSRP group for each interface
-    	**type**\:  :py:class:`Chsrpgrptable <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.CISCOHSRPMIB.Chsrpgrptable>`
+    	**type**\:  :py:class:`CHsrpGrpTable <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.CISCOHSRPMIB.CHsrpGrpTable>`
     
     
 
@@ -109,23 +109,23 @@ class CISCOHSRPMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cHsrpGlobalConfig", ("chsrpglobalconfig", CISCOHSRPMIB.Chsrpglobalconfig)), ("cHsrpGrpTable", ("chsrpgrptable", CISCOHSRPMIB.Chsrpgrptable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cHsrpGlobalConfig", ("chsrpglobalconfig", CISCOHSRPMIB.CHsrpGlobalConfig)), ("cHsrpGrpTable", ("chsrpgrptable", CISCOHSRPMIB.CHsrpGrpTable))])
         self._leafs = OrderedDict()
 
-        self.chsrpglobalconfig = CISCOHSRPMIB.Chsrpglobalconfig()
+        self.chsrpglobalconfig = CISCOHSRPMIB.CHsrpGlobalConfig()
         self.chsrpglobalconfig.parent = self
         self._children_name_map["chsrpglobalconfig"] = "cHsrpGlobalConfig"
-        self._children_yang_names.add("cHsrpGlobalConfig")
 
-        self.chsrpgrptable = CISCOHSRPMIB.Chsrpgrptable()
+        self.chsrpgrptable = CISCOHSRPMIB.CHsrpGrpTable()
         self.chsrpgrptable.parent = self
         self._children_name_map["chsrpgrptable"] = "cHsrpGrpTable"
-        self._children_yang_names.add("cHsrpGrpTable")
         self._segment_path = lambda: "CISCO-HSRP-MIB:CISCO-HSRP-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOHSRPMIB, [], name, value)
 
-    class Chsrpglobalconfig(Entity):
+
+    class CHsrpGlobalConfig(Entity):
         """
         
         
@@ -146,15 +146,14 @@ class CISCOHSRPMIB(Entity):
         _revision = '2010-09-06'
 
         def __init__(self):
-            super(CISCOHSRPMIB.Chsrpglobalconfig, self).__init__()
+            super(CISCOHSRPMIB.CHsrpGlobalConfig, self).__init__()
 
             self.yang_name = "cHsrpGlobalConfig"
             self.yang_parent_name = "CISCO-HSRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('chsrpconfigtimeout', YLeaf(YType.uint32, 'cHsrpConfigTimeout')),
             ])
@@ -163,10 +162,10 @@ class CISCOHSRPMIB(Entity):
             self._absolute_path = lambda: "CISCO-HSRP-MIB:CISCO-HSRP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOHSRPMIB.Chsrpglobalconfig, ['chsrpconfigtimeout'], name, value)
+            self._perform_setattr(CISCOHSRPMIB.CHsrpGlobalConfig, [u'chsrpconfigtimeout'], name, value)
 
 
-    class Chsrpgrptable(Entity):
+    class CHsrpGrpTable(Entity):
         """
         A table containing information on each HSRP group
         for each interface.
@@ -174,7 +173,7 @@ class CISCOHSRPMIB(Entity):
         .. attribute:: chsrpgrpentry
         
         	Information about an HSRP group. Management applications use cHsrpGrpRowStatus to control entry modification, creation and deletion.  Setting cHsrpGrpRowStatus to 'active' causes the router to communicate using HSRP.  The value of cHsrpGrpRowStatus may be set to 'destroy' at any time.  Entries may not be created via SNMP without explicitly  setting cHsrpGrpRowStatus to either 'createAndGo' or  'createAndWait'.  Entries can be created and modified via the management  protocol or by the device's local management interface.  A management application wishing to create an entry should choose the ifIndex of the interface which is to be added as part of an HSRP group. Also, a cHsrpGrpNumber should be chosen. A group number is unique only amongst the groups  on a particular interface. The value of the group number appears in packets which are transmitted and received on a  LAN segment to which the router is connected. The application must select the group number as explained in the description for cHsrpGrpNumber.  If the row is not active, and a local management interface command modifies that row, the row may transition to active state.  A row which is not in active state will timeout after a configurable period (five minutes by default). This timeout  period can be changed by setting cHsrpConfigTimeout
-        	**type**\: list of  		 :py:class:`Chsrpgrpentry <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.CISCOHSRPMIB.Chsrpgrptable.Chsrpgrpentry>`
+        	**type**\: list of  		 :py:class:`CHsrpGrpEntry <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.CISCOHSRPMIB.CHsrpGrpTable.CHsrpGrpEntry>`
         
         
 
@@ -184,15 +183,14 @@ class CISCOHSRPMIB(Entity):
         _revision = '2010-09-06'
 
         def __init__(self):
-            super(CISCOHSRPMIB.Chsrpgrptable, self).__init__()
+            super(CISCOHSRPMIB.CHsrpGrpTable, self).__init__()
 
             self.yang_name = "cHsrpGrpTable"
             self.yang_parent_name = "CISCO-HSRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cHsrpGrpEntry", ("chsrpgrpentry", CISCOHSRPMIB.Chsrpgrptable.Chsrpgrpentry))])
+            self._child_classes = OrderedDict([("cHsrpGrpEntry", ("chsrpgrpentry", CISCOHSRPMIB.CHsrpGrpTable.CHsrpGrpEntry))])
             self._leafs = OrderedDict()
 
             self.chsrpgrpentry = YList(self)
@@ -200,10 +198,10 @@ class CISCOHSRPMIB(Entity):
             self._absolute_path = lambda: "CISCO-HSRP-MIB:CISCO-HSRP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOHSRPMIB.Chsrpgrptable, [], name, value)
+            self._perform_setattr(CISCOHSRPMIB.CHsrpGrpTable, [], name, value)
 
 
-        class Chsrpgrpentry(Entity):
+        class CHsrpGrpEntry(Entity):
             """
             Information about an HSRP group. Management applications
             use cHsrpGrpRowStatus to control entry modification,
@@ -247,7 +245,7 @@ class CISCOHSRPMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: chsrpgrpnumber  (key)
             
@@ -381,15 +379,14 @@ class CISCOHSRPMIB(Entity):
             _revision = '2010-09-06'
 
             def __init__(self):
-                super(CISCOHSRPMIB.Chsrpgrptable.Chsrpgrpentry, self).__init__()
+                super(CISCOHSRPMIB.CHsrpGrpTable.CHsrpGrpEntry, self).__init__()
 
                 self.yang_name = "cHsrpGrpEntry"
                 self.yang_parent_name = "cHsrpGrpTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex','chsrpgrpnumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('chsrpgrpnumber', YLeaf(YType.uint32, 'cHsrpGrpNumber')),
@@ -434,7 +431,7 @@ class CISCOHSRPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-HSRP-MIB:CISCO-HSRP-MIB/cHsrpGrpTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOHSRPMIB.Chsrpgrptable.Chsrpgrpentry, ['ifindex', 'chsrpgrpnumber', 'chsrpgrpauth', 'chsrpgrppriority', 'chsrpgrppreempt', 'chsrpgrppreemptdelay', 'chsrpgrpuseconfiguredtimers', 'chsrpgrpconfiguredhellotime', 'chsrpgrpconfiguredholdtime', 'chsrpgrplearnedhellotime', 'chsrpgrplearnedholdtime', 'chsrpgrpvirtualipaddr', 'chsrpgrpuseconfigvirtualipaddr', 'chsrpgrpactiverouter', 'chsrpgrpstandbyrouter', 'chsrpgrpstandbystate', 'chsrpgrpvirtualmacaddr', 'chsrpgrpentryrowstatus', 'chsrpgrpipnone'], name, value)
+                self._perform_setattr(CISCOHSRPMIB.CHsrpGrpTable.CHsrpGrpEntry, [u'ifindex', u'chsrpgrpnumber', u'chsrpgrpauth', u'chsrpgrppriority', u'chsrpgrppreempt', u'chsrpgrppreemptdelay', u'chsrpgrpuseconfiguredtimers', u'chsrpgrpconfiguredhellotime', u'chsrpgrpconfiguredholdtime', u'chsrpgrplearnedhellotime', u'chsrpgrplearnedholdtime', u'chsrpgrpvirtualipaddr', u'chsrpgrpuseconfigvirtualipaddr', u'chsrpgrpactiverouter', u'chsrpgrpstandbyrouter', u'chsrpgrpstandbystate', u'chsrpgrpvirtualmacaddr', u'chsrpgrpentryrowstatus', u'chsrpgrpipnone'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOHSRPMIB()

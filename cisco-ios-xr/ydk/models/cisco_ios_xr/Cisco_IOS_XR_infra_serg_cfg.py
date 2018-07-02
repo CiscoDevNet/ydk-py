@@ -123,8 +123,7 @@ class SessionRedundancy(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("groups", ("groups", SessionRedundancy.Groups)), ("revertive-timer", ("revertive_timer", SessionRedundancy.RevertiveTimer))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("groups", ("groups", SessionRedundancy.Groups)), ("revertive-timer", ("revertive_timer", SessionRedundancy.RevertiveTimer))])
         self._leafs = OrderedDict([
             ('redundancy_disable', YLeaf(YType.empty, 'redundancy-disable')),
             ('enable', YLeaf(YType.empty, 'enable')),
@@ -141,12 +140,10 @@ class SessionRedundancy(Entity):
         self.groups = SessionRedundancy.Groups()
         self.groups.parent = self
         self._children_name_map["groups"] = "groups"
-        self._children_yang_names.add("groups")
 
         self.revertive_timer = SessionRedundancy.RevertiveTimer()
         self.revertive_timer.parent = self
         self._children_name_map["revertive_timer"] = "revertive-timer"
-        self._children_yang_names.add("revertive-timer")
         self._segment_path = lambda: "Cisco-IOS-XR-infra-serg-cfg:session-redundancy"
 
     def __setattr__(self, name, value):
@@ -177,8 +174,7 @@ class SessionRedundancy(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("group", ("group", SessionRedundancy.Groups.Group))])
+            self._child_classes = OrderedDict([("group", ("group", SessionRedundancy.Groups.Group))])
             self._leafs = OrderedDict()
 
             self.group = YList(self)
@@ -274,8 +270,7 @@ class SessionRedundancy(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['group_id']
-                self._child_container_classes = OrderedDict([("peer", ("peer", SessionRedundancy.Groups.Group.Peer)), ("revertive-timer", ("revertive_timer", SessionRedundancy.Groups.Group.RevertiveTimer)), ("interface-list", ("interface_list", SessionRedundancy.Groups.Group.InterfaceList))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("peer", ("peer", SessionRedundancy.Groups.Group.Peer)), ("revertive-timer", ("revertive_timer", SessionRedundancy.Groups.Group.RevertiveTimer)), ("interface-list", ("interface_list", SessionRedundancy.Groups.Group.InterfaceList))])
                 self._leafs = OrderedDict([
                     ('group_id', YLeaf(YType.uint32, 'group-id')),
                     ('core_tracking_object', YLeaf(YType.str, 'core-tracking-object')),
@@ -300,17 +295,14 @@ class SessionRedundancy(Entity):
                 self.peer = SessionRedundancy.Groups.Group.Peer()
                 self.peer.parent = self
                 self._children_name_map["peer"] = "peer"
-                self._children_yang_names.add("peer")
 
                 self.revertive_timer = SessionRedundancy.Groups.Group.RevertiveTimer()
                 self.revertive_timer.parent = self
                 self._children_name_map["revertive_timer"] = "revertive-timer"
-                self._children_yang_names.add("revertive-timer")
 
                 self.interface_list = SessionRedundancy.Groups.Group.InterfaceList()
                 self.interface_list.parent = self
                 self._children_name_map["interface_list"] = "interface-list"
-                self._children_yang_names.add("interface-list")
                 self._segment_path = lambda: "group" + "[group-id='" + str(self.group_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-serg-cfg:session-redundancy/groups/%s" % self._segment_path()
 
@@ -342,15 +334,16 @@ class SessionRedundancy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("ipaddress", ("ipaddress", SessionRedundancy.Groups.Group.Peer.Ipaddress))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("ipaddress", ("ipaddress", SessionRedundancy.Groups.Group.Peer.Ipaddress))])
                     self._leafs = OrderedDict()
 
                     self.ipaddress = SessionRedundancy.Groups.Group.Peer.Ipaddress()
                     self.ipaddress.parent = self
                     self._children_name_map["ipaddress"] = "ipaddress"
-                    self._children_yang_names.add("ipaddress")
                     self._segment_path = lambda: "peer"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(SessionRedundancy.Groups.Group.Peer, [], name, value)
 
 
                 class Ipaddress(Entity):
@@ -390,8 +383,7 @@ class SessionRedundancy(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('address_family', YLeaf(YType.enumeration, 'address-family')),
                             ('prefix_string', YLeaf(YType.str, 'prefix-string')),
@@ -439,8 +431,7 @@ class SessionRedundancy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('max_value', YLeaf(YType.uint32, 'max-value')),
                         ('value', YLeaf(YType.uint32, 'value')),
@@ -487,8 +478,7 @@ class SessionRedundancy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("interface-ranges", ("interface_ranges", SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges)), ("interfaces", ("interfaces", SessionRedundancy.Groups.Group.InterfaceList.Interfaces))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("interface-ranges", ("interface_ranges", SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges)), ("interfaces", ("interfaces", SessionRedundancy.Groups.Group.InterfaceList.Interfaces))])
                     self._leafs = OrderedDict([
                         ('enable', YLeaf(YType.empty, 'enable')),
                     ])
@@ -497,12 +487,10 @@ class SessionRedundancy(Entity):
                     self.interface_ranges = SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges()
                     self.interface_ranges.parent = self
                     self._children_name_map["interface_ranges"] = "interface-ranges"
-                    self._children_yang_names.add("interface-ranges")
 
                     self.interfaces = SessionRedundancy.Groups.Group.InterfaceList.Interfaces()
                     self.interfaces.parent = self
                     self._children_name_map["interfaces"] = "interfaces"
-                    self._children_yang_names.add("interfaces")
                     self._segment_path = lambda: "interface-list"
 
                 def __setattr__(self, name, value):
@@ -533,8 +521,7 @@ class SessionRedundancy(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("interface-range", ("interface_range", SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange))])
+                        self._child_classes = OrderedDict([("interface-range", ("interface_range", SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange))])
                         self._leafs = OrderedDict()
 
                         self.interface_range = YList(self)
@@ -598,8 +585,7 @@ class SessionRedundancy(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['interface_name','sub_interface_range_start','sub_interface_range_end']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                                 ('sub_interface_range_start', YLeaf(YType.uint32, 'sub-interface-range-start')),
@@ -642,8 +628,7 @@ class SessionRedundancy(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("interface", ("interface", SessionRedundancy.Groups.Group.InterfaceList.Interfaces.Interface))])
+                        self._child_classes = OrderedDict([("interface", ("interface", SessionRedundancy.Groups.Group.InterfaceList.Interfaces.Interface))])
                         self._leafs = OrderedDict()
 
                         self.interface = YList(self)
@@ -688,8 +673,7 @@ class SessionRedundancy(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['interface_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                                 ('interface_id', YLeaf(YType.uint32, 'interface-id')),
@@ -737,8 +721,7 @@ class SessionRedundancy(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('max_value', YLeaf(YType.uint32, 'max-value')),
                 ('value', YLeaf(YType.uint32, 'value')),

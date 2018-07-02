@@ -218,25 +218,24 @@ class TrustsecState(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cts-rolebased-sgtmaps", ("cts_rolebased_sgtmaps", TrustsecState.CtsRolebasedSgtmaps)), ("cts-rolebased-policies", ("cts_rolebased_policies", TrustsecState.CtsRolebasedPolicies)), ("cts-sxp-connections", ("cts_sxp_connections", TrustsecState.CtsSxpConnections))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cts-rolebased-sgtmaps", ("cts_rolebased_sgtmaps", TrustsecState.CtsRolebasedSgtmaps)), ("cts-rolebased-policies", ("cts_rolebased_policies", TrustsecState.CtsRolebasedPolicies)), ("cts-sxp-connections", ("cts_sxp_connections", TrustsecState.CtsSxpConnections))])
         self._leafs = OrderedDict()
 
         self.cts_rolebased_sgtmaps = TrustsecState.CtsRolebasedSgtmaps()
         self.cts_rolebased_sgtmaps.parent = self
         self._children_name_map["cts_rolebased_sgtmaps"] = "cts-rolebased-sgtmaps"
-        self._children_yang_names.add("cts-rolebased-sgtmaps")
 
         self.cts_rolebased_policies = TrustsecState.CtsRolebasedPolicies()
         self.cts_rolebased_policies.parent = self
         self._children_name_map["cts_rolebased_policies"] = "cts-rolebased-policies"
-        self._children_yang_names.add("cts-rolebased-policies")
 
         self.cts_sxp_connections = TrustsecState.CtsSxpConnections()
         self.cts_sxp_connections.parent = self
         self._children_name_map["cts_sxp_connections"] = "cts-sxp-connections"
-        self._children_yang_names.add("cts-sxp-connections")
         self._segment_path = lambda: "Cisco-IOS-XE-trustsec-oper:trustsec-state"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(TrustsecState, [], name, value)
 
 
     class CtsRolebasedSgtmaps(Entity):
@@ -264,8 +263,7 @@ class TrustsecState(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cts-rolebased-sgtmap", ("cts_rolebased_sgtmap", TrustsecState.CtsRolebasedSgtmaps.CtsRolebasedSgtmap))])
+            self._child_classes = OrderedDict([("cts-rolebased-sgtmap", ("cts_rolebased_sgtmap", TrustsecState.CtsRolebasedSgtmaps.CtsRolebasedSgtmap))])
             self._leafs = OrderedDict()
 
             self.cts_rolebased_sgtmap = YList(self)
@@ -328,8 +326,7 @@ class TrustsecState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ip','vrf_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ip', YLeaf(YType.str, 'ip')),
                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
@@ -373,8 +370,7 @@ class TrustsecState(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cts-rolebased-policy", ("cts_rolebased_policy", TrustsecState.CtsRolebasedPolicies.CtsRolebasedPolicy))])
+            self._child_classes = OrderedDict([("cts-rolebased-policy", ("cts_rolebased_policy", TrustsecState.CtsRolebasedPolicies.CtsRolebasedPolicy))])
             self._leafs = OrderedDict()
 
             self.cts_rolebased_policy = YList(self)
@@ -508,8 +504,7 @@ class TrustsecState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['src_sgt','dst_sgt']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('src_sgt', YLeaf(YType.int32, 'src-sgt')),
                     ('dst_sgt', YLeaf(YType.int32, 'dst-sgt')),
@@ -577,8 +572,7 @@ class TrustsecState(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cts-sxp-connection", ("cts_sxp_connection", TrustsecState.CtsSxpConnections.CtsSxpConnection))])
+            self._child_classes = OrderedDict([("cts-sxp-connection", ("cts_sxp_connection", TrustsecState.CtsSxpConnections.CtsSxpConnection))])
             self._leafs = OrderedDict()
 
             self.cts_sxp_connection = YList(self)
@@ -671,8 +665,7 @@ class TrustsecState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['peer_ip','vrf_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('peer_ip', YLeaf(YType.str, 'peer-ip')),
                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),

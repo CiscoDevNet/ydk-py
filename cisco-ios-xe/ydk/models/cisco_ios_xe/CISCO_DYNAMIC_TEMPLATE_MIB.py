@@ -40,52 +40,52 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
     .. attribute:: cdttemplatetable
     
     	This table lists the dynamic templates maintained by the system, including those that have been locally\-configured on the system and those pushed to the system by external policy servers
-    	**type**\:  :py:class:`Cdttemplatetable <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdttemplatetable>`
+    	**type**\:  :py:class:`CdtTemplateTable <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtTemplateTable>`
     
     .. attribute:: cdttemplatetargettable
     
     	This table contains a list of targets associated with one or more dynamic templates
-    	**type**\:  :py:class:`Cdttemplatetargettable <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdttemplatetargettable>`
+    	**type**\:  :py:class:`CdtTemplateTargetTable <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtTemplateTargetTable>`
     
     .. attribute:: cdttemplateassociationtable
     
     	This table contains a list of templates associated with each target.  This table has an expansion dependent relationship on the cdtTemplateTargetTable, containing zero or more rows for each target
-    	**type**\:  :py:class:`Cdttemplateassociationtable <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdttemplateassociationtable>`
+    	**type**\:  :py:class:`CdtTemplateAssociationTable <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtTemplateAssociationTable>`
     
     .. attribute:: cdttemplateusagetable
     
     	This table contains a list of targets using each dynamic template.  This table has an expansion dependent relationship on the cdtTemplateTable, containing zero or more rows for each dynamic template
-    	**type**\:  :py:class:`Cdttemplateusagetable <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdttemplateusagetable>`
+    	**type**\:  :py:class:`CdtTemplateUsageTable <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtTemplateUsageTable>`
     
     .. attribute:: cdttemplatecommontable
     
     	This table contains attributes relating to all dynamic templates.  Observe that the type of dynamic templates containing these attributes may change with the addition of new dynamic template types.  This table has a sparse\-dependent relationship on the cdtTemplateTable, containing a row for each dynamic template having a cdtTemplateType of one of the following values\:      'derived'     'ppp'     'ethernet'     'ipSubscriber'     'service'
-    	**type**\:  :py:class:`Cdttemplatecommontable <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdttemplatecommontable>`
+    	**type**\:  :py:class:`CdtTemplateCommonTable <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtTemplateCommonTable>`
     
     .. attribute:: cdtiftemplatetable
     
     	This table contains attributes relating to interface configuration.  This table has a sparse\-dependent relationship on the cdtTemplateTable, containing a row for each dynamic template having a cdtTemplateType of one of the following values\:      'derived'     'ppp'     'ethernet'     'ipSubscriber'
-    	**type**\:  :py:class:`Cdtiftemplatetable <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtiftemplatetable>`
+    	**type**\:  :py:class:`CdtIfTemplateTable <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtIfTemplateTable>`
     
     .. attribute:: cdtppptemplatetable
     
     	This table contains attributes relating to PPP connection configuration.  This table has a sparse\-dependent relationship on the cdtTemplateTable, containing a row for each dynamic template having a cdtTemplateType of one of the following values\:      'derived'     'ppp'
-    	**type**\:  :py:class:`Cdtppptemplatetable <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtppptemplatetable>`
+    	**type**\:  :py:class:`CdtPppTemplateTable <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtPppTemplateTable>`
     
     .. attribute:: cdtppppeeripaddrpooltable
     
     	This table contains a prioritized list of named pools for each PPP template.  A list corresponding to a PPP template specifies the pools the system searches in an attempt to assign an IP address to the peer of a target PPP connection. The system searches the pools in the order of their priority.  This table has an expansion dependent relationship on the cdtPppTemplateTable, containing zero or more rows for each PPP template
-    	**type**\:  :py:class:`Cdtppppeeripaddrpooltable <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtppppeeripaddrpooltable>`
+    	**type**\:  :py:class:`CdtPppPeerIpAddrPoolTable <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtPppPeerIpAddrPoolTable>`
     
     .. attribute:: cdtethernettemplatetable
     
     	This table contains attributes relating to dynamic interfaces initiated on Ethernet virtual interfaces (e.g., EoMPLS) or automatically created VLANs.  This table has a sparse\-dependent relationship on the cdtTemplateTable, containing a row for each dynamic template having a cdtTemplateType of one of the following values\:      'derived'     'ethernet'
-    	**type**\:  :py:class:`Cdtethernettemplatetable <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtethernettemplatetable>`
+    	**type**\:  :py:class:`CdtEthernetTemplateTable <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtEthernetTemplateTable>`
     
     .. attribute:: cdtsrvtemplatetable
     
     	This table contains attributes relating to a service.  This table has a sparse\-dependent relationship on the cdtTemplateTable, containing a row for each dynamic template having a cdtTemplateType of one of the following values\:      'derived'     'service'
-    	**type**\:  :py:class:`Cdtsrvtemplatetable <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtsrvtemplatetable>`
+    	**type**\:  :py:class:`CdtSrvTemplateTable <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtSrvTemplateTable>`
     
     
 
@@ -103,63 +103,55 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cdtTemplateTable", ("cdttemplatetable", CISCODYNAMICTEMPLATEMIB.Cdttemplatetable)), ("cdtTemplateTargetTable", ("cdttemplatetargettable", CISCODYNAMICTEMPLATEMIB.Cdttemplatetargettable)), ("cdtTemplateAssociationTable", ("cdttemplateassociationtable", CISCODYNAMICTEMPLATEMIB.Cdttemplateassociationtable)), ("cdtTemplateUsageTable", ("cdttemplateusagetable", CISCODYNAMICTEMPLATEMIB.Cdttemplateusagetable)), ("cdtTemplateCommonTable", ("cdttemplatecommontable", CISCODYNAMICTEMPLATEMIB.Cdttemplatecommontable)), ("cdtIfTemplateTable", ("cdtiftemplatetable", CISCODYNAMICTEMPLATEMIB.Cdtiftemplatetable)), ("cdtPppTemplateTable", ("cdtppptemplatetable", CISCODYNAMICTEMPLATEMIB.Cdtppptemplatetable)), ("cdtPppPeerIpAddrPoolTable", ("cdtppppeeripaddrpooltable", CISCODYNAMICTEMPLATEMIB.Cdtppppeeripaddrpooltable)), ("cdtEthernetTemplateTable", ("cdtethernettemplatetable", CISCODYNAMICTEMPLATEMIB.Cdtethernettemplatetable)), ("cdtSrvTemplateTable", ("cdtsrvtemplatetable", CISCODYNAMICTEMPLATEMIB.Cdtsrvtemplatetable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cdtTemplateTable", ("cdttemplatetable", CISCODYNAMICTEMPLATEMIB.CdtTemplateTable)), ("cdtTemplateTargetTable", ("cdttemplatetargettable", CISCODYNAMICTEMPLATEMIB.CdtTemplateTargetTable)), ("cdtTemplateAssociationTable", ("cdttemplateassociationtable", CISCODYNAMICTEMPLATEMIB.CdtTemplateAssociationTable)), ("cdtTemplateUsageTable", ("cdttemplateusagetable", CISCODYNAMICTEMPLATEMIB.CdtTemplateUsageTable)), ("cdtTemplateCommonTable", ("cdttemplatecommontable", CISCODYNAMICTEMPLATEMIB.CdtTemplateCommonTable)), ("cdtIfTemplateTable", ("cdtiftemplatetable", CISCODYNAMICTEMPLATEMIB.CdtIfTemplateTable)), ("cdtPppTemplateTable", ("cdtppptemplatetable", CISCODYNAMICTEMPLATEMIB.CdtPppTemplateTable)), ("cdtPppPeerIpAddrPoolTable", ("cdtppppeeripaddrpooltable", CISCODYNAMICTEMPLATEMIB.CdtPppPeerIpAddrPoolTable)), ("cdtEthernetTemplateTable", ("cdtethernettemplatetable", CISCODYNAMICTEMPLATEMIB.CdtEthernetTemplateTable)), ("cdtSrvTemplateTable", ("cdtsrvtemplatetable", CISCODYNAMICTEMPLATEMIB.CdtSrvTemplateTable))])
         self._leafs = OrderedDict()
 
-        self.cdttemplatetable = CISCODYNAMICTEMPLATEMIB.Cdttemplatetable()
+        self.cdttemplatetable = CISCODYNAMICTEMPLATEMIB.CdtTemplateTable()
         self.cdttemplatetable.parent = self
         self._children_name_map["cdttemplatetable"] = "cdtTemplateTable"
-        self._children_yang_names.add("cdtTemplateTable")
 
-        self.cdttemplatetargettable = CISCODYNAMICTEMPLATEMIB.Cdttemplatetargettable()
+        self.cdttemplatetargettable = CISCODYNAMICTEMPLATEMIB.CdtTemplateTargetTable()
         self.cdttemplatetargettable.parent = self
         self._children_name_map["cdttemplatetargettable"] = "cdtTemplateTargetTable"
-        self._children_yang_names.add("cdtTemplateTargetTable")
 
-        self.cdttemplateassociationtable = CISCODYNAMICTEMPLATEMIB.Cdttemplateassociationtable()
+        self.cdttemplateassociationtable = CISCODYNAMICTEMPLATEMIB.CdtTemplateAssociationTable()
         self.cdttemplateassociationtable.parent = self
         self._children_name_map["cdttemplateassociationtable"] = "cdtTemplateAssociationTable"
-        self._children_yang_names.add("cdtTemplateAssociationTable")
 
-        self.cdttemplateusagetable = CISCODYNAMICTEMPLATEMIB.Cdttemplateusagetable()
+        self.cdttemplateusagetable = CISCODYNAMICTEMPLATEMIB.CdtTemplateUsageTable()
         self.cdttemplateusagetable.parent = self
         self._children_name_map["cdttemplateusagetable"] = "cdtTemplateUsageTable"
-        self._children_yang_names.add("cdtTemplateUsageTable")
 
-        self.cdttemplatecommontable = CISCODYNAMICTEMPLATEMIB.Cdttemplatecommontable()
+        self.cdttemplatecommontable = CISCODYNAMICTEMPLATEMIB.CdtTemplateCommonTable()
         self.cdttemplatecommontable.parent = self
         self._children_name_map["cdttemplatecommontable"] = "cdtTemplateCommonTable"
-        self._children_yang_names.add("cdtTemplateCommonTable")
 
-        self.cdtiftemplatetable = CISCODYNAMICTEMPLATEMIB.Cdtiftemplatetable()
+        self.cdtiftemplatetable = CISCODYNAMICTEMPLATEMIB.CdtIfTemplateTable()
         self.cdtiftemplatetable.parent = self
         self._children_name_map["cdtiftemplatetable"] = "cdtIfTemplateTable"
-        self._children_yang_names.add("cdtIfTemplateTable")
 
-        self.cdtppptemplatetable = CISCODYNAMICTEMPLATEMIB.Cdtppptemplatetable()
+        self.cdtppptemplatetable = CISCODYNAMICTEMPLATEMIB.CdtPppTemplateTable()
         self.cdtppptemplatetable.parent = self
         self._children_name_map["cdtppptemplatetable"] = "cdtPppTemplateTable"
-        self._children_yang_names.add("cdtPppTemplateTable")
 
-        self.cdtppppeeripaddrpooltable = CISCODYNAMICTEMPLATEMIB.Cdtppppeeripaddrpooltable()
+        self.cdtppppeeripaddrpooltable = CISCODYNAMICTEMPLATEMIB.CdtPppPeerIpAddrPoolTable()
         self.cdtppppeeripaddrpooltable.parent = self
         self._children_name_map["cdtppppeeripaddrpooltable"] = "cdtPppPeerIpAddrPoolTable"
-        self._children_yang_names.add("cdtPppPeerIpAddrPoolTable")
 
-        self.cdtethernettemplatetable = CISCODYNAMICTEMPLATEMIB.Cdtethernettemplatetable()
+        self.cdtethernettemplatetable = CISCODYNAMICTEMPLATEMIB.CdtEthernetTemplateTable()
         self.cdtethernettemplatetable.parent = self
         self._children_name_map["cdtethernettemplatetable"] = "cdtEthernetTemplateTable"
-        self._children_yang_names.add("cdtEthernetTemplateTable")
 
-        self.cdtsrvtemplatetable = CISCODYNAMICTEMPLATEMIB.Cdtsrvtemplatetable()
+        self.cdtsrvtemplatetable = CISCODYNAMICTEMPLATEMIB.CdtSrvTemplateTable()
         self.cdtsrvtemplatetable.parent = self
         self._children_name_map["cdtsrvtemplatetable"] = "cdtSrvTemplateTable"
-        self._children_yang_names.add("cdtSrvTemplateTable")
         self._segment_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCODYNAMICTEMPLATEMIB, [], name, value)
 
-    class Cdttemplatetable(Entity):
+
+    class CdtTemplateTable(Entity):
         """
         This table lists the dynamic templates maintained by the
         system, including those that have been locally\-configured on the
@@ -169,7 +161,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
         .. attribute:: cdttemplateentry
         
         	An entry describes a dynamic template, which serves as a container for configuration attributes.  The configuration attributes contained by a dynamic template depends on its type.  The system automatically creates a corresponding entry when a dynamic template has been created through another management entity (e.g., the system's local console).  Likewise, the system automatically destroys a corresponding entry when a dynamic template has been destroyed through another management entity.  The system automatically creates a corresponding entry when an external policy server pushes a user profile or a service profile to the system.  The system automatically creates a corresponding entry when it generates a derived configuration
-        	**type**\: list of  		 :py:class:`Cdttemplateentry <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdttemplatetable.Cdttemplateentry>`
+        	**type**\: list of  		 :py:class:`CdtTemplateEntry <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtTemplateTable.CdtTemplateEntry>`
         
         
 
@@ -179,15 +171,14 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
         _revision = '2007-09-06'
 
         def __init__(self):
-            super(CISCODYNAMICTEMPLATEMIB.Cdttemplatetable, self).__init__()
+            super(CISCODYNAMICTEMPLATEMIB.CdtTemplateTable, self).__init__()
 
             self.yang_name = "cdtTemplateTable"
             self.yang_parent_name = "CISCO-DYNAMIC-TEMPLATE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cdtTemplateEntry", ("cdttemplateentry", CISCODYNAMICTEMPLATEMIB.Cdttemplatetable.Cdttemplateentry))])
+            self._child_classes = OrderedDict([("cdtTemplateEntry", ("cdttemplateentry", CISCODYNAMICTEMPLATEMIB.CdtTemplateTable.CdtTemplateEntry))])
             self._leafs = OrderedDict()
 
             self.cdttemplateentry = YList(self)
@@ -195,10 +186,10 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCODYNAMICTEMPLATEMIB.Cdttemplatetable, [], name, value)
+            self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtTemplateTable, [], name, value)
 
 
-        class Cdttemplateentry(Entity):
+        class CdtTemplateEntry(Entity):
             """
             An entry describes a dynamic template, which serves as a
             container for configuration attributes.  The configuration
@@ -242,7 +233,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             .. attribute:: cdttemplatesrc
             
             	This object specifies the source of the dynamic template\:  'other'     The implementation of the MIB module does not recognize the     source of the dynamic template.  'derived'     The system created the set of attributes from one or     more dynamic templates.  'local'     The dynamic template was locally configured through a     management entity, such as the local console or a SNMP     entity.  'aaaUserProfile'     The dynamic template originated from a user profile     pushed from an external policy server.  'aaaServiceProfile'     The dynamic template originated from a service profile     pushed from an external policy server
-            	**type**\:  :py:class:`Cdttemplatesrc <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdttemplatetable.Cdttemplateentry.Cdttemplatesrc>`
+            	**type**\:  :py:class:`CdtTemplateSrc <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtTemplateTable.CdtTemplateEntry.CdtTemplateSrc>`
             
             .. attribute:: cdttemplateusagecount
             
@@ -259,15 +250,14 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             _revision = '2007-09-06'
 
             def __init__(self):
-                super(CISCODYNAMICTEMPLATEMIB.Cdttemplatetable.Cdttemplateentry, self).__init__()
+                super(CISCODYNAMICTEMPLATEMIB.CdtTemplateTable.CdtTemplateEntry, self).__init__()
 
                 self.yang_name = "cdtTemplateEntry"
                 self.yang_parent_name = "cdtTemplateTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cdttemplatename']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cdttemplatename', YLeaf(YType.str, 'cdtTemplateName')),
                     ('cdttemplatestatus', YLeaf(YType.enumeration, 'cdtTemplateStatus')),
@@ -286,11 +276,11 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtTemplateTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCODYNAMICTEMPLATEMIB.Cdttemplatetable.Cdttemplateentry, ['cdttemplatename', 'cdttemplatestatus', 'cdttemplatestorage', 'cdttemplatetype', 'cdttemplatesrc', 'cdttemplateusagecount'], name, value)
+                self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtTemplateTable.CdtTemplateEntry, ['cdttemplatename', 'cdttemplatestatus', 'cdttemplatestorage', 'cdttemplatetype', 'cdttemplatesrc', 'cdttemplateusagecount'], name, value)
 
-            class Cdttemplatesrc(Enum):
+            class CdtTemplateSrc(Enum):
                 """
-                Cdttemplatesrc (Enum Class)
+                CdtTemplateSrc (Enum Class)
 
                 This object specifies the source of the dynamic template\:
 
@@ -350,7 +340,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
 
 
 
-    class Cdttemplatetargettable(Entity):
+    class CdtTemplateTargetTable(Entity):
         """
         This table contains a list of targets associated with
         one or more dynamic templates.
@@ -358,7 +348,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
         .. attribute:: cdttemplatetargetentry
         
         	An entry describes a target associated with one or more dynamic templates.  The system automatically creates an entry when it associates a dynamic template to a target.  Likewise, the system automatically destroys an entry when a target no longer has any associated dynamic templates
-        	**type**\: list of  		 :py:class:`Cdttemplatetargetentry <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdttemplatetargettable.Cdttemplatetargetentry>`
+        	**type**\: list of  		 :py:class:`CdtTemplateTargetEntry <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtTemplateTargetTable.CdtTemplateTargetEntry>`
         
         
 
@@ -368,15 +358,14 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
         _revision = '2007-09-06'
 
         def __init__(self):
-            super(CISCODYNAMICTEMPLATEMIB.Cdttemplatetargettable, self).__init__()
+            super(CISCODYNAMICTEMPLATEMIB.CdtTemplateTargetTable, self).__init__()
 
             self.yang_name = "cdtTemplateTargetTable"
             self.yang_parent_name = "CISCO-DYNAMIC-TEMPLATE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cdtTemplateTargetEntry", ("cdttemplatetargetentry", CISCODYNAMICTEMPLATEMIB.Cdttemplatetargettable.Cdttemplatetargetentry))])
+            self._child_classes = OrderedDict([("cdtTemplateTargetEntry", ("cdttemplatetargetentry", CISCODYNAMICTEMPLATEMIB.CdtTemplateTargetTable.CdtTemplateTargetEntry))])
             self._leafs = OrderedDict()
 
             self.cdttemplatetargetentry = YList(self)
@@ -384,10 +373,10 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCODYNAMICTEMPLATEMIB.Cdttemplatetargettable, [], name, value)
+            self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtTemplateTargetTable, [], name, value)
 
 
-        class Cdttemplatetargetentry(Entity):
+        class CdtTemplateTargetEntry(Entity):
             """
             An entry describes a target associated with one or more
             dynamic templates.
@@ -427,15 +416,14 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             _revision = '2007-09-06'
 
             def __init__(self):
-                super(CISCODYNAMICTEMPLATEMIB.Cdttemplatetargettable.Cdttemplatetargetentry, self).__init__()
+                super(CISCODYNAMICTEMPLATEMIB.CdtTemplateTargetTable.CdtTemplateTargetEntry, self).__init__()
 
                 self.yang_name = "cdtTemplateTargetEntry"
                 self.yang_parent_name = "cdtTemplateTargetTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cdttemplatetargettype','cdttemplatetargetid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cdttemplatetargettype', YLeaf(YType.enumeration, 'cdtTemplateTargetType')),
                     ('cdttemplatetargetid', YLeaf(YType.str, 'cdtTemplateTargetId')),
@@ -450,10 +438,10 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtTemplateTargetTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCODYNAMICTEMPLATEMIB.Cdttemplatetargettable.Cdttemplatetargetentry, ['cdttemplatetargettype', 'cdttemplatetargetid', 'cdttemplatetargetstatus', 'cdttemplatetargetstorage'], name, value)
+                self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtTemplateTargetTable.CdtTemplateTargetEntry, ['cdttemplatetargettype', 'cdttemplatetargetid', 'cdttemplatetargetstatus', 'cdttemplatetargetstorage'], name, value)
 
 
-    class Cdttemplateassociationtable(Entity):
+    class CdtTemplateAssociationTable(Entity):
         """
         This table contains a list of templates associated with each
         target.
@@ -465,7 +453,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
         .. attribute:: cdttemplateassociationentry
         
         	An entry indicates an association of a dynamic template with a target.  The system automatically creates an entry when it associates a dynamic template to a target.  The system also creates an entry when it derives the configuration that it applies to a target.  The system automatically destroys an entry under the following circumstances\:  1)  The target indicated by the entry no longer exists.  2)  The association between the target and the dynamic template     no longer exists
-        	**type**\: list of  		 :py:class:`Cdttemplateassociationentry <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdttemplateassociationtable.Cdttemplateassociationentry>`
+        	**type**\: list of  		 :py:class:`CdtTemplateAssociationEntry <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtTemplateAssociationTable.CdtTemplateAssociationEntry>`
         
         
 
@@ -475,15 +463,14 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
         _revision = '2007-09-06'
 
         def __init__(self):
-            super(CISCODYNAMICTEMPLATEMIB.Cdttemplateassociationtable, self).__init__()
+            super(CISCODYNAMICTEMPLATEMIB.CdtTemplateAssociationTable, self).__init__()
 
             self.yang_name = "cdtTemplateAssociationTable"
             self.yang_parent_name = "CISCO-DYNAMIC-TEMPLATE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cdtTemplateAssociationEntry", ("cdttemplateassociationentry", CISCODYNAMICTEMPLATEMIB.Cdttemplateassociationtable.Cdttemplateassociationentry))])
+            self._child_classes = OrderedDict([("cdtTemplateAssociationEntry", ("cdttemplateassociationentry", CISCODYNAMICTEMPLATEMIB.CdtTemplateAssociationTable.CdtTemplateAssociationEntry))])
             self._leafs = OrderedDict()
 
             self.cdttemplateassociationentry = YList(self)
@@ -491,10 +478,10 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCODYNAMICTEMPLATEMIB.Cdttemplateassociationtable, [], name, value)
+            self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtTemplateAssociationTable, [], name, value)
 
 
-        class Cdttemplateassociationentry(Entity):
+        class CdtTemplateAssociationEntry(Entity):
             """
             An entry indicates an association of a dynamic template with a
             target.
@@ -525,7 +512,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             
             	**length:** 1..20
             
-            	**refers to**\:  :py:class:`cdttemplatetargetid <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdttemplatetargettable.Cdttemplatetargetentry>`
+            	**refers to**\:  :py:class:`cdttemplatetargetid <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtTemplateTargetTable.CdtTemplateTargetEntry>`
             
             .. attribute:: cdttemplateassociationname  (key)
             
@@ -549,15 +536,14 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             _revision = '2007-09-06'
 
             def __init__(self):
-                super(CISCODYNAMICTEMPLATEMIB.Cdttemplateassociationtable.Cdttemplateassociationentry, self).__init__()
+                super(CISCODYNAMICTEMPLATEMIB.CdtTemplateAssociationTable.CdtTemplateAssociationEntry, self).__init__()
 
                 self.yang_name = "cdtTemplateAssociationEntry"
                 self.yang_parent_name = "cdtTemplateAssociationTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cdttemplatetargettype','cdttemplatetargetid','cdttemplateassociationname']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cdttemplatetargettype', YLeaf(YType.enumeration, 'cdtTemplateTargetType')),
                     ('cdttemplatetargetid', YLeaf(YType.str, 'cdtTemplateTargetId')),
@@ -572,10 +558,10 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtTemplateAssociationTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCODYNAMICTEMPLATEMIB.Cdttemplateassociationtable.Cdttemplateassociationentry, ['cdttemplatetargettype', 'cdttemplatetargetid', 'cdttemplateassociationname', 'cdttemplateassociationprecedence'], name, value)
+                self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtTemplateAssociationTable.CdtTemplateAssociationEntry, ['cdttemplatetargettype', 'cdttemplatetargetid', 'cdttemplateassociationname', 'cdttemplateassociationprecedence'], name, value)
 
 
-    class Cdttemplateusagetable(Entity):
+    class CdtTemplateUsageTable(Entity):
         """
         This table contains a list of targets using each dynamic
         template.
@@ -587,7 +573,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
         .. attribute:: cdttemplateusageentry
         
         	An entry indicates a target using the dynamic template.  The system automatically creates an entry when it associates a dynamic template to a target.  The system also creates an entry when it derives the configuration that it applies to a target.  The system automatically destroys an entry under the following circumstances\:  1)  The target indicated by the entry no longer exists.  2)  The association between the target and the dynamic template     no longer exists
-        	**type**\: list of  		 :py:class:`Cdttemplateusageentry <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdttemplateusagetable.Cdttemplateusageentry>`
+        	**type**\: list of  		 :py:class:`CdtTemplateUsageEntry <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtTemplateUsageTable.CdtTemplateUsageEntry>`
         
         
 
@@ -597,15 +583,14 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
         _revision = '2007-09-06'
 
         def __init__(self):
-            super(CISCODYNAMICTEMPLATEMIB.Cdttemplateusagetable, self).__init__()
+            super(CISCODYNAMICTEMPLATEMIB.CdtTemplateUsageTable, self).__init__()
 
             self.yang_name = "cdtTemplateUsageTable"
             self.yang_parent_name = "CISCO-DYNAMIC-TEMPLATE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cdtTemplateUsageEntry", ("cdttemplateusageentry", CISCODYNAMICTEMPLATEMIB.Cdttemplateusagetable.Cdttemplateusageentry))])
+            self._child_classes = OrderedDict([("cdtTemplateUsageEntry", ("cdttemplateusageentry", CISCODYNAMICTEMPLATEMIB.CdtTemplateUsageTable.CdtTemplateUsageEntry))])
             self._leafs = OrderedDict()
 
             self.cdttemplateusageentry = YList(self)
@@ -613,10 +598,10 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCODYNAMICTEMPLATEMIB.Cdttemplateusagetable, [], name, value)
+            self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtTemplateUsageTable, [], name, value)
 
 
-        class Cdttemplateusageentry(Entity):
+        class CdtTemplateUsageEntry(Entity):
             """
             An entry indicates a target using the dynamic template.
             
@@ -641,7 +626,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             
             	**length:** 1..64
             
-            	**refers to**\:  :py:class:`cdttemplatename <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdttemplatetable.Cdttemplateentry>`
+            	**refers to**\:  :py:class:`cdttemplatename <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtTemplateTable.CdtTemplateEntry>`
             
             .. attribute:: cdttemplateusagetargettype  (key)
             
@@ -663,15 +648,14 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             _revision = '2007-09-06'
 
             def __init__(self):
-                super(CISCODYNAMICTEMPLATEMIB.Cdttemplateusagetable.Cdttemplateusageentry, self).__init__()
+                super(CISCODYNAMICTEMPLATEMIB.CdtTemplateUsageTable.CdtTemplateUsageEntry, self).__init__()
 
                 self.yang_name = "cdtTemplateUsageEntry"
                 self.yang_parent_name = "cdtTemplateUsageTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cdttemplatename','cdttemplateusagetargettype','cdttemplateusagetargetid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cdttemplatename', YLeaf(YType.str, 'cdtTemplateName')),
                     ('cdttemplateusagetargettype', YLeaf(YType.enumeration, 'cdtTemplateUsageTargetType')),
@@ -684,10 +668,10 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtTemplateUsageTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCODYNAMICTEMPLATEMIB.Cdttemplateusagetable.Cdttemplateusageentry, ['cdttemplatename', 'cdttemplateusagetargettype', 'cdttemplateusagetargetid'], name, value)
+                self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtTemplateUsageTable.CdtTemplateUsageEntry, ['cdttemplatename', 'cdttemplateusagetargettype', 'cdttemplateusagetargetid'], name, value)
 
 
-    class Cdttemplatecommontable(Entity):
+    class CdtTemplateCommonTable(Entity):
         """
         This table contains attributes relating to all dynamic
         templates.  Observe that the type of dynamic templates
@@ -707,7 +691,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
         .. attribute:: cdttemplatecommonentry
         
         	An entry containing attributes relating to any target.  The system automatically creates an entry when the system or the EMS/NMS creates a row in the cdtTemplateTable with a cdtTemplateType of on the following values\:      'derived'     'ppp'     'ethernet'     'ipSubscriber'     'service'  Likewise, the system automatically destroys an entry when the system or the EMS/NMS destroys the corresponding row in the cdtTemplateTable
-        	**type**\: list of  		 :py:class:`Cdttemplatecommonentry <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdttemplatecommontable.Cdttemplatecommonentry>`
+        	**type**\: list of  		 :py:class:`CdtTemplateCommonEntry <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtTemplateCommonTable.CdtTemplateCommonEntry>`
         
         
 
@@ -717,15 +701,14 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
         _revision = '2007-09-06'
 
         def __init__(self):
-            super(CISCODYNAMICTEMPLATEMIB.Cdttemplatecommontable, self).__init__()
+            super(CISCODYNAMICTEMPLATEMIB.CdtTemplateCommonTable, self).__init__()
 
             self.yang_name = "cdtTemplateCommonTable"
             self.yang_parent_name = "CISCO-DYNAMIC-TEMPLATE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cdtTemplateCommonEntry", ("cdttemplatecommonentry", CISCODYNAMICTEMPLATEMIB.Cdttemplatecommontable.Cdttemplatecommonentry))])
+            self._child_classes = OrderedDict([("cdtTemplateCommonEntry", ("cdttemplatecommonentry", CISCODYNAMICTEMPLATEMIB.CdtTemplateCommonTable.CdtTemplateCommonEntry))])
             self._leafs = OrderedDict()
 
             self.cdttemplatecommonentry = YList(self)
@@ -733,10 +716,10 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCODYNAMICTEMPLATEMIB.Cdttemplatecommontable, [], name, value)
+            self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtTemplateCommonTable, [], name, value)
 
 
-        class Cdttemplatecommonentry(Entity):
+        class CdtTemplateCommonEntry(Entity):
             """
             An entry containing attributes relating to any target.
             
@@ -761,12 +744,12 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             
             	**length:** 1..64
             
-            	**refers to**\:  :py:class:`cdttemplatename <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdttemplatetable.Cdttemplateentry>`
+            	**refers to**\:  :py:class:`cdttemplatename <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtTemplateTable.CdtTemplateEntry>`
             
             .. attribute:: cdtcommonvalid
             
             	This object specifies which attributes in the dynamic template have been configured to valid values.  Each bit in this bit string corresponds to a column in this table.  If the bit is '0', then the value of the corresponding column is not valid.  If the bit is '1', then the value of the corresponding column has been configured to a valid value.  The following list specifies the mappings between bits and the columns\:      'descr'             => cdtCommonDescr     'keepaliveInt'      => cdtCommonKeepaliveInt     'keepaliveRetries'  => cdtCommonKeepaliveRetries     'vrf'               => cdtCommonVrf     'addrPool'          => cdtCommonAddrPool     'ipv4AccessGroup'   => cdtCommonIpv4AccessGroup     'ipv4Unreachables'  => cdtCommonIpv4Unreachables     'ipv6AccessGroup'   => cdtCommonIpv6AccessGroup     'ipv6Unreachables'  => cdtCommonIpv6Unreachables     'srvSubControl'     => cdtCommonSrvSubControl     'srvRedirect'       => cdtCommonSrvRedirect     'srvAcct'           => cdtCommonSrvAcct     'srvQos'            => cdtCommonSrvQos     'srvNetflow'        => cdtCommonSrvNetflow
-            	**type**\:  :py:class:`Cdtcommonvalid <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdttemplatecommontable.Cdttemplatecommonentry.Cdtcommonvalid>`
+            	**type**\:  :py:class:`CdtCommonValid <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtTemplateCommonTable.CdtTemplateCommonEntry.CdtCommonValid>`
             
             .. attribute:: cdtcommondescr
             
@@ -864,15 +847,14 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             _revision = '2007-09-06'
 
             def __init__(self):
-                super(CISCODYNAMICTEMPLATEMIB.Cdttemplatecommontable.Cdttemplatecommonentry, self).__init__()
+                super(CISCODYNAMICTEMPLATEMIB.CdtTemplateCommonTable.CdtTemplateCommonEntry, self).__init__()
 
                 self.yang_name = "cdtTemplateCommonEntry"
                 self.yang_parent_name = "cdtTemplateCommonTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cdttemplatename']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cdttemplatename', YLeaf(YType.str, 'cdtTemplateName')),
                     ('cdtcommonvalid', YLeaf(YType.bits, 'cdtCommonValid')),
@@ -911,10 +893,10 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtTemplateCommonTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCODYNAMICTEMPLATEMIB.Cdttemplatecommontable.Cdttemplatecommonentry, ['cdttemplatename', 'cdtcommonvalid', 'cdtcommondescr', 'cdtcommonkeepaliveint', 'cdtcommonkeepaliveretries', 'cdtcommonvrf', 'cdtcommonaddrpool', 'cdtcommonipv4accessgroup', 'cdtcommonipv4unreachables', 'cdtcommonipv6accessgroup', 'cdtcommonipv6unreachables', 'cdtcommonsrvsubcontrol', 'cdtcommonsrvredirect', 'cdtcommonsrvacct', 'cdtcommonsrvqos', 'cdtcommonsrvnetflow'], name, value)
+                self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtTemplateCommonTable.CdtTemplateCommonEntry, ['cdttemplatename', 'cdtcommonvalid', 'cdtcommondescr', 'cdtcommonkeepaliveint', 'cdtcommonkeepaliveretries', 'cdtcommonvrf', 'cdtcommonaddrpool', 'cdtcommonipv4accessgroup', 'cdtcommonipv4unreachables', 'cdtcommonipv6accessgroup', 'cdtcommonipv6unreachables', 'cdtcommonsrvsubcontrol', 'cdtcommonsrvredirect', 'cdtcommonsrvacct', 'cdtcommonsrvqos', 'cdtcommonsrvnetflow'], name, value)
 
 
-    class Cdtiftemplatetable(Entity):
+    class CdtIfTemplateTable(Entity):
         """
         This table contains attributes relating to interface
         configuration.
@@ -931,7 +913,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
         .. attribute:: cdtiftemplateentry
         
         	An entry containing attributes relating to interface configuration.  The system automatically creates an entry when the system or the EMS/NMS creates a row in the cdtTemplateTable with a cdtTemplateType of one of the following values\:      'derived'     'ppp'     'ethernet'     'ipSubscriber'  Likewise, the system automatically destroys an entry when the system or the EMS/NMS destroys the corresponding row in the cdtTemplateTable
-        	**type**\: list of  		 :py:class:`Cdtiftemplateentry <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtiftemplatetable.Cdtiftemplateentry>`
+        	**type**\: list of  		 :py:class:`CdtIfTemplateEntry <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtIfTemplateTable.CdtIfTemplateEntry>`
         
         
 
@@ -941,15 +923,14 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
         _revision = '2007-09-06'
 
         def __init__(self):
-            super(CISCODYNAMICTEMPLATEMIB.Cdtiftemplatetable, self).__init__()
+            super(CISCODYNAMICTEMPLATEMIB.CdtIfTemplateTable, self).__init__()
 
             self.yang_name = "cdtIfTemplateTable"
             self.yang_parent_name = "CISCO-DYNAMIC-TEMPLATE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cdtIfTemplateEntry", ("cdtiftemplateentry", CISCODYNAMICTEMPLATEMIB.Cdtiftemplatetable.Cdtiftemplateentry))])
+            self._child_classes = OrderedDict([("cdtIfTemplateEntry", ("cdtiftemplateentry", CISCODYNAMICTEMPLATEMIB.CdtIfTemplateTable.CdtIfTemplateEntry))])
             self._leafs = OrderedDict()
 
             self.cdtiftemplateentry = YList(self)
@@ -957,10 +938,10 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCODYNAMICTEMPLATEMIB.Cdtiftemplatetable, [], name, value)
+            self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtIfTemplateTable, [], name, value)
 
 
-        class Cdtiftemplateentry(Entity):
+        class CdtIfTemplateEntry(Entity):
             """
             An entry containing attributes relating to interface
             configuration.
@@ -985,12 +966,12 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             
             	**length:** 1..64
             
-            	**refers to**\:  :py:class:`cdttemplatename <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdttemplatetable.Cdttemplateentry>`
+            	**refers to**\:  :py:class:`cdttemplatename <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtTemplateTable.CdtTemplateEntry>`
             
             .. attribute:: cdtifvalid
             
             	This object specifies which attributes in the dynamic template have been configured to valid values.  Each bit in this bit string corresponds to a column in this table.  If the bit is '0', then the value of the corresponding column is not valid.  If the bit is '1', then the value of the corresponding column has been configured to a valid value.  The following list specifies the mappings between bits and the columns\:      'mtu'                     => cdtIfMtu     'cdpEnable'               => cdtIfCdpEnable     'flowMonitor'             => cdtIfFlowMonitor     'ipv4Unnumbered'          => cdtIfIpv4Unnumbered     'ipv4SubEnable'           => cdtIfIpv4SubEnable     'ipv4Mtu'                 => cdtIfIpv4Mtu     'ipv4TcpMssAdjust'        => cdtIfIpv4TcpMssAdjust     'ipv4VerifyUniRpf'        => cdtIfIpv4VerifyUniRpf     'ipv4VerifyUniRpfAcl'     => cdtIfIpv4VerifyUniRpfAcl     'ipv4VerifyUniRpfOpts'    => cdtIfIpv4VerifyUniRpfOpts     'ipv6Enable'              => cdtIfIpv6Enable     'ipv6SubEnable'           => cdtIfIpv6SubEnable     'ipv6TcpMssAdjust'        => cdtIfIpv6TcpMssAdjust     'ipv6VerifyUniRpf'        => cdtIfIpv6VerifyUniRpf     'ipv6VerifyUniRpfAcl'     => cdtIfIpv6VerifyUniRpfAcl     'ipv6VerifyUniRpfOpts'    => cdtIfIpv6VerifyUniRpfOpts     'ipv6NdPrefix'            => cdtIfIpv6NdPrefix,                                  cdtIfIpv6NdPrefixLength     'ipv6NdValidLife'         => cdtIfIpv6NdValidLife     'ipv6NdPreferredLife'     => cdtIfIpv6NdPreferredLife     'ipv6NdOpts'              => cdtIfIpv6NdOpts     'ipv6NdDadAttempts'       => cdtIfIpv6NdDadAttempts     'ipv6NdNsInterval'        => cdtIfIpv6NdNsInterval     'ipv6NdReacableTime'      => cdtIfIpv6NdReacableTime     'ipv6NdRaIntervalMax'     => cdtIfIpv6NdRaIntervalUnits,                                  cdtIfIpv6NdRaIntervalMax     'ipv6NdRaIntervalMin'     => cdtIfIpv6NdRaIntervalMin     'ipv6NdRaLife'            => cdtIfIpv6NdRaLife     'ipv6NdRouterPreference'' => cdtIfIpv6NdRouterPreference
-            	**type**\:  :py:class:`Cdtifvalid <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtiftemplatetable.Cdtiftemplateentry.Cdtifvalid>`
+            	**type**\:  :py:class:`CdtIfValid <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtIfTemplateTable.CdtIfTemplateEntry.CdtIfValid>`
             
             .. attribute:: cdtifmtu
             
@@ -1129,7 +1110,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             .. attribute:: cdtifipv6ndopts
             
             	This object specifies options that affect advertisements sent on the target interface\:      'advertise'         This option specifies that the system should advertise         the IPv6 prefix (i.e., the corresponding instance of         cdtIfIpv6NdPrefix).      'onlink'         This option specifies that the IPv6 prefix has been         assigned to a link.  If set to '0', the system         advertises the IPv6 prefix as 'offlink'.      'router'         This option indicates that the router will send the full         router address and not set the 'R' bit in prefix         advertisements.      'autoConfig'         This option indicates to hosts on the local link that         the specified prefix supports IPv6 auto\-configuration.      'advertisementInterval'         This option specifies the advertisement interval option         in router advertisements sent on the target interface.      'managedConfigFlag'         This option causes the system to set the 'managed         address configuration flag' in router advertisements         sent on the target interface.      'otherConfigFlag'         This option causes the system to set the 'other stateful         configuration' flag in router advertisements sent on the         target interface.      'frameIpv6Prefix'         This option causes the system to add the prefix in a         received RADIUS framed IPv6 prefix attribute to the         target interface's neighbor discovery prefix queue and         includes it in router advertisements sent on the target         interface.      'raSupress'         This option suppresses the transmission of router         advertisements on the target interface.  This column is valid only if the 'ipv6NdOpts' bit of the corresponding instance of cdtIfValid is '1'
-            	**type**\:  :py:class:`Cdtifipv6Ndopts <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtiftemplatetable.Cdtiftemplateentry.Cdtifipv6Ndopts>`
+            	**type**\:  :py:class:`CdtIfIpv6NdOpts <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtIfTemplateTable.CdtIfTemplateEntry.CdtIfIpv6NdOpts>`
             
             .. attribute:: cdtifipv6nddadattempts
             
@@ -1159,7 +1140,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             .. attribute:: cdtifipv6ndraintervalunits
             
             	This object specifies the units of time for the corresponding instances of cdtIfIpv6NdRaIntervalMin and cdtIfIpv6NdRaIntervalMax.  This column is valid only if the 'ipv6NdRaInterval' bit of the corresponding instance of cdtIfValid is '1'
-            	**type**\:  :py:class:`Cdtifipv6Ndraintervalunits <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtiftemplatetable.Cdtiftemplateentry.Cdtifipv6Ndraintervalunits>`
+            	**type**\:  :py:class:`CdtIfIpv6NdRaIntervalUnits <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtIfTemplateTable.CdtIfTemplateEntry.CdtIfIpv6NdRaIntervalUnits>`
             
             .. attribute:: cdtifipv6ndraintervalmax
             
@@ -1187,7 +1168,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             .. attribute:: cdtifipv6ndrouterpreference
             
             	This object specifies the Default Router Preference (DRP) for the router on the target interface.  This column is valid only if the 'ipv6NdRouterPreference' bit of the corresponding instance of cdtIfValid is '1'
-            	**type**\:  :py:class:`Cdtifipv6Ndrouterpreference <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtiftemplatetable.Cdtiftemplateentry.Cdtifipv6Ndrouterpreference>`
+            	**type**\:  :py:class:`CdtIfIpv6NdRouterPreference <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtIfTemplateTable.CdtIfTemplateEntry.CdtIfIpv6NdRouterPreference>`
             
             
 
@@ -1197,15 +1178,14 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             _revision = '2007-09-06'
 
             def __init__(self):
-                super(CISCODYNAMICTEMPLATEMIB.Cdtiftemplatetable.Cdtiftemplateentry, self).__init__()
+                super(CISCODYNAMICTEMPLATEMIB.CdtIfTemplateTable.CdtIfTemplateEntry, self).__init__()
 
                 self.yang_name = "cdtIfTemplateEntry"
                 self.yang_parent_name = "cdtIfTemplateTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cdttemplatename']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cdttemplatename', YLeaf(YType.str, 'cdtTemplateName')),
                     ('cdtifvalid', YLeaf(YType.bits, 'cdtIfValid')),
@@ -1274,11 +1254,11 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtIfTemplateTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCODYNAMICTEMPLATEMIB.Cdtiftemplatetable.Cdtiftemplateentry, ['cdttemplatename', 'cdtifvalid', 'cdtifmtu', 'cdtifcdpenable', 'cdtifflowmonitor', 'cdtifipv4unnumbered', 'cdtifipv4subenable', 'cdtifipv4mtu', 'cdtifipv4tcpmssadjust', 'cdtifipv4verifyunirpf', 'cdtifipv4verifyunirpfacl', 'cdtifipv4verifyunirpfopts', 'cdtifipv6enable', 'cdtifipv6subenable', 'cdtifipv6tcpmssadjust', 'cdtifipv6verifyunirpf', 'cdtifipv6verifyunirpfacl', 'cdtifipv6verifyunirpfopts', 'cdtifipv6ndprefix', 'cdtifipv6ndprefixlength', 'cdtifipv6ndvalidlife', 'cdtifipv6ndpreferredlife', 'cdtifipv6ndopts', 'cdtifipv6nddadattempts', 'cdtifipv6ndnsinterval', 'cdtifipv6ndreachabletime', 'cdtifipv6ndraintervalunits', 'cdtifipv6ndraintervalmax', 'cdtifipv6ndraintervalmin', 'cdtifipv6ndralife', 'cdtifipv6ndrouterpreference'], name, value)
+                self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtIfTemplateTable.CdtIfTemplateEntry, ['cdttemplatename', 'cdtifvalid', 'cdtifmtu', 'cdtifcdpenable', 'cdtifflowmonitor', 'cdtifipv4unnumbered', 'cdtifipv4subenable', 'cdtifipv4mtu', 'cdtifipv4tcpmssadjust', 'cdtifipv4verifyunirpf', 'cdtifipv4verifyunirpfacl', 'cdtifipv4verifyunirpfopts', 'cdtifipv6enable', 'cdtifipv6subenable', 'cdtifipv6tcpmssadjust', 'cdtifipv6verifyunirpf', 'cdtifipv6verifyunirpfacl', 'cdtifipv6verifyunirpfopts', 'cdtifipv6ndprefix', 'cdtifipv6ndprefixlength', 'cdtifipv6ndvalidlife', 'cdtifipv6ndpreferredlife', 'cdtifipv6ndopts', 'cdtifipv6nddadattempts', 'cdtifipv6ndnsinterval', 'cdtifipv6ndreachabletime', 'cdtifipv6ndraintervalunits', 'cdtifipv6ndraintervalmax', 'cdtifipv6ndraintervalmin', 'cdtifipv6ndralife', 'cdtifipv6ndrouterpreference'], name, value)
 
-            class Cdtifipv6Ndraintervalunits(Enum):
+            class CdtIfIpv6NdRaIntervalUnits(Enum):
                 """
-                Cdtifipv6Ndraintervalunits (Enum Class)
+                CdtIfIpv6NdRaIntervalUnits (Enum Class)
 
                 This object specifies the units of time for the corresponding
 
@@ -1301,9 +1281,9 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 milliseconds = Enum.YLeaf(2, "milliseconds")
 
 
-            class Cdtifipv6Ndrouterpreference(Enum):
+            class CdtIfIpv6NdRouterPreference(Enum):
                 """
-                Cdtifipv6Ndrouterpreference (Enum Class)
+                CdtIfIpv6NdRouterPreference (Enum Class)
 
                 This object specifies the Default Router Preference (DRP) for
 
@@ -1329,7 +1309,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
 
 
 
-    class Cdtppptemplatetable(Entity):
+    class CdtPppTemplateTable(Entity):
         """
         This table contains attributes relating to PPP connection
         configuration.
@@ -1344,7 +1324,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
         .. attribute:: cdtppptemplateentry
         
         	An entry containing attributes relating to PPP connection configuration.  The system automatically creates an entry when the system or the EMS/NMS creates a row in the cdtTemplateTable with a cdtTemplateType of one of the following values\:      'derived'     'ppp'  Likewise, the system automatically destroys an entry when the system or the EMS/NMS destroys the corresponding row in the cdtTemplateTable
-        	**type**\: list of  		 :py:class:`Cdtppptemplateentry <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtppptemplatetable.Cdtppptemplateentry>`
+        	**type**\: list of  		 :py:class:`CdtPppTemplateEntry <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtPppTemplateTable.CdtPppTemplateEntry>`
         
         
 
@@ -1354,15 +1334,14 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
         _revision = '2007-09-06'
 
         def __init__(self):
-            super(CISCODYNAMICTEMPLATEMIB.Cdtppptemplatetable, self).__init__()
+            super(CISCODYNAMICTEMPLATEMIB.CdtPppTemplateTable, self).__init__()
 
             self.yang_name = "cdtPppTemplateTable"
             self.yang_parent_name = "CISCO-DYNAMIC-TEMPLATE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cdtPppTemplateEntry", ("cdtppptemplateentry", CISCODYNAMICTEMPLATEMIB.Cdtppptemplatetable.Cdtppptemplateentry))])
+            self._child_classes = OrderedDict([("cdtPppTemplateEntry", ("cdtppptemplateentry", CISCODYNAMICTEMPLATEMIB.CdtPppTemplateTable.CdtPppTemplateEntry))])
             self._leafs = OrderedDict()
 
             self.cdtppptemplateentry = YList(self)
@@ -1370,10 +1349,10 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCODYNAMICTEMPLATEMIB.Cdtppptemplatetable, [], name, value)
+            self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtPppTemplateTable, [], name, value)
 
 
-        class Cdtppptemplateentry(Entity):
+        class CdtPppTemplateEntry(Entity):
             """
             An entry containing attributes relating to PPP connection
             configuration.
@@ -1396,12 +1375,12 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             
             	**length:** 1..64
             
-            	**refers to**\:  :py:class:`cdttemplatename <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdttemplatetable.Cdttemplateentry>`
+            	**refers to**\:  :py:class:`cdttemplatename <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtTemplateTable.CdtTemplateEntry>`
             
             .. attribute:: cdtpppvalid
             
             	This object specifies which attributes in the dynamic template have been configured to valid values.  Each bit in this bit string corresponds to a column in this table.  If the bit is '0', then the value of the corresponding column is not valid.  If the bit is '1', then the value of the corresponding column has been configured to a valid value.  The following list specifies the mappings between bits and the columns\:      accounting              => cdtPppAccounting     authentication          => cdtPppAuthentication     authenticationMethods   => cdtPppAuthenticationMethods     authorization           => cdtPppAuthorization     loopbackIgnore          => cdtPppLoopbackIgnore     maxBadAuth              => cdtPppMaxBadAuth     maxConfigure            => cdtPppMaxConfigure     maxFailure              => cdtPppMaxFailure     maxTerminate            => cdtPppMaxTerminate     timeoutAuthentication   => cdtPppTimeoutAuthentication     timeoutRetry            => cdtPppTimeoutRetry     chapOpts                => cdtPppChapOpts     chapHostname            => cdtPppChapHostname     chapPassword            => cdtPppChapPassword     msChapV1Opts            => cdtPppMsChapV1Opts     msChapV1Hostname        => cdtPppMsChapV1Hostname     msChapV1Password        => cdtPppMsChapV1Password     msChapV2Opts            => cdtPppMsChapV2Opts     msChapV2Hostname        => cdtPppMsChapV2Hostname     msChapV2Password        => cdtPppMsChapV2Password     papOpts                 => cdtPppPapOpts     papSentUsername         => cdtPppPapUsername     papSentPassword         => cdtPppPapPassword     eapOpts                 => cdtPppEapOpts     eapIdentity             => cdtPppEapIdentity     eapPassword             => cdtPppEapPassword     ipcpAddrOption          => cdtPppIpcpAddrOption     ipcpDnsOption           => cdtPppIpcpDnsOption     ipcpDnsPrimary          => cdtPppIpcpDnsPrimary     ipcpDnsSecondary        => cdtPppIpcpDnsSecondary     ipcpWinsOption          => cdtPppIpcpWinsOption     ipcpWinsPrimary         => cdtPppIpcpWinsPrimary     ipcpWinsSecondary       => cdtPppIpcpWinsSecondary     ipcpMaskOption          => cdtPppIpcpMaskOption     ipcpMask                => cdtPppIpcpMask     peerDefIpAddrOpts       => cdtPppPeerOpts     peerDefIpAddrSrc        => cdtPppPeerDefIpAddrSrc     peerDefIpAddr           => cdtPppPeerDefIpAddr
-            	**type**\:  :py:class:`Cdtpppvalid <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtppptemplatetable.Cdtppptemplateentry.Cdtpppvalid>`
+            	**type**\:  :py:class:`CdtPppValid <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtPppTemplateTable.CdtPppTemplateEntry.CdtPppValid>`
             
             .. attribute:: cdtpppaccounting
             
@@ -1411,7 +1390,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             .. attribute:: cdtpppauthentication
             
             	This object specifies authentication services applied to a target PPP connection and other options affecting authentication services\:      'chap'         This option enables the Challenge Handshake Protocol (CHAP)         on a target PPP connection.      'msChap'         This option enables Microsoft's CHAP on a target PPP         connection.      'msChapV2'         This option enables version 2 of Microsoft's CHAP on a         target PPP connection.      'pap'         This option enables Password Authentication Protocol (PAP)         on a target PPP connection.      'eap'         This option enables Extensible Authentication Protocol (EAP)         on a target PPP connection.      'optional'         This option specifies that the system accepts the connection         even if the peer of a target PPP connection refuses to         accept the authentication methods the system has         requested.      'callin'         This option specifies that authentication should only happen         for incoming calls.      'oneTime'         This option specifies that the system accepts the username         and password in the username field of authentication         responses received on a target PPP connection.  This column is valid only if the 'authentication' bit of the corresponding instance of cdtPppValid is '1'
-            	**type**\:  :py:class:`Cdtpppauthentication <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtppptemplatetable.Cdtppptemplateentry.Cdtpppauthentication>`
+            	**type**\:  :py:class:`CdtPppAuthentication <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtPppTemplateTable.CdtPppTemplateEntry.CdtPppAuthentication>`
             
             .. attribute:: cdtpppauthenticationmethods
             
@@ -1479,7 +1458,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             .. attribute:: cdtpppchapopts
             
             	This object specifies how the system processes the CHAP on a target PPP connection\:      'refuse'         This option specifies that the system should refuse CHAP         requests from peers of a target PPP connection.      'callin'         This option specifies that the system should only refuse         CHAP requests for incoming calls on a target PPP         connection.  This option is only relevant if the         'refuse' option is set to '1'.      'wait'         This option delays CHAP authentication until after the         peer of a target PPP connection has authenticated itself         to the system.      'encrypted'         This option specifies that the value specified by the         corresponding instance of cdtPppChapPassword is already         encrypted.  This column is valid only if the 'chapOpts' bit of the corresponding instance of cdtPppValid is '1'
-            	**type**\:  :py:class:`Cdtpppchapopts <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtppptemplatetable.Cdtppptemplateentry.Cdtpppchapopts>`
+            	**type**\:  :py:class:`CdtPppChapOpts <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtPppTemplateTable.CdtPppTemplateEntry.CdtPppChapOpts>`
             
             .. attribute:: cdtpppchaphostname
             
@@ -1498,7 +1477,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             .. attribute:: cdtpppmschapv1opts
             
             	This object specifies how the system processes version 1 of Microsoft CHAP on a target PPP connection\:      'refuse'         This option specifies that the system should refuse         Microsoft CHAP (v1) requests from peers of a target PPP         connection.      'callin'         This option specifies that the system should only refuse         Microsoft CHAP (v1) requests for incoming calls on a         target PPP connection.  This option is only relevant if         the 'refuse' option is set to '1'.      'wait'         This option delays Microsoft CHAP (v1) authentication         until after the peer of a target PPP connection has         authenticated itself to the system.      'encrypted'         This option specifies that the value specified by the         corresponding instance of cdtPppMsChapV1Password is         already encrypted.  This column is valid only if the 'msChapV1Opts' bit of the corresponding instance of cdtPppValid is '1'
-            	**type**\:  :py:class:`Cdtpppmschapv1Opts <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtppptemplatetable.Cdtppptemplateentry.Cdtpppmschapv1Opts>`
+            	**type**\:  :py:class:`CdtPppMsChapV1Opts <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtPppTemplateTable.CdtPppTemplateEntry.CdtPppMsChapV1Opts>`
             
             .. attribute:: cdtpppmschapv1hostname
             
@@ -1517,7 +1496,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             .. attribute:: cdtpppmschapv2opts
             
             	This object specifies how the system processes version 2 of Microsoft CHAP on a target PPP connection\:      'refuse'         This option specifies that the system should refuse         Microsoft CHAP (v2) requests from peers of a target PPP         connection.      'callin'         This option specifies that the system should only refuse         Microsoft CHAP (v2) requests for incoming calls on a         target PPP connection.  This option is only relevant if         the 'refuse' option is set to '1'.      'wait'         This option delays Microsoft CHAP (v2) authentication         until after the peer of a target PPP connection has         authenticated itself to the system.      'encrypted'         This option specifies that the value specified by the         corresponding instance of cdtPppMsChapV2Password is         already encrypted.  This column is valid only if the 'msChapV2Opts' bit of the corresponding instance of cdtPppValid is '1'
-            	**type**\:  :py:class:`Cdtpppmschapv2Opts <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtppptemplatetable.Cdtppptemplateentry.Cdtpppmschapv2Opts>`
+            	**type**\:  :py:class:`CdtPppMsChapV2Opts <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtPppTemplateTable.CdtPppTemplateEntry.CdtPppMsChapV2Opts>`
             
             .. attribute:: cdtpppmschapv2hostname
             
@@ -1536,7 +1515,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             .. attribute:: cdtppppapopts
             
             	This object specifies how the system processes the PAP on a target PPP connection\:      'refuse'         This option specifies that the system should refuse PAP         requests from peers of a target PPP connection.      'encrypted'         This option specifies that the value specified by the         corresponding instance of cdtPppPapSentPassword is         already encrypted.  This column is valid only if the 'papOpts' bit of the corresponding instance of cdtPppValid is '1'
-            	**type**\:  :py:class:`Cdtppppapopts <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtppptemplatetable.Cdtppptemplateentry.Cdtppppapopts>`
+            	**type**\:  :py:class:`CdtPppPapOpts <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtPppTemplateTable.CdtPppTemplateEntry.CdtPppPapOpts>`
             
             .. attribute:: cdtppppapusername
             
@@ -1555,7 +1534,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             .. attribute:: cdtpppeapopts
             
             	This object specifies how the system processes the EAP on a target PPP connection\:      'refuse'         This option specifies that the system should refuse EAP         requests from peers of a target PPP connection.      'callin'         This option specifies that the system should only refuse EAP         requests for incoming calls on a target PPP connection.         This option is only relevant if the 'refuse' option is         set to '1'.      'wait'         This option delays EAP authentication until after the         peer of a target PPP connection has authenticated itself         to the system.      'local'         This option specifies that the system should locally         authenticate the peer of a target PPP connection,         rather than acting as a proxy to an external AAA server.  This column is valid only if the 'eapOpts' bit of the corresponding instance of cdtPppValid is '1'
-            	**type**\:  :py:class:`Cdtpppeapopts <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtppptemplatetable.Cdtppptemplateentry.Cdtpppeapopts>`
+            	**type**\:  :py:class:`CdtPppEapOpts <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtPppTemplateTable.CdtPppTemplateEntry.CdtPppEapOpts>`
             
             .. attribute:: cdtpppeapidentity
             
@@ -1574,12 +1553,12 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             .. attribute:: cdtpppipcpaddroption
             
             	This object specifies the IPCP address option for a target PPP connection\:      'other'         The implementation of this MIB module does not recognize         the configured IPCP address option.      'accept'         The system accepts any non\-zero IP address from the peer         of a target PPP connection.      'required'         The system disconnects the peer of a target PPP         connection if it could not negotiate an IP address.      'unique'         The system disconnects the peer of a target PPP         connection if the IP address is already in use.  This column is valid only if the 'ipcpAddrOption' bit of the corresponding instance of cdtPppValid is '1'
-            	**type**\:  :py:class:`Cdtpppipcpaddroption <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtppptemplatetable.Cdtppptemplateentry.Cdtpppipcpaddroption>`
+            	**type**\:  :py:class:`CdtPppIpcpAddrOption <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtPppTemplateTable.CdtPppTemplateEntry.CdtPppIpcpAddrOption>`
             
             .. attribute:: cdtpppipcpdnsoption
             
             	This object specifies the IPCP DNS option for the dynamic interface\:      'other'         The implementation of this MIB module does not recognize         the configured DNS option.      'accept'         The system accepts any non\-zero DNS address form the         peer of a target PPP connection.      'request'         The system requests the DNS address from the peer of a         target PPP connection.      'reject'         The system rejects the DNS option from the peer of a         target PPP connection.  This column is valid only if the 'ipcpDnsOption' bit of the corresponding instance of cdtPppValid is '1'
-            	**type**\:  :py:class:`Cdtpppipcpdnsoption <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtppptemplatetable.Cdtppptemplateentry.Cdtpppipcpdnsoption>`
+            	**type**\:  :py:class:`CdtPppIpcpDnsOption <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtPppTemplateTable.CdtPppTemplateEntry.CdtPppIpcpDnsOption>`
             
             .. attribute:: cdtpppipcpdnsprimary
             
@@ -1594,7 +1573,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             .. attribute:: cdtpppipcpwinsoption
             
             	This object specifies the IPCP WINS option for a target PPP connection\:      'other'         The implementation of this MIB module does not recognize         the configured WINS option.      'accept'         The system accepts any non\-zero WINS address from the         peer of a target PPP connection.      'request'         The system requests the WINS address from the peer of         a target PPP connection.      'reject'         The system rejects the WINS option from the peer of a         target PPP connection.  This column is valid only if the 'ipcpWinsOption' bit of the corresponding instance of cdtPppValid is '1'
-            	**type**\:  :py:class:`Cdtpppipcpwinsoption <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtppptemplatetable.Cdtppptemplateentry.Cdtpppipcpwinsoption>`
+            	**type**\:  :py:class:`CdtPppIpcpWinsOption <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtPppTemplateTable.CdtPppTemplateEntry.CdtPppIpcpWinsOption>`
             
             .. attribute:: cdtpppipcpwinsprimary
             
@@ -1609,7 +1588,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             .. attribute:: cdtpppipcpmaskoption
             
             	This object specifies the IPCP IP subnet mask option for a target PPP connection\:      'other'         The implementation of this MIB module does not recognize         the configured IP subnet mask option.      'request'         The system requests the IP subnet mask from the peer of         a target PPP connection.      'reject'         The system rejects the IP subnet mask option from the         peer of a target PPP connection.  This column is valid only if the 'ipcpMaskOption' bit of the corresponding instance of cdtPppValid is '1'
-            	**type**\:  :py:class:`Cdtpppipcpmaskoption <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtppptemplatetable.Cdtppptemplateentry.Cdtpppipcpmaskoption>`
+            	**type**\:  :py:class:`CdtPppIpcpMaskOption <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtPppTemplateTable.CdtPppTemplateEntry.CdtPppIpcpMaskOption>`
             
             .. attribute:: cdtpppipcpmask
             
@@ -1619,12 +1598,12 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             .. attribute:: cdtppppeerdefipaddropts
             
             	This object specifies options that affect how the system assigns an IP address to the peer of a target PPP connection\:      'ipAddrForced'         This option forces the system to assign the next         available IP address in the pool to the peer of a         target PPP connection.  When disabled, the peer may         negotiate a specific IP address or the system can assign         the peer its previously assigned IP address.      'matchAaaPools'         This option specifies that the names of the IP address         pools provided by an external AAA server must appear in         the corresponding list of IP address pool specified by         the cdtPppPeerIpAddrPoolTable.      'backupPools'         This option specifies that the corresponding names of         the IP address pools specified by the         cditPppPeerIpAddrPoolTable serve as backup pools to         those provided by an external AAA server.      'staticPools'         This option suppresses an attempt to load pools from an         external AAA server when the system encounters a missing         pool name.  This column is valid only if the 'peerIpAddrOpts' bit of the corresponding instance of cdtPppValid is '1'
-            	**type**\:  :py:class:`Cdtppppeerdefipaddropts <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtppptemplatetable.Cdtppptemplateentry.Cdtppppeerdefipaddropts>`
+            	**type**\:  :py:class:`CdtPppPeerDefIpAddrOpts <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtPppTemplateTable.CdtPppTemplateEntry.CdtPppPeerDefIpAddrOpts>`
             
             .. attribute:: cdtppppeerdefipaddrsrc
             
             	This object specifies how the system assigns an IP address to the peer of a target PPP connection\:      'static'         The system assigns the IP address specified by the         corresponding instance of cdtPppPeerDefIpAddr.      'pool'         The system allocates the first available IP address from         the corresponding list of named pools contained by the         cdtPppPeerIpAddrPoolTable.      'dhcp'         The system acts as a DHCP proxy\-client to obtain an IP         address.  This column is valid only if the 'peerDefIpAddrSrc' bit of the corresponding instance of cdtPppValid is '1'
-            	**type**\:  :py:class:`Cdtppppeerdefipaddrsrc <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtppptemplatetable.Cdtppptemplateentry.Cdtppppeerdefipaddrsrc>`
+            	**type**\:  :py:class:`CdtPppPeerDefIpAddrSrc <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtPppTemplateTable.CdtPppTemplateEntry.CdtPppPeerDefIpAddrSrc>`
             
             .. attribute:: cdtppppeerdefipaddr
             
@@ -1639,15 +1618,14 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             _revision = '2007-09-06'
 
             def __init__(self):
-                super(CISCODYNAMICTEMPLATEMIB.Cdtppptemplatetable.Cdtppptemplateentry, self).__init__()
+                super(CISCODYNAMICTEMPLATEMIB.CdtPppTemplateTable.CdtPppTemplateEntry, self).__init__()
 
                 self.yang_name = "cdtPppTemplateEntry"
                 self.yang_parent_name = "cdtPppTemplateTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cdttemplatename']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cdttemplatename', YLeaf(YType.str, 'cdtTemplateName')),
                     ('cdtpppvalid', YLeaf(YType.bits, 'cdtPppValid')),
@@ -1734,11 +1712,11 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtPppTemplateTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCODYNAMICTEMPLATEMIB.Cdtppptemplatetable.Cdtppptemplateentry, ['cdttemplatename', 'cdtpppvalid', 'cdtpppaccounting', 'cdtpppauthentication', 'cdtpppauthenticationmethods', 'cdtpppauthorization', 'cdtppploopbackignore', 'cdtpppmaxbadauth', 'cdtpppmaxconfigure', 'cdtpppmaxfailure', 'cdtpppmaxterminate', 'cdtppptimeoutauthentication', 'cdtppptimeoutretry', 'cdtpppchapopts', 'cdtpppchaphostname', 'cdtpppchappassword', 'cdtpppmschapv1opts', 'cdtpppmschapv1hostname', 'cdtpppmschapv1password', 'cdtpppmschapv2opts', 'cdtpppmschapv2hostname', 'cdtpppmschapv2password', 'cdtppppapopts', 'cdtppppapusername', 'cdtppppappassword', 'cdtpppeapopts', 'cdtpppeapidentity', 'cdtpppeappassword', 'cdtpppipcpaddroption', 'cdtpppipcpdnsoption', 'cdtpppipcpdnsprimary', 'cdtpppipcpdnssecondary', 'cdtpppipcpwinsoption', 'cdtpppipcpwinsprimary', 'cdtpppipcpwinssecondary', 'cdtpppipcpmaskoption', 'cdtpppipcpmask', 'cdtppppeerdefipaddropts', 'cdtppppeerdefipaddrsrc', 'cdtppppeerdefipaddr'], name, value)
+                self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtPppTemplateTable.CdtPppTemplateEntry, ['cdttemplatename', 'cdtpppvalid', 'cdtpppaccounting', 'cdtpppauthentication', 'cdtpppauthenticationmethods', 'cdtpppauthorization', 'cdtppploopbackignore', 'cdtpppmaxbadauth', 'cdtpppmaxconfigure', 'cdtpppmaxfailure', 'cdtpppmaxterminate', 'cdtppptimeoutauthentication', 'cdtppptimeoutretry', 'cdtpppchapopts', 'cdtpppchaphostname', 'cdtpppchappassword', 'cdtpppmschapv1opts', 'cdtpppmschapv1hostname', 'cdtpppmschapv1password', 'cdtpppmschapv2opts', 'cdtpppmschapv2hostname', 'cdtpppmschapv2password', 'cdtppppapopts', 'cdtppppapusername', 'cdtppppappassword', 'cdtpppeapopts', 'cdtpppeapidentity', 'cdtpppeappassword', 'cdtpppipcpaddroption', 'cdtpppipcpdnsoption', 'cdtpppipcpdnsprimary', 'cdtpppipcpdnssecondary', 'cdtpppipcpwinsoption', 'cdtpppipcpwinsprimary', 'cdtpppipcpwinssecondary', 'cdtpppipcpmaskoption', 'cdtpppipcpmask', 'cdtppppeerdefipaddropts', 'cdtppppeerdefipaddrsrc', 'cdtppppeerdefipaddr'], name, value)
 
-            class Cdtpppipcpaddroption(Enum):
+            class CdtPppIpcpAddrOption(Enum):
                 """
-                Cdtpppipcpaddroption (Enum Class)
+                CdtPppIpcpAddrOption (Enum Class)
 
                 This object specifies the IPCP address option for a target PPP
 
@@ -1791,9 +1769,9 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 unique = Enum.YLeaf(4, "unique")
 
 
-            class Cdtpppipcpdnsoption(Enum):
+            class CdtPppIpcpDnsOption(Enum):
                 """
-                Cdtpppipcpdnsoption (Enum Class)
+                CdtPppIpcpDnsOption (Enum Class)
 
                 This object specifies the IPCP DNS option for the dynamic
 
@@ -1846,9 +1824,9 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 reject = Enum.YLeaf(4, "reject")
 
 
-            class Cdtpppipcpmaskoption(Enum):
+            class CdtPppIpcpMaskOption(Enum):
                 """
-                Cdtpppipcpmaskoption (Enum Class)
+                CdtPppIpcpMaskOption (Enum Class)
 
                 This object specifies the IPCP IP subnet mask option for a
 
@@ -1891,9 +1869,9 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 reject = Enum.YLeaf(3, "reject")
 
 
-            class Cdtpppipcpwinsoption(Enum):
+            class CdtPppIpcpWinsOption(Enum):
                 """
-                Cdtpppipcpwinsoption (Enum Class)
+                CdtPppIpcpWinsOption (Enum Class)
 
                 This object specifies the IPCP WINS option for a target PPP
 
@@ -1946,9 +1924,9 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 reject = Enum.YLeaf(4, "reject")
 
 
-            class Cdtppppeerdefipaddrsrc(Enum):
+            class CdtPppPeerDefIpAddrSrc(Enum):
                 """
-                Cdtppppeerdefipaddrsrc (Enum Class)
+                CdtPppPeerDefIpAddrSrc (Enum Class)
 
                 This object specifies how the system assigns an IP address to
 
@@ -1994,7 +1972,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
 
 
 
-    class Cdtppppeeripaddrpooltable(Entity):
+    class CdtPppPeerIpAddrPoolTable(Entity):
         """
         This table contains a prioritized list of named pools for each
         PPP template.  A list corresponding to a PPP template
@@ -2009,7 +1987,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
         .. attribute:: cdtppppeeripaddrpoolentry
         
         	An entry specifies a named pool in a list of pools associated with a PPP template.  A PPP template can only have named pools associated with it if it has a cdtPppPeerIpAddrSrc of 'pool'.  Any attempt to create an entry for a PPP template that does not have a cdtPppPeerIpAddrSrc of 'pool' must result in a response having an error\-status of 'inconsistentValue'.  The system automatically creates a corresponding entry when the system associates a named pool with a PPP template through another management entity (e.g., the system's local console).  The system automatically destroys an entry under the following circumstances\:  1)  The system or EMS/NMS destroys the corresponding row in the     cdtTemplateTable.  2)  The system or EMS/NMS sets the corresponding instance of     cdtPppPeerIpAddrSrc with a value other than 'pool'
-        	**type**\: list of  		 :py:class:`Cdtppppeeripaddrpoolentry <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtppppeeripaddrpooltable.Cdtppppeeripaddrpoolentry>`
+        	**type**\: list of  		 :py:class:`CdtPppPeerIpAddrPoolEntry <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtPppPeerIpAddrPoolTable.CdtPppPeerIpAddrPoolEntry>`
         
         
 
@@ -2019,15 +1997,14 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
         _revision = '2007-09-06'
 
         def __init__(self):
-            super(CISCODYNAMICTEMPLATEMIB.Cdtppppeeripaddrpooltable, self).__init__()
+            super(CISCODYNAMICTEMPLATEMIB.CdtPppPeerIpAddrPoolTable, self).__init__()
 
             self.yang_name = "cdtPppPeerIpAddrPoolTable"
             self.yang_parent_name = "CISCO-DYNAMIC-TEMPLATE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cdtPppPeerIpAddrPoolEntry", ("cdtppppeeripaddrpoolentry", CISCODYNAMICTEMPLATEMIB.Cdtppppeeripaddrpooltable.Cdtppppeeripaddrpoolentry))])
+            self._child_classes = OrderedDict([("cdtPppPeerIpAddrPoolEntry", ("cdtppppeeripaddrpoolentry", CISCODYNAMICTEMPLATEMIB.CdtPppPeerIpAddrPoolTable.CdtPppPeerIpAddrPoolEntry))])
             self._leafs = OrderedDict()
 
             self.cdtppppeeripaddrpoolentry = YList(self)
@@ -2035,10 +2012,10 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCODYNAMICTEMPLATEMIB.Cdtppppeeripaddrpooltable, [], name, value)
+            self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtPppPeerIpAddrPoolTable, [], name, value)
 
 
-        class Cdtppppeeripaddrpoolentry(Entity):
+        class CdtPppPeerIpAddrPoolEntry(Entity):
             """
             An entry specifies a named pool in a list of pools associated
             with a PPP template.  A PPP template can only have named
@@ -2069,7 +2046,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             
             	**length:** 1..64
             
-            	**refers to**\:  :py:class:`cdttemplatename <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdttemplatetable.Cdttemplateentry>`
+            	**refers to**\:  :py:class:`cdttemplatename <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtTemplateTable.CdtTemplateEntry>`
             
             .. attribute:: cdtppppeeripaddrpoolpriority  (key)
             
@@ -2103,15 +2080,14 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             _revision = '2007-09-06'
 
             def __init__(self):
-                super(CISCODYNAMICTEMPLATEMIB.Cdtppppeeripaddrpooltable.Cdtppppeeripaddrpoolentry, self).__init__()
+                super(CISCODYNAMICTEMPLATEMIB.CdtPppPeerIpAddrPoolTable.CdtPppPeerIpAddrPoolEntry, self).__init__()
 
                 self.yang_name = "cdtPppPeerIpAddrPoolEntry"
                 self.yang_parent_name = "cdtPppPeerIpAddrPoolTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cdttemplatename','cdtppppeeripaddrpoolpriority']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cdttemplatename', YLeaf(YType.str, 'cdtTemplateName')),
                     ('cdtppppeeripaddrpoolpriority', YLeaf(YType.uint32, 'cdtPppPeerIpAddrPoolPriority')),
@@ -2128,10 +2104,10 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtPppPeerIpAddrPoolTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCODYNAMICTEMPLATEMIB.Cdtppppeeripaddrpooltable.Cdtppppeeripaddrpoolentry, ['cdttemplatename', 'cdtppppeeripaddrpoolpriority', 'cdtppppeeripaddrpoolstatus', 'cdtppppeeripaddrpoolstorage', 'cdtppppeeripaddrpoolname'], name, value)
+                self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtPppPeerIpAddrPoolTable.CdtPppPeerIpAddrPoolEntry, ['cdttemplatename', 'cdtppppeeripaddrpoolpriority', 'cdtppppeeripaddrpoolstatus', 'cdtppppeeripaddrpoolstorage', 'cdtppppeeripaddrpoolname'], name, value)
 
 
-    class Cdtethernettemplatetable(Entity):
+    class CdtEthernetTemplateTable(Entity):
         """
         This table contains attributes relating to dynamic interfaces
         initiated on Ethernet virtual interfaces (e.g., EoMPLS) or
@@ -2147,7 +2123,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
         .. attribute:: cdtethernettemplateentry
         
         	An entry containing attributes relating to dynamic interfaces initiated on Ethernet virtual interfaces (e.g., EoMPLS) or automatically created VLANs.  The system automatically creates an entry when the system or the EMS/NMS creates a row in the cdtTemplateTable with a cdtTemplateType of one of the following values\:      'derived'     'ethernet'  Likewise, the system automatically destroys an entry when the system or the EMS/NMS destroys the corresponding row in the cdtTemplateTable
-        	**type**\: list of  		 :py:class:`Cdtethernettemplateentry <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtethernettemplatetable.Cdtethernettemplateentry>`
+        	**type**\: list of  		 :py:class:`CdtEthernetTemplateEntry <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtEthernetTemplateTable.CdtEthernetTemplateEntry>`
         
         
 
@@ -2157,15 +2133,14 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
         _revision = '2007-09-06'
 
         def __init__(self):
-            super(CISCODYNAMICTEMPLATEMIB.Cdtethernettemplatetable, self).__init__()
+            super(CISCODYNAMICTEMPLATEMIB.CdtEthernetTemplateTable, self).__init__()
 
             self.yang_name = "cdtEthernetTemplateTable"
             self.yang_parent_name = "CISCO-DYNAMIC-TEMPLATE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cdtEthernetTemplateEntry", ("cdtethernettemplateentry", CISCODYNAMICTEMPLATEMIB.Cdtethernettemplatetable.Cdtethernettemplateentry))])
+            self._child_classes = OrderedDict([("cdtEthernetTemplateEntry", ("cdtethernettemplateentry", CISCODYNAMICTEMPLATEMIB.CdtEthernetTemplateTable.CdtEthernetTemplateEntry))])
             self._leafs = OrderedDict()
 
             self.cdtethernettemplateentry = YList(self)
@@ -2173,10 +2148,10 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCODYNAMICTEMPLATEMIB.Cdtethernettemplatetable, [], name, value)
+            self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtEthernetTemplateTable, [], name, value)
 
 
-        class Cdtethernettemplateentry(Entity):
+        class CdtEthernetTemplateEntry(Entity):
             """
             An entry containing attributes relating to dynamic interfaces
             initiated on Ethernet virtual interfaces (e.g., EoMPLS) or
@@ -2200,12 +2175,12 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             
             	**length:** 1..64
             
-            	**refers to**\:  :py:class:`cdttemplatename <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdttemplatetable.Cdttemplateentry>`
+            	**refers to**\:  :py:class:`cdttemplatename <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtTemplateTable.CdtTemplateEntry>`
             
             .. attribute:: cdtethernetvalid
             
             	This object specifies which attributes in the dynamic template have been configured to valid values.  Each bit in this bit string corresponds to a column in this table.  If the bit is '0', then the value of the corresponding column is not valid.  If the bit is '1', then the value of the corresponding column has been configured to a valid value.  The following list specifies the mappings between bits and the columns\:      bridgeDomain     => cdtEthernetBridgeDomain     pppoeEnable      => cdtEthernetPppoeEnable     ipv4PointToPoint => cdtEthernetIpv4PointToPoint     macAddr          => cdtEthernetMacAddr
-            	**type**\:  :py:class:`Cdtethernetvalid <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtethernettemplatetable.Cdtethernettemplateentry.Cdtethernetvalid>`
+            	**type**\:  :py:class:`CdtEthernetValid <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtEthernetTemplateTable.CdtEthernetTemplateEntry.CdtEthernetValid>`
             
             .. attribute:: cdtethernetbridgedomain
             
@@ -2239,15 +2214,14 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             _revision = '2007-09-06'
 
             def __init__(self):
-                super(CISCODYNAMICTEMPLATEMIB.Cdtethernettemplatetable.Cdtethernettemplateentry, self).__init__()
+                super(CISCODYNAMICTEMPLATEMIB.CdtEthernetTemplateTable.CdtEthernetTemplateEntry, self).__init__()
 
                 self.yang_name = "cdtEthernetTemplateEntry"
                 self.yang_parent_name = "cdtEthernetTemplateTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cdttemplatename']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cdttemplatename', YLeaf(YType.str, 'cdtTemplateName')),
                     ('cdtethernetvalid', YLeaf(YType.bits, 'cdtEthernetValid')),
@@ -2266,10 +2240,10 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtEthernetTemplateTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCODYNAMICTEMPLATEMIB.Cdtethernettemplatetable.Cdtethernettemplateentry, ['cdttemplatename', 'cdtethernetvalid', 'cdtethernetbridgedomain', 'cdtethernetpppoeenable', 'cdtethernetipv4pointtopoint', 'cdtethernetmacaddr'], name, value)
+                self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtEthernetTemplateTable.CdtEthernetTemplateEntry, ['cdttemplatename', 'cdtethernetvalid', 'cdtethernetbridgedomain', 'cdtethernetpppoeenable', 'cdtethernetipv4pointtopoint', 'cdtethernetmacaddr'], name, value)
 
 
-    class Cdtsrvtemplatetable(Entity):
+    class CdtSrvTemplateTable(Entity):
         """
         This table contains attributes relating to a service.
         
@@ -2283,7 +2257,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
         .. attribute:: cdtsrvtemplateentry
         
         	An entry containing attributes relating to a service.  The system automatically creates entry when the system or the EMS/NMS creates a row in the cdtTemplateTable with a cdtTemplateType of one of the following values\:      'derived'     'service'  Likewise, the system automatically destroys an entry when the system or the EMS/NMS destroys the corresponding row in the cdtTemplateTable
-        	**type**\: list of  		 :py:class:`Cdtsrvtemplateentry <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtsrvtemplatetable.Cdtsrvtemplateentry>`
+        	**type**\: list of  		 :py:class:`CdtSrvTemplateEntry <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtSrvTemplateTable.CdtSrvTemplateEntry>`
         
         
 
@@ -2293,15 +2267,14 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
         _revision = '2007-09-06'
 
         def __init__(self):
-            super(CISCODYNAMICTEMPLATEMIB.Cdtsrvtemplatetable, self).__init__()
+            super(CISCODYNAMICTEMPLATEMIB.CdtSrvTemplateTable, self).__init__()
 
             self.yang_name = "cdtSrvTemplateTable"
             self.yang_parent_name = "CISCO-DYNAMIC-TEMPLATE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cdtSrvTemplateEntry", ("cdtsrvtemplateentry", CISCODYNAMICTEMPLATEMIB.Cdtsrvtemplatetable.Cdtsrvtemplateentry))])
+            self._child_classes = OrderedDict([("cdtSrvTemplateEntry", ("cdtsrvtemplateentry", CISCODYNAMICTEMPLATEMIB.CdtSrvTemplateTable.CdtSrvTemplateEntry))])
             self._leafs = OrderedDict()
 
             self.cdtsrvtemplateentry = YList(self)
@@ -2309,10 +2282,10 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCODYNAMICTEMPLATEMIB.Cdtsrvtemplatetable, [], name, value)
+            self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtSrvTemplateTable, [], name, value)
 
 
-        class Cdtsrvtemplateentry(Entity):
+        class CdtSrvTemplateEntry(Entity):
             """
             An entry containing attributes relating to a service.
             
@@ -2334,17 +2307,17 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             
             	**length:** 1..64
             
-            	**refers to**\:  :py:class:`cdttemplatename <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdttemplatetable.Cdttemplateentry>`
+            	**refers to**\:  :py:class:`cdttemplatename <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtTemplateTable.CdtTemplateEntry>`
             
             .. attribute:: cdtsrvvalid
             
             	This object specifies which attributes in the dynamic template have been configured to valid values.  Each bit in this bit string corresponds to a column in this table.  If the bit is '0', then the value of the corresponding column is not valid.  If the bit is '1', then the value of the corresponding column has been configured to a valid value.  The following list specifies the mappings between bits and the columns\:      networkSrv     => cdtSrvNetworkSrv     vpdnGroup      => cdtSrvVpdnGroup     sgSrvGroup     => cdtSrvGroup     sgSrvType      => cdtSrvSgSrvType     multicast      => cdtSrvMulticast
-            	**type**\:  :py:class:`Cdtsrvvalid <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtsrvtemplatetable.Cdtsrvtemplateentry.Cdtsrvvalid>`
+            	**type**\:  :py:class:`CdtSrvValid <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtSrvTemplateTable.CdtSrvTemplateEntry.CdtSrvValid>`
             
             .. attribute:: cdtsrvnetworksrv
             
             	This object specifies the type of network service provided by the target service\:      'other'         The implementation of this MIB module does not recognize         the configured network service.      'none'         The target subscriber service does not provide a network         service to subscribers sessions.      'local'         The target subscriber service provides local termination         for subscriber sessions.      'vpdn'         The target subscriber service provides a Virtual Private         Dialup Network service for subscriber sessions.  This column is valid only if the 'networkSrv' bit of the corresponding instance of cdtSrvValid is '1'
-            	**type**\:  :py:class:`Cdtsrvnetworksrv <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtsrvtemplatetable.Cdtsrvtemplateentry.Cdtsrvnetworksrv>`
+            	**type**\:  :py:class:`CdtSrvNetworkSrv <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtSrvTemplateTable.CdtSrvTemplateEntry.CdtSrvNetworkSrv>`
             
             .. attribute:: cdtsrvvpdngroup
             
@@ -2363,7 +2336,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             .. attribute:: cdtsrvsgsrvtype
             
             	This object specifies whether the target service specifies a network\-forwarding policy\:      'primary'         The target service specifies a network\-forwarding         policy.  Primary services are mutually exclusive; that         is, only one primary service can be activated for any         given subscriber session.      'secondary'         The target service has a dependence on the primary         service in the group specified by the corresponding         instance of cdtSuBSrvSgSrvGroup.  After the system         activates the primary service, it activates secondary         services.  When the system deactivates the primary         service, then it deactivates all the secondary services         in the service group.  This column is valid only if the 'sgSrvType' bit of the corresponding instance of cdtSrvValid is '1'
-            	**type**\:  :py:class:`Cdtsrvsgsrvtype <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.Cdtsrvtemplatetable.Cdtsrvtemplateentry.Cdtsrvsgsrvtype>`
+            	**type**\:  :py:class:`CdtSrvSgSrvType <ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB.CISCODYNAMICTEMPLATEMIB.CdtSrvTemplateTable.CdtSrvTemplateEntry.CdtSrvSgSrvType>`
             
             .. attribute:: cdtsrvmulticast
             
@@ -2378,15 +2351,14 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             _revision = '2007-09-06'
 
             def __init__(self):
-                super(CISCODYNAMICTEMPLATEMIB.Cdtsrvtemplatetable.Cdtsrvtemplateentry, self).__init__()
+                super(CISCODYNAMICTEMPLATEMIB.CdtSrvTemplateTable.CdtSrvTemplateEntry, self).__init__()
 
                 self.yang_name = "cdtSrvTemplateEntry"
                 self.yang_parent_name = "cdtSrvTemplateTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cdttemplatename']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cdttemplatename', YLeaf(YType.str, 'cdtTemplateName')),
                     ('cdtsrvvalid', YLeaf(YType.bits, 'cdtSrvValid')),
@@ -2407,11 +2379,11 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtSrvTemplateTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCODYNAMICTEMPLATEMIB.Cdtsrvtemplatetable.Cdtsrvtemplateentry, ['cdttemplatename', 'cdtsrvvalid', 'cdtsrvnetworksrv', 'cdtsrvvpdngroup', 'cdtsrvsgsrvgroup', 'cdtsrvsgsrvtype', 'cdtsrvmulticast'], name, value)
+                self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtSrvTemplateTable.CdtSrvTemplateEntry, ['cdttemplatename', 'cdtsrvvalid', 'cdtsrvnetworksrv', 'cdtsrvvpdngroup', 'cdtsrvsgsrvgroup', 'cdtsrvsgsrvtype', 'cdtsrvmulticast'], name, value)
 
-            class Cdtsrvnetworksrv(Enum):
+            class CdtSrvNetworkSrv(Enum):
                 """
-                Cdtsrvnetworksrv (Enum Class)
+                CdtSrvNetworkSrv (Enum Class)
 
                 This object specifies the type of network service provided by
 
@@ -2464,9 +2436,9 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 vpdn = Enum.YLeaf(4, "vpdn")
 
 
-            class Cdtsrvsgsrvtype(Enum):
+            class CdtSrvSgSrvType(Enum):
                 """
-                Cdtsrvsgsrvtype (Enum Class)
+                CdtSrvSgSrvType (Enum Class)
 
                 This object specifies whether the target service specifies a
 

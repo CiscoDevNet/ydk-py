@@ -46,11 +46,13 @@ class INGRESS(Identity):
         super(INGRESS, self).__init__("http://openconfig.net/yang/transport-line-common", "openconfig-transport-line-common", "openconfig-transport-line-common:INGRESS")
 
 
-class EGRESS(Identity):
+class MONITOR(Identity):
     """
-    Egress port, corresponding to a signal exiting
-    a line device such as an amplifier or wavelength
-    router.
+    Monitor port, corresponding to a signal used by an optical
+    channel monitor. This is used to represent the connection
+    that a channel monitor port is connected to. This
+    connection may be via physical cable and faceplate ports or
+    internal to the device
     
     
 
@@ -60,23 +62,7 @@ class EGRESS(Identity):
     _revision = '2017-07-08'
 
     def __init__(self):
-        super(EGRESS, self).__init__("http://openconfig.net/yang/transport-line-common", "openconfig-transport-line-common", "openconfig-transport-line-common:EGRESS")
-
-
-class ADD(Identity):
-    """
-    Add port, corresponding to a signal injected
-    at a wavelength router.
-    
-    
-
-    """
-
-    _prefix = 'oc-line-com'
-    _revision = '2017-07-08'
-
-    def __init__(self):
-        super(ADD, self).__init__("http://openconfig.net/yang/transport-line-common", "openconfig-transport-line-common", "openconfig-transport-line-common:ADD")
+        super(MONITOR, self).__init__("http://openconfig.net/yang/transport-line-common", "openconfig-transport-line-common", "openconfig-transport-line-common:MONITOR")
 
 
 class DROP(Identity):
@@ -95,13 +81,10 @@ class DROP(Identity):
         super(DROP, self).__init__("http://openconfig.net/yang/transport-line-common", "openconfig-transport-line-common", "openconfig-transport-line-common:DROP")
 
 
-class MONITOR(Identity):
+class ADD(Identity):
     """
-    Monitor port, corresponding to a signal used by an optical
-    channel monitor. This is used to represent the connection
-    that a channel monitor port is connected to. This
-    connection may be via physical cable and faceplate ports or
-    internal to the device
+    Add port, corresponding to a signal injected
+    at a wavelength router.
     
     
 
@@ -111,6 +94,23 @@ class MONITOR(Identity):
     _revision = '2017-07-08'
 
     def __init__(self):
-        super(MONITOR, self).__init__("http://openconfig.net/yang/transport-line-common", "openconfig-transport-line-common", "openconfig-transport-line-common:MONITOR")
+        super(ADD, self).__init__("http://openconfig.net/yang/transport-line-common", "openconfig-transport-line-common", "openconfig-transport-line-common:ADD")
+
+
+class EGRESS(Identity):
+    """
+    Egress port, corresponding to a signal exiting
+    a line device such as an amplifier or wavelength
+    router.
+    
+    
+
+    """
+
+    _prefix = 'oc-line-com'
+    _revision = '2017-07-08'
+
+    def __init__(self):
+        super(EGRESS, self).__init__("http://openconfig.net/yang/transport-line-common", "openconfig-transport-line-common", "openconfig-transport-line-common:EGRESS")
 
 

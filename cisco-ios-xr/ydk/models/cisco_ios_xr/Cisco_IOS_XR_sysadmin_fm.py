@@ -1,17 +1,11 @@
 """ Cisco_IOS_XR_sysadmin_fm 
 
-This module contains definitions
-for the Calvados model objects.
-
 This module contains a collection of YANG
 definitions for Cisco IOS\-XR SysAdmin configuration.
 
 Fault management YANG model. 
 
 Copyright(c) 2014\-2017 by Cisco Systems, Inc.
-All rights reserved.
-
-Copyright (c) 2012\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -272,8 +266,7 @@ class Fm(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("agents", ("agents", Fm.Agents))])
+        self._child_classes = OrderedDict([("agents", ("agents", Fm.Agents))])
         self._leafs = OrderedDict()
 
         self.agents = YList(self)
@@ -347,8 +340,7 @@ class Fm(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['location','process','subsystem','agent']
-            self._child_container_classes = OrderedDict([("fm_initials", ("fm_initials", Fm.Agents.FmInitials)), ("fm_table", ("fm_table", Fm.Agents.FmTable)), ("fm_internals", ("fm_internals", Fm.Agents.FmInternals)), ("fm_alarm_mapping", ("fm_alarm_mapping", Fm.Agents.FmAlarmMapping)), ("fm_statistics", ("fm_statistics", Fm.Agents.FmStatistics))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("fm_initials", ("fm_initials", Fm.Agents.FmInitials)), ("fm_table", ("fm_table", Fm.Agents.FmTable)), ("fm_internals", ("fm_internals", Fm.Agents.FmInternals)), ("fm_alarm_mapping", ("fm_alarm_mapping", Fm.Agents.FmAlarmMapping)), ("fm_statistics", ("fm_statistics", Fm.Agents.FmStatistics))])
             self._leafs = OrderedDict([
                 ('location', YLeaf(YType.str, 'location')),
                 ('process', YLeaf(YType.str, 'process')),
@@ -363,27 +355,22 @@ class Fm(Entity):
             self.fm_initials = Fm.Agents.FmInitials()
             self.fm_initials.parent = self
             self._children_name_map["fm_initials"] = "fm_initials"
-            self._children_yang_names.add("fm_initials")
 
             self.fm_table = Fm.Agents.FmTable()
             self.fm_table.parent = self
             self._children_name_map["fm_table"] = "fm_table"
-            self._children_yang_names.add("fm_table")
 
             self.fm_internals = Fm.Agents.FmInternals()
             self.fm_internals.parent = self
             self._children_name_map["fm_internals"] = "fm_internals"
-            self._children_yang_names.add("fm_internals")
 
             self.fm_alarm_mapping = Fm.Agents.FmAlarmMapping()
             self.fm_alarm_mapping.parent = self
             self._children_name_map["fm_alarm_mapping"] = "fm_alarm_mapping"
-            self._children_yang_names.add("fm_alarm_mapping")
 
             self.fm_statistics = Fm.Agents.FmStatistics()
             self.fm_statistics.parent = self
             self._children_name_map["fm_statistics"] = "fm_statistics"
-            self._children_yang_names.add("fm_statistics")
             self._segment_path = lambda: "agents" + "[location='" + str(self.location) + "']" + "[process='" + str(self.process) + "']" + "[subsystem='" + str(self.subsystem) + "']" + "[agent='" + str(self.agent) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-fm:fm/%s" % self._segment_path()
 
@@ -464,8 +451,7 @@ class Fm(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('levm', YLeaf(YType.uint64, 'levm')),
                     ('comp_id', YLeaf(YType.uint32, 'comp_id')),
@@ -519,8 +505,7 @@ class Fm(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("brief", ("brief", Fm.Agents.FmTable.Brief)), ("entry", ("entry", Fm.Agents.FmTable.Entry))])
+                self._child_classes = OrderedDict([("brief", ("brief", Fm.Agents.FmTable.Brief)), ("entry", ("entry", Fm.Agents.FmTable.Entry))])
                 self._leafs = OrderedDict()
 
                 self.brief = YList(self)
@@ -570,8 +555,7 @@ class Fm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['fm_subsystem_id','fm_fault_type','fm_fault_tag']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
                         ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
@@ -662,8 +646,7 @@ class Fm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['fm_subsystem_id','fm_fault_type','fm_fault_tag']
-                    self._child_container_classes = OrderedDict([("detail", ("detail", Fm.Agents.FmTable.Entry.Detail)), ("faults", ("faults", Fm.Agents.FmTable.Entry.Faults)), ("waiting_list", ("waiting_list", Fm.Agents.FmTable.Entry.WaitingList))])
-                    self._child_list_classes = OrderedDict([("causal_list", ("causal_list", Fm.Agents.FmTable.Entry.CausalList)), ("dependency_list", ("dependency_list", Fm.Agents.FmTable.Entry.DependencyList)), ("propagation_list", ("propagation_list", Fm.Agents.FmTable.Entry.PropagationList)), ("notification_list", ("notification_list", Fm.Agents.FmTable.Entry.NotificationList)), ("escalation_list", ("escalation_list", Fm.Agents.FmTable.Entry.EscalationList))])
+                    self._child_classes = OrderedDict([("detail", ("detail", Fm.Agents.FmTable.Entry.Detail)), ("causal_list", ("causal_list", Fm.Agents.FmTable.Entry.CausalList)), ("dependency_list", ("dependency_list", Fm.Agents.FmTable.Entry.DependencyList)), ("propagation_list", ("propagation_list", Fm.Agents.FmTable.Entry.PropagationList)), ("notification_list", ("notification_list", Fm.Agents.FmTable.Entry.NotificationList)), ("escalation_list", ("escalation_list", Fm.Agents.FmTable.Entry.EscalationList)), ("faults", ("faults", Fm.Agents.FmTable.Entry.Faults)), ("waiting_list", ("waiting_list", Fm.Agents.FmTable.Entry.WaitingList))])
                     self._leafs = OrderedDict([
                         ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
                         ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
@@ -676,17 +659,14 @@ class Fm(Entity):
                     self.detail = Fm.Agents.FmTable.Entry.Detail()
                     self.detail.parent = self
                     self._children_name_map["detail"] = "detail"
-                    self._children_yang_names.add("detail")
 
                     self.faults = Fm.Agents.FmTable.Entry.Faults()
                     self.faults.parent = self
                     self._children_name_map["faults"] = "faults"
-                    self._children_yang_names.add("faults")
 
                     self.waiting_list = Fm.Agents.FmTable.Entry.WaitingList()
                     self.waiting_list.parent = self
                     self._children_name_map["waiting_list"] = "waiting_list"
-                    self._children_yang_names.add("waiting_list")
 
                     self.causal_list = YList(self)
                     self.dependency_list = YList(self)
@@ -753,8 +733,7 @@ class Fm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
                             ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
@@ -811,8 +790,7 @@ class Fm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['fm_subsystem_id','fm_fault_type','fm_fault_tag']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
                             ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
@@ -861,8 +839,7 @@ class Fm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['fm_subsystem_id','fm_fault_type','fm_fault_tag']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
                             ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
@@ -916,8 +893,7 @@ class Fm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['fm_subsystem_id','fm_fault_type','fm_fault_tag']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
                             ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
@@ -973,8 +949,7 @@ class Fm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['fm_subsystem_id','fm_fault_type','fm_fault_tag']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
                             ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
@@ -1030,8 +1005,7 @@ class Fm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['fm_subsystem_id','fm_fault_type','fm_fault_tag']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
                             ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
@@ -1077,20 +1051,20 @@ class Fm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("active", ("active", Fm.Agents.FmTable.Entry.Faults.Active)), ("history", ("history", Fm.Agents.FmTable.Entry.Faults.History))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("active", ("active", Fm.Agents.FmTable.Entry.Faults.Active)), ("history", ("history", Fm.Agents.FmTable.Entry.Faults.History))])
                         self._leafs = OrderedDict()
 
                         self.active = Fm.Agents.FmTable.Entry.Faults.Active()
                         self.active.parent = self
                         self._children_name_map["active"] = "active"
-                        self._children_yang_names.add("active")
 
                         self.history = Fm.Agents.FmTable.Entry.Faults.History()
                         self.history.parent = self
                         self._children_name_map["history"] = "history"
-                        self._children_yang_names.add("history")
                         self._segment_path = lambda: "faults"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Fm.Agents.FmTable.Entry.Faults, [], name, value)
 
 
                     class Active(Entity):
@@ -1122,8 +1096,7 @@ class Fm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("brief", ("brief", Fm.Agents.FmTable.Entry.Faults.Active.Brief)), ("detail", ("detail", Fm.Agents.FmTable.Entry.Faults.Active.Detail))])
+                            self._child_classes = OrderedDict([("brief", ("brief", Fm.Agents.FmTable.Entry.Faults.Active.Brief)), ("detail", ("detail", Fm.Agents.FmTable.Entry.Faults.Active.Detail))])
                             self._leafs = OrderedDict()
 
                             self.brief = YList(self)
@@ -1165,8 +1138,7 @@ class Fm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['object_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('object_id', YLeaf(YType.str, 'object_id')),
                                     ('fault_timestamp', YLeaf(YType.str, 'fault_timestamp')),
@@ -1296,8 +1268,7 @@ class Fm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['object_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('object_id', YLeaf(YType.str, 'object_id')),
                                     ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
@@ -1371,8 +1342,7 @@ class Fm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("brief", ("brief", Fm.Agents.FmTable.Entry.Faults.History.Brief)), ("detail", ("detail", Fm.Agents.FmTable.Entry.Faults.History.Detail))])
+                            self._child_classes = OrderedDict([("brief", ("brief", Fm.Agents.FmTable.Entry.Faults.History.Brief)), ("detail", ("detail", Fm.Agents.FmTable.Entry.Faults.History.Detail))])
                             self._leafs = OrderedDict()
 
                             self.brief = YList(self)
@@ -1414,8 +1384,7 @@ class Fm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['object_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('object_id', YLeaf(YType.str, 'object_id')),
                                     ('fault_timestamp', YLeaf(YType.str, 'fault_timestamp')),
@@ -1545,8 +1514,7 @@ class Fm(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['object_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('object_id', YLeaf(YType.str, 'object_id')),
                                     ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
@@ -1620,8 +1588,7 @@ class Fm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("brief", ("brief", Fm.Agents.FmTable.Entry.WaitingList.Brief)), ("entry", ("entry", Fm.Agents.FmTable.Entry.WaitingList.Entry_))])
+                        self._child_classes = OrderedDict([("brief", ("brief", Fm.Agents.FmTable.Entry.WaitingList.Brief)), ("entry", ("entry", Fm.Agents.FmTable.Entry.WaitingList.Entry_))])
                         self._leafs = OrderedDict()
 
                         self.brief = YList(self)
@@ -1697,8 +1664,7 @@ class Fm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['fm_subsystem_id','fm_fault_type','fm_fault_tag']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
                                 ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
@@ -1788,8 +1754,7 @@ class Fm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['fm_subsystem_id','fm_fault_type','fm_fault_tag']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
                                 ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
@@ -1838,8 +1803,7 @@ class Fm(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("detail", ("detail", Fm.Agents.FmInternals.Detail))])
+                self._child_classes = OrderedDict([("detail", ("detail", Fm.Agents.FmInternals.Detail))])
                 self._leafs = OrderedDict()
 
                 self.detail = YList(self)
@@ -1948,8 +1912,7 @@ class Fm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['fm_subsystem_id','fm_fault_type','fm_fault_tag']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("rules", ("rules", Fm.Agents.FmInternals.Detail.Rules))])
+                    self._child_classes = OrderedDict([("rules", ("rules", Fm.Agents.FmInternals.Detail.Rules))])
                     self._leafs = OrderedDict([
                         ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
                         ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
@@ -2017,8 +1980,7 @@ class Fm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('fault_location', YLeaf(YType.str, 'fault_location')),
                             ('rule_cb', YLeaf(YType.uint64, 'rule_cb')),
@@ -2055,8 +2017,7 @@ class Fm(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("detail", ("detail", Fm.Agents.FmAlarmMapping.Detail))])
+                self._child_classes = OrderedDict([("detail", ("detail", Fm.Agents.FmAlarmMapping.Detail))])
                 self._leafs = OrderedDict()
 
                 self.detail = YList(self)
@@ -2114,8 +2075,7 @@ class Fm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['fm_subsystem_id','fm_fault_type','fm_fault_tag']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
                         ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
@@ -2158,8 +2118,7 @@ class Fm(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("detail", ("detail", Fm.Agents.FmStatistics.Detail))])
+                self._child_classes = OrderedDict([("detail", ("detail", Fm.Agents.FmStatistics.Detail))])
                 self._leafs = OrderedDict()
 
                 self.detail = YList(self)
@@ -2245,8 +2204,7 @@ class Fm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['fm_subsystem_id','fm_fault_type','fm_fault_tag']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
                         ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),

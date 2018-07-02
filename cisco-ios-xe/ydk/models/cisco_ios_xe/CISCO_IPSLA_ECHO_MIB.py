@@ -35,17 +35,17 @@ class CISCOIPSLAECHOMIB(Entity):
     .. attribute:: cipslaicmpechotmpltable
     
     	A table that contains ICMP echo template definitions
-    	**type**\:  :py:class:`Cipslaicmpechotmpltable <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslaicmpechotmpltable>`
+    	**type**\:  :py:class:`CipslaIcmpEchoTmplTable <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.CipslaIcmpEchoTmplTable>`
     
     .. attribute:: cipslaudpechotmpltable
     
     	A table that contains UDP echo template specific definitions
-    	**type**\:  :py:class:`Cipslaudpechotmpltable <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslaudpechotmpltable>`
+    	**type**\:  :py:class:`CipslaUdpEchoTmplTable <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.CipslaUdpEchoTmplTable>`
     
     .. attribute:: cipslatcpconntmpltable
     
     	A table that contains TCP connect template specific definitions
-    	**type**\:  :py:class:`Cipslatcpconntmpltable <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslatcpconntmpltable>`
+    	**type**\:  :py:class:`CipslaTcpConnTmplTable <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.CipslaTcpConnTmplTable>`
     
     
 
@@ -63,35 +63,34 @@ class CISCOIPSLAECHOMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cipslaIcmpEchoTmplTable", ("cipslaicmpechotmpltable", CISCOIPSLAECHOMIB.Cipslaicmpechotmpltable)), ("cipslaUdpEchoTmplTable", ("cipslaudpechotmpltable", CISCOIPSLAECHOMIB.Cipslaudpechotmpltable)), ("cipslaTcpConnTmplTable", ("cipslatcpconntmpltable", CISCOIPSLAECHOMIB.Cipslatcpconntmpltable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cipslaIcmpEchoTmplTable", ("cipslaicmpechotmpltable", CISCOIPSLAECHOMIB.CipslaIcmpEchoTmplTable)), ("cipslaUdpEchoTmplTable", ("cipslaudpechotmpltable", CISCOIPSLAECHOMIB.CipslaUdpEchoTmplTable)), ("cipslaTcpConnTmplTable", ("cipslatcpconntmpltable", CISCOIPSLAECHOMIB.CipslaTcpConnTmplTable))])
         self._leafs = OrderedDict()
 
-        self.cipslaicmpechotmpltable = CISCOIPSLAECHOMIB.Cipslaicmpechotmpltable()
+        self.cipslaicmpechotmpltable = CISCOIPSLAECHOMIB.CipslaIcmpEchoTmplTable()
         self.cipslaicmpechotmpltable.parent = self
         self._children_name_map["cipslaicmpechotmpltable"] = "cipslaIcmpEchoTmplTable"
-        self._children_yang_names.add("cipslaIcmpEchoTmplTable")
 
-        self.cipslaudpechotmpltable = CISCOIPSLAECHOMIB.Cipslaudpechotmpltable()
+        self.cipslaudpechotmpltable = CISCOIPSLAECHOMIB.CipslaUdpEchoTmplTable()
         self.cipslaudpechotmpltable.parent = self
         self._children_name_map["cipslaudpechotmpltable"] = "cipslaUdpEchoTmplTable"
-        self._children_yang_names.add("cipslaUdpEchoTmplTable")
 
-        self.cipslatcpconntmpltable = CISCOIPSLAECHOMIB.Cipslatcpconntmpltable()
+        self.cipslatcpconntmpltable = CISCOIPSLAECHOMIB.CipslaTcpConnTmplTable()
         self.cipslatcpconntmpltable.parent = self
         self._children_name_map["cipslatcpconntmpltable"] = "cipslaTcpConnTmplTable"
-        self._children_yang_names.add("cipslaTcpConnTmplTable")
         self._segment_path = lambda: "CISCO-IPSLA-ECHO-MIB:CISCO-IPSLA-ECHO-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOIPSLAECHOMIB, [], name, value)
 
-    class Cipslaicmpechotmpltable(Entity):
+
+    class CipslaIcmpEchoTmplTable(Entity):
         """
         A table that contains ICMP echo template definitions.
         
         .. attribute:: cipslaicmpechotmplentry
         
         	A row entry representing an IPSLA ICMP echo template
-        	**type**\: list of  		 :py:class:`Cipslaicmpechotmplentry <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslaicmpechotmpltable.Cipslaicmpechotmplentry>`
+        	**type**\: list of  		 :py:class:`CipslaIcmpEchoTmplEntry <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.CipslaIcmpEchoTmplTable.CipslaIcmpEchoTmplEntry>`
         
         
 
@@ -101,15 +100,14 @@ class CISCOIPSLAECHOMIB(Entity):
         _revision = '2007-08-16'
 
         def __init__(self):
-            super(CISCOIPSLAECHOMIB.Cipslaicmpechotmpltable, self).__init__()
+            super(CISCOIPSLAECHOMIB.CipslaIcmpEchoTmplTable, self).__init__()
 
             self.yang_name = "cipslaIcmpEchoTmplTable"
             self.yang_parent_name = "CISCO-IPSLA-ECHO-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cipslaIcmpEchoTmplEntry", ("cipslaicmpechotmplentry", CISCOIPSLAECHOMIB.Cipslaicmpechotmpltable.Cipslaicmpechotmplentry))])
+            self._child_classes = OrderedDict([("cipslaIcmpEchoTmplEntry", ("cipslaicmpechotmplentry", CISCOIPSLAECHOMIB.CipslaIcmpEchoTmplTable.CipslaIcmpEchoTmplEntry))])
             self._leafs = OrderedDict()
 
             self.cipslaicmpechotmplentry = YList(self)
@@ -117,10 +115,10 @@ class CISCOIPSLAECHOMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSLA-ECHO-MIB:CISCO-IPSLA-ECHO-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSLAECHOMIB.Cipslaicmpechotmpltable, [], name, value)
+            self._perform_setattr(CISCOIPSLAECHOMIB.CipslaIcmpEchoTmplTable, [], name, value)
 
 
-        class Cipslaicmpechotmplentry(Entity):
+        class CipslaIcmpEchoTmplEntry(Entity):
             """
             A row entry representing an IPSLA ICMP echo template.
             
@@ -213,7 +211,7 @@ class CISCOIPSLAECHOMIB(Entity):
             .. attribute:: cipslaicmpechotmplhistfilter
             
             	Defines a filter for adding RTT results to the history buffer\:  none(1)          \- no history is recorded all(2)           \- the results of all completion times                     and failed completions are recorded overThreshold(3) \- the results of completion times                    over cipslaIcmpEchoTmplThreshold are                     recorded. failures(4)      \- the results of failed operations (only)                     are recorded
-            	**type**\:  :py:class:`Cipslaicmpechotmplhistfilter <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslaicmpechotmpltable.Cipslaicmpechotmplentry.Cipslaicmpechotmplhistfilter>`
+            	**type**\:  :py:class:`CipslaIcmpEchoTmplHistFilter <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.CipslaIcmpEchoTmplTable.CipslaIcmpEchoTmplEntry.CipslaIcmpEchoTmplHistFilter>`
             
             .. attribute:: cipslaicmpechotmplstatshours
             
@@ -258,15 +256,14 @@ class CISCOIPSLAECHOMIB(Entity):
             _revision = '2007-08-16'
 
             def __init__(self):
-                super(CISCOIPSLAECHOMIB.Cipslaicmpechotmpltable.Cipslaicmpechotmplentry, self).__init__()
+                super(CISCOIPSLAECHOMIB.CipslaIcmpEchoTmplTable.CipslaIcmpEchoTmplEntry, self).__init__()
 
                 self.yang_name = "cipslaIcmpEchoTmplEntry"
                 self.yang_parent_name = "cipslaIcmpEchoTmplTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cipslaicmpechotmplname']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cipslaicmpechotmplname', YLeaf(YType.str, 'cipslaIcmpEchoTmplName')),
                     ('cipslaicmpechotmpldescription', YLeaf(YType.str, 'cipslaIcmpEchoTmplDescription')),
@@ -309,11 +306,11 @@ class CISCOIPSLAECHOMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IPSLA-ECHO-MIB:CISCO-IPSLA-ECHO-MIB/cipslaIcmpEchoTmplTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSLAECHOMIB.Cipslaicmpechotmpltable.Cipslaicmpechotmplentry, ['cipslaicmpechotmplname', 'cipslaicmpechotmpldescription', 'cipslaicmpechotmplsrcaddrtype', 'cipslaicmpechotmplsrcaddr', 'cipslaicmpechotmpltimeout', 'cipslaicmpechotmplverifydata', 'cipslaicmpechotmplreqdatasize', 'cipslaicmpechotmpltos', 'cipslaicmpechotmplvrfname', 'cipslaicmpechotmplthreshold', 'cipslaicmpechotmplhistlives', 'cipslaicmpechotmplhistbuckets', 'cipslaicmpechotmplhistfilter', 'cipslaicmpechotmplstatshours', 'cipslaicmpechotmpldistbuckets', 'cipslaicmpechotmpldistinterval', 'cipslaicmpechotmplstoragetype', 'cipslaicmpechotmplrowstatus'], name, value)
+                self._perform_setattr(CISCOIPSLAECHOMIB.CipslaIcmpEchoTmplTable.CipslaIcmpEchoTmplEntry, ['cipslaicmpechotmplname', 'cipslaicmpechotmpldescription', 'cipslaicmpechotmplsrcaddrtype', 'cipslaicmpechotmplsrcaddr', 'cipslaicmpechotmpltimeout', 'cipslaicmpechotmplverifydata', 'cipslaicmpechotmplreqdatasize', 'cipslaicmpechotmpltos', 'cipslaicmpechotmplvrfname', 'cipslaicmpechotmplthreshold', 'cipslaicmpechotmplhistlives', 'cipslaicmpechotmplhistbuckets', 'cipslaicmpechotmplhistfilter', 'cipslaicmpechotmplstatshours', 'cipslaicmpechotmpldistbuckets', 'cipslaicmpechotmpldistinterval', 'cipslaicmpechotmplstoragetype', 'cipslaicmpechotmplrowstatus'], name, value)
 
-            class Cipslaicmpechotmplhistfilter(Enum):
+            class CipslaIcmpEchoTmplHistFilter(Enum):
                 """
-                Cipslaicmpechotmplhistfilter (Enum Class)
+                CipslaIcmpEchoTmplHistFilter (Enum Class)
 
                 Defines a filter for adding RTT results to the history
 
@@ -355,14 +352,14 @@ class CISCOIPSLAECHOMIB(Entity):
 
 
 
-    class Cipslaudpechotmpltable(Entity):
+    class CipslaUdpEchoTmplTable(Entity):
         """
         A table that contains UDP echo template specific definitions.
         
         .. attribute:: cipslaudpechotmplentry
         
         	A row entry representing an IPSLA UDP echo template
-        	**type**\: list of  		 :py:class:`Cipslaudpechotmplentry <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslaudpechotmpltable.Cipslaudpechotmplentry>`
+        	**type**\: list of  		 :py:class:`CipslaUdpEchoTmplEntry <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.CipslaUdpEchoTmplTable.CipslaUdpEchoTmplEntry>`
         
         
 
@@ -372,15 +369,14 @@ class CISCOIPSLAECHOMIB(Entity):
         _revision = '2007-08-16'
 
         def __init__(self):
-            super(CISCOIPSLAECHOMIB.Cipslaudpechotmpltable, self).__init__()
+            super(CISCOIPSLAECHOMIB.CipslaUdpEchoTmplTable, self).__init__()
 
             self.yang_name = "cipslaUdpEchoTmplTable"
             self.yang_parent_name = "CISCO-IPSLA-ECHO-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cipslaUdpEchoTmplEntry", ("cipslaudpechotmplentry", CISCOIPSLAECHOMIB.Cipslaudpechotmpltable.Cipslaudpechotmplentry))])
+            self._child_classes = OrderedDict([("cipslaUdpEchoTmplEntry", ("cipslaudpechotmplentry", CISCOIPSLAECHOMIB.CipslaUdpEchoTmplTable.CipslaUdpEchoTmplEntry))])
             self._leafs = OrderedDict()
 
             self.cipslaudpechotmplentry = YList(self)
@@ -388,10 +384,10 @@ class CISCOIPSLAECHOMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSLA-ECHO-MIB:CISCO-IPSLA-ECHO-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSLAECHOMIB.Cipslaudpechotmpltable, [], name, value)
+            self._perform_setattr(CISCOIPSLAECHOMIB.CipslaUdpEchoTmplTable, [], name, value)
 
 
-        class Cipslaudpechotmplentry(Entity):
+        class CipslaUdpEchoTmplEntry(Entity):
             """
             A row entry representing an IPSLA UDP echo template.
             
@@ -496,7 +492,7 @@ class CISCOIPSLAECHOMIB(Entity):
             .. attribute:: cipslaudpechotmplhistfilter
             
             	Defines a filter for adding RTT results to the history buffer\:  none(1)          \- no history is recorded all(2)           \- the results of all completion times                     and failed completions are recorded overThreshold(3) \- the results of completion times                    over cipslaUdpEchoTmplThreshold are                     recorded. failures(4)      \- the results of failed operations (only)                     are recorded
-            	**type**\:  :py:class:`Cipslaudpechotmplhistfilter <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslaudpechotmpltable.Cipslaudpechotmplentry.Cipslaudpechotmplhistfilter>`
+            	**type**\:  :py:class:`CipslaUdpEchoTmplHistFilter <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.CipslaUdpEchoTmplTable.CipslaUdpEchoTmplEntry.CipslaUdpEchoTmplHistFilter>`
             
             .. attribute:: cipslaudpechotmplstatshours
             
@@ -541,15 +537,14 @@ class CISCOIPSLAECHOMIB(Entity):
             _revision = '2007-08-16'
 
             def __init__(self):
-                super(CISCOIPSLAECHOMIB.Cipslaudpechotmpltable.Cipslaudpechotmplentry, self).__init__()
+                super(CISCOIPSLAECHOMIB.CipslaUdpEchoTmplTable.CipslaUdpEchoTmplEntry, self).__init__()
 
                 self.yang_name = "cipslaUdpEchoTmplEntry"
                 self.yang_parent_name = "cipslaUdpEchoTmplTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cipslaudpechotmplname']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cipslaudpechotmplname', YLeaf(YType.str, 'cipslaUdpEchoTmplName')),
                     ('cipslaudpechotmpldescription', YLeaf(YType.str, 'cipslaUdpEchoTmplDescription')),
@@ -596,11 +591,11 @@ class CISCOIPSLAECHOMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IPSLA-ECHO-MIB:CISCO-IPSLA-ECHO-MIB/cipslaUdpEchoTmplTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSLAECHOMIB.Cipslaudpechotmpltable.Cipslaudpechotmplentry, ['cipslaudpechotmplname', 'cipslaudpechotmpldescription', 'cipslaudpechotmplcontrolenable', 'cipslaudpechotmplsrcaddrtype', 'cipslaudpechotmplsrcaddr', 'cipslaudpechotmplsrcport', 'cipslaudpechotmpltimeout', 'cipslaudpechotmplverifydata', 'cipslaudpechotmplreqdatasize', 'cipslaudpechotmpltos', 'cipslaudpechotmplvrfname', 'cipslaudpechotmplthreshold', 'cipslaudpechotmplhistlives', 'cipslaudpechotmplhistbuckets', 'cipslaudpechotmplhistfilter', 'cipslaudpechotmplstatshours', 'cipslaudpechotmpldistbuckets', 'cipslaudpechotmpldistinterval', 'cipslaudpechotmplstoragetype', 'cipslaudpechotmplrowstatus'], name, value)
+                self._perform_setattr(CISCOIPSLAECHOMIB.CipslaUdpEchoTmplTable.CipslaUdpEchoTmplEntry, ['cipslaudpechotmplname', 'cipslaudpechotmpldescription', 'cipslaudpechotmplcontrolenable', 'cipslaudpechotmplsrcaddrtype', 'cipslaudpechotmplsrcaddr', 'cipslaudpechotmplsrcport', 'cipslaudpechotmpltimeout', 'cipslaudpechotmplverifydata', 'cipslaudpechotmplreqdatasize', 'cipslaudpechotmpltos', 'cipslaudpechotmplvrfname', 'cipslaudpechotmplthreshold', 'cipslaudpechotmplhistlives', 'cipslaudpechotmplhistbuckets', 'cipslaudpechotmplhistfilter', 'cipslaudpechotmplstatshours', 'cipslaudpechotmpldistbuckets', 'cipslaudpechotmpldistinterval', 'cipslaudpechotmplstoragetype', 'cipslaudpechotmplrowstatus'], name, value)
 
-            class Cipslaudpechotmplhistfilter(Enum):
+            class CipslaUdpEchoTmplHistFilter(Enum):
                 """
-                Cipslaudpechotmplhistfilter (Enum Class)
+                CipslaUdpEchoTmplHistFilter (Enum Class)
 
                 Defines a filter for adding RTT results to the history
 
@@ -642,14 +637,14 @@ class CISCOIPSLAECHOMIB(Entity):
 
 
 
-    class Cipslatcpconntmpltable(Entity):
+    class CipslaTcpConnTmplTable(Entity):
         """
         A table that contains TCP connect template specific definitions.
         
         .. attribute:: cipslatcpconntmplentry
         
         	A row entry representing an IPSLA TCP connect template
-        	**type**\: list of  		 :py:class:`Cipslatcpconntmplentry <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslatcpconntmpltable.Cipslatcpconntmplentry>`
+        	**type**\: list of  		 :py:class:`CipslaTcpConnTmplEntry <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.CipslaTcpConnTmplTable.CipslaTcpConnTmplEntry>`
         
         
 
@@ -659,15 +654,14 @@ class CISCOIPSLAECHOMIB(Entity):
         _revision = '2007-08-16'
 
         def __init__(self):
-            super(CISCOIPSLAECHOMIB.Cipslatcpconntmpltable, self).__init__()
+            super(CISCOIPSLAECHOMIB.CipslaTcpConnTmplTable, self).__init__()
 
             self.yang_name = "cipslaTcpConnTmplTable"
             self.yang_parent_name = "CISCO-IPSLA-ECHO-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cipslaTcpConnTmplEntry", ("cipslatcpconntmplentry", CISCOIPSLAECHOMIB.Cipslatcpconntmpltable.Cipslatcpconntmplentry))])
+            self._child_classes = OrderedDict([("cipslaTcpConnTmplEntry", ("cipslatcpconntmplentry", CISCOIPSLAECHOMIB.CipslaTcpConnTmplTable.CipslaTcpConnTmplEntry))])
             self._leafs = OrderedDict()
 
             self.cipslatcpconntmplentry = YList(self)
@@ -675,10 +669,10 @@ class CISCOIPSLAECHOMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSLA-ECHO-MIB:CISCO-IPSLA-ECHO-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSLAECHOMIB.Cipslatcpconntmpltable, [], name, value)
+            self._perform_setattr(CISCOIPSLAECHOMIB.CipslaTcpConnTmplTable, [], name, value)
 
 
-        class Cipslatcpconntmplentry(Entity):
+        class CipslaTcpConnTmplEntry(Entity):
             """
             A row entry representing an IPSLA TCP connect template.
             
@@ -767,7 +761,7 @@ class CISCOIPSLAECHOMIB(Entity):
             .. attribute:: cipslatcpconntmplhistfilter
             
             	Defines a filter for adding RTT results to the history buffer\:  none(1)          \- no history is recorded all(2)           \- the results of all completion times                     and failed completions are recorded overThreshold(3) \- the results of completion times                    over cipslaTcpConnTmplThreshold are                     recorded. failures(4)      \- the results of failed operations (only)                     are recorded
-            	**type**\:  :py:class:`Cipslatcpconntmplhistfilter <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslatcpconntmpltable.Cipslatcpconntmplentry.Cipslatcpconntmplhistfilter>`
+            	**type**\:  :py:class:`CipslaTcpConnTmplHistFilter <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.CipslaTcpConnTmplTable.CipslaTcpConnTmplEntry.CipslaTcpConnTmplHistFilter>`
             
             .. attribute:: cipslatcpconntmplstatshours
             
@@ -812,15 +806,14 @@ class CISCOIPSLAECHOMIB(Entity):
             _revision = '2007-08-16'
 
             def __init__(self):
-                super(CISCOIPSLAECHOMIB.Cipslatcpconntmpltable.Cipslatcpconntmplentry, self).__init__()
+                super(CISCOIPSLAECHOMIB.CipslaTcpConnTmplTable.CipslaTcpConnTmplEntry, self).__init__()
 
                 self.yang_name = "cipslaTcpConnTmplEntry"
                 self.yang_parent_name = "cipslaTcpConnTmplTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cipslatcpconntmplname']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cipslatcpconntmplname', YLeaf(YType.str, 'cipslaTcpConnTmplName')),
                     ('cipslatcpconntmpldescription', YLeaf(YType.str, 'cipslaTcpConnTmplDescription')),
@@ -863,11 +856,11 @@ class CISCOIPSLAECHOMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IPSLA-ECHO-MIB:CISCO-IPSLA-ECHO-MIB/cipslaTcpConnTmplTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSLAECHOMIB.Cipslatcpconntmpltable.Cipslatcpconntmplentry, ['cipslatcpconntmplname', 'cipslatcpconntmpldescription', 'cipslatcpconntmplcontrolenable', 'cipslatcpconntmplsrcaddrtype', 'cipslatcpconntmplsrcaddr', 'cipslatcpconntmplsrcport', 'cipslatcpconntmpltimeout', 'cipslatcpconntmplverifydata', 'cipslatcpconntmpltos', 'cipslatcpconntmplthreshold', 'cipslatcpconntmplhistlives', 'cipslatcpconntmplhistbuckets', 'cipslatcpconntmplhistfilter', 'cipslatcpconntmplstatshours', 'cipslatcpconntmpldistbuckets', 'cipslatcpconntmpldistinterval', 'cipslatcpconntmplstoragetype', 'cipslatcpconntmplrowstatus'], name, value)
+                self._perform_setattr(CISCOIPSLAECHOMIB.CipslaTcpConnTmplTable.CipslaTcpConnTmplEntry, ['cipslatcpconntmplname', 'cipslatcpconntmpldescription', 'cipslatcpconntmplcontrolenable', 'cipslatcpconntmplsrcaddrtype', 'cipslatcpconntmplsrcaddr', 'cipslatcpconntmplsrcport', 'cipslatcpconntmpltimeout', 'cipslatcpconntmplverifydata', 'cipslatcpconntmpltos', 'cipslatcpconntmplthreshold', 'cipslatcpconntmplhistlives', 'cipslatcpconntmplhistbuckets', 'cipslatcpconntmplhistfilter', 'cipslatcpconntmplstatshours', 'cipslatcpconntmpldistbuckets', 'cipslatcpconntmpldistinterval', 'cipslatcpconntmplstoragetype', 'cipslatcpconntmplrowstatus'], name, value)
 
-            class Cipslatcpconntmplhistfilter(Enum):
+            class CipslaTcpConnTmplHistFilter(Enum):
                 """
-                Cipslatcpconntmplhistfilter (Enum Class)
+                CipslaTcpConnTmplHistFilter (Enum Class)
 
                 Defines a filter for adding RTT results to the history
 

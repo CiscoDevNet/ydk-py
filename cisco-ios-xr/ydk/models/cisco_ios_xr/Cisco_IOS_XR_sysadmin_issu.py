@@ -250,25 +250,24 @@ class Issu(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("status", ("status", Issu.Status)), ("clients", ("clients", Issu.Clients)), ("internals", ("internals", Issu.Internals))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("status", ("status", Issu.Status)), ("clients", ("clients", Issu.Clients)), ("internals", ("internals", Issu.Internals))])
         self._leafs = OrderedDict()
 
         self.status = Issu.Status()
         self.status.parent = self
         self._children_name_map["status"] = "status"
-        self._children_yang_names.add("status")
 
         self.clients = Issu.Clients()
         self.clients.parent = self
         self._children_name_map["clients"] = "clients"
-        self._children_yang_names.add("clients")
 
         self.internals = Issu.Internals()
         self.internals.parent = self
         self._children_name_map["internals"] = "internals"
-        self._children_yang_names.add("internals")
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Issu, [], name, value)
 
 
     class Status(Entity):
@@ -355,8 +354,7 @@ class Issu(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("prepare", ("prepare", Issu.Status.Prepare)), ("activate", ("activate", Issu.Status.Activate)), ("error", ("error", Issu.Status.Error))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("prepare", ("prepare", Issu.Status.Prepare)), ("activate", ("activate", Issu.Status.Activate)), ("error", ("error", Issu.Status.Error))])
             self._leafs = OrderedDict([
                 ('operation_type', YLeaf(YType.enumeration, 'operation-type')),
                 ('id', YLeaf(YType.uint32, 'id')),
@@ -381,17 +379,14 @@ class Issu(Entity):
             self.prepare = Issu.Status.Prepare()
             self.prepare.parent = self
             self._children_name_map["prepare"] = "prepare"
-            self._children_yang_names.add("prepare")
 
             self.activate = Issu.Status.Activate()
             self.activate.parent = self
             self._children_name_map["activate"] = "activate"
-            self._children_yang_names.add("activate")
 
             self.error = Issu.Status.Error()
             self.error.parent = self
             self._children_name_map["error"] = "error"
-            self._children_yang_names.add("error")
             self._segment_path = lambda: "status"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/%s" % self._segment_path()
 
@@ -468,8 +463,7 @@ class Issu(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('stage', YLeaf(YType.enumeration, 'stage')),
                     ('start_time', YLeaf(YType.str, 'start-time')),
@@ -539,8 +533,7 @@ class Issu(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('stage', YLeaf(YType.enumeration, 'stage')),
                     ('start_time', YLeaf(YType.str, 'start-time')),
@@ -600,8 +593,7 @@ class Issu(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("details", ("details", Issu.Status.Error.Details))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("details", ("details", Issu.Status.Error.Details))])
                 self._leafs = OrderedDict([
                     ('result', YLeaf(YType.enumeration, 'result')),
                     ('stage', YLeaf(YType.enumeration, 'stage')),
@@ -614,7 +606,6 @@ class Issu(Entity):
                 self.details = Issu.Status.Error.Details()
                 self.details.parent = self
                 self._children_name_map["details"] = "details"
-                self._children_yang_names.add("details")
                 self._segment_path = lambda: "error"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/status/%s" % self._segment_path()
 
@@ -662,8 +653,7 @@ class Issu(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('nodes', YLeafList(YType.str, 'nodes')),
                         ('clients', YLeafList(YType.str, 'clients')),
@@ -714,8 +704,7 @@ class Issu(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("client", ("client", Issu.Clients.Client))])
+            self._child_classes = OrderedDict([("client", ("client", Issu.Clients.Client))])
             self._leafs = OrderedDict([
                 ('announcement', YLeaf(YType.enumeration, 'announcement')),
                 ('announcement_status', YLeaf(YType.enumeration, 'announcement-status')),
@@ -841,8 +830,7 @@ class Issu(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name','location']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('location', YLeaf(YType.str, 'location')),
@@ -962,26 +950,25 @@ class Issu(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("orchestrator", ("orchestrator", Issu.Internals.Orchestrator)), ("agents", ("agents", Issu.Internals.Agents)), ("inventory-monitor", ("inventory_monitor", Issu.Internals.InventoryMonitor))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("orchestrator", ("orchestrator", Issu.Internals.Orchestrator)), ("agents", ("agents", Issu.Internals.Agents)), ("inventory-monitor", ("inventory_monitor", Issu.Internals.InventoryMonitor))])
             self._leafs = OrderedDict()
 
             self.orchestrator = Issu.Internals.Orchestrator()
             self.orchestrator.parent = self
             self._children_name_map["orchestrator"] = "orchestrator"
-            self._children_yang_names.add("orchestrator")
 
             self.agents = Issu.Internals.Agents()
             self.agents.parent = self
             self._children_name_map["agents"] = "agents"
-            self._children_yang_names.add("agents")
 
             self.inventory_monitor = Issu.Internals.InventoryMonitor()
             self.inventory_monitor.parent = self
             self._children_name_map["inventory_monitor"] = "inventory-monitor"
-            self._children_yang_names.add("inventory-monitor")
             self._segment_path = lambda: "internals"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Issu.Internals, [], name, value)
 
         class OpRequestType(Enum):
             """
@@ -1285,8 +1272,7 @@ class Issu(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("operation-start-details", ("operation_start_details", Issu.Internals.Orchestrator.OperationStartDetails)), ("internal-prepare", ("internal_prepare", Issu.Internals.Orchestrator.InternalPrepare)), ("internal-activate", ("internal_activate", Issu.Internals.Orchestrator.InternalActivate)), ("error", ("error", Issu.Internals.Orchestrator.Error))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("operation-start-details", ("operation_start_details", Issu.Internals.Orchestrator.OperationStartDetails)), ("internal-prepare", ("internal_prepare", Issu.Internals.Orchestrator.InternalPrepare)), ("internal-activate", ("internal_activate", Issu.Internals.Orchestrator.InternalActivate)), ("error", ("error", Issu.Internals.Orchestrator.Error))])
                 self._leafs = OrderedDict([
                     ('command', YLeaf(YType.enumeration, 'command')),
                     ('operation_type', YLeaf(YType.enumeration, 'operation-type')),
@@ -1305,22 +1291,18 @@ class Issu(Entity):
                 self.operation_start_details = Issu.Internals.Orchestrator.OperationStartDetails()
                 self.operation_start_details.parent = self
                 self._children_name_map["operation_start_details"] = "operation-start-details"
-                self._children_yang_names.add("operation-start-details")
 
                 self.internal_prepare = Issu.Internals.Orchestrator.InternalPrepare()
                 self.internal_prepare.parent = self
                 self._children_name_map["internal_prepare"] = "internal-prepare"
-                self._children_yang_names.add("internal-prepare")
 
                 self.internal_activate = Issu.Internals.Orchestrator.InternalActivate()
                 self.internal_activate.parent = self
                 self._children_name_map["internal_activate"] = "internal-activate"
-                self._children_yang_names.add("internal-activate")
 
                 self.error = Issu.Internals.Orchestrator.Error()
                 self.error.parent = self
                 self._children_name_map["error"] = "error"
-                self._children_yang_names.add("error")
                 self._segment_path = lambda: "orchestrator"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/internals/%s" % self._segment_path()
 
@@ -1358,8 +1340,7 @@ class Issu(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('input_package', YLeafList(YType.str, 'input-package')),
                         ('input_operation_id', YLeafList(YType.uint32, 'input-operation-id')),
@@ -1423,8 +1404,7 @@ class Issu(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("prepare-stage-history", ("prepare_stage_history", Issu.Internals.Orchestrator.InternalPrepare.PrepareStageHistory))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("prepare-stage-history", ("prepare_stage_history", Issu.Internals.Orchestrator.InternalPrepare.PrepareStageHistory))])
                     self._leafs = OrderedDict([
                         ('operation_id', YLeaf(YType.uint32, 'operation-id')),
                         ('complete', YLeaf(YType.boolean, 'complete')),
@@ -1441,7 +1421,6 @@ class Issu(Entity):
                     self.prepare_stage_history = Issu.Internals.Orchestrator.InternalPrepare.PrepareStageHistory()
                     self.prepare_stage_history.parent = self
                     self._children_name_map["prepare_stage_history"] = "prepare-stage-history"
-                    self._children_yang_names.add("prepare-stage-history")
                     self._segment_path = lambda: "internal-prepare"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/internals/orchestrator/%s" % self._segment_path()
 
@@ -1472,8 +1451,7 @@ class Issu(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("historical-stage", ("historical_stage", Issu.Internals.Orchestrator.InternalPrepare.PrepareStageHistory.HistoricalStage))])
+                        self._child_classes = OrderedDict([("historical-stage", ("historical_stage", Issu.Internals.Orchestrator.InternalPrepare.PrepareStageHistory.HistoricalStage))])
                         self._leafs = OrderedDict()
 
                         self.historical_stage = YList(self)
@@ -1548,8 +1526,7 @@ class Issu(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['stage_index']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('stage_index', YLeaf(YType.uint32, 'stage-index')),
                                 ('external_stage', YLeaf(YType.enumeration, 'external-stage')),
@@ -1645,8 +1622,7 @@ class Issu(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("activate-stage-history", ("activate_stage_history", Issu.Internals.Orchestrator.InternalActivate.ActivateStageHistory))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("activate-stage-history", ("activate_stage_history", Issu.Internals.Orchestrator.InternalActivate.ActivateStageHistory))])
                     self._leafs = OrderedDict([
                         ('operation_id', YLeaf(YType.uint32, 'operation-id')),
                         ('complete', YLeaf(YType.boolean, 'complete')),
@@ -1671,7 +1647,6 @@ class Issu(Entity):
                     self.activate_stage_history = Issu.Internals.Orchestrator.InternalActivate.ActivateStageHistory()
                     self.activate_stage_history.parent = self
                     self._children_name_map["activate_stage_history"] = "activate-stage-history"
-                    self._children_yang_names.add("activate-stage-history")
                     self._segment_path = lambda: "internal-activate"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/internals/orchestrator/%s" % self._segment_path()
 
@@ -1702,8 +1677,7 @@ class Issu(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("historical-stage", ("historical_stage", Issu.Internals.Orchestrator.InternalActivate.ActivateStageHistory.HistoricalStage))])
+                        self._child_classes = OrderedDict([("historical-stage", ("historical_stage", Issu.Internals.Orchestrator.InternalActivate.ActivateStageHistory.HistoricalStage))])
                         self._leafs = OrderedDict()
 
                         self.historical_stage = YList(self)
@@ -1778,8 +1752,7 @@ class Issu(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = ['stage_index']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('stage_index', YLeaf(YType.uint32, 'stage-index')),
                                 ('external_stage', YLeaf(YType.enumeration, 'external-stage')),
@@ -1880,8 +1853,7 @@ class Issu(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('operation_status', YLeaf(YType.str, 'operation-status')),
                         ('failure_operation', YLeaf(YType.enumeration, 'failure-operation')),
@@ -1946,26 +1918,25 @@ class Issu(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("requests", ("requests", Issu.Internals.Agents.Requests)), ("inventory", ("inventory", Issu.Internals.Agents.Inventory)), ("reload-tracking", ("reload_tracking", Issu.Internals.Agents.ReloadTracking))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("requests", ("requests", Issu.Internals.Agents.Requests)), ("inventory", ("inventory", Issu.Internals.Agents.Inventory)), ("reload-tracking", ("reload_tracking", Issu.Internals.Agents.ReloadTracking))])
                 self._leafs = OrderedDict()
 
                 self.requests = Issu.Internals.Agents.Requests()
                 self.requests.parent = self
                 self._children_name_map["requests"] = "requests"
-                self._children_yang_names.add("requests")
 
                 self.inventory = Issu.Internals.Agents.Inventory()
                 self.inventory.parent = self
                 self._children_name_map["inventory"] = "inventory"
-                self._children_yang_names.add("inventory")
 
                 self.reload_tracking = Issu.Internals.Agents.ReloadTracking()
                 self.reload_tracking.parent = self
                 self._children_name_map["reload_tracking"] = "reload-tracking"
-                self._children_yang_names.add("reload-tracking")
                 self._segment_path = lambda: "agents"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/internals/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Issu.Internals.Agents, [], name, value)
 
 
             class Requests(Entity):
@@ -1991,8 +1962,7 @@ class Issu(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("request", ("request", Issu.Internals.Agents.Requests.Request))])
+                    self._child_classes = OrderedDict([("request", ("request", Issu.Internals.Agents.Requests.Request))])
                     self._leafs = OrderedDict()
 
                     self.request = YList(self)
@@ -2057,8 +2027,7 @@ class Issu(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['request_index']
-                        self._child_container_classes = OrderedDict([("checkpoint", ("checkpoint", Issu.Internals.Agents.Requests.Request.Checkpoint)), ("agents", ("agents", Issu.Internals.Agents.Requests.Request.Agents_))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("checkpoint", ("checkpoint", Issu.Internals.Agents.Requests.Request.Checkpoint)), ("agents", ("agents", Issu.Internals.Agents.Requests.Request.Agents_))])
                         self._leafs = OrderedDict([
                             ('request_index', YLeaf(YType.uint32, 'request-index')),
                             ('request_type', YLeaf(YType.enumeration, 'request-type')),
@@ -2073,12 +2042,10 @@ class Issu(Entity):
                         self.checkpoint = Issu.Internals.Agents.Requests.Request.Checkpoint()
                         self.checkpoint.parent = self
                         self._children_name_map["checkpoint"] = "checkpoint"
-                        self._children_yang_names.add("checkpoint")
 
                         self.agents = Issu.Internals.Agents.Requests.Request.Agents_()
                         self.agents.parent = self
                         self._children_name_map["agents"] = "agents"
-                        self._children_yang_names.add("agents")
                         self._segment_path = lambda: "request" + "[request-index='" + str(self.request_index) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/internals/agents/requests/%s" % self._segment_path()
 
@@ -2148,8 +2115,7 @@ class Issu(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('message_type', YLeaf(YType.enumeration, 'message-type')),
                                 ('data_length', YLeaf(YType.uint32, 'data-length')),
@@ -2214,8 +2180,7 @@ class Issu(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("agent", ("agent", Issu.Internals.Agents.Requests.Request.Agents_.Agent))])
+                            self._child_classes = OrderedDict([("agent", ("agent", Issu.Internals.Agents.Requests.Request.Agents_.Agent))])
                             self._leafs = OrderedDict()
 
                             self.agent = YList(self)
@@ -2265,8 +2230,7 @@ class Issu(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['agent_index']
-                                self._child_container_classes = OrderedDict([("response-contents", ("response_contents", Issu.Internals.Agents.Requests.Request.Agents_.Agent.ResponseContents))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("response-contents", ("response_contents", Issu.Internals.Agents.Requests.Request.Agents_.Agent.ResponseContents))])
                                 self._leafs = OrderedDict([
                                     ('agent_index', YLeaf(YType.uint32, 'agent-index')),
                                     ('node', YLeaf(YType.str, 'node')),
@@ -2279,7 +2243,6 @@ class Issu(Entity):
                                 self.response_contents = Issu.Internals.Agents.Requests.Request.Agents_.Agent.ResponseContents()
                                 self.response_contents.parent = self
                                 self._children_name_map["response_contents"] = "response-contents"
-                                self._children_yang_names.add("response-contents")
                                 self._segment_path = lambda: "agent" + "[agent-index='" + str(self.agent_index) + "']"
 
                             def __setattr__(self, name, value):
@@ -2314,8 +2277,7 @@ class Issu(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('agent_status', YLeaf(YType.enumeration, 'agent-status')),
                                         ('error_details', YLeaf(YType.str, 'error-details')),
@@ -2384,8 +2346,7 @@ class Issu(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("agent", ("agent", Issu.Internals.Agents.Inventory.Agent))])
+                    self._child_classes = OrderedDict([("agent", ("agent", Issu.Internals.Agents.Inventory.Agent))])
                     self._leafs = OrderedDict()
 
                     self.agent = YList(self)
@@ -2431,8 +2392,7 @@ class Issu(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['agent_index']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('agent_index', YLeaf(YType.uint32, 'agent-index')),
                             ('agent_node', YLeaf(YType.str, 'agent-node')),
@@ -2483,8 +2443,7 @@ class Issu(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("node", ("node", Issu.Internals.Agents.ReloadTracking.Node))])
+                    self._child_classes = OrderedDict([("node", ("node", Issu.Internals.Agents.ReloadTracking.Node))])
                     self._leafs = OrderedDict([
                         ('in_progress', YLeaf(YType.boolean, 'in-progress')),
                         ('remaining_nodes_count', YLeaf(YType.uint32, 'remaining-nodes-count')),
@@ -2535,8 +2494,7 @@ class Issu(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['node_index']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('node_index', YLeaf(YType.uint32, 'node-index')),
                             ('id', YLeaf(YType.str, 'id')),
@@ -2575,16 +2533,17 @@ class Issu(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("inventory", ("inventory", Issu.Internals.InventoryMonitor.Inventory))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("inventory", ("inventory", Issu.Internals.InventoryMonitor.Inventory))])
                 self._leafs = OrderedDict()
 
                 self.inventory = Issu.Internals.InventoryMonitor.Inventory()
                 self.inventory.parent = self
                 self._children_name_map["inventory"] = "inventory"
-                self._children_yang_names.add("inventory")
                 self._segment_path = lambda: "inventory-monitor"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/internals/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Issu.Internals.InventoryMonitor, [], name, value)
 
 
             class Inventory(Entity):
@@ -2610,8 +2569,7 @@ class Issu(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("node", ("node", Issu.Internals.InventoryMonitor.Inventory.Node))])
+                    self._child_classes = OrderedDict([("node", ("node", Issu.Internals.InventoryMonitor.Inventory.Node))])
                     self._leafs = OrderedDict()
 
                     self.node = YList(self)
@@ -2650,8 +2608,7 @@ class Issu(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['node']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('node', YLeaf(YType.str, 'node')),
                             ('ip', YLeaf(YType.str, 'ip')),

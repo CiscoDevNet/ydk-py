@@ -68,14 +68,15 @@ class Sam(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("prompt-interval", ("prompt_interval", Sam.PromptInterval))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("prompt-interval", ("prompt_interval", Sam.PromptInterval))])
         self._leafs = OrderedDict()
 
         self.prompt_interval = None
         self._children_name_map["prompt_interval"] = "prompt-interval"
-        self._children_yang_names.add("prompt-interval")
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-sam-cfg:sam"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Sam, [], name, value)
 
 
     class PromptInterval(Entity):
@@ -117,8 +118,7 @@ class Sam(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('action', YLeaf(YType.enumeration, 'action')),

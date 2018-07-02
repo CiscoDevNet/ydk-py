@@ -34,7 +34,7 @@ class AsicErrors(Entity):
     """
 
     _prefix = 'asic-errors-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(AsicErrors, self).__init__()
@@ -45,15 +45,16 @@ class AsicErrors(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", AsicErrors.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", AsicErrors.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = AsicErrors.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-asic-errors-oper:asic-errors"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(AsicErrors, [], name, value)
 
 
     class Nodes(Entity):
@@ -70,7 +71,7 @@ class AsicErrors(Entity):
         """
 
         _prefix = 'asic-errors-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(AsicErrors.Nodes, self).__init__()
@@ -80,8 +81,7 @@ class AsicErrors(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", AsicErrors.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", AsicErrors.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -113,7 +113,7 @@ class AsicErrors(Entity):
             """
 
             _prefix = 'asic-errors-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(AsicErrors.Nodes.Node, self).__init__()
@@ -123,8 +123,7 @@ class AsicErrors(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("asic-information", ("asic_information", AsicErrors.Nodes.Node.AsicInformation))])
+                self._child_classes = OrderedDict([("asic-information", ("asic_information", AsicErrors.Nodes.Node.AsicInformation))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -164,7 +163,7 @@ class AsicErrors(Entity):
                 """
 
                 _prefix = 'asic-errors-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(AsicErrors.Nodes.Node.AsicInformation, self).__init__()
@@ -174,8 +173,7 @@ class AsicErrors(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['asic']
-                    self._child_container_classes = OrderedDict([("all-instances", ("all_instances", AsicErrors.Nodes.Node.AsicInformation.AllInstances)), ("instances", ("instances", AsicErrors.Nodes.Node.AsicInformation.Instances))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("all-instances", ("all_instances", AsicErrors.Nodes.Node.AsicInformation.AllInstances)), ("instances", ("instances", AsicErrors.Nodes.Node.AsicInformation.Instances))])
                     self._leafs = OrderedDict([
                         ('asic', YLeaf(YType.str, 'asic')),
                     ])
@@ -184,12 +182,10 @@ class AsicErrors(Entity):
                     self.all_instances = AsicErrors.Nodes.Node.AsicInformation.AllInstances()
                     self.all_instances.parent = self
                     self._children_name_map["all_instances"] = "all-instances"
-                    self._children_yang_names.add("all-instances")
 
                     self.instances = AsicErrors.Nodes.Node.AsicInformation.Instances()
                     self.instances.parent = self
                     self._children_name_map["instances"] = "instances"
-                    self._children_yang_names.add("instances")
                     self._segment_path = lambda: "asic-information" + "[asic='" + str(self.asic) + "']"
 
                 def __setattr__(self, name, value):
@@ -210,7 +206,7 @@ class AsicErrors(Entity):
                     """
 
                     _prefix = 'asic-errors-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(AsicErrors.Nodes.Node.AsicInformation.AllInstances, self).__init__()
@@ -220,15 +216,16 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("all-error-path", ("all_error_path", AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("all-error-path", ("all_error_path", AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath))])
                         self._leafs = OrderedDict()
 
                         self.all_error_path = AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath()
                         self.all_error_path.parent = self
                         self._children_name_map["all_error_path"] = "all-error-path"
-                        self._children_yang_names.add("all-error-path")
                         self._segment_path = lambda: "all-instances"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.AllInstances, [], name, value)
 
 
                     class AllErrorPath(Entity):
@@ -245,7 +242,7 @@ class AsicErrors(Entity):
                         """
 
                         _prefix = 'asic-errors-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath, self).__init__()
@@ -255,15 +252,16 @@ class AsicErrors(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("summary", ("summary", AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("summary", ("summary", AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary))])
                             self._leafs = OrderedDict()
 
                             self.summary = AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary()
                             self.summary.parent = self
                             self._children_name_map["summary"] = "summary"
-                            self._children_yang_names.add("summary")
                             self._segment_path = lambda: "all-error-path"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath, [], name, value)
 
 
                         class Summary(Entity):
@@ -290,7 +288,7 @@ class AsicErrors(Entity):
                             """
 
                             _prefix = 'asic-errors-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary, self).__init__()
@@ -300,8 +298,7 @@ class AsicErrors(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("sum-data", ("sum_data", AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData))])
+                                self._child_classes = OrderedDict([("sum-data", ("sum_data", AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData))])
                                 self._leafs = OrderedDict([
                                     ('legacy_client', YLeaf(YType.boolean, 'legacy-client')),
                                     ('cih_client', YLeaf(YType.boolean, 'cih-client')),
@@ -369,20 +366,6 @@ class AsicErrors(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: err_count
-                                
-                                	err count
-                                	**type**\: list of int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: pcie_err_count
-                                
-                                	pcie err count
-                                	**type**\: list of int
-                                
-                                	**range:** 0..4294967295
-                                
                                 .. attribute:: node_key
                                 
                                 	node key
@@ -390,12 +373,22 @@ class AsicErrors(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                .. attribute:: err_count
+                                
+                                	err count
+                                	**type**\: list of  		 :py:class:`ErrCount <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData.ErrCount>`
+                                
+                                .. attribute:: pcie_err_count
+                                
+                                	pcie err count
+                                	**type**\: list of  		 :py:class:`PcieErrCount <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData.PcieErrCount>`
+                                
                                 
 
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData, self).__init__()
@@ -405,8 +398,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("err-count", ("err_count", AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData.ErrCount)), ("pcie-err-count", ("pcie_err_count", AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData.PcieErrCount))])
                                     self._leafs = OrderedDict([
                                         ('num_nodes', YLeaf(YType.uint32, 'num-nodes')),
                                         ('crc_err_count', YLeaf(YType.uint32, 'crc-err-count')),
@@ -415,8 +407,6 @@ class AsicErrors(Entity):
                                         ('par_err_count', YLeaf(YType.uint32, 'par-err-count')),
                                         ('gen_err_count', YLeaf(YType.uint32, 'gen-err-count')),
                                         ('reset_err_count', YLeaf(YType.uint32, 'reset-err-count')),
-                                        ('err_count', YLeafList(YType.uint32, 'err-count')),
-                                        ('pcie_err_count', YLeafList(YType.uint32, 'pcie-err-count')),
                                         ('node_key', YLeafList(YType.uint32, 'node-key')),
                                     ])
                                     self.num_nodes = None
@@ -426,13 +416,102 @@ class AsicErrors(Entity):
                                     self.par_err_count = None
                                     self.gen_err_count = None
                                     self.reset_err_count = None
-                                    self.err_count = []
-                                    self.pcie_err_count = []
                                     self.node_key = []
+
+                                    self.err_count = YList(self)
+                                    self.pcie_err_count = YList(self)
                                     self._segment_path = lambda: "sum-data"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData, ['num_nodes', 'crc_err_count', 'sbe_err_count', 'mbe_err_count', 'par_err_count', 'gen_err_count', 'reset_err_count', 'err_count', 'pcie_err_count', 'node_key'], name, value)
+                                    self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData, ['num_nodes', 'crc_err_count', 'sbe_err_count', 'mbe_err_count', 'par_err_count', 'gen_err_count', 'reset_err_count', 'node_key'], name, value)
+
+
+                                class ErrCount(Entity):
+                                    """
+                                    err count
+                                    
+                                    .. attribute:: name
+                                    
+                                    	name
+                                    	**type**\: str
+                                    
+                                    .. attribute:: count
+                                    
+                                    	count
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'asic-errors-oper'
+                                    _revision = '2017-09-07'
+
+                                    def __init__(self):
+                                        super(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData.ErrCount, self).__init__()
+
+                                        self.yang_name = "err-count"
+                                        self.yang_parent_name = "sum-data"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                        ])
+                                        self.name = None
+                                        self.count = None
+                                        self._segment_path = lambda: "err-count"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData.ErrCount, ['name', 'count'], name, value)
+
+
+                                class PcieErrCount(Entity):
+                                    """
+                                    pcie err count
+                                    
+                                    .. attribute:: name
+                                    
+                                    	name
+                                    	**type**\: str
+                                    
+                                    .. attribute:: count
+                                    
+                                    	count
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'asic-errors-oper'
+                                    _revision = '2017-09-07'
+
+                                    def __init__(self):
+                                        super(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData.PcieErrCount, self).__init__()
+
+                                        self.yang_name = "pcie-err-count"
+                                        self.yang_parent_name = "sum-data"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                        ])
+                                        self.name = None
+                                        self.count = None
+                                        self._segment_path = lambda: "pcie-err-count"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData.PcieErrCount, ['name', 'count'], name, value)
 
 
                 class Instances(Entity):
@@ -449,7 +528,7 @@ class AsicErrors(Entity):
                     """
 
                     _prefix = 'asic-errors-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(AsicErrors.Nodes.Node.AsicInformation.Instances, self).__init__()
@@ -459,8 +538,7 @@ class AsicErrors(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("instance", ("instance", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance))])
+                        self._child_classes = OrderedDict([("instance", ("instance", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance))])
                         self._leafs = OrderedDict()
 
                         self.instance = YList(self)
@@ -479,7 +557,7 @@ class AsicErrors(Entity):
                         	asic instance
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: error_path
                         
@@ -491,7 +569,7 @@ class AsicErrors(Entity):
                         """
 
                         _prefix = 'asic-errors-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance, self).__init__()
@@ -501,17 +579,15 @@ class AsicErrors(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['asic_instance']
-                            self._child_container_classes = OrderedDict([("error-path", ("error_path", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("error-path", ("error_path", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath))])
                             self._leafs = OrderedDict([
-                                ('asic_instance', YLeaf(YType.int32, 'asic-instance')),
+                                ('asic_instance', YLeaf(YType.uint32, 'asic-instance')),
                             ])
                             self.asic_instance = None
 
                             self.error_path = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath()
                             self.error_path.parent = self
                             self._children_name_map["error_path"] = "error-path"
-                            self._children_yang_names.add("error-path")
                             self._segment_path = lambda: "instance" + "[asic-instance='" + str(self.asic_instance) + "']"
 
                         def __setattr__(self, name, value):
@@ -782,7 +858,7 @@ class AsicErrors(Entity):
                             """
 
                             _prefix = 'asic-errors-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath, self).__init__()
@@ -792,265 +868,216 @@ class AsicErrors(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("multiple-bit-soft-errors", ("multiple_bit_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors)), ("asic-error-generic-soft", ("asic_error_generic_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft)), ("crc-hard-errors", ("crc_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors)), ("asic-error-sbe-soft", ("asic_error_sbe_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft)), ("hardware-soft-errors", ("hardware_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors)), ("asic-error-crc-soft", ("asic_error_crc_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft)), ("asic-error-parity-soft", ("asic_error_parity_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft)), ("io-soft-errors", ("io_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors)), ("reset-soft-errors", ("reset_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors)), ("barrier-hard-errors", ("barrier_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors)), ("ucode-soft-errors", ("ucode_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors)), ("asic-error-reset-hard", ("asic_error_reset_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard)), ("single-bit-hard-errors", ("single_bit_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors)), ("indirect-hard-errors", ("indirect_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors)), ("outof-resource-soft", ("outof_resource_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft)), ("crc-soft-errors", ("crc_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors)), ("time-out-hard-errors", ("time_out_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors)), ("barrier-soft-errors", ("barrier_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors)), ("asic-error-mbe-soft", ("asic_error_mbe_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft)), ("back-pressure-hard-errors", ("back_pressure_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors)), ("single-bit-soft-errors", ("single_bit_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors)), ("indirect-soft-errors", ("indirect_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors)), ("generic-hard-errors", ("generic_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors)), ("link-hard-errors", ("link_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors)), ("configuration-hard-errors", ("configuration_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors)), ("instance-summary", ("instance_summary", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary)), ("unexpected-hard-errors", ("unexpected_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors)), ("time-out-soft-errors", ("time_out_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors)), ("asic-error-generic-hard", ("asic_error_generic_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard)), ("parity-hard-errors", ("parity_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors)), ("descriptor-hard-errors", ("descriptor_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors)), ("interface-hard-errors", ("interface_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors)), ("asic-error-sbe-hard", ("asic_error_sbe_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard)), ("asic-error-crc-hard", ("asic_error_crc_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard)), ("asic-error-parity-hard", ("asic_error_parity_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard)), ("asic-error-reset-soft", ("asic_error_reset_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft)), ("back-pressure-soft-errors", ("back_pressure_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors)), ("generic-soft-errors", ("generic_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors)), ("link-soft-errors", ("link_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors)), ("configuration-soft-errors", ("configuration_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors)), ("multiple-bit-hard-errors", ("multiple_bit_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors)), ("unexpected-soft-errors", ("unexpected_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors)), ("outof-resource-hard", ("outof_resource_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard)), ("hardware-hard-errors", ("hardware_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors)), ("parity-soft-errors", ("parity_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors)), ("descriptor-soft-errors", ("descriptor_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors)), ("interface-soft-errors", ("interface_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors)), ("io-hard-errors", ("io_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors)), ("reset-hard-errors", ("reset_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors)), ("ucode-hard-errors", ("ucode_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors)), ("asic-error-mbe-hard", ("asic_error_mbe_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("multiple-bit-soft-errors", ("multiple_bit_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors)), ("asic-error-generic-soft", ("asic_error_generic_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft)), ("crc-hard-errors", ("crc_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors)), ("asic-error-sbe-soft", ("asic_error_sbe_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft)), ("hardware-soft-errors", ("hardware_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors)), ("asic-error-crc-soft", ("asic_error_crc_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft)), ("asic-error-parity-soft", ("asic_error_parity_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft)), ("io-soft-errors", ("io_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors)), ("reset-soft-errors", ("reset_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors)), ("barrier-hard-errors", ("barrier_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors)), ("ucode-soft-errors", ("ucode_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors)), ("asic-error-reset-hard", ("asic_error_reset_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard)), ("single-bit-hard-errors", ("single_bit_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors)), ("indirect-hard-errors", ("indirect_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors)), ("outof-resource-soft", ("outof_resource_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft)), ("crc-soft-errors", ("crc_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors)), ("time-out-hard-errors", ("time_out_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors)), ("barrier-soft-errors", ("barrier_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors)), ("asic-error-mbe-soft", ("asic_error_mbe_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft)), ("back-pressure-hard-errors", ("back_pressure_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors)), ("single-bit-soft-errors", ("single_bit_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors)), ("indirect-soft-errors", ("indirect_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors)), ("generic-hard-errors", ("generic_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors)), ("link-hard-errors", ("link_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors)), ("configuration-hard-errors", ("configuration_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors)), ("instance-summary", ("instance_summary", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary)), ("unexpected-hard-errors", ("unexpected_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors)), ("time-out-soft-errors", ("time_out_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors)), ("asic-error-generic-hard", ("asic_error_generic_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard)), ("parity-hard-errors", ("parity_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors)), ("descriptor-hard-errors", ("descriptor_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors)), ("interface-hard-errors", ("interface_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors)), ("asic-error-sbe-hard", ("asic_error_sbe_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard)), ("asic-error-crc-hard", ("asic_error_crc_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard)), ("asic-error-parity-hard", ("asic_error_parity_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard)), ("asic-error-reset-soft", ("asic_error_reset_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft)), ("back-pressure-soft-errors", ("back_pressure_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors)), ("generic-soft-errors", ("generic_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors)), ("link-soft-errors", ("link_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors)), ("configuration-soft-errors", ("configuration_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors)), ("multiple-bit-hard-errors", ("multiple_bit_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors)), ("unexpected-soft-errors", ("unexpected_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors)), ("outof-resource-hard", ("outof_resource_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard)), ("hardware-hard-errors", ("hardware_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors)), ("parity-soft-errors", ("parity_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors)), ("descriptor-soft-errors", ("descriptor_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors)), ("interface-soft-errors", ("interface_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors)), ("io-hard-errors", ("io_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors)), ("reset-hard-errors", ("reset_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors)), ("ucode-hard-errors", ("ucode_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors)), ("asic-error-mbe-hard", ("asic_error_mbe_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard))])
                                 self._leafs = OrderedDict()
 
                                 self.multiple_bit_soft_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors()
                                 self.multiple_bit_soft_errors.parent = self
                                 self._children_name_map["multiple_bit_soft_errors"] = "multiple-bit-soft-errors"
-                                self._children_yang_names.add("multiple-bit-soft-errors")
 
                                 self.asic_error_generic_soft = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft()
                                 self.asic_error_generic_soft.parent = self
                                 self._children_name_map["asic_error_generic_soft"] = "asic-error-generic-soft"
-                                self._children_yang_names.add("asic-error-generic-soft")
 
                                 self.crc_hard_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors()
                                 self.crc_hard_errors.parent = self
                                 self._children_name_map["crc_hard_errors"] = "crc-hard-errors"
-                                self._children_yang_names.add("crc-hard-errors")
 
                                 self.asic_error_sbe_soft = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft()
                                 self.asic_error_sbe_soft.parent = self
                                 self._children_name_map["asic_error_sbe_soft"] = "asic-error-sbe-soft"
-                                self._children_yang_names.add("asic-error-sbe-soft")
 
                                 self.hardware_soft_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors()
                                 self.hardware_soft_errors.parent = self
                                 self._children_name_map["hardware_soft_errors"] = "hardware-soft-errors"
-                                self._children_yang_names.add("hardware-soft-errors")
 
                                 self.asic_error_crc_soft = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft()
                                 self.asic_error_crc_soft.parent = self
                                 self._children_name_map["asic_error_crc_soft"] = "asic-error-crc-soft"
-                                self._children_yang_names.add("asic-error-crc-soft")
 
                                 self.asic_error_parity_soft = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft()
                                 self.asic_error_parity_soft.parent = self
                                 self._children_name_map["asic_error_parity_soft"] = "asic-error-parity-soft"
-                                self._children_yang_names.add("asic-error-parity-soft")
 
                                 self.io_soft_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors()
                                 self.io_soft_errors.parent = self
                                 self._children_name_map["io_soft_errors"] = "io-soft-errors"
-                                self._children_yang_names.add("io-soft-errors")
 
                                 self.reset_soft_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors()
                                 self.reset_soft_errors.parent = self
                                 self._children_name_map["reset_soft_errors"] = "reset-soft-errors"
-                                self._children_yang_names.add("reset-soft-errors")
 
                                 self.barrier_hard_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors()
                                 self.barrier_hard_errors.parent = self
                                 self._children_name_map["barrier_hard_errors"] = "barrier-hard-errors"
-                                self._children_yang_names.add("barrier-hard-errors")
 
                                 self.ucode_soft_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors()
                                 self.ucode_soft_errors.parent = self
                                 self._children_name_map["ucode_soft_errors"] = "ucode-soft-errors"
-                                self._children_yang_names.add("ucode-soft-errors")
 
                                 self.asic_error_reset_hard = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard()
                                 self.asic_error_reset_hard.parent = self
                                 self._children_name_map["asic_error_reset_hard"] = "asic-error-reset-hard"
-                                self._children_yang_names.add("asic-error-reset-hard")
 
                                 self.single_bit_hard_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors()
                                 self.single_bit_hard_errors.parent = self
                                 self._children_name_map["single_bit_hard_errors"] = "single-bit-hard-errors"
-                                self._children_yang_names.add("single-bit-hard-errors")
 
                                 self.indirect_hard_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors()
                                 self.indirect_hard_errors.parent = self
                                 self._children_name_map["indirect_hard_errors"] = "indirect-hard-errors"
-                                self._children_yang_names.add("indirect-hard-errors")
 
                                 self.outof_resource_soft = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft()
                                 self.outof_resource_soft.parent = self
                                 self._children_name_map["outof_resource_soft"] = "outof-resource-soft"
-                                self._children_yang_names.add("outof-resource-soft")
 
                                 self.crc_soft_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors()
                                 self.crc_soft_errors.parent = self
                                 self._children_name_map["crc_soft_errors"] = "crc-soft-errors"
-                                self._children_yang_names.add("crc-soft-errors")
 
                                 self.time_out_hard_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors()
                                 self.time_out_hard_errors.parent = self
                                 self._children_name_map["time_out_hard_errors"] = "time-out-hard-errors"
-                                self._children_yang_names.add("time-out-hard-errors")
 
                                 self.barrier_soft_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors()
                                 self.barrier_soft_errors.parent = self
                                 self._children_name_map["barrier_soft_errors"] = "barrier-soft-errors"
-                                self._children_yang_names.add("barrier-soft-errors")
 
                                 self.asic_error_mbe_soft = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft()
                                 self.asic_error_mbe_soft.parent = self
                                 self._children_name_map["asic_error_mbe_soft"] = "asic-error-mbe-soft"
-                                self._children_yang_names.add("asic-error-mbe-soft")
 
                                 self.back_pressure_hard_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors()
                                 self.back_pressure_hard_errors.parent = self
                                 self._children_name_map["back_pressure_hard_errors"] = "back-pressure-hard-errors"
-                                self._children_yang_names.add("back-pressure-hard-errors")
 
                                 self.single_bit_soft_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors()
                                 self.single_bit_soft_errors.parent = self
                                 self._children_name_map["single_bit_soft_errors"] = "single-bit-soft-errors"
-                                self._children_yang_names.add("single-bit-soft-errors")
 
                                 self.indirect_soft_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors()
                                 self.indirect_soft_errors.parent = self
                                 self._children_name_map["indirect_soft_errors"] = "indirect-soft-errors"
-                                self._children_yang_names.add("indirect-soft-errors")
 
                                 self.generic_hard_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors()
                                 self.generic_hard_errors.parent = self
                                 self._children_name_map["generic_hard_errors"] = "generic-hard-errors"
-                                self._children_yang_names.add("generic-hard-errors")
 
                                 self.link_hard_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors()
                                 self.link_hard_errors.parent = self
                                 self._children_name_map["link_hard_errors"] = "link-hard-errors"
-                                self._children_yang_names.add("link-hard-errors")
 
                                 self.configuration_hard_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors()
                                 self.configuration_hard_errors.parent = self
                                 self._children_name_map["configuration_hard_errors"] = "configuration-hard-errors"
-                                self._children_yang_names.add("configuration-hard-errors")
 
                                 self.instance_summary = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary()
                                 self.instance_summary.parent = self
                                 self._children_name_map["instance_summary"] = "instance-summary"
-                                self._children_yang_names.add("instance-summary")
 
                                 self.unexpected_hard_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors()
                                 self.unexpected_hard_errors.parent = self
                                 self._children_name_map["unexpected_hard_errors"] = "unexpected-hard-errors"
-                                self._children_yang_names.add("unexpected-hard-errors")
 
                                 self.time_out_soft_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors()
                                 self.time_out_soft_errors.parent = self
                                 self._children_name_map["time_out_soft_errors"] = "time-out-soft-errors"
-                                self._children_yang_names.add("time-out-soft-errors")
 
                                 self.asic_error_generic_hard = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard()
                                 self.asic_error_generic_hard.parent = self
                                 self._children_name_map["asic_error_generic_hard"] = "asic-error-generic-hard"
-                                self._children_yang_names.add("asic-error-generic-hard")
 
                                 self.parity_hard_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors()
                                 self.parity_hard_errors.parent = self
                                 self._children_name_map["parity_hard_errors"] = "parity-hard-errors"
-                                self._children_yang_names.add("parity-hard-errors")
 
                                 self.descriptor_hard_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors()
                                 self.descriptor_hard_errors.parent = self
                                 self._children_name_map["descriptor_hard_errors"] = "descriptor-hard-errors"
-                                self._children_yang_names.add("descriptor-hard-errors")
 
                                 self.interface_hard_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors()
                                 self.interface_hard_errors.parent = self
                                 self._children_name_map["interface_hard_errors"] = "interface-hard-errors"
-                                self._children_yang_names.add("interface-hard-errors")
 
                                 self.asic_error_sbe_hard = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard()
                                 self.asic_error_sbe_hard.parent = self
                                 self._children_name_map["asic_error_sbe_hard"] = "asic-error-sbe-hard"
-                                self._children_yang_names.add("asic-error-sbe-hard")
 
                                 self.asic_error_crc_hard = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard()
                                 self.asic_error_crc_hard.parent = self
                                 self._children_name_map["asic_error_crc_hard"] = "asic-error-crc-hard"
-                                self._children_yang_names.add("asic-error-crc-hard")
 
                                 self.asic_error_parity_hard = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard()
                                 self.asic_error_parity_hard.parent = self
                                 self._children_name_map["asic_error_parity_hard"] = "asic-error-parity-hard"
-                                self._children_yang_names.add("asic-error-parity-hard")
 
                                 self.asic_error_reset_soft = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft()
                                 self.asic_error_reset_soft.parent = self
                                 self._children_name_map["asic_error_reset_soft"] = "asic-error-reset-soft"
-                                self._children_yang_names.add("asic-error-reset-soft")
 
                                 self.back_pressure_soft_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors()
                                 self.back_pressure_soft_errors.parent = self
                                 self._children_name_map["back_pressure_soft_errors"] = "back-pressure-soft-errors"
-                                self._children_yang_names.add("back-pressure-soft-errors")
 
                                 self.generic_soft_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors()
                                 self.generic_soft_errors.parent = self
                                 self._children_name_map["generic_soft_errors"] = "generic-soft-errors"
-                                self._children_yang_names.add("generic-soft-errors")
 
                                 self.link_soft_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors()
                                 self.link_soft_errors.parent = self
                                 self._children_name_map["link_soft_errors"] = "link-soft-errors"
-                                self._children_yang_names.add("link-soft-errors")
 
                                 self.configuration_soft_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors()
                                 self.configuration_soft_errors.parent = self
                                 self._children_name_map["configuration_soft_errors"] = "configuration-soft-errors"
-                                self._children_yang_names.add("configuration-soft-errors")
 
                                 self.multiple_bit_hard_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors()
                                 self.multiple_bit_hard_errors.parent = self
                                 self._children_name_map["multiple_bit_hard_errors"] = "multiple-bit-hard-errors"
-                                self._children_yang_names.add("multiple-bit-hard-errors")
 
                                 self.unexpected_soft_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors()
                                 self.unexpected_soft_errors.parent = self
                                 self._children_name_map["unexpected_soft_errors"] = "unexpected-soft-errors"
-                                self._children_yang_names.add("unexpected-soft-errors")
 
                                 self.outof_resource_hard = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard()
                                 self.outof_resource_hard.parent = self
                                 self._children_name_map["outof_resource_hard"] = "outof-resource-hard"
-                                self._children_yang_names.add("outof-resource-hard")
 
                                 self.hardware_hard_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors()
                                 self.hardware_hard_errors.parent = self
                                 self._children_name_map["hardware_hard_errors"] = "hardware-hard-errors"
-                                self._children_yang_names.add("hardware-hard-errors")
 
                                 self.parity_soft_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors()
                                 self.parity_soft_errors.parent = self
                                 self._children_name_map["parity_soft_errors"] = "parity-soft-errors"
-                                self._children_yang_names.add("parity-soft-errors")
 
                                 self.descriptor_soft_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors()
                                 self.descriptor_soft_errors.parent = self
                                 self._children_name_map["descriptor_soft_errors"] = "descriptor-soft-errors"
-                                self._children_yang_names.add("descriptor-soft-errors")
 
                                 self.interface_soft_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors()
                                 self.interface_soft_errors.parent = self
                                 self._children_name_map["interface_soft_errors"] = "interface-soft-errors"
-                                self._children_yang_names.add("interface-soft-errors")
 
                                 self.io_hard_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors()
                                 self.io_hard_errors.parent = self
                                 self._children_name_map["io_hard_errors"] = "io-hard-errors"
-                                self._children_yang_names.add("io-hard-errors")
 
                                 self.reset_hard_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors()
                                 self.reset_hard_errors.parent = self
                                 self._children_name_map["reset_hard_errors"] = "reset-hard-errors"
-                                self._children_yang_names.add("reset-hard-errors")
 
                                 self.ucode_hard_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors()
                                 self.ucode_hard_errors.parent = self
                                 self._children_name_map["ucode_hard_errors"] = "ucode-hard-errors"
-                                self._children_yang_names.add("ucode-hard-errors")
 
                                 self.asic_error_mbe_hard = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard()
                                 self.asic_error_mbe_hard.parent = self
                                 self._children_name_map["asic_error_mbe_hard"] = "asic-error-mbe-hard"
-                                self._children_yang_names.add("asic-error-mbe-hard")
                                 self._segment_path = lambda: "error-path"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath, [], name, value)
 
 
                             class MultipleBitSoftErrors(Entity):
@@ -1067,7 +1094,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors, self).__init__()
@@ -1077,8 +1104,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -1185,7 +1211,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error, self).__init__()
@@ -1195,8 +1221,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -1260,7 +1285,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.CsrsInfo, self).__init__()
@@ -1270,8 +1295,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -1328,7 +1352,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.LastErr, self).__init__()
@@ -1338,8 +1362,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -1372,7 +1395,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft, self).__init__()
@@ -1382,8 +1405,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -1490,7 +1512,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error, self).__init__()
@@ -1500,8 +1522,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -1565,7 +1586,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.CsrsInfo, self).__init__()
@@ -1575,8 +1596,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -1633,7 +1653,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.LastErr, self).__init__()
@@ -1643,8 +1663,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -1677,7 +1696,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors, self).__init__()
@@ -1687,8 +1706,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -1795,7 +1813,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error, self).__init__()
@@ -1805,8 +1823,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -1870,7 +1887,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.CsrsInfo, self).__init__()
@@ -1880,8 +1897,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -1938,7 +1954,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.LastErr, self).__init__()
@@ -1948,8 +1964,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -1982,7 +1997,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft, self).__init__()
@@ -1992,8 +2007,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -2100,7 +2114,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error, self).__init__()
@@ -2110,8 +2124,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -2175,7 +2188,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.CsrsInfo, self).__init__()
@@ -2185,8 +2198,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -2243,7 +2255,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.LastErr, self).__init__()
@@ -2253,8 +2265,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -2287,7 +2298,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors, self).__init__()
@@ -2297,8 +2308,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -2405,7 +2415,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error, self).__init__()
@@ -2415,8 +2425,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -2480,7 +2489,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.CsrsInfo, self).__init__()
@@ -2490,8 +2499,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -2548,7 +2556,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.LastErr, self).__init__()
@@ -2558,8 +2566,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -2592,7 +2599,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft, self).__init__()
@@ -2602,8 +2609,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -2710,7 +2716,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error, self).__init__()
@@ -2720,8 +2726,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -2785,7 +2790,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.CsrsInfo, self).__init__()
@@ -2795,8 +2800,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -2853,7 +2857,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.LastErr, self).__init__()
@@ -2863,8 +2867,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -2897,7 +2900,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft, self).__init__()
@@ -2907,8 +2910,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -3015,7 +3017,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error, self).__init__()
@@ -3025,8 +3027,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -3090,7 +3091,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.CsrsInfo, self).__init__()
@@ -3100,8 +3101,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -3158,7 +3158,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.LastErr, self).__init__()
@@ -3168,8 +3168,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -3202,7 +3201,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors, self).__init__()
@@ -3212,8 +3211,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -3320,7 +3318,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error, self).__init__()
@@ -3330,8 +3328,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -3395,7 +3392,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.CsrsInfo, self).__init__()
@@ -3405,8 +3402,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -3463,7 +3459,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.LastErr, self).__init__()
@@ -3473,8 +3469,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -3507,7 +3502,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors, self).__init__()
@@ -3517,8 +3512,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -3625,7 +3619,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error, self).__init__()
@@ -3635,8 +3629,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -3700,7 +3693,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.CsrsInfo, self).__init__()
@@ -3710,8 +3703,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -3768,7 +3760,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.LastErr, self).__init__()
@@ -3778,8 +3770,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -3812,7 +3803,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors, self).__init__()
@@ -3822,8 +3813,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -3930,7 +3920,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error, self).__init__()
@@ -3940,8 +3930,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -4005,7 +3994,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.CsrsInfo, self).__init__()
@@ -4015,8 +4004,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -4073,7 +4061,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.LastErr, self).__init__()
@@ -4083,8 +4071,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -4117,7 +4104,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors, self).__init__()
@@ -4127,8 +4114,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -4235,7 +4221,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error, self).__init__()
@@ -4245,8 +4231,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -4310,7 +4295,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.CsrsInfo, self).__init__()
@@ -4320,8 +4305,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -4378,7 +4362,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.LastErr, self).__init__()
@@ -4388,8 +4372,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -4422,7 +4405,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard, self).__init__()
@@ -4432,8 +4415,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -4540,7 +4522,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error, self).__init__()
@@ -4550,8 +4532,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -4615,7 +4596,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.CsrsInfo, self).__init__()
@@ -4625,8 +4606,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -4683,7 +4663,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.LastErr, self).__init__()
@@ -4693,8 +4673,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -4727,7 +4706,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors, self).__init__()
@@ -4737,8 +4716,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -4845,7 +4823,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error, self).__init__()
@@ -4855,8 +4833,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -4920,7 +4897,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.CsrsInfo, self).__init__()
@@ -4930,8 +4907,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -4988,7 +4964,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.LastErr, self).__init__()
@@ -4998,8 +4974,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -5032,7 +5007,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors, self).__init__()
@@ -5042,8 +5017,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -5150,7 +5124,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error, self).__init__()
@@ -5160,8 +5134,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -5225,7 +5198,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.CsrsInfo, self).__init__()
@@ -5235,8 +5208,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -5293,7 +5265,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.LastErr, self).__init__()
@@ -5303,8 +5275,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -5337,7 +5308,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft, self).__init__()
@@ -5347,8 +5318,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -5455,7 +5425,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error, self).__init__()
@@ -5465,8 +5435,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -5530,7 +5499,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.CsrsInfo, self).__init__()
@@ -5540,8 +5509,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -5598,7 +5566,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.LastErr, self).__init__()
@@ -5608,8 +5576,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -5642,7 +5609,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors, self).__init__()
@@ -5652,8 +5619,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -5760,7 +5726,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error, self).__init__()
@@ -5770,8 +5736,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -5835,7 +5800,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.CsrsInfo, self).__init__()
@@ -5845,8 +5810,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -5903,7 +5867,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.LastErr, self).__init__()
@@ -5913,8 +5877,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -5947,7 +5910,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors, self).__init__()
@@ -5957,8 +5920,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -6065,7 +6027,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error, self).__init__()
@@ -6075,8 +6037,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -6140,7 +6101,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.CsrsInfo, self).__init__()
@@ -6150,8 +6111,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -6208,7 +6168,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.LastErr, self).__init__()
@@ -6218,8 +6178,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -6252,7 +6211,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors, self).__init__()
@@ -6262,8 +6221,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -6370,7 +6328,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error, self).__init__()
@@ -6380,8 +6338,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -6445,7 +6402,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.CsrsInfo, self).__init__()
@@ -6455,8 +6412,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -6513,7 +6469,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.LastErr, self).__init__()
@@ -6523,8 +6479,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -6557,7 +6512,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft, self).__init__()
@@ -6567,8 +6522,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -6675,7 +6629,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error, self).__init__()
@@ -6685,8 +6639,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -6750,7 +6703,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.CsrsInfo, self).__init__()
@@ -6760,8 +6713,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -6818,7 +6770,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.LastErr, self).__init__()
@@ -6828,8 +6780,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -6862,7 +6813,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors, self).__init__()
@@ -6872,8 +6823,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -6980,7 +6930,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error, self).__init__()
@@ -6990,8 +6940,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -7055,7 +7004,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.CsrsInfo, self).__init__()
@@ -7065,8 +7014,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -7123,7 +7071,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.LastErr, self).__init__()
@@ -7133,8 +7081,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -7167,7 +7114,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors, self).__init__()
@@ -7177,8 +7124,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -7285,7 +7231,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error, self).__init__()
@@ -7295,8 +7241,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -7360,7 +7305,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.CsrsInfo, self).__init__()
@@ -7370,8 +7315,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -7428,7 +7372,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.LastErr, self).__init__()
@@ -7438,8 +7382,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -7472,7 +7415,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors, self).__init__()
@@ -7482,8 +7425,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -7590,7 +7532,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error, self).__init__()
@@ -7600,8 +7542,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -7665,7 +7606,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.CsrsInfo, self).__init__()
@@ -7675,8 +7616,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -7733,7 +7673,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.LastErr, self).__init__()
@@ -7743,8 +7683,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -7777,7 +7716,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors, self).__init__()
@@ -7787,8 +7726,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -7895,7 +7833,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error, self).__init__()
@@ -7905,8 +7843,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -7970,7 +7907,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.CsrsInfo, self).__init__()
@@ -7980,8 +7917,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -8038,7 +7974,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.LastErr, self).__init__()
@@ -8048,8 +7984,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -8082,7 +8017,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors, self).__init__()
@@ -8092,8 +8027,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -8200,7 +8134,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error, self).__init__()
@@ -8210,8 +8144,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -8275,7 +8208,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.CsrsInfo, self).__init__()
@@ -8285,8 +8218,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -8343,7 +8275,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.LastErr, self).__init__()
@@ -8353,8 +8285,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -8387,7 +8318,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors, self).__init__()
@@ -8397,8 +8328,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -8505,7 +8435,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error, self).__init__()
@@ -8515,8 +8445,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -8580,7 +8509,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.CsrsInfo, self).__init__()
@@ -8590,8 +8519,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -8648,7 +8576,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.LastErr, self).__init__()
@@ -8658,8 +8586,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -8702,7 +8629,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary, self).__init__()
@@ -8712,8 +8639,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("sum-data", ("sum_data", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData))])
+                                    self._child_classes = OrderedDict([("sum-data", ("sum_data", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData))])
                                     self._leafs = OrderedDict([
                                         ('legacy_client', YLeaf(YType.boolean, 'legacy-client')),
                                         ('cih_client', YLeaf(YType.boolean, 'cih-client')),
@@ -8781,20 +8707,6 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: err_count
-                                    
-                                    	err count
-                                    	**type**\: list of int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: pcie_err_count
-                                    
-                                    	pcie err count
-                                    	**type**\: list of int
-                                    
-                                    	**range:** 0..4294967295
-                                    
                                     .. attribute:: node_key
                                     
                                     	node key
@@ -8802,12 +8714,22 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    .. attribute:: err_count
+                                    
+                                    	err count
+                                    	**type**\: list of  		 :py:class:`ErrCount <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData.ErrCount>`
+                                    
+                                    .. attribute:: pcie_err_count
+                                    
+                                    	pcie err count
+                                    	**type**\: list of  		 :py:class:`PcieErrCount <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData.PcieErrCount>`
+                                    
                                     
 
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData, self).__init__()
@@ -8817,8 +8739,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("err-count", ("err_count", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData.ErrCount)), ("pcie-err-count", ("pcie_err_count", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData.PcieErrCount))])
                                         self._leafs = OrderedDict([
                                             ('num_nodes', YLeaf(YType.uint32, 'num-nodes')),
                                             ('crc_err_count', YLeaf(YType.uint32, 'crc-err-count')),
@@ -8827,8 +8748,6 @@ class AsicErrors(Entity):
                                             ('par_err_count', YLeaf(YType.uint32, 'par-err-count')),
                                             ('gen_err_count', YLeaf(YType.uint32, 'gen-err-count')),
                                             ('reset_err_count', YLeaf(YType.uint32, 'reset-err-count')),
-                                            ('err_count', YLeafList(YType.uint32, 'err-count')),
-                                            ('pcie_err_count', YLeafList(YType.uint32, 'pcie-err-count')),
                                             ('node_key', YLeafList(YType.uint32, 'node-key')),
                                         ])
                                         self.num_nodes = None
@@ -8838,13 +8757,102 @@ class AsicErrors(Entity):
                                         self.par_err_count = None
                                         self.gen_err_count = None
                                         self.reset_err_count = None
-                                        self.err_count = []
-                                        self.pcie_err_count = []
                                         self.node_key = []
+
+                                        self.err_count = YList(self)
+                                        self.pcie_err_count = YList(self)
                                         self._segment_path = lambda: "sum-data"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData, ['num_nodes', 'crc_err_count', 'sbe_err_count', 'mbe_err_count', 'par_err_count', 'gen_err_count', 'reset_err_count', 'err_count', 'pcie_err_count', 'node_key'], name, value)
+                                        self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData, ['num_nodes', 'crc_err_count', 'sbe_err_count', 'mbe_err_count', 'par_err_count', 'gen_err_count', 'reset_err_count', 'node_key'], name, value)
+
+
+                                    class ErrCount(Entity):
+                                        """
+                                        err count
+                                        
+                                        .. attribute:: name
+                                        
+                                        	name
+                                        	**type**\: str
+                                        
+                                        .. attribute:: count
+                                        
+                                        	count
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'asic-errors-oper'
+                                        _revision = '2017-09-07'
+
+                                        def __init__(self):
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData.ErrCount, self).__init__()
+
+                                            self.yang_name = "err-count"
+                                            self.yang_parent_name = "sum-data"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('count', YLeaf(YType.uint32, 'count')),
+                                            ])
+                                            self.name = None
+                                            self.count = None
+                                            self._segment_path = lambda: "err-count"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData.ErrCount, ['name', 'count'], name, value)
+
+
+                                    class PcieErrCount(Entity):
+                                        """
+                                        pcie err count
+                                        
+                                        .. attribute:: name
+                                        
+                                        	name
+                                        	**type**\: str
+                                        
+                                        .. attribute:: count
+                                        
+                                        	count
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'asic-errors-oper'
+                                        _revision = '2017-09-07'
+
+                                        def __init__(self):
+                                            super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData.PcieErrCount, self).__init__()
+
+                                            self.yang_name = "pcie-err-count"
+                                            self.yang_parent_name = "sum-data"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('count', YLeaf(YType.uint32, 'count')),
+                                            ])
+                                            self.name = None
+                                            self.count = None
+                                            self._segment_path = lambda: "pcie-err-count"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData.PcieErrCount, ['name', 'count'], name, value)
 
 
                             class UnexpectedHardErrors(Entity):
@@ -8861,7 +8869,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors, self).__init__()
@@ -8871,8 +8879,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -8979,7 +8986,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error, self).__init__()
@@ -8989,8 +8996,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -9054,7 +9060,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.CsrsInfo, self).__init__()
@@ -9064,8 +9070,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -9122,7 +9127,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.LastErr, self).__init__()
@@ -9132,8 +9137,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -9166,7 +9170,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors, self).__init__()
@@ -9176,8 +9180,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -9284,7 +9287,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error, self).__init__()
@@ -9294,8 +9297,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -9359,7 +9361,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.CsrsInfo, self).__init__()
@@ -9369,8 +9371,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -9427,7 +9428,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.LastErr, self).__init__()
@@ -9437,8 +9438,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -9471,7 +9471,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard, self).__init__()
@@ -9481,8 +9481,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -9589,7 +9588,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error, self).__init__()
@@ -9599,8 +9598,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -9664,7 +9662,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.CsrsInfo, self).__init__()
@@ -9674,8 +9672,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -9732,7 +9729,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.LastErr, self).__init__()
@@ -9742,8 +9739,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -9776,7 +9772,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors, self).__init__()
@@ -9786,8 +9782,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -9894,7 +9889,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error, self).__init__()
@@ -9904,8 +9899,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -9969,7 +9963,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.CsrsInfo, self).__init__()
@@ -9979,8 +9973,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -10037,7 +10030,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.LastErr, self).__init__()
@@ -10047,8 +10040,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -10081,7 +10073,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors, self).__init__()
@@ -10091,8 +10083,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -10199,7 +10190,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error, self).__init__()
@@ -10209,8 +10200,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -10274,7 +10264,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.CsrsInfo, self).__init__()
@@ -10284,8 +10274,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -10342,7 +10331,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.LastErr, self).__init__()
@@ -10352,8 +10341,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -10386,7 +10374,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors, self).__init__()
@@ -10396,8 +10384,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -10504,7 +10491,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error, self).__init__()
@@ -10514,8 +10501,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -10579,7 +10565,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.CsrsInfo, self).__init__()
@@ -10589,8 +10575,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -10647,7 +10632,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.LastErr, self).__init__()
@@ -10657,8 +10642,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -10691,7 +10675,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard, self).__init__()
@@ -10701,8 +10685,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -10809,7 +10792,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error, self).__init__()
@@ -10819,8 +10802,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -10884,7 +10866,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.CsrsInfo, self).__init__()
@@ -10894,8 +10876,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -10952,7 +10933,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.LastErr, self).__init__()
@@ -10962,8 +10943,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -10996,7 +10976,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard, self).__init__()
@@ -11006,8 +10986,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -11114,7 +11093,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error, self).__init__()
@@ -11124,8 +11103,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -11189,7 +11167,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.CsrsInfo, self).__init__()
@@ -11199,8 +11177,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -11257,7 +11234,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.LastErr, self).__init__()
@@ -11267,8 +11244,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -11301,7 +11277,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard, self).__init__()
@@ -11311,8 +11287,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -11419,7 +11394,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error, self).__init__()
@@ -11429,8 +11404,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -11494,7 +11468,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.CsrsInfo, self).__init__()
@@ -11504,8 +11478,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -11562,7 +11535,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.LastErr, self).__init__()
@@ -11572,8 +11545,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -11606,7 +11578,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft, self).__init__()
@@ -11616,8 +11588,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -11724,7 +11695,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error, self).__init__()
@@ -11734,8 +11705,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -11799,7 +11769,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.CsrsInfo, self).__init__()
@@ -11809,8 +11779,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -11867,7 +11836,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.LastErr, self).__init__()
@@ -11877,8 +11846,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -11911,7 +11879,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors, self).__init__()
@@ -11921,8 +11889,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -12029,7 +11996,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error, self).__init__()
@@ -12039,8 +12006,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -12104,7 +12070,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.CsrsInfo, self).__init__()
@@ -12114,8 +12080,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -12172,7 +12137,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.LastErr, self).__init__()
@@ -12182,8 +12147,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -12216,7 +12180,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors, self).__init__()
@@ -12226,8 +12190,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -12334,7 +12297,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error, self).__init__()
@@ -12344,8 +12307,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -12409,7 +12371,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.CsrsInfo, self).__init__()
@@ -12419,8 +12381,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -12477,7 +12438,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.LastErr, self).__init__()
@@ -12487,8 +12448,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -12521,7 +12481,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors, self).__init__()
@@ -12531,8 +12491,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -12639,7 +12598,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error, self).__init__()
@@ -12649,8 +12608,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -12714,7 +12672,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.CsrsInfo, self).__init__()
@@ -12724,8 +12682,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -12782,7 +12739,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.LastErr, self).__init__()
@@ -12792,8 +12749,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -12826,7 +12782,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors, self).__init__()
@@ -12836,8 +12792,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -12944,7 +12899,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error, self).__init__()
@@ -12954,8 +12909,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -13019,7 +12973,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.CsrsInfo, self).__init__()
@@ -13029,8 +12983,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -13087,7 +13040,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.LastErr, self).__init__()
@@ -13097,8 +13050,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -13131,7 +13083,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors, self).__init__()
@@ -13141,8 +13093,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -13249,7 +13200,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error, self).__init__()
@@ -13259,8 +13210,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -13324,7 +13274,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.CsrsInfo, self).__init__()
@@ -13334,8 +13284,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -13392,7 +13341,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.LastErr, self).__init__()
@@ -13402,8 +13351,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -13436,7 +13384,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors, self).__init__()
@@ -13446,8 +13394,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -13554,7 +13501,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error, self).__init__()
@@ -13564,8 +13511,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -13629,7 +13575,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.CsrsInfo, self).__init__()
@@ -13639,8 +13585,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -13697,7 +13642,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.LastErr, self).__init__()
@@ -13707,8 +13652,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -13741,7 +13685,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard, self).__init__()
@@ -13751,8 +13695,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -13859,7 +13802,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error, self).__init__()
@@ -13869,8 +13812,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -13934,7 +13876,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.CsrsInfo, self).__init__()
@@ -13944,8 +13886,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -14002,7 +13943,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.LastErr, self).__init__()
@@ -14012,8 +13953,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -14046,7 +13986,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors, self).__init__()
@@ -14056,8 +13996,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -14164,7 +14103,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error, self).__init__()
@@ -14174,8 +14113,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -14239,7 +14177,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.CsrsInfo, self).__init__()
@@ -14249,8 +14187,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -14307,7 +14244,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.LastErr, self).__init__()
@@ -14317,8 +14254,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -14351,7 +14287,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors, self).__init__()
@@ -14361,8 +14297,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -14469,7 +14404,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error, self).__init__()
@@ -14479,8 +14414,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -14544,7 +14478,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.CsrsInfo, self).__init__()
@@ -14554,8 +14488,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -14612,7 +14545,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.LastErr, self).__init__()
@@ -14622,8 +14555,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -14656,7 +14588,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors, self).__init__()
@@ -14666,8 +14598,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -14774,7 +14705,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error, self).__init__()
@@ -14784,8 +14715,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -14849,7 +14779,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.CsrsInfo, self).__init__()
@@ -14859,8 +14789,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -14917,7 +14846,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.LastErr, self).__init__()
@@ -14927,8 +14856,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -14961,7 +14889,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors, self).__init__()
@@ -14971,8 +14899,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -15079,7 +15006,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error, self).__init__()
@@ -15089,8 +15016,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -15154,7 +15080,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.CsrsInfo, self).__init__()
@@ -15164,8 +15090,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -15222,7 +15147,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.LastErr, self).__init__()
@@ -15232,8 +15157,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -15266,7 +15190,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors, self).__init__()
@@ -15276,8 +15200,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -15384,7 +15307,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error, self).__init__()
@@ -15394,8 +15317,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -15459,7 +15381,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.CsrsInfo, self).__init__()
@@ -15469,8 +15391,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -15527,7 +15448,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.LastErr, self).__init__()
@@ -15537,8 +15458,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -15571,7 +15491,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors, self).__init__()
@@ -15581,8 +15501,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -15689,7 +15608,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error, self).__init__()
@@ -15699,8 +15618,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -15764,7 +15682,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.CsrsInfo, self).__init__()
@@ -15774,8 +15692,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -15832,7 +15749,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.LastErr, self).__init__()
@@ -15842,8 +15759,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -15876,7 +15792,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors, self).__init__()
@@ -15886,8 +15802,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -15994,7 +15909,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error, self).__init__()
@@ -16004,8 +15919,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -16069,7 +15983,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.CsrsInfo, self).__init__()
@@ -16079,8 +15993,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -16137,7 +16050,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.LastErr, self).__init__()
@@ -16147,8 +16060,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
@@ -16181,7 +16093,7 @@ class AsicErrors(Entity):
                                 """
 
                                 _prefix = 'asic-errors-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard, self).__init__()
@@ -16191,8 +16103,7 @@ class AsicErrors(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error))])
+                                    self._child_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error))])
                                     self._leafs = OrderedDict()
 
                                     self.error = YList(self)
@@ -16299,7 +16210,7 @@ class AsicErrors(Entity):
                                     """
 
                                     _prefix = 'asic-errors-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error, self).__init__()
@@ -16309,8 +16220,7 @@ class AsicErrors(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.LastErr))])
+                                        self._child_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.LastErr))])
                                         self._leafs = OrderedDict([
                                             ('name', YLeaf(YType.str, 'name')),
                                             ('asic_info', YLeaf(YType.str, 'asic-info')),
@@ -16374,7 +16284,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.CsrsInfo, self).__init__()
@@ -16384,8 +16294,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('name', YLeaf(YType.str, 'name')),
                                                 ('address', YLeaf(YType.uint64, 'address')),
@@ -16442,7 +16351,7 @@ class AsicErrors(Entity):
                                         """
 
                                         _prefix = 'asic-errors-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.LastErr, self).__init__()
@@ -16452,8 +16361,7 @@ class AsicErrors(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('at_time', YLeaf(YType.uint64, 'at-time')),
                                                 ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),

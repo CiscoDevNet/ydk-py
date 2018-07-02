@@ -45,15 +45,16 @@ class InfraStatistics(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("interfaces", ("interfaces", InfraStatistics.Interfaces))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("interfaces", ("interfaces", InfraStatistics.Interfaces))])
         self._leafs = OrderedDict()
 
         self.interfaces = InfraStatistics.Interfaces()
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
-        self._children_yang_names.add("interfaces")
         self._segment_path = lambda: "Cisco-IOS-XR-infra-statsd-oper:infra-statistics"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(InfraStatistics, [], name, value)
 
 
     class Interfaces(Entity):
@@ -80,8 +81,7 @@ class InfraStatistics(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("interface", ("interface", InfraStatistics.Interfaces.Interface))])
+            self._child_classes = OrderedDict([("interface", ("interface", InfraStatistics.Interfaces.Interface))])
             self._leafs = OrderedDict()
 
             self.interface = YList(self)
@@ -153,8 +153,7 @@ class InfraStatistics(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface_name']
-                self._child_container_classes = OrderedDict([("cache", ("cache", InfraStatistics.Interfaces.Interface.Cache)), ("latest", ("latest", InfraStatistics.Interfaces.Interface.Latest)), ("total", ("total", InfraStatistics.Interfaces.Interface.Total)), ("protocols", ("protocols", InfraStatistics.Interfaces.Interface.Protocols)), ("interfaces-mib-counters", ("interfaces_mib_counters", InfraStatistics.Interfaces.Interface.InterfacesMibCounters)), ("data-rate", ("data_rate", InfraStatistics.Interfaces.Interface.DataRate)), ("generic-counters", ("generic_counters", InfraStatistics.Interfaces.Interface.GenericCounters))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("cache", ("cache", InfraStatistics.Interfaces.Interface.Cache)), ("latest", ("latest", InfraStatistics.Interfaces.Interface.Latest)), ("total", ("total", InfraStatistics.Interfaces.Interface.Total)), ("protocols", ("protocols", InfraStatistics.Interfaces.Interface.Protocols)), ("interfaces-mib-counters", ("interfaces_mib_counters", InfraStatistics.Interfaces.Interface.InterfacesMibCounters)), ("data-rate", ("data_rate", InfraStatistics.Interfaces.Interface.DataRate)), ("generic-counters", ("generic_counters", InfraStatistics.Interfaces.Interface.GenericCounters))])
                 self._leafs = OrderedDict([
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                 ])
@@ -163,37 +162,30 @@ class InfraStatistics(Entity):
                 self.cache = InfraStatistics.Interfaces.Interface.Cache()
                 self.cache.parent = self
                 self._children_name_map["cache"] = "cache"
-                self._children_yang_names.add("cache")
 
                 self.latest = InfraStatistics.Interfaces.Interface.Latest()
                 self.latest.parent = self
                 self._children_name_map["latest"] = "latest"
-                self._children_yang_names.add("latest")
 
                 self.total = InfraStatistics.Interfaces.Interface.Total()
                 self.total.parent = self
                 self._children_name_map["total"] = "total"
-                self._children_yang_names.add("total")
 
                 self.protocols = InfraStatistics.Interfaces.Interface.Protocols()
                 self.protocols.parent = self
                 self._children_name_map["protocols"] = "protocols"
-                self._children_yang_names.add("protocols")
 
                 self.interfaces_mib_counters = InfraStatistics.Interfaces.Interface.InterfacesMibCounters()
                 self.interfaces_mib_counters.parent = self
                 self._children_name_map["interfaces_mib_counters"] = "interfaces-mib-counters"
-                self._children_yang_names.add("interfaces-mib-counters")
 
                 self.data_rate = InfraStatistics.Interfaces.Interface.DataRate()
                 self.data_rate.parent = self
                 self._children_name_map["data_rate"] = "data-rate"
-                self._children_yang_names.add("data-rate")
 
                 self.generic_counters = InfraStatistics.Interfaces.Interface.GenericCounters()
                 self.generic_counters.parent = self
                 self._children_name_map["generic_counters"] = "generic-counters"
-                self._children_yang_names.add("generic-counters")
                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/%s" % self._segment_path()
 
@@ -240,30 +232,28 @@ class InfraStatistics(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("protocols", ("protocols", InfraStatistics.Interfaces.Interface.Cache.Protocols)), ("interfaces-mib-counters", ("interfaces_mib_counters", InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters)), ("data-rate", ("data_rate", InfraStatistics.Interfaces.Interface.Cache.DataRate)), ("generic-counters", ("generic_counters", InfraStatistics.Interfaces.Interface.Cache.GenericCounters))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("protocols", ("protocols", InfraStatistics.Interfaces.Interface.Cache.Protocols)), ("interfaces-mib-counters", ("interfaces_mib_counters", InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters)), ("data-rate", ("data_rate", InfraStatistics.Interfaces.Interface.Cache.DataRate)), ("generic-counters", ("generic_counters", InfraStatistics.Interfaces.Interface.Cache.GenericCounters))])
                     self._leafs = OrderedDict()
 
                     self.protocols = InfraStatistics.Interfaces.Interface.Cache.Protocols()
                     self.protocols.parent = self
                     self._children_name_map["protocols"] = "protocols"
-                    self._children_yang_names.add("protocols")
 
                     self.interfaces_mib_counters = InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters()
                     self.interfaces_mib_counters.parent = self
                     self._children_name_map["interfaces_mib_counters"] = "interfaces-mib-counters"
-                    self._children_yang_names.add("interfaces-mib-counters")
 
                     self.data_rate = InfraStatistics.Interfaces.Interface.Cache.DataRate()
                     self.data_rate.parent = self
                     self._children_name_map["data_rate"] = "data-rate"
-                    self._children_yang_names.add("data-rate")
 
                     self.generic_counters = InfraStatistics.Interfaces.Interface.Cache.GenericCounters()
                     self.generic_counters.parent = self
                     self._children_name_map["generic_counters"] = "generic-counters"
-                    self._children_yang_names.add("generic-counters")
                     self._segment_path = lambda: "cache"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache, [], name, value)
 
 
                 class Protocols(Entity):
@@ -290,8 +280,7 @@ class InfraStatistics(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("protocol", ("protocol", InfraStatistics.Interfaces.Interface.Cache.Protocols.Protocol))])
+                        self._child_classes = OrderedDict([("protocol", ("protocol", InfraStatistics.Interfaces.Interface.Cache.Protocols.Protocol))])
                         self._leafs = OrderedDict()
 
                         self.protocol = YList(self)
@@ -411,8 +400,7 @@ class InfraStatistics(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['protocol_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('protocol_name', YLeaf(YType.str, 'protocol-name')),
                                 ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
@@ -440,7 +428,7 @@ class InfraStatistics(Entity):
                             self._segment_path = lambda: "protocol" + "[protocol-name='" + str(self.protocol_name) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.Protocols.Protocol, ['protocol_name', 'bytes_received', 'packets_received', 'bytes_sent', 'packets_sent', 'protocol', 'last_data_time', 'input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate'], name, value)
+                            self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.Protocols.Protocol, ['protocol_name', u'bytes_received', u'packets_received', u'bytes_sent', u'packets_sent', u'protocol', u'last_data_time', u'input_data_rate', u'input_packet_rate', u'output_data_rate', u'output_packet_rate'], name, value)
 
 
                 class InterfacesMibCounters(Entity):
@@ -729,8 +717,7 @@ class InfraStatistics(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('packets_received', YLeaf(YType.uint64, 'packets-received')),
                             ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
@@ -808,7 +795,7 @@ class InfraStatistics(Entity):
                         self._segment_path = lambda: "interfaces-mib-counters"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
+                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters, [u'packets_received', u'bytes_received', u'packets_sent', u'bytes_sent', u'multicast_packets_received', u'broadcast_packets_received', u'multicast_packets_sent', u'broadcast_packets_sent', u'output_drops', u'output_queue_drops', u'input_drops', u'input_queue_drops', u'runt_packets_received', u'giant_packets_received', u'throttled_packets_received', u'parity_packets_received', u'unknown_protocol_packets_received', u'input_errors', u'crc_errors', u'input_overruns', u'framing_errors_received', u'input_ignored_packets', u'input_aborts', u'output_errors', u'output_underruns', u'output_buffer_failures', u'output_buffers_swapped_out', u'applique', u'resets', u'carrier_transitions', u'availability_flag', u'last_data_time', u'seconds_since_last_clear_counters', u'last_discontinuity_time', u'seconds_since_packet_received', u'seconds_since_packet_sent'], name, value)
 
 
                 class DataRate(Entity):
@@ -931,8 +918,7 @@ class InfraStatistics(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('input_data_rate', YLeaf(YType.uint64, 'input-data-rate')),
                             ('input_packet_rate', YLeaf(YType.uint64, 'input-packet-rate')),
@@ -964,7 +950,7 @@ class InfraStatistics(Entity):
                         self._segment_path = lambda: "data-rate"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.DataRate, ['input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'peak_input_data_rate', 'peak_input_packet_rate', 'peak_output_data_rate', 'peak_output_packet_rate', 'bandwidth', 'load_interval', 'output_load', 'input_load', 'reliability'], name, value)
+                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.DataRate, [u'input_data_rate', u'input_packet_rate', u'output_data_rate', u'output_packet_rate', u'peak_input_data_rate', u'peak_input_packet_rate', u'peak_output_data_rate', u'peak_output_packet_rate', u'bandwidth', u'load_interval', u'output_load', u'input_load', u'reliability'], name, value)
 
 
                 class GenericCounters(Entity):
@@ -1252,8 +1238,7 @@ class InfraStatistics(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('packets_received', YLeaf(YType.uint64, 'packets-received')),
                             ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
@@ -1331,7 +1316,7 @@ class InfraStatistics(Entity):
                         self._segment_path = lambda: "generic-counters"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.GenericCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
+                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.GenericCounters, [u'packets_received', u'bytes_received', u'packets_sent', u'bytes_sent', u'multicast_packets_received', u'broadcast_packets_received', u'multicast_packets_sent', u'broadcast_packets_sent', u'output_drops', u'output_queue_drops', u'input_drops', u'input_queue_drops', u'runt_packets_received', u'giant_packets_received', u'throttled_packets_received', u'parity_packets_received', u'unknown_protocol_packets_received', u'input_errors', u'crc_errors', u'input_overruns', u'framing_errors_received', u'input_ignored_packets', u'input_aborts', u'output_errors', u'output_underruns', u'output_buffer_failures', u'output_buffers_swapped_out', u'applique', u'resets', u'carrier_transitions', u'availability_flag', u'last_data_time', u'seconds_since_last_clear_counters', u'last_discontinuity_time', u'seconds_since_packet_received', u'seconds_since_packet_sent'], name, value)
 
 
             class Latest(Entity):
@@ -1373,30 +1358,28 @@ class InfraStatistics(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("protocols", ("protocols", InfraStatistics.Interfaces.Interface.Latest.Protocols)), ("interfaces-mib-counters", ("interfaces_mib_counters", InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters)), ("data-rate", ("data_rate", InfraStatistics.Interfaces.Interface.Latest.DataRate)), ("generic-counters", ("generic_counters", InfraStatistics.Interfaces.Interface.Latest.GenericCounters))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("protocols", ("protocols", InfraStatistics.Interfaces.Interface.Latest.Protocols)), ("interfaces-mib-counters", ("interfaces_mib_counters", InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters)), ("data-rate", ("data_rate", InfraStatistics.Interfaces.Interface.Latest.DataRate)), ("generic-counters", ("generic_counters", InfraStatistics.Interfaces.Interface.Latest.GenericCounters))])
                     self._leafs = OrderedDict()
 
                     self.protocols = InfraStatistics.Interfaces.Interface.Latest.Protocols()
                     self.protocols.parent = self
                     self._children_name_map["protocols"] = "protocols"
-                    self._children_yang_names.add("protocols")
 
                     self.interfaces_mib_counters = InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters()
                     self.interfaces_mib_counters.parent = self
                     self._children_name_map["interfaces_mib_counters"] = "interfaces-mib-counters"
-                    self._children_yang_names.add("interfaces-mib-counters")
 
                     self.data_rate = InfraStatistics.Interfaces.Interface.Latest.DataRate()
                     self.data_rate.parent = self
                     self._children_name_map["data_rate"] = "data-rate"
-                    self._children_yang_names.add("data-rate")
 
                     self.generic_counters = InfraStatistics.Interfaces.Interface.Latest.GenericCounters()
                     self.generic_counters.parent = self
                     self._children_name_map["generic_counters"] = "generic-counters"
-                    self._children_yang_names.add("generic-counters")
                     self._segment_path = lambda: "latest"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest, [], name, value)
 
 
                 class Protocols(Entity):
@@ -1423,8 +1406,7 @@ class InfraStatistics(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("protocol", ("protocol", InfraStatistics.Interfaces.Interface.Latest.Protocols.Protocol))])
+                        self._child_classes = OrderedDict([("protocol", ("protocol", InfraStatistics.Interfaces.Interface.Latest.Protocols.Protocol))])
                         self._leafs = OrderedDict()
 
                         self.protocol = YList(self)
@@ -1544,8 +1526,7 @@ class InfraStatistics(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['protocol_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('protocol_name', YLeaf(YType.str, 'protocol-name')),
                                 ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
@@ -1573,7 +1554,7 @@ class InfraStatistics(Entity):
                             self._segment_path = lambda: "protocol" + "[protocol-name='" + str(self.protocol_name) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.Protocols.Protocol, ['protocol_name', 'bytes_received', 'packets_received', 'bytes_sent', 'packets_sent', 'protocol', 'last_data_time', 'input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate'], name, value)
+                            self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.Protocols.Protocol, ['protocol_name', u'bytes_received', u'packets_received', u'bytes_sent', u'packets_sent', u'protocol', u'last_data_time', u'input_data_rate', u'input_packet_rate', u'output_data_rate', u'output_packet_rate'], name, value)
 
 
                 class InterfacesMibCounters(Entity):
@@ -1862,8 +1843,7 @@ class InfraStatistics(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('packets_received', YLeaf(YType.uint64, 'packets-received')),
                             ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
@@ -1941,7 +1921,7 @@ class InfraStatistics(Entity):
                         self._segment_path = lambda: "interfaces-mib-counters"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
+                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters, [u'packets_received', u'bytes_received', u'packets_sent', u'bytes_sent', u'multicast_packets_received', u'broadcast_packets_received', u'multicast_packets_sent', u'broadcast_packets_sent', u'output_drops', u'output_queue_drops', u'input_drops', u'input_queue_drops', u'runt_packets_received', u'giant_packets_received', u'throttled_packets_received', u'parity_packets_received', u'unknown_protocol_packets_received', u'input_errors', u'crc_errors', u'input_overruns', u'framing_errors_received', u'input_ignored_packets', u'input_aborts', u'output_errors', u'output_underruns', u'output_buffer_failures', u'output_buffers_swapped_out', u'applique', u'resets', u'carrier_transitions', u'availability_flag', u'last_data_time', u'seconds_since_last_clear_counters', u'last_discontinuity_time', u'seconds_since_packet_received', u'seconds_since_packet_sent'], name, value)
 
 
                 class DataRate(Entity):
@@ -2064,8 +2044,7 @@ class InfraStatistics(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('input_data_rate', YLeaf(YType.uint64, 'input-data-rate')),
                             ('input_packet_rate', YLeaf(YType.uint64, 'input-packet-rate')),
@@ -2097,7 +2076,7 @@ class InfraStatistics(Entity):
                         self._segment_path = lambda: "data-rate"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.DataRate, ['input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'peak_input_data_rate', 'peak_input_packet_rate', 'peak_output_data_rate', 'peak_output_packet_rate', 'bandwidth', 'load_interval', 'output_load', 'input_load', 'reliability'], name, value)
+                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.DataRate, [u'input_data_rate', u'input_packet_rate', u'output_data_rate', u'output_packet_rate', u'peak_input_data_rate', u'peak_input_packet_rate', u'peak_output_data_rate', u'peak_output_packet_rate', u'bandwidth', u'load_interval', u'output_load', u'input_load', u'reliability'], name, value)
 
 
                 class GenericCounters(Entity):
@@ -2385,8 +2364,7 @@ class InfraStatistics(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('packets_received', YLeaf(YType.uint64, 'packets-received')),
                             ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
@@ -2464,7 +2442,7 @@ class InfraStatistics(Entity):
                         self._segment_path = lambda: "generic-counters"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.GenericCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
+                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.GenericCounters, [u'packets_received', u'bytes_received', u'packets_sent', u'bytes_sent', u'multicast_packets_received', u'broadcast_packets_received', u'multicast_packets_sent', u'broadcast_packets_sent', u'output_drops', u'output_queue_drops', u'input_drops', u'input_queue_drops', u'runt_packets_received', u'giant_packets_received', u'throttled_packets_received', u'parity_packets_received', u'unknown_protocol_packets_received', u'input_errors', u'crc_errors', u'input_overruns', u'framing_errors_received', u'input_ignored_packets', u'input_aborts', u'output_errors', u'output_underruns', u'output_buffer_failures', u'output_buffers_swapped_out', u'applique', u'resets', u'carrier_transitions', u'availability_flag', u'last_data_time', u'seconds_since_last_clear_counters', u'last_discontinuity_time', u'seconds_since_packet_received', u'seconds_since_packet_sent'], name, value)
 
 
             class Total(Entity):
@@ -2506,30 +2484,28 @@ class InfraStatistics(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("protocols", ("protocols", InfraStatistics.Interfaces.Interface.Total.Protocols)), ("interfaces-mib-counters", ("interfaces_mib_counters", InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters)), ("data-rate", ("data_rate", InfraStatistics.Interfaces.Interface.Total.DataRate)), ("generic-counters", ("generic_counters", InfraStatistics.Interfaces.Interface.Total.GenericCounters))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("protocols", ("protocols", InfraStatistics.Interfaces.Interface.Total.Protocols)), ("interfaces-mib-counters", ("interfaces_mib_counters", InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters)), ("data-rate", ("data_rate", InfraStatistics.Interfaces.Interface.Total.DataRate)), ("generic-counters", ("generic_counters", InfraStatistics.Interfaces.Interface.Total.GenericCounters))])
                     self._leafs = OrderedDict()
 
                     self.protocols = InfraStatistics.Interfaces.Interface.Total.Protocols()
                     self.protocols.parent = self
                     self._children_name_map["protocols"] = "protocols"
-                    self._children_yang_names.add("protocols")
 
                     self.interfaces_mib_counters = InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters()
                     self.interfaces_mib_counters.parent = self
                     self._children_name_map["interfaces_mib_counters"] = "interfaces-mib-counters"
-                    self._children_yang_names.add("interfaces-mib-counters")
 
                     self.data_rate = InfraStatistics.Interfaces.Interface.Total.DataRate()
                     self.data_rate.parent = self
                     self._children_name_map["data_rate"] = "data-rate"
-                    self._children_yang_names.add("data-rate")
 
                     self.generic_counters = InfraStatistics.Interfaces.Interface.Total.GenericCounters()
                     self.generic_counters.parent = self
                     self._children_name_map["generic_counters"] = "generic-counters"
-                    self._children_yang_names.add("generic-counters")
                     self._segment_path = lambda: "total"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(InfraStatistics.Interfaces.Interface.Total, [], name, value)
 
 
                 class Protocols(Entity):
@@ -2556,8 +2532,7 @@ class InfraStatistics(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("protocol", ("protocol", InfraStatistics.Interfaces.Interface.Total.Protocols.Protocol))])
+                        self._child_classes = OrderedDict([("protocol", ("protocol", InfraStatistics.Interfaces.Interface.Total.Protocols.Protocol))])
                         self._leafs = OrderedDict()
 
                         self.protocol = YList(self)
@@ -2677,8 +2652,7 @@ class InfraStatistics(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['protocol_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('protocol_name', YLeaf(YType.str, 'protocol-name')),
                                 ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
@@ -2706,7 +2680,7 @@ class InfraStatistics(Entity):
                             self._segment_path = lambda: "protocol" + "[protocol-name='" + str(self.protocol_name) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.Protocols.Protocol, ['protocol_name', 'bytes_received', 'packets_received', 'bytes_sent', 'packets_sent', 'protocol', 'last_data_time', 'input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate'], name, value)
+                            self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.Protocols.Protocol, ['protocol_name', u'bytes_received', u'packets_received', u'bytes_sent', u'packets_sent', u'protocol', u'last_data_time', u'input_data_rate', u'input_packet_rate', u'output_data_rate', u'output_packet_rate'], name, value)
 
 
                 class InterfacesMibCounters(Entity):
@@ -2995,8 +2969,7 @@ class InfraStatistics(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('packets_received', YLeaf(YType.uint64, 'packets-received')),
                             ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
@@ -3074,7 +3047,7 @@ class InfraStatistics(Entity):
                         self._segment_path = lambda: "interfaces-mib-counters"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
+                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters, [u'packets_received', u'bytes_received', u'packets_sent', u'bytes_sent', u'multicast_packets_received', u'broadcast_packets_received', u'multicast_packets_sent', u'broadcast_packets_sent', u'output_drops', u'output_queue_drops', u'input_drops', u'input_queue_drops', u'runt_packets_received', u'giant_packets_received', u'throttled_packets_received', u'parity_packets_received', u'unknown_protocol_packets_received', u'input_errors', u'crc_errors', u'input_overruns', u'framing_errors_received', u'input_ignored_packets', u'input_aborts', u'output_errors', u'output_underruns', u'output_buffer_failures', u'output_buffers_swapped_out', u'applique', u'resets', u'carrier_transitions', u'availability_flag', u'last_data_time', u'seconds_since_last_clear_counters', u'last_discontinuity_time', u'seconds_since_packet_received', u'seconds_since_packet_sent'], name, value)
 
 
                 class DataRate(Entity):
@@ -3197,8 +3170,7 @@ class InfraStatistics(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('input_data_rate', YLeaf(YType.uint64, 'input-data-rate')),
                             ('input_packet_rate', YLeaf(YType.uint64, 'input-packet-rate')),
@@ -3230,7 +3202,7 @@ class InfraStatistics(Entity):
                         self._segment_path = lambda: "data-rate"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.DataRate, ['input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'peak_input_data_rate', 'peak_input_packet_rate', 'peak_output_data_rate', 'peak_output_packet_rate', 'bandwidth', 'load_interval', 'output_load', 'input_load', 'reliability'], name, value)
+                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.DataRate, [u'input_data_rate', u'input_packet_rate', u'output_data_rate', u'output_packet_rate', u'peak_input_data_rate', u'peak_input_packet_rate', u'peak_output_data_rate', u'peak_output_packet_rate', u'bandwidth', u'load_interval', u'output_load', u'input_load', u'reliability'], name, value)
 
 
                 class GenericCounters(Entity):
@@ -3518,8 +3490,7 @@ class InfraStatistics(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('packets_received', YLeaf(YType.uint64, 'packets-received')),
                             ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
@@ -3597,7 +3568,7 @@ class InfraStatistics(Entity):
                         self._segment_path = lambda: "generic-counters"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.GenericCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
+                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.GenericCounters, [u'packets_received', u'bytes_received', u'packets_sent', u'bytes_sent', u'multicast_packets_received', u'broadcast_packets_received', u'multicast_packets_sent', u'broadcast_packets_sent', u'output_drops', u'output_queue_drops', u'input_drops', u'input_queue_drops', u'runt_packets_received', u'giant_packets_received', u'throttled_packets_received', u'parity_packets_received', u'unknown_protocol_packets_received', u'input_errors', u'crc_errors', u'input_overruns', u'framing_errors_received', u'input_ignored_packets', u'input_aborts', u'output_errors', u'output_underruns', u'output_buffer_failures', u'output_buffers_swapped_out', u'applique', u'resets', u'carrier_transitions', u'availability_flag', u'last_data_time', u'seconds_since_last_clear_counters', u'last_discontinuity_time', u'seconds_since_packet_received', u'seconds_since_packet_sent'], name, value)
 
 
             class Protocols(Entity):
@@ -3624,8 +3595,7 @@ class InfraStatistics(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("protocol", ("protocol", InfraStatistics.Interfaces.Interface.Protocols.Protocol))])
+                    self._child_classes = OrderedDict([("protocol", ("protocol", InfraStatistics.Interfaces.Interface.Protocols.Protocol))])
                     self._leafs = OrderedDict()
 
                     self.protocol = YList(self)
@@ -3745,8 +3715,7 @@ class InfraStatistics(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['protocol_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('protocol_name', YLeaf(YType.str, 'protocol-name')),
                             ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
@@ -3774,7 +3743,7 @@ class InfraStatistics(Entity):
                         self._segment_path = lambda: "protocol" + "[protocol-name='" + str(self.protocol_name) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Protocols.Protocol, ['protocol_name', 'bytes_received', 'packets_received', 'bytes_sent', 'packets_sent', 'protocol', 'last_data_time', 'input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate'], name, value)
+                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Protocols.Protocol, ['protocol_name', u'bytes_received', u'packets_received', u'bytes_sent', u'packets_sent', u'protocol', u'last_data_time', u'input_data_rate', u'input_packet_rate', u'output_data_rate', u'output_packet_rate'], name, value)
 
 
             class InterfacesMibCounters(Entity):
@@ -4063,8 +4032,7 @@ class InfraStatistics(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets_received', YLeaf(YType.uint64, 'packets-received')),
                         ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
@@ -4142,7 +4110,7 @@ class InfraStatistics(Entity):
                     self._segment_path = lambda: "interfaces-mib-counters"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(InfraStatistics.Interfaces.Interface.InterfacesMibCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
+                    self._perform_setattr(InfraStatistics.Interfaces.Interface.InterfacesMibCounters, [u'packets_received', u'bytes_received', u'packets_sent', u'bytes_sent', u'multicast_packets_received', u'broadcast_packets_received', u'multicast_packets_sent', u'broadcast_packets_sent', u'output_drops', u'output_queue_drops', u'input_drops', u'input_queue_drops', u'runt_packets_received', u'giant_packets_received', u'throttled_packets_received', u'parity_packets_received', u'unknown_protocol_packets_received', u'input_errors', u'crc_errors', u'input_overruns', u'framing_errors_received', u'input_ignored_packets', u'input_aborts', u'output_errors', u'output_underruns', u'output_buffer_failures', u'output_buffers_swapped_out', u'applique', u'resets', u'carrier_transitions', u'availability_flag', u'last_data_time', u'seconds_since_last_clear_counters', u'last_discontinuity_time', u'seconds_since_packet_received', u'seconds_since_packet_sent'], name, value)
 
 
             class DataRate(Entity):
@@ -4265,8 +4233,7 @@ class InfraStatistics(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('input_data_rate', YLeaf(YType.uint64, 'input-data-rate')),
                         ('input_packet_rate', YLeaf(YType.uint64, 'input-packet-rate')),
@@ -4298,7 +4265,7 @@ class InfraStatistics(Entity):
                     self._segment_path = lambda: "data-rate"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(InfraStatistics.Interfaces.Interface.DataRate, ['input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'peak_input_data_rate', 'peak_input_packet_rate', 'peak_output_data_rate', 'peak_output_packet_rate', 'bandwidth', 'load_interval', 'output_load', 'input_load', 'reliability'], name, value)
+                    self._perform_setattr(InfraStatistics.Interfaces.Interface.DataRate, [u'input_data_rate', u'input_packet_rate', u'output_data_rate', u'output_packet_rate', u'peak_input_data_rate', u'peak_input_packet_rate', u'peak_output_data_rate', u'peak_output_packet_rate', u'bandwidth', u'load_interval', u'output_load', u'input_load', u'reliability'], name, value)
 
 
             class GenericCounters(Entity):
@@ -4586,8 +4553,7 @@ class InfraStatistics(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packets_received', YLeaf(YType.uint64, 'packets-received')),
                         ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
@@ -4665,7 +4631,7 @@ class InfraStatistics(Entity):
                     self._segment_path = lambda: "generic-counters"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(InfraStatistics.Interfaces.Interface.GenericCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
+                    self._perform_setattr(InfraStatistics.Interfaces.Interface.GenericCounters, [u'packets_received', u'bytes_received', u'packets_sent', u'bytes_sent', u'multicast_packets_received', u'broadcast_packets_received', u'multicast_packets_sent', u'broadcast_packets_sent', u'output_drops', u'output_queue_drops', u'input_drops', u'input_queue_drops', u'runt_packets_received', u'giant_packets_received', u'throttled_packets_received', u'parity_packets_received', u'unknown_protocol_packets_received', u'input_errors', u'crc_errors', u'input_overruns', u'framing_errors_received', u'input_ignored_packets', u'input_aborts', u'output_errors', u'output_underruns', u'output_buffer_failures', u'output_buffers_swapped_out', u'applique', u'resets', u'carrier_transitions', u'availability_flag', u'last_data_time', u'seconds_since_last_clear_counters', u'last_discontinuity_time', u'seconds_since_packet_received', u'seconds_since_packet_sent'], name, value)
 
     def clone_ptr(self):
         self._top_entity = InfraStatistics()

@@ -1,11 +1,17 @@
 """ Cisco_IOS_XR_sysadmin_pm 
 
+This module contains definitions
+for the Calvados model objects.
+
 This module contains a collection of YANG
 definitions for Cisco IOS\-XR SysAdmin configuration.
 
 The Process Manager (PM).
 
 Copyright(c) 2011\-2017 by Cisco Systems, Inc.
+All rights reserved.
+
+Copyright (c) 2012\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,9 +23,9 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-class Processstate(Enum):
+class ProcessState(Enum):
     """
-    Processstate (Enum Class)
+    ProcessState (Enum Class)
 
     .. data:: IDLE = 0
 
@@ -48,9 +54,9 @@ class Processstate(Enum):
     DESELECTED = Enum.YLeaf(5, "DESELECTED")
 
 
-class Servicerole(Enum):
+class ServiceRole(Enum):
     """
-    Servicerole (Enum Class)
+    ServiceRole (Enum Class)
 
     .. data:: NONE = 0
 
@@ -67,9 +73,9 @@ class Servicerole(Enum):
     STANDBY = Enum.YLeaf(2, "STANDBY")
 
 
-class Servicescope(Enum):
+class ServiceScope(Enum):
     """
-    Servicescope (Enum Class)
+    ServiceScope (Enum Class)
 
     .. data:: SYSTEM = 0
 
@@ -82,9 +88,9 @@ class Servicescope(Enum):
     RACK = Enum.YLeaf(1, "RACK")
 
 
-class Servicestate(Enum):
+class ServiceState(Enum):
     """
-    Servicestate (Enum Class)
+    ServiceState (Enum Class)
 
     .. data:: SS_IDLE = 0
 
@@ -101,9 +107,9 @@ class Servicestate(Enum):
     SS_ACK_PENDING = Enum.YLeaf(2, "SS_ACK_PENDING")
 
 
-class Startupmode(Enum):
+class StartupMode(Enum):
     """
-    Startupmode (Enum Class)
+    StartupMode (Enum Class)
 
     .. data:: ON_BOOTUP = 0
 
@@ -146,8 +152,7 @@ class Processes(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("all-locations", ("all_locations", Processes.AllLocations))])
+        self._child_classes = OrderedDict([("all-locations", ("all_locations", Processes.AllLocations))])
         self._leafs = OrderedDict()
 
         self.all_locations = YList(self)
@@ -206,8 +211,7 @@ class Processes(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['location']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("name", ("name", Processes.AllLocations.Name))])
+            self._child_classes = OrderedDict([("name", ("name", Processes.AllLocations.Name))])
             self._leafs = OrderedDict([
                 ('location', YLeaf(YType.str, 'location')),
                 ('ip_addr', YLeaf(YType.str, 'ip-addr')),
@@ -254,7 +258,7 @@ class Processes(Entity):
             .. attribute:: startup_mode
             
             	When is a process started
-            	**type**\:  :py:class:`Startupmode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.Startupmode>`
+            	**type**\:  :py:class:`StartupMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.StartupMode>`
             
             .. attribute:: heart_beat_timeout
             
@@ -300,7 +304,7 @@ class Processes(Entity):
             .. attribute:: proc_state
             
             	State of the process
-            	**type**\:  :py:class:`Processstate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.Processstate>`
+            	**type**\:  :py:class:`ProcessState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.ProcessState>`
             
             .. attribute:: pid
             
@@ -361,8 +365,7 @@ class Processes(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['proc_name','instance_id']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("services", ("services", Processes.AllLocations.Name.Services))])
+                self._child_classes = OrderedDict([("services", ("services", Processes.AllLocations.Name.Services))])
                 self._leafs = OrderedDict([
                     ('proc_name', YLeaf(YType.str, 'proc-name')),
                     ('instance_id', YLeaf(YType.uint32, 'instance-id')),
@@ -425,7 +428,7 @@ class Processes(Entity):
                 .. attribute:: scope
                 
                 	Scope of the service
-                	**type**\:  :py:class:`Servicescope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.Servicescope>`
+                	**type**\:  :py:class:`ServiceScope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.ServiceScope>`
                 
                 .. attribute:: redundancy
                 
@@ -440,17 +443,17 @@ class Processes(Entity):
                 .. attribute:: service_state
                 
                 	State of the service
-                	**type**\:  :py:class:`Servicestate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.Servicestate>`
+                	**type**\:  :py:class:`ServiceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.ServiceState>`
                 
                 .. attribute:: ha_role
                 
                 	Service role
-                	**type**\:  :py:class:`Servicerole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.Servicerole>`
+                	**type**\:  :py:class:`ServiceRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.ServiceRole>`
                 
                 .. attribute:: new_ha_role
                 
                 	New service role, different if PM in process of assigning
-                	**type**\:  :py:class:`Servicerole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.Servicerole>`
+                	**type**\:  :py:class:`ServiceRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.ServiceRole>`
                 
                 .. attribute:: selected
                 
@@ -513,8 +516,7 @@ class Processes(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['service_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('service_name', YLeaf(YType.str, 'service-name')),
                         ('scope', YLeaf(YType.enumeration, 'scope')),
@@ -577,8 +579,7 @@ class ProcessManager(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("all-locations-info", ("all_locations_info", ProcessManager.AllLocationsInfo))])
+        self._child_classes = OrderedDict([("all-locations-info", ("all_locations_info", ProcessManager.AllLocationsInfo))])
         self._leafs = OrderedDict()
 
         self.all_locations_info = YList(self)
@@ -657,8 +658,7 @@ class ProcessManager(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['location_info']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('location_info', YLeaf(YType.str, 'location-info')),
                 ('ip_addr_info', YLeaf(YType.str, 'ip-addr-info')),
@@ -712,15 +712,16 @@ class Pm(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("pm", ("pm", Pm.Pm_))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("pm", ("pm", Pm.Pm_))])
         self._leafs = OrderedDict()
 
         self.pm = Pm.Pm_()
         self.pm.parent = self
         self._children_name_map["pm"] = "pm"
-        self._children_yang_names.add("pm")
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-pm:pm"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Pm, [], name, value)
 
 
     class Pm_(Entity):
@@ -747,8 +748,7 @@ class Pm(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("trace", ("trace", Pm.Pm_.Trace))])
+            self._child_classes = OrderedDict([("trace", ("trace", Pm.Pm_.Trace))])
             self._leafs = OrderedDict()
 
             self.trace = YList(self)
@@ -788,8 +788,7 @@ class Pm(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['buffer']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", Pm.Pm_.Trace.Location))])
+                self._child_classes = OrderedDict([("location", ("location", Pm.Pm_.Trace.Location))])
                 self._leafs = OrderedDict([
                     ('buffer', YLeaf(YType.str, 'buffer')),
                 ])
@@ -800,7 +799,7 @@ class Pm(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-pm:pm/pm/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Pm.Pm_.Trace, ['buffer'], name, value)
+                self._perform_setattr(Pm.Pm_.Trace, [u'buffer'], name, value)
 
 
             class Location(Entity):
@@ -832,8 +831,7 @@ class Pm(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("all-options", ("all_options", Pm.Pm_.Trace.Location.AllOptions))])
+                    self._child_classes = OrderedDict([("all-options", ("all_options", Pm.Pm_.Trace.Location.AllOptions))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location_name')),
                     ])
@@ -843,7 +841,7 @@ class Pm(Entity):
                     self._segment_path = lambda: "location" + "[location_name='" + str(self.location_name) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pm.Pm_.Trace.Location, ['location_name'], name, value)
+                    self._perform_setattr(Pm.Pm_.Trace.Location, [u'location_name'], name, value)
 
 
                 class AllOptions(Entity):
@@ -875,8 +873,7 @@ class Pm(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['option']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("trace-blocks", ("trace_blocks", Pm.Pm_.Trace.Location.AllOptions.TraceBlocks))])
+                        self._child_classes = OrderedDict([("trace-blocks", ("trace_blocks", Pm.Pm_.Trace.Location.AllOptions.TraceBlocks))])
                         self._leafs = OrderedDict([
                             ('option', YLeaf(YType.str, 'option')),
                         ])
@@ -886,7 +883,7 @@ class Pm(Entity):
                         self._segment_path = lambda: "all-options" + "[option='" + str(self.option) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pm.Pm_.Trace.Location.AllOptions, ['option'], name, value)
+                        self._perform_setattr(Pm.Pm_.Trace.Location.AllOptions, [u'option'], name, value)
 
 
                     class TraceBlocks(Entity):
@@ -913,8 +910,7 @@ class Pm(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('data', YLeaf(YType.str, 'data')),
                             ])
@@ -922,7 +918,7 @@ class Pm(Entity):
                             self._segment_path = lambda: "trace-blocks"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pm.Pm_.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
+                            self._perform_setattr(Pm.Pm_.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Pm()

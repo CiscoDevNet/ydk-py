@@ -42,54 +42,54 @@ class DigestHash(Enum):
 
 
 
-class L2Tp(Entity):
+class L2tp(Entity):
     """
     L2TP operational data
     
     .. attribute:: counters
     
     	L2TP control messages counters
-    	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters>`
+    	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters>`
     
     .. attribute:: tunnel_configurations
     
     	List of tunnel IDs
-    	**type**\:  :py:class:`TunnelConfigurations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.TunnelConfigurations>`
+    	**type**\:  :py:class:`TunnelConfigurations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.TunnelConfigurations>`
     
     .. attribute:: counter_hist_fail
     
     	Failure events leading to disconnection
-    	**type**\:  :py:class:`CounterHistFail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.CounterHistFail>`
+    	**type**\:  :py:class:`CounterHistFail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.CounterHistFail>`
     
     .. attribute:: classes
     
     	List of L2TP class names
-    	**type**\:  :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Classes>`
+    	**type**\:  :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Classes>`
     
     .. attribute:: tunnels
     
     	List of tunnel IDs
-    	**type**\:  :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Tunnels>`
+    	**type**\:  :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Tunnels>`
     
     .. attribute:: sessions
     
     	List of session IDs
-    	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Sessions>`
+    	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Sessions>`
     
     .. attribute:: session
     
     	L2TP control messages counters
-    	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Session>`
+    	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Session>`
     
     
 
     """
 
     _prefix = 'tunnel-l2tun-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-09-07'
 
     def __init__(self):
-        super(L2Tp, self).__init__()
+        super(L2tp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "l2tp"
@@ -97,45 +97,40 @@ class L2Tp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("counters", ("counters", L2Tp.Counters)), ("tunnel-configurations", ("tunnel_configurations", L2Tp.TunnelConfigurations)), ("counter-hist-fail", ("counter_hist_fail", L2Tp.CounterHistFail)), ("classes", ("classes", L2Tp.Classes)), ("tunnels", ("tunnels", L2Tp.Tunnels)), ("sessions", ("sessions", L2Tp.Sessions)), ("session", ("session", L2Tp.Session))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("counters", ("counters", L2tp.Counters)), ("tunnel-configurations", ("tunnel_configurations", L2tp.TunnelConfigurations)), ("counter-hist-fail", ("counter_hist_fail", L2tp.CounterHistFail)), ("classes", ("classes", L2tp.Classes)), ("tunnels", ("tunnels", L2tp.Tunnels)), ("sessions", ("sessions", L2tp.Sessions)), ("session", ("session", L2tp.Session))])
         self._leafs = OrderedDict()
 
-        self.counters = L2Tp.Counters()
+        self.counters = L2tp.Counters()
         self.counters.parent = self
         self._children_name_map["counters"] = "counters"
-        self._children_yang_names.add("counters")
 
-        self.tunnel_configurations = L2Tp.TunnelConfigurations()
+        self.tunnel_configurations = L2tp.TunnelConfigurations()
         self.tunnel_configurations.parent = self
         self._children_name_map["tunnel_configurations"] = "tunnel-configurations"
-        self._children_yang_names.add("tunnel-configurations")
 
-        self.counter_hist_fail = L2Tp.CounterHistFail()
+        self.counter_hist_fail = L2tp.CounterHistFail()
         self.counter_hist_fail.parent = self
         self._children_name_map["counter_hist_fail"] = "counter-hist-fail"
-        self._children_yang_names.add("counter-hist-fail")
 
-        self.classes = L2Tp.Classes()
+        self.classes = L2tp.Classes()
         self.classes.parent = self
         self._children_name_map["classes"] = "classes"
-        self._children_yang_names.add("classes")
 
-        self.tunnels = L2Tp.Tunnels()
+        self.tunnels = L2tp.Tunnels()
         self.tunnels.parent = self
         self._children_name_map["tunnels"] = "tunnels"
-        self._children_yang_names.add("tunnels")
 
-        self.sessions = L2Tp.Sessions()
+        self.sessions = L2tp.Sessions()
         self.sessions.parent = self
         self._children_name_map["sessions"] = "sessions"
-        self._children_yang_names.add("sessions")
 
-        self.session = L2Tp.Session()
+        self.session = L2tp.Session()
         self.session.parent = self
         self._children_name_map["session"] = "session"
-        self._children_yang_names.add("session")
         self._segment_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(L2tp, [], name, value)
 
 
     class Counters(Entity):
@@ -145,33 +140,34 @@ class L2Tp(Entity):
         .. attribute:: control
         
         	L2TP control messages counters
-        	**type**\:  :py:class:`Control <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control>`
+        	**type**\:  :py:class:`Control <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control>`
         
         
 
         """
 
         _prefix = 'tunnel-l2tun-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
-            super(L2Tp.Counters, self).__init__()
+            super(L2tp.Counters, self).__init__()
 
             self.yang_name = "counters"
             self.yang_parent_name = "l2tp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("control", ("control", L2Tp.Counters.Control))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("control", ("control", L2tp.Counters.Control))])
             self._leafs = OrderedDict()
 
-            self.control = L2Tp.Counters.Control()
+            self.control = L2tp.Counters.Control()
             self.control.parent = self
             self._children_name_map["control"] = "control"
-            self._children_yang_names.add("control")
             self._segment_path = lambda: "counters"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(L2tp.Counters, [], name, value)
 
 
         class Control(Entity):
@@ -181,43 +177,43 @@ class L2Tp(Entity):
             .. attribute:: tunnel_xr
             
             	L2TP control tunnel messages counters
-            	**type**\:  :py:class:`TunnelXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr>`
+            	**type**\:  :py:class:`TunnelXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr>`
             
             .. attribute:: tunnels
             
             	Table of tunnel IDs of control message counters
-            	**type**\:  :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.Tunnels>`
+            	**type**\:  :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.Tunnels>`
             
             
 
             """
 
             _prefix = 'tunnel-l2tun-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
-                super(L2Tp.Counters.Control, self).__init__()
+                super(L2tp.Counters.Control, self).__init__()
 
                 self.yang_name = "control"
                 self.yang_parent_name = "counters"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("tunnel-xr", ("tunnel_xr", L2Tp.Counters.Control.TunnelXr)), ("tunnels", ("tunnels", L2Tp.Counters.Control.Tunnels))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("tunnel-xr", ("tunnel_xr", L2tp.Counters.Control.TunnelXr)), ("tunnels", ("tunnels", L2tp.Counters.Control.Tunnels))])
                 self._leafs = OrderedDict()
 
-                self.tunnel_xr = L2Tp.Counters.Control.TunnelXr()
+                self.tunnel_xr = L2tp.Counters.Control.TunnelXr()
                 self.tunnel_xr.parent = self
                 self._children_name_map["tunnel_xr"] = "tunnel-xr"
-                self._children_yang_names.add("tunnel-xr")
 
-                self.tunnels = L2Tp.Counters.Control.Tunnels()
+                self.tunnels = L2tp.Counters.Control.Tunnels()
                 self.tunnels.parent = self
                 self._children_name_map["tunnels"] = "tunnels"
-                self._children_yang_names.add("tunnels")
                 self._segment_path = lambda: "control"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(L2tp.Counters.Control, [], name, value)
 
 
             class TunnelXr(Entity):
@@ -227,43 +223,43 @@ class L2Tp(Entity):
                 .. attribute:: authentication
                 
                 	Tunnel authentication counters
-                	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication>`
+                	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Authentication>`
                 
                 .. attribute:: global_
                 
                 	Tunnel counters
-                	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Global>`
+                	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Global>`
                 
                 
 
                 """
 
                 _prefix = 'tunnel-l2tun-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(L2Tp.Counters.Control.TunnelXr, self).__init__()
+                    super(L2tp.Counters.Control.TunnelXr, self).__init__()
 
                     self.yang_name = "tunnel-xr"
                     self.yang_parent_name = "control"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("authentication", ("authentication", L2Tp.Counters.Control.TunnelXr.Authentication)), ("global", ("global_", L2Tp.Counters.Control.TunnelXr.Global))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("authentication", ("authentication", L2tp.Counters.Control.TunnelXr.Authentication)), ("global", ("global_", L2tp.Counters.Control.TunnelXr.Global))])
                     self._leafs = OrderedDict()
 
-                    self.authentication = L2Tp.Counters.Control.TunnelXr.Authentication()
+                    self.authentication = L2tp.Counters.Control.TunnelXr.Authentication()
                     self.authentication.parent = self
                     self._children_name_map["authentication"] = "authentication"
-                    self._children_yang_names.add("authentication")
 
-                    self.global_ = L2Tp.Counters.Control.TunnelXr.Global()
+                    self.global_ = L2tp.Counters.Control.TunnelXr.Global()
                     self.global_.parent = self
                     self._children_name_map["global_"] = "global"
-                    self._children_yang_names.add("global")
                     self._segment_path = lambda: "tunnel-xr"
                     self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(L2tp.Counters.Control.TunnelXr, [], name, value)
 
 
                 class Authentication(Entity):
@@ -273,113 +269,106 @@ class L2Tp(Entity):
                     .. attribute:: nonce_avp
                     
                     	Nonce AVP statistics
-                    	**type**\:  :py:class:`NonceAvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.NonceAvp>`
+                    	**type**\:  :py:class:`NonceAvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Authentication.NonceAvp>`
                     
                     .. attribute:: common_digest
                     
                     	Common digest statistics
-                    	**type**\:  :py:class:`CommonDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.CommonDigest>`
+                    	**type**\:  :py:class:`CommonDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Authentication.CommonDigest>`
                     
                     .. attribute:: primary_digest
                     
                     	Primary digest statistics
-                    	**type**\:  :py:class:`PrimaryDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.PrimaryDigest>`
+                    	**type**\:  :py:class:`PrimaryDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Authentication.PrimaryDigest>`
                     
                     .. attribute:: secondary_digest
                     
                     	Secondary digest statistics
-                    	**type**\:  :py:class:`SecondaryDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.SecondaryDigest>`
+                    	**type**\:  :py:class:`SecondaryDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Authentication.SecondaryDigest>`
                     
                     .. attribute:: integrity_check
                     
                     	Integrity check statistics
-                    	**type**\:  :py:class:`IntegrityCheck <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.IntegrityCheck>`
+                    	**type**\:  :py:class:`IntegrityCheck <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Authentication.IntegrityCheck>`
                     
                     .. attribute:: local_secret
                     
                     	Local secret statistics
-                    	**type**\:  :py:class:`LocalSecret <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.LocalSecret>`
+                    	**type**\:  :py:class:`LocalSecret <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Authentication.LocalSecret>`
                     
                     .. attribute:: challenge_avp
                     
                     	Challenge AVP statistics
-                    	**type**\:  :py:class:`ChallengeAvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.ChallengeAvp>`
+                    	**type**\:  :py:class:`ChallengeAvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Authentication.ChallengeAvp>`
                     
                     .. attribute:: challenge_reponse
                     
                     	Challenge response statistics
-                    	**type**\:  :py:class:`ChallengeReponse <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.ChallengeReponse>`
+                    	**type**\:  :py:class:`ChallengeReponse <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Authentication.ChallengeReponse>`
                     
                     .. attribute:: overall_statistics
                     
                     	Overall statistics
-                    	**type**\:  :py:class:`OverallStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.OverallStatistics>`
+                    	**type**\:  :py:class:`OverallStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Authentication.OverallStatistics>`
                     
                     
 
                     """
 
                     _prefix = 'tunnel-l2tun-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(L2Tp.Counters.Control.TunnelXr.Authentication, self).__init__()
+                        super(L2tp.Counters.Control.TunnelXr.Authentication, self).__init__()
 
                         self.yang_name = "authentication"
                         self.yang_parent_name = "tunnel-xr"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("nonce-avp", ("nonce_avp", L2Tp.Counters.Control.TunnelXr.Authentication.NonceAvp)), ("common-digest", ("common_digest", L2Tp.Counters.Control.TunnelXr.Authentication.CommonDigest)), ("primary-digest", ("primary_digest", L2Tp.Counters.Control.TunnelXr.Authentication.PrimaryDigest)), ("secondary-digest", ("secondary_digest", L2Tp.Counters.Control.TunnelXr.Authentication.SecondaryDigest)), ("integrity-check", ("integrity_check", L2Tp.Counters.Control.TunnelXr.Authentication.IntegrityCheck)), ("local-secret", ("local_secret", L2Tp.Counters.Control.TunnelXr.Authentication.LocalSecret)), ("challenge-avp", ("challenge_avp", L2Tp.Counters.Control.TunnelXr.Authentication.ChallengeAvp)), ("challenge-reponse", ("challenge_reponse", L2Tp.Counters.Control.TunnelXr.Authentication.ChallengeReponse)), ("overall-statistics", ("overall_statistics", L2Tp.Counters.Control.TunnelXr.Authentication.OverallStatistics))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("nonce-avp", ("nonce_avp", L2tp.Counters.Control.TunnelXr.Authentication.NonceAvp)), ("common-digest", ("common_digest", L2tp.Counters.Control.TunnelXr.Authentication.CommonDigest)), ("primary-digest", ("primary_digest", L2tp.Counters.Control.TunnelXr.Authentication.PrimaryDigest)), ("secondary-digest", ("secondary_digest", L2tp.Counters.Control.TunnelXr.Authentication.SecondaryDigest)), ("integrity-check", ("integrity_check", L2tp.Counters.Control.TunnelXr.Authentication.IntegrityCheck)), ("local-secret", ("local_secret", L2tp.Counters.Control.TunnelXr.Authentication.LocalSecret)), ("challenge-avp", ("challenge_avp", L2tp.Counters.Control.TunnelXr.Authentication.ChallengeAvp)), ("challenge-reponse", ("challenge_reponse", L2tp.Counters.Control.TunnelXr.Authentication.ChallengeReponse)), ("overall-statistics", ("overall_statistics", L2tp.Counters.Control.TunnelXr.Authentication.OverallStatistics))])
                         self._leafs = OrderedDict()
 
-                        self.nonce_avp = L2Tp.Counters.Control.TunnelXr.Authentication.NonceAvp()
+                        self.nonce_avp = L2tp.Counters.Control.TunnelXr.Authentication.NonceAvp()
                         self.nonce_avp.parent = self
                         self._children_name_map["nonce_avp"] = "nonce-avp"
-                        self._children_yang_names.add("nonce-avp")
 
-                        self.common_digest = L2Tp.Counters.Control.TunnelXr.Authentication.CommonDigest()
+                        self.common_digest = L2tp.Counters.Control.TunnelXr.Authentication.CommonDigest()
                         self.common_digest.parent = self
                         self._children_name_map["common_digest"] = "common-digest"
-                        self._children_yang_names.add("common-digest")
 
-                        self.primary_digest = L2Tp.Counters.Control.TunnelXr.Authentication.PrimaryDigest()
+                        self.primary_digest = L2tp.Counters.Control.TunnelXr.Authentication.PrimaryDigest()
                         self.primary_digest.parent = self
                         self._children_name_map["primary_digest"] = "primary-digest"
-                        self._children_yang_names.add("primary-digest")
 
-                        self.secondary_digest = L2Tp.Counters.Control.TunnelXr.Authentication.SecondaryDigest()
+                        self.secondary_digest = L2tp.Counters.Control.TunnelXr.Authentication.SecondaryDigest()
                         self.secondary_digest.parent = self
                         self._children_name_map["secondary_digest"] = "secondary-digest"
-                        self._children_yang_names.add("secondary-digest")
 
-                        self.integrity_check = L2Tp.Counters.Control.TunnelXr.Authentication.IntegrityCheck()
+                        self.integrity_check = L2tp.Counters.Control.TunnelXr.Authentication.IntegrityCheck()
                         self.integrity_check.parent = self
                         self._children_name_map["integrity_check"] = "integrity-check"
-                        self._children_yang_names.add("integrity-check")
 
-                        self.local_secret = L2Tp.Counters.Control.TunnelXr.Authentication.LocalSecret()
+                        self.local_secret = L2tp.Counters.Control.TunnelXr.Authentication.LocalSecret()
                         self.local_secret.parent = self
                         self._children_name_map["local_secret"] = "local-secret"
-                        self._children_yang_names.add("local-secret")
 
-                        self.challenge_avp = L2Tp.Counters.Control.TunnelXr.Authentication.ChallengeAvp()
+                        self.challenge_avp = L2tp.Counters.Control.TunnelXr.Authentication.ChallengeAvp()
                         self.challenge_avp.parent = self
                         self._children_name_map["challenge_avp"] = "challenge-avp"
-                        self._children_yang_names.add("challenge-avp")
 
-                        self.challenge_reponse = L2Tp.Counters.Control.TunnelXr.Authentication.ChallengeReponse()
+                        self.challenge_reponse = L2tp.Counters.Control.TunnelXr.Authentication.ChallengeReponse()
                         self.challenge_reponse.parent = self
                         self._children_name_map["challenge_reponse"] = "challenge-reponse"
-                        self._children_yang_names.add("challenge-reponse")
 
-                        self.overall_statistics = L2Tp.Counters.Control.TunnelXr.Authentication.OverallStatistics()
+                        self.overall_statistics = L2tp.Counters.Control.TunnelXr.Authentication.OverallStatistics()
                         self.overall_statistics.parent = self
                         self._children_name_map["overall_statistics"] = "overall-statistics"
-                        self._children_yang_names.add("overall-statistics")
                         self._segment_path = lambda: "authentication"
                         self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication, [], name, value)
 
 
                     class NonceAvp(Entity):
@@ -468,18 +457,17 @@ class L2Tp(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tp.Counters.Control.TunnelXr.Authentication.NonceAvp, self).__init__()
+                            super(L2tp.Counters.Control.TunnelXr.Authentication.NonceAvp, self).__init__()
 
                             self.yang_name = "nonce-avp"
                             self.yang_parent_name = "authentication"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('validate', YLeaf(YType.uint32, 'validate')),
                                 ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
@@ -508,7 +496,7 @@ class L2Tp(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tp.Counters.Control.TunnelXr.Authentication.NonceAvp, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
+                            self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.NonceAvp, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
                     class CommonDigest(Entity):
@@ -597,18 +585,17 @@ class L2Tp(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tp.Counters.Control.TunnelXr.Authentication.CommonDigest, self).__init__()
+                            super(L2tp.Counters.Control.TunnelXr.Authentication.CommonDigest, self).__init__()
 
                             self.yang_name = "common-digest"
                             self.yang_parent_name = "authentication"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('validate', YLeaf(YType.uint32, 'validate')),
                                 ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
@@ -637,7 +624,7 @@ class L2Tp(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tp.Counters.Control.TunnelXr.Authentication.CommonDigest, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
+                            self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.CommonDigest, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
                     class PrimaryDigest(Entity):
@@ -726,18 +713,17 @@ class L2Tp(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tp.Counters.Control.TunnelXr.Authentication.PrimaryDigest, self).__init__()
+                            super(L2tp.Counters.Control.TunnelXr.Authentication.PrimaryDigest, self).__init__()
 
                             self.yang_name = "primary-digest"
                             self.yang_parent_name = "authentication"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('validate', YLeaf(YType.uint32, 'validate')),
                                 ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
@@ -766,7 +752,7 @@ class L2Tp(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tp.Counters.Control.TunnelXr.Authentication.PrimaryDigest, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
+                            self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.PrimaryDigest, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
                     class SecondaryDigest(Entity):
@@ -855,18 +841,17 @@ class L2Tp(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tp.Counters.Control.TunnelXr.Authentication.SecondaryDigest, self).__init__()
+                            super(L2tp.Counters.Control.TunnelXr.Authentication.SecondaryDigest, self).__init__()
 
                             self.yang_name = "secondary-digest"
                             self.yang_parent_name = "authentication"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('validate', YLeaf(YType.uint32, 'validate')),
                                 ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
@@ -895,7 +880,7 @@ class L2Tp(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tp.Counters.Control.TunnelXr.Authentication.SecondaryDigest, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
+                            self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.SecondaryDigest, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
                     class IntegrityCheck(Entity):
@@ -984,18 +969,17 @@ class L2Tp(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tp.Counters.Control.TunnelXr.Authentication.IntegrityCheck, self).__init__()
+                            super(L2tp.Counters.Control.TunnelXr.Authentication.IntegrityCheck, self).__init__()
 
                             self.yang_name = "integrity-check"
                             self.yang_parent_name = "authentication"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('validate', YLeaf(YType.uint32, 'validate')),
                                 ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
@@ -1024,7 +1008,7 @@ class L2Tp(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tp.Counters.Control.TunnelXr.Authentication.IntegrityCheck, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
+                            self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.IntegrityCheck, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
                     class LocalSecret(Entity):
@@ -1113,18 +1097,17 @@ class L2Tp(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tp.Counters.Control.TunnelXr.Authentication.LocalSecret, self).__init__()
+                            super(L2tp.Counters.Control.TunnelXr.Authentication.LocalSecret, self).__init__()
 
                             self.yang_name = "local-secret"
                             self.yang_parent_name = "authentication"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('validate', YLeaf(YType.uint32, 'validate')),
                                 ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
@@ -1153,7 +1136,7 @@ class L2Tp(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tp.Counters.Control.TunnelXr.Authentication.LocalSecret, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
+                            self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.LocalSecret, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
                     class ChallengeAvp(Entity):
@@ -1242,18 +1225,17 @@ class L2Tp(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tp.Counters.Control.TunnelXr.Authentication.ChallengeAvp, self).__init__()
+                            super(L2tp.Counters.Control.TunnelXr.Authentication.ChallengeAvp, self).__init__()
 
                             self.yang_name = "challenge-avp"
                             self.yang_parent_name = "authentication"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('validate', YLeaf(YType.uint32, 'validate')),
                                 ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
@@ -1282,7 +1264,7 @@ class L2Tp(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tp.Counters.Control.TunnelXr.Authentication.ChallengeAvp, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
+                            self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.ChallengeAvp, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
                     class ChallengeReponse(Entity):
@@ -1371,18 +1353,17 @@ class L2Tp(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tp.Counters.Control.TunnelXr.Authentication.ChallengeReponse, self).__init__()
+                            super(L2tp.Counters.Control.TunnelXr.Authentication.ChallengeReponse, self).__init__()
 
                             self.yang_name = "challenge-reponse"
                             self.yang_parent_name = "authentication"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('validate', YLeaf(YType.uint32, 'validate')),
                                 ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
@@ -1411,7 +1392,7 @@ class L2Tp(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tp.Counters.Control.TunnelXr.Authentication.ChallengeReponse, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
+                            self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.ChallengeReponse, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
                     class OverallStatistics(Entity):
@@ -1500,18 +1481,17 @@ class L2Tp(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tp.Counters.Control.TunnelXr.Authentication.OverallStatistics, self).__init__()
+                            super(L2tp.Counters.Control.TunnelXr.Authentication.OverallStatistics, self).__init__()
 
                             self.yang_name = "overall-statistics"
                             self.yang_parent_name = "authentication"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('validate', YLeaf(YType.uint32, 'validate')),
                                 ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
@@ -1540,7 +1520,7 @@ class L2Tp(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tp.Counters.Control.TunnelXr.Authentication.OverallStatistics, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
+                            self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.OverallStatistics, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
                 class Global(Entity):
@@ -1550,22 +1530,22 @@ class L2Tp(Entity):
                     .. attribute:: transmit
                     
                     	Transmit data
-                    	**type**\:  :py:class:`Transmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Global.Transmit>`
+                    	**type**\:  :py:class:`Transmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Global.Transmit>`
                     
                     .. attribute:: retransmit
                     
                     	Re transmit data
-                    	**type**\:  :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Global.Retransmit>`
+                    	**type**\:  :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Global.Retransmit>`
                     
                     .. attribute:: received
                     
                     	Received data
-                    	**type**\:  :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Global.Received>`
+                    	**type**\:  :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Global.Received>`
                     
                     .. attribute:: drop
                     
                     	Drop data
-                    	**type**\:  :py:class:`Drop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Global.Drop>`
+                    	**type**\:  :py:class:`Drop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Global.Drop>`
                     
                     .. attribute:: total_transmit
                     
@@ -1600,18 +1580,17 @@ class L2Tp(Entity):
                     """
 
                     _prefix = 'tunnel-l2tun-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(L2Tp.Counters.Control.TunnelXr.Global, self).__init__()
+                        super(L2tp.Counters.Control.TunnelXr.Global, self).__init__()
 
                         self.yang_name = "global"
                         self.yang_parent_name = "tunnel-xr"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("transmit", ("transmit", L2Tp.Counters.Control.TunnelXr.Global.Transmit)), ("retransmit", ("retransmit", L2Tp.Counters.Control.TunnelXr.Global.Retransmit)), ("received", ("received", L2Tp.Counters.Control.TunnelXr.Global.Received)), ("drop", ("drop", L2Tp.Counters.Control.TunnelXr.Global.Drop))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("transmit", ("transmit", L2tp.Counters.Control.TunnelXr.Global.Transmit)), ("retransmit", ("retransmit", L2tp.Counters.Control.TunnelXr.Global.Retransmit)), ("received", ("received", L2tp.Counters.Control.TunnelXr.Global.Received)), ("drop", ("drop", L2tp.Counters.Control.TunnelXr.Global.Drop))])
                         self._leafs = OrderedDict([
                             ('total_transmit', YLeaf(YType.uint32, 'total-transmit')),
                             ('total_retransmit', YLeaf(YType.uint32, 'total-retransmit')),
@@ -1623,30 +1602,26 @@ class L2Tp(Entity):
                         self.total_received = None
                         self.total_drop = None
 
-                        self.transmit = L2Tp.Counters.Control.TunnelXr.Global.Transmit()
+                        self.transmit = L2tp.Counters.Control.TunnelXr.Global.Transmit()
                         self.transmit.parent = self
                         self._children_name_map["transmit"] = "transmit"
-                        self._children_yang_names.add("transmit")
 
-                        self.retransmit = L2Tp.Counters.Control.TunnelXr.Global.Retransmit()
+                        self.retransmit = L2tp.Counters.Control.TunnelXr.Global.Retransmit()
                         self.retransmit.parent = self
                         self._children_name_map["retransmit"] = "retransmit"
-                        self._children_yang_names.add("retransmit")
 
-                        self.received = L2Tp.Counters.Control.TunnelXr.Global.Received()
+                        self.received = L2tp.Counters.Control.TunnelXr.Global.Received()
                         self.received.parent = self
                         self._children_name_map["received"] = "received"
-                        self._children_yang_names.add("received")
 
-                        self.drop = L2Tp.Counters.Control.TunnelXr.Global.Drop()
+                        self.drop = L2tp.Counters.Control.TunnelXr.Global.Drop()
                         self.drop.parent = self
                         self._children_name_map["drop"] = "drop"
-                        self._children_yang_names.add("drop")
                         self._segment_path = lambda: "global"
                         self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2Tp.Counters.Control.TunnelXr.Global, ['total_transmit', 'total_retransmit', 'total_received', 'total_drop'], name, value)
+                        self._perform_setattr(L2tp.Counters.Control.TunnelXr.Global, [u'total_transmit', u'total_retransmit', u'total_received', u'total_drop'], name, value)
 
 
                     class Transmit(Entity):
@@ -1791,18 +1766,17 @@ class L2Tp(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tp.Counters.Control.TunnelXr.Global.Transmit, self).__init__()
+                            super(L2tp.Counters.Control.TunnelXr.Global.Transmit, self).__init__()
 
                             self.yang_name = "transmit"
                             self.yang_parent_name = "global"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
                                 ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
@@ -1847,7 +1821,7 @@ class L2Tp(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/global/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tp.Counters.Control.TunnelXr.Global.Transmit, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
+                            self._perform_setattr(L2tp.Counters.Control.TunnelXr.Global.Transmit, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
                     class Retransmit(Entity):
@@ -1992,18 +1966,17 @@ class L2Tp(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tp.Counters.Control.TunnelXr.Global.Retransmit, self).__init__()
+                            super(L2tp.Counters.Control.TunnelXr.Global.Retransmit, self).__init__()
 
                             self.yang_name = "retransmit"
                             self.yang_parent_name = "global"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
                                 ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
@@ -2048,7 +2021,7 @@ class L2Tp(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/global/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tp.Counters.Control.TunnelXr.Global.Retransmit, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
+                            self._perform_setattr(L2tp.Counters.Control.TunnelXr.Global.Retransmit, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
                     class Received(Entity):
@@ -2193,18 +2166,17 @@ class L2Tp(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tp.Counters.Control.TunnelXr.Global.Received, self).__init__()
+                            super(L2tp.Counters.Control.TunnelXr.Global.Received, self).__init__()
 
                             self.yang_name = "received"
                             self.yang_parent_name = "global"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
                                 ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
@@ -2249,7 +2221,7 @@ class L2Tp(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/global/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tp.Counters.Control.TunnelXr.Global.Received, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
+                            self._perform_setattr(L2tp.Counters.Control.TunnelXr.Global.Received, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
                     class Drop(Entity):
@@ -2394,18 +2366,17 @@ class L2Tp(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tp.Counters.Control.TunnelXr.Global.Drop, self).__init__()
+                            super(L2tp.Counters.Control.TunnelXr.Global.Drop, self).__init__()
 
                             self.yang_name = "drop"
                             self.yang_parent_name = "global"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
                                 ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
@@ -2450,7 +2421,7 @@ class L2Tp(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/global/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tp.Counters.Control.TunnelXr.Global.Drop, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
+                            self._perform_setattr(L2tp.Counters.Control.TunnelXr.Global.Drop, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
             class Tunnels(Entity):
@@ -2460,25 +2431,24 @@ class L2Tp(Entity):
                 .. attribute:: tunnel
                 
                 	L2TP tunnel control message counters
-                	**type**\: list of  		 :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.Tunnels.Tunnel>`
+                	**type**\: list of  		 :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.Tunnels.Tunnel>`
                 
                 
 
                 """
 
                 _prefix = 'tunnel-l2tun-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(L2Tp.Counters.Control.Tunnels, self).__init__()
+                    super(L2tp.Counters.Control.Tunnels, self).__init__()
 
                     self.yang_name = "tunnels"
                     self.yang_parent_name = "control"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("tunnel", ("tunnel", L2Tp.Counters.Control.Tunnels.Tunnel))])
+                    self._child_classes = OrderedDict([("tunnel", ("tunnel", L2tp.Counters.Control.Tunnels.Tunnel))])
                     self._leafs = OrderedDict()
 
                     self.tunnel = YList(self)
@@ -2486,7 +2456,7 @@ class L2Tp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2Tp.Counters.Control.Tunnels, [], name, value)
+                    self._perform_setattr(L2tp.Counters.Control.Tunnels, [], name, value)
 
 
                 class Tunnel(Entity):
@@ -2498,54 +2468,51 @@ class L2Tp(Entity):
                     	L2TP tunnel ID
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     .. attribute:: brief
                     
                     	L2TP control message local and remote addresses
-                    	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.Tunnels.Tunnel.Brief>`
+                    	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.Tunnels.Tunnel.Brief>`
                     
                     .. attribute:: global_
                     
                     	Global data
-                    	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.Tunnels.Tunnel.Global>`
+                    	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.Tunnels.Tunnel.Global>`
                     
                     
 
                     """
 
                     _prefix = 'tunnel-l2tun-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(L2Tp.Counters.Control.Tunnels.Tunnel, self).__init__()
+                        super(L2tp.Counters.Control.Tunnels.Tunnel, self).__init__()
 
                         self.yang_name = "tunnel"
                         self.yang_parent_name = "tunnels"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['tunnel_id']
-                        self._child_container_classes = OrderedDict([("brief", ("brief", L2Tp.Counters.Control.Tunnels.Tunnel.Brief)), ("global", ("global_", L2Tp.Counters.Control.Tunnels.Tunnel.Global))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("brief", ("brief", L2tp.Counters.Control.Tunnels.Tunnel.Brief)), ("global", ("global_", L2tp.Counters.Control.Tunnels.Tunnel.Global))])
                         self._leafs = OrderedDict([
-                            ('tunnel_id', YLeaf(YType.int32, 'tunnel-id')),
+                            ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
                         ])
                         self.tunnel_id = None
 
-                        self.brief = L2Tp.Counters.Control.Tunnels.Tunnel.Brief()
+                        self.brief = L2tp.Counters.Control.Tunnels.Tunnel.Brief()
                         self.brief.parent = self
                         self._children_name_map["brief"] = "brief"
-                        self._children_yang_names.add("brief")
 
-                        self.global_ = L2Tp.Counters.Control.Tunnels.Tunnel.Global()
+                        self.global_ = L2tp.Counters.Control.Tunnels.Tunnel.Global()
                         self.global_.parent = self
                         self._children_name_map["global_"] = "global"
-                        self._children_yang_names.add("global")
                         self._segment_path = lambda: "tunnel" + "[tunnel-id='" + str(self.tunnel_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnels/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2Tp.Counters.Control.Tunnels.Tunnel, ['tunnel_id'], name, value)
+                        self._perform_setattr(L2tp.Counters.Control.Tunnels.Tunnel, ['tunnel_id'], name, value)
 
 
                     class Brief(Entity):
@@ -2578,18 +2545,17 @@ class L2Tp(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tp.Counters.Control.Tunnels.Tunnel.Brief, self).__init__()
+                            super(L2tp.Counters.Control.Tunnels.Tunnel.Brief, self).__init__()
 
                             self.yang_name = "brief"
                             self.yang_parent_name = "tunnel"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('remote_tunnel_id', YLeaf(YType.uint32, 'remote-tunnel-id')),
                                 ('local_address', YLeaf(YType.str, 'local-address')),
@@ -2601,7 +2567,7 @@ class L2Tp(Entity):
                             self._segment_path = lambda: "brief"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tp.Counters.Control.Tunnels.Tunnel.Brief, ['remote_tunnel_id', 'local_address', 'remote_address'], name, value)
+                            self._perform_setattr(L2tp.Counters.Control.Tunnels.Tunnel.Brief, [u'remote_tunnel_id', u'local_address', u'remote_address'], name, value)
 
 
                     class Global(Entity):
@@ -2611,22 +2577,22 @@ class L2Tp(Entity):
                         .. attribute:: transmit
                         
                         	Transmit data
-                        	**type**\:  :py:class:`Transmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.Tunnels.Tunnel.Global.Transmit>`
+                        	**type**\:  :py:class:`Transmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.Tunnels.Tunnel.Global.Transmit>`
                         
                         .. attribute:: retransmit
                         
                         	Re transmit data
-                        	**type**\:  :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.Tunnels.Tunnel.Global.Retransmit>`
+                        	**type**\:  :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.Tunnels.Tunnel.Global.Retransmit>`
                         
                         .. attribute:: received
                         
                         	Received data
-                        	**type**\:  :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.Tunnels.Tunnel.Global.Received>`
+                        	**type**\:  :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.Tunnels.Tunnel.Global.Received>`
                         
                         .. attribute:: drop
                         
                         	Drop data
-                        	**type**\:  :py:class:`Drop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.Tunnels.Tunnel.Global.Drop>`
+                        	**type**\:  :py:class:`Drop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.Tunnels.Tunnel.Global.Drop>`
                         
                         .. attribute:: total_transmit
                         
@@ -2661,18 +2627,17 @@ class L2Tp(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tp.Counters.Control.Tunnels.Tunnel.Global, self).__init__()
+                            super(L2tp.Counters.Control.Tunnels.Tunnel.Global, self).__init__()
 
                             self.yang_name = "global"
                             self.yang_parent_name = "tunnel"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("transmit", ("transmit", L2Tp.Counters.Control.Tunnels.Tunnel.Global.Transmit)), ("retransmit", ("retransmit", L2Tp.Counters.Control.Tunnels.Tunnel.Global.Retransmit)), ("received", ("received", L2Tp.Counters.Control.Tunnels.Tunnel.Global.Received)), ("drop", ("drop", L2Tp.Counters.Control.Tunnels.Tunnel.Global.Drop))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("transmit", ("transmit", L2tp.Counters.Control.Tunnels.Tunnel.Global.Transmit)), ("retransmit", ("retransmit", L2tp.Counters.Control.Tunnels.Tunnel.Global.Retransmit)), ("received", ("received", L2tp.Counters.Control.Tunnels.Tunnel.Global.Received)), ("drop", ("drop", L2tp.Counters.Control.Tunnels.Tunnel.Global.Drop))])
                             self._leafs = OrderedDict([
                                 ('total_transmit', YLeaf(YType.uint32, 'total-transmit')),
                                 ('total_retransmit', YLeaf(YType.uint32, 'total-retransmit')),
@@ -2684,29 +2649,25 @@ class L2Tp(Entity):
                             self.total_received = None
                             self.total_drop = None
 
-                            self.transmit = L2Tp.Counters.Control.Tunnels.Tunnel.Global.Transmit()
+                            self.transmit = L2tp.Counters.Control.Tunnels.Tunnel.Global.Transmit()
                             self.transmit.parent = self
                             self._children_name_map["transmit"] = "transmit"
-                            self._children_yang_names.add("transmit")
 
-                            self.retransmit = L2Tp.Counters.Control.Tunnels.Tunnel.Global.Retransmit()
+                            self.retransmit = L2tp.Counters.Control.Tunnels.Tunnel.Global.Retransmit()
                             self.retransmit.parent = self
                             self._children_name_map["retransmit"] = "retransmit"
-                            self._children_yang_names.add("retransmit")
 
-                            self.received = L2Tp.Counters.Control.Tunnels.Tunnel.Global.Received()
+                            self.received = L2tp.Counters.Control.Tunnels.Tunnel.Global.Received()
                             self.received.parent = self
                             self._children_name_map["received"] = "received"
-                            self._children_yang_names.add("received")
 
-                            self.drop = L2Tp.Counters.Control.Tunnels.Tunnel.Global.Drop()
+                            self.drop = L2tp.Counters.Control.Tunnels.Tunnel.Global.Drop()
                             self.drop.parent = self
                             self._children_name_map["drop"] = "drop"
-                            self._children_yang_names.add("drop")
                             self._segment_path = lambda: "global"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tp.Counters.Control.Tunnels.Tunnel.Global, ['total_transmit', 'total_retransmit', 'total_received', 'total_drop'], name, value)
+                            self._perform_setattr(L2tp.Counters.Control.Tunnels.Tunnel.Global, [u'total_transmit', u'total_retransmit', u'total_received', u'total_drop'], name, value)
 
 
                         class Transmit(Entity):
@@ -2851,18 +2812,17 @@ class L2Tp(Entity):
                             """
 
                             _prefix = 'tunnel-l2tun-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(L2Tp.Counters.Control.Tunnels.Tunnel.Global.Transmit, self).__init__()
+                                super(L2tp.Counters.Control.Tunnels.Tunnel.Global.Transmit, self).__init__()
 
                                 self.yang_name = "transmit"
                                 self.yang_parent_name = "global"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
                                     ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
@@ -2906,7 +2866,7 @@ class L2Tp(Entity):
                                 self._segment_path = lambda: "transmit"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2Tp.Counters.Control.Tunnels.Tunnel.Global.Transmit, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
+                                self._perform_setattr(L2tp.Counters.Control.Tunnels.Tunnel.Global.Transmit, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
                         class Retransmit(Entity):
@@ -3051,18 +3011,17 @@ class L2Tp(Entity):
                             """
 
                             _prefix = 'tunnel-l2tun-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(L2Tp.Counters.Control.Tunnels.Tunnel.Global.Retransmit, self).__init__()
+                                super(L2tp.Counters.Control.Tunnels.Tunnel.Global.Retransmit, self).__init__()
 
                                 self.yang_name = "retransmit"
                                 self.yang_parent_name = "global"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
                                     ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
@@ -3106,7 +3065,7 @@ class L2Tp(Entity):
                                 self._segment_path = lambda: "retransmit"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2Tp.Counters.Control.Tunnels.Tunnel.Global.Retransmit, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
+                                self._perform_setattr(L2tp.Counters.Control.Tunnels.Tunnel.Global.Retransmit, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
                         class Received(Entity):
@@ -3251,18 +3210,17 @@ class L2Tp(Entity):
                             """
 
                             _prefix = 'tunnel-l2tun-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(L2Tp.Counters.Control.Tunnels.Tunnel.Global.Received, self).__init__()
+                                super(L2tp.Counters.Control.Tunnels.Tunnel.Global.Received, self).__init__()
 
                                 self.yang_name = "received"
                                 self.yang_parent_name = "global"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
                                     ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
@@ -3306,7 +3264,7 @@ class L2Tp(Entity):
                                 self._segment_path = lambda: "received"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2Tp.Counters.Control.Tunnels.Tunnel.Global.Received, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
+                                self._perform_setattr(L2tp.Counters.Control.Tunnels.Tunnel.Global.Received, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
                         class Drop(Entity):
@@ -3451,18 +3409,17 @@ class L2Tp(Entity):
                             """
 
                             _prefix = 'tunnel-l2tun-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(L2Tp.Counters.Control.Tunnels.Tunnel.Global.Drop, self).__init__()
+                                super(L2tp.Counters.Control.Tunnels.Tunnel.Global.Drop, self).__init__()
 
                                 self.yang_name = "drop"
                                 self.yang_parent_name = "global"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
                                     ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
@@ -3506,7 +3463,7 @@ class L2Tp(Entity):
                                 self._segment_path = lambda: "drop"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2Tp.Counters.Control.Tunnels.Tunnel.Global.Drop, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
+                                self._perform_setattr(L2tp.Counters.Control.Tunnels.Tunnel.Global.Drop, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
     class TunnelConfigurations(Entity):
@@ -3516,25 +3473,24 @@ class L2Tp(Entity):
         .. attribute:: tunnel_configuration
         
         	L2TP tunnel information
-        	**type**\: list of  		 :py:class:`TunnelConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.TunnelConfigurations.TunnelConfiguration>`
+        	**type**\: list of  		 :py:class:`TunnelConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.TunnelConfigurations.TunnelConfiguration>`
         
         
 
         """
 
         _prefix = 'tunnel-l2tun-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
-            super(L2Tp.TunnelConfigurations, self).__init__()
+            super(L2tp.TunnelConfigurations, self).__init__()
 
             self.yang_name = "tunnel-configurations"
             self.yang_parent_name = "l2tp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("tunnel-configuration", ("tunnel_configuration", L2Tp.TunnelConfigurations.TunnelConfiguration))])
+            self._child_classes = OrderedDict([("tunnel-configuration", ("tunnel_configuration", L2tp.TunnelConfigurations.TunnelConfiguration))])
             self._leafs = OrderedDict()
 
             self.tunnel_configuration = YList(self)
@@ -3542,7 +3498,7 @@ class L2Tp(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(L2Tp.TunnelConfigurations, [], name, value)
+            self._perform_setattr(L2tp.TunnelConfigurations, [], name, value)
 
 
         class TunnelConfiguration(Entity):
@@ -3554,12 +3510,12 @@ class L2Tp(Entity):
             	Local tunnel ID
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: l2tp_class
             
             	L2Tp class data
-            	**type**\:  :py:class:`L2TpClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.TunnelConfigurations.TunnelConfiguration.L2TpClass>`
+            	**type**\:  :py:class:`L2tpClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.TunnelConfigurations.TunnelConfiguration.L2tpClass>`
             
             .. attribute:: remote_tunnel_id
             
@@ -3573,37 +3529,35 @@ class L2Tp(Entity):
             """
 
             _prefix = 'tunnel-l2tun-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
-                super(L2Tp.TunnelConfigurations.TunnelConfiguration, self).__init__()
+                super(L2tp.TunnelConfigurations.TunnelConfiguration, self).__init__()
 
                 self.yang_name = "tunnel-configuration"
                 self.yang_parent_name = "tunnel-configurations"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['local_tunnel_id']
-                self._child_container_classes = OrderedDict([("l2tp-class", ("l2tp_class", L2Tp.TunnelConfigurations.TunnelConfiguration.L2TpClass))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("l2tp-class", ("l2tp_class", L2tp.TunnelConfigurations.TunnelConfiguration.L2tpClass))])
                 self._leafs = OrderedDict([
-                    ('local_tunnel_id', YLeaf(YType.int32, 'local-tunnel-id')),
+                    ('local_tunnel_id', YLeaf(YType.uint32, 'local-tunnel-id')),
                     ('remote_tunnel_id', YLeaf(YType.uint32, 'remote-tunnel-id')),
                 ])
                 self.local_tunnel_id = None
                 self.remote_tunnel_id = None
 
-                self.l2tp_class = L2Tp.TunnelConfigurations.TunnelConfiguration.L2TpClass()
+                self.l2tp_class = L2tp.TunnelConfigurations.TunnelConfiguration.L2tpClass()
                 self.l2tp_class.parent = self
                 self._children_name_map["l2tp_class"] = "l2tp-class"
-                self._children_yang_names.add("l2tp-class")
                 self._segment_path = lambda: "tunnel-configuration" + "[local-tunnel-id='" + str(self.local_tunnel_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/tunnel-configurations/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2Tp.TunnelConfigurations.TunnelConfiguration, ['local_tunnel_id', 'remote_tunnel_id'], name, value)
+                self._perform_setattr(L2tp.TunnelConfigurations.TunnelConfiguration, ['local_tunnel_id', u'remote_tunnel_id'], name, value)
 
 
-            class L2TpClass(Entity):
+            class L2tpClass(Entity):
                 """
                 L2Tp class data
                 
@@ -3778,18 +3732,17 @@ class L2Tp(Entity):
                 """
 
                 _prefix = 'tunnel-l2tun-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(L2Tp.TunnelConfigurations.TunnelConfiguration.L2TpClass, self).__init__()
+                    super(L2tp.TunnelConfigurations.TunnelConfiguration.L2tpClass, self).__init__()
 
                     self.yang_name = "l2tp-class"
                     self.yang_parent_name = "tunnel-configuration"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ip_tos', YLeaf(YType.uint8, 'ip-tos')),
                         ('vrf_name', YLeaf(YType.str, 'vrf-name')),
@@ -3843,7 +3796,7 @@ class L2Tp(Entity):
                     self._segment_path = lambda: "l2tp-class"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2Tp.TunnelConfigurations.TunnelConfiguration.L2TpClass, ['ip_tos', 'vrf_name', 'receive_window_size', 'class_name_xr', 'digest_hash', 'password', 'encoded_password', 'host_name', 'accounting_method_list', 'hello_timeout', 'setup_timeout', 'retransmit_minimum_timeout', 'retransmit_maximum_timeout', 'initial_retransmit_minimum_timeout', 'initial_retransmit_maximum_timeout', 'timeout_no_user', 'retransmit_retries', 'initial_retransmit_retries', 'is_authentication_enabled', 'is_hidden', 'is_digest_enabled', 'is_digest_check_enabled', 'is_congestion_control_enabled', 'is_peer_address_checked'], name, value)
+                    self._perform_setattr(L2tp.TunnelConfigurations.TunnelConfiguration.L2tpClass, [u'ip_tos', u'vrf_name', u'receive_window_size', u'class_name_xr', u'digest_hash', u'password', u'encoded_password', u'host_name', u'accounting_method_list', u'hello_timeout', u'setup_timeout', u'retransmit_minimum_timeout', u'retransmit_maximum_timeout', u'initial_retransmit_minimum_timeout', u'initial_retransmit_maximum_timeout', u'timeout_no_user', u'retransmit_retries', u'initial_retransmit_retries', u'is_authentication_enabled', u'is_hidden', u'is_digest_enabled', u'is_digest_check_enabled', u'is_congestion_control_enabled', u'is_peer_address_checked'], name, value)
 
 
     class CounterHistFail(Entity):
@@ -3883,18 +3836,17 @@ class L2Tp(Entity):
         """
 
         _prefix = 'tunnel-l2tun-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
-            super(L2Tp.CounterHistFail, self).__init__()
+            super(L2tp.CounterHistFail, self).__init__()
 
             self.yang_name = "counter-hist-fail"
             self.yang_parent_name = "l2tp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('sess_down_tmout', YLeaf(YType.uint32, 'sess-down-tmout')),
                 ('tx_counters', YLeaf(YType.str, 'tx-counters')),
@@ -3909,7 +3861,7 @@ class L2Tp(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(L2Tp.CounterHistFail, ['sess_down_tmout', 'tx_counters', 'rx_counters', 'pkt_timeout'], name, value)
+            self._perform_setattr(L2tp.CounterHistFail, [u'sess_down_tmout', u'tx_counters', u'rx_counters', u'pkt_timeout'], name, value)
 
 
     class Classes(Entity):
@@ -3919,25 +3871,24 @@ class L2Tp(Entity):
         .. attribute:: class_
         
         	L2TP class name
-        	**type**\: list of  		 :py:class:`Class <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Classes.Class>`
+        	**type**\: list of  		 :py:class:`Class <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Classes.Class>`
         
         
 
         """
 
         _prefix = 'tunnel-l2tun-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
-            super(L2Tp.Classes, self).__init__()
+            super(L2tp.Classes, self).__init__()
 
             self.yang_name = "classes"
             self.yang_parent_name = "l2tp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("class", ("class_", L2Tp.Classes.Class))])
+            self._child_classes = OrderedDict([("class", ("class_", L2tp.Classes.Class))])
             self._leafs = OrderedDict()
 
             self.class_ = YList(self)
@@ -3945,7 +3896,7 @@ class L2Tp(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(L2Tp.Classes, [], name, value)
+            self._perform_setattr(L2tp.Classes, [], name, value)
 
 
         class Class(Entity):
@@ -4130,18 +4081,17 @@ class L2Tp(Entity):
             """
 
             _prefix = 'tunnel-l2tun-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
-                super(L2Tp.Classes.Class, self).__init__()
+                super(L2tp.Classes.Class, self).__init__()
 
                 self.yang_name = "class"
                 self.yang_parent_name = "classes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['class_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('class_name', YLeaf(YType.str, 'class-name')),
                     ('ip_tos', YLeaf(YType.uint8, 'ip-tos')),
@@ -4198,7 +4148,7 @@ class L2Tp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/classes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2Tp.Classes.Class, ['class_name', 'ip_tos', 'vrf_name', 'receive_window_size', 'class_name_xr', 'digest_hash', 'password', 'encoded_password', 'host_name', 'accounting_method_list', 'hello_timeout', 'setup_timeout', 'retransmit_minimum_timeout', 'retransmit_maximum_timeout', 'initial_retransmit_minimum_timeout', 'initial_retransmit_maximum_timeout', 'timeout_no_user', 'retransmit_retries', 'initial_retransmit_retries', 'is_authentication_enabled', 'is_hidden', 'is_digest_enabled', 'is_digest_check_enabled', 'is_congestion_control_enabled', 'is_peer_address_checked'], name, value)
+                self._perform_setattr(L2tp.Classes.Class, ['class_name', u'ip_tos', u'vrf_name', u'receive_window_size', u'class_name_xr', u'digest_hash', u'password', u'encoded_password', u'host_name', u'accounting_method_list', u'hello_timeout', u'setup_timeout', u'retransmit_minimum_timeout', u'retransmit_maximum_timeout', u'initial_retransmit_minimum_timeout', u'initial_retransmit_maximum_timeout', u'timeout_no_user', u'retransmit_retries', u'initial_retransmit_retries', u'is_authentication_enabled', u'is_hidden', u'is_digest_enabled', u'is_digest_check_enabled', u'is_congestion_control_enabled', u'is_peer_address_checked'], name, value)
 
 
     class Tunnels(Entity):
@@ -4208,25 +4158,24 @@ class L2Tp(Entity):
         .. attribute:: tunnel
         
         	L2TP tunnel  information
-        	**type**\: list of  		 :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Tunnels.Tunnel>`
+        	**type**\: list of  		 :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Tunnels.Tunnel>`
         
         
 
         """
 
         _prefix = 'tunnel-l2tun-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
-            super(L2Tp.Tunnels, self).__init__()
+            super(L2tp.Tunnels, self).__init__()
 
             self.yang_name = "tunnels"
             self.yang_parent_name = "l2tp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("tunnel", ("tunnel", L2Tp.Tunnels.Tunnel))])
+            self._child_classes = OrderedDict([("tunnel", ("tunnel", L2tp.Tunnels.Tunnel))])
             self._leafs = OrderedDict()
 
             self.tunnel = YList(self)
@@ -4234,7 +4183,7 @@ class L2Tp(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(L2Tp.Tunnels, [], name, value)
+            self._perform_setattr(L2tp.Tunnels, [], name, value)
 
 
         class Tunnel(Entity):
@@ -4246,7 +4195,7 @@ class L2Tp(Entity):
             	Local tunnel ID
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: local_address
             
@@ -4477,20 +4426,19 @@ class L2Tp(Entity):
             """
 
             _prefix = 'tunnel-l2tun-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
-                super(L2Tp.Tunnels.Tunnel, self).__init__()
+                super(L2tp.Tunnels.Tunnel, self).__init__()
 
                 self.yang_name = "tunnel"
                 self.yang_parent_name = "tunnels"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['local_tunnel_id']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('local_tunnel_id', YLeaf(YType.int32, 'local-tunnel-id')),
+                    ('local_tunnel_id', YLeaf(YType.uint32, 'local-tunnel-id')),
                     ('local_address', YLeaf(YType.str, 'local-address')),
                     ('remote_address', YLeaf(YType.str, 'remote-address')),
                     ('local_port', YLeaf(YType.uint16, 'local-port')),
@@ -4561,7 +4509,7 @@ class L2Tp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/tunnels/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2Tp.Tunnels.Tunnel, ['local_tunnel_id', 'local_address', 'remote_address', 'local_port', 'remote_port', 'protocol', 'is_pmtu_enabled', 'remote_tunnel_id', 'local_tunnel_name', 'remote_tunnel_name', 'class_name', 'active_sessions', 'sequence_ns', 'sequence_nr', 'local_window_size', 'remote_window_size', 'retransmission_time', 'maximum_retransmission_time', 'unsent_queue_size', 'unsent_maximum_queue_size', 'resend_queue_size', 'resend_maximum_queue_size', 'order_queue_size', 'packet_queue_check', 'digest_secrets', 'resends', 'zero_length_body_acknowledgement_sent', 'total_out_of_order_drop_packets', 'total_out_of_order_reorder_packets', 'total_peer_authentication_failures', 'is_tunnel_up', 'is_congestion_control_enabled', 'retransmit_time'], name, value)
+                self._perform_setattr(L2tp.Tunnels.Tunnel, ['local_tunnel_id', u'local_address', u'remote_address', u'local_port', u'remote_port', u'protocol', u'is_pmtu_enabled', u'remote_tunnel_id', u'local_tunnel_name', u'remote_tunnel_name', u'class_name', u'active_sessions', u'sequence_ns', u'sequence_nr', u'local_window_size', u'remote_window_size', u'retransmission_time', u'maximum_retransmission_time', u'unsent_queue_size', u'unsent_maximum_queue_size', u'resend_queue_size', u'resend_maximum_queue_size', u'order_queue_size', u'packet_queue_check', u'digest_secrets', u'resends', u'zero_length_body_acknowledgement_sent', u'total_out_of_order_drop_packets', u'total_out_of_order_reorder_packets', u'total_peer_authentication_failures', u'is_tunnel_up', u'is_congestion_control_enabled', u'retransmit_time'], name, value)
 
 
     class Sessions(Entity):
@@ -4571,25 +4519,24 @@ class L2Tp(Entity):
         .. attribute:: session
         
         	L2TP information for a particular session
-        	**type**\: list of  		 :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Sessions.Session>`
+        	**type**\: list of  		 :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Sessions.Session>`
         
         
 
         """
 
         _prefix = 'tunnel-l2tun-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
-            super(L2Tp.Sessions, self).__init__()
+            super(L2tp.Sessions, self).__init__()
 
             self.yang_name = "sessions"
             self.yang_parent_name = "l2tp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("session", ("session", L2Tp.Sessions.Session))])
+            self._child_classes = OrderedDict([("session", ("session", L2tp.Sessions.Session))])
             self._leafs = OrderedDict()
 
             self.session = YList(self)
@@ -4597,7 +4544,7 @@ class L2Tp(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(L2Tp.Sessions, [], name, value)
+            self._perform_setattr(L2tp.Sessions, [], name, value)
 
 
         class Session(Entity):
@@ -4609,19 +4556,19 @@ class L2Tp(Entity):
             	Local tunnel ID
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: local_session_id  (key)
             
             	Local session ID
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: session_application_data
             
             	Session application data
-            	**type**\:  :py:class:`SessionApplicationData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Sessions.Session.SessionApplicationData>`
+            	**type**\:  :py:class:`SessionApplicationData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Sessions.Session.SessionApplicationData>`
             
             .. attribute:: local_ip_address
             
@@ -4761,21 +4708,20 @@ class L2Tp(Entity):
             """
 
             _prefix = 'tunnel-l2tun-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
-                super(L2Tp.Sessions.Session, self).__init__()
+                super(L2tp.Sessions.Session, self).__init__()
 
                 self.yang_name = "session"
                 self.yang_parent_name = "sessions"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['local_tunnel_id','local_session_id']
-                self._child_container_classes = OrderedDict([("session-application-data", ("session_application_data", L2Tp.Sessions.Session.SessionApplicationData))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("session-application-data", ("session_application_data", L2tp.Sessions.Session.SessionApplicationData))])
                 self._leafs = OrderedDict([
-                    ('local_tunnel_id', YLeaf(YType.int32, 'local-tunnel-id')),
-                    ('local_session_id', YLeaf(YType.int32, 'local-session-id')),
+                    ('local_tunnel_id', YLeaf(YType.uint32, 'local-tunnel-id')),
+                    ('local_session_id', YLeaf(YType.uint32, 'local-session-id')),
                     ('local_ip_address', YLeaf(YType.str, 'local-ip-address')),
                     ('remote_ip_address', YLeaf(YType.str, 'remote-ip-address')),
                     ('l2tp_sh_sess_udp_lport', YLeaf(YType.uint16, 'l2tp-sh-sess-udp-lport')),
@@ -4822,15 +4768,14 @@ class L2Tp(Entity):
                 self.unique_id = None
                 self.interface_name = None
 
-                self.session_application_data = L2Tp.Sessions.Session.SessionApplicationData()
+                self.session_application_data = L2tp.Sessions.Session.SessionApplicationData()
                 self.session_application_data.parent = self
                 self._children_name_map["session_application_data"] = "session-application-data"
-                self._children_yang_names.add("session-application-data")
                 self._segment_path = lambda: "session" + "[local-tunnel-id='" + str(self.local_tunnel_id) + "']" + "[local-session-id='" + str(self.local_session_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/sessions/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2Tp.Sessions.Session, ['local_tunnel_id', 'local_session_id', 'local_ip_address', 'remote_ip_address', 'l2tp_sh_sess_udp_lport', 'l2tp_sh_sess_udp_rport', 'protocol', 'remote_tunnel_id', 'call_serial_number', 'local_tunnel_name', 'remote_tunnel_name', 'remote_session_id', 'l2tp_sh_sess_tie_breaker_enabled', 'l2tp_sh_sess_tie_breaker', 'is_session_manual', 'is_session_up', 'is_udp_checksum_enabled', 'is_sequencing_on', 'is_session_state_established', 'is_session_locally_initiated', 'is_conditional_debug_enabled', 'unique_id', 'interface_name'], name, value)
+                self._perform_setattr(L2tp.Sessions.Session, ['local_tunnel_id', 'local_session_id', u'local_ip_address', u'remote_ip_address', u'l2tp_sh_sess_udp_lport', u'l2tp_sh_sess_udp_rport', u'protocol', u'remote_tunnel_id', u'call_serial_number', u'local_tunnel_name', u'remote_tunnel_name', u'remote_session_id', u'l2tp_sh_sess_tie_breaker_enabled', u'l2tp_sh_sess_tie_breaker', u'is_session_manual', u'is_session_up', u'is_udp_checksum_enabled', u'is_sequencing_on', u'is_session_state_established', u'is_session_locally_initiated', u'is_conditional_debug_enabled', u'unique_id', u'interface_name'], name, value)
 
 
             class SessionApplicationData(Entity):
@@ -4840,12 +4785,12 @@ class L2Tp(Entity):
                 .. attribute:: xconnect
                 
                 	Xconnect data
-                	**type**\:  :py:class:`Xconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Sessions.Session.SessionApplicationData.Xconnect>`
+                	**type**\:  :py:class:`Xconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Sessions.Session.SessionApplicationData.Xconnect>`
                 
                 .. attribute:: vpdn
                 
                 	VPDN data
-                	**type**\:  :py:class:`Vpdn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Sessions.Session.SessionApplicationData.Vpdn>`
+                	**type**\:  :py:class:`Vpdn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Sessions.Session.SessionApplicationData.Vpdn>`
                 
                 .. attribute:: l2tp_sh_sess_app_type
                 
@@ -4859,36 +4804,33 @@ class L2Tp(Entity):
                 """
 
                 _prefix = 'tunnel-l2tun-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(L2Tp.Sessions.Session.SessionApplicationData, self).__init__()
+                    super(L2tp.Sessions.Session.SessionApplicationData, self).__init__()
 
                     self.yang_name = "session-application-data"
                     self.yang_parent_name = "session"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("xconnect", ("xconnect", L2Tp.Sessions.Session.SessionApplicationData.Xconnect)), ("vpdn", ("vpdn", L2Tp.Sessions.Session.SessionApplicationData.Vpdn))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("xconnect", ("xconnect", L2tp.Sessions.Session.SessionApplicationData.Xconnect)), ("vpdn", ("vpdn", L2tp.Sessions.Session.SessionApplicationData.Vpdn))])
                     self._leafs = OrderedDict([
                         ('l2tp_sh_sess_app_type', YLeaf(YType.uint32, 'l2tp-sh-sess-app-type')),
                     ])
                     self.l2tp_sh_sess_app_type = None
 
-                    self.xconnect = L2Tp.Sessions.Session.SessionApplicationData.Xconnect()
+                    self.xconnect = L2tp.Sessions.Session.SessionApplicationData.Xconnect()
                     self.xconnect.parent = self
                     self._children_name_map["xconnect"] = "xconnect"
-                    self._children_yang_names.add("xconnect")
 
-                    self.vpdn = L2Tp.Sessions.Session.SessionApplicationData.Vpdn()
+                    self.vpdn = L2tp.Sessions.Session.SessionApplicationData.Vpdn()
                     self.vpdn.parent = self
                     self._children_name_map["vpdn"] = "vpdn"
-                    self._children_yang_names.add("vpdn")
                     self._segment_path = lambda: "session-application-data"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2Tp.Sessions.Session.SessionApplicationData, ['l2tp_sh_sess_app_type'], name, value)
+                    self._perform_setattr(L2tp.Sessions.Session.SessionApplicationData, [u'l2tp_sh_sess_app_type'], name, value)
 
 
                 class Xconnect(Entity):
@@ -4932,18 +4874,17 @@ class L2Tp(Entity):
                     """
 
                     _prefix = 'tunnel-l2tun-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(L2Tp.Sessions.Session.SessionApplicationData.Xconnect, self).__init__()
+                        super(L2tp.Sessions.Session.SessionApplicationData.Xconnect, self).__init__()
 
                         self.yang_name = "xconnect"
                         self.yang_parent_name = "session-application-data"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('circuit_name', YLeaf(YType.str, 'circuit-name')),
                             ('sessionvc_id', YLeaf(YType.uint32, 'sessionvc-id')),
@@ -4961,7 +4902,7 @@ class L2Tp(Entity):
                         self._segment_path = lambda: "xconnect"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2Tp.Sessions.Session.SessionApplicationData.Xconnect, ['circuit_name', 'sessionvc_id', 'is_circuit_state_up', 'is_local_circuit_state_up', 'is_remote_circuit_state_up', 'ipv6_protocol_tunneling'], name, value)
+                        self._perform_setattr(L2tp.Sessions.Session.SessionApplicationData.Xconnect, [u'circuit_name', u'sessionvc_id', u'is_circuit_state_up', u'is_local_circuit_state_up', u'is_remote_circuit_state_up', u'ipv6_protocol_tunneling'], name, value)
 
 
                 class Vpdn(Entity):
@@ -4985,18 +4926,17 @@ class L2Tp(Entity):
                     """
 
                     _prefix = 'tunnel-l2tun-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(L2Tp.Sessions.Session.SessionApplicationData.Vpdn, self).__init__()
+                        super(L2tp.Sessions.Session.SessionApplicationData.Vpdn, self).__init__()
 
                         self.yang_name = "vpdn"
                         self.yang_parent_name = "session-application-data"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('username', YLeaf(YType.str, 'username')),
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
@@ -5006,7 +4946,7 @@ class L2Tp(Entity):
                         self._segment_path = lambda: "vpdn"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2Tp.Sessions.Session.SessionApplicationData.Vpdn, ['username', 'interface_name'], name, value)
+                        self._perform_setattr(L2tp.Sessions.Session.SessionApplicationData.Vpdn, [u'username', u'interface_name'], name, value)
 
 
     class Session(Entity):
@@ -5016,33 +4956,34 @@ class L2Tp(Entity):
         .. attribute:: unavailable
         
         	L2TP session unavailable  information
-        	**type**\:  :py:class:`Unavailable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Session.Unavailable>`
+        	**type**\:  :py:class:`Unavailable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Session.Unavailable>`
         
         
 
         """
 
         _prefix = 'tunnel-l2tun-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
-            super(L2Tp.Session, self).__init__()
+            super(L2tp.Session, self).__init__()
 
             self.yang_name = "session"
             self.yang_parent_name = "l2tp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("unavailable", ("unavailable", L2Tp.Session.Unavailable))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("unavailable", ("unavailable", L2tp.Session.Unavailable))])
             self._leafs = OrderedDict()
 
-            self.unavailable = L2Tp.Session.Unavailable()
+            self.unavailable = L2tp.Session.Unavailable()
             self.unavailable.parent = self
             self._children_name_map["unavailable"] = "unavailable"
-            self._children_yang_names.add("unavailable")
             self._segment_path = lambda: "session"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(L2tp.Session, [], name, value)
 
 
         class Unavailable(Entity):
@@ -5061,18 +5002,17 @@ class L2Tp(Entity):
             """
 
             _prefix = 'tunnel-l2tun-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
-                super(L2Tp.Session.Unavailable, self).__init__()
+                super(L2tp.Session.Unavailable, self).__init__()
 
                 self.yang_name = "unavailable"
                 self.yang_parent_name = "session"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('sessions_on_hold', YLeaf(YType.uint32, 'sessions-on-hold')),
                 ])
@@ -5081,70 +5021,70 @@ class L2Tp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/session/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2Tp.Session.Unavailable, ['sessions_on_hold'], name, value)
+                self._perform_setattr(L2tp.Session.Unavailable, [u'sessions_on_hold'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = L2Tp()
+        self._top_entity = L2tp()
         return self._top_entity
 
-class L2Tpv2(Entity):
+class L2tpv2(Entity):
     """
     l2tpv2
     
     .. attribute:: counters
     
     	L2TP control messages counters
-    	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters>`
+    	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters>`
     
     .. attribute:: statistics
     
     	L2TP v2 statistics information
-    	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Statistics>`
+    	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Statistics>`
     
     .. attribute:: tunnel
     
     	L2TPv2 tunnel 
-    	**type**\:  :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Tunnel>`
+    	**type**\:  :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Tunnel>`
     
     .. attribute:: tunnel_configurations
     
     	List of tunnel IDs
-    	**type**\:  :py:class:`TunnelConfigurations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.TunnelConfigurations>`
+    	**type**\:  :py:class:`TunnelConfigurations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.TunnelConfigurations>`
     
     .. attribute:: counter_hist_fail
     
     	Failure events leading to disconnection
-    	**type**\:  :py:class:`CounterHistFail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.CounterHistFail>`
+    	**type**\:  :py:class:`CounterHistFail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.CounterHistFail>`
     
     .. attribute:: classes
     
     	List of L2TP class names
-    	**type**\:  :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Classes>`
+    	**type**\:  :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Classes>`
     
     .. attribute:: tunnels
     
     	List of tunnel IDs
-    	**type**\:  :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Tunnels>`
+    	**type**\:  :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Tunnels>`
     
     .. attribute:: sessions
     
     	List of session IDs
-    	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Sessions>`
+    	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Sessions>`
     
     .. attribute:: session
     
     	L2TP control messages counters
-    	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Session>`
+    	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Session>`
     
     
 
     """
 
     _prefix = 'tunnel-l2tun-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-09-07'
 
     def __init__(self):
-        super(L2Tpv2, self).__init__()
+        super(L2tpv2, self).__init__()
         self._top_entity = None
 
         self.yang_name = "l2tpv2"
@@ -5152,55 +5092,48 @@ class L2Tpv2(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("counters", ("counters", L2Tpv2.Counters)), ("statistics", ("statistics", L2Tpv2.Statistics)), ("tunnel", ("tunnel", L2Tpv2.Tunnel)), ("tunnel-configurations", ("tunnel_configurations", L2Tpv2.TunnelConfigurations)), ("counter-hist-fail", ("counter_hist_fail", L2Tpv2.CounterHistFail)), ("classes", ("classes", L2Tpv2.Classes)), ("tunnels", ("tunnels", L2Tpv2.Tunnels)), ("sessions", ("sessions", L2Tpv2.Sessions)), ("session", ("session", L2Tpv2.Session))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("counters", ("counters", L2tpv2.Counters)), ("statistics", ("statistics", L2tpv2.Statistics)), ("tunnel", ("tunnel", L2tpv2.Tunnel)), ("tunnel-configurations", ("tunnel_configurations", L2tpv2.TunnelConfigurations)), ("counter-hist-fail", ("counter_hist_fail", L2tpv2.CounterHistFail)), ("classes", ("classes", L2tpv2.Classes)), ("tunnels", ("tunnels", L2tpv2.Tunnels)), ("sessions", ("sessions", L2tpv2.Sessions)), ("session", ("session", L2tpv2.Session))])
         self._leafs = OrderedDict()
 
-        self.counters = L2Tpv2.Counters()
+        self.counters = L2tpv2.Counters()
         self.counters.parent = self
         self._children_name_map["counters"] = "counters"
-        self._children_yang_names.add("counters")
 
-        self.statistics = L2Tpv2.Statistics()
+        self.statistics = L2tpv2.Statistics()
         self.statistics.parent = self
         self._children_name_map["statistics"] = "statistics"
-        self._children_yang_names.add("statistics")
 
-        self.tunnel = L2Tpv2.Tunnel()
+        self.tunnel = L2tpv2.Tunnel()
         self.tunnel.parent = self
         self._children_name_map["tunnel"] = "tunnel"
-        self._children_yang_names.add("tunnel")
 
-        self.tunnel_configurations = L2Tpv2.TunnelConfigurations()
+        self.tunnel_configurations = L2tpv2.TunnelConfigurations()
         self.tunnel_configurations.parent = self
         self._children_name_map["tunnel_configurations"] = "tunnel-configurations"
-        self._children_yang_names.add("tunnel-configurations")
 
-        self.counter_hist_fail = L2Tpv2.CounterHistFail()
+        self.counter_hist_fail = L2tpv2.CounterHistFail()
         self.counter_hist_fail.parent = self
         self._children_name_map["counter_hist_fail"] = "counter-hist-fail"
-        self._children_yang_names.add("counter-hist-fail")
 
-        self.classes = L2Tpv2.Classes()
+        self.classes = L2tpv2.Classes()
         self.classes.parent = self
         self._children_name_map["classes"] = "classes"
-        self._children_yang_names.add("classes")
 
-        self.tunnels = L2Tpv2.Tunnels()
+        self.tunnels = L2tpv2.Tunnels()
         self.tunnels.parent = self
         self._children_name_map["tunnels"] = "tunnels"
-        self._children_yang_names.add("tunnels")
 
-        self.sessions = L2Tpv2.Sessions()
+        self.sessions = L2tpv2.Sessions()
         self.sessions.parent = self
         self._children_name_map["sessions"] = "sessions"
-        self._children_yang_names.add("sessions")
 
-        self.session = L2Tpv2.Session()
+        self.session = L2tpv2.Session()
         self.session.parent = self
         self._children_name_map["session"] = "session"
-        self._children_yang_names.add("session")
         self._segment_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(L2tpv2, [], name, value)
 
 
     class Counters(Entity):
@@ -5210,43 +5143,43 @@ class L2Tpv2(Entity):
         .. attribute:: forwarding
         
         	L2TP forwarding messages counters
-        	**type**\:  :py:class:`Forwarding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Forwarding>`
+        	**type**\:  :py:class:`Forwarding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Forwarding>`
         
         .. attribute:: control
         
         	L2TP control messages counters
-        	**type**\:  :py:class:`Control <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control>`
+        	**type**\:  :py:class:`Control <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control>`
         
         
 
         """
 
         _prefix = 'tunnel-l2tun-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
-            super(L2Tpv2.Counters, self).__init__()
+            super(L2tpv2.Counters, self).__init__()
 
             self.yang_name = "counters"
             self.yang_parent_name = "l2tpv2"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("forwarding", ("forwarding", L2Tpv2.Counters.Forwarding)), ("control", ("control", L2Tpv2.Counters.Control))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("forwarding", ("forwarding", L2tpv2.Counters.Forwarding)), ("control", ("control", L2tpv2.Counters.Control))])
             self._leafs = OrderedDict()
 
-            self.forwarding = L2Tpv2.Counters.Forwarding()
+            self.forwarding = L2tpv2.Counters.Forwarding()
             self.forwarding.parent = self
             self._children_name_map["forwarding"] = "forwarding"
-            self._children_yang_names.add("forwarding")
 
-            self.control = L2Tpv2.Counters.Control()
+            self.control = L2tpv2.Counters.Control()
             self.control.parent = self
             self._children_name_map["control"] = "control"
-            self._children_yang_names.add("control")
             self._segment_path = lambda: "counters"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(L2tpv2.Counters, [], name, value)
 
 
         class Forwarding(Entity):
@@ -5256,33 +5189,34 @@ class L2Tpv2(Entity):
             .. attribute:: sessions
             
             	List of class and session IDs
-            	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Forwarding.Sessions>`
+            	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Forwarding.Sessions>`
             
             
 
             """
 
             _prefix = 'tunnel-l2tun-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
-                super(L2Tpv2.Counters.Forwarding, self).__init__()
+                super(L2tpv2.Counters.Forwarding, self).__init__()
 
                 self.yang_name = "forwarding"
                 self.yang_parent_name = "counters"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("sessions", ("sessions", L2Tpv2.Counters.Forwarding.Sessions))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("sessions", ("sessions", L2tpv2.Counters.Forwarding.Sessions))])
                 self._leafs = OrderedDict()
 
-                self.sessions = L2Tpv2.Counters.Forwarding.Sessions()
+                self.sessions = L2tpv2.Counters.Forwarding.Sessions()
                 self.sessions.parent = self
                 self._children_name_map["sessions"] = "sessions"
-                self._children_yang_names.add("sessions")
                 self._segment_path = lambda: "forwarding"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(L2tpv2.Counters.Forwarding, [], name, value)
 
 
             class Sessions(Entity):
@@ -5292,25 +5226,24 @@ class L2Tpv2(Entity):
                 .. attribute:: session
                 
                 	L2TP information for a particular session
-                	**type**\: list of  		 :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Forwarding.Sessions.Session>`
+                	**type**\: list of  		 :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Forwarding.Sessions.Session>`
                 
                 
 
                 """
 
                 _prefix = 'tunnel-l2tun-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(L2Tpv2.Counters.Forwarding.Sessions, self).__init__()
+                    super(L2tpv2.Counters.Forwarding.Sessions, self).__init__()
 
                     self.yang_name = "sessions"
                     self.yang_parent_name = "forwarding"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("session", ("session", L2Tpv2.Counters.Forwarding.Sessions.Session))])
+                    self._child_classes = OrderedDict([("session", ("session", L2tpv2.Counters.Forwarding.Sessions.Session))])
                     self._leafs = OrderedDict()
 
                     self.session = YList(self)
@@ -5318,7 +5251,7 @@ class L2Tpv2(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/forwarding/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2Tpv2.Counters.Forwarding.Sessions, [], name, value)
+                    self._perform_setattr(L2tpv2.Counters.Forwarding.Sessions, [], name, value)
 
 
                 class Session(Entity):
@@ -5330,14 +5263,14 @@ class L2Tpv2(Entity):
                     	Local tunnel ID
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     .. attribute:: session_id  (key)
                     
                     	Local session ID
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     .. attribute:: remote_session_id
                     
@@ -5383,21 +5316,20 @@ class L2Tpv2(Entity):
                     """
 
                     _prefix = 'tunnel-l2tun-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(L2Tpv2.Counters.Forwarding.Sessions.Session, self).__init__()
+                        super(L2tpv2.Counters.Forwarding.Sessions.Session, self).__init__()
 
                         self.yang_name = "session"
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['tunnel_id','session_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('tunnel_id', YLeaf(YType.int32, 'tunnel-id')),
-                            ('session_id', YLeaf(YType.int32, 'session-id')),
+                            ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
+                            ('session_id', YLeaf(YType.uint32, 'session-id')),
                             ('remote_session_id', YLeaf(YType.uint32, 'remote-session-id')),
                             ('in_packets', YLeaf(YType.uint64, 'in-packets')),
                             ('out_packets', YLeaf(YType.uint64, 'out-packets')),
@@ -5415,7 +5347,7 @@ class L2Tpv2(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/forwarding/sessions/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2Tpv2.Counters.Forwarding.Sessions.Session, ['tunnel_id', 'session_id', 'remote_session_id', 'in_packets', 'out_packets', 'in_bytes', 'out_bytes'], name, value)
+                        self._perform_setattr(L2tpv2.Counters.Forwarding.Sessions.Session, ['tunnel_id', 'session_id', u'remote_session_id', u'in_packets', u'out_packets', u'in_bytes', u'out_bytes'], name, value)
 
 
         class Control(Entity):
@@ -5425,43 +5357,43 @@ class L2Tpv2(Entity):
             .. attribute:: tunnel_xr
             
             	L2TP control tunnel messages counters
-            	**type**\:  :py:class:`TunnelXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr>`
+            	**type**\:  :py:class:`TunnelXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr>`
             
             .. attribute:: tunnels
             
             	Table of tunnel IDs of control message counters
-            	**type**\:  :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.Tunnels>`
+            	**type**\:  :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.Tunnels>`
             
             
 
             """
 
             _prefix = 'tunnel-l2tun-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
-                super(L2Tpv2.Counters.Control, self).__init__()
+                super(L2tpv2.Counters.Control, self).__init__()
 
                 self.yang_name = "control"
                 self.yang_parent_name = "counters"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("tunnel-xr", ("tunnel_xr", L2Tpv2.Counters.Control.TunnelXr)), ("tunnels", ("tunnels", L2Tpv2.Counters.Control.Tunnels))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("tunnel-xr", ("tunnel_xr", L2tpv2.Counters.Control.TunnelXr)), ("tunnels", ("tunnels", L2tpv2.Counters.Control.Tunnels))])
                 self._leafs = OrderedDict()
 
-                self.tunnel_xr = L2Tpv2.Counters.Control.TunnelXr()
+                self.tunnel_xr = L2tpv2.Counters.Control.TunnelXr()
                 self.tunnel_xr.parent = self
                 self._children_name_map["tunnel_xr"] = "tunnel-xr"
-                self._children_yang_names.add("tunnel-xr")
 
-                self.tunnels = L2Tpv2.Counters.Control.Tunnels()
+                self.tunnels = L2tpv2.Counters.Control.Tunnels()
                 self.tunnels.parent = self
                 self._children_name_map["tunnels"] = "tunnels"
-                self._children_yang_names.add("tunnels")
                 self._segment_path = lambda: "control"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(L2tpv2.Counters.Control, [], name, value)
 
 
             class TunnelXr(Entity):
@@ -5471,43 +5403,43 @@ class L2Tpv2(Entity):
                 .. attribute:: authentication
                 
                 	Tunnel authentication counters
-                	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication>`
+                	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Authentication>`
                 
                 .. attribute:: global_
                 
                 	Tunnel counters
-                	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Global>`
+                	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Global>`
                 
                 
 
                 """
 
                 _prefix = 'tunnel-l2tun-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(L2Tpv2.Counters.Control.TunnelXr, self).__init__()
+                    super(L2tpv2.Counters.Control.TunnelXr, self).__init__()
 
                     self.yang_name = "tunnel-xr"
                     self.yang_parent_name = "control"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("authentication", ("authentication", L2Tpv2.Counters.Control.TunnelXr.Authentication)), ("global", ("global_", L2Tpv2.Counters.Control.TunnelXr.Global))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("authentication", ("authentication", L2tpv2.Counters.Control.TunnelXr.Authentication)), ("global", ("global_", L2tpv2.Counters.Control.TunnelXr.Global))])
                     self._leafs = OrderedDict()
 
-                    self.authentication = L2Tpv2.Counters.Control.TunnelXr.Authentication()
+                    self.authentication = L2tpv2.Counters.Control.TunnelXr.Authentication()
                     self.authentication.parent = self
                     self._children_name_map["authentication"] = "authentication"
-                    self._children_yang_names.add("authentication")
 
-                    self.global_ = L2Tpv2.Counters.Control.TunnelXr.Global()
+                    self.global_ = L2tpv2.Counters.Control.TunnelXr.Global()
                     self.global_.parent = self
                     self._children_name_map["global_"] = "global"
-                    self._children_yang_names.add("global")
                     self._segment_path = lambda: "tunnel-xr"
                     self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(L2tpv2.Counters.Control.TunnelXr, [], name, value)
 
 
                 class Authentication(Entity):
@@ -5517,113 +5449,106 @@ class L2Tpv2(Entity):
                     .. attribute:: nonce_avp
                     
                     	Nonce AVP statistics
-                    	**type**\:  :py:class:`NonceAvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.NonceAvp>`
+                    	**type**\:  :py:class:`NonceAvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Authentication.NonceAvp>`
                     
                     .. attribute:: common_digest
                     
                     	Common digest statistics
-                    	**type**\:  :py:class:`CommonDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.CommonDigest>`
+                    	**type**\:  :py:class:`CommonDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Authentication.CommonDigest>`
                     
                     .. attribute:: primary_digest
                     
                     	Primary digest statistics
-                    	**type**\:  :py:class:`PrimaryDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.PrimaryDigest>`
+                    	**type**\:  :py:class:`PrimaryDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Authentication.PrimaryDigest>`
                     
                     .. attribute:: secondary_digest
                     
                     	Secondary digest statistics
-                    	**type**\:  :py:class:`SecondaryDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.SecondaryDigest>`
+                    	**type**\:  :py:class:`SecondaryDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Authentication.SecondaryDigest>`
                     
                     .. attribute:: integrity_check
                     
                     	Integrity check statistics
-                    	**type**\:  :py:class:`IntegrityCheck <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.IntegrityCheck>`
+                    	**type**\:  :py:class:`IntegrityCheck <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Authentication.IntegrityCheck>`
                     
                     .. attribute:: local_secret
                     
                     	Local secret statistics
-                    	**type**\:  :py:class:`LocalSecret <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.LocalSecret>`
+                    	**type**\:  :py:class:`LocalSecret <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Authentication.LocalSecret>`
                     
                     .. attribute:: challenge_avp
                     
                     	Challenge AVP statistics
-                    	**type**\:  :py:class:`ChallengeAvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.ChallengeAvp>`
+                    	**type**\:  :py:class:`ChallengeAvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Authentication.ChallengeAvp>`
                     
                     .. attribute:: challenge_reponse
                     
                     	Challenge response statistics
-                    	**type**\:  :py:class:`ChallengeReponse <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.ChallengeReponse>`
+                    	**type**\:  :py:class:`ChallengeReponse <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Authentication.ChallengeReponse>`
                     
                     .. attribute:: overall_statistics
                     
                     	Overall statistics
-                    	**type**\:  :py:class:`OverallStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.OverallStatistics>`
+                    	**type**\:  :py:class:`OverallStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Authentication.OverallStatistics>`
                     
                     
 
                     """
 
                     _prefix = 'tunnel-l2tun-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(L2Tpv2.Counters.Control.TunnelXr.Authentication, self).__init__()
+                        super(L2tpv2.Counters.Control.TunnelXr.Authentication, self).__init__()
 
                         self.yang_name = "authentication"
                         self.yang_parent_name = "tunnel-xr"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("nonce-avp", ("nonce_avp", L2Tpv2.Counters.Control.TunnelXr.Authentication.NonceAvp)), ("common-digest", ("common_digest", L2Tpv2.Counters.Control.TunnelXr.Authentication.CommonDigest)), ("primary-digest", ("primary_digest", L2Tpv2.Counters.Control.TunnelXr.Authentication.PrimaryDigest)), ("secondary-digest", ("secondary_digest", L2Tpv2.Counters.Control.TunnelXr.Authentication.SecondaryDigest)), ("integrity-check", ("integrity_check", L2Tpv2.Counters.Control.TunnelXr.Authentication.IntegrityCheck)), ("local-secret", ("local_secret", L2Tpv2.Counters.Control.TunnelXr.Authentication.LocalSecret)), ("challenge-avp", ("challenge_avp", L2Tpv2.Counters.Control.TunnelXr.Authentication.ChallengeAvp)), ("challenge-reponse", ("challenge_reponse", L2Tpv2.Counters.Control.TunnelXr.Authentication.ChallengeReponse)), ("overall-statistics", ("overall_statistics", L2Tpv2.Counters.Control.TunnelXr.Authentication.OverallStatistics))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("nonce-avp", ("nonce_avp", L2tpv2.Counters.Control.TunnelXr.Authentication.NonceAvp)), ("common-digest", ("common_digest", L2tpv2.Counters.Control.TunnelXr.Authentication.CommonDigest)), ("primary-digest", ("primary_digest", L2tpv2.Counters.Control.TunnelXr.Authentication.PrimaryDigest)), ("secondary-digest", ("secondary_digest", L2tpv2.Counters.Control.TunnelXr.Authentication.SecondaryDigest)), ("integrity-check", ("integrity_check", L2tpv2.Counters.Control.TunnelXr.Authentication.IntegrityCheck)), ("local-secret", ("local_secret", L2tpv2.Counters.Control.TunnelXr.Authentication.LocalSecret)), ("challenge-avp", ("challenge_avp", L2tpv2.Counters.Control.TunnelXr.Authentication.ChallengeAvp)), ("challenge-reponse", ("challenge_reponse", L2tpv2.Counters.Control.TunnelXr.Authentication.ChallengeReponse)), ("overall-statistics", ("overall_statistics", L2tpv2.Counters.Control.TunnelXr.Authentication.OverallStatistics))])
                         self._leafs = OrderedDict()
 
-                        self.nonce_avp = L2Tpv2.Counters.Control.TunnelXr.Authentication.NonceAvp()
+                        self.nonce_avp = L2tpv2.Counters.Control.TunnelXr.Authentication.NonceAvp()
                         self.nonce_avp.parent = self
                         self._children_name_map["nonce_avp"] = "nonce-avp"
-                        self._children_yang_names.add("nonce-avp")
 
-                        self.common_digest = L2Tpv2.Counters.Control.TunnelXr.Authentication.CommonDigest()
+                        self.common_digest = L2tpv2.Counters.Control.TunnelXr.Authentication.CommonDigest()
                         self.common_digest.parent = self
                         self._children_name_map["common_digest"] = "common-digest"
-                        self._children_yang_names.add("common-digest")
 
-                        self.primary_digest = L2Tpv2.Counters.Control.TunnelXr.Authentication.PrimaryDigest()
+                        self.primary_digest = L2tpv2.Counters.Control.TunnelXr.Authentication.PrimaryDigest()
                         self.primary_digest.parent = self
                         self._children_name_map["primary_digest"] = "primary-digest"
-                        self._children_yang_names.add("primary-digest")
 
-                        self.secondary_digest = L2Tpv2.Counters.Control.TunnelXr.Authentication.SecondaryDigest()
+                        self.secondary_digest = L2tpv2.Counters.Control.TunnelXr.Authentication.SecondaryDigest()
                         self.secondary_digest.parent = self
                         self._children_name_map["secondary_digest"] = "secondary-digest"
-                        self._children_yang_names.add("secondary-digest")
 
-                        self.integrity_check = L2Tpv2.Counters.Control.TunnelXr.Authentication.IntegrityCheck()
+                        self.integrity_check = L2tpv2.Counters.Control.TunnelXr.Authentication.IntegrityCheck()
                         self.integrity_check.parent = self
                         self._children_name_map["integrity_check"] = "integrity-check"
-                        self._children_yang_names.add("integrity-check")
 
-                        self.local_secret = L2Tpv2.Counters.Control.TunnelXr.Authentication.LocalSecret()
+                        self.local_secret = L2tpv2.Counters.Control.TunnelXr.Authentication.LocalSecret()
                         self.local_secret.parent = self
                         self._children_name_map["local_secret"] = "local-secret"
-                        self._children_yang_names.add("local-secret")
 
-                        self.challenge_avp = L2Tpv2.Counters.Control.TunnelXr.Authentication.ChallengeAvp()
+                        self.challenge_avp = L2tpv2.Counters.Control.TunnelXr.Authentication.ChallengeAvp()
                         self.challenge_avp.parent = self
                         self._children_name_map["challenge_avp"] = "challenge-avp"
-                        self._children_yang_names.add("challenge-avp")
 
-                        self.challenge_reponse = L2Tpv2.Counters.Control.TunnelXr.Authentication.ChallengeReponse()
+                        self.challenge_reponse = L2tpv2.Counters.Control.TunnelXr.Authentication.ChallengeReponse()
                         self.challenge_reponse.parent = self
                         self._children_name_map["challenge_reponse"] = "challenge-reponse"
-                        self._children_yang_names.add("challenge-reponse")
 
-                        self.overall_statistics = L2Tpv2.Counters.Control.TunnelXr.Authentication.OverallStatistics()
+                        self.overall_statistics = L2tpv2.Counters.Control.TunnelXr.Authentication.OverallStatistics()
                         self.overall_statistics.parent = self
                         self._children_name_map["overall_statistics"] = "overall-statistics"
-                        self._children_yang_names.add("overall-statistics")
                         self._segment_path = lambda: "authentication"
                         self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication, [], name, value)
 
 
                     class NonceAvp(Entity):
@@ -5712,18 +5637,17 @@ class L2Tpv2(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tpv2.Counters.Control.TunnelXr.Authentication.NonceAvp, self).__init__()
+                            super(L2tpv2.Counters.Control.TunnelXr.Authentication.NonceAvp, self).__init__()
 
                             self.yang_name = "nonce-avp"
                             self.yang_parent_name = "authentication"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('validate', YLeaf(YType.uint32, 'validate')),
                                 ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
@@ -5752,7 +5676,7 @@ class L2Tpv2(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tpv2.Counters.Control.TunnelXr.Authentication.NonceAvp, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
+                            self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.NonceAvp, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
                     class CommonDigest(Entity):
@@ -5841,18 +5765,17 @@ class L2Tpv2(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tpv2.Counters.Control.TunnelXr.Authentication.CommonDigest, self).__init__()
+                            super(L2tpv2.Counters.Control.TunnelXr.Authentication.CommonDigest, self).__init__()
 
                             self.yang_name = "common-digest"
                             self.yang_parent_name = "authentication"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('validate', YLeaf(YType.uint32, 'validate')),
                                 ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
@@ -5881,7 +5804,7 @@ class L2Tpv2(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tpv2.Counters.Control.TunnelXr.Authentication.CommonDigest, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
+                            self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.CommonDigest, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
                     class PrimaryDigest(Entity):
@@ -5970,18 +5893,17 @@ class L2Tpv2(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tpv2.Counters.Control.TunnelXr.Authentication.PrimaryDigest, self).__init__()
+                            super(L2tpv2.Counters.Control.TunnelXr.Authentication.PrimaryDigest, self).__init__()
 
                             self.yang_name = "primary-digest"
                             self.yang_parent_name = "authentication"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('validate', YLeaf(YType.uint32, 'validate')),
                                 ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
@@ -6010,7 +5932,7 @@ class L2Tpv2(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tpv2.Counters.Control.TunnelXr.Authentication.PrimaryDigest, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
+                            self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.PrimaryDigest, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
                     class SecondaryDigest(Entity):
@@ -6099,18 +6021,17 @@ class L2Tpv2(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tpv2.Counters.Control.TunnelXr.Authentication.SecondaryDigest, self).__init__()
+                            super(L2tpv2.Counters.Control.TunnelXr.Authentication.SecondaryDigest, self).__init__()
 
                             self.yang_name = "secondary-digest"
                             self.yang_parent_name = "authentication"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('validate', YLeaf(YType.uint32, 'validate')),
                                 ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
@@ -6139,7 +6060,7 @@ class L2Tpv2(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tpv2.Counters.Control.TunnelXr.Authentication.SecondaryDigest, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
+                            self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.SecondaryDigest, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
                     class IntegrityCheck(Entity):
@@ -6228,18 +6149,17 @@ class L2Tpv2(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tpv2.Counters.Control.TunnelXr.Authentication.IntegrityCheck, self).__init__()
+                            super(L2tpv2.Counters.Control.TunnelXr.Authentication.IntegrityCheck, self).__init__()
 
                             self.yang_name = "integrity-check"
                             self.yang_parent_name = "authentication"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('validate', YLeaf(YType.uint32, 'validate')),
                                 ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
@@ -6268,7 +6188,7 @@ class L2Tpv2(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tpv2.Counters.Control.TunnelXr.Authentication.IntegrityCheck, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
+                            self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.IntegrityCheck, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
                     class LocalSecret(Entity):
@@ -6357,18 +6277,17 @@ class L2Tpv2(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tpv2.Counters.Control.TunnelXr.Authentication.LocalSecret, self).__init__()
+                            super(L2tpv2.Counters.Control.TunnelXr.Authentication.LocalSecret, self).__init__()
 
                             self.yang_name = "local-secret"
                             self.yang_parent_name = "authentication"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('validate', YLeaf(YType.uint32, 'validate')),
                                 ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
@@ -6397,7 +6316,7 @@ class L2Tpv2(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tpv2.Counters.Control.TunnelXr.Authentication.LocalSecret, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
+                            self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.LocalSecret, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
                     class ChallengeAvp(Entity):
@@ -6486,18 +6405,17 @@ class L2Tpv2(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tpv2.Counters.Control.TunnelXr.Authentication.ChallengeAvp, self).__init__()
+                            super(L2tpv2.Counters.Control.TunnelXr.Authentication.ChallengeAvp, self).__init__()
 
                             self.yang_name = "challenge-avp"
                             self.yang_parent_name = "authentication"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('validate', YLeaf(YType.uint32, 'validate')),
                                 ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
@@ -6526,7 +6444,7 @@ class L2Tpv2(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tpv2.Counters.Control.TunnelXr.Authentication.ChallengeAvp, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
+                            self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.ChallengeAvp, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
                     class ChallengeReponse(Entity):
@@ -6615,18 +6533,17 @@ class L2Tpv2(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tpv2.Counters.Control.TunnelXr.Authentication.ChallengeReponse, self).__init__()
+                            super(L2tpv2.Counters.Control.TunnelXr.Authentication.ChallengeReponse, self).__init__()
 
                             self.yang_name = "challenge-reponse"
                             self.yang_parent_name = "authentication"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('validate', YLeaf(YType.uint32, 'validate')),
                                 ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
@@ -6655,7 +6572,7 @@ class L2Tpv2(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tpv2.Counters.Control.TunnelXr.Authentication.ChallengeReponse, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
+                            self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.ChallengeReponse, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
                     class OverallStatistics(Entity):
@@ -6744,18 +6661,17 @@ class L2Tpv2(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tpv2.Counters.Control.TunnelXr.Authentication.OverallStatistics, self).__init__()
+                            super(L2tpv2.Counters.Control.TunnelXr.Authentication.OverallStatistics, self).__init__()
 
                             self.yang_name = "overall-statistics"
                             self.yang_parent_name = "authentication"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('validate', YLeaf(YType.uint32, 'validate')),
                                 ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
@@ -6784,7 +6700,7 @@ class L2Tpv2(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tpv2.Counters.Control.TunnelXr.Authentication.OverallStatistics, ['validate', 'bad_hash', 'bad_length', 'ignored', 'missing', 'passed', 'failed', 'skipped', 'generate_response_failures', 'unexpected', 'unexpected_zlb'], name, value)
+                            self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.OverallStatistics, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
                 class Global(Entity):
@@ -6794,22 +6710,22 @@ class L2Tpv2(Entity):
                     .. attribute:: transmit
                     
                     	Transmit data
-                    	**type**\:  :py:class:`Transmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Global.Transmit>`
+                    	**type**\:  :py:class:`Transmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Global.Transmit>`
                     
                     .. attribute:: retransmit
                     
                     	Re transmit data
-                    	**type**\:  :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Global.Retransmit>`
+                    	**type**\:  :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Global.Retransmit>`
                     
                     .. attribute:: received
                     
                     	Received data
-                    	**type**\:  :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Global.Received>`
+                    	**type**\:  :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Global.Received>`
                     
                     .. attribute:: drop
                     
                     	Drop data
-                    	**type**\:  :py:class:`Drop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Global.Drop>`
+                    	**type**\:  :py:class:`Drop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Global.Drop>`
                     
                     .. attribute:: total_transmit
                     
@@ -6844,18 +6760,17 @@ class L2Tpv2(Entity):
                     """
 
                     _prefix = 'tunnel-l2tun-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(L2Tpv2.Counters.Control.TunnelXr.Global, self).__init__()
+                        super(L2tpv2.Counters.Control.TunnelXr.Global, self).__init__()
 
                         self.yang_name = "global"
                         self.yang_parent_name = "tunnel-xr"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("transmit", ("transmit", L2Tpv2.Counters.Control.TunnelXr.Global.Transmit)), ("retransmit", ("retransmit", L2Tpv2.Counters.Control.TunnelXr.Global.Retransmit)), ("received", ("received", L2Tpv2.Counters.Control.TunnelXr.Global.Received)), ("drop", ("drop", L2Tpv2.Counters.Control.TunnelXr.Global.Drop))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("transmit", ("transmit", L2tpv2.Counters.Control.TunnelXr.Global.Transmit)), ("retransmit", ("retransmit", L2tpv2.Counters.Control.TunnelXr.Global.Retransmit)), ("received", ("received", L2tpv2.Counters.Control.TunnelXr.Global.Received)), ("drop", ("drop", L2tpv2.Counters.Control.TunnelXr.Global.Drop))])
                         self._leafs = OrderedDict([
                             ('total_transmit', YLeaf(YType.uint32, 'total-transmit')),
                             ('total_retransmit', YLeaf(YType.uint32, 'total-retransmit')),
@@ -6867,30 +6782,26 @@ class L2Tpv2(Entity):
                         self.total_received = None
                         self.total_drop = None
 
-                        self.transmit = L2Tpv2.Counters.Control.TunnelXr.Global.Transmit()
+                        self.transmit = L2tpv2.Counters.Control.TunnelXr.Global.Transmit()
                         self.transmit.parent = self
                         self._children_name_map["transmit"] = "transmit"
-                        self._children_yang_names.add("transmit")
 
-                        self.retransmit = L2Tpv2.Counters.Control.TunnelXr.Global.Retransmit()
+                        self.retransmit = L2tpv2.Counters.Control.TunnelXr.Global.Retransmit()
                         self.retransmit.parent = self
                         self._children_name_map["retransmit"] = "retransmit"
-                        self._children_yang_names.add("retransmit")
 
-                        self.received = L2Tpv2.Counters.Control.TunnelXr.Global.Received()
+                        self.received = L2tpv2.Counters.Control.TunnelXr.Global.Received()
                         self.received.parent = self
                         self._children_name_map["received"] = "received"
-                        self._children_yang_names.add("received")
 
-                        self.drop = L2Tpv2.Counters.Control.TunnelXr.Global.Drop()
+                        self.drop = L2tpv2.Counters.Control.TunnelXr.Global.Drop()
                         self.drop.parent = self
                         self._children_name_map["drop"] = "drop"
-                        self._children_yang_names.add("drop")
                         self._segment_path = lambda: "global"
                         self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2Tpv2.Counters.Control.TunnelXr.Global, ['total_transmit', 'total_retransmit', 'total_received', 'total_drop'], name, value)
+                        self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Global, [u'total_transmit', u'total_retransmit', u'total_received', u'total_drop'], name, value)
 
 
                     class Transmit(Entity):
@@ -7035,18 +6946,17 @@ class L2Tpv2(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tpv2.Counters.Control.TunnelXr.Global.Transmit, self).__init__()
+                            super(L2tpv2.Counters.Control.TunnelXr.Global.Transmit, self).__init__()
 
                             self.yang_name = "transmit"
                             self.yang_parent_name = "global"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
                                 ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
@@ -7091,7 +7001,7 @@ class L2Tpv2(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/global/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tpv2.Counters.Control.TunnelXr.Global.Transmit, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
+                            self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Global.Transmit, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
                     class Retransmit(Entity):
@@ -7236,18 +7146,17 @@ class L2Tpv2(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tpv2.Counters.Control.TunnelXr.Global.Retransmit, self).__init__()
+                            super(L2tpv2.Counters.Control.TunnelXr.Global.Retransmit, self).__init__()
 
                             self.yang_name = "retransmit"
                             self.yang_parent_name = "global"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
                                 ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
@@ -7292,7 +7201,7 @@ class L2Tpv2(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/global/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tpv2.Counters.Control.TunnelXr.Global.Retransmit, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
+                            self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Global.Retransmit, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
                     class Received(Entity):
@@ -7437,18 +7346,17 @@ class L2Tpv2(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tpv2.Counters.Control.TunnelXr.Global.Received, self).__init__()
+                            super(L2tpv2.Counters.Control.TunnelXr.Global.Received, self).__init__()
 
                             self.yang_name = "received"
                             self.yang_parent_name = "global"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
                                 ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
@@ -7493,7 +7401,7 @@ class L2Tpv2(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/global/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tpv2.Counters.Control.TunnelXr.Global.Received, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
+                            self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Global.Received, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
                     class Drop(Entity):
@@ -7638,18 +7546,17 @@ class L2Tpv2(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tpv2.Counters.Control.TunnelXr.Global.Drop, self).__init__()
+                            super(L2tpv2.Counters.Control.TunnelXr.Global.Drop, self).__init__()
 
                             self.yang_name = "drop"
                             self.yang_parent_name = "global"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
                                 ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
@@ -7694,7 +7601,7 @@ class L2Tpv2(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/global/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tpv2.Counters.Control.TunnelXr.Global.Drop, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
+                            self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Global.Drop, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
             class Tunnels(Entity):
@@ -7704,25 +7611,24 @@ class L2Tpv2(Entity):
                 .. attribute:: tunnel
                 
                 	L2TP tunnel control message counters
-                	**type**\: list of  		 :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.Tunnels.Tunnel>`
+                	**type**\: list of  		 :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.Tunnels.Tunnel>`
                 
                 
 
                 """
 
                 _prefix = 'tunnel-l2tun-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(L2Tpv2.Counters.Control.Tunnels, self).__init__()
+                    super(L2tpv2.Counters.Control.Tunnels, self).__init__()
 
                     self.yang_name = "tunnels"
                     self.yang_parent_name = "control"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("tunnel", ("tunnel", L2Tpv2.Counters.Control.Tunnels.Tunnel))])
+                    self._child_classes = OrderedDict([("tunnel", ("tunnel", L2tpv2.Counters.Control.Tunnels.Tunnel))])
                     self._leafs = OrderedDict()
 
                     self.tunnel = YList(self)
@@ -7730,7 +7636,7 @@ class L2Tpv2(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2Tpv2.Counters.Control.Tunnels, [], name, value)
+                    self._perform_setattr(L2tpv2.Counters.Control.Tunnels, [], name, value)
 
 
                 class Tunnel(Entity):
@@ -7742,54 +7648,51 @@ class L2Tpv2(Entity):
                     	L2TP tunnel ID
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     .. attribute:: brief
                     
                     	L2TP control message local and remote addresses
-                    	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.Tunnels.Tunnel.Brief>`
+                    	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.Tunnels.Tunnel.Brief>`
                     
                     .. attribute:: global_
                     
                     	Global data
-                    	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.Tunnels.Tunnel.Global>`
+                    	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.Tunnels.Tunnel.Global>`
                     
                     
 
                     """
 
                     _prefix = 'tunnel-l2tun-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(L2Tpv2.Counters.Control.Tunnels.Tunnel, self).__init__()
+                        super(L2tpv2.Counters.Control.Tunnels.Tunnel, self).__init__()
 
                         self.yang_name = "tunnel"
                         self.yang_parent_name = "tunnels"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['tunnel_id']
-                        self._child_container_classes = OrderedDict([("brief", ("brief", L2Tpv2.Counters.Control.Tunnels.Tunnel.Brief)), ("global", ("global_", L2Tpv2.Counters.Control.Tunnels.Tunnel.Global))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("brief", ("brief", L2tpv2.Counters.Control.Tunnels.Tunnel.Brief)), ("global", ("global_", L2tpv2.Counters.Control.Tunnels.Tunnel.Global))])
                         self._leafs = OrderedDict([
-                            ('tunnel_id', YLeaf(YType.int32, 'tunnel-id')),
+                            ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
                         ])
                         self.tunnel_id = None
 
-                        self.brief = L2Tpv2.Counters.Control.Tunnels.Tunnel.Brief()
+                        self.brief = L2tpv2.Counters.Control.Tunnels.Tunnel.Brief()
                         self.brief.parent = self
                         self._children_name_map["brief"] = "brief"
-                        self._children_yang_names.add("brief")
 
-                        self.global_ = L2Tpv2.Counters.Control.Tunnels.Tunnel.Global()
+                        self.global_ = L2tpv2.Counters.Control.Tunnels.Tunnel.Global()
                         self.global_.parent = self
                         self._children_name_map["global_"] = "global"
-                        self._children_yang_names.add("global")
                         self._segment_path = lambda: "tunnel" + "[tunnel-id='" + str(self.tunnel_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnels/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2Tpv2.Counters.Control.Tunnels.Tunnel, ['tunnel_id'], name, value)
+                        self._perform_setattr(L2tpv2.Counters.Control.Tunnels.Tunnel, ['tunnel_id'], name, value)
 
 
                     class Brief(Entity):
@@ -7822,18 +7725,17 @@ class L2Tpv2(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tpv2.Counters.Control.Tunnels.Tunnel.Brief, self).__init__()
+                            super(L2tpv2.Counters.Control.Tunnels.Tunnel.Brief, self).__init__()
 
                             self.yang_name = "brief"
                             self.yang_parent_name = "tunnel"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('remote_tunnel_id', YLeaf(YType.uint32, 'remote-tunnel-id')),
                                 ('local_address', YLeaf(YType.str, 'local-address')),
@@ -7845,7 +7747,7 @@ class L2Tpv2(Entity):
                             self._segment_path = lambda: "brief"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tpv2.Counters.Control.Tunnels.Tunnel.Brief, ['remote_tunnel_id', 'local_address', 'remote_address'], name, value)
+                            self._perform_setattr(L2tpv2.Counters.Control.Tunnels.Tunnel.Brief, [u'remote_tunnel_id', u'local_address', u'remote_address'], name, value)
 
 
                     class Global(Entity):
@@ -7855,22 +7757,22 @@ class L2Tpv2(Entity):
                         .. attribute:: transmit
                         
                         	Transmit data
-                        	**type**\:  :py:class:`Transmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.Tunnels.Tunnel.Global.Transmit>`
+                        	**type**\:  :py:class:`Transmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Transmit>`
                         
                         .. attribute:: retransmit
                         
                         	Re transmit data
-                        	**type**\:  :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.Tunnels.Tunnel.Global.Retransmit>`
+                        	**type**\:  :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Retransmit>`
                         
                         .. attribute:: received
                         
                         	Received data
-                        	**type**\:  :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.Tunnels.Tunnel.Global.Received>`
+                        	**type**\:  :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Received>`
                         
                         .. attribute:: drop
                         
                         	Drop data
-                        	**type**\:  :py:class:`Drop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.Tunnels.Tunnel.Global.Drop>`
+                        	**type**\:  :py:class:`Drop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Drop>`
                         
                         .. attribute:: total_transmit
                         
@@ -7905,18 +7807,17 @@ class L2Tpv2(Entity):
                         """
 
                         _prefix = 'tunnel-l2tun-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(L2Tpv2.Counters.Control.Tunnels.Tunnel.Global, self).__init__()
+                            super(L2tpv2.Counters.Control.Tunnels.Tunnel.Global, self).__init__()
 
                             self.yang_name = "global"
                             self.yang_parent_name = "tunnel"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("transmit", ("transmit", L2Tpv2.Counters.Control.Tunnels.Tunnel.Global.Transmit)), ("retransmit", ("retransmit", L2Tpv2.Counters.Control.Tunnels.Tunnel.Global.Retransmit)), ("received", ("received", L2Tpv2.Counters.Control.Tunnels.Tunnel.Global.Received)), ("drop", ("drop", L2Tpv2.Counters.Control.Tunnels.Tunnel.Global.Drop))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("transmit", ("transmit", L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Transmit)), ("retransmit", ("retransmit", L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Retransmit)), ("received", ("received", L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Received)), ("drop", ("drop", L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Drop))])
                             self._leafs = OrderedDict([
                                 ('total_transmit', YLeaf(YType.uint32, 'total-transmit')),
                                 ('total_retransmit', YLeaf(YType.uint32, 'total-retransmit')),
@@ -7928,29 +7829,25 @@ class L2Tpv2(Entity):
                             self.total_received = None
                             self.total_drop = None
 
-                            self.transmit = L2Tpv2.Counters.Control.Tunnels.Tunnel.Global.Transmit()
+                            self.transmit = L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Transmit()
                             self.transmit.parent = self
                             self._children_name_map["transmit"] = "transmit"
-                            self._children_yang_names.add("transmit")
 
-                            self.retransmit = L2Tpv2.Counters.Control.Tunnels.Tunnel.Global.Retransmit()
+                            self.retransmit = L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Retransmit()
                             self.retransmit.parent = self
                             self._children_name_map["retransmit"] = "retransmit"
-                            self._children_yang_names.add("retransmit")
 
-                            self.received = L2Tpv2.Counters.Control.Tunnels.Tunnel.Global.Received()
+                            self.received = L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Received()
                             self.received.parent = self
                             self._children_name_map["received"] = "received"
-                            self._children_yang_names.add("received")
 
-                            self.drop = L2Tpv2.Counters.Control.Tunnels.Tunnel.Global.Drop()
+                            self.drop = L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Drop()
                             self.drop.parent = self
                             self._children_name_map["drop"] = "drop"
-                            self._children_yang_names.add("drop")
                             self._segment_path = lambda: "global"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tpv2.Counters.Control.Tunnels.Tunnel.Global, ['total_transmit', 'total_retransmit', 'total_received', 'total_drop'], name, value)
+                            self._perform_setattr(L2tpv2.Counters.Control.Tunnels.Tunnel.Global, [u'total_transmit', u'total_retransmit', u'total_received', u'total_drop'], name, value)
 
 
                         class Transmit(Entity):
@@ -8095,18 +7992,17 @@ class L2Tpv2(Entity):
                             """
 
                             _prefix = 'tunnel-l2tun-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(L2Tpv2.Counters.Control.Tunnels.Tunnel.Global.Transmit, self).__init__()
+                                super(L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Transmit, self).__init__()
 
                                 self.yang_name = "transmit"
                                 self.yang_parent_name = "global"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
                                     ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
@@ -8150,7 +8046,7 @@ class L2Tpv2(Entity):
                                 self._segment_path = lambda: "transmit"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2Tpv2.Counters.Control.Tunnels.Tunnel.Global.Transmit, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
+                                self._perform_setattr(L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Transmit, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
                         class Retransmit(Entity):
@@ -8295,18 +8191,17 @@ class L2Tpv2(Entity):
                             """
 
                             _prefix = 'tunnel-l2tun-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(L2Tpv2.Counters.Control.Tunnels.Tunnel.Global.Retransmit, self).__init__()
+                                super(L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Retransmit, self).__init__()
 
                                 self.yang_name = "retransmit"
                                 self.yang_parent_name = "global"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
                                     ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
@@ -8350,7 +8245,7 @@ class L2Tpv2(Entity):
                                 self._segment_path = lambda: "retransmit"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2Tpv2.Counters.Control.Tunnels.Tunnel.Global.Retransmit, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
+                                self._perform_setattr(L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Retransmit, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
                         class Received(Entity):
@@ -8495,18 +8390,17 @@ class L2Tpv2(Entity):
                             """
 
                             _prefix = 'tunnel-l2tun-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(L2Tpv2.Counters.Control.Tunnels.Tunnel.Global.Received, self).__init__()
+                                super(L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Received, self).__init__()
 
                                 self.yang_name = "received"
                                 self.yang_parent_name = "global"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
                                     ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
@@ -8550,7 +8444,7 @@ class L2Tpv2(Entity):
                                 self._segment_path = lambda: "received"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2Tpv2.Counters.Control.Tunnels.Tunnel.Global.Received, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
+                                self._perform_setattr(L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Received, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
                         class Drop(Entity):
@@ -8695,18 +8589,17 @@ class L2Tpv2(Entity):
                             """
 
                             _prefix = 'tunnel-l2tun-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(L2Tpv2.Counters.Control.Tunnels.Tunnel.Global.Drop, self).__init__()
+                                super(L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Drop, self).__init__()
 
                                 self.yang_name = "drop"
                                 self.yang_parent_name = "global"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
                                     ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
@@ -8750,7 +8643,7 @@ class L2Tpv2(Entity):
                                 self._segment_path = lambda: "drop"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2Tpv2.Counters.Control.Tunnels.Tunnel.Global.Drop, ['unknown_packets', 'zero_length_body_packets', 'start_control_connection_requests', 'start_control_connection_replies', 'start_control_connection_notifications', 'stop_control_connection_notifications', 'hello_packets', 'outgoing_call_requests', 'outgoing_call_replies', 'outgoing_call_connected_packets', 'incoming_call_requests', 'incoming_call_replies', 'incoming_call_connected_packets', 'call_disconnect_notify_packets', 'wan_error_notify_packets', 'set_link_info_packets', 'service_relay_requests', 'service_relay_replies', 'acknowledgement_packets'], name, value)
+                                self._perform_setattr(L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Drop, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
     class Statistics(Entity):
@@ -8841,18 +8734,17 @@ class L2Tpv2(Entity):
         """
 
         _prefix = 'tunnel-l2tun-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
-            super(L2Tpv2.Statistics, self).__init__()
+            super(L2tpv2.Statistics, self).__init__()
 
             self.yang_name = "statistics"
             self.yang_parent_name = "l2tpv2"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('tunnels', YLeaf(YType.uint32, 'tunnels')),
                 ('sessions', YLeaf(YType.uint32, 'sessions')),
@@ -8881,7 +8773,7 @@ class L2Tpv2(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(L2Tpv2.Statistics, ['tunnels', 'sessions', 'sent_packets', 'received_packets', 'average_packet_processing_time', 'received_out_of_order_packets', 'reorder_packets', 'reorder_deviation_packets', 'incoming_dropped_packets', 'buffered_packets', 'netio_packets'], name, value)
+            self._perform_setattr(L2tpv2.Statistics, [u'tunnels', u'sessions', u'sent_packets', u'received_packets', u'average_packet_processing_time', u'received_out_of_order_packets', u'reorder_packets', u'reorder_deviation_packets', u'incoming_dropped_packets', u'buffered_packets', u'netio_packets'], name, value)
 
 
     class Tunnel(Entity):
@@ -8891,33 +8783,34 @@ class L2Tpv2(Entity):
         .. attribute:: accounting
         
         	Tunnel accounting counters
-        	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Tunnel.Accounting>`
+        	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Tunnel.Accounting>`
         
         
 
         """
 
         _prefix = 'tunnel-l2tun-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
-            super(L2Tpv2.Tunnel, self).__init__()
+            super(L2tpv2.Tunnel, self).__init__()
 
             self.yang_name = "tunnel"
             self.yang_parent_name = "l2tpv2"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("accounting", ("accounting", L2Tpv2.Tunnel.Accounting))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("accounting", ("accounting", L2tpv2.Tunnel.Accounting))])
             self._leafs = OrderedDict()
 
-            self.accounting = L2Tpv2.Tunnel.Accounting()
+            self.accounting = L2tpv2.Tunnel.Accounting()
             self.accounting.parent = self
             self._children_name_map["accounting"] = "accounting"
-            self._children_yang_names.add("accounting")
             self._segment_path = lambda: "tunnel"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(L2tpv2.Tunnel, [], name, value)
 
 
         class Accounting(Entity):
@@ -8927,33 +8820,34 @@ class L2Tpv2(Entity):
             .. attribute:: statistics
             
             	Tunnel accounting statistics
-            	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Tunnel.Accounting.Statistics>`
+            	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Tunnel.Accounting.Statistics>`
             
             
 
             """
 
             _prefix = 'tunnel-l2tun-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
-                super(L2Tpv2.Tunnel.Accounting, self).__init__()
+                super(L2tpv2.Tunnel.Accounting, self).__init__()
 
                 self.yang_name = "accounting"
                 self.yang_parent_name = "tunnel"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("statistics", ("statistics", L2Tpv2.Tunnel.Accounting.Statistics))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("statistics", ("statistics", L2tpv2.Tunnel.Accounting.Statistics))])
                 self._leafs = OrderedDict()
 
-                self.statistics = L2Tpv2.Tunnel.Accounting.Statistics()
+                self.statistics = L2tpv2.Tunnel.Accounting.Statistics()
                 self.statistics.parent = self
                 self._children_name_map["statistics"] = "statistics"
-                self._children_yang_names.add("statistics")
                 self._segment_path = lambda: "accounting"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/tunnel/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(L2tpv2.Tunnel.Accounting, [], name, value)
 
 
             class Statistics(Entity):
@@ -9070,18 +8964,17 @@ class L2Tpv2(Entity):
                 """
 
                 _prefix = 'tunnel-l2tun-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(L2Tpv2.Tunnel.Accounting.Statistics, self).__init__()
+                    super(L2tpv2.Tunnel.Accounting.Statistics, self).__init__()
 
                     self.yang_name = "statistics"
                     self.yang_parent_name = "accounting"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('records_sent_successfully', YLeaf(YType.uint64, 'records-sent-successfully')),
                         ('start', YLeaf(YType.uint64, 'start')),
@@ -9118,7 +9011,7 @@ class L2Tpv2(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/tunnel/accounting/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2Tpv2.Tunnel.Accounting.Statistics, ['records_sent_successfully', 'start', 'stop', 'reject', 'transport_failures', 'positive_acknowledgement', 'negative_acknowledgement', 'records_checkpointed', 'records_failed_to_checkpoint', 'records_sent_from_queue', 'memory_failures', 'current_size', 'records_recovered_from_checkpoint', 'records_fail_to_recover', 'queue_statistics_size'], name, value)
+                    self._perform_setattr(L2tpv2.Tunnel.Accounting.Statistics, [u'records_sent_successfully', u'start', u'stop', u'reject', u'transport_failures', u'positive_acknowledgement', u'negative_acknowledgement', u'records_checkpointed', u'records_failed_to_checkpoint', u'records_sent_from_queue', u'memory_failures', u'current_size', u'records_recovered_from_checkpoint', u'records_fail_to_recover', u'queue_statistics_size'], name, value)
 
 
     class TunnelConfigurations(Entity):
@@ -9128,25 +9021,24 @@ class L2Tpv2(Entity):
         .. attribute:: tunnel_configuration
         
         	L2TP tunnel information
-        	**type**\: list of  		 :py:class:`TunnelConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.TunnelConfigurations.TunnelConfiguration>`
+        	**type**\: list of  		 :py:class:`TunnelConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.TunnelConfigurations.TunnelConfiguration>`
         
         
 
         """
 
         _prefix = 'tunnel-l2tun-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
-            super(L2Tpv2.TunnelConfigurations, self).__init__()
+            super(L2tpv2.TunnelConfigurations, self).__init__()
 
             self.yang_name = "tunnel-configurations"
             self.yang_parent_name = "l2tpv2"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("tunnel-configuration", ("tunnel_configuration", L2Tpv2.TunnelConfigurations.TunnelConfiguration))])
+            self._child_classes = OrderedDict([("tunnel-configuration", ("tunnel_configuration", L2tpv2.TunnelConfigurations.TunnelConfiguration))])
             self._leafs = OrderedDict()
 
             self.tunnel_configuration = YList(self)
@@ -9154,7 +9046,7 @@ class L2Tpv2(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(L2Tpv2.TunnelConfigurations, [], name, value)
+            self._perform_setattr(L2tpv2.TunnelConfigurations, [], name, value)
 
 
         class TunnelConfiguration(Entity):
@@ -9166,12 +9058,12 @@ class L2Tpv2(Entity):
             	Local tunnel ID
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: l2tp_class
             
             	L2Tp class data
-            	**type**\:  :py:class:`L2TpClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.TunnelConfigurations.TunnelConfiguration.L2TpClass>`
+            	**type**\:  :py:class:`L2tpClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.TunnelConfigurations.TunnelConfiguration.L2tpClass>`
             
             .. attribute:: remote_tunnel_id
             
@@ -9185,37 +9077,35 @@ class L2Tpv2(Entity):
             """
 
             _prefix = 'tunnel-l2tun-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
-                super(L2Tpv2.TunnelConfigurations.TunnelConfiguration, self).__init__()
+                super(L2tpv2.TunnelConfigurations.TunnelConfiguration, self).__init__()
 
                 self.yang_name = "tunnel-configuration"
                 self.yang_parent_name = "tunnel-configurations"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['local_tunnel_id']
-                self._child_container_classes = OrderedDict([("l2tp-class", ("l2tp_class", L2Tpv2.TunnelConfigurations.TunnelConfiguration.L2TpClass))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("l2tp-class", ("l2tp_class", L2tpv2.TunnelConfigurations.TunnelConfiguration.L2tpClass))])
                 self._leafs = OrderedDict([
-                    ('local_tunnel_id', YLeaf(YType.int32, 'local-tunnel-id')),
+                    ('local_tunnel_id', YLeaf(YType.uint32, 'local-tunnel-id')),
                     ('remote_tunnel_id', YLeaf(YType.uint32, 'remote-tunnel-id')),
                 ])
                 self.local_tunnel_id = None
                 self.remote_tunnel_id = None
 
-                self.l2tp_class = L2Tpv2.TunnelConfigurations.TunnelConfiguration.L2TpClass()
+                self.l2tp_class = L2tpv2.TunnelConfigurations.TunnelConfiguration.L2tpClass()
                 self.l2tp_class.parent = self
                 self._children_name_map["l2tp_class"] = "l2tp-class"
-                self._children_yang_names.add("l2tp-class")
                 self._segment_path = lambda: "tunnel-configuration" + "[local-tunnel-id='" + str(self.local_tunnel_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/tunnel-configurations/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2Tpv2.TunnelConfigurations.TunnelConfiguration, ['local_tunnel_id', 'remote_tunnel_id'], name, value)
+                self._perform_setattr(L2tpv2.TunnelConfigurations.TunnelConfiguration, ['local_tunnel_id', u'remote_tunnel_id'], name, value)
 
 
-            class L2TpClass(Entity):
+            class L2tpClass(Entity):
                 """
                 L2Tp class data
                 
@@ -9390,18 +9280,17 @@ class L2Tpv2(Entity):
                 """
 
                 _prefix = 'tunnel-l2tun-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(L2Tpv2.TunnelConfigurations.TunnelConfiguration.L2TpClass, self).__init__()
+                    super(L2tpv2.TunnelConfigurations.TunnelConfiguration.L2tpClass, self).__init__()
 
                     self.yang_name = "l2tp-class"
                     self.yang_parent_name = "tunnel-configuration"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ip_tos', YLeaf(YType.uint8, 'ip-tos')),
                         ('vrf_name', YLeaf(YType.str, 'vrf-name')),
@@ -9455,7 +9344,7 @@ class L2Tpv2(Entity):
                     self._segment_path = lambda: "l2tp-class"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2Tpv2.TunnelConfigurations.TunnelConfiguration.L2TpClass, ['ip_tos', 'vrf_name', 'receive_window_size', 'class_name_xr', 'digest_hash', 'password', 'encoded_password', 'host_name', 'accounting_method_list', 'hello_timeout', 'setup_timeout', 'retransmit_minimum_timeout', 'retransmit_maximum_timeout', 'initial_retransmit_minimum_timeout', 'initial_retransmit_maximum_timeout', 'timeout_no_user', 'retransmit_retries', 'initial_retransmit_retries', 'is_authentication_enabled', 'is_hidden', 'is_digest_enabled', 'is_digest_check_enabled', 'is_congestion_control_enabled', 'is_peer_address_checked'], name, value)
+                    self._perform_setattr(L2tpv2.TunnelConfigurations.TunnelConfiguration.L2tpClass, [u'ip_tos', u'vrf_name', u'receive_window_size', u'class_name_xr', u'digest_hash', u'password', u'encoded_password', u'host_name', u'accounting_method_list', u'hello_timeout', u'setup_timeout', u'retransmit_minimum_timeout', u'retransmit_maximum_timeout', u'initial_retransmit_minimum_timeout', u'initial_retransmit_maximum_timeout', u'timeout_no_user', u'retransmit_retries', u'initial_retransmit_retries', u'is_authentication_enabled', u'is_hidden', u'is_digest_enabled', u'is_digest_check_enabled', u'is_congestion_control_enabled', u'is_peer_address_checked'], name, value)
 
 
     class CounterHistFail(Entity):
@@ -9495,18 +9384,17 @@ class L2Tpv2(Entity):
         """
 
         _prefix = 'tunnel-l2tun-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
-            super(L2Tpv2.CounterHistFail, self).__init__()
+            super(L2tpv2.CounterHistFail, self).__init__()
 
             self.yang_name = "counter-hist-fail"
             self.yang_parent_name = "l2tpv2"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('sess_down_tmout', YLeaf(YType.uint32, 'sess-down-tmout')),
                 ('tx_counters', YLeaf(YType.str, 'tx-counters')),
@@ -9521,7 +9409,7 @@ class L2Tpv2(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(L2Tpv2.CounterHistFail, ['sess_down_tmout', 'tx_counters', 'rx_counters', 'pkt_timeout'], name, value)
+            self._perform_setattr(L2tpv2.CounterHistFail, [u'sess_down_tmout', u'tx_counters', u'rx_counters', u'pkt_timeout'], name, value)
 
 
     class Classes(Entity):
@@ -9531,25 +9419,24 @@ class L2Tpv2(Entity):
         .. attribute:: class_
         
         	L2TP class name
-        	**type**\: list of  		 :py:class:`Class <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Classes.Class>`
+        	**type**\: list of  		 :py:class:`Class <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Classes.Class>`
         
         
 
         """
 
         _prefix = 'tunnel-l2tun-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
-            super(L2Tpv2.Classes, self).__init__()
+            super(L2tpv2.Classes, self).__init__()
 
             self.yang_name = "classes"
             self.yang_parent_name = "l2tpv2"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("class", ("class_", L2Tpv2.Classes.Class))])
+            self._child_classes = OrderedDict([("class", ("class_", L2tpv2.Classes.Class))])
             self._leafs = OrderedDict()
 
             self.class_ = YList(self)
@@ -9557,7 +9444,7 @@ class L2Tpv2(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(L2Tpv2.Classes, [], name, value)
+            self._perform_setattr(L2tpv2.Classes, [], name, value)
 
 
         class Class(Entity):
@@ -9742,18 +9629,17 @@ class L2Tpv2(Entity):
             """
 
             _prefix = 'tunnel-l2tun-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
-                super(L2Tpv2.Classes.Class, self).__init__()
+                super(L2tpv2.Classes.Class, self).__init__()
 
                 self.yang_name = "class"
                 self.yang_parent_name = "classes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['class_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('class_name', YLeaf(YType.str, 'class-name')),
                     ('ip_tos', YLeaf(YType.uint8, 'ip-tos')),
@@ -9810,7 +9696,7 @@ class L2Tpv2(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/classes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2Tpv2.Classes.Class, ['class_name', 'ip_tos', 'vrf_name', 'receive_window_size', 'class_name_xr', 'digest_hash', 'password', 'encoded_password', 'host_name', 'accounting_method_list', 'hello_timeout', 'setup_timeout', 'retransmit_minimum_timeout', 'retransmit_maximum_timeout', 'initial_retransmit_minimum_timeout', 'initial_retransmit_maximum_timeout', 'timeout_no_user', 'retransmit_retries', 'initial_retransmit_retries', 'is_authentication_enabled', 'is_hidden', 'is_digest_enabled', 'is_digest_check_enabled', 'is_congestion_control_enabled', 'is_peer_address_checked'], name, value)
+                self._perform_setattr(L2tpv2.Classes.Class, ['class_name', u'ip_tos', u'vrf_name', u'receive_window_size', u'class_name_xr', u'digest_hash', u'password', u'encoded_password', u'host_name', u'accounting_method_list', u'hello_timeout', u'setup_timeout', u'retransmit_minimum_timeout', u'retransmit_maximum_timeout', u'initial_retransmit_minimum_timeout', u'initial_retransmit_maximum_timeout', u'timeout_no_user', u'retransmit_retries', u'initial_retransmit_retries', u'is_authentication_enabled', u'is_hidden', u'is_digest_enabled', u'is_digest_check_enabled', u'is_congestion_control_enabled', u'is_peer_address_checked'], name, value)
 
 
     class Tunnels(Entity):
@@ -9820,25 +9706,24 @@ class L2Tpv2(Entity):
         .. attribute:: tunnel
         
         	L2TP tunnel  information
-        	**type**\: list of  		 :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Tunnels.Tunnel>`
+        	**type**\: list of  		 :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Tunnels.Tunnel>`
         
         
 
         """
 
         _prefix = 'tunnel-l2tun-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
-            super(L2Tpv2.Tunnels, self).__init__()
+            super(L2tpv2.Tunnels, self).__init__()
 
             self.yang_name = "tunnels"
             self.yang_parent_name = "l2tpv2"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("tunnel", ("tunnel", L2Tpv2.Tunnels.Tunnel))])
+            self._child_classes = OrderedDict([("tunnel", ("tunnel", L2tpv2.Tunnels.Tunnel))])
             self._leafs = OrderedDict()
 
             self.tunnel = YList(self)
@@ -9846,7 +9731,7 @@ class L2Tpv2(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(L2Tpv2.Tunnels, [], name, value)
+            self._perform_setattr(L2tpv2.Tunnels, [], name, value)
 
 
         class Tunnel(Entity):
@@ -9858,7 +9743,7 @@ class L2Tpv2(Entity):
             	Local tunnel ID
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: local_address
             
@@ -10089,20 +9974,19 @@ class L2Tpv2(Entity):
             """
 
             _prefix = 'tunnel-l2tun-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
-                super(L2Tpv2.Tunnels.Tunnel, self).__init__()
+                super(L2tpv2.Tunnels.Tunnel, self).__init__()
 
                 self.yang_name = "tunnel"
                 self.yang_parent_name = "tunnels"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['local_tunnel_id']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('local_tunnel_id', YLeaf(YType.int32, 'local-tunnel-id')),
+                    ('local_tunnel_id', YLeaf(YType.uint32, 'local-tunnel-id')),
                     ('local_address', YLeaf(YType.str, 'local-address')),
                     ('remote_address', YLeaf(YType.str, 'remote-address')),
                     ('local_port', YLeaf(YType.uint16, 'local-port')),
@@ -10173,7 +10057,7 @@ class L2Tpv2(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/tunnels/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2Tpv2.Tunnels.Tunnel, ['local_tunnel_id', 'local_address', 'remote_address', 'local_port', 'remote_port', 'protocol', 'is_pmtu_enabled', 'remote_tunnel_id', 'local_tunnel_name', 'remote_tunnel_name', 'class_name', 'active_sessions', 'sequence_ns', 'sequence_nr', 'local_window_size', 'remote_window_size', 'retransmission_time', 'maximum_retransmission_time', 'unsent_queue_size', 'unsent_maximum_queue_size', 'resend_queue_size', 'resend_maximum_queue_size', 'order_queue_size', 'packet_queue_check', 'digest_secrets', 'resends', 'zero_length_body_acknowledgement_sent', 'total_out_of_order_drop_packets', 'total_out_of_order_reorder_packets', 'total_peer_authentication_failures', 'is_tunnel_up', 'is_congestion_control_enabled', 'retransmit_time'], name, value)
+                self._perform_setattr(L2tpv2.Tunnels.Tunnel, ['local_tunnel_id', u'local_address', u'remote_address', u'local_port', u'remote_port', u'protocol', u'is_pmtu_enabled', u'remote_tunnel_id', u'local_tunnel_name', u'remote_tunnel_name', u'class_name', u'active_sessions', u'sequence_ns', u'sequence_nr', u'local_window_size', u'remote_window_size', u'retransmission_time', u'maximum_retransmission_time', u'unsent_queue_size', u'unsent_maximum_queue_size', u'resend_queue_size', u'resend_maximum_queue_size', u'order_queue_size', u'packet_queue_check', u'digest_secrets', u'resends', u'zero_length_body_acknowledgement_sent', u'total_out_of_order_drop_packets', u'total_out_of_order_reorder_packets', u'total_peer_authentication_failures', u'is_tunnel_up', u'is_congestion_control_enabled', u'retransmit_time'], name, value)
 
 
     class Sessions(Entity):
@@ -10183,25 +10067,24 @@ class L2Tpv2(Entity):
         .. attribute:: session
         
         	L2TP information for a particular session
-        	**type**\: list of  		 :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Sessions.Session>`
+        	**type**\: list of  		 :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Sessions.Session>`
         
         
 
         """
 
         _prefix = 'tunnel-l2tun-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
-            super(L2Tpv2.Sessions, self).__init__()
+            super(L2tpv2.Sessions, self).__init__()
 
             self.yang_name = "sessions"
             self.yang_parent_name = "l2tpv2"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("session", ("session", L2Tpv2.Sessions.Session))])
+            self._child_classes = OrderedDict([("session", ("session", L2tpv2.Sessions.Session))])
             self._leafs = OrderedDict()
 
             self.session = YList(self)
@@ -10209,7 +10092,7 @@ class L2Tpv2(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(L2Tpv2.Sessions, [], name, value)
+            self._perform_setattr(L2tpv2.Sessions, [], name, value)
 
 
         class Session(Entity):
@@ -10221,19 +10104,19 @@ class L2Tpv2(Entity):
             	Local tunnel ID
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: local_session_id  (key)
             
             	Local session ID
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: session_application_data
             
             	Session application data
-            	**type**\:  :py:class:`SessionApplicationData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Sessions.Session.SessionApplicationData>`
+            	**type**\:  :py:class:`SessionApplicationData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Sessions.Session.SessionApplicationData>`
             
             .. attribute:: local_ip_address
             
@@ -10373,21 +10256,20 @@ class L2Tpv2(Entity):
             """
 
             _prefix = 'tunnel-l2tun-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
-                super(L2Tpv2.Sessions.Session, self).__init__()
+                super(L2tpv2.Sessions.Session, self).__init__()
 
                 self.yang_name = "session"
                 self.yang_parent_name = "sessions"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['local_tunnel_id','local_session_id']
-                self._child_container_classes = OrderedDict([("session-application-data", ("session_application_data", L2Tpv2.Sessions.Session.SessionApplicationData))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("session-application-data", ("session_application_data", L2tpv2.Sessions.Session.SessionApplicationData))])
                 self._leafs = OrderedDict([
-                    ('local_tunnel_id', YLeaf(YType.int32, 'local-tunnel-id')),
-                    ('local_session_id', YLeaf(YType.int32, 'local-session-id')),
+                    ('local_tunnel_id', YLeaf(YType.uint32, 'local-tunnel-id')),
+                    ('local_session_id', YLeaf(YType.uint32, 'local-session-id')),
                     ('local_ip_address', YLeaf(YType.str, 'local-ip-address')),
                     ('remote_ip_address', YLeaf(YType.str, 'remote-ip-address')),
                     ('l2tp_sh_sess_udp_lport', YLeaf(YType.uint16, 'l2tp-sh-sess-udp-lport')),
@@ -10434,15 +10316,14 @@ class L2Tpv2(Entity):
                 self.unique_id = None
                 self.interface_name = None
 
-                self.session_application_data = L2Tpv2.Sessions.Session.SessionApplicationData()
+                self.session_application_data = L2tpv2.Sessions.Session.SessionApplicationData()
                 self.session_application_data.parent = self
                 self._children_name_map["session_application_data"] = "session-application-data"
-                self._children_yang_names.add("session-application-data")
                 self._segment_path = lambda: "session" + "[local-tunnel-id='" + str(self.local_tunnel_id) + "']" + "[local-session-id='" + str(self.local_session_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/sessions/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2Tpv2.Sessions.Session, ['local_tunnel_id', 'local_session_id', 'local_ip_address', 'remote_ip_address', 'l2tp_sh_sess_udp_lport', 'l2tp_sh_sess_udp_rport', 'protocol', 'remote_tunnel_id', 'call_serial_number', 'local_tunnel_name', 'remote_tunnel_name', 'remote_session_id', 'l2tp_sh_sess_tie_breaker_enabled', 'l2tp_sh_sess_tie_breaker', 'is_session_manual', 'is_session_up', 'is_udp_checksum_enabled', 'is_sequencing_on', 'is_session_state_established', 'is_session_locally_initiated', 'is_conditional_debug_enabled', 'unique_id', 'interface_name'], name, value)
+                self._perform_setattr(L2tpv2.Sessions.Session, ['local_tunnel_id', 'local_session_id', u'local_ip_address', u'remote_ip_address', u'l2tp_sh_sess_udp_lport', u'l2tp_sh_sess_udp_rport', u'protocol', u'remote_tunnel_id', u'call_serial_number', u'local_tunnel_name', u'remote_tunnel_name', u'remote_session_id', u'l2tp_sh_sess_tie_breaker_enabled', u'l2tp_sh_sess_tie_breaker', u'is_session_manual', u'is_session_up', u'is_udp_checksum_enabled', u'is_sequencing_on', u'is_session_state_established', u'is_session_locally_initiated', u'is_conditional_debug_enabled', u'unique_id', u'interface_name'], name, value)
 
 
             class SessionApplicationData(Entity):
@@ -10452,12 +10333,12 @@ class L2Tpv2(Entity):
                 .. attribute:: xconnect
                 
                 	Xconnect data
-                	**type**\:  :py:class:`Xconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Sessions.Session.SessionApplicationData.Xconnect>`
+                	**type**\:  :py:class:`Xconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Sessions.Session.SessionApplicationData.Xconnect>`
                 
                 .. attribute:: vpdn
                 
                 	VPDN data
-                	**type**\:  :py:class:`Vpdn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Sessions.Session.SessionApplicationData.Vpdn>`
+                	**type**\:  :py:class:`Vpdn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Sessions.Session.SessionApplicationData.Vpdn>`
                 
                 .. attribute:: l2tp_sh_sess_app_type
                 
@@ -10471,36 +10352,33 @@ class L2Tpv2(Entity):
                 """
 
                 _prefix = 'tunnel-l2tun-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(L2Tpv2.Sessions.Session.SessionApplicationData, self).__init__()
+                    super(L2tpv2.Sessions.Session.SessionApplicationData, self).__init__()
 
                     self.yang_name = "session-application-data"
                     self.yang_parent_name = "session"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("xconnect", ("xconnect", L2Tpv2.Sessions.Session.SessionApplicationData.Xconnect)), ("vpdn", ("vpdn", L2Tpv2.Sessions.Session.SessionApplicationData.Vpdn))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("xconnect", ("xconnect", L2tpv2.Sessions.Session.SessionApplicationData.Xconnect)), ("vpdn", ("vpdn", L2tpv2.Sessions.Session.SessionApplicationData.Vpdn))])
                     self._leafs = OrderedDict([
                         ('l2tp_sh_sess_app_type', YLeaf(YType.uint32, 'l2tp-sh-sess-app-type')),
                     ])
                     self.l2tp_sh_sess_app_type = None
 
-                    self.xconnect = L2Tpv2.Sessions.Session.SessionApplicationData.Xconnect()
+                    self.xconnect = L2tpv2.Sessions.Session.SessionApplicationData.Xconnect()
                     self.xconnect.parent = self
                     self._children_name_map["xconnect"] = "xconnect"
-                    self._children_yang_names.add("xconnect")
 
-                    self.vpdn = L2Tpv2.Sessions.Session.SessionApplicationData.Vpdn()
+                    self.vpdn = L2tpv2.Sessions.Session.SessionApplicationData.Vpdn()
                     self.vpdn.parent = self
                     self._children_name_map["vpdn"] = "vpdn"
-                    self._children_yang_names.add("vpdn")
                     self._segment_path = lambda: "session-application-data"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2Tpv2.Sessions.Session.SessionApplicationData, ['l2tp_sh_sess_app_type'], name, value)
+                    self._perform_setattr(L2tpv2.Sessions.Session.SessionApplicationData, [u'l2tp_sh_sess_app_type'], name, value)
 
 
                 class Xconnect(Entity):
@@ -10544,18 +10422,17 @@ class L2Tpv2(Entity):
                     """
 
                     _prefix = 'tunnel-l2tun-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(L2Tpv2.Sessions.Session.SessionApplicationData.Xconnect, self).__init__()
+                        super(L2tpv2.Sessions.Session.SessionApplicationData.Xconnect, self).__init__()
 
                         self.yang_name = "xconnect"
                         self.yang_parent_name = "session-application-data"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('circuit_name', YLeaf(YType.str, 'circuit-name')),
                             ('sessionvc_id', YLeaf(YType.uint32, 'sessionvc-id')),
@@ -10573,7 +10450,7 @@ class L2Tpv2(Entity):
                         self._segment_path = lambda: "xconnect"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2Tpv2.Sessions.Session.SessionApplicationData.Xconnect, ['circuit_name', 'sessionvc_id', 'is_circuit_state_up', 'is_local_circuit_state_up', 'is_remote_circuit_state_up', 'ipv6_protocol_tunneling'], name, value)
+                        self._perform_setattr(L2tpv2.Sessions.Session.SessionApplicationData.Xconnect, [u'circuit_name', u'sessionvc_id', u'is_circuit_state_up', u'is_local_circuit_state_up', u'is_remote_circuit_state_up', u'ipv6_protocol_tunneling'], name, value)
 
 
                 class Vpdn(Entity):
@@ -10597,18 +10474,17 @@ class L2Tpv2(Entity):
                     """
 
                     _prefix = 'tunnel-l2tun-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(L2Tpv2.Sessions.Session.SessionApplicationData.Vpdn, self).__init__()
+                        super(L2tpv2.Sessions.Session.SessionApplicationData.Vpdn, self).__init__()
 
                         self.yang_name = "vpdn"
                         self.yang_parent_name = "session-application-data"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('username', YLeaf(YType.str, 'username')),
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
@@ -10618,7 +10494,7 @@ class L2Tpv2(Entity):
                         self._segment_path = lambda: "vpdn"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2Tpv2.Sessions.Session.SessionApplicationData.Vpdn, ['username', 'interface_name'], name, value)
+                        self._perform_setattr(L2tpv2.Sessions.Session.SessionApplicationData.Vpdn, [u'username', u'interface_name'], name, value)
 
 
     class Session(Entity):
@@ -10628,33 +10504,34 @@ class L2Tpv2(Entity):
         .. attribute:: unavailable
         
         	L2TP session unavailable  information
-        	**type**\:  :py:class:`Unavailable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Session.Unavailable>`
+        	**type**\:  :py:class:`Unavailable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Session.Unavailable>`
         
         
 
         """
 
         _prefix = 'tunnel-l2tun-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
-            super(L2Tpv2.Session, self).__init__()
+            super(L2tpv2.Session, self).__init__()
 
             self.yang_name = "session"
             self.yang_parent_name = "l2tpv2"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("unavailable", ("unavailable", L2Tpv2.Session.Unavailable))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("unavailable", ("unavailable", L2tpv2.Session.Unavailable))])
             self._leafs = OrderedDict()
 
-            self.unavailable = L2Tpv2.Session.Unavailable()
+            self.unavailable = L2tpv2.Session.Unavailable()
             self.unavailable.parent = self
             self._children_name_map["unavailable"] = "unavailable"
-            self._children_yang_names.add("unavailable")
             self._segment_path = lambda: "session"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(L2tpv2.Session, [], name, value)
 
 
         class Unavailable(Entity):
@@ -10673,18 +10550,17 @@ class L2Tpv2(Entity):
             """
 
             _prefix = 'tunnel-l2tun-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
-                super(L2Tpv2.Session.Unavailable, self).__init__()
+                super(L2tpv2.Session.Unavailable, self).__init__()
 
                 self.yang_name = "unavailable"
                 self.yang_parent_name = "session"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('sessions_on_hold', YLeaf(YType.uint32, 'sessions-on-hold')),
                 ])
@@ -10693,9 +10569,9 @@ class L2Tpv2(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/session/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2Tpv2.Session.Unavailable, ['sessions_on_hold'], name, value)
+                self._perform_setattr(L2tpv2.Session.Unavailable, [u'sessions_on_hold'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = L2Tpv2()
+        self._top_entity = L2tpv2()
         return self._top_entity
 

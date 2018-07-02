@@ -189,14 +189,15 @@ class OspfOperData(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ospf-state", ("ospf_state", OspfOperData.OspfState))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ospf-state", ("ospf_state", OspfOperData.OspfState))])
         self._leafs = OrderedDict()
 
         self.ospf_state = None
         self._children_name_map["ospf_state"] = "ospf-state"
-        self._children_yang_names.add("ospf-state")
         self._segment_path = lambda: "Cisco-IOS-XE-ospf-oper:ospf-oper-data"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(OspfOperData, [], name, value)
 
 
     class OspfState(Entity):
@@ -230,8 +231,7 @@ class OspfOperData(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ospf-instance", ("ospf_instance", OspfOperData.OspfState.OspfInstance))])
+            self._child_classes = OrderedDict([("ospf-instance", ("ospf_instance", OspfOperData.OspfState.OspfInstance))])
             self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('op_mode', YLeaf(YType.enumeration, 'op-mode')),
@@ -292,8 +292,7 @@ class OspfOperData(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['af','router_id']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("ospf-area", ("ospf_area", OspfOperData.OspfState.OspfInstance.OspfArea)), ("link-scope-lsas", ("link_scope_lsas", OspfOperData.OspfState.OspfInstance.LinkScopeLsas)), ("multi-topology", ("multi_topology", OspfOperData.OspfState.OspfInstance.MultiTopology))])
+                self._child_classes = OrderedDict([("ospf-area", ("ospf_area", OspfOperData.OspfState.OspfInstance.OspfArea)), ("link-scope-lsas", ("link_scope_lsas", OspfOperData.OspfState.OspfInstance.LinkScopeLsas)), ("multi-topology", ("multi_topology", OspfOperData.OspfState.OspfInstance.MultiTopology))])
                 self._leafs = OrderedDict([
                     ('af', YLeaf(YType.enumeration, 'af')),
                     ('router_id', YLeaf(YType.uint32, 'router-id')),
@@ -347,8 +346,7 @@ class OspfOperData(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['area_id']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("ospf-interface", ("ospf_interface", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface)), ("area-scope-lsa", ("area_scope_lsa", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa))])
+                    self._child_classes = OrderedDict([("ospf-interface", ("ospf_interface", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface)), ("area-scope-lsa", ("area_scope_lsa", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa))])
                     self._leafs = OrderedDict([
                         ('area_id', YLeaf(YType.uint32, 'area-id')),
                     ])
@@ -558,8 +556,7 @@ class OspfOperData(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['name']
-                        self._child_container_classes = OrderedDict([("multi-area", ("multi_area", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.MultiArea)), ("fast-reroute", ("fast_reroute", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.FastReroute)), ("ttl-security", ("ttl_security", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.TtlSecurity)), ("authentication", ("authentication", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.Authentication))])
-                        self._child_list_classes = OrderedDict([("static-neighbor", ("static_neighbor", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.StaticNeighbor)), ("ospf-neighbor", ("ospf_neighbor", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.OspfNeighbor)), ("intf-link-scope-lsas", ("intf_link_scope_lsas", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas)), ("intf-multi-topology", ("intf_multi_topology", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfMultiTopology))])
+                        self._child_classes = OrderedDict([("multi-area", ("multi_area", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.MultiArea)), ("static-neighbor", ("static_neighbor", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.StaticNeighbor)), ("fast-reroute", ("fast_reroute", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.FastReroute)), ("ttl-security", ("ttl_security", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.TtlSecurity)), ("authentication", ("authentication", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.Authentication)), ("ospf-neighbor", ("ospf_neighbor", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.OspfNeighbor)), ("intf-link-scope-lsas", ("intf_link_scope_lsas", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas)), ("intf-multi-topology", ("intf_multi_topology", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfMultiTopology))])
                         self._leafs = OrderedDict([
                             ('name', YLeaf(YType.str, 'name')),
                             ('network_type', YLeaf(YType.enumeration, 'network-type')),
@@ -608,22 +605,18 @@ class OspfOperData(Entity):
                         self.multi_area = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.MultiArea()
                         self.multi_area.parent = self
                         self._children_name_map["multi_area"] = "multi-area"
-                        self._children_yang_names.add("multi-area")
 
                         self.fast_reroute = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.FastReroute()
                         self.fast_reroute.parent = self
                         self._children_name_map["fast_reroute"] = "fast-reroute"
-                        self._children_yang_names.add("fast-reroute")
 
                         self.ttl_security = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.TtlSecurity()
                         self.ttl_security.parent = self
                         self._children_name_map["ttl_security"] = "ttl-security"
-                        self._children_yang_names.add("ttl-security")
 
                         self.authentication = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.Authentication()
                         self.authentication.parent = self
                         self._children_name_map["authentication"] = "authentication"
-                        self._children_yang_names.add("authentication")
 
                         self.static_neighbor = YList(self)
                         self.ospf_neighbor = YList(self)
@@ -668,8 +661,7 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('multi_area_id', YLeaf(YType.uint32, 'multi-area-id')),
                                 ('cost', YLeaf(YType.uint16, 'cost')),
@@ -730,8 +722,7 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['address']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('address', YLeaf(YType.str, 'address')),
                                 ('cost', YLeaf(YType.uint16, 'cost')),
@@ -780,8 +771,7 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('candidate_disabled', YLeaf(YType.boolean, 'candidate-disabled')),
                                 ('enabled', YLeaf(YType.boolean, 'enabled')),
@@ -827,8 +817,7 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('enabled', YLeaf(YType.boolean, 'enabled')),
                                 ('hops', YLeaf(YType.uint8, 'hops')),
@@ -887,8 +876,7 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("crypto-algorithm-val", ("crypto_algorithm_val", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.Authentication.CryptoAlgorithmVal))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("crypto-algorithm-val", ("crypto_algorithm_val", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.Authentication.CryptoAlgorithmVal))])
                             self._leafs = OrderedDict([
                                 ('sa', YLeaf(YType.str, 'sa')),
                                 ('key_chain', YLeaf(YType.str, 'key-chain')),
@@ -903,7 +891,6 @@ class OspfOperData(Entity):
                             self.crypto_algorithm_val = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.Authentication.CryptoAlgorithmVal()
                             self.crypto_algorithm_val.parent = self
                             self._children_name_map["crypto_algorithm_val"] = "crypto-algorithm-val"
-                            self._children_yang_names.add("crypto-algorithm-val")
                             self._segment_path = lambda: "authentication"
 
                         def __setattr__(self, name, value):
@@ -969,8 +956,7 @@ class OspfOperData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('hmac_sha1_12', YLeaf(YType.empty, 'hmac-sha1-12')),
                                     ('hmac_sha1_20', YLeaf(YType.empty, 'hmac-sha1-20')),
@@ -1076,8 +1062,7 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['neighbor_id']
-                            self._child_container_classes = OrderedDict([("stats", ("stats", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.OspfNeighbor.Stats))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("stats", ("stats", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.OspfNeighbor.Stats))])
                             self._leafs = OrderedDict([
                                 ('neighbor_id', YLeaf(YType.str, 'neighbor-id')),
                                 ('address', YLeaf(YType.str, 'address')),
@@ -1094,7 +1079,6 @@ class OspfOperData(Entity):
                             self.stats = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.OspfNeighbor.Stats()
                             self.stats.parent = self
                             self._children_name_map["stats"] = "stats"
-                            self._children_yang_names.add("stats")
                             self._segment_path = lambda: "ospf-neighbor" + "[neighbor-id='" + str(self.neighbor_id) + "']"
 
                         def __setattr__(self, name, value):
@@ -1134,8 +1118,7 @@ class OspfOperData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('nbr_event_count', YLeaf(YType.uint32, 'nbr-event-count')),
                                     ('nbr_retrans_qlen', YLeaf(YType.uint32, 'nbr-retrans-qlen')),
@@ -1184,8 +1167,7 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['lsa_type']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("link-scope-lsa", ("link_scope_lsa", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa)), ("area-scope-lsa", ("area_scope_lsa", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa))])
+                            self._child_classes = OrderedDict([("link-scope-lsa", ("link_scope_lsa", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa)), ("area-scope-lsa", ("area_scope_lsa", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa))])
                             self._leafs = OrderedDict([
                                 ('lsa_type', YLeaf(YType.uint32, 'lsa-type')),
                             ])
@@ -1330,8 +1312,7 @@ class OspfOperData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['lsa_id','adv_router']
-                                self._child_container_classes = OrderedDict([("ospfv2-lsa", ("ospfv2_lsa", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Lsa)), ("ospfv3-lsa-val", ("ospfv3_lsa_val", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal)), ("tlv", ("tlv", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Tlv))])
-                                self._child_list_classes = OrderedDict([("ospfv2-link", ("ospfv2_link", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Link)), ("ospfv2-topology", ("ospfv2_topology", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Topology)), ("ospfv2-external", ("ospfv2_external", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2External)), ("ospfv2-unknown-tlv", ("ospfv2_unknown_tlv", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2UnknownTlv)), ("ospfv3-link", ("ospfv3_link", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3Link)), ("ospfv3-prefix-list", ("ospfv3_prefix_list", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3PrefixList)), ("ospfv3-ia-prefix", ("ospfv3_ia_prefix", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3IaPrefix)), ("multi-topology", ("multi_topology", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.MultiTopology)), ("unknown-sub-tlv", ("unknown_sub_tlv", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.UnknownSubTlv))])
+                                self._child_classes = OrderedDict([("ospfv2-lsa", ("ospfv2_lsa", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Lsa)), ("ospfv2-link", ("ospfv2_link", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Link)), ("ospfv2-topology", ("ospfv2_topology", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Topology)), ("ospfv2-external", ("ospfv2_external", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2External)), ("ospfv2-unknown-tlv", ("ospfv2_unknown_tlv", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2UnknownTlv)), ("ospfv3-lsa-val", ("ospfv3_lsa_val", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal)), ("ospfv3-link", ("ospfv3_link", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3Link)), ("ospfv3-prefix-list", ("ospfv3_prefix_list", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3PrefixList)), ("ospfv3-ia-prefix", ("ospfv3_ia_prefix", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3IaPrefix)), ("multi-topology", ("multi_topology", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.MultiTopology)), ("tlv", ("tlv", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Tlv)), ("unknown-sub-tlv", ("unknown_sub_tlv", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.UnknownSubTlv))])
                                 self._leafs = OrderedDict([
                                     ('lsa_id', YLeaf(YType.uint32, 'lsa-id')),
                                     ('adv_router', YLeaf(YType.str, 'adv-router')),
@@ -1350,17 +1331,14 @@ class OspfOperData(Entity):
                                 self.ospfv2_lsa = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Lsa()
                                 self.ospfv2_lsa.parent = self
                                 self._children_name_map["ospfv2_lsa"] = "ospfv2-lsa"
-                                self._children_yang_names.add("ospfv2-lsa")
 
                                 self.ospfv3_lsa_val = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal()
                                 self.ospfv3_lsa_val.parent = self
                                 self._children_name_map["ospfv3_lsa_val"] = "ospfv3-lsa-val"
-                                self._children_yang_names.add("ospfv3-lsa-val")
 
                                 self.tlv = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Tlv()
                                 self.tlv.parent = self
                                 self._children_name_map["tlv"] = "tlv"
-                                self._children_yang_names.add("tlv")
 
                                 self.ospfv2_link = YList(self)
                                 self.ospfv2_topology = YList(self)
@@ -1406,20 +1384,20 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("header", ("header", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.Header)), ("lsa-body", ("lsa_body", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.LsaBody))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("header", ("header", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.Header)), ("lsa-body", ("lsa_body", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.LsaBody))])
                                     self._leafs = OrderedDict()
 
                                     self.header = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.Header()
                                     self.header.parent = self
                                     self._children_name_map["header"] = "header"
-                                    self._children_yang_names.add("header")
 
                                     self.lsa_body = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.LsaBody()
                                     self.lsa_body.parent = self
                                     self._children_name_map["lsa_body"] = "lsa-body"
-                                    self._children_yang_names.add("lsa-body")
                                     self._segment_path = lambda: "ospfv2-lsa"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Lsa, [], name, value)
 
 
                                 class Header(Entity):
@@ -1511,8 +1489,7 @@ class OspfOperData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('lsa_id', YLeaf(YType.str, 'lsa-id')),
                                             ('opaque_type', YLeaf(YType.uint8, 'opaque-type')),
@@ -1603,8 +1580,7 @@ class OspfOperData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("network", ("network", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.LsaBody.Network))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("network", ("network", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.LsaBody.Network))])
                                         self._leafs = OrderedDict([
                                             ('num_of_links', YLeaf(YType.uint16, 'num-of-links')),
                                             ('summary_mask', YLeaf(YType.str, 'summary-mask')),
@@ -1619,7 +1595,6 @@ class OspfOperData(Entity):
                                         self.network = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.LsaBody.Network()
                                         self.network.parent = self
                                         self._children_name_map["network"] = "network"
-                                        self._children_yang_names.add("network")
                                         self._segment_path = lambda: "lsa-body"
 
                                     def __setattr__(self, name, value):
@@ -1665,8 +1640,7 @@ class OspfOperData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('network_mask', YLeaf(YType.str, 'network-mask')),
                                                 ('attached_router', YLeafList(YType.uint32, 'attached-router')),
@@ -1724,8 +1698,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['link_id','link_data']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("ospfv2-topology", ("ospfv2_topology", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Link.Ospfv2Topology))])
+                                    self._child_classes = OrderedDict([("ospfv2-topology", ("ospfv2_topology", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Link.Ospfv2Topology))])
                                     self._leafs = OrderedDict([
                                         ('link_id', YLeaf(YType.uint32, 'link-id')),
                                         ('link_data', YLeaf(YType.uint32, 'link-data')),
@@ -1775,8 +1748,7 @@ class OspfOperData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['mt_id']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('mt_id', YLeaf(YType.uint32, 'mt-id')),
                                             ('metric', YLeaf(YType.uint16, 'metric')),
@@ -1822,8 +1794,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['mt_id']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('mt_id', YLeaf(YType.uint32, 'mt-id')),
                                         ('metric', YLeaf(YType.uint16, 'metric')),
@@ -1889,8 +1860,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['mt_id']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('mt_id', YLeaf(YType.uint32, 'mt-id')),
                                         ('metric', YLeaf(YType.uint32, 'metric')),
@@ -1947,8 +1917,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['type']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('type', YLeaf(YType.uint16, 'type')),
                                         ('length', YLeaf(YType.uint16, 'length')),
@@ -1992,20 +1961,20 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("header", ("header", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.Header)), ("lsa-body", ("lsa_body", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("header", ("header", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.Header)), ("lsa-body", ("lsa_body", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody))])
                                     self._leafs = OrderedDict()
 
                                     self.header = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.Header()
                                     self.header.parent = self
                                     self._children_name_map["header"] = "header"
-                                    self._children_yang_names.add("header")
 
                                     self.lsa_body = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody()
                                     self.lsa_body.parent = self
                                     self._children_name_map["lsa_body"] = "lsa-body"
-                                    self._children_yang_names.add("lsa-body")
                                     self._segment_path = lambda: "ospfv3-lsa-val"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal, [], name, value)
 
 
                                 class Header(Entity):
@@ -2050,8 +2019,7 @@ class OspfOperData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("lsa-header", ("lsa_header", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.Header.LsaHeader))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("lsa-header", ("lsa_header", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.Header.LsaHeader))])
                                         self._leafs = OrderedDict([
                                             ('lsa_id', YLeaf(YType.str, 'lsa-id')),
                                             ('lsa_hdr_options', YLeaf(YType.bits, 'lsa-hdr-options')),
@@ -2062,7 +2030,6 @@ class OspfOperData(Entity):
                                         self.lsa_header = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.Header.LsaHeader()
                                         self.lsa_header.parent = self
                                         self._children_name_map["lsa_header"] = "lsa-header"
-                                        self._children_yang_names.add("lsa-header")
                                         self._segment_path = lambda: "header"
 
                                     def __setattr__(self, name, value):
@@ -2126,8 +2093,7 @@ class OspfOperData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('age', YLeaf(YType.uint16, 'age')),
                                                 ('type', YLeaf(YType.uint16, 'type')),
@@ -2212,8 +2178,7 @@ class OspfOperData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("network", ("network", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Network)), ("prefix", ("prefix", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Prefix)), ("ia-router", ("ia_router", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.IaRouter)), ("lsa-external", ("lsa_external", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LsaExternal)), ("nssa", ("nssa", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa)), ("link-data", ("link_data", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LinkData)), ("ia-prefix", ("ia_prefix", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.IaPrefix))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("network", ("network", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Network)), ("prefix", ("prefix", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Prefix)), ("ia-router", ("ia_router", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.IaRouter)), ("lsa-external", ("lsa_external", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LsaExternal)), ("nssa", ("nssa", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa)), ("link-data", ("link_data", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LinkData)), ("ia-prefix", ("ia_prefix", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.IaPrefix))])
                                         self._leafs = OrderedDict([
                                             ('lsa_flag_options', YLeaf(YType.bits, 'lsa-flag-options')),
                                             ('lsa_body_flags', YLeaf(YType.bits, 'lsa-body-flags')),
@@ -2224,37 +2189,30 @@ class OspfOperData(Entity):
                                         self.network = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Network()
                                         self.network.parent = self
                                         self._children_name_map["network"] = "network"
-                                        self._children_yang_names.add("network")
 
                                         self.prefix = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Prefix()
                                         self.prefix.parent = self
                                         self._children_name_map["prefix"] = "prefix"
-                                        self._children_yang_names.add("prefix")
 
                                         self.ia_router = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.IaRouter()
                                         self.ia_router.parent = self
                                         self._children_name_map["ia_router"] = "ia-router"
-                                        self._children_yang_names.add("ia-router")
 
                                         self.lsa_external = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LsaExternal()
                                         self.lsa_external.parent = self
                                         self._children_name_map["lsa_external"] = "lsa-external"
-                                        self._children_yang_names.add("lsa-external")
 
                                         self.nssa = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa()
                                         self.nssa.parent = self
                                         self._children_name_map["nssa"] = "nssa"
-                                        self._children_yang_names.add("nssa")
 
                                         self.link_data = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LinkData()
                                         self.link_data.parent = self
                                         self._children_name_map["link_data"] = "link-data"
-                                        self._children_yang_names.add("link-data")
 
                                         self.ia_prefix = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.IaPrefix()
                                         self.ia_prefix.parent = self
                                         self._children_name_map["ia_prefix"] = "ia-prefix"
-                                        self._children_yang_names.add("ia-prefix")
                                         self._segment_path = lambda: "lsa-body"
 
                                     def __setattr__(self, name, value):
@@ -2292,8 +2250,7 @@ class OspfOperData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('attached_router', YLeafList(YType.uint32, 'attached-router')),
                                                 ('lsa_net_options', YLeaf(YType.bits, 'lsa-net-options')),
@@ -2342,8 +2299,7 @@ class OspfOperData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('metric', YLeaf(YType.uint32, 'metric')),
                                                 ('ia_prefix', YLeaf(YType.str, 'ia-prefix')),
@@ -2396,8 +2352,7 @@ class OspfOperData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('metric', YLeaf(YType.uint32, 'metric')),
                                                 ('destination_router_id', YLeaf(YType.uint32, 'destination-router-id')),
@@ -2487,8 +2442,7 @@ class OspfOperData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("flags", ("flags", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LsaExternal.Flags))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("flags", ("flags", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LsaExternal.Flags))])
                                             self._leafs = OrderedDict([
                                                 ('metric', YLeaf(YType.uint32, 'metric')),
                                                 ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
@@ -2509,7 +2463,6 @@ class OspfOperData(Entity):
                                             self.flags = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LsaExternal.Flags()
                                             self.flags.parent = self
                                             self._children_name_map["flags"] = "flags"
-                                            self._children_yang_names.add("flags")
                                             self._segment_path = lambda: "lsa-external"
 
                                         def __setattr__(self, name, value):
@@ -2540,8 +2493,7 @@ class OspfOperData(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('e_flag', YLeaf(YType.boolean, 'e-flag')),
                                                 ])
@@ -2576,15 +2528,16 @@ class OspfOperData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("lsa-nssa-external", ("lsa_nssa_external", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa.LsaNssaExternal))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("lsa-nssa-external", ("lsa_nssa_external", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa.LsaNssaExternal))])
                                             self._leafs = OrderedDict()
 
                                             self.lsa_nssa_external = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa.LsaNssaExternal()
                                             self.lsa_nssa_external.parent = self
                                             self._children_name_map["lsa_nssa_external"] = "lsa-nssa-external"
-                                            self._children_yang_names.add("lsa-nssa-external")
                                             self._segment_path = lambda: "nssa"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa, [], name, value)
 
 
                                         class LsaNssaExternal(Entity):
@@ -2662,8 +2615,7 @@ class OspfOperData(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([("flags", ("flags", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa.LsaNssaExternal.Flags))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("flags", ("flags", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa.LsaNssaExternal.Flags))])
                                                 self._leafs = OrderedDict([
                                                     ('metric', YLeaf(YType.uint32, 'metric')),
                                                     ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
@@ -2684,7 +2636,6 @@ class OspfOperData(Entity):
                                                 self.flags = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa.LsaNssaExternal.Flags()
                                                 self.flags.parent = self
                                                 self._children_name_map["flags"] = "flags"
-                                                self._children_yang_names.add("flags")
                                                 self._segment_path = lambda: "lsa-nssa-external"
 
                                             def __setattr__(self, name, value):
@@ -2715,8 +2666,7 @@ class OspfOperData(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('e_flag', YLeaf(YType.boolean, 'e-flag')),
                                                     ])
@@ -2778,8 +2728,7 @@ class OspfOperData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('rtr_priority', YLeaf(YType.uint8, 'rtr-priority')),
                                                 ('link_local_interface_address', YLeaf(YType.str, 'link-local-interface-address')),
@@ -2849,8 +2798,7 @@ class OspfOperData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
                                                 ('referenced_link_state_id', YLeaf(YType.uint32, 'referenced-link-state-id')),
@@ -2921,8 +2869,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['interface_id','neighbor_interface_id','neighbor_router_id']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('interface_id', YLeaf(YType.uint32, 'interface-id')),
                                         ('neighbor_interface_id', YLeaf(YType.uint32, 'neighbor-interface-id')),
@@ -2970,8 +2917,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['prefix']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('prefix', YLeaf(YType.str, 'prefix')),
                                         ('prefix_options', YLeaf(YType.str, 'prefix-options')),
@@ -3013,8 +2959,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['prefix']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('prefix', YLeaf(YType.str, 'prefix')),
                                         ('prefix_options', YLeaf(YType.str, 'prefix-options')),
@@ -3051,8 +2996,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['name']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('name', YLeaf(YType.str, 'name')),
                                     ])
@@ -3157,8 +3101,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('link_type', YLeaf(YType.uint8, 'link-type')),
                                         ('link_id', YLeaf(YType.uint32, 'link-id')),
@@ -3225,8 +3168,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['type']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('type', YLeaf(YType.uint16, 'type')),
                                         ('length', YLeaf(YType.uint16, 'length')),
@@ -3332,8 +3274,7 @@ class OspfOperData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['lsa_type','adv_router']
-                                self._child_container_classes = OrderedDict([("ospfv2-lsa", ("ospfv2_lsa", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Lsa)), ("ospfv3-lsa", ("ospfv3_lsa", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa))])
-                                self._child_list_classes = OrderedDict([("ospfv2-link", ("ospfv2_link", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Link)), ("ospfv2-topology", ("ospfv2_topology", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Topology)), ("ospfv2-external", ("ospfv2_external", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2External)), ("ospfv3-link", ("ospfv3_link", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Link)), ("ospfv3-prefix", ("ospfv3_prefix", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Prefix)), ("ospfv3-ia-prefix", ("ospfv3_ia_prefix", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3IaPrefix))])
+                                self._child_classes = OrderedDict([("ospfv2-lsa", ("ospfv2_lsa", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Lsa)), ("ospfv2-link", ("ospfv2_link", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Link)), ("ospfv2-topology", ("ospfv2_topology", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Topology)), ("ospfv2-external", ("ospfv2_external", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2External)), ("ospfv3-lsa", ("ospfv3_lsa", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa)), ("ospfv3-link", ("ospfv3_link", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Link)), ("ospfv3-prefix", ("ospfv3_prefix", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Prefix)), ("ospfv3-ia-prefix", ("ospfv3_ia_prefix", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3IaPrefix))])
                                 self._leafs = OrderedDict([
                                     ('lsa_type', YLeaf(YType.uint32, 'lsa-type')),
                                     ('adv_router', YLeaf(YType.str, 'adv-router')),
@@ -3348,12 +3289,10 @@ class OspfOperData(Entity):
                                 self.ospfv2_lsa = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Lsa()
                                 self.ospfv2_lsa.parent = self
                                 self._children_name_map["ospfv2_lsa"] = "ospfv2-lsa"
-                                self._children_yang_names.add("ospfv2-lsa")
 
                                 self.ospfv3_lsa = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa()
                                 self.ospfv3_lsa.parent = self
                                 self._children_name_map["ospfv3_lsa"] = "ospfv3-lsa"
-                                self._children_yang_names.add("ospfv3-lsa")
 
                                 self.ospfv2_link = YList(self)
                                 self.ospfv2_topology = YList(self)
@@ -3396,20 +3335,20 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("header", ("header", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.Header)), ("lsa-body", ("lsa_body", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.LsaBody))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("header", ("header", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.Header)), ("lsa-body", ("lsa_body", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.LsaBody))])
                                     self._leafs = OrderedDict()
 
                                     self.header = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.Header()
                                     self.header.parent = self
                                     self._children_name_map["header"] = "header"
-                                    self._children_yang_names.add("header")
 
                                     self.lsa_body = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.LsaBody()
                                     self.lsa_body.parent = self
                                     self._children_name_map["lsa_body"] = "lsa-body"
-                                    self._children_yang_names.add("lsa-body")
                                     self._segment_path = lambda: "ospfv2-lsa"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Lsa, [], name, value)
 
 
                                 class Header(Entity):
@@ -3501,8 +3440,7 @@ class OspfOperData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('lsa_id', YLeaf(YType.str, 'lsa-id')),
                                             ('opaque_type', YLeaf(YType.uint8, 'opaque-type')),
@@ -3593,8 +3531,7 @@ class OspfOperData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("network", ("network", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.LsaBody.Network))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("network", ("network", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.LsaBody.Network))])
                                         self._leafs = OrderedDict([
                                             ('num_of_links', YLeaf(YType.uint16, 'num-of-links')),
                                             ('summary_mask', YLeaf(YType.str, 'summary-mask')),
@@ -3609,7 +3546,6 @@ class OspfOperData(Entity):
                                         self.network = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.LsaBody.Network()
                                         self.network.parent = self
                                         self._children_name_map["network"] = "network"
-                                        self._children_yang_names.add("network")
                                         self._segment_path = lambda: "lsa-body"
 
                                     def __setattr__(self, name, value):
@@ -3655,8 +3591,7 @@ class OspfOperData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('network_mask', YLeaf(YType.str, 'network-mask')),
                                                 ('attached_router', YLeafList(YType.uint32, 'attached-router')),
@@ -3714,8 +3649,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['link_id','link_data']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("ospfv2-topology", ("ospfv2_topology", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Link.Ospfv2Topology))])
+                                    self._child_classes = OrderedDict([("ospfv2-topology", ("ospfv2_topology", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Link.Ospfv2Topology))])
                                     self._leafs = OrderedDict([
                                         ('link_id', YLeaf(YType.uint32, 'link-id')),
                                         ('link_data', YLeaf(YType.uint32, 'link-data')),
@@ -3765,8 +3699,7 @@ class OspfOperData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['mt_id']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('mt_id', YLeaf(YType.uint32, 'mt-id')),
                                             ('metric', YLeaf(YType.uint16, 'metric')),
@@ -3812,8 +3745,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['mt_id']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('mt_id', YLeaf(YType.uint32, 'mt-id')),
                                         ('metric', YLeaf(YType.uint16, 'metric')),
@@ -3879,8 +3811,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['mt_id']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('mt_id', YLeaf(YType.uint32, 'mt-id')),
                                         ('metric', YLeaf(YType.uint32, 'metric')),
@@ -3926,20 +3857,20 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("header", ("header", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.Header)), ("lsa-body", ("lsa_body", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("header", ("header", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.Header)), ("lsa-body", ("lsa_body", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody))])
                                     self._leafs = OrderedDict()
 
                                     self.header = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.Header()
                                     self.header.parent = self
                                     self._children_name_map["header"] = "header"
-                                    self._children_yang_names.add("header")
 
                                     self.lsa_body = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody()
                                     self.lsa_body.parent = self
                                     self._children_name_map["lsa_body"] = "lsa-body"
-                                    self._children_yang_names.add("lsa-body")
                                     self._segment_path = lambda: "ospfv3-lsa"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa, [], name, value)
 
 
                                 class Header(Entity):
@@ -3984,8 +3915,7 @@ class OspfOperData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("lsa-header", ("lsa_header", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.Header.LsaHeader))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("lsa-header", ("lsa_header", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.Header.LsaHeader))])
                                         self._leafs = OrderedDict([
                                             ('lsa_id', YLeaf(YType.str, 'lsa-id')),
                                             ('lsa_hdr_options', YLeaf(YType.bits, 'lsa-hdr-options')),
@@ -3996,7 +3926,6 @@ class OspfOperData(Entity):
                                         self.lsa_header = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.Header.LsaHeader()
                                         self.lsa_header.parent = self
                                         self._children_name_map["lsa_header"] = "lsa-header"
-                                        self._children_yang_names.add("lsa-header")
                                         self._segment_path = lambda: "header"
 
                                     def __setattr__(self, name, value):
@@ -4060,8 +3989,7 @@ class OspfOperData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('age', YLeaf(YType.uint16, 'age')),
                                                 ('type', YLeaf(YType.uint16, 'type')),
@@ -4146,8 +4074,7 @@ class OspfOperData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("network", ("network", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Network)), ("prefix", ("prefix", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Prefix)), ("ia-router", ("ia_router", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.IaRouter)), ("lsa-external", ("lsa_external", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LsaExternal)), ("nssa", ("nssa", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa)), ("link-data", ("link_data", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LinkData)), ("ia-prefix", ("ia_prefix", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.IaPrefix))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("network", ("network", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Network)), ("prefix", ("prefix", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Prefix)), ("ia-router", ("ia_router", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.IaRouter)), ("lsa-external", ("lsa_external", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LsaExternal)), ("nssa", ("nssa", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa)), ("link-data", ("link_data", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LinkData)), ("ia-prefix", ("ia_prefix", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.IaPrefix))])
                                         self._leafs = OrderedDict([
                                             ('lsa_flag_options', YLeaf(YType.bits, 'lsa-flag-options')),
                                             ('lsa_body_flags', YLeaf(YType.bits, 'lsa-body-flags')),
@@ -4158,37 +4085,30 @@ class OspfOperData(Entity):
                                         self.network = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Network()
                                         self.network.parent = self
                                         self._children_name_map["network"] = "network"
-                                        self._children_yang_names.add("network")
 
                                         self.prefix = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Prefix()
                                         self.prefix.parent = self
                                         self._children_name_map["prefix"] = "prefix"
-                                        self._children_yang_names.add("prefix")
 
                                         self.ia_router = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.IaRouter()
                                         self.ia_router.parent = self
                                         self._children_name_map["ia_router"] = "ia-router"
-                                        self._children_yang_names.add("ia-router")
 
                                         self.lsa_external = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LsaExternal()
                                         self.lsa_external.parent = self
                                         self._children_name_map["lsa_external"] = "lsa-external"
-                                        self._children_yang_names.add("lsa-external")
 
                                         self.nssa = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa()
                                         self.nssa.parent = self
                                         self._children_name_map["nssa"] = "nssa"
-                                        self._children_yang_names.add("nssa")
 
                                         self.link_data = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LinkData()
                                         self.link_data.parent = self
                                         self._children_name_map["link_data"] = "link-data"
-                                        self._children_yang_names.add("link-data")
 
                                         self.ia_prefix = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.IaPrefix()
                                         self.ia_prefix.parent = self
                                         self._children_name_map["ia_prefix"] = "ia-prefix"
-                                        self._children_yang_names.add("ia-prefix")
                                         self._segment_path = lambda: "lsa-body"
 
                                     def __setattr__(self, name, value):
@@ -4226,8 +4146,7 @@ class OspfOperData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('attached_router', YLeafList(YType.uint32, 'attached-router')),
                                                 ('lsa_net_options', YLeaf(YType.bits, 'lsa-net-options')),
@@ -4276,8 +4195,7 @@ class OspfOperData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('metric', YLeaf(YType.uint32, 'metric')),
                                                 ('ia_prefix', YLeaf(YType.str, 'ia-prefix')),
@@ -4330,8 +4248,7 @@ class OspfOperData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('metric', YLeaf(YType.uint32, 'metric')),
                                                 ('destination_router_id', YLeaf(YType.uint32, 'destination-router-id')),
@@ -4421,8 +4338,7 @@ class OspfOperData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("flags", ("flags", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LsaExternal.Flags))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("flags", ("flags", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LsaExternal.Flags))])
                                             self._leafs = OrderedDict([
                                                 ('metric', YLeaf(YType.uint32, 'metric')),
                                                 ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
@@ -4443,7 +4359,6 @@ class OspfOperData(Entity):
                                             self.flags = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LsaExternal.Flags()
                                             self.flags.parent = self
                                             self._children_name_map["flags"] = "flags"
-                                            self._children_yang_names.add("flags")
                                             self._segment_path = lambda: "lsa-external"
 
                                         def __setattr__(self, name, value):
@@ -4474,8 +4389,7 @@ class OspfOperData(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('e_flag', YLeaf(YType.boolean, 'e-flag')),
                                                 ])
@@ -4510,15 +4424,16 @@ class OspfOperData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("lsa-nssa-external", ("lsa_nssa_external", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("lsa-nssa-external", ("lsa_nssa_external", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal))])
                                             self._leafs = OrderedDict()
 
                                             self.lsa_nssa_external = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal()
                                             self.lsa_nssa_external.parent = self
                                             self._children_name_map["lsa_nssa_external"] = "lsa-nssa-external"
-                                            self._children_yang_names.add("lsa-nssa-external")
                                             self._segment_path = lambda: "nssa"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa, [], name, value)
 
 
                                         class LsaNssaExternal(Entity):
@@ -4596,8 +4511,7 @@ class OspfOperData(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([("flags", ("flags", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal.Flags))])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([("flags", ("flags", OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal.Flags))])
                                                 self._leafs = OrderedDict([
                                                     ('metric', YLeaf(YType.uint32, 'metric')),
                                                     ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
@@ -4618,7 +4532,6 @@ class OspfOperData(Entity):
                                                 self.flags = OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal.Flags()
                                                 self.flags.parent = self
                                                 self._children_name_map["flags"] = "flags"
-                                                self._children_yang_names.add("flags")
                                                 self._segment_path = lambda: "lsa-nssa-external"
 
                                             def __setattr__(self, name, value):
@@ -4649,8 +4562,7 @@ class OspfOperData(Entity):
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
                                                     self.ylist_key_names = []
-                                                    self._child_container_classes = OrderedDict([])
-                                                    self._child_list_classes = OrderedDict([])
+                                                    self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
                                                         ('e_flag', YLeaf(YType.boolean, 'e-flag')),
                                                     ])
@@ -4712,8 +4624,7 @@ class OspfOperData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('rtr_priority', YLeaf(YType.uint8, 'rtr-priority')),
                                                 ('link_local_interface_address', YLeaf(YType.str, 'link-local-interface-address')),
@@ -4783,8 +4694,7 @@ class OspfOperData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
                                                 ('referenced_link_state_id', YLeaf(YType.uint32, 'referenced-link-state-id')),
@@ -4855,8 +4765,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['interface_id','neighbor_interface_id','neighbor_router_id']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('interface_id', YLeaf(YType.uint32, 'interface-id')),
                                         ('neighbor_interface_id', YLeaf(YType.uint32, 'neighbor-interface-id')),
@@ -4904,8 +4813,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['prefix']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('prefix', YLeaf(YType.str, 'prefix')),
                                         ('prefix_options', YLeaf(YType.str, 'prefix-options')),
@@ -4947,8 +4855,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['prefix']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('prefix', YLeaf(YType.str, 'prefix')),
                                         ('prefix_options', YLeaf(YType.str, 'prefix-options')),
@@ -4985,8 +4892,7 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('name', YLeaf(YType.str, 'name')),
                             ])
@@ -5028,8 +4934,7 @@ class OspfOperData(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['lsa_type']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("area-scope-lsa", ("area_scope_lsa", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_))])
+                        self._child_classes = OrderedDict([("area-scope-lsa", ("area_scope_lsa", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_))])
                         self._leafs = OrderedDict([
                             ('lsa_type', YLeaf(YType.uint32, 'lsa-type')),
                         ])
@@ -5133,8 +5038,7 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['lsa_type','adv_router']
-                            self._child_container_classes = OrderedDict([("ospfv2-lsa", ("ospfv2_lsa", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Lsa)), ("ospfv3-lsa", ("ospfv3_lsa", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa))])
-                            self._child_list_classes = OrderedDict([("ospfv2-link", ("ospfv2_link", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Link)), ("ospfv2-topology", ("ospfv2_topology", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Topology)), ("ospfv2-external", ("ospfv2_external", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2External)), ("ospfv3-link", ("ospfv3_link", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Link)), ("ospfv3-prefix", ("ospfv3_prefix", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Prefix)), ("ospfv3-ia-prefix", ("ospfv3_ia_prefix", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3IaPrefix))])
+                            self._child_classes = OrderedDict([("ospfv2-lsa", ("ospfv2_lsa", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Lsa)), ("ospfv2-link", ("ospfv2_link", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Link)), ("ospfv2-topology", ("ospfv2_topology", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Topology)), ("ospfv2-external", ("ospfv2_external", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2External)), ("ospfv3-lsa", ("ospfv3_lsa", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa)), ("ospfv3-link", ("ospfv3_link", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Link)), ("ospfv3-prefix", ("ospfv3_prefix", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Prefix)), ("ospfv3-ia-prefix", ("ospfv3_ia_prefix", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3IaPrefix))])
                             self._leafs = OrderedDict([
                                 ('lsa_type', YLeaf(YType.uint32, 'lsa-type')),
                                 ('adv_router', YLeaf(YType.str, 'adv-router')),
@@ -5149,12 +5053,10 @@ class OspfOperData(Entity):
                             self.ospfv2_lsa = OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Lsa()
                             self.ospfv2_lsa.parent = self
                             self._children_name_map["ospfv2_lsa"] = "ospfv2-lsa"
-                            self._children_yang_names.add("ospfv2-lsa")
 
                             self.ospfv3_lsa = OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa()
                             self.ospfv3_lsa.parent = self
                             self._children_name_map["ospfv3_lsa"] = "ospfv3-lsa"
-                            self._children_yang_names.add("ospfv3-lsa")
 
                             self.ospfv2_link = YList(self)
                             self.ospfv2_topology = YList(self)
@@ -5197,20 +5099,20 @@ class OspfOperData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("header", ("header", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Lsa.Header)), ("lsa-body", ("lsa_body", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Lsa.LsaBody))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("header", ("header", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Lsa.Header)), ("lsa-body", ("lsa_body", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Lsa.LsaBody))])
                                 self._leafs = OrderedDict()
 
                                 self.header = OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Lsa.Header()
                                 self.header.parent = self
                                 self._children_name_map["header"] = "header"
-                                self._children_yang_names.add("header")
 
                                 self.lsa_body = OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Lsa.LsaBody()
                                 self.lsa_body.parent = self
                                 self._children_name_map["lsa_body"] = "lsa-body"
-                                self._children_yang_names.add("lsa-body")
                                 self._segment_path = lambda: "ospfv2-lsa"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Lsa, [], name, value)
 
 
                             class Header(Entity):
@@ -5302,8 +5204,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('lsa_id', YLeaf(YType.str, 'lsa-id')),
                                         ('opaque_type', YLeaf(YType.uint8, 'opaque-type')),
@@ -5394,8 +5295,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("network", ("network", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Lsa.LsaBody.Network))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("network", ("network", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Lsa.LsaBody.Network))])
                                     self._leafs = OrderedDict([
                                         ('num_of_links', YLeaf(YType.uint16, 'num-of-links')),
                                         ('summary_mask', YLeaf(YType.str, 'summary-mask')),
@@ -5410,7 +5310,6 @@ class OspfOperData(Entity):
                                     self.network = OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Lsa.LsaBody.Network()
                                     self.network.parent = self
                                     self._children_name_map["network"] = "network"
-                                    self._children_yang_names.add("network")
                                     self._segment_path = lambda: "lsa-body"
 
                                 def __setattr__(self, name, value):
@@ -5456,8 +5355,7 @@ class OspfOperData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('network_mask', YLeaf(YType.str, 'network-mask')),
                                             ('attached_router', YLeafList(YType.uint32, 'attached-router')),
@@ -5515,8 +5413,7 @@ class OspfOperData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['link_id','link_data']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("ospfv2-topology", ("ospfv2_topology", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Link.Ospfv2Topology))])
+                                self._child_classes = OrderedDict([("ospfv2-topology", ("ospfv2_topology", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Link.Ospfv2Topology))])
                                 self._leafs = OrderedDict([
                                     ('link_id', YLeaf(YType.uint32, 'link-id')),
                                     ('link_data', YLeaf(YType.uint32, 'link-data')),
@@ -5566,8 +5463,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['mt_id']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('mt_id', YLeaf(YType.uint32, 'mt-id')),
                                         ('metric', YLeaf(YType.uint16, 'metric')),
@@ -5613,8 +5509,7 @@ class OspfOperData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['mt_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('mt_id', YLeaf(YType.uint32, 'mt-id')),
                                     ('metric', YLeaf(YType.uint16, 'metric')),
@@ -5680,8 +5575,7 @@ class OspfOperData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['mt_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('mt_id', YLeaf(YType.uint32, 'mt-id')),
                                     ('metric', YLeaf(YType.uint32, 'metric')),
@@ -5727,20 +5621,20 @@ class OspfOperData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("header", ("header", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.Header)), ("lsa-body", ("lsa_body", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("header", ("header", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.Header)), ("lsa-body", ("lsa_body", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody))])
                                 self._leafs = OrderedDict()
 
                                 self.header = OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.Header()
                                 self.header.parent = self
                                 self._children_name_map["header"] = "header"
-                                self._children_yang_names.add("header")
 
                                 self.lsa_body = OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody()
                                 self.lsa_body.parent = self
                                 self._children_name_map["lsa_body"] = "lsa-body"
-                                self._children_yang_names.add("lsa-body")
                                 self._segment_path = lambda: "ospfv3-lsa"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa, [], name, value)
 
 
                             class Header(Entity):
@@ -5785,8 +5679,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("lsa-header", ("lsa_header", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.Header.LsaHeader))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("lsa-header", ("lsa_header", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.Header.LsaHeader))])
                                     self._leafs = OrderedDict([
                                         ('lsa_id', YLeaf(YType.str, 'lsa-id')),
                                         ('lsa_hdr_options', YLeaf(YType.bits, 'lsa-hdr-options')),
@@ -5797,7 +5690,6 @@ class OspfOperData(Entity):
                                     self.lsa_header = OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.Header.LsaHeader()
                                     self.lsa_header.parent = self
                                     self._children_name_map["lsa_header"] = "lsa-header"
-                                    self._children_yang_names.add("lsa-header")
                                     self._segment_path = lambda: "header"
 
                                 def __setattr__(self, name, value):
@@ -5861,8 +5753,7 @@ class OspfOperData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('age', YLeaf(YType.uint16, 'age')),
                                             ('type', YLeaf(YType.uint16, 'type')),
@@ -5947,8 +5838,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("network", ("network", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.Network)), ("prefix", ("prefix", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.Prefix)), ("ia-router", ("ia_router", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.IaRouter)), ("lsa-external", ("lsa_external", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.LsaExternal)), ("nssa", ("nssa", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.Nssa)), ("link-data", ("link_data", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.LinkData)), ("ia-prefix", ("ia_prefix", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.IaPrefix))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("network", ("network", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.Network)), ("prefix", ("prefix", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.Prefix)), ("ia-router", ("ia_router", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.IaRouter)), ("lsa-external", ("lsa_external", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.LsaExternal)), ("nssa", ("nssa", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.Nssa)), ("link-data", ("link_data", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.LinkData)), ("ia-prefix", ("ia_prefix", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.IaPrefix))])
                                     self._leafs = OrderedDict([
                                         ('lsa_flag_options', YLeaf(YType.bits, 'lsa-flag-options')),
                                         ('lsa_body_flags', YLeaf(YType.bits, 'lsa-body-flags')),
@@ -5959,37 +5849,30 @@ class OspfOperData(Entity):
                                     self.network = OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.Network()
                                     self.network.parent = self
                                     self._children_name_map["network"] = "network"
-                                    self._children_yang_names.add("network")
 
                                     self.prefix = OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.Prefix()
                                     self.prefix.parent = self
                                     self._children_name_map["prefix"] = "prefix"
-                                    self._children_yang_names.add("prefix")
 
                                     self.ia_router = OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.IaRouter()
                                     self.ia_router.parent = self
                                     self._children_name_map["ia_router"] = "ia-router"
-                                    self._children_yang_names.add("ia-router")
 
                                     self.lsa_external = OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.LsaExternal()
                                     self.lsa_external.parent = self
                                     self._children_name_map["lsa_external"] = "lsa-external"
-                                    self._children_yang_names.add("lsa-external")
 
                                     self.nssa = OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.Nssa()
                                     self.nssa.parent = self
                                     self._children_name_map["nssa"] = "nssa"
-                                    self._children_yang_names.add("nssa")
 
                                     self.link_data = OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.LinkData()
                                     self.link_data.parent = self
                                     self._children_name_map["link_data"] = "link-data"
-                                    self._children_yang_names.add("link-data")
 
                                     self.ia_prefix = OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.IaPrefix()
                                     self.ia_prefix.parent = self
                                     self._children_name_map["ia_prefix"] = "ia-prefix"
-                                    self._children_yang_names.add("ia-prefix")
                                     self._segment_path = lambda: "lsa-body"
 
                                 def __setattr__(self, name, value):
@@ -6027,8 +5910,7 @@ class OspfOperData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('attached_router', YLeafList(YType.uint32, 'attached-router')),
                                             ('lsa_net_options', YLeaf(YType.bits, 'lsa-net-options')),
@@ -6077,8 +5959,7 @@ class OspfOperData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('metric', YLeaf(YType.uint32, 'metric')),
                                             ('ia_prefix', YLeaf(YType.str, 'ia-prefix')),
@@ -6131,8 +6012,7 @@ class OspfOperData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('metric', YLeaf(YType.uint32, 'metric')),
                                             ('destination_router_id', YLeaf(YType.uint32, 'destination-router-id')),
@@ -6222,8 +6102,7 @@ class OspfOperData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("flags", ("flags", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.LsaExternal.Flags))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("flags", ("flags", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.LsaExternal.Flags))])
                                         self._leafs = OrderedDict([
                                             ('metric', YLeaf(YType.uint32, 'metric')),
                                             ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
@@ -6244,7 +6123,6 @@ class OspfOperData(Entity):
                                         self.flags = OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.LsaExternal.Flags()
                                         self.flags.parent = self
                                         self._children_name_map["flags"] = "flags"
-                                        self._children_yang_names.add("flags")
                                         self._segment_path = lambda: "lsa-external"
 
                                     def __setattr__(self, name, value):
@@ -6275,8 +6153,7 @@ class OspfOperData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('e_flag', YLeaf(YType.boolean, 'e-flag')),
                                             ])
@@ -6311,15 +6188,16 @@ class OspfOperData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("lsa-nssa-external", ("lsa_nssa_external", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("lsa-nssa-external", ("lsa_nssa_external", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal))])
                                         self._leafs = OrderedDict()
 
                                         self.lsa_nssa_external = OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal()
                                         self.lsa_nssa_external.parent = self
                                         self._children_name_map["lsa_nssa_external"] = "lsa-nssa-external"
-                                        self._children_yang_names.add("lsa-nssa-external")
                                         self._segment_path = lambda: "nssa"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.Nssa, [], name, value)
 
 
                                     class LsaNssaExternal(Entity):
@@ -6397,8 +6275,7 @@ class OspfOperData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("flags", ("flags", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal.Flags))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("flags", ("flags", OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal.Flags))])
                                             self._leafs = OrderedDict([
                                                 ('metric', YLeaf(YType.uint32, 'metric')),
                                                 ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
@@ -6419,7 +6296,6 @@ class OspfOperData(Entity):
                                             self.flags = OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal.Flags()
                                             self.flags.parent = self
                                             self._children_name_map["flags"] = "flags"
-                                            self._children_yang_names.add("flags")
                                             self._segment_path = lambda: "lsa-nssa-external"
 
                                         def __setattr__(self, name, value):
@@ -6450,8 +6326,7 @@ class OspfOperData(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('e_flag', YLeaf(YType.boolean, 'e-flag')),
                                                 ])
@@ -6513,8 +6388,7 @@ class OspfOperData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('rtr_priority', YLeaf(YType.uint8, 'rtr-priority')),
                                             ('link_local_interface_address', YLeaf(YType.str, 'link-local-interface-address')),
@@ -6584,8 +6458,7 @@ class OspfOperData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
                                             ('referenced_link_state_id', YLeaf(YType.uint32, 'referenced-link-state-id')),
@@ -6656,8 +6529,7 @@ class OspfOperData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['interface_id','neighbor_interface_id','neighbor_router_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('interface_id', YLeaf(YType.uint32, 'interface-id')),
                                     ('neighbor_interface_id', YLeaf(YType.uint32, 'neighbor-interface-id')),
@@ -6705,8 +6577,7 @@ class OspfOperData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['prefix']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('prefix', YLeaf(YType.str, 'prefix')),
                                     ('prefix_options', YLeaf(YType.str, 'prefix-options')),
@@ -6748,8 +6619,7 @@ class OspfOperData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['prefix']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('prefix', YLeaf(YType.str, 'prefix')),
                                     ('prefix_options', YLeaf(YType.str, 'prefix-options')),
@@ -6798,8 +6668,7 @@ class OspfOperData(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['lsa_type']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("link-scope-lsa", ("link_scope_lsa", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa)), ("area-scope-lsa", ("area_scope_lsa", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa))])
+                    self._child_classes = OrderedDict([("link-scope-lsa", ("link_scope_lsa", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa)), ("area-scope-lsa", ("area_scope_lsa", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa))])
                     self._leafs = OrderedDict([
                         ('lsa_type', YLeaf(YType.uint32, 'lsa-type')),
                     ])
@@ -6944,8 +6813,7 @@ class OspfOperData(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['lsa_id','adv_router']
-                        self._child_container_classes = OrderedDict([("ospfv2-lsa", ("ospfv2_lsa", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Lsa)), ("ospfv3-lsa-val", ("ospfv3_lsa_val", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal)), ("tlv", ("tlv", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Tlv))])
-                        self._child_list_classes = OrderedDict([("ospfv2-link", ("ospfv2_link", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Link)), ("ospfv2-topology", ("ospfv2_topology", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Topology)), ("ospfv2-external", ("ospfv2_external", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2External)), ("ospfv2-unknown-tlv", ("ospfv2_unknown_tlv", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2UnknownTlv)), ("ospfv3-link", ("ospfv3_link", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3Link)), ("ospfv3-prefix-list", ("ospfv3_prefix_list", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3PrefixList)), ("ospfv3-ia-prefix", ("ospfv3_ia_prefix", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3IaPrefix)), ("multi-topology", ("multi_topology", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.MultiTopology)), ("unknown-sub-tlv", ("unknown_sub_tlv", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.UnknownSubTlv))])
+                        self._child_classes = OrderedDict([("ospfv2-lsa", ("ospfv2_lsa", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Lsa)), ("ospfv2-link", ("ospfv2_link", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Link)), ("ospfv2-topology", ("ospfv2_topology", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Topology)), ("ospfv2-external", ("ospfv2_external", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2External)), ("ospfv2-unknown-tlv", ("ospfv2_unknown_tlv", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2UnknownTlv)), ("ospfv3-lsa-val", ("ospfv3_lsa_val", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal)), ("ospfv3-link", ("ospfv3_link", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3Link)), ("ospfv3-prefix-list", ("ospfv3_prefix_list", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3PrefixList)), ("ospfv3-ia-prefix", ("ospfv3_ia_prefix", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3IaPrefix)), ("multi-topology", ("multi_topology", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.MultiTopology)), ("tlv", ("tlv", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Tlv)), ("unknown-sub-tlv", ("unknown_sub_tlv", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.UnknownSubTlv))])
                         self._leafs = OrderedDict([
                             ('lsa_id', YLeaf(YType.uint32, 'lsa-id')),
                             ('adv_router', YLeaf(YType.str, 'adv-router')),
@@ -6964,17 +6832,14 @@ class OspfOperData(Entity):
                         self.ospfv2_lsa = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Lsa()
                         self.ospfv2_lsa.parent = self
                         self._children_name_map["ospfv2_lsa"] = "ospfv2-lsa"
-                        self._children_yang_names.add("ospfv2-lsa")
 
                         self.ospfv3_lsa_val = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal()
                         self.ospfv3_lsa_val.parent = self
                         self._children_name_map["ospfv3_lsa_val"] = "ospfv3-lsa-val"
-                        self._children_yang_names.add("ospfv3-lsa-val")
 
                         self.tlv = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Tlv()
                         self.tlv.parent = self
                         self._children_name_map["tlv"] = "tlv"
-                        self._children_yang_names.add("tlv")
 
                         self.ospfv2_link = YList(self)
                         self.ospfv2_topology = YList(self)
@@ -7020,20 +6885,20 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("header", ("header", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.Header)), ("lsa-body", ("lsa_body", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.LsaBody))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("header", ("header", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.Header)), ("lsa-body", ("lsa_body", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.LsaBody))])
                             self._leafs = OrderedDict()
 
                             self.header = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.Header()
                             self.header.parent = self
                             self._children_name_map["header"] = "header"
-                            self._children_yang_names.add("header")
 
                             self.lsa_body = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.LsaBody()
                             self.lsa_body.parent = self
                             self._children_name_map["lsa_body"] = "lsa-body"
-                            self._children_yang_names.add("lsa-body")
                             self._segment_path = lambda: "ospfv2-lsa"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Lsa, [], name, value)
 
 
                         class Header(Entity):
@@ -7125,8 +6990,7 @@ class OspfOperData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('lsa_id', YLeaf(YType.str, 'lsa-id')),
                                     ('opaque_type', YLeaf(YType.uint8, 'opaque-type')),
@@ -7217,8 +7081,7 @@ class OspfOperData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("network", ("network", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.LsaBody.Network))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("network", ("network", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.LsaBody.Network))])
                                 self._leafs = OrderedDict([
                                     ('num_of_links', YLeaf(YType.uint16, 'num-of-links')),
                                     ('summary_mask', YLeaf(YType.str, 'summary-mask')),
@@ -7233,7 +7096,6 @@ class OspfOperData(Entity):
                                 self.network = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.LsaBody.Network()
                                 self.network.parent = self
                                 self._children_name_map["network"] = "network"
-                                self._children_yang_names.add("network")
                                 self._segment_path = lambda: "lsa-body"
 
                             def __setattr__(self, name, value):
@@ -7279,8 +7141,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('network_mask', YLeaf(YType.str, 'network-mask')),
                                         ('attached_router', YLeafList(YType.uint32, 'attached-router')),
@@ -7338,8 +7199,7 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['link_id','link_data']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("ospfv2-topology", ("ospfv2_topology", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Link.Ospfv2Topology))])
+                            self._child_classes = OrderedDict([("ospfv2-topology", ("ospfv2_topology", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Link.Ospfv2Topology))])
                             self._leafs = OrderedDict([
                                 ('link_id', YLeaf(YType.uint32, 'link-id')),
                                 ('link_data', YLeaf(YType.uint32, 'link-data')),
@@ -7389,8 +7249,7 @@ class OspfOperData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['mt_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('mt_id', YLeaf(YType.uint32, 'mt-id')),
                                     ('metric', YLeaf(YType.uint16, 'metric')),
@@ -7436,8 +7295,7 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['mt_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('mt_id', YLeaf(YType.uint32, 'mt-id')),
                                 ('metric', YLeaf(YType.uint16, 'metric')),
@@ -7503,8 +7361,7 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['mt_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('mt_id', YLeaf(YType.uint32, 'mt-id')),
                                 ('metric', YLeaf(YType.uint32, 'metric')),
@@ -7561,8 +7418,7 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['type']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('type', YLeaf(YType.uint16, 'type')),
                                 ('length', YLeaf(YType.uint16, 'length')),
@@ -7606,20 +7462,20 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("header", ("header", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.Header)), ("lsa-body", ("lsa_body", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("header", ("header", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.Header)), ("lsa-body", ("lsa_body", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody))])
                             self._leafs = OrderedDict()
 
                             self.header = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.Header()
                             self.header.parent = self
                             self._children_name_map["header"] = "header"
-                            self._children_yang_names.add("header")
 
                             self.lsa_body = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody()
                             self.lsa_body.parent = self
                             self._children_name_map["lsa_body"] = "lsa-body"
-                            self._children_yang_names.add("lsa-body")
                             self._segment_path = lambda: "ospfv3-lsa-val"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal, [], name, value)
 
 
                         class Header(Entity):
@@ -7664,8 +7520,7 @@ class OspfOperData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("lsa-header", ("lsa_header", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.Header.LsaHeader))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("lsa-header", ("lsa_header", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.Header.LsaHeader))])
                                 self._leafs = OrderedDict([
                                     ('lsa_id', YLeaf(YType.str, 'lsa-id')),
                                     ('lsa_hdr_options', YLeaf(YType.bits, 'lsa-hdr-options')),
@@ -7676,7 +7531,6 @@ class OspfOperData(Entity):
                                 self.lsa_header = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.Header.LsaHeader()
                                 self.lsa_header.parent = self
                                 self._children_name_map["lsa_header"] = "lsa-header"
-                                self._children_yang_names.add("lsa-header")
                                 self._segment_path = lambda: "header"
 
                             def __setattr__(self, name, value):
@@ -7740,8 +7594,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('age', YLeaf(YType.uint16, 'age')),
                                         ('type', YLeaf(YType.uint16, 'type')),
@@ -7826,8 +7679,7 @@ class OspfOperData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("network", ("network", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Network)), ("prefix", ("prefix", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Prefix)), ("ia-router", ("ia_router", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.IaRouter)), ("lsa-external", ("lsa_external", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LsaExternal)), ("nssa", ("nssa", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa)), ("link-data", ("link_data", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LinkData)), ("ia-prefix", ("ia_prefix", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.IaPrefix))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("network", ("network", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Network)), ("prefix", ("prefix", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Prefix)), ("ia-router", ("ia_router", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.IaRouter)), ("lsa-external", ("lsa_external", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LsaExternal)), ("nssa", ("nssa", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa)), ("link-data", ("link_data", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LinkData)), ("ia-prefix", ("ia_prefix", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.IaPrefix))])
                                 self._leafs = OrderedDict([
                                     ('lsa_flag_options', YLeaf(YType.bits, 'lsa-flag-options')),
                                     ('lsa_body_flags', YLeaf(YType.bits, 'lsa-body-flags')),
@@ -7838,37 +7690,30 @@ class OspfOperData(Entity):
                                 self.network = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Network()
                                 self.network.parent = self
                                 self._children_name_map["network"] = "network"
-                                self._children_yang_names.add("network")
 
                                 self.prefix = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Prefix()
                                 self.prefix.parent = self
                                 self._children_name_map["prefix"] = "prefix"
-                                self._children_yang_names.add("prefix")
 
                                 self.ia_router = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.IaRouter()
                                 self.ia_router.parent = self
                                 self._children_name_map["ia_router"] = "ia-router"
-                                self._children_yang_names.add("ia-router")
 
                                 self.lsa_external = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LsaExternal()
                                 self.lsa_external.parent = self
                                 self._children_name_map["lsa_external"] = "lsa-external"
-                                self._children_yang_names.add("lsa-external")
 
                                 self.nssa = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa()
                                 self.nssa.parent = self
                                 self._children_name_map["nssa"] = "nssa"
-                                self._children_yang_names.add("nssa")
 
                                 self.link_data = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LinkData()
                                 self.link_data.parent = self
                                 self._children_name_map["link_data"] = "link-data"
-                                self._children_yang_names.add("link-data")
 
                                 self.ia_prefix = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.IaPrefix()
                                 self.ia_prefix.parent = self
                                 self._children_name_map["ia_prefix"] = "ia-prefix"
-                                self._children_yang_names.add("ia-prefix")
                                 self._segment_path = lambda: "lsa-body"
 
                             def __setattr__(self, name, value):
@@ -7906,8 +7751,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('attached_router', YLeafList(YType.uint32, 'attached-router')),
                                         ('lsa_net_options', YLeaf(YType.bits, 'lsa-net-options')),
@@ -7956,8 +7800,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('metric', YLeaf(YType.uint32, 'metric')),
                                         ('ia_prefix', YLeaf(YType.str, 'ia-prefix')),
@@ -8010,8 +7853,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('metric', YLeaf(YType.uint32, 'metric')),
                                         ('destination_router_id', YLeaf(YType.uint32, 'destination-router-id')),
@@ -8101,8 +7943,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("flags", ("flags", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LsaExternal.Flags))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("flags", ("flags", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LsaExternal.Flags))])
                                     self._leafs = OrderedDict([
                                         ('metric', YLeaf(YType.uint32, 'metric')),
                                         ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
@@ -8123,7 +7964,6 @@ class OspfOperData(Entity):
                                     self.flags = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LsaExternal.Flags()
                                     self.flags.parent = self
                                     self._children_name_map["flags"] = "flags"
-                                    self._children_yang_names.add("flags")
                                     self._segment_path = lambda: "lsa-external"
 
                                 def __setattr__(self, name, value):
@@ -8154,8 +7994,7 @@ class OspfOperData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('e_flag', YLeaf(YType.boolean, 'e-flag')),
                                         ])
@@ -8190,15 +8029,16 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("lsa-nssa-external", ("lsa_nssa_external", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa.LsaNssaExternal))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("lsa-nssa-external", ("lsa_nssa_external", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa.LsaNssaExternal))])
                                     self._leafs = OrderedDict()
 
                                     self.lsa_nssa_external = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa.LsaNssaExternal()
                                     self.lsa_nssa_external.parent = self
                                     self._children_name_map["lsa_nssa_external"] = "lsa-nssa-external"
-                                    self._children_yang_names.add("lsa-nssa-external")
                                     self._segment_path = lambda: "nssa"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa, [], name, value)
 
 
                                 class LsaNssaExternal(Entity):
@@ -8276,8 +8116,7 @@ class OspfOperData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("flags", ("flags", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa.LsaNssaExternal.Flags))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("flags", ("flags", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa.LsaNssaExternal.Flags))])
                                         self._leafs = OrderedDict([
                                             ('metric', YLeaf(YType.uint32, 'metric')),
                                             ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
@@ -8298,7 +8137,6 @@ class OspfOperData(Entity):
                                         self.flags = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa.LsaNssaExternal.Flags()
                                         self.flags.parent = self
                                         self._children_name_map["flags"] = "flags"
-                                        self._children_yang_names.add("flags")
                                         self._segment_path = lambda: "lsa-nssa-external"
 
                                     def __setattr__(self, name, value):
@@ -8329,8 +8167,7 @@ class OspfOperData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('e_flag', YLeaf(YType.boolean, 'e-flag')),
                                             ])
@@ -8392,8 +8229,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('rtr_priority', YLeaf(YType.uint8, 'rtr-priority')),
                                         ('link_local_interface_address', YLeaf(YType.str, 'link-local-interface-address')),
@@ -8463,8 +8299,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
                                         ('referenced_link_state_id', YLeaf(YType.uint32, 'referenced-link-state-id')),
@@ -8535,8 +8370,7 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['interface_id','neighbor_interface_id','neighbor_router_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('interface_id', YLeaf(YType.uint32, 'interface-id')),
                                 ('neighbor_interface_id', YLeaf(YType.uint32, 'neighbor-interface-id')),
@@ -8584,8 +8418,7 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['prefix']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('prefix', YLeaf(YType.str, 'prefix')),
                                 ('prefix_options', YLeaf(YType.str, 'prefix-options')),
@@ -8627,8 +8460,7 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['prefix']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('prefix', YLeaf(YType.str, 'prefix')),
                                 ('prefix_options', YLeaf(YType.str, 'prefix-options')),
@@ -8665,8 +8497,7 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('name', YLeaf(YType.str, 'name')),
                             ])
@@ -8771,8 +8602,7 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('link_type', YLeaf(YType.uint8, 'link-type')),
                                 ('link_id', YLeaf(YType.uint32, 'link-id')),
@@ -8839,8 +8669,7 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['type']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('type', YLeaf(YType.uint16, 'type')),
                                 ('length', YLeaf(YType.uint16, 'length')),
@@ -8946,8 +8775,7 @@ class OspfOperData(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['lsa_type','adv_router']
-                        self._child_container_classes = OrderedDict([("ospfv2-lsa", ("ospfv2_lsa", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Lsa)), ("ospfv3-lsa", ("ospfv3_lsa", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa))])
-                        self._child_list_classes = OrderedDict([("ospfv2-link", ("ospfv2_link", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Link)), ("ospfv2-topology", ("ospfv2_topology", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Topology)), ("ospfv2-external", ("ospfv2_external", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2External)), ("ospfv3-link", ("ospfv3_link", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Link)), ("ospfv3-prefix", ("ospfv3_prefix", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Prefix)), ("ospfv3-ia-prefix", ("ospfv3_ia_prefix", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3IaPrefix))])
+                        self._child_classes = OrderedDict([("ospfv2-lsa", ("ospfv2_lsa", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Lsa)), ("ospfv2-link", ("ospfv2_link", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Link)), ("ospfv2-topology", ("ospfv2_topology", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Topology)), ("ospfv2-external", ("ospfv2_external", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2External)), ("ospfv3-lsa", ("ospfv3_lsa", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa)), ("ospfv3-link", ("ospfv3_link", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Link)), ("ospfv3-prefix", ("ospfv3_prefix", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Prefix)), ("ospfv3-ia-prefix", ("ospfv3_ia_prefix", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3IaPrefix))])
                         self._leafs = OrderedDict([
                             ('lsa_type', YLeaf(YType.uint32, 'lsa-type')),
                             ('adv_router', YLeaf(YType.str, 'adv-router')),
@@ -8962,12 +8790,10 @@ class OspfOperData(Entity):
                         self.ospfv2_lsa = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Lsa()
                         self.ospfv2_lsa.parent = self
                         self._children_name_map["ospfv2_lsa"] = "ospfv2-lsa"
-                        self._children_yang_names.add("ospfv2-lsa")
 
                         self.ospfv3_lsa = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa()
                         self.ospfv3_lsa.parent = self
                         self._children_name_map["ospfv3_lsa"] = "ospfv3-lsa"
-                        self._children_yang_names.add("ospfv3-lsa")
 
                         self.ospfv2_link = YList(self)
                         self.ospfv2_topology = YList(self)
@@ -9010,20 +8836,20 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("header", ("header", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.Header)), ("lsa-body", ("lsa_body", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.LsaBody))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("header", ("header", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.Header)), ("lsa-body", ("lsa_body", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.LsaBody))])
                             self._leafs = OrderedDict()
 
                             self.header = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.Header()
                             self.header.parent = self
                             self._children_name_map["header"] = "header"
-                            self._children_yang_names.add("header")
 
                             self.lsa_body = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.LsaBody()
                             self.lsa_body.parent = self
                             self._children_name_map["lsa_body"] = "lsa-body"
-                            self._children_yang_names.add("lsa-body")
                             self._segment_path = lambda: "ospfv2-lsa"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Lsa, [], name, value)
 
 
                         class Header(Entity):
@@ -9115,8 +8941,7 @@ class OspfOperData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('lsa_id', YLeaf(YType.str, 'lsa-id')),
                                     ('opaque_type', YLeaf(YType.uint8, 'opaque-type')),
@@ -9207,8 +9032,7 @@ class OspfOperData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("network", ("network", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.LsaBody.Network))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("network", ("network", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.LsaBody.Network))])
                                 self._leafs = OrderedDict([
                                     ('num_of_links', YLeaf(YType.uint16, 'num-of-links')),
                                     ('summary_mask', YLeaf(YType.str, 'summary-mask')),
@@ -9223,7 +9047,6 @@ class OspfOperData(Entity):
                                 self.network = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.LsaBody.Network()
                                 self.network.parent = self
                                 self._children_name_map["network"] = "network"
-                                self._children_yang_names.add("network")
                                 self._segment_path = lambda: "lsa-body"
 
                             def __setattr__(self, name, value):
@@ -9269,8 +9092,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('network_mask', YLeaf(YType.str, 'network-mask')),
                                         ('attached_router', YLeafList(YType.uint32, 'attached-router')),
@@ -9328,8 +9150,7 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['link_id','link_data']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("ospfv2-topology", ("ospfv2_topology", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Link.Ospfv2Topology))])
+                            self._child_classes = OrderedDict([("ospfv2-topology", ("ospfv2_topology", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Link.Ospfv2Topology))])
                             self._leafs = OrderedDict([
                                 ('link_id', YLeaf(YType.uint32, 'link-id')),
                                 ('link_data', YLeaf(YType.uint32, 'link-data')),
@@ -9379,8 +9200,7 @@ class OspfOperData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['mt_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('mt_id', YLeaf(YType.uint32, 'mt-id')),
                                     ('metric', YLeaf(YType.uint16, 'metric')),
@@ -9426,8 +9246,7 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['mt_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('mt_id', YLeaf(YType.uint32, 'mt-id')),
                                 ('metric', YLeaf(YType.uint16, 'metric')),
@@ -9493,8 +9312,7 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['mt_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('mt_id', YLeaf(YType.uint32, 'mt-id')),
                                 ('metric', YLeaf(YType.uint32, 'metric')),
@@ -9540,20 +9358,20 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("header", ("header", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.Header)), ("lsa-body", ("lsa_body", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("header", ("header", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.Header)), ("lsa-body", ("lsa_body", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody))])
                             self._leafs = OrderedDict()
 
                             self.header = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.Header()
                             self.header.parent = self
                             self._children_name_map["header"] = "header"
-                            self._children_yang_names.add("header")
 
                             self.lsa_body = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody()
                             self.lsa_body.parent = self
                             self._children_name_map["lsa_body"] = "lsa-body"
-                            self._children_yang_names.add("lsa-body")
                             self._segment_path = lambda: "ospfv3-lsa"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa, [], name, value)
 
 
                         class Header(Entity):
@@ -9598,8 +9416,7 @@ class OspfOperData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("lsa-header", ("lsa_header", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.Header.LsaHeader))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("lsa-header", ("lsa_header", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.Header.LsaHeader))])
                                 self._leafs = OrderedDict([
                                     ('lsa_id', YLeaf(YType.str, 'lsa-id')),
                                     ('lsa_hdr_options', YLeaf(YType.bits, 'lsa-hdr-options')),
@@ -9610,7 +9427,6 @@ class OspfOperData(Entity):
                                 self.lsa_header = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.Header.LsaHeader()
                                 self.lsa_header.parent = self
                                 self._children_name_map["lsa_header"] = "lsa-header"
-                                self._children_yang_names.add("lsa-header")
                                 self._segment_path = lambda: "header"
 
                             def __setattr__(self, name, value):
@@ -9674,8 +9490,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('age', YLeaf(YType.uint16, 'age')),
                                         ('type', YLeaf(YType.uint16, 'type')),
@@ -9760,8 +9575,7 @@ class OspfOperData(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("network", ("network", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Network)), ("prefix", ("prefix", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Prefix)), ("ia-router", ("ia_router", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.IaRouter)), ("lsa-external", ("lsa_external", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LsaExternal)), ("nssa", ("nssa", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa)), ("link-data", ("link_data", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LinkData)), ("ia-prefix", ("ia_prefix", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.IaPrefix))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("network", ("network", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Network)), ("prefix", ("prefix", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Prefix)), ("ia-router", ("ia_router", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.IaRouter)), ("lsa-external", ("lsa_external", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LsaExternal)), ("nssa", ("nssa", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa)), ("link-data", ("link_data", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LinkData)), ("ia-prefix", ("ia_prefix", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.IaPrefix))])
                                 self._leafs = OrderedDict([
                                     ('lsa_flag_options', YLeaf(YType.bits, 'lsa-flag-options')),
                                     ('lsa_body_flags', YLeaf(YType.bits, 'lsa-body-flags')),
@@ -9772,37 +9586,30 @@ class OspfOperData(Entity):
                                 self.network = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Network()
                                 self.network.parent = self
                                 self._children_name_map["network"] = "network"
-                                self._children_yang_names.add("network")
 
                                 self.prefix = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Prefix()
                                 self.prefix.parent = self
                                 self._children_name_map["prefix"] = "prefix"
-                                self._children_yang_names.add("prefix")
 
                                 self.ia_router = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.IaRouter()
                                 self.ia_router.parent = self
                                 self._children_name_map["ia_router"] = "ia-router"
-                                self._children_yang_names.add("ia-router")
 
                                 self.lsa_external = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LsaExternal()
                                 self.lsa_external.parent = self
                                 self._children_name_map["lsa_external"] = "lsa-external"
-                                self._children_yang_names.add("lsa-external")
 
                                 self.nssa = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa()
                                 self.nssa.parent = self
                                 self._children_name_map["nssa"] = "nssa"
-                                self._children_yang_names.add("nssa")
 
                                 self.link_data = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LinkData()
                                 self.link_data.parent = self
                                 self._children_name_map["link_data"] = "link-data"
-                                self._children_yang_names.add("link-data")
 
                                 self.ia_prefix = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.IaPrefix()
                                 self.ia_prefix.parent = self
                                 self._children_name_map["ia_prefix"] = "ia-prefix"
-                                self._children_yang_names.add("ia-prefix")
                                 self._segment_path = lambda: "lsa-body"
 
                             def __setattr__(self, name, value):
@@ -9840,8 +9647,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('attached_router', YLeafList(YType.uint32, 'attached-router')),
                                         ('lsa_net_options', YLeaf(YType.bits, 'lsa-net-options')),
@@ -9890,8 +9696,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('metric', YLeaf(YType.uint32, 'metric')),
                                         ('ia_prefix', YLeaf(YType.str, 'ia-prefix')),
@@ -9944,8 +9749,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('metric', YLeaf(YType.uint32, 'metric')),
                                         ('destination_router_id', YLeaf(YType.uint32, 'destination-router-id')),
@@ -10035,8 +9839,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("flags", ("flags", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LsaExternal.Flags))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("flags", ("flags", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LsaExternal.Flags))])
                                     self._leafs = OrderedDict([
                                         ('metric', YLeaf(YType.uint32, 'metric')),
                                         ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
@@ -10057,7 +9860,6 @@ class OspfOperData(Entity):
                                     self.flags = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LsaExternal.Flags()
                                     self.flags.parent = self
                                     self._children_name_map["flags"] = "flags"
-                                    self._children_yang_names.add("flags")
                                     self._segment_path = lambda: "lsa-external"
 
                                 def __setattr__(self, name, value):
@@ -10088,8 +9890,7 @@ class OspfOperData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('e_flag', YLeaf(YType.boolean, 'e-flag')),
                                         ])
@@ -10124,15 +9925,16 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("lsa-nssa-external", ("lsa_nssa_external", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("lsa-nssa-external", ("lsa_nssa_external", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal))])
                                     self._leafs = OrderedDict()
 
                                     self.lsa_nssa_external = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal()
                                     self.lsa_nssa_external.parent = self
                                     self._children_name_map["lsa_nssa_external"] = "lsa-nssa-external"
-                                    self._children_yang_names.add("lsa-nssa-external")
                                     self._segment_path = lambda: "nssa"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa, [], name, value)
 
 
                                 class LsaNssaExternal(Entity):
@@ -10210,8 +10012,7 @@ class OspfOperData(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("flags", ("flags", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal.Flags))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("flags", ("flags", OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal.Flags))])
                                         self._leafs = OrderedDict([
                                             ('metric', YLeaf(YType.uint32, 'metric')),
                                             ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
@@ -10232,7 +10033,6 @@ class OspfOperData(Entity):
                                         self.flags = OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal.Flags()
                                         self.flags.parent = self
                                         self._children_name_map["flags"] = "flags"
-                                        self._children_yang_names.add("flags")
                                         self._segment_path = lambda: "lsa-nssa-external"
 
                                     def __setattr__(self, name, value):
@@ -10263,8 +10063,7 @@ class OspfOperData(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('e_flag', YLeaf(YType.boolean, 'e-flag')),
                                             ])
@@ -10326,8 +10125,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('rtr_priority', YLeaf(YType.uint8, 'rtr-priority')),
                                         ('link_local_interface_address', YLeaf(YType.str, 'link-local-interface-address')),
@@ -10397,8 +10195,7 @@ class OspfOperData(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
                                         ('referenced_link_state_id', YLeaf(YType.uint32, 'referenced-link-state-id')),
@@ -10469,8 +10266,7 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['interface_id','neighbor_interface_id','neighbor_router_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('interface_id', YLeaf(YType.uint32, 'interface-id')),
                                 ('neighbor_interface_id', YLeaf(YType.uint32, 'neighbor-interface-id')),
@@ -10518,8 +10314,7 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['prefix']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('prefix', YLeaf(YType.str, 'prefix')),
                                 ('prefix_options', YLeaf(YType.str, 'prefix-options')),
@@ -10561,8 +10356,7 @@ class OspfOperData(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['prefix']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('prefix', YLeaf(YType.str, 'prefix')),
                                 ('prefix_options', YLeaf(YType.str, 'prefix-options')),
@@ -10599,8 +10393,7 @@ class OspfOperData(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                     ])

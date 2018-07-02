@@ -27,82 +27,82 @@ class QBRIDGEMIB(Entity):
     .. attribute:: dot1qbase
     
     	
-    	**type**\:  :py:class:`Dot1Qbase <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qbase>`
+    	**type**\:  :py:class:`Dot1qBase <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qBase>`
     
     .. attribute:: dot1qvlan
     
     	
-    	**type**\:  :py:class:`Dot1Qvlan <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlan>`
+    	**type**\:  :py:class:`Dot1qVlan <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qVlan>`
     
     .. attribute:: dot1qfdbtable
     
     	A table that contains configuration and control information for each Filtering Database currently operating on this device.  Entries in this table appear automatically when VLANs are assigned FDB IDs in the dot1qVlanCurrentTable
-    	**type**\:  :py:class:`Dot1Qfdbtable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qfdbtable>`
+    	**type**\:  :py:class:`Dot1qFdbTable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qFdbTable>`
     
     .. attribute:: dot1qtpfdbtable
     
     	A table that contains information about unicast entries for which the device has forwarding and/or filtering information.  This information is used by the transparent bridging function in determining how to propagate a received frame
-    	**type**\:  :py:class:`Dot1Qtpfdbtable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qtpfdbtable>`
+    	**type**\:  :py:class:`Dot1qTpFdbTable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qTpFdbTable>`
     
     .. attribute:: dot1qtpgrouptable
     
     	A table containing filtering information for VLANs configured into the bridge by (local or network) management, or learned dynamically, specifying the set of ports to which frames received on a VLAN for this FDB and containing a specific Group destination address are allowed to be forwarded
-    	**type**\:  :py:class:`Dot1Qtpgrouptable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qtpgrouptable>`
+    	**type**\:  :py:class:`Dot1qTpGroupTable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qTpGroupTable>`
     
     .. attribute:: dot1qforwardalltable
     
     	A table containing forwarding information for each  VLAN, specifying the set of ports to which forwarding of all multicasts applies, configured statically by management or dynamically by GMRP.  An entry appears in this table for all VLANs that are currently instantiated
-    	**type**\:  :py:class:`Dot1Qforwardalltable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qforwardalltable>`
+    	**type**\:  :py:class:`Dot1qForwardAllTable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qForwardAllTable>`
     
     .. attribute:: dot1qforwardunregisteredtable
     
     	A table containing forwarding information for each VLAN, specifying the set of ports to which forwarding of multicast group\-addressed frames for which no more specific forwarding information applies.  This is configured statically by management and determined dynamically by GMRP.  An entry appears in this table for all VLANs that are currently instantiated
-    	**type**\:  :py:class:`Dot1Qforwardunregisteredtable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qforwardunregisteredtable>`
+    	**type**\:  :py:class:`Dot1qForwardUnregisteredTable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qForwardUnregisteredTable>`
     
     .. attribute:: dot1qstaticunicasttable
     
     	A table containing filtering information for Unicast MAC addresses for each Filtering Database, configured into the device by (local or network) management specifying the set of ports to which frames received from specific ports and containing specific unicast destination addresses are allowed to be forwarded.  A value of zero in this table (as the port number from  which frames with a specific destination address are received) is used to specify all ports for which there is no specific entry in this table for that particular destination address.  Entries are valid for unicast addresses only
-    	**type**\:  :py:class:`Dot1Qstaticunicasttable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qstaticunicasttable>`
+    	**type**\:  :py:class:`Dot1qStaticUnicastTable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qStaticUnicastTable>`
     
     .. attribute:: dot1qstaticmulticasttable
     
     	A table containing filtering information for Multicast and Broadcast MAC addresses for each VLAN, configured into the device by (local or network) management specifying the set of ports to which frames received from specific ports and containing specific Multicast and Broadcast destination addresses are allowed to be forwarded.  A value of zero in this table (as the port number from which frames with a specific destination address are received) is used to specify all ports for which there is no specific entry in this table for that particular destination address.  Entries are valid for Multicast and Broadcast addresses only
-    	**type**\:  :py:class:`Dot1Qstaticmulticasttable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qstaticmulticasttable>`
+    	**type**\:  :py:class:`Dot1qStaticMulticastTable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qStaticMulticastTable>`
     
     .. attribute:: dot1qvlancurrenttable
     
     	A table containing current configuration information for each VLAN currently configured into the device by (local or network) management, or dynamically created as a result of GVRP requests received
-    	**type**\:  :py:class:`Dot1Qvlancurrenttable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlancurrenttable>`
+    	**type**\:  :py:class:`Dot1qVlanCurrentTable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qVlanCurrentTable>`
     
     .. attribute:: dot1qvlanstatictable
     
     	A table containing static configuration information for each VLAN configured into the device by (local or network) management.  All entries are permanent and will be restored after the device is reset
-    	**type**\:  :py:class:`Dot1Qvlanstatictable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlanstatictable>`
+    	**type**\:  :py:class:`Dot1qVlanStaticTable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qVlanStaticTable>`
     
     .. attribute:: dot1qportvlanstatisticstable
     
     	A table containing per\-port, per\-VLAN statistics for traffic received.  Separate objects are provided for both the most\-significant and least\-significant bits of statistics counters for ports that are associated with this transparent bridge.  The most\-significant bit objects are only required on high\-capacity interfaces, as defined in the conformance clauses for these objects.  This mechanism is provided as a way to read 64\-bit counters for agents that support only SNMPv1.  Note that the reporting of most\-significant and least\- significant counter bits separately runs the risk of missing an overflow of the lower bits in the interval between sampling. The manager must be aware of this possibility, even within the same varbindlist, when interpreting the results of a request or  asynchronous notification
-    	**type**\:  :py:class:`Dot1Qportvlanstatisticstable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qportvlanstatisticstable>`
+    	**type**\:  :py:class:`Dot1qPortVlanStatisticsTable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qPortVlanStatisticsTable>`
     
     .. attribute:: dot1qportvlanhcstatisticstable
     
     	A table containing per\-port, per\-VLAN statistics for traffic on high\-capacity interfaces
-    	**type**\:  :py:class:`Dot1Qportvlanhcstatisticstable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qportvlanhcstatisticstable>`
+    	**type**\:  :py:class:`Dot1qPortVlanHCStatisticsTable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qPortVlanHCStatisticsTable>`
     
     .. attribute:: dot1qlearningconstraintstable
     
     	A table containing learning constraints for sets of Shared and Independent VLANs
-    	**type**\:  :py:class:`Dot1Qlearningconstraintstable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qlearningconstraintstable>`
+    	**type**\:  :py:class:`Dot1qLearningConstraintsTable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qLearningConstraintsTable>`
     
     .. attribute:: dot1vprotocolgrouptable
     
     	A table that contains mappings from Protocol Templates to Protocol Group Identifiers used for Port\-and\-Protocol\-based VLAN Classification
-    	**type**\:  :py:class:`Dot1Vprotocolgrouptable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Vprotocolgrouptable>`
+    	**type**\:  :py:class:`Dot1vProtocolGroupTable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1vProtocolGroupTable>`
     
     .. attribute:: dot1vprotocolporttable
     
     	A table that contains VID sets used for Port\-and\-Protocol\-based VLAN Classification
-    	**type**\:  :py:class:`Dot1Vprotocolporttable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Vprotocolporttable>`
+    	**type**\:  :py:class:`Dot1vProtocolPortTable <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1vProtocolPortTable>`
     
     
 
@@ -120,100 +120,86 @@ class QBRIDGEMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("dot1qBase", ("dot1qbase", QBRIDGEMIB.Dot1Qbase)), ("dot1qVlan", ("dot1qvlan", QBRIDGEMIB.Dot1Qvlan)), ("dot1qFdbTable", ("dot1qfdbtable", QBRIDGEMIB.Dot1Qfdbtable)), ("dot1qTpFdbTable", ("dot1qtpfdbtable", QBRIDGEMIB.Dot1Qtpfdbtable)), ("dot1qTpGroupTable", ("dot1qtpgrouptable", QBRIDGEMIB.Dot1Qtpgrouptable)), ("dot1qForwardAllTable", ("dot1qforwardalltable", QBRIDGEMIB.Dot1Qforwardalltable)), ("dot1qForwardUnregisteredTable", ("dot1qforwardunregisteredtable", QBRIDGEMIB.Dot1Qforwardunregisteredtable)), ("dot1qStaticUnicastTable", ("dot1qstaticunicasttable", QBRIDGEMIB.Dot1Qstaticunicasttable)), ("dot1qStaticMulticastTable", ("dot1qstaticmulticasttable", QBRIDGEMIB.Dot1Qstaticmulticasttable)), ("dot1qVlanCurrentTable", ("dot1qvlancurrenttable", QBRIDGEMIB.Dot1Qvlancurrenttable)), ("dot1qVlanStaticTable", ("dot1qvlanstatictable", QBRIDGEMIB.Dot1Qvlanstatictable)), ("dot1qPortVlanStatisticsTable", ("dot1qportvlanstatisticstable", QBRIDGEMIB.Dot1Qportvlanstatisticstable)), ("dot1qPortVlanHCStatisticsTable", ("dot1qportvlanhcstatisticstable", QBRIDGEMIB.Dot1Qportvlanhcstatisticstable)), ("dot1qLearningConstraintsTable", ("dot1qlearningconstraintstable", QBRIDGEMIB.Dot1Qlearningconstraintstable)), ("dot1vProtocolGroupTable", ("dot1vprotocolgrouptable", QBRIDGEMIB.Dot1Vprotocolgrouptable)), ("dot1vProtocolPortTable", ("dot1vprotocolporttable", QBRIDGEMIB.Dot1Vprotocolporttable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("dot1qBase", ("dot1qbase", QBRIDGEMIB.Dot1qBase)), ("dot1qVlan", ("dot1qvlan", QBRIDGEMIB.Dot1qVlan)), ("dot1qFdbTable", ("dot1qfdbtable", QBRIDGEMIB.Dot1qFdbTable)), ("dot1qTpFdbTable", ("dot1qtpfdbtable", QBRIDGEMIB.Dot1qTpFdbTable)), ("dot1qTpGroupTable", ("dot1qtpgrouptable", QBRIDGEMIB.Dot1qTpGroupTable)), ("dot1qForwardAllTable", ("dot1qforwardalltable", QBRIDGEMIB.Dot1qForwardAllTable)), ("dot1qForwardUnregisteredTable", ("dot1qforwardunregisteredtable", QBRIDGEMIB.Dot1qForwardUnregisteredTable)), ("dot1qStaticUnicastTable", ("dot1qstaticunicasttable", QBRIDGEMIB.Dot1qStaticUnicastTable)), ("dot1qStaticMulticastTable", ("dot1qstaticmulticasttable", QBRIDGEMIB.Dot1qStaticMulticastTable)), ("dot1qVlanCurrentTable", ("dot1qvlancurrenttable", QBRIDGEMIB.Dot1qVlanCurrentTable)), ("dot1qVlanStaticTable", ("dot1qvlanstatictable", QBRIDGEMIB.Dot1qVlanStaticTable)), ("dot1qPortVlanStatisticsTable", ("dot1qportvlanstatisticstable", QBRIDGEMIB.Dot1qPortVlanStatisticsTable)), ("dot1qPortVlanHCStatisticsTable", ("dot1qportvlanhcstatisticstable", QBRIDGEMIB.Dot1qPortVlanHCStatisticsTable)), ("dot1qLearningConstraintsTable", ("dot1qlearningconstraintstable", QBRIDGEMIB.Dot1qLearningConstraintsTable)), ("dot1vProtocolGroupTable", ("dot1vprotocolgrouptable", QBRIDGEMIB.Dot1vProtocolGroupTable)), ("dot1vProtocolPortTable", ("dot1vprotocolporttable", QBRIDGEMIB.Dot1vProtocolPortTable))])
         self._leafs = OrderedDict()
 
-        self.dot1qbase = QBRIDGEMIB.Dot1Qbase()
+        self.dot1qbase = QBRIDGEMIB.Dot1qBase()
         self.dot1qbase.parent = self
         self._children_name_map["dot1qbase"] = "dot1qBase"
-        self._children_yang_names.add("dot1qBase")
 
-        self.dot1qvlan = QBRIDGEMIB.Dot1Qvlan()
+        self.dot1qvlan = QBRIDGEMIB.Dot1qVlan()
         self.dot1qvlan.parent = self
         self._children_name_map["dot1qvlan"] = "dot1qVlan"
-        self._children_yang_names.add("dot1qVlan")
 
-        self.dot1qfdbtable = QBRIDGEMIB.Dot1Qfdbtable()
+        self.dot1qfdbtable = QBRIDGEMIB.Dot1qFdbTable()
         self.dot1qfdbtable.parent = self
         self._children_name_map["dot1qfdbtable"] = "dot1qFdbTable"
-        self._children_yang_names.add("dot1qFdbTable")
 
-        self.dot1qtpfdbtable = QBRIDGEMIB.Dot1Qtpfdbtable()
+        self.dot1qtpfdbtable = QBRIDGEMIB.Dot1qTpFdbTable()
         self.dot1qtpfdbtable.parent = self
         self._children_name_map["dot1qtpfdbtable"] = "dot1qTpFdbTable"
-        self._children_yang_names.add("dot1qTpFdbTable")
 
-        self.dot1qtpgrouptable = QBRIDGEMIB.Dot1Qtpgrouptable()
+        self.dot1qtpgrouptable = QBRIDGEMIB.Dot1qTpGroupTable()
         self.dot1qtpgrouptable.parent = self
         self._children_name_map["dot1qtpgrouptable"] = "dot1qTpGroupTable"
-        self._children_yang_names.add("dot1qTpGroupTable")
 
-        self.dot1qforwardalltable = QBRIDGEMIB.Dot1Qforwardalltable()
+        self.dot1qforwardalltable = QBRIDGEMIB.Dot1qForwardAllTable()
         self.dot1qforwardalltable.parent = self
         self._children_name_map["dot1qforwardalltable"] = "dot1qForwardAllTable"
-        self._children_yang_names.add("dot1qForwardAllTable")
 
-        self.dot1qforwardunregisteredtable = QBRIDGEMIB.Dot1Qforwardunregisteredtable()
+        self.dot1qforwardunregisteredtable = QBRIDGEMIB.Dot1qForwardUnregisteredTable()
         self.dot1qforwardunregisteredtable.parent = self
         self._children_name_map["dot1qforwardunregisteredtable"] = "dot1qForwardUnregisteredTable"
-        self._children_yang_names.add("dot1qForwardUnregisteredTable")
 
-        self.dot1qstaticunicasttable = QBRIDGEMIB.Dot1Qstaticunicasttable()
+        self.dot1qstaticunicasttable = QBRIDGEMIB.Dot1qStaticUnicastTable()
         self.dot1qstaticunicasttable.parent = self
         self._children_name_map["dot1qstaticunicasttable"] = "dot1qStaticUnicastTable"
-        self._children_yang_names.add("dot1qStaticUnicastTable")
 
-        self.dot1qstaticmulticasttable = QBRIDGEMIB.Dot1Qstaticmulticasttable()
+        self.dot1qstaticmulticasttable = QBRIDGEMIB.Dot1qStaticMulticastTable()
         self.dot1qstaticmulticasttable.parent = self
         self._children_name_map["dot1qstaticmulticasttable"] = "dot1qStaticMulticastTable"
-        self._children_yang_names.add("dot1qStaticMulticastTable")
 
-        self.dot1qvlancurrenttable = QBRIDGEMIB.Dot1Qvlancurrenttable()
+        self.dot1qvlancurrenttable = QBRIDGEMIB.Dot1qVlanCurrentTable()
         self.dot1qvlancurrenttable.parent = self
         self._children_name_map["dot1qvlancurrenttable"] = "dot1qVlanCurrentTable"
-        self._children_yang_names.add("dot1qVlanCurrentTable")
 
-        self.dot1qvlanstatictable = QBRIDGEMIB.Dot1Qvlanstatictable()
+        self.dot1qvlanstatictable = QBRIDGEMIB.Dot1qVlanStaticTable()
         self.dot1qvlanstatictable.parent = self
         self._children_name_map["dot1qvlanstatictable"] = "dot1qVlanStaticTable"
-        self._children_yang_names.add("dot1qVlanStaticTable")
 
-        self.dot1qportvlanstatisticstable = QBRIDGEMIB.Dot1Qportvlanstatisticstable()
+        self.dot1qportvlanstatisticstable = QBRIDGEMIB.Dot1qPortVlanStatisticsTable()
         self.dot1qportvlanstatisticstable.parent = self
         self._children_name_map["dot1qportvlanstatisticstable"] = "dot1qPortVlanStatisticsTable"
-        self._children_yang_names.add("dot1qPortVlanStatisticsTable")
 
-        self.dot1qportvlanhcstatisticstable = QBRIDGEMIB.Dot1Qportvlanhcstatisticstable()
+        self.dot1qportvlanhcstatisticstable = QBRIDGEMIB.Dot1qPortVlanHCStatisticsTable()
         self.dot1qportvlanhcstatisticstable.parent = self
         self._children_name_map["dot1qportvlanhcstatisticstable"] = "dot1qPortVlanHCStatisticsTable"
-        self._children_yang_names.add("dot1qPortVlanHCStatisticsTable")
 
-        self.dot1qlearningconstraintstable = QBRIDGEMIB.Dot1Qlearningconstraintstable()
+        self.dot1qlearningconstraintstable = QBRIDGEMIB.Dot1qLearningConstraintsTable()
         self.dot1qlearningconstraintstable.parent = self
         self._children_name_map["dot1qlearningconstraintstable"] = "dot1qLearningConstraintsTable"
-        self._children_yang_names.add("dot1qLearningConstraintsTable")
 
-        self.dot1vprotocolgrouptable = QBRIDGEMIB.Dot1Vprotocolgrouptable()
+        self.dot1vprotocolgrouptable = QBRIDGEMIB.Dot1vProtocolGroupTable()
         self.dot1vprotocolgrouptable.parent = self
         self._children_name_map["dot1vprotocolgrouptable"] = "dot1vProtocolGroupTable"
-        self._children_yang_names.add("dot1vProtocolGroupTable")
 
-        self.dot1vprotocolporttable = QBRIDGEMIB.Dot1Vprotocolporttable()
+        self.dot1vprotocolporttable = QBRIDGEMIB.Dot1vProtocolPortTable()
         self.dot1vprotocolporttable.parent = self
         self._children_name_map["dot1vprotocolporttable"] = "dot1vProtocolPortTable"
-        self._children_yang_names.add("dot1vProtocolPortTable")
         self._segment_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(QBRIDGEMIB, [], name, value)
 
-    class Dot1Qbase(Entity):
+
+    class Dot1qBase(Entity):
         """
         
         
         .. attribute:: dot1qvlanversionnumber
         
         	The version number of IEEE 802.1Q that this device supports
-        	**type**\:  :py:class:`Dot1Qvlanversionnumber <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qbase.Dot1Qvlanversionnumber>`
+        	**type**\:  :py:class:`Dot1qVlanVersionNumber <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qBase.Dot1qVlanVersionNumber>`
         
         .. attribute:: dot1qmaxvlanid
         
@@ -249,15 +235,14 @@ class QBRIDGEMIB(Entity):
         _revision = '2006-01-09'
 
         def __init__(self):
-            super(QBRIDGEMIB.Dot1Qbase, self).__init__()
+            super(QBRIDGEMIB.Dot1qBase, self).__init__()
 
             self.yang_name = "dot1qBase"
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('dot1qvlanversionnumber', YLeaf(YType.enumeration, 'dot1qVlanVersionNumber')),
                 ('dot1qmaxvlanid', YLeaf(YType.int32, 'dot1qMaxVlanId')),
@@ -274,11 +259,11 @@ class QBRIDGEMIB(Entity):
             self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(QBRIDGEMIB.Dot1Qbase, ['dot1qvlanversionnumber', 'dot1qmaxvlanid', 'dot1qmaxsupportedvlans', 'dot1qnumvlans', 'dot1qgvrpstatus'], name, value)
+            self._perform_setattr(QBRIDGEMIB.Dot1qBase, [u'dot1qvlanversionnumber', u'dot1qmaxvlanid', u'dot1qmaxsupportedvlans', u'dot1qnumvlans', u'dot1qgvrpstatus'], name, value)
 
-        class Dot1Qvlanversionnumber(Enum):
+        class Dot1qVlanVersionNumber(Enum):
             """
-            Dot1Qvlanversionnumber (Enum Class)
+            Dot1qVlanVersionNumber (Enum Class)
 
             The version number of IEEE 802.1Q that this device
 
@@ -292,7 +277,7 @@ class QBRIDGEMIB(Entity):
 
 
 
-    class Dot1Qvlan(Entity):
+    class Dot1qVlan(Entity):
         """
         
         
@@ -320,7 +305,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qconstrainttypedefault
         
         	The type of constraint set to which a VLAN belongs, if there is not an explicit entry for that VLAN in dot1qLearningConstraintsTable.  The types are as defined for dot1qConstraintType.  The value of this object MUST be retained across  reinitializations of the management system
-        	**type**\:  :py:class:`Dot1Qconstrainttypedefault <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlan.Dot1Qconstrainttypedefault>`
+        	**type**\:  :py:class:`Dot1qConstraintTypeDefault <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qVlan.Dot1qConstraintTypeDefault>`
         
         
 
@@ -330,15 +315,14 @@ class QBRIDGEMIB(Entity):
         _revision = '2006-01-09'
 
         def __init__(self):
-            super(QBRIDGEMIB.Dot1Qvlan, self).__init__()
+            super(QBRIDGEMIB.Dot1qVlan, self).__init__()
 
             self.yang_name = "dot1qVlan"
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('dot1qvlannumdeletes', YLeaf(YType.uint32, 'dot1qVlanNumDeletes')),
                 ('dot1qnextfreelocalvlanindex', YLeaf(YType.int32, 'dot1qNextFreeLocalVlanIndex')),
@@ -353,11 +337,11 @@ class QBRIDGEMIB(Entity):
             self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(QBRIDGEMIB.Dot1Qvlan, ['dot1qvlannumdeletes', 'dot1qnextfreelocalvlanindex', 'dot1qconstraintsetdefault', 'dot1qconstrainttypedefault'], name, value)
+            self._perform_setattr(QBRIDGEMIB.Dot1qVlan, [u'dot1qvlannumdeletes', u'dot1qnextfreelocalvlanindex', u'dot1qconstraintsetdefault', u'dot1qconstrainttypedefault'], name, value)
 
-        class Dot1Qconstrainttypedefault(Enum):
+        class Dot1qConstraintTypeDefault(Enum):
             """
-            Dot1Qconstrainttypedefault (Enum Class)
+            Dot1qConstraintTypeDefault (Enum Class)
 
             The type of constraint set to which a VLAN belongs, if
 
@@ -383,7 +367,7 @@ class QBRIDGEMIB(Entity):
 
 
 
-    class Dot1Qfdbtable(Entity):
+    class Dot1qFdbTable(Entity):
         """
         A table that contains configuration and control
         information for each Filtering Database currently
@@ -394,7 +378,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qfdbentry
         
         	Information about a specific Filtering Database
-        	**type**\: list of  		 :py:class:`Dot1Qfdbentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qfdbtable.Dot1Qfdbentry>`
+        	**type**\: list of  		 :py:class:`Dot1qFdbEntry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qFdbTable.Dot1qFdbEntry>`
         
         
 
@@ -404,15 +388,14 @@ class QBRIDGEMIB(Entity):
         _revision = '2006-01-09'
 
         def __init__(self):
-            super(QBRIDGEMIB.Dot1Qfdbtable, self).__init__()
+            super(QBRIDGEMIB.Dot1qFdbTable, self).__init__()
 
             self.yang_name = "dot1qFdbTable"
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot1qFdbEntry", ("dot1qfdbentry", QBRIDGEMIB.Dot1Qfdbtable.Dot1Qfdbentry))])
+            self._child_classes = OrderedDict([("dot1qFdbEntry", ("dot1qfdbentry", QBRIDGEMIB.Dot1qFdbTable.Dot1qFdbEntry))])
             self._leafs = OrderedDict()
 
             self.dot1qfdbentry = YList(self)
@@ -420,10 +403,10 @@ class QBRIDGEMIB(Entity):
             self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(QBRIDGEMIB.Dot1Qfdbtable, [], name, value)
+            self._perform_setattr(QBRIDGEMIB.Dot1qFdbTable, [], name, value)
 
 
-        class Dot1Qfdbentry(Entity):
+        class Dot1qFdbEntry(Entity):
             """
             Information about a specific Filtering Database.
             
@@ -449,15 +432,14 @@ class QBRIDGEMIB(Entity):
             _revision = '2006-01-09'
 
             def __init__(self):
-                super(QBRIDGEMIB.Dot1Qfdbtable.Dot1Qfdbentry, self).__init__()
+                super(QBRIDGEMIB.Dot1qFdbTable.Dot1qFdbEntry, self).__init__()
 
                 self.yang_name = "dot1qFdbEntry"
                 self.yang_parent_name = "dot1qFdbTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot1qfdbid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot1qfdbid', YLeaf(YType.uint32, 'dot1qFdbId')),
                     ('dot1qfdbdynamiccount', YLeaf(YType.uint32, 'dot1qFdbDynamicCount')),
@@ -468,10 +450,10 @@ class QBRIDGEMIB(Entity):
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qFdbTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1Qfdbtable.Dot1Qfdbentry, ['dot1qfdbid', 'dot1qfdbdynamiccount'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1qFdbTable.Dot1qFdbEntry, [u'dot1qfdbid', u'dot1qfdbdynamiccount'], name, value)
 
 
-    class Dot1Qtpfdbtable(Entity):
+    class Dot1qTpFdbTable(Entity):
         """
         A table that contains information about unicast entries
         for which the device has forwarding and/or filtering
@@ -482,7 +464,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qtpfdbentry
         
         	Information about a specific unicast MAC address for which the device has some forwarding and/or filtering information
-        	**type**\: list of  		 :py:class:`Dot1Qtpfdbentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qtpfdbtable.Dot1Qtpfdbentry>`
+        	**type**\: list of  		 :py:class:`Dot1qTpFdbEntry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qTpFdbTable.Dot1qTpFdbEntry>`
         
         
 
@@ -492,15 +474,14 @@ class QBRIDGEMIB(Entity):
         _revision = '2006-01-09'
 
         def __init__(self):
-            super(QBRIDGEMIB.Dot1Qtpfdbtable, self).__init__()
+            super(QBRIDGEMIB.Dot1qTpFdbTable, self).__init__()
 
             self.yang_name = "dot1qTpFdbTable"
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot1qTpFdbEntry", ("dot1qtpfdbentry", QBRIDGEMIB.Dot1Qtpfdbtable.Dot1Qtpfdbentry))])
+            self._child_classes = OrderedDict([("dot1qTpFdbEntry", ("dot1qtpfdbentry", QBRIDGEMIB.Dot1qTpFdbTable.Dot1qTpFdbEntry))])
             self._leafs = OrderedDict()
 
             self.dot1qtpfdbentry = YList(self)
@@ -508,10 +489,10 @@ class QBRIDGEMIB(Entity):
             self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(QBRIDGEMIB.Dot1Qtpfdbtable, [], name, value)
+            self._perform_setattr(QBRIDGEMIB.Dot1qTpFdbTable, [], name, value)
 
 
-        class Dot1Qtpfdbentry(Entity):
+        class Dot1qTpFdbEntry(Entity):
             """
             Information about a specific unicast MAC address for
             which the device has some forwarding and/or filtering
@@ -524,7 +505,7 @@ class QBRIDGEMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`dot1qfdbid <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qfdbtable.Dot1Qfdbentry>`
+            	**refers to**\:  :py:class:`dot1qfdbid <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qFdbTable.Dot1qFdbEntry>`
             
             .. attribute:: dot1qtpfdbaddress  (key)
             
@@ -543,7 +524,7 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qtpfdbstatus
             
             	The status of this entry.  The meanings of the values are\:     other(1) \- none of the following.  This may include         the case where some other MIB object (not the         corresponding instance of dot1qTpFdbPort, nor an         entry in the dot1qStaticUnicastTable) is being         used to determine if and how frames addressed to         the value of the corresponding instance of         dot1qTpFdbAddress are being forwarded.     invalid(2) \- this entry is no longer valid (e.g., it          was learned but has since aged out), but has not         yet been flushed from the table.     learned(3) \- the value of the corresponding instance         of dot1qTpFdbPort was learned and is being used.     self(4) \- the value of the corresponding instance of         dot1qTpFdbAddress represents one of the device's         addresses.  The corresponding instance of         dot1qTpFdbPort indicates which of the device's         ports has this address.     mgmt(5) \- the value of the corresponding instance of         dot1qTpFdbAddress is also the value of an         existing instance of dot1qStaticAddress
-            	**type**\:  :py:class:`Dot1Qtpfdbstatus <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qtpfdbtable.Dot1Qtpfdbentry.Dot1Qtpfdbstatus>`
+            	**type**\:  :py:class:`Dot1qTpFdbStatus <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qTpFdbTable.Dot1qTpFdbEntry.Dot1qTpFdbStatus>`
             
             
 
@@ -553,15 +534,14 @@ class QBRIDGEMIB(Entity):
             _revision = '2006-01-09'
 
             def __init__(self):
-                super(QBRIDGEMIB.Dot1Qtpfdbtable.Dot1Qtpfdbentry, self).__init__()
+                super(QBRIDGEMIB.Dot1qTpFdbTable.Dot1qTpFdbEntry, self).__init__()
 
                 self.yang_name = "dot1qTpFdbEntry"
                 self.yang_parent_name = "dot1qTpFdbTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot1qfdbid','dot1qtpfdbaddress']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot1qfdbid', YLeaf(YType.str, 'dot1qFdbId')),
                     ('dot1qtpfdbaddress', YLeaf(YType.str, 'dot1qTpFdbAddress')),
@@ -576,11 +556,11 @@ class QBRIDGEMIB(Entity):
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qTpFdbTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1Qtpfdbtable.Dot1Qtpfdbentry, ['dot1qfdbid', 'dot1qtpfdbaddress', 'dot1qtpfdbport', 'dot1qtpfdbstatus'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1qTpFdbTable.Dot1qTpFdbEntry, [u'dot1qfdbid', u'dot1qtpfdbaddress', u'dot1qtpfdbport', u'dot1qtpfdbstatus'], name, value)
 
-            class Dot1Qtpfdbstatus(Enum):
+            class Dot1qTpFdbStatus(Enum):
                 """
-                Dot1Qtpfdbstatus (Enum Class)
+                Dot1qTpFdbStatus (Enum Class)
 
                 The status of this entry.  The meanings of the values
 
@@ -650,7 +630,7 @@ class QBRIDGEMIB(Entity):
 
 
 
-    class Dot1Qtpgrouptable(Entity):
+    class Dot1qTpGroupTable(Entity):
         """
         A table containing filtering information for VLANs
         configured into the bridge by (local or network)
@@ -662,7 +642,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qtpgroupentry
         
         	Filtering information configured into the bridge by management, or learned dynamically, specifying the set of ports to which frames received on a VLAN and containing a specific Group destination address are allowed to be forwarded.  The subset of these ports learned dynamically is also provided
-        	**type**\: list of  		 :py:class:`Dot1Qtpgroupentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qtpgrouptable.Dot1Qtpgroupentry>`
+        	**type**\: list of  		 :py:class:`Dot1qTpGroupEntry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qTpGroupTable.Dot1qTpGroupEntry>`
         
         
 
@@ -672,15 +652,14 @@ class QBRIDGEMIB(Entity):
         _revision = '2006-01-09'
 
         def __init__(self):
-            super(QBRIDGEMIB.Dot1Qtpgrouptable, self).__init__()
+            super(QBRIDGEMIB.Dot1qTpGroupTable, self).__init__()
 
             self.yang_name = "dot1qTpGroupTable"
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot1qTpGroupEntry", ("dot1qtpgroupentry", QBRIDGEMIB.Dot1Qtpgrouptable.Dot1Qtpgroupentry))])
+            self._child_classes = OrderedDict([("dot1qTpGroupEntry", ("dot1qtpgroupentry", QBRIDGEMIB.Dot1qTpGroupTable.Dot1qTpGroupEntry))])
             self._leafs = OrderedDict()
 
             self.dot1qtpgroupentry = YList(self)
@@ -688,10 +667,10 @@ class QBRIDGEMIB(Entity):
             self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(QBRIDGEMIB.Dot1Qtpgrouptable, [], name, value)
+            self._perform_setattr(QBRIDGEMIB.Dot1qTpGroupTable, [], name, value)
 
 
-        class Dot1Qtpgroupentry(Entity):
+        class Dot1qTpGroupEntry(Entity):
             """
             Filtering information configured into the bridge by
             management, or learned dynamically, specifying the set of
@@ -707,7 +686,7 @@ class QBRIDGEMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`dot1qvlanindex <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlancurrenttable.Dot1Qvlancurrententry>`
+            	**refers to**\:  :py:class:`dot1qvlanindex <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qVlanCurrentTable.Dot1qVlanCurrentEntry>`
             
             .. attribute:: dot1qtpgroupaddress  (key)
             
@@ -734,15 +713,14 @@ class QBRIDGEMIB(Entity):
             _revision = '2006-01-09'
 
             def __init__(self):
-                super(QBRIDGEMIB.Dot1Qtpgrouptable.Dot1Qtpgroupentry, self).__init__()
+                super(QBRIDGEMIB.Dot1qTpGroupTable.Dot1qTpGroupEntry, self).__init__()
 
                 self.yang_name = "dot1qTpGroupEntry"
                 self.yang_parent_name = "dot1qTpGroupTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot1qvlanindex','dot1qtpgroupaddress']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot1qvlanindex', YLeaf(YType.str, 'dot1qVlanIndex')),
                     ('dot1qtpgroupaddress', YLeaf(YType.str, 'dot1qTpGroupAddress')),
@@ -757,10 +735,10 @@ class QBRIDGEMIB(Entity):
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qTpGroupTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1Qtpgrouptable.Dot1Qtpgroupentry, ['dot1qvlanindex', 'dot1qtpgroupaddress', 'dot1qtpgroupegressports', 'dot1qtpgrouplearnt'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1qTpGroupTable.Dot1qTpGroupEntry, [u'dot1qvlanindex', u'dot1qtpgroupaddress', u'dot1qtpgroupegressports', u'dot1qtpgrouplearnt'], name, value)
 
 
-    class Dot1Qforwardalltable(Entity):
+    class Dot1qForwardAllTable(Entity):
         """
         A table containing forwarding information for each
         
@@ -773,7 +751,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qforwardallentry
         
         	Forwarding information for a VLAN, specifying the set of ports to which all multicasts should be forwarded, configured statically by management or dynamically by GMRP
-        	**type**\: list of  		 :py:class:`Dot1Qforwardallentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qforwardalltable.Dot1Qforwardallentry>`
+        	**type**\: list of  		 :py:class:`Dot1qForwardAllEntry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qForwardAllTable.Dot1qForwardAllEntry>`
         
         
 
@@ -783,15 +761,14 @@ class QBRIDGEMIB(Entity):
         _revision = '2006-01-09'
 
         def __init__(self):
-            super(QBRIDGEMIB.Dot1Qforwardalltable, self).__init__()
+            super(QBRIDGEMIB.Dot1qForwardAllTable, self).__init__()
 
             self.yang_name = "dot1qForwardAllTable"
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot1qForwardAllEntry", ("dot1qforwardallentry", QBRIDGEMIB.Dot1Qforwardalltable.Dot1Qforwardallentry))])
+            self._child_classes = OrderedDict([("dot1qForwardAllEntry", ("dot1qforwardallentry", QBRIDGEMIB.Dot1qForwardAllTable.Dot1qForwardAllEntry))])
             self._leafs = OrderedDict()
 
             self.dot1qforwardallentry = YList(self)
@@ -799,10 +776,10 @@ class QBRIDGEMIB(Entity):
             self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(QBRIDGEMIB.Dot1Qforwardalltable, [], name, value)
+            self._perform_setattr(QBRIDGEMIB.Dot1qForwardAllTable, [], name, value)
 
 
-        class Dot1Qforwardallentry(Entity):
+        class Dot1qForwardAllEntry(Entity):
             """
             Forwarding information for a VLAN, specifying the set
             of ports to which all multicasts should be forwarded,
@@ -816,7 +793,7 @@ class QBRIDGEMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`dot1qvlanindex <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlancurrenttable.Dot1Qvlancurrententry>`
+            	**refers to**\:  :py:class:`dot1qvlanindex <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qVlanCurrentTable.Dot1qVlanCurrentEntry>`
             
             .. attribute:: dot1qforwardallports
             
@@ -841,15 +818,14 @@ class QBRIDGEMIB(Entity):
             _revision = '2006-01-09'
 
             def __init__(self):
-                super(QBRIDGEMIB.Dot1Qforwardalltable.Dot1Qforwardallentry, self).__init__()
+                super(QBRIDGEMIB.Dot1qForwardAllTable.Dot1qForwardAllEntry, self).__init__()
 
                 self.yang_name = "dot1qForwardAllEntry"
                 self.yang_parent_name = "dot1qForwardAllTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot1qvlanindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot1qvlanindex', YLeaf(YType.str, 'dot1qVlanIndex')),
                     ('dot1qforwardallports', YLeaf(YType.str, 'dot1qForwardAllPorts')),
@@ -864,10 +840,10 @@ class QBRIDGEMIB(Entity):
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qForwardAllTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1Qforwardalltable.Dot1Qforwardallentry, ['dot1qvlanindex', 'dot1qforwardallports', 'dot1qforwardallstaticports', 'dot1qforwardallforbiddenports'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1qForwardAllTable.Dot1qForwardAllEntry, [u'dot1qvlanindex', u'dot1qforwardallports', u'dot1qforwardallstaticports', u'dot1qforwardallforbiddenports'], name, value)
 
 
-    class Dot1Qforwardunregisteredtable(Entity):
+    class Dot1qForwardUnregisteredTable(Entity):
         """
         A table containing forwarding information for each
         VLAN, specifying the set of ports to which forwarding of
@@ -880,7 +856,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qforwardunregisteredentry
         
         	Forwarding information for a VLAN, specifying the set of ports to which all multicasts for which there is no more specific forwarding information shall be forwarded. This is configured statically by management or dynamically by GMRP
-        	**type**\: list of  		 :py:class:`Dot1Qforwardunregisteredentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qforwardunregisteredtable.Dot1Qforwardunregisteredentry>`
+        	**type**\: list of  		 :py:class:`Dot1qForwardUnregisteredEntry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qForwardUnregisteredTable.Dot1qForwardUnregisteredEntry>`
         
         
 
@@ -890,15 +866,14 @@ class QBRIDGEMIB(Entity):
         _revision = '2006-01-09'
 
         def __init__(self):
-            super(QBRIDGEMIB.Dot1Qforwardunregisteredtable, self).__init__()
+            super(QBRIDGEMIB.Dot1qForwardUnregisteredTable, self).__init__()
 
             self.yang_name = "dot1qForwardUnregisteredTable"
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot1qForwardUnregisteredEntry", ("dot1qforwardunregisteredentry", QBRIDGEMIB.Dot1Qforwardunregisteredtable.Dot1Qforwardunregisteredentry))])
+            self._child_classes = OrderedDict([("dot1qForwardUnregisteredEntry", ("dot1qforwardunregisteredentry", QBRIDGEMIB.Dot1qForwardUnregisteredTable.Dot1qForwardUnregisteredEntry))])
             self._leafs = OrderedDict()
 
             self.dot1qforwardunregisteredentry = YList(self)
@@ -906,10 +881,10 @@ class QBRIDGEMIB(Entity):
             self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(QBRIDGEMIB.Dot1Qforwardunregisteredtable, [], name, value)
+            self._perform_setattr(QBRIDGEMIB.Dot1qForwardUnregisteredTable, [], name, value)
 
 
-        class Dot1Qforwardunregisteredentry(Entity):
+        class Dot1qForwardUnregisteredEntry(Entity):
             """
             Forwarding information for a VLAN, specifying the set
             of ports to which all multicasts for which there is no
@@ -924,7 +899,7 @@ class QBRIDGEMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`dot1qvlanindex <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlancurrenttable.Dot1Qvlancurrententry>`
+            	**refers to**\:  :py:class:`dot1qvlanindex <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qVlanCurrentTable.Dot1qVlanCurrentEntry>`
             
             .. attribute:: dot1qforwardunregisteredports
             
@@ -949,15 +924,14 @@ class QBRIDGEMIB(Entity):
             _revision = '2006-01-09'
 
             def __init__(self):
-                super(QBRIDGEMIB.Dot1Qforwardunregisteredtable.Dot1Qforwardunregisteredentry, self).__init__()
+                super(QBRIDGEMIB.Dot1qForwardUnregisteredTable.Dot1qForwardUnregisteredEntry, self).__init__()
 
                 self.yang_name = "dot1qForwardUnregisteredEntry"
                 self.yang_parent_name = "dot1qForwardUnregisteredTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot1qvlanindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot1qvlanindex', YLeaf(YType.str, 'dot1qVlanIndex')),
                     ('dot1qforwardunregisteredports', YLeaf(YType.str, 'dot1qForwardUnregisteredPorts')),
@@ -972,10 +946,10 @@ class QBRIDGEMIB(Entity):
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qForwardUnregisteredTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1Qforwardunregisteredtable.Dot1Qforwardunregisteredentry, ['dot1qvlanindex', 'dot1qforwardunregisteredports', 'dot1qforwardunregisteredstaticports', 'dot1qforwardunregisteredforbiddenports'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1qForwardUnregisteredTable.Dot1qForwardUnregisteredEntry, [u'dot1qvlanindex', u'dot1qforwardunregisteredports', u'dot1qforwardunregisteredstaticports', u'dot1qforwardunregisteredforbiddenports'], name, value)
 
 
-    class Dot1Qstaticunicasttable(Entity):
+    class Dot1qStaticUnicastTable(Entity):
         """
         A table containing filtering information for Unicast
         MAC addresses for each Filtering Database, configured
@@ -994,7 +968,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qstaticunicastentry
         
         	Filtering information configured into the device by (local or network) management specifying the set of ports to which frames received from a specific port and containing a specific unicast destination address are allowed to be forwarded
-        	**type**\: list of  		 :py:class:`Dot1Qstaticunicastentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qstaticunicasttable.Dot1Qstaticunicastentry>`
+        	**type**\: list of  		 :py:class:`Dot1qStaticUnicastEntry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qStaticUnicastTable.Dot1qStaticUnicastEntry>`
         
         
 
@@ -1004,15 +978,14 @@ class QBRIDGEMIB(Entity):
         _revision = '2006-01-09'
 
         def __init__(self):
-            super(QBRIDGEMIB.Dot1Qstaticunicasttable, self).__init__()
+            super(QBRIDGEMIB.Dot1qStaticUnicastTable, self).__init__()
 
             self.yang_name = "dot1qStaticUnicastTable"
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot1qStaticUnicastEntry", ("dot1qstaticunicastentry", QBRIDGEMIB.Dot1Qstaticunicasttable.Dot1Qstaticunicastentry))])
+            self._child_classes = OrderedDict([("dot1qStaticUnicastEntry", ("dot1qstaticunicastentry", QBRIDGEMIB.Dot1qStaticUnicastTable.Dot1qStaticUnicastEntry))])
             self._leafs = OrderedDict()
 
             self.dot1qstaticunicastentry = YList(self)
@@ -1020,10 +993,10 @@ class QBRIDGEMIB(Entity):
             self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(QBRIDGEMIB.Dot1Qstaticunicasttable, [], name, value)
+            self._perform_setattr(QBRIDGEMIB.Dot1qStaticUnicastTable, [], name, value)
 
 
-        class Dot1Qstaticunicastentry(Entity):
+        class Dot1qStaticUnicastEntry(Entity):
             """
             Filtering information configured into the device by
             (local or network) management specifying the set of
@@ -1038,7 +1011,7 @@ class QBRIDGEMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`dot1qfdbid <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qfdbtable.Dot1Qfdbentry>`
+            	**refers to**\:  :py:class:`dot1qfdbid <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qFdbTable.Dot1qFdbEntry>`
             
             .. attribute:: dot1qstaticunicastaddress  (key)
             
@@ -1062,7 +1035,7 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qstaticunicaststatus
             
             	This object indicates the status of this entry. other(1) \- this entry is currently in use, but      the conditions under which it will remain     so differ from the following values. invalid(2) \- writing this value to the object     removes the corresponding entry. permanent(3) \- this entry is currently in use     and will remain so after the next reset of     the bridge. deleteOnReset(4) \- this entry is currently in     use and will remain so until the next     reset of the bridge. deleteOnTimeout(5) \- this entry is currently in     use and will remain so until it is aged out.  The value of this object MUST be retained across reinitializations of the management system
-            	**type**\:  :py:class:`Dot1Qstaticunicaststatus <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qstaticunicasttable.Dot1Qstaticunicastentry.Dot1Qstaticunicaststatus>`
+            	**type**\:  :py:class:`Dot1qStaticUnicastStatus <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qStaticUnicastTable.Dot1qStaticUnicastEntry.Dot1qStaticUnicastStatus>`
             
             
 
@@ -1072,15 +1045,14 @@ class QBRIDGEMIB(Entity):
             _revision = '2006-01-09'
 
             def __init__(self):
-                super(QBRIDGEMIB.Dot1Qstaticunicasttable.Dot1Qstaticunicastentry, self).__init__()
+                super(QBRIDGEMIB.Dot1qStaticUnicastTable.Dot1qStaticUnicastEntry, self).__init__()
 
                 self.yang_name = "dot1qStaticUnicastEntry"
                 self.yang_parent_name = "dot1qStaticUnicastTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot1qfdbid','dot1qstaticunicastaddress','dot1qstaticunicastreceiveport']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot1qfdbid', YLeaf(YType.str, 'dot1qFdbId')),
                     ('dot1qstaticunicastaddress', YLeaf(YType.str, 'dot1qStaticUnicastAddress')),
@@ -1097,11 +1069,11 @@ class QBRIDGEMIB(Entity):
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qStaticUnicastTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1Qstaticunicasttable.Dot1Qstaticunicastentry, ['dot1qfdbid', 'dot1qstaticunicastaddress', 'dot1qstaticunicastreceiveport', 'dot1qstaticunicastallowedtogoto', 'dot1qstaticunicaststatus'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1qStaticUnicastTable.Dot1qStaticUnicastEntry, [u'dot1qfdbid', u'dot1qstaticunicastaddress', u'dot1qstaticunicastreceiveport', u'dot1qstaticunicastallowedtogoto', u'dot1qstaticunicaststatus'], name, value)
 
-            class Dot1Qstaticunicaststatus(Enum):
+            class Dot1qStaticUnicastStatus(Enum):
                 """
-                Dot1Qstaticunicaststatus (Enum Class)
+                Dot1qStaticUnicastStatus (Enum Class)
 
                 This object indicates the status of this entry.
 
@@ -1159,7 +1131,7 @@ class QBRIDGEMIB(Entity):
 
 
 
-    class Dot1Qstaticmulticasttable(Entity):
+    class Dot1qStaticMulticastTable(Entity):
         """
         A table containing filtering information for Multicast
         and Broadcast MAC addresses for each VLAN, configured
@@ -1177,7 +1149,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qstaticmulticastentry
         
         	Filtering information configured into the device by (local or network) management specifying the set of ports to which frames received from this specific port  for this VLAN and containing this Multicast or Broadcast destination address are allowed to be forwarded
-        	**type**\: list of  		 :py:class:`Dot1Qstaticmulticastentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qstaticmulticasttable.Dot1Qstaticmulticastentry>`
+        	**type**\: list of  		 :py:class:`Dot1qStaticMulticastEntry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qStaticMulticastTable.Dot1qStaticMulticastEntry>`
         
         
 
@@ -1187,15 +1159,14 @@ class QBRIDGEMIB(Entity):
         _revision = '2006-01-09'
 
         def __init__(self):
-            super(QBRIDGEMIB.Dot1Qstaticmulticasttable, self).__init__()
+            super(QBRIDGEMIB.Dot1qStaticMulticastTable, self).__init__()
 
             self.yang_name = "dot1qStaticMulticastTable"
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot1qStaticMulticastEntry", ("dot1qstaticmulticastentry", QBRIDGEMIB.Dot1Qstaticmulticasttable.Dot1Qstaticmulticastentry))])
+            self._child_classes = OrderedDict([("dot1qStaticMulticastEntry", ("dot1qstaticmulticastentry", QBRIDGEMIB.Dot1qStaticMulticastTable.Dot1qStaticMulticastEntry))])
             self._leafs = OrderedDict()
 
             self.dot1qstaticmulticastentry = YList(self)
@@ -1203,10 +1174,10 @@ class QBRIDGEMIB(Entity):
             self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(QBRIDGEMIB.Dot1Qstaticmulticasttable, [], name, value)
+            self._perform_setattr(QBRIDGEMIB.Dot1qStaticMulticastTable, [], name, value)
 
 
-        class Dot1Qstaticmulticastentry(Entity):
+        class Dot1qStaticMulticastEntry(Entity):
             """
             Filtering information configured into the device by
             (local or network) management specifying the set of
@@ -1222,7 +1193,7 @@ class QBRIDGEMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`dot1qvlanindex <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlancurrenttable.Dot1Qvlancurrententry>`
+            	**refers to**\:  :py:class:`dot1qvlanindex <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qVlanCurrentTable.Dot1qVlanCurrentEntry>`
             
             .. attribute:: dot1qstaticmulticastaddress  (key)
             
@@ -1251,7 +1222,7 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qstaticmulticaststatus
             
             	This object indicates the status of this entry. other(1) \- this entry is currently in use, but     the conditions under which it will remain     so differ from the following values.  invalid(2) \- writing this value to the object     removes the corresponding entry. permanent(3) \- this entry is currently in use     and will remain so after the next reset of     the bridge. deleteOnReset(4) \- this entry is currently in     use and will remain so until the next     reset of the bridge. deleteOnTimeout(5) \- this entry is currently in     use and will remain so until it is aged out.  The value of this object MUST be retained across reinitializations of the management system
-            	**type**\:  :py:class:`Dot1Qstaticmulticaststatus <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qstaticmulticasttable.Dot1Qstaticmulticastentry.Dot1Qstaticmulticaststatus>`
+            	**type**\:  :py:class:`Dot1qStaticMulticastStatus <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qStaticMulticastTable.Dot1qStaticMulticastEntry.Dot1qStaticMulticastStatus>`
             
             
 
@@ -1261,15 +1232,14 @@ class QBRIDGEMIB(Entity):
             _revision = '2006-01-09'
 
             def __init__(self):
-                super(QBRIDGEMIB.Dot1Qstaticmulticasttable.Dot1Qstaticmulticastentry, self).__init__()
+                super(QBRIDGEMIB.Dot1qStaticMulticastTable.Dot1qStaticMulticastEntry, self).__init__()
 
                 self.yang_name = "dot1qStaticMulticastEntry"
                 self.yang_parent_name = "dot1qStaticMulticastTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot1qvlanindex','dot1qstaticmulticastaddress','dot1qstaticmulticastreceiveport']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot1qvlanindex', YLeaf(YType.str, 'dot1qVlanIndex')),
                     ('dot1qstaticmulticastaddress', YLeaf(YType.str, 'dot1qStaticMulticastAddress')),
@@ -1288,11 +1258,11 @@ class QBRIDGEMIB(Entity):
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qStaticMulticastTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1Qstaticmulticasttable.Dot1Qstaticmulticastentry, ['dot1qvlanindex', 'dot1qstaticmulticastaddress', 'dot1qstaticmulticastreceiveport', 'dot1qstaticmulticaststaticegressports', 'dot1qstaticmulticastforbiddenegressports', 'dot1qstaticmulticaststatus'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1qStaticMulticastTable.Dot1qStaticMulticastEntry, [u'dot1qvlanindex', u'dot1qstaticmulticastaddress', u'dot1qstaticmulticastreceiveport', u'dot1qstaticmulticaststaticegressports', u'dot1qstaticmulticastforbiddenegressports', u'dot1qstaticmulticaststatus'], name, value)
 
-            class Dot1Qstaticmulticaststatus(Enum):
+            class Dot1qStaticMulticastStatus(Enum):
                 """
-                Dot1Qstaticmulticaststatus (Enum Class)
+                Dot1qStaticMulticastStatus (Enum Class)
 
                 This object indicates the status of this entry.
 
@@ -1350,7 +1320,7 @@ class QBRIDGEMIB(Entity):
 
 
 
-    class Dot1Qvlancurrenttable(Entity):
+    class Dot1qVlanCurrentTable(Entity):
         """
         A table containing current configuration information
         for each VLAN currently configured into the device by
@@ -1360,7 +1330,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qvlancurrententry
         
         	Information for a VLAN configured into the device by  (local or network) management, or dynamically created as a result of GVRP requests received
-        	**type**\: list of  		 :py:class:`Dot1Qvlancurrententry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlancurrenttable.Dot1Qvlancurrententry>`
+        	**type**\: list of  		 :py:class:`Dot1qVlanCurrentEntry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qVlanCurrentTable.Dot1qVlanCurrentEntry>`
         
         
 
@@ -1370,15 +1340,14 @@ class QBRIDGEMIB(Entity):
         _revision = '2006-01-09'
 
         def __init__(self):
-            super(QBRIDGEMIB.Dot1Qvlancurrenttable, self).__init__()
+            super(QBRIDGEMIB.Dot1qVlanCurrentTable, self).__init__()
 
             self.yang_name = "dot1qVlanCurrentTable"
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot1qVlanCurrentEntry", ("dot1qvlancurrententry", QBRIDGEMIB.Dot1Qvlancurrenttable.Dot1Qvlancurrententry))])
+            self._child_classes = OrderedDict([("dot1qVlanCurrentEntry", ("dot1qvlancurrententry", QBRIDGEMIB.Dot1qVlanCurrentTable.Dot1qVlanCurrentEntry))])
             self._leafs = OrderedDict()
 
             self.dot1qvlancurrententry = YList(self)
@@ -1386,10 +1355,10 @@ class QBRIDGEMIB(Entity):
             self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(QBRIDGEMIB.Dot1Qvlancurrenttable, [], name, value)
+            self._perform_setattr(QBRIDGEMIB.Dot1qVlanCurrentTable, [], name, value)
 
 
-        class Dot1Qvlancurrententry(Entity):
+        class Dot1qVlanCurrentEntry(Entity):
             """
             Information for a VLAN configured into the device by
             
@@ -1430,7 +1399,7 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qvlanstatus
             
             	This object indicates the status of this entry. other(1) \- this entry is currently in use, but the     conditions under which it will remain so differ     from the following values. permanent(2) \- this entry, corresponding to an entry     in dot1qVlanStaticTable, is currently in use and     will remain so after the next reset of the     device.  The port lists for this entry include     ports from the equivalent dot1qVlanStaticTable     entry and ports learned dynamically. dynamicGvrp(3) \- this entry is currently in use      and will remain so until removed by GVRP.  There     is no static entry for this VLAN, and it will be     removed when the last port leaves the VLAN
-            	**type**\:  :py:class:`Dot1Qvlanstatus <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlancurrenttable.Dot1Qvlancurrententry.Dot1Qvlanstatus>`
+            	**type**\:  :py:class:`Dot1qVlanStatus <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qVlanCurrentTable.Dot1qVlanCurrentEntry.Dot1qVlanStatus>`
             
             .. attribute:: dot1qvlancreationtime
             
@@ -1447,15 +1416,14 @@ class QBRIDGEMIB(Entity):
             _revision = '2006-01-09'
 
             def __init__(self):
-                super(QBRIDGEMIB.Dot1Qvlancurrenttable.Dot1Qvlancurrententry, self).__init__()
+                super(QBRIDGEMIB.Dot1qVlanCurrentTable.Dot1qVlanCurrentEntry, self).__init__()
 
                 self.yang_name = "dot1qVlanCurrentEntry"
                 self.yang_parent_name = "dot1qVlanCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot1qvlantimemark','dot1qvlanindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot1qvlantimemark', YLeaf(YType.uint32, 'dot1qVlanTimeMark')),
                     ('dot1qvlanindex', YLeaf(YType.uint32, 'dot1qVlanIndex')),
@@ -1476,11 +1444,11 @@ class QBRIDGEMIB(Entity):
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qVlanCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1Qvlancurrenttable.Dot1Qvlancurrententry, ['dot1qvlantimemark', 'dot1qvlanindex', 'dot1qvlanfdbid', 'dot1qvlancurrentegressports', 'dot1qvlancurrentuntaggedports', 'dot1qvlanstatus', 'dot1qvlancreationtime'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1qVlanCurrentTable.Dot1qVlanCurrentEntry, [u'dot1qvlantimemark', u'dot1qvlanindex', u'dot1qvlanfdbid', u'dot1qvlancurrentegressports', u'dot1qvlancurrentuntaggedports', u'dot1qvlanstatus', u'dot1qvlancreationtime'], name, value)
 
-            class Dot1Qvlanstatus(Enum):
+            class Dot1qVlanStatus(Enum):
                 """
-                Dot1Qvlanstatus (Enum Class)
+                Dot1qVlanStatus (Enum Class)
 
                 This object indicates the status of this entry.
 
@@ -1526,7 +1494,7 @@ class QBRIDGEMIB(Entity):
 
 
 
-    class Dot1Qvlanstatictable(Entity):
+    class Dot1qVlanStaticTable(Entity):
         """
         A table containing static configuration information for
         each VLAN configured into the device by (local or
@@ -1536,7 +1504,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qvlanstaticentry
         
         	Static information for a VLAN configured into the device by (local or network) management
-        	**type**\: list of  		 :py:class:`Dot1Qvlanstaticentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlanstatictable.Dot1Qvlanstaticentry>`
+        	**type**\: list of  		 :py:class:`Dot1qVlanStaticEntry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qVlanStaticTable.Dot1qVlanStaticEntry>`
         
         
 
@@ -1546,15 +1514,14 @@ class QBRIDGEMIB(Entity):
         _revision = '2006-01-09'
 
         def __init__(self):
-            super(QBRIDGEMIB.Dot1Qvlanstatictable, self).__init__()
+            super(QBRIDGEMIB.Dot1qVlanStaticTable, self).__init__()
 
             self.yang_name = "dot1qVlanStaticTable"
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot1qVlanStaticEntry", ("dot1qvlanstaticentry", QBRIDGEMIB.Dot1Qvlanstatictable.Dot1Qvlanstaticentry))])
+            self._child_classes = OrderedDict([("dot1qVlanStaticEntry", ("dot1qvlanstaticentry", QBRIDGEMIB.Dot1qVlanStaticTable.Dot1qVlanStaticEntry))])
             self._leafs = OrderedDict()
 
             self.dot1qvlanstaticentry = YList(self)
@@ -1562,10 +1529,10 @@ class QBRIDGEMIB(Entity):
             self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(QBRIDGEMIB.Dot1Qvlanstatictable, [], name, value)
+            self._perform_setattr(QBRIDGEMIB.Dot1qVlanStaticTable, [], name, value)
 
 
-        class Dot1Qvlanstaticentry(Entity):
+        class Dot1qVlanStaticEntry(Entity):
             """
             Static information for a VLAN configured into the
             device by (local or network) management.
@@ -1577,7 +1544,7 @@ class QBRIDGEMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`dot1qvlanindex <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlancurrenttable.Dot1Qvlancurrententry>`
+            	**refers to**\:  :py:class:`dot1qvlanindex <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qVlanCurrentTable.Dot1qVlanCurrentEntry>`
             
             .. attribute:: dot1qvlanstaticname
             
@@ -1614,15 +1581,14 @@ class QBRIDGEMIB(Entity):
             _revision = '2006-01-09'
 
             def __init__(self):
-                super(QBRIDGEMIB.Dot1Qvlanstatictable.Dot1Qvlanstaticentry, self).__init__()
+                super(QBRIDGEMIB.Dot1qVlanStaticTable.Dot1qVlanStaticEntry, self).__init__()
 
                 self.yang_name = "dot1qVlanStaticEntry"
                 self.yang_parent_name = "dot1qVlanStaticTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot1qvlanindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot1qvlanindex', YLeaf(YType.str, 'dot1qVlanIndex')),
                     ('dot1qvlanstaticname', YLeaf(YType.str, 'dot1qVlanStaticName')),
@@ -1641,10 +1607,10 @@ class QBRIDGEMIB(Entity):
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qVlanStaticTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1Qvlanstatictable.Dot1Qvlanstaticentry, ['dot1qvlanindex', 'dot1qvlanstaticname', 'dot1qvlanstaticegressports', 'dot1qvlanforbiddenegressports', 'dot1qvlanstaticuntaggedports', 'dot1qvlanstaticrowstatus'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1qVlanStaticTable.Dot1qVlanStaticEntry, [u'dot1qvlanindex', u'dot1qvlanstaticname', u'dot1qvlanstaticegressports', u'dot1qvlanforbiddenegressports', u'dot1qvlanstaticuntaggedports', u'dot1qvlanstaticrowstatus'], name, value)
 
 
-    class Dot1Qportvlanstatisticstable(Entity):
+    class Dot1qPortVlanStatisticsTable(Entity):
         """
         A table containing per\-port, per\-VLAN statistics for
         traffic received.  Separate objects are provided for both the
@@ -1666,7 +1632,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qportvlanstatisticsentry
         
         	Traffic statistics for a VLAN on an interface
-        	**type**\: list of  		 :py:class:`Dot1Qportvlanstatisticsentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qportvlanstatisticstable.Dot1Qportvlanstatisticsentry>`
+        	**type**\: list of  		 :py:class:`Dot1qPortVlanStatisticsEntry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qPortVlanStatisticsTable.Dot1qPortVlanStatisticsEntry>`
         
         
 
@@ -1676,15 +1642,14 @@ class QBRIDGEMIB(Entity):
         _revision = '2006-01-09'
 
         def __init__(self):
-            super(QBRIDGEMIB.Dot1Qportvlanstatisticstable, self).__init__()
+            super(QBRIDGEMIB.Dot1qPortVlanStatisticsTable, self).__init__()
 
             self.yang_name = "dot1qPortVlanStatisticsTable"
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot1qPortVlanStatisticsEntry", ("dot1qportvlanstatisticsentry", QBRIDGEMIB.Dot1Qportvlanstatisticstable.Dot1Qportvlanstatisticsentry))])
+            self._child_classes = OrderedDict([("dot1qPortVlanStatisticsEntry", ("dot1qportvlanstatisticsentry", QBRIDGEMIB.Dot1qPortVlanStatisticsTable.Dot1qPortVlanStatisticsEntry))])
             self._leafs = OrderedDict()
 
             self.dot1qportvlanstatisticsentry = YList(self)
@@ -1692,10 +1657,10 @@ class QBRIDGEMIB(Entity):
             self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(QBRIDGEMIB.Dot1Qportvlanstatisticstable, [], name, value)
+            self._perform_setattr(QBRIDGEMIB.Dot1qPortVlanStatisticsTable, [], name, value)
 
 
-        class Dot1Qportvlanstatisticsentry(Entity):
+        class Dot1qPortVlanStatisticsEntry(Entity):
             """
             Traffic statistics for a VLAN on an interface.
             
@@ -1706,7 +1671,7 @@ class QBRIDGEMIB(Entity):
             
             	**range:** 1..65535
             
-            	**refers to**\:  :py:class:`dot1dbaseport <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dbaseporttable.Dot1Dbaseportentry>`
+            	**refers to**\:  :py:class:`dot1dbaseport <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dBasePortTable.Dot1dBasePortEntry>`
             
             .. attribute:: dot1qvlanindex  (key)
             
@@ -1715,7 +1680,7 @@ class QBRIDGEMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`dot1qvlanindex <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlancurrenttable.Dot1Qvlancurrententry>`
+            	**refers to**\:  :py:class:`dot1qvlanindex <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qVlanCurrentTable.Dot1qVlanCurrentEntry>`
             
             .. attribute:: dot1qtpvlanportinframes
             
@@ -1767,15 +1732,14 @@ class QBRIDGEMIB(Entity):
             _revision = '2006-01-09'
 
             def __init__(self):
-                super(QBRIDGEMIB.Dot1Qportvlanstatisticstable.Dot1Qportvlanstatisticsentry, self).__init__()
+                super(QBRIDGEMIB.Dot1qPortVlanStatisticsTable.Dot1qPortVlanStatisticsEntry, self).__init__()
 
                 self.yang_name = "dot1qPortVlanStatisticsEntry"
                 self.yang_parent_name = "dot1qPortVlanStatisticsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot1dbaseport','dot1qvlanindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot1dbaseport', YLeaf(YType.str, 'dot1dBasePort')),
                     ('dot1qvlanindex', YLeaf(YType.str, 'dot1qVlanIndex')),
@@ -1798,10 +1762,10 @@ class QBRIDGEMIB(Entity):
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qPortVlanStatisticsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1Qportvlanstatisticstable.Dot1Qportvlanstatisticsentry, ['dot1dbaseport', 'dot1qvlanindex', 'dot1qtpvlanportinframes', 'dot1qtpvlanportoutframes', 'dot1qtpvlanportindiscards', 'dot1qtpvlanportinoverflowframes', 'dot1qtpvlanportoutoverflowframes', 'dot1qtpvlanportinoverflowdiscards'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1qPortVlanStatisticsTable.Dot1qPortVlanStatisticsEntry, [u'dot1dbaseport', u'dot1qvlanindex', u'dot1qtpvlanportinframes', u'dot1qtpvlanportoutframes', u'dot1qtpvlanportindiscards', u'dot1qtpvlanportinoverflowframes', u'dot1qtpvlanportoutoverflowframes', u'dot1qtpvlanportinoverflowdiscards'], name, value)
 
 
-    class Dot1Qportvlanhcstatisticstable(Entity):
+    class Dot1qPortVlanHCStatisticsTable(Entity):
         """
         A table containing per\-port, per\-VLAN statistics for
         traffic on high\-capacity interfaces.
@@ -1809,7 +1773,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qportvlanhcstatisticsentry
         
         	Traffic statistics for a VLAN on a high\-capacity interface
-        	**type**\: list of  		 :py:class:`Dot1Qportvlanhcstatisticsentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qportvlanhcstatisticstable.Dot1Qportvlanhcstatisticsentry>`
+        	**type**\: list of  		 :py:class:`Dot1qPortVlanHCStatisticsEntry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qPortVlanHCStatisticsTable.Dot1qPortVlanHCStatisticsEntry>`
         
         
 
@@ -1819,15 +1783,14 @@ class QBRIDGEMIB(Entity):
         _revision = '2006-01-09'
 
         def __init__(self):
-            super(QBRIDGEMIB.Dot1Qportvlanhcstatisticstable, self).__init__()
+            super(QBRIDGEMIB.Dot1qPortVlanHCStatisticsTable, self).__init__()
 
             self.yang_name = "dot1qPortVlanHCStatisticsTable"
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot1qPortVlanHCStatisticsEntry", ("dot1qportvlanhcstatisticsentry", QBRIDGEMIB.Dot1Qportvlanhcstatisticstable.Dot1Qportvlanhcstatisticsentry))])
+            self._child_classes = OrderedDict([("dot1qPortVlanHCStatisticsEntry", ("dot1qportvlanhcstatisticsentry", QBRIDGEMIB.Dot1qPortVlanHCStatisticsTable.Dot1qPortVlanHCStatisticsEntry))])
             self._leafs = OrderedDict()
 
             self.dot1qportvlanhcstatisticsentry = YList(self)
@@ -1835,10 +1798,10 @@ class QBRIDGEMIB(Entity):
             self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(QBRIDGEMIB.Dot1Qportvlanhcstatisticstable, [], name, value)
+            self._perform_setattr(QBRIDGEMIB.Dot1qPortVlanHCStatisticsTable, [], name, value)
 
 
-        class Dot1Qportvlanhcstatisticsentry(Entity):
+        class Dot1qPortVlanHCStatisticsEntry(Entity):
             """
             Traffic statistics for a VLAN on a high\-capacity
             interface.
@@ -1850,7 +1813,7 @@ class QBRIDGEMIB(Entity):
             
             	**range:** 1..65535
             
-            	**refers to**\:  :py:class:`dot1dbaseport <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dbaseporttable.Dot1Dbaseportentry>`
+            	**refers to**\:  :py:class:`dot1dbaseport <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dBasePortTable.Dot1dBasePortEntry>`
             
             .. attribute:: dot1qvlanindex  (key)
             
@@ -1859,7 +1822,7 @@ class QBRIDGEMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`dot1qvlanindex <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlancurrenttable.Dot1Qvlancurrententry>`
+            	**refers to**\:  :py:class:`dot1qvlanindex <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qVlanCurrentTable.Dot1qVlanCurrentEntry>`
             
             .. attribute:: dot1qtpvlanporthcinframes
             
@@ -1890,15 +1853,14 @@ class QBRIDGEMIB(Entity):
             _revision = '2006-01-09'
 
             def __init__(self):
-                super(QBRIDGEMIB.Dot1Qportvlanhcstatisticstable.Dot1Qportvlanhcstatisticsentry, self).__init__()
+                super(QBRIDGEMIB.Dot1qPortVlanHCStatisticsTable.Dot1qPortVlanHCStatisticsEntry, self).__init__()
 
                 self.yang_name = "dot1qPortVlanHCStatisticsEntry"
                 self.yang_parent_name = "dot1qPortVlanHCStatisticsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot1dbaseport','dot1qvlanindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot1dbaseport', YLeaf(YType.str, 'dot1dBasePort')),
                     ('dot1qvlanindex', YLeaf(YType.str, 'dot1qVlanIndex')),
@@ -1915,10 +1877,10 @@ class QBRIDGEMIB(Entity):
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qPortVlanHCStatisticsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1Qportvlanhcstatisticstable.Dot1Qportvlanhcstatisticsentry, ['dot1dbaseport', 'dot1qvlanindex', 'dot1qtpvlanporthcinframes', 'dot1qtpvlanporthcoutframes', 'dot1qtpvlanporthcindiscards'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1qPortVlanHCStatisticsTable.Dot1qPortVlanHCStatisticsEntry, [u'dot1dbaseport', u'dot1qvlanindex', u'dot1qtpvlanporthcinframes', u'dot1qtpvlanporthcoutframes', u'dot1qtpvlanporthcindiscards'], name, value)
 
 
-    class Dot1Qlearningconstraintstable(Entity):
+    class Dot1qLearningConstraintsTable(Entity):
         """
         A table containing learning constraints for sets of
         Shared and Independent VLANs.
@@ -1926,7 +1888,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1qlearningconstraintsentry
         
         	A learning constraint defined for a VLAN
-        	**type**\: list of  		 :py:class:`Dot1Qlearningconstraintsentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qlearningconstraintstable.Dot1Qlearningconstraintsentry>`
+        	**type**\: list of  		 :py:class:`Dot1qLearningConstraintsEntry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qLearningConstraintsTable.Dot1qLearningConstraintsEntry>`
         
         
 
@@ -1936,15 +1898,14 @@ class QBRIDGEMIB(Entity):
         _revision = '2006-01-09'
 
         def __init__(self):
-            super(QBRIDGEMIB.Dot1Qlearningconstraintstable, self).__init__()
+            super(QBRIDGEMIB.Dot1qLearningConstraintsTable, self).__init__()
 
             self.yang_name = "dot1qLearningConstraintsTable"
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot1qLearningConstraintsEntry", ("dot1qlearningconstraintsentry", QBRIDGEMIB.Dot1Qlearningconstraintstable.Dot1Qlearningconstraintsentry))])
+            self._child_classes = OrderedDict([("dot1qLearningConstraintsEntry", ("dot1qlearningconstraintsentry", QBRIDGEMIB.Dot1qLearningConstraintsTable.Dot1qLearningConstraintsEntry))])
             self._leafs = OrderedDict()
 
             self.dot1qlearningconstraintsentry = YList(self)
@@ -1952,10 +1913,10 @@ class QBRIDGEMIB(Entity):
             self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(QBRIDGEMIB.Dot1Qlearningconstraintstable, [], name, value)
+            self._perform_setattr(QBRIDGEMIB.Dot1qLearningConstraintsTable, [], name, value)
 
 
-        class Dot1Qlearningconstraintsentry(Entity):
+        class Dot1qLearningConstraintsEntry(Entity):
             """
             A learning constraint defined for a VLAN.
             
@@ -1976,7 +1937,7 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1qconstrainttype
             
             	The type of constraint this entry defines. independent(1) \- the VLAN, dot1qConstraintVlan,     uses a filtering database independent from all     other VLANs in the same set, defined by     dot1qConstraintSet. shared(2) \- the VLAN, dot1qConstraintVlan, shares     the same filtering database as all other VLANs     in the same set, defined by dot1qConstraintSet
-            	**type**\:  :py:class:`Dot1Qconstrainttype <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qlearningconstraintstable.Dot1Qlearningconstraintsentry.Dot1Qconstrainttype>`
+            	**type**\:  :py:class:`Dot1qConstraintType <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qLearningConstraintsTable.Dot1qLearningConstraintsEntry.Dot1qConstraintType>`
             
             .. attribute:: dot1qconstraintstatus
             
@@ -1991,15 +1952,14 @@ class QBRIDGEMIB(Entity):
             _revision = '2006-01-09'
 
             def __init__(self):
-                super(QBRIDGEMIB.Dot1Qlearningconstraintstable.Dot1Qlearningconstraintsentry, self).__init__()
+                super(QBRIDGEMIB.Dot1qLearningConstraintsTable.Dot1qLearningConstraintsEntry, self).__init__()
 
                 self.yang_name = "dot1qLearningConstraintsEntry"
                 self.yang_parent_name = "dot1qLearningConstraintsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot1qconstraintvlan','dot1qconstraintset']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot1qconstraintvlan', YLeaf(YType.uint32, 'dot1qConstraintVlan')),
                     ('dot1qconstraintset', YLeaf(YType.int32, 'dot1qConstraintSet')),
@@ -2014,11 +1974,11 @@ class QBRIDGEMIB(Entity):
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qLearningConstraintsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1Qlearningconstraintstable.Dot1Qlearningconstraintsentry, ['dot1qconstraintvlan', 'dot1qconstraintset', 'dot1qconstrainttype', 'dot1qconstraintstatus'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1qLearningConstraintsTable.Dot1qLearningConstraintsEntry, [u'dot1qconstraintvlan', u'dot1qconstraintset', u'dot1qconstrainttype', u'dot1qconstraintstatus'], name, value)
 
-            class Dot1Qconstrainttype(Enum):
+            class Dot1qConstraintType(Enum):
                 """
-                Dot1Qconstrainttype (Enum Class)
+                Dot1qConstraintType (Enum Class)
 
                 The type of constraint this entry defines.
 
@@ -2048,7 +2008,7 @@ class QBRIDGEMIB(Entity):
 
 
 
-    class Dot1Vprotocolgrouptable(Entity):
+    class Dot1vProtocolGroupTable(Entity):
         """
         A table that contains mappings from Protocol
         Templates to Protocol Group Identifiers used for
@@ -2057,7 +2017,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1vprotocolgroupentry
         
         	A mapping from a Protocol Template to a Protocol Group Identifier
-        	**type**\: list of  		 :py:class:`Dot1Vprotocolgroupentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Vprotocolgrouptable.Dot1Vprotocolgroupentry>`
+        	**type**\: list of  		 :py:class:`Dot1vProtocolGroupEntry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1vProtocolGroupTable.Dot1vProtocolGroupEntry>`
         
         
 
@@ -2067,15 +2027,14 @@ class QBRIDGEMIB(Entity):
         _revision = '2006-01-09'
 
         def __init__(self):
-            super(QBRIDGEMIB.Dot1Vprotocolgrouptable, self).__init__()
+            super(QBRIDGEMIB.Dot1vProtocolGroupTable, self).__init__()
 
             self.yang_name = "dot1vProtocolGroupTable"
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot1vProtocolGroupEntry", ("dot1vprotocolgroupentry", QBRIDGEMIB.Dot1Vprotocolgrouptable.Dot1Vprotocolgroupentry))])
+            self._child_classes = OrderedDict([("dot1vProtocolGroupEntry", ("dot1vprotocolgroupentry", QBRIDGEMIB.Dot1vProtocolGroupTable.Dot1vProtocolGroupEntry))])
             self._leafs = OrderedDict()
 
             self.dot1vprotocolgroupentry = YList(self)
@@ -2083,10 +2042,10 @@ class QBRIDGEMIB(Entity):
             self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(QBRIDGEMIB.Dot1Vprotocolgrouptable, [], name, value)
+            self._perform_setattr(QBRIDGEMIB.Dot1vProtocolGroupTable, [], name, value)
 
 
-        class Dot1Vprotocolgroupentry(Entity):
+        class Dot1vProtocolGroupEntry(Entity):
             """
             A mapping from a Protocol Template to a Protocol
             Group Identifier.
@@ -2094,7 +2053,7 @@ class QBRIDGEMIB(Entity):
             .. attribute:: dot1vprotocoltemplateframetype  (key)
             
             	The data\-link encapsulation format or the 'detagged\_frame\_type' in a Protocol Template
-            	**type**\:  :py:class:`Dot1Vprotocoltemplateframetype <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Vprotocolgrouptable.Dot1Vprotocolgroupentry.Dot1Vprotocoltemplateframetype>`
+            	**type**\:  :py:class:`Dot1vProtocolTemplateFrameType <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1vProtocolGroupTable.Dot1vProtocolGroupEntry.Dot1vProtocolTemplateFrameType>`
             
             .. attribute:: dot1vprotocoltemplateprotocolvalue  (key)
             
@@ -2123,15 +2082,14 @@ class QBRIDGEMIB(Entity):
             _revision = '2006-01-09'
 
             def __init__(self):
-                super(QBRIDGEMIB.Dot1Vprotocolgrouptable.Dot1Vprotocolgroupentry, self).__init__()
+                super(QBRIDGEMIB.Dot1vProtocolGroupTable.Dot1vProtocolGroupEntry, self).__init__()
 
                 self.yang_name = "dot1vProtocolGroupEntry"
                 self.yang_parent_name = "dot1vProtocolGroupTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot1vprotocoltemplateframetype','dot1vprotocoltemplateprotocolvalue']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot1vprotocoltemplateframetype', YLeaf(YType.enumeration, 'dot1vProtocolTemplateFrameType')),
                     ('dot1vprotocoltemplateprotocolvalue', YLeaf(YType.str, 'dot1vProtocolTemplateProtocolValue')),
@@ -2146,11 +2104,11 @@ class QBRIDGEMIB(Entity):
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1vProtocolGroupTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1Vprotocolgrouptable.Dot1Vprotocolgroupentry, ['dot1vprotocoltemplateframetype', 'dot1vprotocoltemplateprotocolvalue', 'dot1vprotocolgroupid', 'dot1vprotocolgrouprowstatus'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1vProtocolGroupTable.Dot1vProtocolGroupEntry, [u'dot1vprotocoltemplateframetype', u'dot1vprotocoltemplateprotocolvalue', u'dot1vprotocolgroupid', u'dot1vprotocolgrouprowstatus'], name, value)
 
-            class Dot1Vprotocoltemplateframetype(Enum):
+            class Dot1vProtocolTemplateFrameType(Enum):
                 """
-                Dot1Vprotocoltemplateframetype (Enum Class)
+                Dot1vProtocolTemplateFrameType (Enum Class)
 
                 The data\-link encapsulation format or the
 
@@ -2180,7 +2138,7 @@ class QBRIDGEMIB(Entity):
 
 
 
-    class Dot1Vprotocolporttable(Entity):
+    class Dot1vProtocolPortTable(Entity):
         """
         A table that contains VID sets used for
         Port\-and\-Protocol\-based VLAN Classification.
@@ -2188,7 +2146,7 @@ class QBRIDGEMIB(Entity):
         .. attribute:: dot1vprotocolportentry
         
         	A VID set for a port
-        	**type**\: list of  		 :py:class:`Dot1Vprotocolportentry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Vprotocolporttable.Dot1Vprotocolportentry>`
+        	**type**\: list of  		 :py:class:`Dot1vProtocolPortEntry <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1vProtocolPortTable.Dot1vProtocolPortEntry>`
         
         
 
@@ -2198,15 +2156,14 @@ class QBRIDGEMIB(Entity):
         _revision = '2006-01-09'
 
         def __init__(self):
-            super(QBRIDGEMIB.Dot1Vprotocolporttable, self).__init__()
+            super(QBRIDGEMIB.Dot1vProtocolPortTable, self).__init__()
 
             self.yang_name = "dot1vProtocolPortTable"
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dot1vProtocolPortEntry", ("dot1vprotocolportentry", QBRIDGEMIB.Dot1Vprotocolporttable.Dot1Vprotocolportentry))])
+            self._child_classes = OrderedDict([("dot1vProtocolPortEntry", ("dot1vprotocolportentry", QBRIDGEMIB.Dot1vProtocolPortTable.Dot1vProtocolPortEntry))])
             self._leafs = OrderedDict()
 
             self.dot1vprotocolportentry = YList(self)
@@ -2214,10 +2171,10 @@ class QBRIDGEMIB(Entity):
             self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(QBRIDGEMIB.Dot1Vprotocolporttable, [], name, value)
+            self._perform_setattr(QBRIDGEMIB.Dot1vProtocolPortTable, [], name, value)
 
 
-        class Dot1Vprotocolportentry(Entity):
+        class Dot1vProtocolPortEntry(Entity):
             """
             A VID set for a port.
             
@@ -2228,7 +2185,7 @@ class QBRIDGEMIB(Entity):
             
             	**range:** 1..65535
             
-            	**refers to**\:  :py:class:`dot1dbaseport <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dbaseporttable.Dot1Dbaseportentry>`
+            	**refers to**\:  :py:class:`dot1dbaseport <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dBasePortTable.Dot1dBasePortEntry>`
             
             .. attribute:: dot1vprotocolportgroupid  (key)
             
@@ -2257,15 +2214,14 @@ class QBRIDGEMIB(Entity):
             _revision = '2006-01-09'
 
             def __init__(self):
-                super(QBRIDGEMIB.Dot1Vprotocolporttable.Dot1Vprotocolportentry, self).__init__()
+                super(QBRIDGEMIB.Dot1vProtocolPortTable.Dot1vProtocolPortEntry, self).__init__()
 
                 self.yang_name = "dot1vProtocolPortEntry"
                 self.yang_parent_name = "dot1vProtocolPortTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dot1dbaseport','dot1vprotocolportgroupid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dot1dbaseport', YLeaf(YType.str, 'dot1dBasePort')),
                     ('dot1vprotocolportgroupid', YLeaf(YType.int32, 'dot1vProtocolPortGroupId')),
@@ -2280,7 +2236,7 @@ class QBRIDGEMIB(Entity):
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1vProtocolPortTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(QBRIDGEMIB.Dot1Vprotocolporttable.Dot1Vprotocolportentry, ['dot1dbaseport', 'dot1vprotocolportgroupid', 'dot1vprotocolportgroupvid', 'dot1vprotocolportrowstatus'], name, value)
+                self._perform_setattr(QBRIDGEMIB.Dot1vProtocolPortTable.Dot1vProtocolPortEntry, [u'dot1dbaseport', u'dot1vprotocolportgroupid', u'dot1vprotocolportgroupvid', u'dot1vprotocolportrowstatus'], name, value)
 
     def clone_ptr(self):
         self._top_entity = QBRIDGEMIB()

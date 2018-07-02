@@ -20,17 +20,17 @@ class CISCODIALCONTROLMIB(Entity):
     .. attribute:: cpeerglobalconfiguration
     
     	
-    	**type**\:  :py:class:`Cpeerglobalconfiguration <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Cpeerglobalconfiguration>`
+    	**type**\:  :py:class:`CPeerGlobalConfiguration <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.CPeerGlobalConfiguration>`
     
     .. attribute:: ccallhistorytable
     
     	A table containing information about specific calls to a specific destination
-    	**type**\:  :py:class:`Ccallhistorytable <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistorytable>`
+    	**type**\:  :py:class:`CCallHistoryTable <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.CCallHistoryTable>`
     
     .. attribute:: ccallhistoryiectable
     
     	This table contains information about Internal Error Code(s) (IEC) which caused the call to fail
-    	**type**\:  :py:class:`Ccallhistoryiectable <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistoryiectable>`
+    	**type**\:  :py:class:`CCallHistoryIecTable <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.CCallHistoryIecTable>`
     
     
 
@@ -48,35 +48,34 @@ class CISCODIALCONTROLMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cPeerGlobalConfiguration", ("cpeerglobalconfiguration", CISCODIALCONTROLMIB.Cpeerglobalconfiguration)), ("cCallHistoryTable", ("ccallhistorytable", CISCODIALCONTROLMIB.Ccallhistorytable)), ("cCallHistoryIecTable", ("ccallhistoryiectable", CISCODIALCONTROLMIB.Ccallhistoryiectable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cPeerGlobalConfiguration", ("cpeerglobalconfiguration", CISCODIALCONTROLMIB.CPeerGlobalConfiguration)), ("cCallHistoryTable", ("ccallhistorytable", CISCODIALCONTROLMIB.CCallHistoryTable)), ("cCallHistoryIecTable", ("ccallhistoryiectable", CISCODIALCONTROLMIB.CCallHistoryIecTable))])
         self._leafs = OrderedDict()
 
-        self.cpeerglobalconfiguration = CISCODIALCONTROLMIB.Cpeerglobalconfiguration()
+        self.cpeerglobalconfiguration = CISCODIALCONTROLMIB.CPeerGlobalConfiguration()
         self.cpeerglobalconfiguration.parent = self
         self._children_name_map["cpeerglobalconfiguration"] = "cPeerGlobalConfiguration"
-        self._children_yang_names.add("cPeerGlobalConfiguration")
 
-        self.ccallhistorytable = CISCODIALCONTROLMIB.Ccallhistorytable()
+        self.ccallhistorytable = CISCODIALCONTROLMIB.CCallHistoryTable()
         self.ccallhistorytable.parent = self
         self._children_name_map["ccallhistorytable"] = "cCallHistoryTable"
-        self._children_yang_names.add("cCallHistoryTable")
 
-        self.ccallhistoryiectable = CISCODIALCONTROLMIB.Ccallhistoryiectable()
+        self.ccallhistoryiectable = CISCODIALCONTROLMIB.CCallHistoryIecTable()
         self.ccallhistoryiectable.parent = self
         self._children_name_map["ccallhistoryiectable"] = "cCallHistoryIecTable"
-        self._children_yang_names.add("cCallHistoryIecTable")
         self._segment_path = lambda: "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCODIALCONTROLMIB, [], name, value)
 
-    class Cpeerglobalconfiguration(Entity):
+
+    class CPeerGlobalConfiguration(Entity):
         """
         
         
         .. attribute:: cpeersearchtype
         
         	Specifies the peer search preference based on the type of peers in an universal/integrated port platform.  none      \- both voice and data peers are searched            in same preference. datavoice \- search data peers first. If no data peers            are found, the voice peers are searched. voicedata \- search voice peers first. If no voice peers            are found, the data peers are searched
-        	**type**\:  :py:class:`Cpeersearchtype <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Cpeerglobalconfiguration.Cpeersearchtype>`
+        	**type**\:  :py:class:`CPeerSearchType <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.CPeerGlobalConfiguration.CPeerSearchType>`
         
         
 
@@ -86,15 +85,14 @@ class CISCODIALCONTROLMIB(Entity):
         _revision = '2005-05-26'
 
         def __init__(self):
-            super(CISCODIALCONTROLMIB.Cpeerglobalconfiguration, self).__init__()
+            super(CISCODIALCONTROLMIB.CPeerGlobalConfiguration, self).__init__()
 
             self.yang_name = "cPeerGlobalConfiguration"
             self.yang_parent_name = "CISCO-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cpeersearchtype', YLeaf(YType.enumeration, 'cPeerSearchType')),
             ])
@@ -103,11 +101,11 @@ class CISCODIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCODIALCONTROLMIB.Cpeerglobalconfiguration, ['cpeersearchtype'], name, value)
+            self._perform_setattr(CISCODIALCONTROLMIB.CPeerGlobalConfiguration, ['cpeersearchtype'], name, value)
 
-        class Cpeersearchtype(Enum):
+        class CPeerSearchType(Enum):
             """
-            Cpeersearchtype (Enum Class)
+            CPeerSearchType (Enum Class)
 
             Specifies the peer search preference based on the
 
@@ -143,7 +141,7 @@ class CISCODIALCONTROLMIB(Entity):
 
 
 
-    class Ccallhistorytable(Entity):
+    class CCallHistoryTable(Entity):
         """
         A table containing information about specific
         calls to a specific destination.
@@ -151,7 +149,7 @@ class CISCODIALCONTROLMIB(Entity):
         .. attribute:: ccallhistoryentry
         
         	The information regarding a single Connection
-        	**type**\: list of  		 :py:class:`Ccallhistoryentry <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistorytable.Ccallhistoryentry>`
+        	**type**\: list of  		 :py:class:`CCallHistoryEntry <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.CCallHistoryTable.CCallHistoryEntry>`
         
         
 
@@ -161,15 +159,14 @@ class CISCODIALCONTROLMIB(Entity):
         _revision = '2005-05-26'
 
         def __init__(self):
-            super(CISCODIALCONTROLMIB.Ccallhistorytable, self).__init__()
+            super(CISCODIALCONTROLMIB.CCallHistoryTable, self).__init__()
 
             self.yang_name = "cCallHistoryTable"
             self.yang_parent_name = "CISCO-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cCallHistoryEntry", ("ccallhistoryentry", CISCODIALCONTROLMIB.Ccallhistorytable.Ccallhistoryentry))])
+            self._child_classes = OrderedDict([("cCallHistoryEntry", ("ccallhistoryentry", CISCODIALCONTROLMIB.CCallHistoryTable.CCallHistoryEntry))])
             self._leafs = OrderedDict()
 
             self.ccallhistoryentry = YList(self)
@@ -177,10 +174,10 @@ class CISCODIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCODIALCONTROLMIB.Ccallhistorytable, [], name, value)
+            self._perform_setattr(CISCODIALCONTROLMIB.CCallHistoryTable, [], name, value)
 
 
-        class Ccallhistoryentry(Entity):
+        class CCallHistoryEntry(Entity):
             """
             The information regarding a single Connection.
             
@@ -258,7 +255,7 @@ class CISCODIALCONTROLMIB(Entity):
             .. attribute:: ccallhistorycallorigin
             
             	The call origin
-            	**type**\:  :py:class:`Ccallhistorycallorigin <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistorytable.Ccallhistoryentry.Ccallhistorycallorigin>`
+            	**type**\:  :py:class:`CCallHistoryCallOrigin <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.CCallHistoryTable.CCallHistoryEntry.CCallHistoryCallOrigin>`
             
             .. attribute:: ccallhistorychargedunits
             
@@ -270,7 +267,7 @@ class CISCODIALCONTROLMIB(Entity):
             .. attribute:: ccallhistoryinfotype
             
             	The information type for this call
-            	**type**\:  :py:class:`Ccallhistoryinfotype <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistorytable.Ccallhistoryentry.Ccallhistoryinfotype>`
+            	**type**\:  :py:class:`CCallHistoryInfoType <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.CCallHistoryTable.CCallHistoryEntry.CCallHistoryInfoType>`
             
             .. attribute:: ccallhistorytransmitpackets
             
@@ -303,14 +300,14 @@ class CISCODIALCONTROLMIB(Entity):
             .. attribute:: ccallhistoryreleasesource
             
             	Originator of the call release
-            	**type**\:  :py:class:`Ccallhistoryreleasesource <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistorytable.Ccallhistoryentry.Ccallhistoryreleasesource>`
+            	**type**\:  :py:class:`CCallHistoryReleaseSource <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.CCallHistoryTable.CCallHistoryEntry.CCallHistoryReleaseSource>`
             
             	**status**\: deprecated
             
             .. attribute:: ccallhistoryreleasesrc
             
             	Originator of the call release. Indicates the source of  the call release as follows \:  1) callingPartyInPstn \: Calling party in PSTN. 2) callingPartyInVoip \: Calling party in VoIP. 3) calledPartyInPstn \: Called party in PSTN. 4) calledPartyInVoip \: Called party in VoIP. 5) internalReleaseInPotsLeg \: Due to an internal error     in Telephony call leg. 6) internalReleaseInVoipLeg \: Due to an internal error    in VoIP call leg. 7) internalCallControlApp \: Due to an internal error    in Session Application or Tcl or VXML script originated    release.  8) internalReleaseInVoipAAA \: Due to an internal error    in VoIP AAA module. 9) consoleCommand \: Due to CLI or MML. 10) externalRadiusServer \: Call failed during authorization     , authentication or due to receipt of POD from the      RADIUS server. 11) externalNmsApp \: Due to SNMP request to clear      the call. 12) externalCallControlAgent \: External Call Control Agent     initiated clear. 13) gatekeeper \: Gatekeeper initiated clear due to receipt     of Admission Reject, Disengage Request message. 14) externalGKTMPServer \: External GKTMP server initiated     clear due to receipt of Admission Reject message from     the gatekeeper, triggered by RESPONSE.ARJ message from     the GKTMP server
-            	**type**\:  :py:class:`Ccallhistoryreleasesrc <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistorytable.Ccallhistoryentry.Ccallhistoryreleasesrc>`
+            	**type**\:  :py:class:`CCallHistoryReleaseSrc <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.CCallHistoryTable.CCallHistoryEntry.CCallHistoryReleaseSrc>`
             
             
 
@@ -320,15 +317,14 @@ class CISCODIALCONTROLMIB(Entity):
             _revision = '2005-05-26'
 
             def __init__(self):
-                super(CISCODIALCONTROLMIB.Ccallhistorytable.Ccallhistoryentry, self).__init__()
+                super(CISCODIALCONTROLMIB.CCallHistoryTable.CCallHistoryEntry, self).__init__()
 
                 self.yang_name = "cCallHistoryEntry"
                 self.yang_parent_name = "cCallHistoryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ccallhistoryindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ccallhistoryindex', YLeaf(YType.uint32, 'cCallHistoryIndex')),
                     ('ccallhistorysetuptime', YLeaf(YType.uint32, 'cCallHistorySetupTime')),
@@ -375,11 +371,11 @@ class CISCODIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB/cCallHistoryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCODIALCONTROLMIB.Ccallhistorytable.Ccallhistoryentry, ['ccallhistoryindex', 'ccallhistorysetuptime', 'ccallhistorypeeraddress', 'ccallhistorypeersubaddress', 'ccallhistorypeerid', 'ccallhistorypeerifindex', 'ccallhistorylogicalifindex', 'ccallhistorydisconnectcause', 'ccallhistorydisconnecttext', 'ccallhistoryconnecttime', 'ccallhistorydisconnecttime', 'ccallhistorycallorigin', 'ccallhistorychargedunits', 'ccallhistoryinfotype', 'ccallhistorytransmitpackets', 'ccallhistorytransmitbytes', 'ccallhistoryreceivepackets', 'ccallhistoryreceivebytes', 'ccallhistoryreleasesource', 'ccallhistoryreleasesrc'], name, value)
+                self._perform_setattr(CISCODIALCONTROLMIB.CCallHistoryTable.CCallHistoryEntry, ['ccallhistoryindex', 'ccallhistorysetuptime', 'ccallhistorypeeraddress', 'ccallhistorypeersubaddress', 'ccallhistorypeerid', 'ccallhistorypeerifindex', 'ccallhistorylogicalifindex', 'ccallhistorydisconnectcause', 'ccallhistorydisconnecttext', 'ccallhistoryconnecttime', 'ccallhistorydisconnecttime', 'ccallhistorycallorigin', 'ccallhistorychargedunits', 'ccallhistoryinfotype', 'ccallhistorytransmitpackets', 'ccallhistorytransmitbytes', 'ccallhistoryreceivepackets', 'ccallhistoryreceivebytes', 'ccallhistoryreleasesource', 'ccallhistoryreleasesrc'], name, value)
 
-            class Ccallhistorycallorigin(Enum):
+            class CCallHistoryCallOrigin(Enum):
                 """
-                Ccallhistorycallorigin (Enum Class)
+                CCallHistoryCallOrigin (Enum Class)
 
                 The call origin.
 
@@ -398,9 +394,9 @@ class CISCODIALCONTROLMIB(Entity):
                 callback = Enum.YLeaf(3, "callback")
 
 
-            class Ccallhistoryinfotype(Enum):
+            class CCallHistoryInfoType(Enum):
                 """
-                Ccallhistoryinfotype (Enum Class)
+                CCallHistoryInfoType (Enum Class)
 
                 The information type for this call.
 
@@ -447,9 +443,9 @@ class CISCODIALCONTROLMIB(Entity):
                 fax = Enum.YLeaf(10, "fax")
 
 
-            class Ccallhistoryreleasesource(Enum):
+            class CCallHistoryReleaseSource(Enum):
                 """
-                Ccallhistoryreleasesource (Enum Class)
+                CCallHistoryReleaseSource (Enum Class)
 
                 Originator of the call release.
 
@@ -496,9 +492,9 @@ class CISCODIALCONTROLMIB(Entity):
                 externalCallControlAgent = Enum.YLeaf(10, "externalCallControlAgent")
 
 
-            class Ccallhistoryreleasesrc(Enum):
+            class CCallHistoryReleaseSrc(Enum):
                 """
-                Ccallhistoryreleasesrc (Enum Class)
+                CCallHistoryReleaseSrc (Enum Class)
 
                 Originator of the call release. Indicates the source of 
 
@@ -618,7 +614,7 @@ class CISCODIALCONTROLMIB(Entity):
 
 
 
-    class Ccallhistoryiectable(Entity):
+    class CCallHistoryIecTable(Entity):
         """
         This table contains information about Internal Error
         Code(s) (IEC) which caused the call to fail.
@@ -626,7 +622,7 @@ class CISCODIALCONTROLMIB(Entity):
         .. attribute:: ccallhistoryiecentry
         
         	The IEC information regarding a single call
-        	**type**\: list of  		 :py:class:`Ccallhistoryiecentry <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistoryiectable.Ccallhistoryiecentry>`
+        	**type**\: list of  		 :py:class:`CCallHistoryIecEntry <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.CCallHistoryIecTable.CCallHistoryIecEntry>`
         
         
 
@@ -636,15 +632,14 @@ class CISCODIALCONTROLMIB(Entity):
         _revision = '2005-05-26'
 
         def __init__(self):
-            super(CISCODIALCONTROLMIB.Ccallhistoryiectable, self).__init__()
+            super(CISCODIALCONTROLMIB.CCallHistoryIecTable, self).__init__()
 
             self.yang_name = "cCallHistoryIecTable"
             self.yang_parent_name = "CISCO-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cCallHistoryIecEntry", ("ccallhistoryiecentry", CISCODIALCONTROLMIB.Ccallhistoryiectable.Ccallhistoryiecentry))])
+            self._child_classes = OrderedDict([("cCallHistoryIecEntry", ("ccallhistoryiecentry", CISCODIALCONTROLMIB.CCallHistoryIecTable.CCallHistoryIecEntry))])
             self._leafs = OrderedDict()
 
             self.ccallhistoryiecentry = YList(self)
@@ -652,10 +647,10 @@ class CISCODIALCONTROLMIB(Entity):
             self._absolute_path = lambda: "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCODIALCONTROLMIB.Ccallhistoryiectable, [], name, value)
+            self._perform_setattr(CISCODIALCONTROLMIB.CCallHistoryIecTable, [], name, value)
 
 
-        class Ccallhistoryiecentry(Entity):
+        class CCallHistoryIecEntry(Entity):
             """
             The IEC information regarding a single call.
             
@@ -666,7 +661,7 @@ class CISCODIALCONTROLMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`ccallhistoryindex <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistorytable.Ccallhistoryentry>`
+            	**refers to**\:  :py:class:`ccallhistoryindex <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.CCallHistoryTable.CCallHistoryEntry>`
             
             .. attribute:: ccallhistoryiecindex  (key)
             
@@ -688,15 +683,14 @@ class CISCODIALCONTROLMIB(Entity):
             _revision = '2005-05-26'
 
             def __init__(self):
-                super(CISCODIALCONTROLMIB.Ccallhistoryiectable.Ccallhistoryiecentry, self).__init__()
+                super(CISCODIALCONTROLMIB.CCallHistoryIecTable.CCallHistoryIecEntry, self).__init__()
 
                 self.yang_name = "cCallHistoryIecEntry"
                 self.yang_parent_name = "cCallHistoryIecTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ccallhistoryindex','ccallhistoryiecindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ccallhistoryindex', YLeaf(YType.str, 'cCallHistoryIndex')),
                     ('ccallhistoryiecindex', YLeaf(YType.uint32, 'cCallHistoryIecIndex')),
@@ -709,7 +703,7 @@ class CISCODIALCONTROLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB/cCallHistoryIecTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCODIALCONTROLMIB.Ccallhistoryiectable.Ccallhistoryiecentry, ['ccallhistoryindex', 'ccallhistoryiecindex', 'ccallhistoryiec'], name, value)
+                self._perform_setattr(CISCODIALCONTROLMIB.CCallHistoryIecTable.CCallHistoryIecEntry, ['ccallhistoryindex', 'ccallhistoryiecindex', 'ccallhistoryiec'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCODIALCONTROLMIB()

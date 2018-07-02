@@ -184,25 +184,24 @@ class EthernetFeatures(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("egress-filtering", ("egress_filtering", EthernetFeatures.EgressFiltering)), ("Cisco-IOS-XR-ethernet-cfm-cfg:cfm", ("cfm", EthernetFeatures.Cfm)), ("Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam", ("ether_link_oam", EthernetFeatures.EtherLinkOam))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("egress-filtering", ("egress_filtering", EthernetFeatures.EgressFiltering)), ("Cisco-IOS-XR-ethernet-cfm-cfg:cfm", ("cfm", EthernetFeatures.Cfm)), ("Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam", ("ether_link_oam", EthernetFeatures.EtherLinkOam))])
         self._leafs = OrderedDict()
 
         self.egress_filtering = EthernetFeatures.EgressFiltering()
         self.egress_filtering.parent = self
         self._children_name_map["egress_filtering"] = "egress-filtering"
-        self._children_yang_names.add("egress-filtering")
 
         self.cfm = EthernetFeatures.Cfm()
         self.cfm.parent = self
         self._children_name_map["cfm"] = "Cisco-IOS-XR-ethernet-cfm-cfg:cfm"
-        self._children_yang_names.add("Cisco-IOS-XR-ethernet-cfm-cfg:cfm")
 
         self.ether_link_oam = EthernetFeatures.EtherLinkOam()
         self.ether_link_oam.parent = self
         self._children_name_map["ether_link_oam"] = "Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam"
-        self._children_yang_names.add("Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam")
         self._segment_path = lambda: "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(EthernetFeatures, [], name, value)
 
 
     class EgressFiltering(Entity):
@@ -229,8 +228,7 @@ class EthernetFeatures(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('egress_filtering_default_on', YLeaf(YType.empty, 'egress-filtering-default-on')),
             ])
@@ -239,7 +237,7 @@ class EthernetFeatures(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EthernetFeatures.EgressFiltering, ['egress_filtering_default_on'], name, value)
+            self._perform_setattr(EthernetFeatures.EgressFiltering, [u'egress_filtering_default_on'], name, value)
 
 
     class Cfm(Entity):
@@ -266,7 +264,7 @@ class EthernetFeatures(Entity):
         """
 
         _prefix = 'ethernet-cfm-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-10-06'
 
         def __init__(self):
             super(EthernetFeatures.Cfm, self).__init__()
@@ -276,8 +274,7 @@ class EthernetFeatures(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("traceroute-cache", ("traceroute_cache", EthernetFeatures.Cfm.TracerouteCache)), ("domains", ("domains", EthernetFeatures.Cfm.Domains))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("traceroute-cache", ("traceroute_cache", EthernetFeatures.Cfm.TracerouteCache)), ("domains", ("domains", EthernetFeatures.Cfm.Domains))])
             self._leafs = OrderedDict([
                 ('nv_satellite_sla_processing_disable', YLeaf(YType.empty, 'nv-satellite-sla-processing-disable')),
             ])
@@ -286,12 +283,10 @@ class EthernetFeatures(Entity):
             self.traceroute_cache = EthernetFeatures.Cfm.TracerouteCache()
             self.traceroute_cache.parent = self
             self._children_name_map["traceroute_cache"] = "traceroute-cache"
-            self._children_yang_names.add("traceroute-cache")
 
             self.domains = EthernetFeatures.Cfm.Domains()
             self.domains.parent = self
             self._children_name_map["domains"] = "domains"
-            self._children_yang_names.add("domains")
             self._segment_path = lambda: "Cisco-IOS-XR-ethernet-cfm-cfg:cfm"
             self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/%s" % self._segment_path()
 
@@ -326,7 +321,7 @@ class EthernetFeatures(Entity):
             """
 
             _prefix = 'ethernet-cfm-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-10-06'
 
             def __init__(self):
                 super(EthernetFeatures.Cfm.TracerouteCache, self).__init__()
@@ -336,8 +331,7 @@ class EthernetFeatures(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('hold_time', YLeaf(YType.uint32, 'hold-time')),
                     ('cache_size', YLeaf(YType.uint32, 'cache-size')),
@@ -365,7 +359,7 @@ class EthernetFeatures(Entity):
             """
 
             _prefix = 'ethernet-cfm-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-10-06'
 
             def __init__(self):
                 super(EthernetFeatures.Cfm.Domains, self).__init__()
@@ -375,8 +369,7 @@ class EthernetFeatures(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("domain", ("domain", EthernetFeatures.Cfm.Domains.Domain))])
+                self._child_classes = OrderedDict([("domain", ("domain", EthernetFeatures.Cfm.Domains.Domain))])
                 self._leafs = OrderedDict()
 
                 self.domain = YList(self)
@@ -414,7 +407,7 @@ class EthernetFeatures(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-10-06'
 
                 def __init__(self):
                     super(EthernetFeatures.Cfm.Domains.Domain, self).__init__()
@@ -424,8 +417,7 @@ class EthernetFeatures(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['domain']
-                    self._child_container_classes = OrderedDict([("services", ("services", EthernetFeatures.Cfm.Domains.Domain.Services)), ("domain-properties", ("domain_properties", EthernetFeatures.Cfm.Domains.Domain.DomainProperties))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("services", ("services", EthernetFeatures.Cfm.Domains.Domain.Services)), ("domain-properties", ("domain_properties", EthernetFeatures.Cfm.Domains.Domain.DomainProperties))])
                     self._leafs = OrderedDict([
                         ('domain', YLeaf(YType.str, 'domain')),
                     ])
@@ -434,12 +426,10 @@ class EthernetFeatures(Entity):
                     self.services = EthernetFeatures.Cfm.Domains.Domain.Services()
                     self.services.parent = self
                     self._children_name_map["services"] = "services"
-                    self._children_yang_names.add("services")
 
                     self.domain_properties = EthernetFeatures.Cfm.Domains.Domain.DomainProperties()
                     self.domain_properties.parent = self
                     self._children_name_map["domain_properties"] = "domain-properties"
-                    self._children_yang_names.add("domain-properties")
                     self._segment_path = lambda: "domain" + "[domain='" + str(self.domain) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/domains/%s" % self._segment_path()
 
@@ -461,7 +451,7 @@ class EthernetFeatures(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(EthernetFeatures.Cfm.Domains.Domain.Services, self).__init__()
@@ -471,8 +461,7 @@ class EthernetFeatures(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("service", ("service", EthernetFeatures.Cfm.Domains.Domain.Services.Service))])
+                        self._child_classes = OrderedDict([("service", ("service", EthernetFeatures.Cfm.Domains.Domain.Services.Service))])
                         self._leafs = OrderedDict()
 
                         self.service = YList(self)
@@ -592,7 +581,7 @@ class EthernetFeatures(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(EthernetFeatures.Cfm.Domains.Domain.Services.Service, self).__init__()
@@ -602,8 +591,7 @@ class EthernetFeatures(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['service']
-                            self._child_container_classes = OrderedDict([("efd2", ("efd2", EthernetFeatures.Cfm.Domains.Domain.Services.Service.Efd2)), ("continuity-check-interval", ("continuity_check_interval", EthernetFeatures.Cfm.Domains.Domain.Services.Service.ContinuityCheckInterval)), ("mip-auto-creation", ("mip_auto_creation", EthernetFeatures.Cfm.Domains.Domain.Services.Service.MipAutoCreation)), ("ais", ("ais", EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais)), ("cross-check", ("cross_check", EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck)), ("service-properties", ("service_properties", EthernetFeatures.Cfm.Domains.Domain.Services.Service.ServiceProperties))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("efd2", ("efd2", EthernetFeatures.Cfm.Domains.Domain.Services.Service.Efd2)), ("continuity-check-interval", ("continuity_check_interval", EthernetFeatures.Cfm.Domains.Domain.Services.Service.ContinuityCheckInterval)), ("mip-auto-creation", ("mip_auto_creation", EthernetFeatures.Cfm.Domains.Domain.Services.Service.MipAutoCreation)), ("ais", ("ais", EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais)), ("cross-check", ("cross_check", EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck)), ("service-properties", ("service_properties", EthernetFeatures.Cfm.Domains.Domain.Services.Service.ServiceProperties))])
                             self._leafs = OrderedDict([
                                 ('service', YLeaf(YType.str, 'service')),
                                 ('maximum_meps', YLeaf(YType.uint32, 'maximum-meps')),
@@ -629,29 +617,23 @@ class EthernetFeatures(Entity):
 
                             self.efd2 = None
                             self._children_name_map["efd2"] = "efd2"
-                            self._children_yang_names.add("efd2")
 
                             self.continuity_check_interval = None
                             self._children_name_map["continuity_check_interval"] = "continuity-check-interval"
-                            self._children_yang_names.add("continuity-check-interval")
 
                             self.mip_auto_creation = None
                             self._children_name_map["mip_auto_creation"] = "mip-auto-creation"
-                            self._children_yang_names.add("mip-auto-creation")
 
                             self.ais = EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais()
                             self.ais.parent = self
                             self._children_name_map["ais"] = "ais"
-                            self._children_yang_names.add("ais")
 
                             self.cross_check = EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck()
                             self.cross_check.parent = self
                             self._children_name_map["cross_check"] = "cross-check"
-                            self._children_yang_names.add("cross-check")
 
                             self.service_properties = None
                             self._children_name_map["service_properties"] = "service-properties"
-                            self._children_yang_names.add("service-properties")
                             self._segment_path = lambda: "service" + "[service='" + str(self.service) + "']"
 
                         def __setattr__(self, name, value):
@@ -682,7 +664,7 @@ class EthernetFeatures(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Efd2, self).__init__()
@@ -692,8 +674,7 @@ class EthernetFeatures(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('enable', YLeaf(YType.empty, 'enable')),
@@ -734,7 +715,7 @@ class EthernetFeatures(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.ContinuityCheckInterval, self).__init__()
@@ -744,8 +725,7 @@ class EthernetFeatures(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('ccm_interval', YLeaf(YType.enumeration, 'ccm-interval')),
@@ -782,7 +762,7 @@ class EthernetFeatures(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.MipAutoCreation, self).__init__()
@@ -792,8 +772,7 @@ class EthernetFeatures(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('mip_policy', YLeaf(YType.enumeration, 'mip-policy')),
@@ -823,7 +802,7 @@ class EthernetFeatures(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais, self).__init__()
@@ -833,14 +812,15 @@ class EthernetFeatures(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("transmission", ("transmission", EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais.Transmission))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("transmission", ("transmission", EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais.Transmission))])
                                 self._leafs = OrderedDict()
 
                                 self.transmission = None
                                 self._children_name_map["transmission"] = "transmission"
-                                self._children_yang_names.add("transmission")
                                 self._segment_path = lambda: "ais"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais, [], name, value)
 
 
                             class Transmission(Entity):
@@ -866,7 +846,7 @@ class EthernetFeatures(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2017-10-06'
 
                                 def __init__(self):
                                     super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais.Transmission, self).__init__()
@@ -876,8 +856,7 @@ class EthernetFeatures(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self.is_presence_container = True
                                     self._leafs = OrderedDict([
                                         ('ais_interval', YLeaf(YType.enumeration, 'ais-interval')),
@@ -910,7 +889,7 @@ class EthernetFeatures(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck, self).__init__()
@@ -920,8 +899,7 @@ class EthernetFeatures(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("cross-check-meps", ("cross_check_meps", EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("cross-check-meps", ("cross_check_meps", EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps))])
                                 self._leafs = OrderedDict([
                                     ('auto', YLeaf(YType.empty, 'auto')),
                                 ])
@@ -930,7 +908,6 @@ class EthernetFeatures(Entity):
                                 self.cross_check_meps = EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps()
                                 self.cross_check_meps.parent = self
                                 self._children_name_map["cross_check_meps"] = "cross-check-meps"
-                                self._children_yang_names.add("cross-check-meps")
                                 self._segment_path = lambda: "cross-check"
 
                             def __setattr__(self, name, value):
@@ -951,7 +928,7 @@ class EthernetFeatures(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2017-10-06'
 
                                 def __init__(self):
                                     super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps, self).__init__()
@@ -961,8 +938,7 @@ class EthernetFeatures(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("cross-check-mep", ("cross_check_mep", EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps.CrossCheckMep))])
+                                    self._child_classes = OrderedDict([("cross-check-mep", ("cross_check_mep", EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps.CrossCheckMep))])
                                     self._leafs = OrderedDict()
 
                                     self.cross_check_mep = YList(self)
@@ -1001,7 +977,7 @@ class EthernetFeatures(Entity):
                                     """
 
                                     _prefix = 'ethernet-cfm-cfg'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-10-06'
 
                                     def __init__(self):
                                         super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps.CrossCheckMep, self).__init__()
@@ -1011,8 +987,7 @@ class EthernetFeatures(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['mep_id']
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('mep_id', YLeaf(YType.uint32, 'mep-id')),
                                             ('enable_mac_address', YLeaf(YType.empty, 'enable-mac-address')),
@@ -1101,7 +1076,7 @@ class EthernetFeatures(Entity):
                             	VPN Index, if Short MA Name format is VPN\_ID
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: short_ma_name_icc
                             
@@ -1124,7 +1099,7 @@ class EthernetFeatures(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.ServiceProperties, self).__init__()
@@ -1134,8 +1109,7 @@ class EthernetFeatures(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('service_type', YLeaf(YType.enumeration, 'service-type')),
@@ -1148,7 +1122,7 @@ class EthernetFeatures(Entity):
                                     ('short_ma_name_string', YLeaf(YType.str, 'short-ma-name-string')),
                                     ('short_ma_name_number', YLeaf(YType.uint32, 'short-ma-name-number')),
                                     ('short_ma_name_oui', YLeaf(YType.uint32, 'short-ma-name-oui')),
-                                    ('short_ma_name_vpn_index', YLeaf(YType.int32, 'short-ma-name-vpn-index')),
+                                    ('short_ma_name_vpn_index', YLeaf(YType.uint32, 'short-ma-name-vpn-index')),
                                     ('short_ma_name_icc', YLeaf(YType.str, 'short-ma-name-icc')),
                                     ('short_ma_name_umc', YLeaf(YType.str, 'short-ma-name-umc')),
                                 ])
@@ -1213,7 +1187,7 @@ class EthernetFeatures(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(EthernetFeatures.Cfm.Domains.Domain.DomainProperties, self).__init__()
@@ -1223,8 +1197,7 @@ class EthernetFeatures(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('level', YLeaf(YType.uint32, 'level')),
                             ('mdid_format', YLeaf(YType.enumeration, 'mdid-format')),
@@ -1267,16 +1240,17 @@ class EthernetFeatures(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("profiles", ("profiles", EthernetFeatures.EtherLinkOam.Profiles))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("profiles", ("profiles", EthernetFeatures.EtherLinkOam.Profiles))])
             self._leafs = OrderedDict()
 
             self.profiles = EthernetFeatures.EtherLinkOam.Profiles()
             self.profiles.parent = self
             self._children_name_map["profiles"] = "profiles"
-            self._children_yang_names.add("profiles")
             self._segment_path = lambda: "Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam"
             self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(EthernetFeatures.EtherLinkOam, [], name, value)
 
 
         class Profiles(Entity):
@@ -1303,8 +1277,7 @@ class EthernetFeatures(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("profile", ("profile", EthernetFeatures.EtherLinkOam.Profiles.Profile))])
+                self._child_classes = OrderedDict([("profile", ("profile", EthernetFeatures.EtherLinkOam.Profiles.Profile))])
                 self._leafs = OrderedDict()
 
                 self.profile = YList(self)
@@ -1388,8 +1361,7 @@ class EthernetFeatures(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['profile']
-                    self._child_container_classes = OrderedDict([("action", ("action", EthernetFeatures.EtherLinkOam.Profiles.Profile.Action)), ("require-remote", ("require_remote", EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote)), ("link-monitoring", ("link_monitoring", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("action", ("action", EthernetFeatures.EtherLinkOam.Profiles.Profile.Action)), ("require-remote", ("require_remote", EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote)), ("link-monitoring", ("link_monitoring", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring))])
                     self._leafs = OrderedDict([
                         ('profile', YLeaf(YType.str, 'profile')),
                         ('mib_retrieval', YLeaf(YType.boolean, 'mib-retrieval')),
@@ -1410,17 +1382,14 @@ class EthernetFeatures(Entity):
                     self.action = EthernetFeatures.EtherLinkOam.Profiles.Profile.Action()
                     self.action.parent = self
                     self._children_name_map["action"] = "action"
-                    self._children_yang_names.add("action")
 
                     self.require_remote = EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote()
                     self.require_remote.parent = self
                     self._children_name_map["require_remote"] = "require-remote"
-                    self._children_yang_names.add("require-remote")
 
                     self.link_monitoring = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring()
                     self.link_monitoring.parent = self
                     self._children_name_map["link_monitoring"] = "link-monitoring"
-                    self._children_yang_names.add("link-monitoring")
                     self._segment_path = lambda: "profile" + "[profile='" + str(self.profile) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam/profiles/%s" % self._segment_path()
 
@@ -1497,8 +1466,7 @@ class EthernetFeatures(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('dying_gasp', YLeaf(YType.enumeration, 'dying-gasp')),
                             ('session_up', YLeaf(YType.enumeration, 'session-up')),
@@ -1566,8 +1534,7 @@ class EthernetFeatures(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('mib_retrieval', YLeaf(YType.boolean, 'mib-retrieval')),
                             ('mode', YLeaf(YType.enumeration, 'mode')),
@@ -1628,8 +1595,7 @@ class EthernetFeatures(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("symbol-period", ("symbol_period", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod)), ("frame-period", ("frame_period", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod)), ("frame-seconds", ("frame_seconds", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds)), ("frame", ("frame", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("symbol-period", ("symbol_period", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod)), ("frame-period", ("frame_period", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod)), ("frame-seconds", ("frame_seconds", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds)), ("frame", ("frame", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame))])
                         self._leafs = OrderedDict([
                             ('monitoring', YLeaf(YType.boolean, 'monitoring')),
                         ])
@@ -1638,22 +1604,18 @@ class EthernetFeatures(Entity):
                         self.symbol_period = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod()
                         self.symbol_period.parent = self
                         self._children_name_map["symbol_period"] = "symbol-period"
-                        self._children_yang_names.add("symbol-period")
 
                         self.frame_period = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod()
                         self.frame_period.parent = self
                         self._children_name_map["frame_period"] = "frame-period"
-                        self._children_yang_names.add("frame-period")
 
                         self.frame_seconds = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds()
                         self.frame_seconds.parent = self
                         self._children_name_map["frame_seconds"] = "frame-seconds"
-                        self._children_yang_names.add("frame-seconds")
 
                         self.frame = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame()
                         self.frame.parent = self
                         self._children_name_map["frame"] = "frame"
-                        self._children_yang_names.add("frame")
                         self._segment_path = lambda: "link-monitoring"
 
                     def __setattr__(self, name, value):
@@ -1691,19 +1653,19 @@ class EthernetFeatures(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("window", ("window", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Window)), ("threshold", ("threshold", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Threshold))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("window", ("window", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Window)), ("threshold", ("threshold", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Threshold))])
                             self._leafs = OrderedDict()
 
                             self.window = None
                             self._children_name_map["window"] = "window"
-                            self._children_yang_names.add("window")
 
                             self.threshold = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Threshold()
                             self.threshold.parent = self
                             self._children_name_map["threshold"] = "threshold"
-                            self._children_yang_names.add("threshold")
                             self._segment_path = lambda: "symbol-period"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod, [], name, value)
 
 
                         class Window(Entity):
@@ -1751,8 +1713,7 @@ class EthernetFeatures(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('window', YLeaf(YType.uint32, 'window')),
@@ -1823,8 +1784,7 @@ class EthernetFeatures(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('threshold_low', YLeaf(YType.uint32, 'threshold-low')),
                                     ('threshold_high', YLeaf(YType.uint32, 'threshold-high')),
@@ -1874,19 +1834,19 @@ class EthernetFeatures(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("window", ("window", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Window)), ("threshold", ("threshold", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Threshold))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("window", ("window", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Window)), ("threshold", ("threshold", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Threshold))])
                             self._leafs = OrderedDict()
 
                             self.window = None
                             self._children_name_map["window"] = "window"
-                            self._children_yang_names.add("window")
 
                             self.threshold = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Threshold()
                             self.threshold.parent = self
                             self._children_name_map["threshold"] = "threshold"
-                            self._children_yang_names.add("threshold")
                             self._segment_path = lambda: "frame-period"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod, [], name, value)
 
 
                         class Window(Entity):
@@ -1934,8 +1894,7 @@ class EthernetFeatures(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
                                     ('window', YLeaf(YType.uint32, 'window')),
@@ -2006,8 +1965,7 @@ class EthernetFeatures(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('threshold_low', YLeaf(YType.uint32, 'threshold-low')),
                                     ('threshold_high', YLeaf(YType.uint32, 'threshold-high')),
@@ -2061,8 +2019,7 @@ class EthernetFeatures(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("threshold", ("threshold", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds.Threshold))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("threshold", ("threshold", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds.Threshold))])
                             self._leafs = OrderedDict([
                                 ('window', YLeaf(YType.uint32, 'window')),
                             ])
@@ -2071,7 +2028,6 @@ class EthernetFeatures(Entity):
                             self.threshold = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds.Threshold()
                             self.threshold.parent = self
                             self._children_name_map["threshold"] = "threshold"
-                            self._children_yang_names.add("threshold")
                             self._segment_path = lambda: "frame-seconds"
 
                         def __setattr__(self, name, value):
@@ -2118,8 +2074,7 @@ class EthernetFeatures(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('threshold_low', YLeaf(YType.uint32, 'threshold-low')),
                                     ('threshold_high', YLeaf(YType.uint32, 'threshold-high')),
@@ -2167,8 +2122,7 @@ class EthernetFeatures(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("threshold", ("threshold", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame.Threshold))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("threshold", ("threshold", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame.Threshold))])
                             self._leafs = OrderedDict([
                                 ('window', YLeaf(YType.uint32, 'window')),
                             ])
@@ -2177,7 +2131,6 @@ class EthernetFeatures(Entity):
                             self.threshold = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame.Threshold()
                             self.threshold.parent = self
                             self._children_name_map["threshold"] = "threshold"
-                            self._children_yang_names.add("threshold")
                             self._segment_path = lambda: "frame"
 
                         def __setattr__(self, name, value):
@@ -2231,8 +2184,7 @@ class EthernetFeatures(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('threshold_low', YLeaf(YType.uint32, 'threshold-low')),
                                     ('threshold_high', YLeaf(YType.uint32, 'threshold-high')),

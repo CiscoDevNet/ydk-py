@@ -108,8 +108,7 @@ class MplsLsd(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ipv6", ("ipv6", MplsLsd.Ipv6)), ("ipv4", ("ipv4", MplsLsd.Ipv4)), ("label-databases", ("label_databases", MplsLsd.LabelDatabases))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ipv6", ("ipv6", MplsLsd.Ipv6)), ("ipv4", ("ipv4", MplsLsd.Ipv4)), ("label-databases", ("label_databases", MplsLsd.LabelDatabases))])
         self._leafs = OrderedDict([
             ('ltrace_multiplier', YLeaf(YType.uint32, 'ltrace-multiplier')),
             ('app_reg_delay_disable', YLeaf(YType.empty, 'app-reg-delay-disable')),
@@ -124,17 +123,14 @@ class MplsLsd(Entity):
         self.ipv6 = MplsLsd.Ipv6()
         self.ipv6.parent = self
         self._children_name_map["ipv6"] = "ipv6"
-        self._children_yang_names.add("ipv6")
 
         self.ipv4 = MplsLsd.Ipv4()
         self.ipv4.parent = self
         self._children_name_map["ipv4"] = "ipv4"
-        self._children_yang_names.add("ipv4")
 
         self.label_databases = MplsLsd.LabelDatabases()
         self.label_databases.parent = self
         self._children_name_map["label_databases"] = "label-databases"
-        self._children_yang_names.add("label-databases")
         self._segment_path = lambda: "Cisco-IOS-XR-mpls-lsd-cfg:mpls-lsd"
 
     def __setattr__(self, name, value):
@@ -167,8 +163,7 @@ class MplsLsd(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ttl_expiration_pop', YLeaf(YType.uint32, 'ttl-expiration-pop')),
             ])
@@ -206,8 +201,7 @@ class MplsLsd(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ttl_expiration_pop', YLeaf(YType.uint32, 'ttl-expiration-pop')),
             ])
@@ -243,8 +237,7 @@ class MplsLsd(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("label-database", ("label_database", MplsLsd.LabelDatabases.LabelDatabase))])
+            self._child_classes = OrderedDict([("label-database", ("label_database", MplsLsd.LabelDatabases.LabelDatabase))])
             self._leafs = OrderedDict()
 
             self.label_database = YList(self)
@@ -286,8 +279,7 @@ class MplsLsd(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['label_database_id']
-                self._child_container_classes = OrderedDict([("label-range", ("label_range", MplsLsd.LabelDatabases.LabelDatabase.LabelRange))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("label-range", ("label_range", MplsLsd.LabelDatabases.LabelDatabase.LabelRange))])
                 self._leafs = OrderedDict([
                     ('label_database_id', YLeaf(YType.uint32, 'label-database-id')),
                 ])
@@ -296,7 +288,6 @@ class MplsLsd(Entity):
                 self.label_range = MplsLsd.LabelDatabases.LabelDatabase.LabelRange()
                 self.label_range.parent = self
                 self._children_name_map["label_range"] = "label-range"
-                self._children_yang_names.add("label-range")
                 self._segment_path = lambda: "label-database" + "[label-database-id='" + str(self.label_database_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-lsd-cfg:mpls-lsd/label-databases/%s" % self._segment_path()
 
@@ -351,8 +342,7 @@ class MplsLsd(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('minvalue', YLeaf(YType.uint32, 'minvalue')),
                         ('max_value', YLeaf(YType.uint32, 'max-value')),

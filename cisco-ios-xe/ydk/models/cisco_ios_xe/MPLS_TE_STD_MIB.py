@@ -32,42 +32,42 @@ class MPLSTESTDMIB(Entity):
     .. attribute:: mplstescalars
     
     	
-    	**type**\:  :py:class:`Mplstescalars <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstescalars>`
+    	**type**\:  :py:class:`MplsTeScalars <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTeScalars>`
     
     .. attribute:: mplsteobjects
     
     	
-    	**type**\:  :py:class:`Mplsteobjects <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplsteobjects>`
+    	**type**\:  :py:class:`MplsTeObjects <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTeObjects>`
     
     .. attribute:: mplstunneltable
     
     	The mplsTunnelTable allows new MPLS tunnels to be created between an LSR and a remote endpoint, and existing tunnels to be reconfigured or removed. Note that only point\-to\-point tunnel segments are supported, although multipoint\-to\-point and point\- to\-multipoint connections are supported by an LSR acting as a cross\-connect.  Each MPLS tunnel can thus have one out\-segment originating at this LSR and/or one in\-segment terminating at this LSR
-    	**type**\:  :py:class:`Mplstunneltable <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunneltable>`
+    	**type**\:  :py:class:`MplsTunnelTable <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelTable>`
     
     .. attribute:: mplstunnelhoptable
     
     	The mplsTunnelHopTable is used to indicate the hops, strict or loose, for an instance of an MPLS tunnel defined in mplsTunnelTable, when it is established via signalling, for the outgoing direction of the tunnel. Thus at a transit LSR, this table contains the desired path of the tunnel from this LSR onwards. Each row in this table is indexed by mplsTunnelHopListIndex which corresponds to a group of hop lists or path options.  Each row also has a secondary index mplsTunnelHopIndex, which indicates a group of hops (also known as a path option). Finally, the third index, mplsTunnelHopIndex indicates the specific hop information for a path option. In case we want to specify a particular interface on the originating LSR of an outgoing tunnel by which we want packets to exit the LSR, we specify this as the first hop for this tunnel in mplsTunnelHopTable
-    	**type**\:  :py:class:`Mplstunnelhoptable <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunnelhoptable>`
+    	**type**\:  :py:class:`MplsTunnelHopTable <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelHopTable>`
     
     .. attribute:: mplstunnelresourcetable
     
     	The mplsTunnelResourceTable allows a manager to specify which resources are desired for an MPLS tunnel.  This table also allows several tunnels to point to a single entry in this table, implying that these tunnels should share resources
-    	**type**\:  :py:class:`Mplstunnelresourcetable <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunnelresourcetable>`
+    	**type**\:  :py:class:`MplsTunnelResourceTable <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelResourceTable>`
     
     .. attribute:: mplstunnelarhoptable
     
     	The mplsTunnelARHopTable is used to indicate the hops for an MPLS tunnel defined in mplsTunnelTable, as reported by the MPLS signalling protocol. Thus at a transit LSR, this table (if the table is supported and if the signaling protocol is recording actual route information) contains the actual route of the whole tunnel. If the signaling protocol is not recording the actual route, this table MAY report the information from the mplsTunnelHopTable or the mplsTunnelCHopTable.  Each row in this table is indexed by mplsTunnelARHopListIndex. Each row also has a secondary index mplsTunnelARHopIndex, corresponding to the next hop that this row corresponds to.  Please note that since the information necessary to build entries within this table is not provided by some MPLS signalling protocols, implementation of this table is optional. Furthermore, since the information in this table is actually provided by the MPLS signalling protocol after the path has been set\-up, the entries in this table are provided only for observation, and hence, all variables in this table are accessible exclusively as read\- only.  Note also that the contents of this table may change while it is being read because of re\-routing activities. A network administrator may verify that the actual route read is consistent by reference to the mplsTunnelLastPathChange object
-    	**type**\:  :py:class:`Mplstunnelarhoptable <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunnelarhoptable>`
+    	**type**\:  :py:class:`MplsTunnelARHopTable <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelARHopTable>`
     
     .. attribute:: mplstunnelchoptable
     
     	The mplsTunnelCHopTable is used to indicate the hops, strict or loose, for an MPLS tunnel defined in mplsTunnelTable, as computed by a constraint\- based routing protocol, based on the mplsTunnelHopTable for the outgoing direction of the tunnel. Thus at a transit LSR, this table (if the table is supported) MAY contain the path computed by the CSPF engine on (or on behalf of) this LSR. Each row in this table is indexed by mplsTunnelCHopListIndex.  Each row also has a secondary index mplsTunnelCHopIndex, corresponding to the next hop that this row corresponds to. In case we want to specify a particular interface on the originating LSR of an outgoing tunnel by which we want packets to exit the LSR, we specify this as the first hop for this tunnel in mplsTunnelCHopTable.  Please note that since the information necessary to build entries within this table may not be supported by some LSRs, implementation of this table is optional. Furthermore, since the information in this table describes the path computed by the CSPF engine the entries in this table are read\-only
-    	**type**\:  :py:class:`Mplstunnelchoptable <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunnelchoptable>`
+    	**type**\:  :py:class:`MplsTunnelCHopTable <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelCHopTable>`
     
     .. attribute:: mplstunnelcrldprestable
     
     	The mplsTunnelCRLDPResTable allows a manager to specify which CR\-LDP\-specific resources are desired for an MPLS tunnel if that tunnel is signaled using CR\-LDP. Note that these attributes are in addition to those specified in mplsTunnelResourceTable. This table also allows several tunnels to point to a single entry in this table, implying that these tunnels should share resources
-    	**type**\:  :py:class:`Mplstunnelcrldprestable <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunnelcrldprestable>`
+    	**type**\:  :py:class:`MplsTunnelCRLDPResTable <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelCRLDPResTable>`
     
     
 
@@ -85,53 +85,47 @@ class MPLSTESTDMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("mplsTeScalars", ("mplstescalars", MPLSTESTDMIB.Mplstescalars)), ("mplsTeObjects", ("mplsteobjects", MPLSTESTDMIB.Mplsteobjects)), ("mplsTunnelTable", ("mplstunneltable", MPLSTESTDMIB.Mplstunneltable)), ("mplsTunnelHopTable", ("mplstunnelhoptable", MPLSTESTDMIB.Mplstunnelhoptable)), ("mplsTunnelResourceTable", ("mplstunnelresourcetable", MPLSTESTDMIB.Mplstunnelresourcetable)), ("mplsTunnelARHopTable", ("mplstunnelarhoptable", MPLSTESTDMIB.Mplstunnelarhoptable)), ("mplsTunnelCHopTable", ("mplstunnelchoptable", MPLSTESTDMIB.Mplstunnelchoptable)), ("mplsTunnelCRLDPResTable", ("mplstunnelcrldprestable", MPLSTESTDMIB.Mplstunnelcrldprestable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("mplsTeScalars", ("mplstescalars", MPLSTESTDMIB.MplsTeScalars)), ("mplsTeObjects", ("mplsteobjects", MPLSTESTDMIB.MplsTeObjects)), ("mplsTunnelTable", ("mplstunneltable", MPLSTESTDMIB.MplsTunnelTable)), ("mplsTunnelHopTable", ("mplstunnelhoptable", MPLSTESTDMIB.MplsTunnelHopTable)), ("mplsTunnelResourceTable", ("mplstunnelresourcetable", MPLSTESTDMIB.MplsTunnelResourceTable)), ("mplsTunnelARHopTable", ("mplstunnelarhoptable", MPLSTESTDMIB.MplsTunnelARHopTable)), ("mplsTunnelCHopTable", ("mplstunnelchoptable", MPLSTESTDMIB.MplsTunnelCHopTable)), ("mplsTunnelCRLDPResTable", ("mplstunnelcrldprestable", MPLSTESTDMIB.MplsTunnelCRLDPResTable))])
         self._leafs = OrderedDict()
 
-        self.mplstescalars = MPLSTESTDMIB.Mplstescalars()
+        self.mplstescalars = MPLSTESTDMIB.MplsTeScalars()
         self.mplstescalars.parent = self
         self._children_name_map["mplstescalars"] = "mplsTeScalars"
-        self._children_yang_names.add("mplsTeScalars")
 
-        self.mplsteobjects = MPLSTESTDMIB.Mplsteobjects()
+        self.mplsteobjects = MPLSTESTDMIB.MplsTeObjects()
         self.mplsteobjects.parent = self
         self._children_name_map["mplsteobjects"] = "mplsTeObjects"
-        self._children_yang_names.add("mplsTeObjects")
 
-        self.mplstunneltable = MPLSTESTDMIB.Mplstunneltable()
+        self.mplstunneltable = MPLSTESTDMIB.MplsTunnelTable()
         self.mplstunneltable.parent = self
         self._children_name_map["mplstunneltable"] = "mplsTunnelTable"
-        self._children_yang_names.add("mplsTunnelTable")
 
-        self.mplstunnelhoptable = MPLSTESTDMIB.Mplstunnelhoptable()
+        self.mplstunnelhoptable = MPLSTESTDMIB.MplsTunnelHopTable()
         self.mplstunnelhoptable.parent = self
         self._children_name_map["mplstunnelhoptable"] = "mplsTunnelHopTable"
-        self._children_yang_names.add("mplsTunnelHopTable")
 
-        self.mplstunnelresourcetable = MPLSTESTDMIB.Mplstunnelresourcetable()
+        self.mplstunnelresourcetable = MPLSTESTDMIB.MplsTunnelResourceTable()
         self.mplstunnelresourcetable.parent = self
         self._children_name_map["mplstunnelresourcetable"] = "mplsTunnelResourceTable"
-        self._children_yang_names.add("mplsTunnelResourceTable")
 
-        self.mplstunnelarhoptable = MPLSTESTDMIB.Mplstunnelarhoptable()
+        self.mplstunnelarhoptable = MPLSTESTDMIB.MplsTunnelARHopTable()
         self.mplstunnelarhoptable.parent = self
         self._children_name_map["mplstunnelarhoptable"] = "mplsTunnelARHopTable"
-        self._children_yang_names.add("mplsTunnelARHopTable")
 
-        self.mplstunnelchoptable = MPLSTESTDMIB.Mplstunnelchoptable()
+        self.mplstunnelchoptable = MPLSTESTDMIB.MplsTunnelCHopTable()
         self.mplstunnelchoptable.parent = self
         self._children_name_map["mplstunnelchoptable"] = "mplsTunnelCHopTable"
-        self._children_yang_names.add("mplsTunnelCHopTable")
 
-        self.mplstunnelcrldprestable = MPLSTESTDMIB.Mplstunnelcrldprestable()
+        self.mplstunnelcrldprestable = MPLSTESTDMIB.MplsTunnelCRLDPResTable()
         self.mplstunnelcrldprestable.parent = self
         self._children_name_map["mplstunnelcrldprestable"] = "mplsTunnelCRLDPResTable"
-        self._children_yang_names.add("mplsTunnelCRLDPResTable")
         self._segment_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(MPLSTESTDMIB, [], name, value)
 
-    class Mplstescalars(Entity):
+
+    class MplsTeScalars(Entity):
         """
         
         
@@ -152,7 +146,7 @@ class MPLSTESTDMIB(Entity):
         .. attribute:: mplstunneltedistproto
         
         	The traffic engineering distribution protocol(s) used by this LSR. Note that an LSR may support more than one distribution protocol simultaneously
-        	**type**\:  :py:class:`Mplstunneltedistproto <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstescalars.Mplstunneltedistproto>`
+        	**type**\:  :py:class:`MplsTunnelTEDistProto <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTeScalars.MplsTunnelTEDistProto>`
         
         .. attribute:: mplstunnelmaxhops
         
@@ -176,15 +170,14 @@ class MPLSTESTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSTESTDMIB.Mplstescalars, self).__init__()
+            super(MPLSTESTDMIB.MplsTeScalars, self).__init__()
 
             self.yang_name = "mplsTeScalars"
             self.yang_parent_name = "MPLS-TE-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('mplstunnelconfigured', YLeaf(YType.uint32, 'mplsTunnelConfigured')),
                 ('mplstunnelactive', YLeaf(YType.uint32, 'mplsTunnelActive')),
@@ -201,10 +194,10 @@ class MPLSTESTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSTESTDMIB.Mplstescalars, ['mplstunnelconfigured', 'mplstunnelactive', 'mplstunneltedistproto', 'mplstunnelmaxhops', 'mplstunnelnotificationmaxrate'], name, value)
+            self._perform_setattr(MPLSTESTDMIB.MplsTeScalars, [u'mplstunnelconfigured', u'mplstunnelactive', u'mplstunneltedistproto', u'mplstunnelmaxhops', u'mplstunnelnotificationmaxrate'], name, value)
 
 
-    class Mplsteobjects(Entity):
+    class MplsTeObjects(Entity):
         """
         
         
@@ -242,15 +235,14 @@ class MPLSTESTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSTESTDMIB.Mplsteobjects, self).__init__()
+            super(MPLSTESTDMIB.MplsTeObjects, self).__init__()
 
             self.yang_name = "mplsTeObjects"
             self.yang_parent_name = "MPLS-TE-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('mplstunnelindexnext', YLeaf(YType.uint32, 'mplsTunnelIndexNext')),
                 ('mplstunnelhoplistindexnext', YLeaf(YType.uint32, 'mplsTunnelHopListIndexNext')),
@@ -265,10 +257,10 @@ class MPLSTESTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSTESTDMIB.Mplsteobjects, ['mplstunnelindexnext', 'mplstunnelhoplistindexnext', 'mplstunnelresourceindexnext', 'mplstunnelnotificationenable'], name, value)
+            self._perform_setattr(MPLSTESTDMIB.MplsTeObjects, [u'mplstunnelindexnext', u'mplstunnelhoplistindexnext', u'mplstunnelresourceindexnext', u'mplstunnelnotificationenable'], name, value)
 
 
-    class Mplstunneltable(Entity):
+    class MplsTunnelTable(Entity):
         """
         The mplsTunnelTable allows new MPLS tunnels to be
         created between an LSR and a remote endpoint, and
@@ -283,7 +275,7 @@ class MPLSTESTDMIB(Entity):
         .. attribute:: mplstunnelentry
         
         	An entry in this table represents an MPLS tunnel. An entry can be created by a network administrator or by an SNMP agent as instructed by an MPLS signalling protocol. Whenever a new entry is created with mplsTunnelIsIf set to true(1), then a corresponding entry is created in ifTable as well (see RFC 2863). The ifType of this entry is mplsTunnel(150).  A tunnel entry needs to be uniquely identified across a MPLS network. Indices mplsTunnelIndex and mplsTunnelInstance uniquely identify a tunnel on the LSR originating the tunnel.  To uniquely identify a tunnel across an MPLS network requires index mplsTunnelIngressLSRId.  The last index mplsTunnelEgressLSRId is useful in identifying all instances of a tunnel that terminate on the same egress LSR
-        	**type**\: list of  		 :py:class:`Mplstunnelentry <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunneltable.Mplstunnelentry>`
+        	**type**\: list of  		 :py:class:`MplsTunnelEntry <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry>`
         
         
 
@@ -293,15 +285,14 @@ class MPLSTESTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSTESTDMIB.Mplstunneltable, self).__init__()
+            super(MPLSTESTDMIB.MplsTunnelTable, self).__init__()
 
             self.yang_name = "mplsTunnelTable"
             self.yang_parent_name = "MPLS-TE-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsTunnelEntry", ("mplstunnelentry", MPLSTESTDMIB.Mplstunneltable.Mplstunnelentry))])
+            self._child_classes = OrderedDict([("mplsTunnelEntry", ("mplstunnelentry", MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry))])
             self._leafs = OrderedDict()
 
             self.mplstunnelentry = YList(self)
@@ -309,10 +300,10 @@ class MPLSTESTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSTESTDMIB.Mplstunneltable, [], name, value)
+            self._perform_setattr(MPLSTESTDMIB.MplsTunnelTable, [], name, value)
 
 
-        class Mplstunnelentry(Entity):
+        class MplsTunnelEntry(Entity):
             """
             An entry in this table represents an MPLS tunnel.
             An entry can be created by a network administrator
@@ -391,7 +382,7 @@ class MPLSTESTDMIB(Entity):
             .. attribute:: mplstunnelrole
             
             	This value signifies the role that this tunnel entry/instance represents. This value MUST be set to head(1) at the originating point of the tunnel. This value MUST be set to transit(2) at transit points along the tunnel, if transit points are supported. This value MUST be set to tail(3) at the terminating point of the tunnel if tunnel tails are supported.  The value headTail(4) is provided for tunnels that begin and end on the same LSR
-            	**type**\:  :py:class:`Mplstunnelrole <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunneltable.Mplstunnelentry.Mplstunnelrole>`
+            	**type**\:  :py:class:`MplsTunnelRole <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry.MplsTunnelRole>`
             
             .. attribute:: mplstunnelxcpointer
             
@@ -403,7 +394,7 @@ class MPLSTESTDMIB(Entity):
             .. attribute:: mplstunnelsignallingproto
             
             	The signalling protocol, if any, used to setup this tunnel
-            	**type**\:  :py:class:`Mplstunnelsignallingproto <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunneltable.Mplstunnelentry.Mplstunnelsignallingproto>`
+            	**type**\:  :py:class:`MplsTunnelSignallingProto <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry.MplsTunnelSignallingProto>`
             
             .. attribute:: mplstunnelsetupprio
             
@@ -422,7 +413,7 @@ class MPLSTESTDMIB(Entity):
             .. attribute:: mplstunnelsessionattributes
             
             	This bit mask indicates optional session values for this tunnel. The following describes these bit fields\:  fastRerouteThis flag indicates that the any tunnel hop may choose to reroute this tunnel without tearing it down.  This flag permits transit routers to use a local repair mechanism which may result in violation of the explicit routing of this tunnel. When a fault is detected on an adjacent downstream link or node, a transit router can re\-route traffic for fast service restoration.  mergingPermitted This flag permits transit routers to merge this session with other RSVP sessions for the purpose of reducing resource overhead on downstream transit routers, thereby providing better network scaling.  isPersistent  Indicates whether this tunnel should be restored automatically after a failure occurs.  isPinned   This flag indicates whether the loose\- routed hops of this tunnel are to be pinned.  recordRouteThis flag indicates whether or not the signalling protocol should remember the tunnel path after it has been signaled
-            	**type**\:  :py:class:`Mplstunnelsessionattributes <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunneltable.Mplstunnelentry.Mplstunnelsessionattributes>`
+            	**type**\:  :py:class:`MplsTunnelSessionAttributes <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry.MplsTunnelSessionAttributes>`
             
             .. attribute:: mplstunnellocalprotectinuse
             
@@ -551,12 +542,12 @@ class MPLSTESTDMIB(Entity):
             .. attribute:: mplstunneladminstatus
             
             	Indicates the desired operational status of this tunnel
-            	**type**\:  :py:class:`Mplstunneladminstatus <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunneltable.Mplstunnelentry.Mplstunneladminstatus>`
+            	**type**\:  :py:class:`MplsTunnelAdminStatus <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry.MplsTunnelAdminStatus>`
             
             .. attribute:: mplstunneloperstatus
             
             	Indicates the actual operational status of this tunnel, which is typically but not limited to, a function of the state of individual segments of this tunnel
-            	**type**\:  :py:class:`Mplstunneloperstatus <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunneltable.Mplstunnelentry.Mplstunneloperstatus>`
+            	**type**\:  :py:class:`MplsTunnelOperStatus <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry.MplsTunnelOperStatus>`
             
             .. attribute:: mplstunnelrowstatus
             
@@ -611,15 +602,14 @@ class MPLSTESTDMIB(Entity):
             _revision = '2004-06-03'
 
             def __init__(self):
-                super(MPLSTESTDMIB.Mplstunneltable.Mplstunnelentry, self).__init__()
+                super(MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry, self).__init__()
 
                 self.yang_name = "mplsTunnelEntry"
                 self.yang_parent_name = "mplsTunnelTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplstunnelindex','mplstunnelinstance','mplstunnelingresslsrid','mplstunnelegresslsrid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplstunnelindex', YLeaf(YType.uint32, 'mplsTunnelIndex')),
                     ('mplstunnelinstance', YLeaf(YType.uint32, 'mplsTunnelInstance')),
@@ -710,11 +700,11 @@ class MPLSTESTDMIB(Entity):
                 self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/mplsTunnelTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSTESTDMIB.Mplstunneltable.Mplstunnelentry, ['mplstunnelindex', 'mplstunnelinstance', 'mplstunnelingresslsrid', 'mplstunnelegresslsrid', 'mplstunnelname', 'mplstunneldescr', 'mplstunnelisif', 'mplstunnelifindex', 'mplstunnelowner', 'mplstunnelrole', 'mplstunnelxcpointer', 'mplstunnelsignallingproto', 'mplstunnelsetupprio', 'mplstunnelholdingprio', 'mplstunnelsessionattributes', 'mplstunnellocalprotectinuse', 'mplstunnelresourcepointer', 'mplstunnelprimaryinstance', 'mplstunnelinstancepriority', 'mplstunnelhoptableindex', 'mplstunnelpathinuse', 'mplstunnelarhoptableindex', 'mplstunnelchoptableindex', 'mplstunnelincludeanyaffinity', 'mplstunnelincludeallaffinity', 'mplstunnelexcludeanyaffinity', 'mplstunneltotaluptime', 'mplstunnelinstanceuptime', 'mplstunnelprimaryuptime', 'mplstunnelpathchanges', 'mplstunnellastpathchange', 'mplstunnelcreationtime', 'mplstunnelstatetransitions', 'mplstunneladminstatus', 'mplstunneloperstatus', 'mplstunnelrowstatus', 'mplstunnelstoragetype', 'mplstunnelperfpackets', 'mplstunnelperfhcpackets', 'mplstunnelperferrors', 'mplstunnelperfbytes', 'mplstunnelperfhcbytes'], name, value)
+                self._perform_setattr(MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry, [u'mplstunnelindex', u'mplstunnelinstance', u'mplstunnelingresslsrid', u'mplstunnelegresslsrid', u'mplstunnelname', u'mplstunneldescr', u'mplstunnelisif', u'mplstunnelifindex', u'mplstunnelowner', u'mplstunnelrole', u'mplstunnelxcpointer', u'mplstunnelsignallingproto', u'mplstunnelsetupprio', u'mplstunnelholdingprio', u'mplstunnelsessionattributes', u'mplstunnellocalprotectinuse', u'mplstunnelresourcepointer', u'mplstunnelprimaryinstance', u'mplstunnelinstancepriority', u'mplstunnelhoptableindex', u'mplstunnelpathinuse', u'mplstunnelarhoptableindex', u'mplstunnelchoptableindex', u'mplstunnelincludeanyaffinity', u'mplstunnelincludeallaffinity', u'mplstunnelexcludeanyaffinity', u'mplstunneltotaluptime', u'mplstunnelinstanceuptime', u'mplstunnelprimaryuptime', u'mplstunnelpathchanges', u'mplstunnellastpathchange', u'mplstunnelcreationtime', u'mplstunnelstatetransitions', u'mplstunneladminstatus', u'mplstunneloperstatus', u'mplstunnelrowstatus', u'mplstunnelstoragetype', u'mplstunnelperfpackets', u'mplstunnelperfhcpackets', u'mplstunnelperferrors', u'mplstunnelperfbytes', u'mplstunnelperfhcbytes'], name, value)
 
-            class Mplstunneladminstatus(Enum):
+            class MplsTunnelAdminStatus(Enum):
                 """
-                Mplstunneladminstatus (Enum Class)
+                MplsTunnelAdminStatus (Enum Class)
 
                 Indicates the desired operational status of this
 
@@ -735,9 +725,9 @@ class MPLSTESTDMIB(Entity):
                 testing = Enum.YLeaf(3, "testing")
 
 
-            class Mplstunneloperstatus(Enum):
+            class MplsTunnelOperStatus(Enum):
                 """
-                Mplstunneloperstatus (Enum Class)
+                MplsTunnelOperStatus (Enum Class)
 
                 Indicates the actual operational status of this
 
@@ -778,9 +768,9 @@ class MPLSTESTDMIB(Entity):
                 lowerLayerDown = Enum.YLeaf(7, "lowerLayerDown")
 
 
-            class Mplstunnelrole(Enum):
+            class MplsTunnelRole(Enum):
                 """
-                Mplstunnelrole (Enum Class)
+                MplsTunnelRole (Enum Class)
 
                 This value signifies the role that this tunnel
 
@@ -821,9 +811,9 @@ class MPLSTESTDMIB(Entity):
                 headTail = Enum.YLeaf(4, "headTail")
 
 
-            class Mplstunnelsignallingproto(Enum):
+            class MplsTunnelSignallingProto(Enum):
                 """
-                Mplstunnelsignallingproto (Enum Class)
+                MplsTunnelSignallingProto (Enum Class)
 
                 The signalling protocol, if any, used to setup this
 
@@ -849,7 +839,7 @@ class MPLSTESTDMIB(Entity):
 
 
 
-    class Mplstunnelhoptable(Entity):
+    class MplsTunnelHopTable(Entity):
         """
         The mplsTunnelHopTable is used to indicate the hops,
         strict or loose, for an instance of an MPLS tunnel
@@ -873,7 +863,7 @@ class MPLSTESTDMIB(Entity):
         .. attribute:: mplstunnelhopentry
         
         	An entry in this table represents a tunnel hop.  An entry is created by a network administrator for signaled ERLSP set up by an MPLS signalling protocol
-        	**type**\: list of  		 :py:class:`Mplstunnelhopentry <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunnelhoptable.Mplstunnelhopentry>`
+        	**type**\: list of  		 :py:class:`MplsTunnelHopEntry <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelHopTable.MplsTunnelHopEntry>`
         
         
 
@@ -883,15 +873,14 @@ class MPLSTESTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSTESTDMIB.Mplstunnelhoptable, self).__init__()
+            super(MPLSTESTDMIB.MplsTunnelHopTable, self).__init__()
 
             self.yang_name = "mplsTunnelHopTable"
             self.yang_parent_name = "MPLS-TE-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsTunnelHopEntry", ("mplstunnelhopentry", MPLSTESTDMIB.Mplstunnelhoptable.Mplstunnelhopentry))])
+            self._child_classes = OrderedDict([("mplsTunnelHopEntry", ("mplstunnelhopentry", MPLSTESTDMIB.MplsTunnelHopTable.MplsTunnelHopEntry))])
             self._leafs = OrderedDict()
 
             self.mplstunnelhopentry = YList(self)
@@ -899,10 +888,10 @@ class MPLSTESTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSTESTDMIB.Mplstunnelhoptable, [], name, value)
+            self._perform_setattr(MPLSTESTDMIB.MplsTunnelHopTable, [], name, value)
 
 
-        class Mplstunnelhopentry(Entity):
+        class MplsTunnelHopEntry(Entity):
             """
             An entry in this table represents a tunnel hop.  An
             entry is created by a network administrator for
@@ -973,7 +962,7 @@ class MPLSTESTDMIB(Entity):
             .. attribute:: mplstunnelhoptype
             
             	Denotes whether this tunnel hop is routed in a strict or loose fashion. The value of this object has no meaning if the mplsTunnelHopInclude object is set to 'false'
-            	**type**\:  :py:class:`Mplstunnelhoptype <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunnelhoptable.Mplstunnelhopentry.Mplstunnelhoptype>`
+            	**type**\:  :py:class:`MplsTunnelHopType <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelHopTable.MplsTunnelHopEntry.MplsTunnelHopType>`
             
             .. attribute:: mplstunnelhopinclude
             
@@ -988,7 +977,7 @@ class MPLSTESTDMIB(Entity):
             .. attribute:: mplstunnelhopentrypathcomp
             
             	If this value is set to dynamic, then the user should only specify the source and destination of the path and expect that the CSPF will calculate the remainder of the path.  If this value is set to explicit, the user should specify the entire path for the tunnel to take.  This path may contain strict or loose hops.  Each hop along a specific path SHOULD have this object set to the same value
-            	**type**\:  :py:class:`Mplstunnelhopentrypathcomp <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunnelhoptable.Mplstunnelhopentry.Mplstunnelhopentrypathcomp>`
+            	**type**\:  :py:class:`MplsTunnelHopEntryPathComp <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelHopTable.MplsTunnelHopEntry.MplsTunnelHopEntryPathComp>`
             
             .. attribute:: mplstunnelhoprowstatus
             
@@ -1008,15 +997,14 @@ class MPLSTESTDMIB(Entity):
             _revision = '2004-06-03'
 
             def __init__(self):
-                super(MPLSTESTDMIB.Mplstunnelhoptable.Mplstunnelhopentry, self).__init__()
+                super(MPLSTESTDMIB.MplsTunnelHopTable.MplsTunnelHopEntry, self).__init__()
 
                 self.yang_name = "mplsTunnelHopEntry"
                 self.yang_parent_name = "mplsTunnelHopTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplstunnelhoplistindex','mplstunnelhoppathoptionindex','mplstunnelhopindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplstunnelhoplistindex', YLeaf(YType.uint32, 'mplsTunnelHopListIndex')),
                     ('mplstunnelhoppathoptionindex', YLeaf(YType.uint32, 'mplsTunnelHopPathOptionIndex')),
@@ -1053,11 +1041,11 @@ class MPLSTESTDMIB(Entity):
                 self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/mplsTunnelHopTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSTESTDMIB.Mplstunnelhoptable.Mplstunnelhopentry, ['mplstunnelhoplistindex', 'mplstunnelhoppathoptionindex', 'mplstunnelhopindex', 'mplstunnelhopaddrtype', 'mplstunnelhopipaddr', 'mplstunnelhopipprefixlen', 'mplstunnelhopasnumber', 'mplstunnelhopaddrunnum', 'mplstunnelhoplspid', 'mplstunnelhoptype', 'mplstunnelhopinclude', 'mplstunnelhoppathoptionname', 'mplstunnelhopentrypathcomp', 'mplstunnelhoprowstatus', 'mplstunnelhopstoragetype'], name, value)
+                self._perform_setattr(MPLSTESTDMIB.MplsTunnelHopTable.MplsTunnelHopEntry, [u'mplstunnelhoplistindex', u'mplstunnelhoppathoptionindex', u'mplstunnelhopindex', u'mplstunnelhopaddrtype', u'mplstunnelhopipaddr', u'mplstunnelhopipprefixlen', u'mplstunnelhopasnumber', u'mplstunnelhopaddrunnum', u'mplstunnelhoplspid', u'mplstunnelhoptype', u'mplstunnelhopinclude', u'mplstunnelhoppathoptionname', u'mplstunnelhopentrypathcomp', u'mplstunnelhoprowstatus', u'mplstunnelhopstoragetype'], name, value)
 
-            class Mplstunnelhopentrypathcomp(Enum):
+            class MplsTunnelHopEntryPathComp(Enum):
                 """
-                Mplstunnelhopentrypathcomp (Enum Class)
+                MplsTunnelHopEntryPathComp (Enum Class)
 
                 If this value is set to dynamic, then the user
 
@@ -1086,9 +1074,9 @@ class MPLSTESTDMIB(Entity):
                 explicit = Enum.YLeaf(2, "explicit")
 
 
-            class Mplstunnelhoptype(Enum):
+            class MplsTunnelHopType(Enum):
                 """
-                Mplstunnelhoptype (Enum Class)
+                MplsTunnelHopType (Enum Class)
 
                 Denotes whether this tunnel hop is routed in a
 
@@ -1110,7 +1098,7 @@ class MPLSTESTDMIB(Entity):
 
 
 
-    class Mplstunnelresourcetable(Entity):
+    class MplsTunnelResourceTable(Entity):
         """
         The mplsTunnelResourceTable allows a manager to
         specify which resources are desired for an MPLS
@@ -1121,7 +1109,7 @@ class MPLSTESTDMIB(Entity):
         .. attribute:: mplstunnelresourceentry
         
         	An entry in this table represents a set of resources for an MPLS tunnel.  An entry can be created by a network administrator or by an SNMP agent as instructed by any MPLS signalling protocol. An entry in this table referenced by a tunnel instance with zero mplsTunnelInstance value indicates a configured set of resource parameter. An entry referenced by a tunnel instance with a non\-zero mplsTunnelInstance reflects the in\-use resource parameters for the tunnel instance which may have been negotiated or modified by the MPLS signaling protocols
-        	**type**\: list of  		 :py:class:`Mplstunnelresourceentry <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunnelresourcetable.Mplstunnelresourceentry>`
+        	**type**\: list of  		 :py:class:`MplsTunnelResourceEntry <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelResourceTable.MplsTunnelResourceEntry>`
         
         
 
@@ -1131,15 +1119,14 @@ class MPLSTESTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSTESTDMIB.Mplstunnelresourcetable, self).__init__()
+            super(MPLSTESTDMIB.MplsTunnelResourceTable, self).__init__()
 
             self.yang_name = "mplsTunnelResourceTable"
             self.yang_parent_name = "MPLS-TE-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsTunnelResourceEntry", ("mplstunnelresourceentry", MPLSTESTDMIB.Mplstunnelresourcetable.Mplstunnelresourceentry))])
+            self._child_classes = OrderedDict([("mplsTunnelResourceEntry", ("mplstunnelresourceentry", MPLSTESTDMIB.MplsTunnelResourceTable.MplsTunnelResourceEntry))])
             self._leafs = OrderedDict()
 
             self.mplstunnelresourceentry = YList(self)
@@ -1147,10 +1134,10 @@ class MPLSTESTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSTESTDMIB.Mplstunnelresourcetable, [], name, value)
+            self._perform_setattr(MPLSTESTDMIB.MplsTunnelResourceTable, [], name, value)
 
 
-        class Mplstunnelresourceentry(Entity):
+        class MplsTunnelResourceEntry(Entity):
             """
             An entry in this table represents a set of resources
             for an MPLS tunnel.  An entry can be created by a
@@ -1220,7 +1207,7 @@ class MPLSTESTDMIB(Entity):
             .. attribute:: mplstunnelresourcefrequency
             
             	The granularity of the availability of committed rate.  The implementations which do not implement this variable must return unspecified(1) for this value and must not allow a user to set this value
-            	**type**\:  :py:class:`Mplstunnelresourcefrequency <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunnelresourcetable.Mplstunnelresourceentry.Mplstunnelresourcefrequency>`
+            	**type**\:  :py:class:`MplsTunnelResourceFrequency <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelResourceTable.MplsTunnelResourceEntry.MplsTunnelResourceFrequency>`
             
             .. attribute:: mplstunnelresourceweight
             
@@ -1247,15 +1234,14 @@ class MPLSTESTDMIB(Entity):
             _revision = '2004-06-03'
 
             def __init__(self):
-                super(MPLSTESTDMIB.Mplstunnelresourcetable.Mplstunnelresourceentry, self).__init__()
+                super(MPLSTESTDMIB.MplsTunnelResourceTable.MplsTunnelResourceEntry, self).__init__()
 
                 self.yang_name = "mplsTunnelResourceEntry"
                 self.yang_parent_name = "mplsTunnelResourceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplstunnelresourceindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplstunnelresourceindex', YLeaf(YType.uint32, 'mplsTunnelResourceIndex')),
                     ('mplstunnelresourcemaxrate', YLeaf(YType.uint32, 'mplsTunnelResourceMaxRate')),
@@ -1282,11 +1268,11 @@ class MPLSTESTDMIB(Entity):
                 self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/mplsTunnelResourceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSTESTDMIB.Mplstunnelresourcetable.Mplstunnelresourceentry, ['mplstunnelresourceindex', 'mplstunnelresourcemaxrate', 'mplstunnelresourcemeanrate', 'mplstunnelresourcemaxburstsize', 'mplstunnelresourcemeanburstsize', 'mplstunnelresourceexburstsize', 'mplstunnelresourcefrequency', 'mplstunnelresourceweight', 'mplstunnelresourcerowstatus', 'mplstunnelresourcestoragetype'], name, value)
+                self._perform_setattr(MPLSTESTDMIB.MplsTunnelResourceTable.MplsTunnelResourceEntry, [u'mplstunnelresourceindex', u'mplstunnelresourcemaxrate', u'mplstunnelresourcemeanrate', u'mplstunnelresourcemaxburstsize', u'mplstunnelresourcemeanburstsize', u'mplstunnelresourceexburstsize', u'mplstunnelresourcefrequency', u'mplstunnelresourceweight', u'mplstunnelresourcerowstatus', u'mplstunnelresourcestoragetype'], name, value)
 
-            class Mplstunnelresourcefrequency(Enum):
+            class MplsTunnelResourceFrequency(Enum):
                 """
-                Mplstunnelresourcefrequency (Enum Class)
+                MplsTunnelResourceFrequency (Enum Class)
 
                 The granularity of the availability of committed
 
@@ -1312,7 +1298,7 @@ class MPLSTESTDMIB(Entity):
 
 
 
-    class Mplstunnelarhoptable(Entity):
+    class MplsTunnelARHopTable(Entity):
         """
         The mplsTunnelARHopTable is used to indicate the
         hops for an MPLS tunnel defined in mplsTunnelTable,
@@ -1350,7 +1336,7 @@ class MPLSTESTDMIB(Entity):
         .. attribute:: mplstunnelarhopentry
         
         	An entry in this table represents a tunnel hop.  An entry is created by the agent for signaled ERLSP set up by an MPLS signalling protocol
-        	**type**\: list of  		 :py:class:`Mplstunnelarhopentry <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunnelarhoptable.Mplstunnelarhopentry>`
+        	**type**\: list of  		 :py:class:`MplsTunnelARHopEntry <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelARHopTable.MplsTunnelARHopEntry>`
         
         
 
@@ -1360,15 +1346,14 @@ class MPLSTESTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSTESTDMIB.Mplstunnelarhoptable, self).__init__()
+            super(MPLSTESTDMIB.MplsTunnelARHopTable, self).__init__()
 
             self.yang_name = "mplsTunnelARHopTable"
             self.yang_parent_name = "MPLS-TE-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsTunnelARHopEntry", ("mplstunnelarhopentry", MPLSTESTDMIB.Mplstunnelarhoptable.Mplstunnelarhopentry))])
+            self._child_classes = OrderedDict([("mplsTunnelARHopEntry", ("mplstunnelarhopentry", MPLSTESTDMIB.MplsTunnelARHopTable.MplsTunnelARHopEntry))])
             self._leafs = OrderedDict()
 
             self.mplstunnelarhopentry = YList(self)
@@ -1376,10 +1361,10 @@ class MPLSTESTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSTESTDMIB.Mplstunnelarhoptable, [], name, value)
+            self._perform_setattr(MPLSTESTDMIB.MplsTunnelARHopTable, [], name, value)
 
 
-        class Mplstunnelarhopentry(Entity):
+        class MplsTunnelARHopEntry(Entity):
             """
             An entry in this table represents a tunnel hop.  An
             entry is created by the agent for signaled ERLSP
@@ -1433,15 +1418,14 @@ class MPLSTESTDMIB(Entity):
             _revision = '2004-06-03'
 
             def __init__(self):
-                super(MPLSTESTDMIB.Mplstunnelarhoptable.Mplstunnelarhopentry, self).__init__()
+                super(MPLSTESTDMIB.MplsTunnelARHopTable.MplsTunnelARHopEntry, self).__init__()
 
                 self.yang_name = "mplsTunnelARHopEntry"
                 self.yang_parent_name = "mplsTunnelARHopTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplstunnelarhoplistindex','mplstunnelarhopindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplstunnelarhoplistindex', YLeaf(YType.uint32, 'mplsTunnelARHopListIndex')),
                     ('mplstunnelarhopindex', YLeaf(YType.uint32, 'mplsTunnelARHopIndex')),
@@ -1460,10 +1444,10 @@ class MPLSTESTDMIB(Entity):
                 self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/mplsTunnelARHopTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSTESTDMIB.Mplstunnelarhoptable.Mplstunnelarhopentry, ['mplstunnelarhoplistindex', 'mplstunnelarhopindex', 'mplstunnelarhopaddrtype', 'mplstunnelarhopipaddr', 'mplstunnelarhopaddrunnum', 'mplstunnelarhoplspid'], name, value)
+                self._perform_setattr(MPLSTESTDMIB.MplsTunnelARHopTable.MplsTunnelARHopEntry, [u'mplstunnelarhoplistindex', u'mplstunnelarhopindex', u'mplstunnelarhopaddrtype', u'mplstunnelarhopipaddr', u'mplstunnelarhopaddrunnum', u'mplstunnelarhoplspid'], name, value)
 
 
-    class Mplstunnelchoptable(Entity):
+    class MplsTunnelCHopTable(Entity):
         """
         The mplsTunnelCHopTable is used to indicate the
         hops, strict or loose, for an MPLS tunnel defined
@@ -1494,7 +1478,7 @@ class MPLSTESTDMIB(Entity):
         .. attribute:: mplstunnelchopentry
         
         	An entry in this table represents a tunnel hop.  An entry in this table is created by a path computation engine using CSPF techniques applied to the information collected by routing protocols and the hops specified in the corresponding mplsTunnelHopTable
-        	**type**\: list of  		 :py:class:`Mplstunnelchopentry <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunnelchoptable.Mplstunnelchopentry>`
+        	**type**\: list of  		 :py:class:`MplsTunnelCHopEntry <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelCHopTable.MplsTunnelCHopEntry>`
         
         
 
@@ -1504,15 +1488,14 @@ class MPLSTESTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSTESTDMIB.Mplstunnelchoptable, self).__init__()
+            super(MPLSTESTDMIB.MplsTunnelCHopTable, self).__init__()
 
             self.yang_name = "mplsTunnelCHopTable"
             self.yang_parent_name = "MPLS-TE-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsTunnelCHopEntry", ("mplstunnelchopentry", MPLSTESTDMIB.Mplstunnelchoptable.Mplstunnelchopentry))])
+            self._child_classes = OrderedDict([("mplsTunnelCHopEntry", ("mplstunnelchopentry", MPLSTESTDMIB.MplsTunnelCHopTable.MplsTunnelCHopEntry))])
             self._leafs = OrderedDict()
 
             self.mplstunnelchopentry = YList(self)
@@ -1520,10 +1503,10 @@ class MPLSTESTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSTESTDMIB.Mplstunnelchoptable, [], name, value)
+            self._perform_setattr(MPLSTESTDMIB.MplsTunnelCHopTable, [], name, value)
 
 
-        class Mplstunnelchopentry(Entity):
+        class MplsTunnelCHopEntry(Entity):
             """
             An entry in this table represents a tunnel hop.  An
             entry in this table is created by a path
@@ -1589,7 +1572,7 @@ class MPLSTESTDMIB(Entity):
             .. attribute:: mplstunnelchoptype
             
             	Denotes whether this is tunnel hop is routed in a strict or loose fashion
-            	**type**\:  :py:class:`Mplstunnelchoptype <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunnelchoptable.Mplstunnelchopentry.Mplstunnelchoptype>`
+            	**type**\:  :py:class:`MplsTunnelCHopType <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelCHopTable.MplsTunnelCHopEntry.MplsTunnelCHopType>`
             
             
 
@@ -1599,15 +1582,14 @@ class MPLSTESTDMIB(Entity):
             _revision = '2004-06-03'
 
             def __init__(self):
-                super(MPLSTESTDMIB.Mplstunnelchoptable.Mplstunnelchopentry, self).__init__()
+                super(MPLSTESTDMIB.MplsTunnelCHopTable.MplsTunnelCHopEntry, self).__init__()
 
                 self.yang_name = "mplsTunnelCHopEntry"
                 self.yang_parent_name = "mplsTunnelCHopTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplstunnelchoplistindex','mplstunnelchopindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplstunnelchoplistindex', YLeaf(YType.uint32, 'mplsTunnelCHopListIndex')),
                     ('mplstunnelchopindex', YLeaf(YType.uint32, 'mplsTunnelCHopIndex')),
@@ -1632,11 +1614,11 @@ class MPLSTESTDMIB(Entity):
                 self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/mplsTunnelCHopTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSTESTDMIB.Mplstunnelchoptable.Mplstunnelchopentry, ['mplstunnelchoplistindex', 'mplstunnelchopindex', 'mplstunnelchopaddrtype', 'mplstunnelchopipaddr', 'mplstunnelchopipprefixlen', 'mplstunnelchopasnumber', 'mplstunnelchopaddrunnum', 'mplstunnelchoplspid', 'mplstunnelchoptype'], name, value)
+                self._perform_setattr(MPLSTESTDMIB.MplsTunnelCHopTable.MplsTunnelCHopEntry, [u'mplstunnelchoplistindex', u'mplstunnelchopindex', u'mplstunnelchopaddrtype', u'mplstunnelchopipaddr', u'mplstunnelchopipprefixlen', u'mplstunnelchopasnumber', u'mplstunnelchopaddrunnum', u'mplstunnelchoplspid', u'mplstunnelchoptype'], name, value)
 
-            class Mplstunnelchoptype(Enum):
+            class MplsTunnelCHopType(Enum):
                 """
-                Mplstunnelchoptype (Enum Class)
+                MplsTunnelCHopType (Enum Class)
 
                 Denotes whether this is tunnel hop is routed in a
 
@@ -1654,7 +1636,7 @@ class MPLSTESTDMIB(Entity):
 
 
 
-    class Mplstunnelcrldprestable(Entity):
+    class MplsTunnelCRLDPResTable(Entity):
         """
         The mplsTunnelCRLDPResTable allows a manager to
         specify which CR\-LDP\-specific resources are desired
@@ -1668,7 +1650,7 @@ class MPLSTESTDMIB(Entity):
         .. attribute:: mplstunnelcrldpresentry
         
         	An entry in this table represents a set of resources for an MPLS tunnel established using CRLDP (mplsTunnelSignallingProto equal to crldp (3)). An entry can be created by a network administrator or by an SNMP agent as instructed by any MPLS signalling protocol
-        	**type**\: list of  		 :py:class:`Mplstunnelcrldpresentry <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunnelcrldprestable.Mplstunnelcrldpresentry>`
+        	**type**\: list of  		 :py:class:`MplsTunnelCRLDPResEntry <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelCRLDPResTable.MplsTunnelCRLDPResEntry>`
         
         
 
@@ -1678,15 +1660,14 @@ class MPLSTESTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSTESTDMIB.Mplstunnelcrldprestable, self).__init__()
+            super(MPLSTESTDMIB.MplsTunnelCRLDPResTable, self).__init__()
 
             self.yang_name = "mplsTunnelCRLDPResTable"
             self.yang_parent_name = "MPLS-TE-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsTunnelCRLDPResEntry", ("mplstunnelcrldpresentry", MPLSTESTDMIB.Mplstunnelcrldprestable.Mplstunnelcrldpresentry))])
+            self._child_classes = OrderedDict([("mplsTunnelCRLDPResEntry", ("mplstunnelcrldpresentry", MPLSTESTDMIB.MplsTunnelCRLDPResTable.MplsTunnelCRLDPResEntry))])
             self._leafs = OrderedDict()
 
             self.mplstunnelcrldpresentry = YList(self)
@@ -1694,10 +1675,10 @@ class MPLSTESTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSTESTDMIB.Mplstunnelcrldprestable, [], name, value)
+            self._perform_setattr(MPLSTESTDMIB.MplsTunnelCRLDPResTable, [], name, value)
 
 
-        class Mplstunnelcrldpresentry(Entity):
+        class MplsTunnelCRLDPResEntry(Entity):
             """
             An entry in this table represents a set of resources
             for an MPLS tunnel established using CRLDP
@@ -1713,7 +1694,7 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`mplstunnelresourceindex <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunnelresourcetable.Mplstunnelresourceentry>`
+            	**refers to**\:  :py:class:`mplstunnelresourceindex <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelResourceTable.MplsTunnelResourceEntry>`
             
             .. attribute:: mplstunnelcrldpresmeanburstsize
             
@@ -1736,7 +1717,7 @@ class MPLSTESTDMIB(Entity):
             .. attribute:: mplstunnelcrldpresfrequency
             
             	The granularity of the availability of committed rate
-            	**type**\:  :py:class:`Mplstunnelcrldpresfrequency <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunnelcrldprestable.Mplstunnelcrldpresentry.Mplstunnelcrldpresfrequency>`
+            	**type**\:  :py:class:`MplsTunnelCRLDPResFrequency <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelCRLDPResTable.MplsTunnelCRLDPResEntry.MplsTunnelCRLDPResFrequency>`
             
             .. attribute:: mplstunnelcrldpresweight
             
@@ -1770,15 +1751,14 @@ class MPLSTESTDMIB(Entity):
             _revision = '2004-06-03'
 
             def __init__(self):
-                super(MPLSTESTDMIB.Mplstunnelcrldprestable.Mplstunnelcrldpresentry, self).__init__()
+                super(MPLSTESTDMIB.MplsTunnelCRLDPResTable.MplsTunnelCRLDPResEntry, self).__init__()
 
                 self.yang_name = "mplsTunnelCRLDPResEntry"
                 self.yang_parent_name = "mplsTunnelCRLDPResTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplstunnelresourceindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplstunnelresourceindex', YLeaf(YType.str, 'mplsTunnelResourceIndex')),
                     ('mplstunnelcrldpresmeanburstsize', YLeaf(YType.uint32, 'mplsTunnelCRLDPResMeanBurstSize')),
@@ -1801,11 +1781,11 @@ class MPLSTESTDMIB(Entity):
                 self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/mplsTunnelCRLDPResTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSTESTDMIB.Mplstunnelcrldprestable.Mplstunnelcrldpresentry, ['mplstunnelresourceindex', 'mplstunnelcrldpresmeanburstsize', 'mplstunnelcrldpresexburstsize', 'mplstunnelcrldpresfrequency', 'mplstunnelcrldpresweight', 'mplstunnelcrldpresflags', 'mplstunnelcrldpresrowstatus', 'mplstunnelcrldpresstoragetype'], name, value)
+                self._perform_setattr(MPLSTESTDMIB.MplsTunnelCRLDPResTable.MplsTunnelCRLDPResEntry, [u'mplstunnelresourceindex', u'mplstunnelcrldpresmeanburstsize', u'mplstunnelcrldpresexburstsize', u'mplstunnelcrldpresfrequency', u'mplstunnelcrldpresweight', u'mplstunnelcrldpresflags', u'mplstunnelcrldpresrowstatus', u'mplstunnelcrldpresstoragetype'], name, value)
 
-            class Mplstunnelcrldpresfrequency(Enum):
+            class MplsTunnelCRLDPResFrequency(Enum):
                 """
-                Mplstunnelcrldpresfrequency (Enum Class)
+                MplsTunnelCRLDPResFrequency (Enum Class)
 
                 The granularity of the availability of committed
 

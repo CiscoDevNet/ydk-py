@@ -20,32 +20,32 @@ class CISCOIETFPWMPLSMIB(Entity):
     .. attribute:: cpwvcmplsobjects
     
     	
-    	**type**\:  :py:class:`Cpwvcmplsobjects <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplsobjects>`
+    	**type**\:  :py:class:`CpwVcMplsObjects <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.CpwVcMplsObjects>`
     
     .. attribute:: cpwvcmplstable
     
     	This table specifies information for VC to be carried over   MPLS PSN
-    	**type**\:  :py:class:`Cpwvcmplstable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplstable>`
+    	**type**\:  :py:class:`CpwVcMplsTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.CpwVcMplsTable>`
     
     .. attribute:: cpwvcmplsoutboundtable
     
     	This table associates VCs using MPLS PSN with the outbound  MPLS tunnels (i.e. toward the PSN) or the physical   interface in case of VC only
-    	**type**\:  :py:class:`Cpwvcmplsoutboundtable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable>`
+    	**type**\:  :py:class:`CpwVcMplsOutboundTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.CpwVcMplsOutboundTable>`
     
     .. attribute:: cpwvcmplsinboundtable
     
     	This table associates VCs using MPLS PSN with the inbound  MPLS tunnels (i.e. for packets coming from the PSN),   if such association is desired (mainly for security   reasons)
-    	**type**\:  :py:class:`Cpwvcmplsinboundtable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplsinboundtable>`
+    	**type**\:  :py:class:`CpwVcMplsInboundTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.CpwVcMplsInboundTable>`
     
     .. attribute:: cpwvcmplsnontemappingtable
     
     	This table maps an inbound/outbound Tunnel to a VC in non\-  TE applications
-    	**type**\:  :py:class:`Cpwvcmplsnontemappingtable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplsnontemappingtable>`
+    	**type**\:  :py:class:`CpwVcMplsNonTeMappingTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.CpwVcMplsNonTeMappingTable>`
     
     .. attribute:: cpwvcmplstemappingtable
     
     	This table maps an inbound/outbound Tunnel to a VC in   MPLS\-TE applications
-    	**type**\:  :py:class:`Cpwvcmplstemappingtable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplstemappingtable>`
+    	**type**\:  :py:class:`CpwVcMplsTeMappingTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.CpwVcMplsTeMappingTable>`
     
     
 
@@ -63,43 +63,39 @@ class CISCOIETFPWMPLSMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cpwVcMplsObjects", ("cpwvcmplsobjects", CISCOIETFPWMPLSMIB.Cpwvcmplsobjects)), ("cpwVcMplsTable", ("cpwvcmplstable", CISCOIETFPWMPLSMIB.Cpwvcmplstable)), ("cpwVcMplsOutboundTable", ("cpwvcmplsoutboundtable", CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable)), ("cpwVcMplsInboundTable", ("cpwvcmplsinboundtable", CISCOIETFPWMPLSMIB.Cpwvcmplsinboundtable)), ("cpwVcMplsNonTeMappingTable", ("cpwvcmplsnontemappingtable", CISCOIETFPWMPLSMIB.Cpwvcmplsnontemappingtable)), ("cpwVcMplsTeMappingTable", ("cpwvcmplstemappingtable", CISCOIETFPWMPLSMIB.Cpwvcmplstemappingtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cpwVcMplsObjects", ("cpwvcmplsobjects", CISCOIETFPWMPLSMIB.CpwVcMplsObjects)), ("cpwVcMplsTable", ("cpwvcmplstable", CISCOIETFPWMPLSMIB.CpwVcMplsTable)), ("cpwVcMplsOutboundTable", ("cpwvcmplsoutboundtable", CISCOIETFPWMPLSMIB.CpwVcMplsOutboundTable)), ("cpwVcMplsInboundTable", ("cpwvcmplsinboundtable", CISCOIETFPWMPLSMIB.CpwVcMplsInboundTable)), ("cpwVcMplsNonTeMappingTable", ("cpwvcmplsnontemappingtable", CISCOIETFPWMPLSMIB.CpwVcMplsNonTeMappingTable)), ("cpwVcMplsTeMappingTable", ("cpwvcmplstemappingtable", CISCOIETFPWMPLSMIB.CpwVcMplsTeMappingTable))])
         self._leafs = OrderedDict()
 
-        self.cpwvcmplsobjects = CISCOIETFPWMPLSMIB.Cpwvcmplsobjects()
+        self.cpwvcmplsobjects = CISCOIETFPWMPLSMIB.CpwVcMplsObjects()
         self.cpwvcmplsobjects.parent = self
         self._children_name_map["cpwvcmplsobjects"] = "cpwVcMplsObjects"
-        self._children_yang_names.add("cpwVcMplsObjects")
 
-        self.cpwvcmplstable = CISCOIETFPWMPLSMIB.Cpwvcmplstable()
+        self.cpwvcmplstable = CISCOIETFPWMPLSMIB.CpwVcMplsTable()
         self.cpwvcmplstable.parent = self
         self._children_name_map["cpwvcmplstable"] = "cpwVcMplsTable"
-        self._children_yang_names.add("cpwVcMplsTable")
 
-        self.cpwvcmplsoutboundtable = CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable()
+        self.cpwvcmplsoutboundtable = CISCOIETFPWMPLSMIB.CpwVcMplsOutboundTable()
         self.cpwvcmplsoutboundtable.parent = self
         self._children_name_map["cpwvcmplsoutboundtable"] = "cpwVcMplsOutboundTable"
-        self._children_yang_names.add("cpwVcMplsOutboundTable")
 
-        self.cpwvcmplsinboundtable = CISCOIETFPWMPLSMIB.Cpwvcmplsinboundtable()
+        self.cpwvcmplsinboundtable = CISCOIETFPWMPLSMIB.CpwVcMplsInboundTable()
         self.cpwvcmplsinboundtable.parent = self
         self._children_name_map["cpwvcmplsinboundtable"] = "cpwVcMplsInboundTable"
-        self._children_yang_names.add("cpwVcMplsInboundTable")
 
-        self.cpwvcmplsnontemappingtable = CISCOIETFPWMPLSMIB.Cpwvcmplsnontemappingtable()
+        self.cpwvcmplsnontemappingtable = CISCOIETFPWMPLSMIB.CpwVcMplsNonTeMappingTable()
         self.cpwvcmplsnontemappingtable.parent = self
         self._children_name_map["cpwvcmplsnontemappingtable"] = "cpwVcMplsNonTeMappingTable"
-        self._children_yang_names.add("cpwVcMplsNonTeMappingTable")
 
-        self.cpwvcmplstemappingtable = CISCOIETFPWMPLSMIB.Cpwvcmplstemappingtable()
+        self.cpwvcmplstemappingtable = CISCOIETFPWMPLSMIB.CpwVcMplsTeMappingTable()
         self.cpwvcmplstemappingtable.parent = self
         self._children_name_map["cpwvcmplstemappingtable"] = "cpwVcMplsTeMappingTable"
-        self._children_yang_names.add("cpwVcMplsTeMappingTable")
         self._segment_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOIETFPWMPLSMIB, [], name, value)
 
-    class Cpwvcmplsobjects(Entity):
+
+    class CpwVcMplsObjects(Entity):
         """
         
         
@@ -125,15 +121,14 @@ class CISCOIETFPWMPLSMIB(Entity):
         _revision = '2003-02-26'
 
         def __init__(self):
-            super(CISCOIETFPWMPLSMIB.Cpwvcmplsobjects, self).__init__()
+            super(CISCOIETFPWMPLSMIB.CpwVcMplsObjects, self).__init__()
 
             self.yang_name = "cpwVcMplsObjects"
             self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cpwvcmplsoutboundindexnext', YLeaf(YType.uint32, 'cpwVcMplsOutboundIndexNext')),
                 ('cpwvcmplsinboundindexnext', YLeaf(YType.uint32, 'cpwVcMplsInboundIndexNext')),
@@ -144,10 +139,10 @@ class CISCOIETFPWMPLSMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWMPLSMIB.Cpwvcmplsobjects, ['cpwvcmplsoutboundindexnext', 'cpwvcmplsinboundindexnext'], name, value)
+            self._perform_setattr(CISCOIETFPWMPLSMIB.CpwVcMplsObjects, ['cpwvcmplsoutboundindexnext', 'cpwvcmplsinboundindexnext'], name, value)
 
 
-    class Cpwvcmplstable(Entity):
+    class CpwVcMplsTable(Entity):
         """
         This table specifies information for VC to be carried over  
         MPLS PSN.
@@ -155,7 +150,7 @@ class CISCOIETFPWMPLSMIB(Entity):
         .. attribute:: cpwvcmplsentry
         
         	A row in this table represents parameters specific to MPLS   PSN for a pseudo wire connection (VC). The row is created   automatically by the local agent if the cpwVcPsnType is   MPLS. It is indexed by cpwVcIndex, which uniquely   identifying a singular connection. 
-        	**type**\: list of  		 :py:class:`Cpwvcmplsentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplstable.Cpwvcmplsentry>`
+        	**type**\: list of  		 :py:class:`CpwVcMplsEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.CpwVcMplsTable.CpwVcMplsEntry>`
         
         
 
@@ -165,15 +160,14 @@ class CISCOIETFPWMPLSMIB(Entity):
         _revision = '2003-02-26'
 
         def __init__(self):
-            super(CISCOIETFPWMPLSMIB.Cpwvcmplstable, self).__init__()
+            super(CISCOIETFPWMPLSMIB.CpwVcMplsTable, self).__init__()
 
             self.yang_name = "cpwVcMplsTable"
             self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpwVcMplsEntry", ("cpwvcmplsentry", CISCOIETFPWMPLSMIB.Cpwvcmplstable.Cpwvcmplsentry))])
+            self._child_classes = OrderedDict([("cpwVcMplsEntry", ("cpwvcmplsentry", CISCOIETFPWMPLSMIB.CpwVcMplsTable.CpwVcMplsEntry))])
             self._leafs = OrderedDict()
 
             self.cpwvcmplsentry = YList(self)
@@ -181,10 +175,10 @@ class CISCOIETFPWMPLSMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWMPLSMIB.Cpwvcmplstable, [], name, value)
+            self._perform_setattr(CISCOIETFPWMPLSMIB.CpwVcMplsTable, [], name, value)
 
 
-        class Cpwvcmplsentry(Entity):
+        class CpwVcMplsEntry(Entity):
             """
             A row in this table represents parameters specific to MPLS  
             PSN for a pseudo wire connection (VC). The row is created  
@@ -199,17 +193,17 @@ class CISCOIETFPWMPLSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
+            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
             
             .. attribute:: cpwvcmplsmplstype
             
             	Set by the operator to indicate the outer tunnel types, if  exists. mplsTe is used if the outer tunnel was set\-up by   MPLS\-TE, and mplsNonTe is used the outer tunnel was set up  by LDP or manually. Combination of mplsTe and mplsNonTe   may exist in case of outer tunnel protection.  vcOnly is used if there is no outer tunnel label. vcOnly   cannot be combined with mplsNonTe or mplsTe
-            	**type**\:  :py:class:`Cpwvcmplsmplstype <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplstable.Cpwvcmplsentry.Cpwvcmplsmplstype>`
+            	**type**\:  :py:class:`CpwVcMplsMplsType <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.CpwVcMplsTable.CpwVcMplsEntry.CpwVcMplsMplsType>`
             
             .. attribute:: cpwvcmplsexpbitsmode
             
             	Set by the operator to indicate the way the VC shim label  EXP bits are to be determined. The value of outerTunnel(1)  is used where there is an outer tunnel \- cpwVcMplsMplsType   is mplsTe or mplsNonTe. Note that in this case there is no  need to mark the VC label with the EXP bits since the VC   label is not visible to the intermediate nodes.  If there is no outer tunnel, specifiedValue(2) indicate   that the value is specified by cpwVcMplsExpBits, and   serviceDependant(3) indicate that the EXP bits are setup   based on a rule specified in the emulated service specific   tables, for example when the EXP bits are a function of   802.1p marking for Ethernet emulated service
-            	**type**\:  :py:class:`Cpwvcmplsexpbitsmode <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplstable.Cpwvcmplsentry.Cpwvcmplsexpbitsmode>`
+            	**type**\:  :py:class:`CpwVcMplsExpBitsMode <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.CpwVcMplsTable.CpwVcMplsEntry.CpwVcMplsExpBitsMode>`
             
             .. attribute:: cpwvcmplsexpbits
             
@@ -255,15 +249,14 @@ class CISCOIETFPWMPLSMIB(Entity):
             _revision = '2003-02-26'
 
             def __init__(self):
-                super(CISCOIETFPWMPLSMIB.Cpwvcmplstable.Cpwvcmplsentry, self).__init__()
+                super(CISCOIETFPWMPLSMIB.CpwVcMplsTable.CpwVcMplsEntry, self).__init__()
 
                 self.yang_name = "cpwVcMplsEntry"
                 self.yang_parent_name = "cpwVcMplsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpwvcindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
                     ('cpwvcmplsmplstype', YLeaf(YType.bits, 'cpwVcMplsMplsType')),
@@ -288,11 +281,11 @@ class CISCOIETFPWMPLSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/cpwVcMplsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWMPLSMIB.Cpwvcmplstable.Cpwvcmplsentry, ['cpwvcindex', 'cpwvcmplsmplstype', 'cpwvcmplsexpbitsmode', 'cpwvcmplsexpbits', 'cpwvcmplsttl', 'cpwvcmplslocalldpid', 'cpwvcmplslocalldpentityid', 'cpwvcmplspeerldpid', 'cpwvcmplsstoragetype'], name, value)
+                self._perform_setattr(CISCOIETFPWMPLSMIB.CpwVcMplsTable.CpwVcMplsEntry, ['cpwvcindex', 'cpwvcmplsmplstype', 'cpwvcmplsexpbitsmode', 'cpwvcmplsexpbits', 'cpwvcmplsttl', 'cpwvcmplslocalldpid', 'cpwvcmplslocalldpentityid', 'cpwvcmplspeerldpid', 'cpwvcmplsstoragetype'], name, value)
 
-            class Cpwvcmplsexpbitsmode(Enum):
+            class CpwVcMplsExpBitsMode(Enum):
                 """
-                Cpwvcmplsexpbitsmode (Enum Class)
+                CpwVcMplsExpBitsMode (Enum Class)
 
                 Set by the operator to indicate the way the VC shim label 
 
@@ -334,7 +327,7 @@ class CISCOIETFPWMPLSMIB(Entity):
 
 
 
-    class Cpwvcmplsoutboundtable(Entity):
+    class CpwVcMplsOutboundTable(Entity):
         """
         This table associates VCs using MPLS PSN with the outbound 
         MPLS tunnels (i.e. toward the PSN) or the physical  
@@ -343,7 +336,7 @@ class CISCOIETFPWMPLSMIB(Entity):
         .. attribute:: cpwvcmplsoutboundentry
         
         	A row in this table represents a link between PW VC (that  require MPLS tunnels) and MPLS tunnel toward the PSN.  In the case of VC only, it associate the VC with the   interface that shall carry the VC.  This table is indexed by the pwVcIndex and an additional  index enabling multiple rows for the same VC index.   At least one entry is created in this table by the operator   for each PW VC that requires MPLS PSN. Note that the first  entry for each VC can be indexed by cpwVcMplsOutboundIndex   equal zero without a need for retrieval of   cpwVcMplsOutboundIndexNext.   This table points to the appropriate MPLS MIB. In the case   of MPLS\-TE, the 4 variables relevant to the indexing of   a TE MPLS tunnel are set as in Srinivasan, et al, <draft\-  ietf\-mpls\-te\-mib>.  In case of Non\-TE MPLS (an outer tunnel label assigned by   LDP or manually) the table points to the XC entry in the   LSR MIB as in Srinivasan, et al, <draft\-ietf\-mpls\-lsr\-mib>.  In case of VC only (no outer tunnel) the ifIndex of the  port to carry the VC is configured.    Each VC may have multiple rows in this tables if protection   is available at the outer tunnel level, each row may be of  different type except for VC only, on which only rows with  ifIndex of the port are allowed. 
-        	**type**\: list of  		 :py:class:`Cpwvcmplsoutboundentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable.Cpwvcmplsoutboundentry>`
+        	**type**\: list of  		 :py:class:`CpwVcMplsOutboundEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.CpwVcMplsOutboundTable.CpwVcMplsOutboundEntry>`
         
         
 
@@ -353,15 +346,14 @@ class CISCOIETFPWMPLSMIB(Entity):
         _revision = '2003-02-26'
 
         def __init__(self):
-            super(CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable, self).__init__()
+            super(CISCOIETFPWMPLSMIB.CpwVcMplsOutboundTable, self).__init__()
 
             self.yang_name = "cpwVcMplsOutboundTable"
             self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpwVcMplsOutboundEntry", ("cpwvcmplsoutboundentry", CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable.Cpwvcmplsoutboundentry))])
+            self._child_classes = OrderedDict([("cpwVcMplsOutboundEntry", ("cpwvcmplsoutboundentry", CISCOIETFPWMPLSMIB.CpwVcMplsOutboundTable.CpwVcMplsOutboundEntry))])
             self._leafs = OrderedDict()
 
             self.cpwvcmplsoutboundentry = YList(self)
@@ -369,10 +361,10 @@ class CISCOIETFPWMPLSMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable, [], name, value)
+            self._perform_setattr(CISCOIETFPWMPLSMIB.CpwVcMplsOutboundTable, [], name, value)
 
 
-        class Cpwvcmplsoutboundentry(Entity):
+        class CpwVcMplsOutboundEntry(Entity):
             """
             A row in this table represents a link between PW VC (that 
             require MPLS tunnels) and MPLS tunnel toward the PSN. 
@@ -409,7 +401,7 @@ class CISCOIETFPWMPLSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
+            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
             
             .. attribute:: cpwvcmplsoutboundindex  (key)
             
@@ -478,15 +470,14 @@ class CISCOIETFPWMPLSMIB(Entity):
             _revision = '2003-02-26'
 
             def __init__(self):
-                super(CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable.Cpwvcmplsoutboundentry, self).__init__()
+                super(CISCOIETFPWMPLSMIB.CpwVcMplsOutboundTable.CpwVcMplsOutboundEntry, self).__init__()
 
                 self.yang_name = "cpwVcMplsOutboundEntry"
                 self.yang_parent_name = "cpwVcMplsOutboundTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpwvcindex','cpwvcmplsoutboundindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
                     ('cpwvcmplsoutboundindex', YLeaf(YType.uint32, 'cpwVcMplsOutboundIndex')),
@@ -513,10 +504,10 @@ class CISCOIETFPWMPLSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/cpwVcMplsOutboundTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable.Cpwvcmplsoutboundentry, ['cpwvcindex', 'cpwvcmplsoutboundindex', 'cpwvcmplsoutboundlsrxcindex', 'cpwvcmplsoutboundtunnelindex', 'cpwvcmplsoutboundtunnelinstance', 'cpwvcmplsoutboundtunnellcllsr', 'cpwvcmplsoutboundtunnelpeerlsr', 'cpwvcmplsoutboundifindex', 'cpwvcmplsoutboundrowstatus', 'cpwvcmplsoutboundstoragetype'], name, value)
+                self._perform_setattr(CISCOIETFPWMPLSMIB.CpwVcMplsOutboundTable.CpwVcMplsOutboundEntry, ['cpwvcindex', 'cpwvcmplsoutboundindex', 'cpwvcmplsoutboundlsrxcindex', 'cpwvcmplsoutboundtunnelindex', 'cpwvcmplsoutboundtunnelinstance', 'cpwvcmplsoutboundtunnellcllsr', 'cpwvcmplsoutboundtunnelpeerlsr', 'cpwvcmplsoutboundifindex', 'cpwvcmplsoutboundrowstatus', 'cpwvcmplsoutboundstoragetype'], name, value)
 
 
-    class Cpwvcmplsinboundtable(Entity):
+    class CpwVcMplsInboundTable(Entity):
         """
         This table associates VCs using MPLS PSN with the inbound 
         MPLS tunnels (i.e. for packets coming from the PSN),  
@@ -526,7 +517,7 @@ class CISCOIETFPWMPLSMIB(Entity):
         .. attribute:: cpwvcmplsinboundentry
         
         	A row in this table represents a link between PW VCs (that  require MPLS tunnels) and MPLS tunnel for packets arriving  from the PSN.  This table is indexed by the set of indexes used to  identify the VC \- cpwVcIndex and an additional  index enabling multiple rows for the same VC index.   Note that the first entry for each VC can be indexed by   cpwVcMplsOutboundIndex equal zero without a need for   retrieval of cpwVcMplsInboundIndexNext.   An entry is created in this table either automatically by   the local agent or created manually by the operator in   cases that strict mode is required.   Note that the control messages contain VC ID and VC type,   which together with the remote IP address identify the  cpwVcIndex in the local node.  This table points to the appropriate MPLS MIB. In the case   of MPLS\-TE, the 4 variables relevant to the indexing of a  TE MPLS tunnel are set as in Srinivasan, et al, <draft\-  ietf\-mpls\-te\-mib>.   In case of non\-TE MPLS tunnel (an outer tunnel label   assigned by LDP or manually) the table points to the XC   entry in the MPLS\-LSR\-MIB as in Srinivasan, et al, <draft\-  ietf\-mpls\-lsr\-mib>.   Each VC may have multiple rows in this tables if protection   is available at the outer tunnel level, each row may be of  different type except for VC only, on which only rows with  ifIndex of the port are allowed. 
-        	**type**\: list of  		 :py:class:`Cpwvcmplsinboundentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplsinboundtable.Cpwvcmplsinboundentry>`
+        	**type**\: list of  		 :py:class:`CpwVcMplsInboundEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.CpwVcMplsInboundTable.CpwVcMplsInboundEntry>`
         
         
 
@@ -536,15 +527,14 @@ class CISCOIETFPWMPLSMIB(Entity):
         _revision = '2003-02-26'
 
         def __init__(self):
-            super(CISCOIETFPWMPLSMIB.Cpwvcmplsinboundtable, self).__init__()
+            super(CISCOIETFPWMPLSMIB.CpwVcMplsInboundTable, self).__init__()
 
             self.yang_name = "cpwVcMplsInboundTable"
             self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpwVcMplsInboundEntry", ("cpwvcmplsinboundentry", CISCOIETFPWMPLSMIB.Cpwvcmplsinboundtable.Cpwvcmplsinboundentry))])
+            self._child_classes = OrderedDict([("cpwVcMplsInboundEntry", ("cpwvcmplsinboundentry", CISCOIETFPWMPLSMIB.CpwVcMplsInboundTable.CpwVcMplsInboundEntry))])
             self._leafs = OrderedDict()
 
             self.cpwvcmplsinboundentry = YList(self)
@@ -552,10 +542,10 @@ class CISCOIETFPWMPLSMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWMPLSMIB.Cpwvcmplsinboundtable, [], name, value)
+            self._perform_setattr(CISCOIETFPWMPLSMIB.CpwVcMplsInboundTable, [], name, value)
 
 
-        class Cpwvcmplsinboundentry(Entity):
+        class CpwVcMplsInboundEntry(Entity):
             """
             A row in this table represents a link between PW VCs (that 
             require MPLS tunnels) and MPLS tunnel for packets arriving 
@@ -597,7 +587,7 @@ class CISCOIETFPWMPLSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
+            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
             
             .. attribute:: cpwvcmplsinboundindex  (key)
             
@@ -666,15 +656,14 @@ class CISCOIETFPWMPLSMIB(Entity):
             _revision = '2003-02-26'
 
             def __init__(self):
-                super(CISCOIETFPWMPLSMIB.Cpwvcmplsinboundtable.Cpwvcmplsinboundentry, self).__init__()
+                super(CISCOIETFPWMPLSMIB.CpwVcMplsInboundTable.CpwVcMplsInboundEntry, self).__init__()
 
                 self.yang_name = "cpwVcMplsInboundEntry"
                 self.yang_parent_name = "cpwVcMplsInboundTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpwvcindex','cpwvcmplsinboundindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
                     ('cpwvcmplsinboundindex', YLeaf(YType.uint32, 'cpwVcMplsInboundIndex')),
@@ -701,10 +690,10 @@ class CISCOIETFPWMPLSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/cpwVcMplsInboundTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWMPLSMIB.Cpwvcmplsinboundtable.Cpwvcmplsinboundentry, ['cpwvcindex', 'cpwvcmplsinboundindex', 'cpwvcmplsinboundlsrxcindex', 'cpwvcmplsinboundtunnelindex', 'cpwvcmplsinboundtunnelinstance', 'cpwvcmplsinboundtunnellcllsr', 'cpwvcmplsinboundtunnelpeerlsr', 'cpwvcmplsinboundifindex', 'cpwvcmplsinboundrowstatus', 'cpwvcmplsinboundstoragetype'], name, value)
+                self._perform_setattr(CISCOIETFPWMPLSMIB.CpwVcMplsInboundTable.CpwVcMplsInboundEntry, ['cpwvcindex', 'cpwvcmplsinboundindex', 'cpwvcmplsinboundlsrxcindex', 'cpwvcmplsinboundtunnelindex', 'cpwvcmplsinboundtunnelinstance', 'cpwvcmplsinboundtunnellcllsr', 'cpwvcmplsinboundtunnelpeerlsr', 'cpwvcmplsinboundifindex', 'cpwvcmplsinboundrowstatus', 'cpwvcmplsinboundstoragetype'], name, value)
 
 
-    class Cpwvcmplsnontemappingtable(Entity):
+    class CpwVcMplsNonTeMappingTable(Entity):
         """
         This table maps an inbound/outbound Tunnel to a VC in non\- 
         TE applications.
@@ -712,7 +701,7 @@ class CISCOIETFPWMPLSMIB(Entity):
         .. attribute:: cpwvcmplsnontemappingentry
         
         	A row in this table represents the association  between the PW VC and it's non TE MPLS outer Tunnel  it's physical interface if there is no outer tunnel   (VC only).   An application can use this table to quickly retrieve the   PW carried over specific non\-TE MPLS outer tunnel or   physical interface.   The table in indexed by the XC index for MPLS Non\-TE   tunnel, or ifIndex of the port in VC only case, the   direction of the VC in the specific entry and the VCIndex.   The same table is used in both inbound and outbound  directions, but in a different row for each direction. If   the inbound association is not known, no rows should exist   for it.   Rows are created by the local agent when all the   association data is available for display
-        	**type**\: list of  		 :py:class:`Cpwvcmplsnontemappingentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplsnontemappingtable.Cpwvcmplsnontemappingentry>`
+        	**type**\: list of  		 :py:class:`CpwVcMplsNonTeMappingEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.CpwVcMplsNonTeMappingTable.CpwVcMplsNonTeMappingEntry>`
         
         
 
@@ -722,15 +711,14 @@ class CISCOIETFPWMPLSMIB(Entity):
         _revision = '2003-02-26'
 
         def __init__(self):
-            super(CISCOIETFPWMPLSMIB.Cpwvcmplsnontemappingtable, self).__init__()
+            super(CISCOIETFPWMPLSMIB.CpwVcMplsNonTeMappingTable, self).__init__()
 
             self.yang_name = "cpwVcMplsNonTeMappingTable"
             self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpwVcMplsNonTeMappingEntry", ("cpwvcmplsnontemappingentry", CISCOIETFPWMPLSMIB.Cpwvcmplsnontemappingtable.Cpwvcmplsnontemappingentry))])
+            self._child_classes = OrderedDict([("cpwVcMplsNonTeMappingEntry", ("cpwvcmplsnontemappingentry", CISCOIETFPWMPLSMIB.CpwVcMplsNonTeMappingTable.CpwVcMplsNonTeMappingEntry))])
             self._leafs = OrderedDict()
 
             self.cpwvcmplsnontemappingentry = YList(self)
@@ -738,10 +726,10 @@ class CISCOIETFPWMPLSMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWMPLSMIB.Cpwvcmplsnontemappingtable, [], name, value)
+            self._perform_setattr(CISCOIETFPWMPLSMIB.CpwVcMplsNonTeMappingTable, [], name, value)
 
 
-        class Cpwvcmplsnontemappingentry(Entity):
+        class CpwVcMplsNonTeMappingEntry(Entity):
             """
             A row in this table represents the association 
             between the PW VC and it's non TE MPLS outer Tunnel 
@@ -767,7 +755,7 @@ class CISCOIETFPWMPLSMIB(Entity):
             .. attribute:: cpwvcmplsnontemappingtunneldirection  (key)
             
             	Identifies if the row represent an outbound or inbound   mapping
-            	**type**\:  :py:class:`Cpwvcmplsnontemappingtunneldirection <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplsnontemappingtable.Cpwvcmplsnontemappingentry.Cpwvcmplsnontemappingtunneldirection>`
+            	**type**\:  :py:class:`CpwVcMplsNonTeMappingTunnelDirection <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.CpwVcMplsNonTeMappingTable.CpwVcMplsNonTeMappingEntry.CpwVcMplsNonTeMappingTunnelDirection>`
             
             .. attribute:: cpwvcmplsnontemappingxctunnelindex  (key)
             
@@ -798,15 +786,14 @@ class CISCOIETFPWMPLSMIB(Entity):
             _revision = '2003-02-26'
 
             def __init__(self):
-                super(CISCOIETFPWMPLSMIB.Cpwvcmplsnontemappingtable.Cpwvcmplsnontemappingentry, self).__init__()
+                super(CISCOIETFPWMPLSMIB.CpwVcMplsNonTeMappingTable.CpwVcMplsNonTeMappingEntry, self).__init__()
 
                 self.yang_name = "cpwVcMplsNonTeMappingEntry"
                 self.yang_parent_name = "cpwVcMplsNonTeMappingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpwvcmplsnontemappingtunneldirection','cpwvcmplsnontemappingxctunnelindex','cpwvcmplsnontemappingifindex','cpwvcmplsnontemappingvcindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpwvcmplsnontemappingtunneldirection', YLeaf(YType.enumeration, 'cpwVcMplsNonTeMappingTunnelDirection')),
                     ('cpwvcmplsnontemappingxctunnelindex', YLeaf(YType.uint32, 'cpwVcMplsNonTeMappingXcTunnelIndex')),
@@ -821,11 +808,11 @@ class CISCOIETFPWMPLSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/cpwVcMplsNonTeMappingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWMPLSMIB.Cpwvcmplsnontemappingtable.Cpwvcmplsnontemappingentry, ['cpwvcmplsnontemappingtunneldirection', 'cpwvcmplsnontemappingxctunnelindex', 'cpwvcmplsnontemappingifindex', 'cpwvcmplsnontemappingvcindex'], name, value)
+                self._perform_setattr(CISCOIETFPWMPLSMIB.CpwVcMplsNonTeMappingTable.CpwVcMplsNonTeMappingEntry, ['cpwvcmplsnontemappingtunneldirection', 'cpwvcmplsnontemappingxctunnelindex', 'cpwvcmplsnontemappingifindex', 'cpwvcmplsnontemappingvcindex'], name, value)
 
-            class Cpwvcmplsnontemappingtunneldirection(Enum):
+            class CpwVcMplsNonTeMappingTunnelDirection(Enum):
                 """
-                Cpwvcmplsnontemappingtunneldirection (Enum Class)
+                CpwVcMplsNonTeMappingTunnelDirection (Enum Class)
 
                 Identifies if the row represent an outbound or inbound  
 
@@ -843,7 +830,7 @@ class CISCOIETFPWMPLSMIB(Entity):
 
 
 
-    class Cpwvcmplstemappingtable(Entity):
+    class CpwVcMplsTeMappingTable(Entity):
         """
         This table maps an inbound/outbound Tunnel to a VC in  
         MPLS\-TE applications.
@@ -851,7 +838,7 @@ class CISCOIETFPWMPLSMIB(Entity):
         .. attribute:: cpwvcmplstemappingentry
         
         	A row in this table represents the association  between a PW VC and it's MPLS\-TE outer Tunnel.   An application can use this table to quickly retrieve the   PW carried over specific TE MPLS outer tunnel.   The table in indexed by the 4 indexes of a TE tunnel,  the direction of the VC specific entry and the VcIndex.   The same table is used in both inbound and outbound  directions, a different row for each direction. If the   inbound association is not known, no rows should exist for   it.   Rows are created by the local agent when all the   association data is available for display
-        	**type**\: list of  		 :py:class:`Cpwvcmplstemappingentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplstemappingtable.Cpwvcmplstemappingentry>`
+        	**type**\: list of  		 :py:class:`CpwVcMplsTeMappingEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.CpwVcMplsTeMappingTable.CpwVcMplsTeMappingEntry>`
         
         
 
@@ -861,15 +848,14 @@ class CISCOIETFPWMPLSMIB(Entity):
         _revision = '2003-02-26'
 
         def __init__(self):
-            super(CISCOIETFPWMPLSMIB.Cpwvcmplstemappingtable, self).__init__()
+            super(CISCOIETFPWMPLSMIB.CpwVcMplsTeMappingTable, self).__init__()
 
             self.yang_name = "cpwVcMplsTeMappingTable"
             self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpwVcMplsTeMappingEntry", ("cpwvcmplstemappingentry", CISCOIETFPWMPLSMIB.Cpwvcmplstemappingtable.Cpwvcmplstemappingentry))])
+            self._child_classes = OrderedDict([("cpwVcMplsTeMappingEntry", ("cpwvcmplstemappingentry", CISCOIETFPWMPLSMIB.CpwVcMplsTeMappingTable.CpwVcMplsTeMappingEntry))])
             self._leafs = OrderedDict()
 
             self.cpwvcmplstemappingentry = YList(self)
@@ -877,10 +863,10 @@ class CISCOIETFPWMPLSMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWMPLSMIB.Cpwvcmplstemappingtable, [], name, value)
+            self._perform_setattr(CISCOIETFPWMPLSMIB.CpwVcMplsTeMappingTable, [], name, value)
 
 
-        class Cpwvcmplstemappingentry(Entity):
+        class CpwVcMplsTeMappingEntry(Entity):
             """
             A row in this table represents the association 
             between a PW VC and it's MPLS\-TE outer Tunnel. 
@@ -902,7 +888,7 @@ class CISCOIETFPWMPLSMIB(Entity):
             .. attribute:: cpwvcmplstemappingtunneldirection  (key)
             
             	Identifies if the row represent an outbound or inbound   mapping
-            	**type**\:  :py:class:`Cpwvcmplstemappingtunneldirection <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplstemappingtable.Cpwvcmplstemappingentry.Cpwvcmplstemappingtunneldirection>`
+            	**type**\:  :py:class:`CpwVcMplsTeMappingTunnelDirection <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.CpwVcMplsTeMappingTable.CpwVcMplsTeMappingEntry.CpwVcMplsTeMappingTunnelDirection>`
             
             .. attribute:: cpwvcmplstemappingtunnelindex  (key)
             
@@ -947,15 +933,14 @@ class CISCOIETFPWMPLSMIB(Entity):
             _revision = '2003-02-26'
 
             def __init__(self):
-                super(CISCOIETFPWMPLSMIB.Cpwvcmplstemappingtable.Cpwvcmplstemappingentry, self).__init__()
+                super(CISCOIETFPWMPLSMIB.CpwVcMplsTeMappingTable.CpwVcMplsTeMappingEntry, self).__init__()
 
                 self.yang_name = "cpwVcMplsTeMappingEntry"
                 self.yang_parent_name = "cpwVcMplsTeMappingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpwvcmplstemappingtunneldirection','cpwvcmplstemappingtunnelindex','cpwvcmplstemappingtunnelinstance','cpwvcmplstemappingtunnelpeerlsrid','cpwvcmplstemappingtunnellocallsrid','cpwvcmplstemappingvcindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpwvcmplstemappingtunneldirection', YLeaf(YType.enumeration, 'cpwVcMplsTeMappingTunnelDirection')),
                     ('cpwvcmplstemappingtunnelindex', YLeaf(YType.uint32, 'cpwVcMplsTeMappingTunnelIndex')),
@@ -974,11 +959,11 @@ class CISCOIETFPWMPLSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/cpwVcMplsTeMappingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWMPLSMIB.Cpwvcmplstemappingtable.Cpwvcmplstemappingentry, ['cpwvcmplstemappingtunneldirection', 'cpwvcmplstemappingtunnelindex', 'cpwvcmplstemappingtunnelinstance', 'cpwvcmplstemappingtunnelpeerlsrid', 'cpwvcmplstemappingtunnellocallsrid', 'cpwvcmplstemappingvcindex'], name, value)
+                self._perform_setattr(CISCOIETFPWMPLSMIB.CpwVcMplsTeMappingTable.CpwVcMplsTeMappingEntry, ['cpwvcmplstemappingtunneldirection', 'cpwvcmplstemappingtunnelindex', 'cpwvcmplstemappingtunnelinstance', 'cpwvcmplstemappingtunnelpeerlsrid', 'cpwvcmplstemappingtunnellocallsrid', 'cpwvcmplstemappingvcindex'], name, value)
 
-            class Cpwvcmplstemappingtunneldirection(Enum):
+            class CpwVcMplsTeMappingTunnelDirection(Enum):
                 """
-                Cpwvcmplstemappingtunneldirection (Enum Class)
+                CpwVcMplsTeMappingTunnelDirection (Enum Class)
 
                 Identifies if the row represent an outbound or inbound  
 

@@ -50,20 +50,20 @@ class PerfMgmt(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("periodic", ("periodic", PerfMgmt.Periodic)), ("monitor", ("monitor", PerfMgmt.Monitor))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("periodic", ("periodic", PerfMgmt.Periodic)), ("monitor", ("monitor", PerfMgmt.Monitor))])
         self._leafs = OrderedDict()
 
         self.periodic = PerfMgmt.Periodic()
         self.periodic.parent = self
         self._children_name_map["periodic"] = "periodic"
-        self._children_yang_names.add("periodic")
 
         self.monitor = PerfMgmt.Monitor()
         self.monitor.parent = self
         self._children_name_map["monitor"] = "monitor"
-        self._children_yang_names.add("monitor")
         self._segment_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(PerfMgmt, [], name, value)
 
 
     class Periodic(Entity):
@@ -110,36 +110,33 @@ class PerfMgmt(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("ospf", ("ospf", PerfMgmt.Periodic.Ospf)), ("mpls", ("mpls", PerfMgmt.Periodic.Mpls)), ("nodes", ("nodes", PerfMgmt.Periodic.Nodes)), ("bgp", ("bgp", PerfMgmt.Periodic.Bgp)), ("interface", ("interface", PerfMgmt.Periodic.Interface))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("ospf", ("ospf", PerfMgmt.Periodic.Ospf)), ("mpls", ("mpls", PerfMgmt.Periodic.Mpls)), ("nodes", ("nodes", PerfMgmt.Periodic.Nodes)), ("bgp", ("bgp", PerfMgmt.Periodic.Bgp)), ("interface", ("interface", PerfMgmt.Periodic.Interface))])
             self._leafs = OrderedDict()
 
             self.ospf = PerfMgmt.Periodic.Ospf()
             self.ospf.parent = self
             self._children_name_map["ospf"] = "ospf"
-            self._children_yang_names.add("ospf")
 
             self.mpls = PerfMgmt.Periodic.Mpls()
             self.mpls.parent = self
             self._children_name_map["mpls"] = "mpls"
-            self._children_yang_names.add("mpls")
 
             self.nodes = PerfMgmt.Periodic.Nodes()
             self.nodes.parent = self
             self._children_name_map["nodes"] = "nodes"
-            self._children_yang_names.add("nodes")
 
             self.bgp = PerfMgmt.Periodic.Bgp()
             self.bgp.parent = self
             self._children_name_map["bgp"] = "bgp"
-            self._children_yang_names.add("bgp")
 
             self.interface = PerfMgmt.Periodic.Interface()
             self.interface.parent = self
             self._children_name_map["interface"] = "interface"
-            self._children_yang_names.add("interface")
             self._segment_path = lambda: "periodic"
             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(PerfMgmt.Periodic, [], name, value)
 
 
         class Ospf(Entity):
@@ -171,21 +168,21 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("ospfv2-protocol-instances", ("ospfv2_protocol_instances", PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances)), ("ospfv3-protocol-instances", ("ospfv3_protocol_instances", PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("ospfv2-protocol-instances", ("ospfv2_protocol_instances", PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances)), ("ospfv3-protocol-instances", ("ospfv3_protocol_instances", PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances))])
                 self._leafs = OrderedDict()
 
                 self.ospfv2_protocol_instances = PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances()
                 self.ospfv2_protocol_instances.parent = self
                 self._children_name_map["ospfv2_protocol_instances"] = "ospfv2-protocol-instances"
-                self._children_yang_names.add("ospfv2-protocol-instances")
 
                 self.ospfv3_protocol_instances = PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances()
                 self.ospfv3_protocol_instances.parent = self
                 self._children_name_map["ospfv3_protocol_instances"] = "ospfv3-protocol-instances"
-                self._children_yang_names.add("ospfv3-protocol-instances")
                 self._segment_path = lambda: "ospf"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Periodic.Ospf, [], name, value)
 
 
             class Ospfv2ProtocolInstances(Entity):
@@ -213,8 +210,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("ospfv2-protocol-instance", ("ospfv2_protocol_instance", PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance))])
+                    self._child_classes = OrderedDict([("ospfv2-protocol-instance", ("ospfv2_protocol_instance", PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance))])
                     self._leafs = OrderedDict()
 
                     self.ospfv2_protocol_instance = YList(self)
@@ -257,8 +253,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['instance_name']
-                        self._child_container_classes = OrderedDict([("samples", ("samples", PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples))])
                         self._leafs = OrderedDict([
                             ('instance_name', YLeaf(YType.str, 'instance-name')),
                         ])
@@ -267,7 +262,6 @@ class PerfMgmt(Entity):
                         self.samples = PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples()
                         self.samples.parent = self
                         self._children_name_map["samples"] = "samples"
-                        self._children_yang_names.add("samples")
                         self._segment_path = lambda: "ospfv2-protocol-instance" + "[instance-name='" + str(self.instance_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/ospf/ospfv2-protocol-instances/%s" % self._segment_path()
 
@@ -299,8 +293,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("sample", ("sample", PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample))])
+                            self._child_classes = OrderedDict([("sample", ("sample", PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample))])
                             self._leafs = OrderedDict()
 
                             self.sample = YList(self)
@@ -492,8 +485,7 @@ class PerfMgmt(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['sample_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('sample_id', YLeaf(YType.int32, 'sample-id')),
                                     ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
@@ -545,7 +537,7 @@ class PerfMgmt(Entity):
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample, ['sample_id', 'time_stamp', 'input_packets', 'output_packets', 'input_hello_packets', 'output_hello_packets', 'input_db_ds', 'input_db_ds_lsa', 'output_db_ds', 'output_db_ds_lsa', 'input_ls_requests', 'input_ls_requests_lsa', 'output_ls_requests', 'output_ls_requests_lsa', 'input_lsa_updates', 'input_lsa_updates_lsa', 'output_lsa_updates', 'output_lsa_updates_lsa', 'input_lsa_acks', 'input_lsa_acks_lsa', 'output_lsa_acks', 'output_lsa_acks_lsa', 'checksum_errors'], name, value)
+                                self._perform_setattr(PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample, ['sample_id', u'time_stamp', u'input_packets', u'output_packets', u'input_hello_packets', u'output_hello_packets', u'input_db_ds', u'input_db_ds_lsa', u'output_db_ds', u'output_db_ds_lsa', u'input_ls_requests', u'input_ls_requests_lsa', u'output_ls_requests', u'output_ls_requests_lsa', u'input_lsa_updates', u'input_lsa_updates_lsa', u'output_lsa_updates', u'output_lsa_updates_lsa', u'input_lsa_acks', u'input_lsa_acks_lsa', u'output_lsa_acks', u'output_lsa_acks_lsa', u'checksum_errors'], name, value)
 
 
             class Ospfv3ProtocolInstances(Entity):
@@ -573,8 +565,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("ospfv3-protocol-instance", ("ospfv3_protocol_instance", PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance))])
+                    self._child_classes = OrderedDict([("ospfv3-protocol-instance", ("ospfv3_protocol_instance", PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance))])
                     self._leafs = OrderedDict()
 
                     self.ospfv3_protocol_instance = YList(self)
@@ -617,8 +608,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['instance_name']
-                        self._child_container_classes = OrderedDict([("samples", ("samples", PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples))])
                         self._leafs = OrderedDict([
                             ('instance_name', YLeaf(YType.str, 'instance-name')),
                         ])
@@ -627,7 +617,6 @@ class PerfMgmt(Entity):
                         self.samples = PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples()
                         self.samples.parent = self
                         self._children_name_map["samples"] = "samples"
-                        self._children_yang_names.add("samples")
                         self._segment_path = lambda: "ospfv3-protocol-instance" + "[instance-name='" + str(self.instance_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/ospf/ospfv3-protocol-instances/%s" % self._segment_path()
 
@@ -659,8 +648,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("sample", ("sample", PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample))])
+                            self._child_classes = OrderedDict([("sample", ("sample", PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample))])
                             self._leafs = OrderedDict()
 
                             self.sample = YList(self)
@@ -845,8 +833,7 @@ class PerfMgmt(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['sample_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('sample_id', YLeaf(YType.int32, 'sample-id')),
                                     ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
@@ -896,7 +883,7 @@ class PerfMgmt(Entity):
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample, ['sample_id', 'time_stamp', 'input_packets', 'output_packets', 'input_hello_packets', 'output_hello_packets', 'input_db_ds', 'input_db_ds_lsa', 'output_db_ds', 'output_db_ds_lsa', 'input_ls_requests', 'input_ls_requests_lsa', 'output_ls_requests', 'output_ls_requests_lsa', 'input_lsa_updates', 'input_lsa_updates_lsa', 'output_lsa_updates', 'output_lsa_updates_lsa', 'input_lsa_acks', 'input_lsa_acks_lsa', 'output_lsa_acks', 'output_lsa_acks_lsa'], name, value)
+                                self._perform_setattr(PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample, ['sample_id', u'time_stamp', u'input_packets', u'output_packets', u'input_hello_packets', u'output_hello_packets', u'input_db_ds', u'input_db_ds_lsa', u'output_db_ds', u'output_db_ds_lsa', u'input_ls_requests', u'input_ls_requests_lsa', u'output_ls_requests', u'output_ls_requests_lsa', u'input_lsa_updates', u'input_lsa_updates_lsa', u'output_lsa_updates', u'output_lsa_updates_lsa', u'input_lsa_acks', u'input_lsa_acks_lsa', u'output_lsa_acks', u'output_lsa_acks_lsa'], name, value)
 
 
         class Mpls(Entity):
@@ -923,16 +910,17 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("ldp-neighbors", ("ldp_neighbors", PerfMgmt.Periodic.Mpls.LdpNeighbors))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("ldp-neighbors", ("ldp_neighbors", PerfMgmt.Periodic.Mpls.LdpNeighbors))])
                 self._leafs = OrderedDict()
 
                 self.ldp_neighbors = PerfMgmt.Periodic.Mpls.LdpNeighbors()
                 self.ldp_neighbors.parent = self
                 self._children_name_map["ldp_neighbors"] = "ldp-neighbors"
-                self._children_yang_names.add("ldp-neighbors")
                 self._segment_path = lambda: "mpls"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Periodic.Mpls, [], name, value)
 
 
             class LdpNeighbors(Entity):
@@ -960,8 +948,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("ldp-neighbor", ("ldp_neighbor", PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor))])
+                    self._child_classes = OrderedDict([("ldp-neighbor", ("ldp_neighbor", PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor))])
                     self._leafs = OrderedDict()
 
                     self.ldp_neighbor = YList(self)
@@ -1003,8 +990,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['nbr']
-                        self._child_container_classes = OrderedDict([("samples", ("samples", PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples))])
                         self._leafs = OrderedDict([
                             ('nbr', YLeaf(YType.str, 'nbr')),
                         ])
@@ -1013,7 +999,6 @@ class PerfMgmt(Entity):
                         self.samples = PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples()
                         self.samples.parent = self
                         self._children_name_map["samples"] = "samples"
-                        self._children_yang_names.add("samples")
                         self._segment_path = lambda: "ldp-neighbor" + "[nbr='" + str(self.nbr) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/mpls/ldp-neighbors/%s" % self._segment_path()
 
@@ -1045,8 +1030,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("sample", ("sample", PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample))])
+                            self._child_classes = OrderedDict([("sample", ("sample", PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample))])
                             self._leafs = OrderedDict()
 
                             self.sample = YList(self)
@@ -1217,8 +1201,7 @@ class PerfMgmt(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['sample_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('sample_id', YLeaf(YType.int32, 'sample-id')),
                                     ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
@@ -1264,7 +1247,7 @@ class PerfMgmt(Entity):
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample, ['sample_id', 'time_stamp', 'total_msgs_sent', 'total_msgs_rcvd', 'init_msgs_sent', 'init_msgs_rcvd', 'address_msgs_sent', 'address_msgs_rcvd', 'address_withdraw_msgs_sent', 'address_withdraw_msgs_rcvd', 'label_mapping_msgs_sent', 'label_mapping_msgs_rcvd', 'label_withdraw_msgs_sent', 'label_withdraw_msgs_rcvd', 'label_release_msgs_sent', 'label_release_msgs_rcvd', 'notification_msgs_sent', 'notification_msgs_rcvd', 'keepalive_msgs_sent', 'keepalive_msgs_rcvd'], name, value)
+                                self._perform_setattr(PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample, ['sample_id', u'time_stamp', u'total_msgs_sent', u'total_msgs_rcvd', u'init_msgs_sent', u'init_msgs_rcvd', u'address_msgs_sent', u'address_msgs_rcvd', u'address_withdraw_msgs_sent', u'address_withdraw_msgs_rcvd', u'label_mapping_msgs_sent', u'label_mapping_msgs_rcvd', u'label_withdraw_msgs_sent', u'label_withdraw_msgs_rcvd', u'label_release_msgs_sent', u'label_release_msgs_rcvd', u'notification_msgs_sent', u'notification_msgs_rcvd', u'keepalive_msgs_sent', u'keepalive_msgs_rcvd'], name, value)
 
 
         class Nodes(Entity):
@@ -1291,8 +1274,7 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("node", ("node", PerfMgmt.Periodic.Nodes.Node))])
+                self._child_classes = OrderedDict([("node", ("node", PerfMgmt.Periodic.Nodes.Node))])
                 self._leafs = OrderedDict()
 
                 self.node = YList(self)
@@ -1344,8 +1326,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['node_id']
-                    self._child_container_classes = OrderedDict([("sample-xr", ("sample_xr", PerfMgmt.Periodic.Nodes.Node.SampleXr)), ("processes", ("processes", PerfMgmt.Periodic.Nodes.Node.Processes)), ("samples", ("samples", PerfMgmt.Periodic.Nodes.Node.Samples))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("sample-xr", ("sample_xr", PerfMgmt.Periodic.Nodes.Node.SampleXr)), ("processes", ("processes", PerfMgmt.Periodic.Nodes.Node.Processes)), ("samples", ("samples", PerfMgmt.Periodic.Nodes.Node.Samples))])
                     self._leafs = OrderedDict([
                         ('node_id', YLeaf(YType.str, 'node-id')),
                     ])
@@ -1354,17 +1335,14 @@ class PerfMgmt(Entity):
                     self.sample_xr = PerfMgmt.Periodic.Nodes.Node.SampleXr()
                     self.sample_xr.parent = self
                     self._children_name_map["sample_xr"] = "sample-xr"
-                    self._children_yang_names.add("sample-xr")
 
                     self.processes = PerfMgmt.Periodic.Nodes.Node.Processes()
                     self.processes.parent = self
                     self._children_name_map["processes"] = "processes"
-                    self._children_yang_names.add("processes")
 
                     self.samples = PerfMgmt.Periodic.Nodes.Node.Samples()
                     self.samples.parent = self
                     self._children_name_map["samples"] = "samples"
-                    self._children_yang_names.add("samples")
                     self._segment_path = lambda: "node" + "[node-id='" + str(self.node_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/nodes/%s" % self._segment_path()
 
@@ -1396,8 +1374,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("sample", ("sample", PerfMgmt.Periodic.Nodes.Node.SampleXr.Sample))])
+                        self._child_classes = OrderedDict([("sample", ("sample", PerfMgmt.Periodic.Nodes.Node.SampleXr.Sample))])
                         self._leafs = OrderedDict()
 
                         self.sample = YList(self)
@@ -1456,8 +1433,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['sample_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('sample_id', YLeaf(YType.int32, 'sample-id')),
                                 ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
@@ -1471,7 +1447,7 @@ class PerfMgmt(Entity):
                             self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PerfMgmt.Periodic.Nodes.Node.SampleXr.Sample, ['sample_id', 'time_stamp', 'no_processes', 'average_cpu_used'], name, value)
+                            self._perform_setattr(PerfMgmt.Periodic.Nodes.Node.SampleXr.Sample, ['sample_id', u'time_stamp', u'no_processes', u'average_cpu_used'], name, value)
 
 
                 class Processes(Entity):
@@ -1498,8 +1474,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("process", ("process", PerfMgmt.Periodic.Nodes.Node.Processes.Process))])
+                        self._child_classes = OrderedDict([("process", ("process", PerfMgmt.Periodic.Nodes.Node.Processes.Process))])
                         self._leafs = OrderedDict()
 
                         self.process = YList(self)
@@ -1540,8 +1515,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['process_id']
-                            self._child_container_classes = OrderedDict([("samples", ("samples", PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples))])
                             self._leafs = OrderedDict([
                                 ('process_id', YLeaf(YType.int32, 'process-id')),
                             ])
@@ -1550,7 +1524,6 @@ class PerfMgmt(Entity):
                             self.samples = PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples()
                             self.samples.parent = self
                             self._children_name_map["samples"] = "samples"
-                            self._children_yang_names.add("samples")
                             self._segment_path = lambda: "process" + "[process-id='" + str(self.process_id) + "']"
 
                         def __setattr__(self, name, value):
@@ -1581,8 +1554,7 @@ class PerfMgmt(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("sample", ("sample", PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples.Sample))])
+                                self._child_classes = OrderedDict([("sample", ("sample", PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples.Sample))])
                                 self._leafs = OrderedDict()
 
                                 self.sample = YList(self)
@@ -1650,8 +1622,7 @@ class PerfMgmt(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['sample_id']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('sample_id', YLeaf(YType.int32, 'sample-id')),
                                         ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
@@ -1667,7 +1638,7 @@ class PerfMgmt(Entity):
                                     self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples.Sample, ['sample_id', 'time_stamp', 'peak_memory', 'average_cpu_used', 'no_threads'], name, value)
+                                    self._perform_setattr(PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples.Sample, ['sample_id', u'time_stamp', u'peak_memory', u'average_cpu_used', u'no_threads'], name, value)
 
 
                 class Samples(Entity):
@@ -1694,8 +1665,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("sample", ("sample", PerfMgmt.Periodic.Nodes.Node.Samples.Sample))])
+                        self._child_classes = OrderedDict([("sample", ("sample", PerfMgmt.Periodic.Nodes.Node.Samples.Sample))])
                         self._leafs = OrderedDict()
 
                         self.sample = YList(self)
@@ -1758,8 +1728,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['sample_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('sample_id', YLeaf(YType.int32, 'sample-id')),
                                 ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
@@ -1773,7 +1742,7 @@ class PerfMgmt(Entity):
                             self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PerfMgmt.Periodic.Nodes.Node.Samples.Sample, ['sample_id', 'time_stamp', 'curr_memory', 'peak_memory'], name, value)
+                            self._perform_setattr(PerfMgmt.Periodic.Nodes.Node.Samples.Sample, ['sample_id', u'time_stamp', u'curr_memory', u'peak_memory'], name, value)
 
 
         class Bgp(Entity):
@@ -1800,16 +1769,17 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("bgp-neighbors", ("bgp_neighbors", PerfMgmt.Periodic.Bgp.BgpNeighbors))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("bgp-neighbors", ("bgp_neighbors", PerfMgmt.Periodic.Bgp.BgpNeighbors))])
                 self._leafs = OrderedDict()
 
                 self.bgp_neighbors = PerfMgmt.Periodic.Bgp.BgpNeighbors()
                 self.bgp_neighbors.parent = self
                 self._children_name_map["bgp_neighbors"] = "bgp-neighbors"
-                self._children_yang_names.add("bgp-neighbors")
                 self._segment_path = lambda: "bgp"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Periodic.Bgp, [], name, value)
 
 
             class BgpNeighbors(Entity):
@@ -1836,8 +1806,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("bgp-neighbor", ("bgp_neighbor", PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor))])
+                    self._child_classes = OrderedDict([("bgp-neighbor", ("bgp_neighbor", PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor))])
                     self._leafs = OrderedDict()
 
                     self.bgp_neighbor = YList(self)
@@ -1879,8 +1848,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['ip_address']
-                        self._child_container_classes = OrderedDict([("samples", ("samples", PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples))])
                         self._leafs = OrderedDict([
                             ('ip_address', YLeaf(YType.str, 'ip-address')),
                         ])
@@ -1889,7 +1857,6 @@ class PerfMgmt(Entity):
                         self.samples = PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples()
                         self.samples.parent = self
                         self._children_name_map["samples"] = "samples"
-                        self._children_yang_names.add("samples")
                         self._segment_path = lambda: "bgp-neighbor" + "[ip-address='" + str(self.ip_address) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/bgp/bgp-neighbors/%s" % self._segment_path()
 
@@ -1921,8 +1888,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("sample", ("sample", PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample))])
+                            self._child_classes = OrderedDict([("sample", ("sample", PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample))])
                             self._leafs = OrderedDict()
 
                             self.sample = YList(self)
@@ -2023,8 +1989,7 @@ class PerfMgmt(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['sample_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('sample_id', YLeaf(YType.int32, 'sample-id')),
                                     ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
@@ -2050,7 +2015,7 @@ class PerfMgmt(Entity):
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample, ['sample_id', 'time_stamp', 'input_messages', 'output_messages', 'input_update_messages', 'output_update_messages', 'conn_established', 'conn_dropped', 'errors_received', 'errors_sent'], name, value)
+                                self._perform_setattr(PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample, ['sample_id', u'time_stamp', u'input_messages', u'output_messages', u'input_update_messages', u'output_update_messages', u'conn_established', u'conn_dropped', u'errors_received', u'errors_sent'], name, value)
 
 
         class Interface(Entity):
@@ -2087,26 +2052,25 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("generic-counter-interfaces", ("generic_counter_interfaces", PerfMgmt.Periodic.Interface.GenericCounterInterfaces)), ("basic-counter-interfaces", ("basic_counter_interfaces", PerfMgmt.Periodic.Interface.BasicCounterInterfaces)), ("data-rate-interfaces", ("data_rate_interfaces", PerfMgmt.Periodic.Interface.DataRateInterfaces))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("generic-counter-interfaces", ("generic_counter_interfaces", PerfMgmt.Periodic.Interface.GenericCounterInterfaces)), ("basic-counter-interfaces", ("basic_counter_interfaces", PerfMgmt.Periodic.Interface.BasicCounterInterfaces)), ("data-rate-interfaces", ("data_rate_interfaces", PerfMgmt.Periodic.Interface.DataRateInterfaces))])
                 self._leafs = OrderedDict()
 
                 self.generic_counter_interfaces = PerfMgmt.Periodic.Interface.GenericCounterInterfaces()
                 self.generic_counter_interfaces.parent = self
                 self._children_name_map["generic_counter_interfaces"] = "generic-counter-interfaces"
-                self._children_yang_names.add("generic-counter-interfaces")
 
                 self.basic_counter_interfaces = PerfMgmt.Periodic.Interface.BasicCounterInterfaces()
                 self.basic_counter_interfaces.parent = self
                 self._children_name_map["basic_counter_interfaces"] = "basic-counter-interfaces"
-                self._children_yang_names.add("basic-counter-interfaces")
 
                 self.data_rate_interfaces = PerfMgmt.Periodic.Interface.DataRateInterfaces()
                 self.data_rate_interfaces.parent = self
                 self._children_name_map["data_rate_interfaces"] = "data-rate-interfaces"
-                self._children_yang_names.add("data-rate-interfaces")
                 self._segment_path = lambda: "interface"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Periodic.Interface, [], name, value)
 
 
             class GenericCounterInterfaces(Entity):
@@ -2134,8 +2098,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("generic-counter-interface", ("generic_counter_interface", PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface))])
+                    self._child_classes = OrderedDict([("generic-counter-interface", ("generic_counter_interface", PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface))])
                     self._leafs = OrderedDict()
 
                     self.generic_counter_interface = YList(self)
@@ -2177,8 +2140,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("samples", ("samples", PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ])
@@ -2187,7 +2149,6 @@ class PerfMgmt(Entity):
                         self.samples = PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples()
                         self.samples.parent = self
                         self._children_name_map["samples"] = "samples"
-                        self._children_yang_names.add("samples")
                         self._segment_path = lambda: "generic-counter-interface" + "[interface-name='" + str(self.interface_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/interface/generic-counter-interfaces/%s" % self._segment_path()
 
@@ -2219,8 +2180,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("sample", ("sample", PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample))])
+                            self._child_classes = OrderedDict([("sample", ("sample", PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample))])
                             self._leafs = OrderedDict()
 
                             self.sample = YList(self)
@@ -2409,8 +2369,7 @@ class PerfMgmt(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['sample_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('sample_id', YLeaf(YType.int32, 'sample-id')),
                                     ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
@@ -2460,7 +2419,7 @@ class PerfMgmt(Entity):
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample, ['sample_id', 'time_stamp', 'in_packets', 'in_octets', 'out_packets', 'out_octets', 'in_ucast_pkts', 'in_multicast_pkts', 'in_broadcast_pkts', 'out_ucast_pkts', 'out_multicast_pkts', 'out_broadcast_pkts', 'output_total_drops', 'input_total_drops', 'input_queue_drops', 'input_unknown_proto', 'output_total_errors', 'output_underrun', 'input_total_errors', 'input_crc', 'input_overrun', 'input_frame'], name, value)
+                                self._perform_setattr(PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample, ['sample_id', u'time_stamp', u'in_packets', u'in_octets', u'out_packets', u'out_octets', u'in_ucast_pkts', u'in_multicast_pkts', u'in_broadcast_pkts', u'out_ucast_pkts', u'out_multicast_pkts', u'out_broadcast_pkts', u'output_total_drops', u'input_total_drops', u'input_queue_drops', u'input_unknown_proto', u'output_total_errors', u'output_underrun', u'input_total_errors', u'input_crc', u'input_overrun', u'input_frame'], name, value)
 
 
             class BasicCounterInterfaces(Entity):
@@ -2488,8 +2447,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("basic-counter-interface", ("basic_counter_interface", PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface))])
+                    self._child_classes = OrderedDict([("basic-counter-interface", ("basic_counter_interface", PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface))])
                     self._leafs = OrderedDict()
 
                     self.basic_counter_interface = YList(self)
@@ -2531,8 +2489,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("samples", ("samples", PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ])
@@ -2541,7 +2498,6 @@ class PerfMgmt(Entity):
                         self.samples = PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples()
                         self.samples.parent = self
                         self._children_name_map["samples"] = "samples"
-                        self._children_yang_names.add("samples")
                         self._segment_path = lambda: "basic-counter-interface" + "[interface-name='" + str(self.interface_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/interface/basic-counter-interfaces/%s" % self._segment_path()
 
@@ -2573,8 +2529,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("sample", ("sample", PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample))])
+                            self._child_classes = OrderedDict([("sample", ("sample", PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample))])
                             self._leafs = OrderedDict()
 
                             self.sample = YList(self)
@@ -2693,8 +2648,7 @@ class PerfMgmt(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['sample_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('sample_id', YLeaf(YType.int32, 'sample-id')),
                                     ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
@@ -2724,7 +2678,7 @@ class PerfMgmt(Entity):
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample, ['sample_id', 'time_stamp', 'in_packets', 'in_octets', 'out_packets', 'out_octets', 'input_total_drops', 'input_queue_drops', 'input_total_errors', 'output_total_drops', 'output_queue_drops', 'output_total_errors'], name, value)
+                                self._perform_setattr(PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample, ['sample_id', u'time_stamp', u'in_packets', u'in_octets', u'out_packets', u'out_octets', u'input_total_drops', u'input_queue_drops', u'input_total_errors', u'output_total_drops', u'output_queue_drops', u'output_total_errors'], name, value)
 
 
             class DataRateInterfaces(Entity):
@@ -2751,8 +2705,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("data-rate-interface", ("data_rate_interface", PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface))])
+                    self._child_classes = OrderedDict([("data-rate-interface", ("data_rate_interface", PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface))])
                     self._leafs = OrderedDict()
 
                     self.data_rate_interface = YList(self)
@@ -2794,8 +2747,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("samples", ("samples", PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ])
@@ -2804,7 +2756,6 @@ class PerfMgmt(Entity):
                         self.samples = PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples()
                         self.samples.parent = self
                         self._children_name_map["samples"] = "samples"
-                        self._children_yang_names.add("samples")
                         self._segment_path = lambda: "data-rate-interface" + "[interface-name='" + str(self.interface_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/interface/data-rate-interfaces/%s" % self._segment_path()
 
@@ -2836,8 +2787,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("sample", ("sample", PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample))])
+                            self._child_classes = OrderedDict([("sample", ("sample", PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample))])
                             self._leafs = OrderedDict()
 
                             self.sample = YList(self)
@@ -2955,8 +2905,7 @@ class PerfMgmt(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['sample_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('sample_id', YLeaf(YType.int32, 'sample-id')),
                                     ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
@@ -2984,7 +2933,7 @@ class PerfMgmt(Entity):
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample, ['sample_id', 'time_stamp', 'input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'input_peak_rate', 'input_peak_pkts', 'output_peak_rate', 'output_peak_pkts', 'bandwidth'], name, value)
+                                self._perform_setattr(PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample, ['sample_id', u'time_stamp', u'input_data_rate', u'input_packet_rate', u'output_data_rate', u'output_packet_rate', u'input_peak_rate', u'input_peak_pkts', u'output_peak_rate', u'output_peak_pkts', u'bandwidth'], name, value)
 
 
     class Monitor(Entity):
@@ -3031,36 +2980,33 @@ class PerfMgmt(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("ospf", ("ospf", PerfMgmt.Monitor.Ospf)), ("mpls", ("mpls", PerfMgmt.Monitor.Mpls)), ("nodes", ("nodes", PerfMgmt.Monitor.Nodes)), ("bgp", ("bgp", PerfMgmt.Monitor.Bgp)), ("interface", ("interface", PerfMgmt.Monitor.Interface))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("ospf", ("ospf", PerfMgmt.Monitor.Ospf)), ("mpls", ("mpls", PerfMgmt.Monitor.Mpls)), ("nodes", ("nodes", PerfMgmt.Monitor.Nodes)), ("bgp", ("bgp", PerfMgmt.Monitor.Bgp)), ("interface", ("interface", PerfMgmt.Monitor.Interface))])
             self._leafs = OrderedDict()
 
             self.ospf = PerfMgmt.Monitor.Ospf()
             self.ospf.parent = self
             self._children_name_map["ospf"] = "ospf"
-            self._children_yang_names.add("ospf")
 
             self.mpls = PerfMgmt.Monitor.Mpls()
             self.mpls.parent = self
             self._children_name_map["mpls"] = "mpls"
-            self._children_yang_names.add("mpls")
 
             self.nodes = PerfMgmt.Monitor.Nodes()
             self.nodes.parent = self
             self._children_name_map["nodes"] = "nodes"
-            self._children_yang_names.add("nodes")
 
             self.bgp = PerfMgmt.Monitor.Bgp()
             self.bgp.parent = self
             self._children_name_map["bgp"] = "bgp"
-            self._children_yang_names.add("bgp")
 
             self.interface = PerfMgmt.Monitor.Interface()
             self.interface.parent = self
             self._children_name_map["interface"] = "interface"
-            self._children_yang_names.add("interface")
             self._segment_path = lambda: "monitor"
             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(PerfMgmt.Monitor, [], name, value)
 
 
         class Ospf(Entity):
@@ -3092,21 +3038,21 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("ospfv2-protocol-instances", ("ospfv2_protocol_instances", PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances)), ("ospfv3-protocol-instances", ("ospfv3_protocol_instances", PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("ospfv2-protocol-instances", ("ospfv2_protocol_instances", PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances)), ("ospfv3-protocol-instances", ("ospfv3_protocol_instances", PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances))])
                 self._leafs = OrderedDict()
 
                 self.ospfv2_protocol_instances = PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances()
                 self.ospfv2_protocol_instances.parent = self
                 self._children_name_map["ospfv2_protocol_instances"] = "ospfv2-protocol-instances"
-                self._children_yang_names.add("ospfv2-protocol-instances")
 
                 self.ospfv3_protocol_instances = PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances()
                 self.ospfv3_protocol_instances.parent = self
                 self._children_name_map["ospfv3_protocol_instances"] = "ospfv3-protocol-instances"
-                self._children_yang_names.add("ospfv3-protocol-instances")
                 self._segment_path = lambda: "ospf"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Monitor.Ospf, [], name, value)
 
 
             class Ospfv2ProtocolInstances(Entity):
@@ -3134,8 +3080,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("ospfv2-protocol-instance", ("ospfv2_protocol_instance", PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance))])
+                    self._child_classes = OrderedDict([("ospfv2-protocol-instance", ("ospfv2_protocol_instance", PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance))])
                     self._leafs = OrderedDict()
 
                     self.ospfv2_protocol_instance = YList(self)
@@ -3178,8 +3123,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['instance_name']
-                        self._child_container_classes = OrderedDict([("samples", ("samples", PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples))])
                         self._leafs = OrderedDict([
                             ('instance_name', YLeaf(YType.str, 'instance-name')),
                         ])
@@ -3188,7 +3132,6 @@ class PerfMgmt(Entity):
                         self.samples = PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples()
                         self.samples.parent = self
                         self._children_name_map["samples"] = "samples"
-                        self._children_yang_names.add("samples")
                         self._segment_path = lambda: "ospfv2-protocol-instance" + "[instance-name='" + str(self.instance_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/ospf/ospfv2-protocol-instances/%s" % self._segment_path()
 
@@ -3220,8 +3163,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("sample", ("sample", PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample))])
+                            self._child_classes = OrderedDict([("sample", ("sample", PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample))])
                             self._leafs = OrderedDict()
 
                             self.sample = YList(self)
@@ -3413,8 +3355,7 @@ class PerfMgmt(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['sample_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('sample_id', YLeaf(YType.int32, 'sample-id')),
                                     ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
@@ -3466,7 +3407,7 @@ class PerfMgmt(Entity):
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample, ['sample_id', 'time_stamp', 'input_packets', 'output_packets', 'input_hello_packets', 'output_hello_packets', 'input_db_ds', 'input_db_ds_lsa', 'output_db_ds', 'output_db_ds_lsa', 'input_ls_requests', 'input_ls_requests_lsa', 'output_ls_requests', 'output_ls_requests_lsa', 'input_lsa_updates', 'input_lsa_updates_lsa', 'output_lsa_updates', 'output_lsa_updates_lsa', 'input_lsa_acks', 'input_lsa_acks_lsa', 'output_lsa_acks', 'output_lsa_acks_lsa', 'checksum_errors'], name, value)
+                                self._perform_setattr(PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample, ['sample_id', u'time_stamp', u'input_packets', u'output_packets', u'input_hello_packets', u'output_hello_packets', u'input_db_ds', u'input_db_ds_lsa', u'output_db_ds', u'output_db_ds_lsa', u'input_ls_requests', u'input_ls_requests_lsa', u'output_ls_requests', u'output_ls_requests_lsa', u'input_lsa_updates', u'input_lsa_updates_lsa', u'output_lsa_updates', u'output_lsa_updates_lsa', u'input_lsa_acks', u'input_lsa_acks_lsa', u'output_lsa_acks', u'output_lsa_acks_lsa', u'checksum_errors'], name, value)
 
 
             class Ospfv3ProtocolInstances(Entity):
@@ -3494,8 +3435,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("ospfv3-protocol-instance", ("ospfv3_protocol_instance", PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance))])
+                    self._child_classes = OrderedDict([("ospfv3-protocol-instance", ("ospfv3_protocol_instance", PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance))])
                     self._leafs = OrderedDict()
 
                     self.ospfv3_protocol_instance = YList(self)
@@ -3538,8 +3478,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['instance_name']
-                        self._child_container_classes = OrderedDict([("samples", ("samples", PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples))])
                         self._leafs = OrderedDict([
                             ('instance_name', YLeaf(YType.str, 'instance-name')),
                         ])
@@ -3548,7 +3487,6 @@ class PerfMgmt(Entity):
                         self.samples = PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples()
                         self.samples.parent = self
                         self._children_name_map["samples"] = "samples"
-                        self._children_yang_names.add("samples")
                         self._segment_path = lambda: "ospfv3-protocol-instance" + "[instance-name='" + str(self.instance_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/ospf/ospfv3-protocol-instances/%s" % self._segment_path()
 
@@ -3580,8 +3518,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("sample", ("sample", PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample))])
+                            self._child_classes = OrderedDict([("sample", ("sample", PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample))])
                             self._leafs = OrderedDict()
 
                             self.sample = YList(self)
@@ -3766,8 +3703,7 @@ class PerfMgmt(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['sample_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('sample_id', YLeaf(YType.int32, 'sample-id')),
                                     ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
@@ -3817,7 +3753,7 @@ class PerfMgmt(Entity):
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample, ['sample_id', 'time_stamp', 'input_packets', 'output_packets', 'input_hello_packets', 'output_hello_packets', 'input_db_ds', 'input_db_ds_lsa', 'output_db_ds', 'output_db_ds_lsa', 'input_ls_requests', 'input_ls_requests_lsa', 'output_ls_requests', 'output_ls_requests_lsa', 'input_lsa_updates', 'input_lsa_updates_lsa', 'output_lsa_updates', 'output_lsa_updates_lsa', 'input_lsa_acks', 'input_lsa_acks_lsa', 'output_lsa_acks', 'output_lsa_acks_lsa'], name, value)
+                                self._perform_setattr(PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample, ['sample_id', u'time_stamp', u'input_packets', u'output_packets', u'input_hello_packets', u'output_hello_packets', u'input_db_ds', u'input_db_ds_lsa', u'output_db_ds', u'output_db_ds_lsa', u'input_ls_requests', u'input_ls_requests_lsa', u'output_ls_requests', u'output_ls_requests_lsa', u'input_lsa_updates', u'input_lsa_updates_lsa', u'output_lsa_updates', u'output_lsa_updates_lsa', u'input_lsa_acks', u'input_lsa_acks_lsa', u'output_lsa_acks', u'output_lsa_acks_lsa'], name, value)
 
 
         class Mpls(Entity):
@@ -3844,16 +3780,17 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("ldp-neighbors", ("ldp_neighbors", PerfMgmt.Monitor.Mpls.LdpNeighbors))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("ldp-neighbors", ("ldp_neighbors", PerfMgmt.Monitor.Mpls.LdpNeighbors))])
                 self._leafs = OrderedDict()
 
                 self.ldp_neighbors = PerfMgmt.Monitor.Mpls.LdpNeighbors()
                 self.ldp_neighbors.parent = self
                 self._children_name_map["ldp_neighbors"] = "ldp-neighbors"
-                self._children_yang_names.add("ldp-neighbors")
                 self._segment_path = lambda: "mpls"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Monitor.Mpls, [], name, value)
 
 
             class LdpNeighbors(Entity):
@@ -3881,8 +3818,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("ldp-neighbor", ("ldp_neighbor", PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor))])
+                    self._child_classes = OrderedDict([("ldp-neighbor", ("ldp_neighbor", PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor))])
                     self._leafs = OrderedDict()
 
                     self.ldp_neighbor = YList(self)
@@ -3924,8 +3860,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['nbr']
-                        self._child_container_classes = OrderedDict([("samples", ("samples", PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples))])
                         self._leafs = OrderedDict([
                             ('nbr', YLeaf(YType.str, 'nbr')),
                         ])
@@ -3934,7 +3869,6 @@ class PerfMgmt(Entity):
                         self.samples = PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples()
                         self.samples.parent = self
                         self._children_name_map["samples"] = "samples"
-                        self._children_yang_names.add("samples")
                         self._segment_path = lambda: "ldp-neighbor" + "[nbr='" + str(self.nbr) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/mpls/ldp-neighbors/%s" % self._segment_path()
 
@@ -3966,8 +3900,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("sample", ("sample", PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample))])
+                            self._child_classes = OrderedDict([("sample", ("sample", PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample))])
                             self._leafs = OrderedDict()
 
                             self.sample = YList(self)
@@ -4138,8 +4071,7 @@ class PerfMgmt(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['sample_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('sample_id', YLeaf(YType.int32, 'sample-id')),
                                     ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
@@ -4185,7 +4117,7 @@ class PerfMgmt(Entity):
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample, ['sample_id', 'time_stamp', 'total_msgs_sent', 'total_msgs_rcvd', 'init_msgs_sent', 'init_msgs_rcvd', 'address_msgs_sent', 'address_msgs_rcvd', 'address_withdraw_msgs_sent', 'address_withdraw_msgs_rcvd', 'label_mapping_msgs_sent', 'label_mapping_msgs_rcvd', 'label_withdraw_msgs_sent', 'label_withdraw_msgs_rcvd', 'label_release_msgs_sent', 'label_release_msgs_rcvd', 'notification_msgs_sent', 'notification_msgs_rcvd', 'keepalive_msgs_sent', 'keepalive_msgs_rcvd'], name, value)
+                                self._perform_setattr(PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample, ['sample_id', u'time_stamp', u'total_msgs_sent', u'total_msgs_rcvd', u'init_msgs_sent', u'init_msgs_rcvd', u'address_msgs_sent', u'address_msgs_rcvd', u'address_withdraw_msgs_sent', u'address_withdraw_msgs_rcvd', u'label_mapping_msgs_sent', u'label_mapping_msgs_rcvd', u'label_withdraw_msgs_sent', u'label_withdraw_msgs_rcvd', u'label_release_msgs_sent', u'label_release_msgs_rcvd', u'notification_msgs_sent', u'notification_msgs_rcvd', u'keepalive_msgs_sent', u'keepalive_msgs_rcvd'], name, value)
 
 
         class Nodes(Entity):
@@ -4212,8 +4144,7 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("node", ("node", PerfMgmt.Monitor.Nodes.Node))])
+                self._child_classes = OrderedDict([("node", ("node", PerfMgmt.Monitor.Nodes.Node))])
                 self._leafs = OrderedDict()
 
                 self.node = YList(self)
@@ -4265,8 +4196,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['node_id']
-                    self._child_container_classes = OrderedDict([("sample-xr", ("sample_xr", PerfMgmt.Monitor.Nodes.Node.SampleXr)), ("processes", ("processes", PerfMgmt.Monitor.Nodes.Node.Processes)), ("samples", ("samples", PerfMgmt.Monitor.Nodes.Node.Samples))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("sample-xr", ("sample_xr", PerfMgmt.Monitor.Nodes.Node.SampleXr)), ("processes", ("processes", PerfMgmt.Monitor.Nodes.Node.Processes)), ("samples", ("samples", PerfMgmt.Monitor.Nodes.Node.Samples))])
                     self._leafs = OrderedDict([
                         ('node_id', YLeaf(YType.str, 'node-id')),
                     ])
@@ -4275,17 +4205,14 @@ class PerfMgmt(Entity):
                     self.sample_xr = PerfMgmt.Monitor.Nodes.Node.SampleXr()
                     self.sample_xr.parent = self
                     self._children_name_map["sample_xr"] = "sample-xr"
-                    self._children_yang_names.add("sample-xr")
 
                     self.processes = PerfMgmt.Monitor.Nodes.Node.Processes()
                     self.processes.parent = self
                     self._children_name_map["processes"] = "processes"
-                    self._children_yang_names.add("processes")
 
                     self.samples = PerfMgmt.Monitor.Nodes.Node.Samples()
                     self.samples.parent = self
                     self._children_name_map["samples"] = "samples"
-                    self._children_yang_names.add("samples")
                     self._segment_path = lambda: "node" + "[node-id='" + str(self.node_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/nodes/%s" % self._segment_path()
 
@@ -4317,8 +4244,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("sample", ("sample", PerfMgmt.Monitor.Nodes.Node.SampleXr.Sample))])
+                        self._child_classes = OrderedDict([("sample", ("sample", PerfMgmt.Monitor.Nodes.Node.SampleXr.Sample))])
                         self._leafs = OrderedDict()
 
                         self.sample = YList(self)
@@ -4377,8 +4303,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['sample_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('sample_id', YLeaf(YType.int32, 'sample-id')),
                                 ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
@@ -4392,7 +4317,7 @@ class PerfMgmt(Entity):
                             self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PerfMgmt.Monitor.Nodes.Node.SampleXr.Sample, ['sample_id', 'time_stamp', 'no_processes', 'average_cpu_used'], name, value)
+                            self._perform_setattr(PerfMgmt.Monitor.Nodes.Node.SampleXr.Sample, ['sample_id', u'time_stamp', u'no_processes', u'average_cpu_used'], name, value)
 
 
                 class Processes(Entity):
@@ -4419,8 +4344,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("process", ("process", PerfMgmt.Monitor.Nodes.Node.Processes.Process))])
+                        self._child_classes = OrderedDict([("process", ("process", PerfMgmt.Monitor.Nodes.Node.Processes.Process))])
                         self._leafs = OrderedDict()
 
                         self.process = YList(self)
@@ -4461,8 +4385,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['process_id']
-                            self._child_container_classes = OrderedDict([("samples", ("samples", PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples))])
                             self._leafs = OrderedDict([
                                 ('process_id', YLeaf(YType.int32, 'process-id')),
                             ])
@@ -4471,7 +4394,6 @@ class PerfMgmt(Entity):
                             self.samples = PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples()
                             self.samples.parent = self
                             self._children_name_map["samples"] = "samples"
-                            self._children_yang_names.add("samples")
                             self._segment_path = lambda: "process" + "[process-id='" + str(self.process_id) + "']"
 
                         def __setattr__(self, name, value):
@@ -4502,8 +4424,7 @@ class PerfMgmt(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("sample", ("sample", PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples.Sample))])
+                                self._child_classes = OrderedDict([("sample", ("sample", PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples.Sample))])
                                 self._leafs = OrderedDict()
 
                                 self.sample = YList(self)
@@ -4571,8 +4492,7 @@ class PerfMgmt(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['sample_id']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('sample_id', YLeaf(YType.int32, 'sample-id')),
                                         ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
@@ -4588,7 +4508,7 @@ class PerfMgmt(Entity):
                                     self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples.Sample, ['sample_id', 'time_stamp', 'peak_memory', 'average_cpu_used', 'no_threads'], name, value)
+                                    self._perform_setattr(PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples.Sample, ['sample_id', u'time_stamp', u'peak_memory', u'average_cpu_used', u'no_threads'], name, value)
 
 
                 class Samples(Entity):
@@ -4615,8 +4535,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("sample", ("sample", PerfMgmt.Monitor.Nodes.Node.Samples.Sample))])
+                        self._child_classes = OrderedDict([("sample", ("sample", PerfMgmt.Monitor.Nodes.Node.Samples.Sample))])
                         self._leafs = OrderedDict()
 
                         self.sample = YList(self)
@@ -4679,8 +4598,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['sample_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('sample_id', YLeaf(YType.int32, 'sample-id')),
                                 ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
@@ -4694,7 +4612,7 @@ class PerfMgmt(Entity):
                             self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PerfMgmt.Monitor.Nodes.Node.Samples.Sample, ['sample_id', 'time_stamp', 'curr_memory', 'peak_memory'], name, value)
+                            self._perform_setattr(PerfMgmt.Monitor.Nodes.Node.Samples.Sample, ['sample_id', u'time_stamp', u'curr_memory', u'peak_memory'], name, value)
 
 
         class Bgp(Entity):
@@ -4721,16 +4639,17 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("bgp-neighbors", ("bgp_neighbors", PerfMgmt.Monitor.Bgp.BgpNeighbors))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("bgp-neighbors", ("bgp_neighbors", PerfMgmt.Monitor.Bgp.BgpNeighbors))])
                 self._leafs = OrderedDict()
 
                 self.bgp_neighbors = PerfMgmt.Monitor.Bgp.BgpNeighbors()
                 self.bgp_neighbors.parent = self
                 self._children_name_map["bgp_neighbors"] = "bgp-neighbors"
-                self._children_yang_names.add("bgp-neighbors")
                 self._segment_path = lambda: "bgp"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Monitor.Bgp, [], name, value)
 
 
             class BgpNeighbors(Entity):
@@ -4757,8 +4676,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("bgp-neighbor", ("bgp_neighbor", PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor))])
+                    self._child_classes = OrderedDict([("bgp-neighbor", ("bgp_neighbor", PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor))])
                     self._leafs = OrderedDict()
 
                     self.bgp_neighbor = YList(self)
@@ -4800,8 +4718,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['ip_address']
-                        self._child_container_classes = OrderedDict([("samples", ("samples", PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples))])
                         self._leafs = OrderedDict([
                             ('ip_address', YLeaf(YType.str, 'ip-address')),
                         ])
@@ -4810,7 +4727,6 @@ class PerfMgmt(Entity):
                         self.samples = PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples()
                         self.samples.parent = self
                         self._children_name_map["samples"] = "samples"
-                        self._children_yang_names.add("samples")
                         self._segment_path = lambda: "bgp-neighbor" + "[ip-address='" + str(self.ip_address) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/bgp/bgp-neighbors/%s" % self._segment_path()
 
@@ -4842,8 +4758,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("sample", ("sample", PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample))])
+                            self._child_classes = OrderedDict([("sample", ("sample", PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample))])
                             self._leafs = OrderedDict()
 
                             self.sample = YList(self)
@@ -4944,8 +4859,7 @@ class PerfMgmt(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['sample_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('sample_id', YLeaf(YType.int32, 'sample-id')),
                                     ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
@@ -4971,7 +4885,7 @@ class PerfMgmt(Entity):
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample, ['sample_id', 'time_stamp', 'input_messages', 'output_messages', 'input_update_messages', 'output_update_messages', 'conn_established', 'conn_dropped', 'errors_received', 'errors_sent'], name, value)
+                                self._perform_setattr(PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample, ['sample_id', u'time_stamp', u'input_messages', u'output_messages', u'input_update_messages', u'output_update_messages', u'conn_established', u'conn_dropped', u'errors_received', u'errors_sent'], name, value)
 
 
         class Interface(Entity):
@@ -5008,26 +4922,25 @@ class PerfMgmt(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("generic-counter-interfaces", ("generic_counter_interfaces", PerfMgmt.Monitor.Interface.GenericCounterInterfaces)), ("basic-counter-interfaces", ("basic_counter_interfaces", PerfMgmt.Monitor.Interface.BasicCounterInterfaces)), ("data-rate-interfaces", ("data_rate_interfaces", PerfMgmt.Monitor.Interface.DataRateInterfaces))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("generic-counter-interfaces", ("generic_counter_interfaces", PerfMgmt.Monitor.Interface.GenericCounterInterfaces)), ("basic-counter-interfaces", ("basic_counter_interfaces", PerfMgmt.Monitor.Interface.BasicCounterInterfaces)), ("data-rate-interfaces", ("data_rate_interfaces", PerfMgmt.Monitor.Interface.DataRateInterfaces))])
                 self._leafs = OrderedDict()
 
                 self.generic_counter_interfaces = PerfMgmt.Monitor.Interface.GenericCounterInterfaces()
                 self.generic_counter_interfaces.parent = self
                 self._children_name_map["generic_counter_interfaces"] = "generic-counter-interfaces"
-                self._children_yang_names.add("generic-counter-interfaces")
 
                 self.basic_counter_interfaces = PerfMgmt.Monitor.Interface.BasicCounterInterfaces()
                 self.basic_counter_interfaces.parent = self
                 self._children_name_map["basic_counter_interfaces"] = "basic-counter-interfaces"
-                self._children_yang_names.add("basic-counter-interfaces")
 
                 self.data_rate_interfaces = PerfMgmt.Monitor.Interface.DataRateInterfaces()
                 self.data_rate_interfaces.parent = self
                 self._children_name_map["data_rate_interfaces"] = "data-rate-interfaces"
-                self._children_yang_names.add("data-rate-interfaces")
                 self._segment_path = lambda: "interface"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PerfMgmt.Monitor.Interface, [], name, value)
 
 
             class GenericCounterInterfaces(Entity):
@@ -5055,8 +4968,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("generic-counter-interface", ("generic_counter_interface", PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface))])
+                    self._child_classes = OrderedDict([("generic-counter-interface", ("generic_counter_interface", PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface))])
                     self._leafs = OrderedDict()
 
                     self.generic_counter_interface = YList(self)
@@ -5098,8 +5010,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("samples", ("samples", PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ])
@@ -5108,7 +5019,6 @@ class PerfMgmt(Entity):
                         self.samples = PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples()
                         self.samples.parent = self
                         self._children_name_map["samples"] = "samples"
-                        self._children_yang_names.add("samples")
                         self._segment_path = lambda: "generic-counter-interface" + "[interface-name='" + str(self.interface_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/interface/generic-counter-interfaces/%s" % self._segment_path()
 
@@ -5140,8 +5050,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("sample", ("sample", PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample))])
+                            self._child_classes = OrderedDict([("sample", ("sample", PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample))])
                             self._leafs = OrderedDict()
 
                             self.sample = YList(self)
@@ -5330,8 +5239,7 @@ class PerfMgmt(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['sample_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('sample_id', YLeaf(YType.int32, 'sample-id')),
                                     ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
@@ -5381,7 +5289,7 @@ class PerfMgmt(Entity):
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample, ['sample_id', 'time_stamp', 'in_packets', 'in_octets', 'out_packets', 'out_octets', 'in_ucast_pkts', 'in_multicast_pkts', 'in_broadcast_pkts', 'out_ucast_pkts', 'out_multicast_pkts', 'out_broadcast_pkts', 'output_total_drops', 'input_total_drops', 'input_queue_drops', 'input_unknown_proto', 'output_total_errors', 'output_underrun', 'input_total_errors', 'input_crc', 'input_overrun', 'input_frame'], name, value)
+                                self._perform_setattr(PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample, ['sample_id', u'time_stamp', u'in_packets', u'in_octets', u'out_packets', u'out_octets', u'in_ucast_pkts', u'in_multicast_pkts', u'in_broadcast_pkts', u'out_ucast_pkts', u'out_multicast_pkts', u'out_broadcast_pkts', u'output_total_drops', u'input_total_drops', u'input_queue_drops', u'input_unknown_proto', u'output_total_errors', u'output_underrun', u'input_total_errors', u'input_crc', u'input_overrun', u'input_frame'], name, value)
 
 
             class BasicCounterInterfaces(Entity):
@@ -5409,8 +5317,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("basic-counter-interface", ("basic_counter_interface", PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface))])
+                    self._child_classes = OrderedDict([("basic-counter-interface", ("basic_counter_interface", PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface))])
                     self._leafs = OrderedDict()
 
                     self.basic_counter_interface = YList(self)
@@ -5452,8 +5359,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("samples", ("samples", PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ])
@@ -5462,7 +5368,6 @@ class PerfMgmt(Entity):
                         self.samples = PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples()
                         self.samples.parent = self
                         self._children_name_map["samples"] = "samples"
-                        self._children_yang_names.add("samples")
                         self._segment_path = lambda: "basic-counter-interface" + "[interface-name='" + str(self.interface_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/interface/basic-counter-interfaces/%s" % self._segment_path()
 
@@ -5494,8 +5399,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("sample", ("sample", PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample))])
+                            self._child_classes = OrderedDict([("sample", ("sample", PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample))])
                             self._leafs = OrderedDict()
 
                             self.sample = YList(self)
@@ -5614,8 +5518,7 @@ class PerfMgmt(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['sample_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('sample_id', YLeaf(YType.int32, 'sample-id')),
                                     ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
@@ -5645,7 +5548,7 @@ class PerfMgmt(Entity):
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample, ['sample_id', 'time_stamp', 'in_packets', 'in_octets', 'out_packets', 'out_octets', 'input_total_drops', 'input_queue_drops', 'input_total_errors', 'output_total_drops', 'output_queue_drops', 'output_total_errors'], name, value)
+                                self._perform_setattr(PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample, ['sample_id', u'time_stamp', u'in_packets', u'in_octets', u'out_packets', u'out_octets', u'input_total_drops', u'input_queue_drops', u'input_total_errors', u'output_total_drops', u'output_queue_drops', u'output_total_errors'], name, value)
 
 
             class DataRateInterfaces(Entity):
@@ -5672,8 +5575,7 @@ class PerfMgmt(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("data-rate-interface", ("data_rate_interface", PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface))])
+                    self._child_classes = OrderedDict([("data-rate-interface", ("data_rate_interface", PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface))])
                     self._leafs = OrderedDict()
 
                     self.data_rate_interface = YList(self)
@@ -5715,8 +5617,7 @@ class PerfMgmt(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("samples", ("samples", PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ])
@@ -5725,7 +5626,6 @@ class PerfMgmt(Entity):
                         self.samples = PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples()
                         self.samples.parent = self
                         self._children_name_map["samples"] = "samples"
-                        self._children_yang_names.add("samples")
                         self._segment_path = lambda: "data-rate-interface" + "[interface-name='" + str(self.interface_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/interface/data-rate-interfaces/%s" % self._segment_path()
 
@@ -5757,8 +5657,7 @@ class PerfMgmt(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("sample", ("sample", PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample))])
+                            self._child_classes = OrderedDict([("sample", ("sample", PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample))])
                             self._leafs = OrderedDict()
 
                             self.sample = YList(self)
@@ -5876,8 +5775,7 @@ class PerfMgmt(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['sample_id']
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('sample_id', YLeaf(YType.int32, 'sample-id')),
                                     ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
@@ -5905,7 +5803,7 @@ class PerfMgmt(Entity):
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample, ['sample_id', 'time_stamp', 'input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'input_peak_rate', 'input_peak_pkts', 'output_peak_rate', 'output_peak_pkts', 'bandwidth'], name, value)
+                                self._perform_setattr(PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample, ['sample_id', u'time_stamp', u'input_data_rate', u'input_packet_rate', u'output_data_rate', u'output_packet_rate', u'input_peak_rate', u'input_peak_pkts', u'output_peak_rate', u'output_peak_pkts', u'bandwidth'], name, value)
 
     def clone_ptr(self):
         self._top_entity = PerfMgmt()

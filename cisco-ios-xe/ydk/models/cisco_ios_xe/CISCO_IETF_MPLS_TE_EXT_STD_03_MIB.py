@@ -24,27 +24,27 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
     .. attribute:: cmplsnodeconfigtable
     
     	This table allows the administrator to map a node or LSR Identifier (IP compatible [Global\_Node\_ID] or ICC) with a local identifier.   This table is created to reuse the existing mplsTunnelTable for MPLS based transport network tunnels also. Since the MPLS tunnel's Ingress/Egress LSR identifiers' size (Unsigned32) value is not compatible for MPLS\-TP tunnel i.e. Global\_Node\_Id of size 8 bytes and ICC of size 6 bytes, there exists a need to map the Global\_Node\_ID or ICC with the local identifier of size 4 bytes (Unsigned32) value in order to index (Ingress/Egress LSR identifier) the existing mplsTunnelTable
-    	**type**\:  :py:class:`Cmplsnodeconfigtable <ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_TE_EXT_STD_03_MIB.CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeconfigtable>`
+    	**type**\:  :py:class:`CmplsNodeConfigTable <ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_TE_EXT_STD_03_MIB.CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeConfigTable>`
     
     .. attribute:: cmplsnodeipmaptable
     
     	This read\-only table allows the administrator to retrieve the local identifier for a given Global\_Node\_ID in an IP compatible operator environment.  This table MAY be used in on\-demand and/or proactive OAM operations to get the Ingress/Egress LSR identifier (Local Identifier) from Src\-Global\_Node\_ID or Dst\-Global\_Node\_ID and the Ingress and Egress LSR identifiers are used to retrieve the tunnel entry.  This table returns nothing when the associated entry is not defined in mplsNodeConfigTable
-    	**type**\:  :py:class:`Cmplsnodeipmaptable <ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_TE_EXT_STD_03_MIB.CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeipmaptable>`
+    	**type**\:  :py:class:`CmplsNodeIpMapTable <ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_TE_EXT_STD_03_MIB.CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeIpMapTable>`
     
     .. attribute:: cmplsnodeiccmaptable
     
     	This read\-only table allows the administrator to retrieve the local identifier for a given ICC operator in an ICC operator environment.  This table MAY be used in on\-demand and/or proactive OAM operations to get the Ingress/Egress LSR identifier (Local Identifier) from Src\-ICC or Dst\-ICC and the Ingress and Egress LSR identifiers are used to retrieve the tunnel entry. This table returns nothing when the associated entry is not defined in mplsNodeConfigTable
-    	**type**\:  :py:class:`Cmplsnodeiccmaptable <ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_TE_EXT_STD_03_MIB.CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeiccmaptable>`
+    	**type**\:  :py:class:`CmplsNodeIccMapTable <ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_TE_EXT_STD_03_MIB.CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeIccMapTable>`
     
     .. attribute:: cmplstunnelexttable
     
     	This table represents MPLS\-TP specific extensions to mplsTunnelTable.  As per MPLS\-TP Identifiers [RFC6370], LSP\_ID for IP based co\-routed bidirectional tunnel,  A1\-{Global\_ID\:\:Node\_ID\:\:Tunnel\_Num}\:\:Z9\-{Global\_ID\:\: Node\_ID\:\:Tunnel\_Num}\:\:LSP\_Num  LSP\_ID for IP based associated bidirectional tunnel, A1\-{Global\_ID\:\:Node\_ID\:\:Tunnel\_Num\:\:LSP\_Num}\:\: Z9\-{Global\_ID\:\:Node\_ID\:\:Tunnel\_Num\:\:LSP\_Num}  mplsTunnelTable is reused for forming the LSP\_ID as follows,  Source Tunnel\_Num is mapped with mplsTunnelIndex, Source Node\_ID is mapped with mplsTunnelIngressLSRId, Destination Node\_ID is mapped with mplsTunnelEgressLSRId LSP\_Num is mapped with mplsTunnelInstance.  Source Global\_Node\_ID and/or ICC and Destination Global\_Node\_ID and/or ICC are maintained in the mplsNodeConfigTable and mplsNodeConfigLocalId is used to create an entry in mplsTunnelTable
-    	**type**\:  :py:class:`Cmplstunnelexttable <ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_TE_EXT_STD_03_MIB.CISCOIETFMPLSTEEXTSTD03MIB.Cmplstunnelexttable>`
+    	**type**\:  :py:class:`CmplsTunnelExtTable <ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_TE_EXT_STD_03_MIB.CISCOIETFMPLSTEEXTSTD03MIB.CmplsTunnelExtTable>`
     
     .. attribute:: cmplstunnelreverseperftable
     
     	This table extends the mplsTunnelTable to provide per\-tunnel packet performance information for the reverse direction of a bidirectional tunnel.  It can be seen as supplementing the mplsTunnelPerfTable, which augments the mplsTunnelTable.  For links that do not transport packets, these packet counters cannot be maintained.  For such links, attempts to read the objects in this table will return noSuchInstance
-    	**type**\:  :py:class:`Cmplstunnelreverseperftable <ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_TE_EXT_STD_03_MIB.CISCOIETFMPLSTEEXTSTD03MIB.Cmplstunnelreverseperftable>`
+    	**type**\:  :py:class:`CmplsTunnelReversePerfTable <ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_TE_EXT_STD_03_MIB.CISCOIETFMPLSTEEXTSTD03MIB.CmplsTunnelReversePerfTable>`
     
     
 
@@ -62,38 +62,35 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cmplsNodeConfigTable", ("cmplsnodeconfigtable", CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeconfigtable)), ("cmplsNodeIpMapTable", ("cmplsnodeipmaptable", CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeipmaptable)), ("cmplsNodeIccMapTable", ("cmplsnodeiccmaptable", CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeiccmaptable)), ("cmplsTunnelExtTable", ("cmplstunnelexttable", CISCOIETFMPLSTEEXTSTD03MIB.Cmplstunnelexttable)), ("cmplsTunnelReversePerfTable", ("cmplstunnelreverseperftable", CISCOIETFMPLSTEEXTSTD03MIB.Cmplstunnelreverseperftable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cmplsNodeConfigTable", ("cmplsnodeconfigtable", CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeConfigTable)), ("cmplsNodeIpMapTable", ("cmplsnodeipmaptable", CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeIpMapTable)), ("cmplsNodeIccMapTable", ("cmplsnodeiccmaptable", CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeIccMapTable)), ("cmplsTunnelExtTable", ("cmplstunnelexttable", CISCOIETFMPLSTEEXTSTD03MIB.CmplsTunnelExtTable)), ("cmplsTunnelReversePerfTable", ("cmplstunnelreverseperftable", CISCOIETFMPLSTEEXTSTD03MIB.CmplsTunnelReversePerfTable))])
         self._leafs = OrderedDict()
 
-        self.cmplsnodeconfigtable = CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeconfigtable()
+        self.cmplsnodeconfigtable = CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeConfigTable()
         self.cmplsnodeconfigtable.parent = self
         self._children_name_map["cmplsnodeconfigtable"] = "cmplsNodeConfigTable"
-        self._children_yang_names.add("cmplsNodeConfigTable")
 
-        self.cmplsnodeipmaptable = CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeipmaptable()
+        self.cmplsnodeipmaptable = CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeIpMapTable()
         self.cmplsnodeipmaptable.parent = self
         self._children_name_map["cmplsnodeipmaptable"] = "cmplsNodeIpMapTable"
-        self._children_yang_names.add("cmplsNodeIpMapTable")
 
-        self.cmplsnodeiccmaptable = CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeiccmaptable()
+        self.cmplsnodeiccmaptable = CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeIccMapTable()
         self.cmplsnodeiccmaptable.parent = self
         self._children_name_map["cmplsnodeiccmaptable"] = "cmplsNodeIccMapTable"
-        self._children_yang_names.add("cmplsNodeIccMapTable")
 
-        self.cmplstunnelexttable = CISCOIETFMPLSTEEXTSTD03MIB.Cmplstunnelexttable()
+        self.cmplstunnelexttable = CISCOIETFMPLSTEEXTSTD03MIB.CmplsTunnelExtTable()
         self.cmplstunnelexttable.parent = self
         self._children_name_map["cmplstunnelexttable"] = "cmplsTunnelExtTable"
-        self._children_yang_names.add("cmplsTunnelExtTable")
 
-        self.cmplstunnelreverseperftable = CISCOIETFMPLSTEEXTSTD03MIB.Cmplstunnelreverseperftable()
+        self.cmplstunnelreverseperftable = CISCOIETFMPLSTEEXTSTD03MIB.CmplsTunnelReversePerfTable()
         self.cmplstunnelreverseperftable.parent = self
         self._children_name_map["cmplstunnelreverseperftable"] = "cmplsTunnelReversePerfTable"
-        self._children_yang_names.add("cmplsTunnelReversePerfTable")
         self._segment_path = lambda: "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB:CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOIETFMPLSTEEXTSTD03MIB, [], name, value)
 
-    class Cmplsnodeconfigtable(Entity):
+
+    class CmplsNodeConfigTable(Entity):
         """
         This table allows the administrator to map a node or
         LSR Identifier (IP compatible [Global\_Node\_ID] or ICC)
@@ -115,7 +112,7 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
         .. attribute:: cmplsnodeconfigentry
         
         	An entry in this table represents a mapping identification for the operator or service provider with node or LSR.  As per [RFC6370], this mapping is  represented as Global\_Node\_ID or ICC.  Note\: Each entry in this table should have a unique Global\_ID and Node\_ID combination
-        	**type**\: list of  		 :py:class:`Cmplsnodeconfigentry <ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_TE_EXT_STD_03_MIB.CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeconfigtable.Cmplsnodeconfigentry>`
+        	**type**\: list of  		 :py:class:`CmplsNodeConfigEntry <ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_TE_EXT_STD_03_MIB.CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeConfigTable.CmplsNodeConfigEntry>`
         
         
 
@@ -125,15 +122,14 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
         _revision = '2012-06-06'
 
         def __init__(self):
-            super(CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeconfigtable, self).__init__()
+            super(CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeConfigTable, self).__init__()
 
             self.yang_name = "cmplsNodeConfigTable"
             self.yang_parent_name = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cmplsNodeConfigEntry", ("cmplsnodeconfigentry", CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeconfigtable.Cmplsnodeconfigentry))])
+            self._child_classes = OrderedDict([("cmplsNodeConfigEntry", ("cmplsnodeconfigentry", CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeConfigTable.CmplsNodeConfigEntry))])
             self._leafs = OrderedDict()
 
             self.cmplsnodeconfigentry = YList(self)
@@ -141,10 +137,10 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB:CISCO-IETF-MPLS-TE-EXT-STD-03-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeconfigtable, [], name, value)
+            self._perform_setattr(CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeConfigTable, [], name, value)
 
 
-        class Cmplsnodeconfigentry(Entity):
+        class CmplsNodeConfigEntry(Entity):
             """
             An entry in this table represents a mapping
             identification for the operator or service provider
@@ -203,15 +199,14 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
             _revision = '2012-06-06'
 
             def __init__(self):
-                super(CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeconfigtable.Cmplsnodeconfigentry, self).__init__()
+                super(CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeConfigTable.CmplsNodeConfigEntry, self).__init__()
 
                 self.yang_name = "cmplsNodeConfigEntry"
                 self.yang_parent_name = "cmplsNodeConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cmplsnodeconfiglocalid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cmplsnodeconfiglocalid', YLeaf(YType.uint32, 'cmplsNodeConfigLocalId')),
                     ('cmplsnodeconfigglobalid', YLeaf(YType.str, 'cmplsNodeConfigGlobalId')),
@@ -230,10 +225,10 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB:CISCO-IETF-MPLS-TE-EXT-STD-03-MIB/cmplsNodeConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeconfigtable.Cmplsnodeconfigentry, ['cmplsnodeconfiglocalid', 'cmplsnodeconfigglobalid', 'cmplsnodeconfignodeid', 'cmplsnodeconfigiccid', 'cmplsnodeconfigrowstatus', 'cmplsnodeconfigstoragetype'], name, value)
+                self._perform_setattr(CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeConfigTable.CmplsNodeConfigEntry, ['cmplsnodeconfiglocalid', 'cmplsnodeconfigglobalid', 'cmplsnodeconfignodeid', 'cmplsnodeconfigiccid', 'cmplsnodeconfigrowstatus', 'cmplsnodeconfigstoragetype'], name, value)
 
 
-    class Cmplsnodeipmaptable(Entity):
+    class CmplsNodeIpMapTable(Entity):
         """
         This read\-only table allows the administrator to retrieve
         the local identifier for a given Global\_Node\_ID in an IP
@@ -251,7 +246,7 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
         .. attribute:: cmplsnodeipmapentry
         
         	An entry in this table represents a mapping of Global\_Node\_ID with the local identifier.  An entry in this table is created automatically when the Local identifier is associated with Global\_ID and Node\_Id in the mplsNodeConfigTable. Note\: Each entry in this table should have a unique Global\_ID and Node\_ID combination
-        	**type**\: list of  		 :py:class:`Cmplsnodeipmapentry <ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_TE_EXT_STD_03_MIB.CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeipmaptable.Cmplsnodeipmapentry>`
+        	**type**\: list of  		 :py:class:`CmplsNodeIpMapEntry <ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_TE_EXT_STD_03_MIB.CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeIpMapTable.CmplsNodeIpMapEntry>`
         
         
 
@@ -261,15 +256,14 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
         _revision = '2012-06-06'
 
         def __init__(self):
-            super(CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeipmaptable, self).__init__()
+            super(CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeIpMapTable, self).__init__()
 
             self.yang_name = "cmplsNodeIpMapTable"
             self.yang_parent_name = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cmplsNodeIpMapEntry", ("cmplsnodeipmapentry", CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeipmaptable.Cmplsnodeipmapentry))])
+            self._child_classes = OrderedDict([("cmplsNodeIpMapEntry", ("cmplsnodeipmapentry", CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeIpMapTable.CmplsNodeIpMapEntry))])
             self._leafs = OrderedDict()
 
             self.cmplsnodeipmapentry = YList(self)
@@ -277,10 +271,10 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB:CISCO-IETF-MPLS-TE-EXT-STD-03-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeipmaptable, [], name, value)
+            self._perform_setattr(CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeIpMapTable, [], name, value)
 
 
-        class Cmplsnodeipmapentry(Entity):
+        class CmplsNodeIpMapEntry(Entity):
             """
             An entry in this table represents a mapping of
             Global\_Node\_ID with the local identifier.
@@ -320,15 +314,14 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
             _revision = '2012-06-06'
 
             def __init__(self):
-                super(CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeipmaptable.Cmplsnodeipmapentry, self).__init__()
+                super(CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeIpMapTable.CmplsNodeIpMapEntry, self).__init__()
 
                 self.yang_name = "cmplsNodeIpMapEntry"
                 self.yang_parent_name = "cmplsNodeIpMapTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cmplsnodeipmapglobalid','cmplsnodeipmapnodeid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cmplsnodeipmapglobalid', YLeaf(YType.str, 'cmplsNodeIpMapGlobalId')),
                     ('cmplsnodeipmapnodeid', YLeaf(YType.uint32, 'cmplsNodeIpMapNodeId')),
@@ -341,10 +334,10 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB:CISCO-IETF-MPLS-TE-EXT-STD-03-MIB/cmplsNodeIpMapTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeipmaptable.Cmplsnodeipmapentry, ['cmplsnodeipmapglobalid', 'cmplsnodeipmapnodeid', 'cmplsnodeipmaplocalid'], name, value)
+                self._perform_setattr(CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeIpMapTable.CmplsNodeIpMapEntry, ['cmplsnodeipmapglobalid', 'cmplsnodeipmapnodeid', 'cmplsnodeipmaplocalid'], name, value)
 
 
-    class Cmplsnodeiccmaptable(Entity):
+    class CmplsNodeIccMapTable(Entity):
         """
         This read\-only table allows the administrator to retrieve
         the local identifier for a given ICC operator in an ICC
@@ -361,7 +354,7 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
         .. attribute:: cmplsnodeiccmapentry
         
         	An entry in this table represents a mapping of ICC with the local identifier.  An entry in this table is created automatically when the Local identifier is associated with ICC in the mplsNodeConfigTable
-        	**type**\: list of  		 :py:class:`Cmplsnodeiccmapentry <ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_TE_EXT_STD_03_MIB.CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeiccmaptable.Cmplsnodeiccmapentry>`
+        	**type**\: list of  		 :py:class:`CmplsNodeIccMapEntry <ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_TE_EXT_STD_03_MIB.CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeIccMapTable.CmplsNodeIccMapEntry>`
         
         
 
@@ -371,15 +364,14 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
         _revision = '2012-06-06'
 
         def __init__(self):
-            super(CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeiccmaptable, self).__init__()
+            super(CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeIccMapTable, self).__init__()
 
             self.yang_name = "cmplsNodeIccMapTable"
             self.yang_parent_name = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cmplsNodeIccMapEntry", ("cmplsnodeiccmapentry", CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeiccmaptable.Cmplsnodeiccmapentry))])
+            self._child_classes = OrderedDict([("cmplsNodeIccMapEntry", ("cmplsnodeiccmapentry", CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeIccMapTable.CmplsNodeIccMapEntry))])
             self._leafs = OrderedDict()
 
             self.cmplsnodeiccmapentry = YList(self)
@@ -387,10 +379,10 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB:CISCO-IETF-MPLS-TE-EXT-STD-03-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeiccmaptable, [], name, value)
+            self._perform_setattr(CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeIccMapTable, [], name, value)
 
 
-        class Cmplsnodeiccmapentry(Entity):
+        class CmplsNodeIccMapEntry(Entity):
             """
             An entry in this table represents a mapping of ICC with
             the local identifier.
@@ -421,15 +413,14 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
             _revision = '2012-06-06'
 
             def __init__(self):
-                super(CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeiccmaptable.Cmplsnodeiccmapentry, self).__init__()
+                super(CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeIccMapTable.CmplsNodeIccMapEntry, self).__init__()
 
                 self.yang_name = "cmplsNodeIccMapEntry"
                 self.yang_parent_name = "cmplsNodeIccMapTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cmplsnodeiccmapiccid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cmplsnodeiccmapiccid', YLeaf(YType.str, 'cmplsNodeIccMapIccId')),
                     ('cmplsnodeiccmaplocalid', YLeaf(YType.uint32, 'cmplsNodeIccMapLocalId')),
@@ -440,10 +431,10 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB:CISCO-IETF-MPLS-TE-EXT-STD-03-MIB/cmplsNodeIccMapTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeiccmaptable.Cmplsnodeiccmapentry, ['cmplsnodeiccmapiccid', 'cmplsnodeiccmaplocalid'], name, value)
+                self._perform_setattr(CISCOIETFMPLSTEEXTSTD03MIB.CmplsNodeIccMapTable.CmplsNodeIccMapEntry, ['cmplsnodeiccmapiccid', 'cmplsnodeiccmaplocalid'], name, value)
 
 
-    class Cmplstunnelexttable(Entity):
+    class CmplsTunnelExtTable(Entity):
         """
         This table represents MPLS\-TP specific extensions to
         mplsTunnelTable.
@@ -475,7 +466,7 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
         .. attribute:: cmplstunnelextentry
         
         	An entry in this table represents MPLS\-TP specific additional tunnel configurations
-        	**type**\: list of  		 :py:class:`Cmplstunnelextentry <ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_TE_EXT_STD_03_MIB.CISCOIETFMPLSTEEXTSTD03MIB.Cmplstunnelexttable.Cmplstunnelextentry>`
+        	**type**\: list of  		 :py:class:`CmplsTunnelExtEntry <ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_TE_EXT_STD_03_MIB.CISCOIETFMPLSTEEXTSTD03MIB.CmplsTunnelExtTable.CmplsTunnelExtEntry>`
         
         
 
@@ -485,15 +476,14 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
         _revision = '2012-06-06'
 
         def __init__(self):
-            super(CISCOIETFMPLSTEEXTSTD03MIB.Cmplstunnelexttable, self).__init__()
+            super(CISCOIETFMPLSTEEXTSTD03MIB.CmplsTunnelExtTable, self).__init__()
 
             self.yang_name = "cmplsTunnelExtTable"
             self.yang_parent_name = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cmplsTunnelExtEntry", ("cmplstunnelextentry", CISCOIETFMPLSTEEXTSTD03MIB.Cmplstunnelexttable.Cmplstunnelextentry))])
+            self._child_classes = OrderedDict([("cmplsTunnelExtEntry", ("cmplstunnelextentry", CISCOIETFMPLSTEEXTSTD03MIB.CmplsTunnelExtTable.CmplsTunnelExtEntry))])
             self._leafs = OrderedDict()
 
             self.cmplstunnelextentry = YList(self)
@@ -501,10 +491,10 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB:CISCO-IETF-MPLS-TE-EXT-STD-03-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFMPLSTEEXTSTD03MIB.Cmplstunnelexttable, [], name, value)
+            self._perform_setattr(CISCOIETFMPLSTEEXTSTD03MIB.CmplsTunnelExtTable, [], name, value)
 
 
-        class Cmplstunnelextentry(Entity):
+        class CmplsTunnelExtEntry(Entity):
             """
             An entry in this table represents MPLS\-TP
             specific additional tunnel configurations.
@@ -516,7 +506,7 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
             
             	**range:** 0..65535
             
-            	**refers to**\:  :py:class:`mplstunnelindex <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunneltable.Mplstunnelentry>`
+            	**refers to**\:  :py:class:`mplstunnelindex <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry>`
             
             .. attribute:: mplstunnelinstance  (key)
             
@@ -525,7 +515,7 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`mplstunnelinstance <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunneltable.Mplstunnelentry>`
+            	**refers to**\:  :py:class:`mplstunnelinstance <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry>`
             
             .. attribute:: mplstunnelingresslsrid  (key)
             
@@ -534,7 +524,7 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`mplstunnelingresslsrid <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunneltable.Mplstunnelentry>`
+            	**refers to**\:  :py:class:`mplstunnelingresslsrid <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry>`
             
             .. attribute:: mplstunnelegresslsrid  (key)
             
@@ -543,7 +533,7 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`mplstunnelegresslsrid <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunneltable.Mplstunnelentry>`
+            	**refers to**\:  :py:class:`mplstunnelegresslsrid <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry>`
             
             .. attribute:: cmplstunneloppositedirptr
             
@@ -584,15 +574,14 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
             _revision = '2012-06-06'
 
             def __init__(self):
-                super(CISCOIETFMPLSTEEXTSTD03MIB.Cmplstunnelexttable.Cmplstunnelextentry, self).__init__()
+                super(CISCOIETFMPLSTEEXTSTD03MIB.CmplsTunnelExtTable.CmplsTunnelExtEntry, self).__init__()
 
                 self.yang_name = "cmplsTunnelExtEntry"
                 self.yang_parent_name = "cmplsTunnelExtTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplstunnelindex','mplstunnelinstance','mplstunnelingresslsrid','mplstunnelegresslsrid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplstunnelindex', YLeaf(YType.str, 'mplsTunnelIndex')),
                     ('mplstunnelinstance', YLeaf(YType.str, 'mplsTunnelInstance')),
@@ -617,10 +606,10 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB:CISCO-IETF-MPLS-TE-EXT-STD-03-MIB/cmplsTunnelExtTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFMPLSTEEXTSTD03MIB.Cmplstunnelexttable.Cmplstunnelextentry, ['mplstunnelindex', 'mplstunnelinstance', 'mplstunnelingresslsrid', 'mplstunnelegresslsrid', 'cmplstunneloppositedirptr', 'cmplstunnelextoppositedirtnlvalid', 'cmplstunnelextdesttnlindex', 'cmplstunnelextdesttnllspindex', 'cmplstunnelextdesttnlvalid'], name, value)
+                self._perform_setattr(CISCOIETFMPLSTEEXTSTD03MIB.CmplsTunnelExtTable.CmplsTunnelExtEntry, ['mplstunnelindex', 'mplstunnelinstance', 'mplstunnelingresslsrid', 'mplstunnelegresslsrid', 'cmplstunneloppositedirptr', 'cmplstunnelextoppositedirtnlvalid', 'cmplstunnelextdesttnlindex', 'cmplstunnelextdesttnllspindex', 'cmplstunnelextdesttnlvalid'], name, value)
 
 
-    class Cmplstunnelreverseperftable(Entity):
+    class CmplsTunnelReversePerfTable(Entity):
         """
         This table extends the mplsTunnelTable to provide
         per\-tunnel packet performance information for the reverse
@@ -636,7 +625,7 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
         .. attribute:: cmplstunnelreverseperfentry
         
         	An entry in this table is created by the LSR for every bidirectional MPLS tunnel where packets are visible to the LSR
-        	**type**\: list of  		 :py:class:`Cmplstunnelreverseperfentry <ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_TE_EXT_STD_03_MIB.CISCOIETFMPLSTEEXTSTD03MIB.Cmplstunnelreverseperftable.Cmplstunnelreverseperfentry>`
+        	**type**\: list of  		 :py:class:`CmplsTunnelReversePerfEntry <ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_TE_EXT_STD_03_MIB.CISCOIETFMPLSTEEXTSTD03MIB.CmplsTunnelReversePerfTable.CmplsTunnelReversePerfEntry>`
         
         
 
@@ -646,15 +635,14 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
         _revision = '2012-06-06'
 
         def __init__(self):
-            super(CISCOIETFMPLSTEEXTSTD03MIB.Cmplstunnelreverseperftable, self).__init__()
+            super(CISCOIETFMPLSTEEXTSTD03MIB.CmplsTunnelReversePerfTable, self).__init__()
 
             self.yang_name = "cmplsTunnelReversePerfTable"
             self.yang_parent_name = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cmplsTunnelReversePerfEntry", ("cmplstunnelreverseperfentry", CISCOIETFMPLSTEEXTSTD03MIB.Cmplstunnelreverseperftable.Cmplstunnelreverseperfentry))])
+            self._child_classes = OrderedDict([("cmplsTunnelReversePerfEntry", ("cmplstunnelreverseperfentry", CISCOIETFMPLSTEEXTSTD03MIB.CmplsTunnelReversePerfTable.CmplsTunnelReversePerfEntry))])
             self._leafs = OrderedDict()
 
             self.cmplstunnelreverseperfentry = YList(self)
@@ -662,10 +650,10 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB:CISCO-IETF-MPLS-TE-EXT-STD-03-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFMPLSTEEXTSTD03MIB.Cmplstunnelreverseperftable, [], name, value)
+            self._perform_setattr(CISCOIETFMPLSTEEXTSTD03MIB.CmplsTunnelReversePerfTable, [], name, value)
 
 
-        class Cmplstunnelreverseperfentry(Entity):
+        class CmplsTunnelReversePerfEntry(Entity):
             """
             An entry in this table is created by the LSR for every
             bidirectional MPLS tunnel where packets are visible to the
@@ -678,7 +666,7 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
             
             	**range:** 0..65535
             
-            	**refers to**\:  :py:class:`mplstunnelindex <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunneltable.Mplstunnelentry>`
+            	**refers to**\:  :py:class:`mplstunnelindex <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry>`
             
             .. attribute:: mplstunnelinstance  (key)
             
@@ -687,7 +675,7 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`mplstunnelinstance <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunneltable.Mplstunnelentry>`
+            	**refers to**\:  :py:class:`mplstunnelinstance <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry>`
             
             .. attribute:: mplstunnelingresslsrid  (key)
             
@@ -696,7 +684,7 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`mplstunnelingresslsrid <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunneltable.Mplstunnelentry>`
+            	**refers to**\:  :py:class:`mplstunnelingresslsrid <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry>`
             
             .. attribute:: mplstunnelegresslsrid  (key)
             
@@ -705,7 +693,7 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`mplstunnelegresslsrid <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.Mplstunneltable.Mplstunnelentry>`
+            	**refers to**\:  :py:class:`mplstunnelegresslsrid <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry>`
             
             .. attribute:: cmplstunnelreverseperfpackets
             
@@ -750,15 +738,14 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
             _revision = '2012-06-06'
 
             def __init__(self):
-                super(CISCOIETFMPLSTEEXTSTD03MIB.Cmplstunnelreverseperftable.Cmplstunnelreverseperfentry, self).__init__()
+                super(CISCOIETFMPLSTEEXTSTD03MIB.CmplsTunnelReversePerfTable.CmplsTunnelReversePerfEntry, self).__init__()
 
                 self.yang_name = "cmplsTunnelReversePerfEntry"
                 self.yang_parent_name = "cmplsTunnelReversePerfTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplstunnelindex','mplstunnelinstance','mplstunnelingresslsrid','mplstunnelegresslsrid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplstunnelindex', YLeaf(YType.str, 'mplsTunnelIndex')),
                     ('mplstunnelinstance', YLeaf(YType.str, 'mplsTunnelInstance')),
@@ -783,7 +770,7 @@ class CISCOIETFMPLSTEEXTSTD03MIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB:CISCO-IETF-MPLS-TE-EXT-STD-03-MIB/cmplsTunnelReversePerfTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFMPLSTEEXTSTD03MIB.Cmplstunnelreverseperftable.Cmplstunnelreverseperfentry, ['mplstunnelindex', 'mplstunnelinstance', 'mplstunnelingresslsrid', 'mplstunnelegresslsrid', 'cmplstunnelreverseperfpackets', 'cmplstunnelreverseperfhcpackets', 'cmplstunnelreverseperferrors', 'cmplstunnelreverseperfbytes', 'cmplstunnelreverseperfhcbytes'], name, value)
+                self._perform_setattr(CISCOIETFMPLSTEEXTSTD03MIB.CmplsTunnelReversePerfTable.CmplsTunnelReversePerfEntry, ['mplstunnelindex', 'mplstunnelinstance', 'mplstunnelingresslsrid', 'mplstunnelegresslsrid', 'cmplstunnelreverseperfpackets', 'cmplstunnelreverseperfhcpackets', 'cmplstunnelreverseperferrors', 'cmplstunnelreverseperfbytes', 'cmplstunnelreverseperfhcbytes'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOIETFMPLSTEEXTSTD03MIB()

@@ -20,57 +20,57 @@ class NHRPMIB(Entity):
     .. attribute:: nhrpgeneralobjects
     
     	
-    	**type**\:  :py:class:`Nhrpgeneralobjects <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpgeneralobjects>`
+    	**type**\:  :py:class:`NhrpGeneralObjects <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpGeneralObjects>`
     
     .. attribute:: nhrpcachetable
     
     	This table contains mappings between internetwork layer addresses and NBMA subnetwork layer addresses
-    	**type**\:  :py:class:`Nhrpcachetable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpcachetable>`
+    	**type**\:  :py:class:`NhrpCacheTable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpCacheTable>`
     
     .. attribute:: nhrppurgereqtable
     
     	This table will track Purge Request Information
-    	**type**\:  :py:class:`Nhrppurgereqtable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrppurgereqtable>`
+    	**type**\:  :py:class:`NhrpPurgeReqTable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpPurgeReqTable>`
     
     .. attribute:: nhrpclienttable
     
     	Information about NHRP clients (NHCs) managed by this agent
-    	**type**\:  :py:class:`Nhrpclienttable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclienttable>`
+    	**type**\:  :py:class:`NhrpClientTable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpClientTable>`
     
     .. attribute:: nhrpclientregistrationtable
     
     	A table of Registration Request Information that needs to be maintained by the NHCs (clients)
-    	**type**\:  :py:class:`Nhrpclientregistrationtable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclientregistrationtable>`
+    	**type**\:  :py:class:`NhrpClientRegistrationTable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpClientRegistrationTable>`
     
     .. attribute:: nhrpclientnhstable
     
     	A table of NHSes that are available for use by this NHC (client). By default, the agent will add an entry to this table that corresponds to the client's default router
-    	**type**\:  :py:class:`Nhrpclientnhstable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclientnhstable>`
+    	**type**\:  :py:class:`NhrpClientNhsTable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpClientNhsTable>`
     
     .. attribute:: nhrpclientstattable
     
     	This table contains statistics collected by NHRP clients
-    	**type**\:  :py:class:`Nhrpclientstattable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclientstattable>`
+    	**type**\:  :py:class:`NhrpClientStatTable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpClientStatTable>`
     
     .. attribute:: nhrpservertable
     
     	This table contains information for a set of NHSes associated with this agent
-    	**type**\:  :py:class:`Nhrpservertable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpservertable>`
+    	**type**\:  :py:class:`NhrpServerTable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpServerTable>`
     
     .. attribute:: nhrpservercachetable
     
     	This table extends the nhrpCacheTable for NHSes.  If the nhrpCacheTable has a row added due to an NHS or based on information regarding an NHS then a row is also added in this table.  The rows in this table will be created when rows in the nhrpCacheTable are created.  However, there may be rows created in the nhrpCacheTable which do not have corresponding rows in this table.  For example, if the nhrpCacheTable has a row added due to a Next Hop Client which is co\-resident on the same device as the NHS, a row will not be added to this table
-    	**type**\:  :py:class:`Nhrpservercachetable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpservercachetable>`
+    	**type**\:  :py:class:`NhrpServerCacheTable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpServerCacheTable>`
     
     .. attribute:: nhrpservernhctable
     
     	A table of NHCs that are available for use by this NHS (Server)
-    	**type**\:  :py:class:`Nhrpservernhctable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpservernhctable>`
+    	**type**\:  :py:class:`NhrpServerNhcTable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpServerNhcTable>`
     
     .. attribute:: nhrpserverstattable
     
     	Statistics collected by Next Hop Servers
-    	**type**\:  :py:class:`Nhrpserverstattable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpserverstattable>`
+    	**type**\:  :py:class:`NhrpServerStatTable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpServerStatTable>`
     
     
 
@@ -88,68 +88,59 @@ class NHRPMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nhrpGeneralObjects", ("nhrpgeneralobjects", NHRPMIB.Nhrpgeneralobjects)), ("nhrpCacheTable", ("nhrpcachetable", NHRPMIB.Nhrpcachetable)), ("nhrpPurgeReqTable", ("nhrppurgereqtable", NHRPMIB.Nhrppurgereqtable)), ("nhrpClientTable", ("nhrpclienttable", NHRPMIB.Nhrpclienttable)), ("nhrpClientRegistrationTable", ("nhrpclientregistrationtable", NHRPMIB.Nhrpclientregistrationtable)), ("nhrpClientNhsTable", ("nhrpclientnhstable", NHRPMIB.Nhrpclientnhstable)), ("nhrpClientStatTable", ("nhrpclientstattable", NHRPMIB.Nhrpclientstattable)), ("nhrpServerTable", ("nhrpservertable", NHRPMIB.Nhrpservertable)), ("nhrpServerCacheTable", ("nhrpservercachetable", NHRPMIB.Nhrpservercachetable)), ("nhrpServerNhcTable", ("nhrpservernhctable", NHRPMIB.Nhrpservernhctable)), ("nhrpServerStatTable", ("nhrpserverstattable", NHRPMIB.Nhrpserverstattable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nhrpGeneralObjects", ("nhrpgeneralobjects", NHRPMIB.NhrpGeneralObjects)), ("nhrpCacheTable", ("nhrpcachetable", NHRPMIB.NhrpCacheTable)), ("nhrpPurgeReqTable", ("nhrppurgereqtable", NHRPMIB.NhrpPurgeReqTable)), ("nhrpClientTable", ("nhrpclienttable", NHRPMIB.NhrpClientTable)), ("nhrpClientRegistrationTable", ("nhrpclientregistrationtable", NHRPMIB.NhrpClientRegistrationTable)), ("nhrpClientNhsTable", ("nhrpclientnhstable", NHRPMIB.NhrpClientNhsTable)), ("nhrpClientStatTable", ("nhrpclientstattable", NHRPMIB.NhrpClientStatTable)), ("nhrpServerTable", ("nhrpservertable", NHRPMIB.NhrpServerTable)), ("nhrpServerCacheTable", ("nhrpservercachetable", NHRPMIB.NhrpServerCacheTable)), ("nhrpServerNhcTable", ("nhrpservernhctable", NHRPMIB.NhrpServerNhcTable)), ("nhrpServerStatTable", ("nhrpserverstattable", NHRPMIB.NhrpServerStatTable))])
         self._leafs = OrderedDict()
 
-        self.nhrpgeneralobjects = NHRPMIB.Nhrpgeneralobjects()
+        self.nhrpgeneralobjects = NHRPMIB.NhrpGeneralObjects()
         self.nhrpgeneralobjects.parent = self
         self._children_name_map["nhrpgeneralobjects"] = "nhrpGeneralObjects"
-        self._children_yang_names.add("nhrpGeneralObjects")
 
-        self.nhrpcachetable = NHRPMIB.Nhrpcachetable()
+        self.nhrpcachetable = NHRPMIB.NhrpCacheTable()
         self.nhrpcachetable.parent = self
         self._children_name_map["nhrpcachetable"] = "nhrpCacheTable"
-        self._children_yang_names.add("nhrpCacheTable")
 
-        self.nhrppurgereqtable = NHRPMIB.Nhrppurgereqtable()
+        self.nhrppurgereqtable = NHRPMIB.NhrpPurgeReqTable()
         self.nhrppurgereqtable.parent = self
         self._children_name_map["nhrppurgereqtable"] = "nhrpPurgeReqTable"
-        self._children_yang_names.add("nhrpPurgeReqTable")
 
-        self.nhrpclienttable = NHRPMIB.Nhrpclienttable()
+        self.nhrpclienttable = NHRPMIB.NhrpClientTable()
         self.nhrpclienttable.parent = self
         self._children_name_map["nhrpclienttable"] = "nhrpClientTable"
-        self._children_yang_names.add("nhrpClientTable")
 
-        self.nhrpclientregistrationtable = NHRPMIB.Nhrpclientregistrationtable()
+        self.nhrpclientregistrationtable = NHRPMIB.NhrpClientRegistrationTable()
         self.nhrpclientregistrationtable.parent = self
         self._children_name_map["nhrpclientregistrationtable"] = "nhrpClientRegistrationTable"
-        self._children_yang_names.add("nhrpClientRegistrationTable")
 
-        self.nhrpclientnhstable = NHRPMIB.Nhrpclientnhstable()
+        self.nhrpclientnhstable = NHRPMIB.NhrpClientNhsTable()
         self.nhrpclientnhstable.parent = self
         self._children_name_map["nhrpclientnhstable"] = "nhrpClientNhsTable"
-        self._children_yang_names.add("nhrpClientNhsTable")
 
-        self.nhrpclientstattable = NHRPMIB.Nhrpclientstattable()
+        self.nhrpclientstattable = NHRPMIB.NhrpClientStatTable()
         self.nhrpclientstattable.parent = self
         self._children_name_map["nhrpclientstattable"] = "nhrpClientStatTable"
-        self._children_yang_names.add("nhrpClientStatTable")
 
-        self.nhrpservertable = NHRPMIB.Nhrpservertable()
+        self.nhrpservertable = NHRPMIB.NhrpServerTable()
         self.nhrpservertable.parent = self
         self._children_name_map["nhrpservertable"] = "nhrpServerTable"
-        self._children_yang_names.add("nhrpServerTable")
 
-        self.nhrpservercachetable = NHRPMIB.Nhrpservercachetable()
+        self.nhrpservercachetable = NHRPMIB.NhrpServerCacheTable()
         self.nhrpservercachetable.parent = self
         self._children_name_map["nhrpservercachetable"] = "nhrpServerCacheTable"
-        self._children_yang_names.add("nhrpServerCacheTable")
 
-        self.nhrpservernhctable = NHRPMIB.Nhrpservernhctable()
+        self.nhrpservernhctable = NHRPMIB.NhrpServerNhcTable()
         self.nhrpservernhctable.parent = self
         self._children_name_map["nhrpservernhctable"] = "nhrpServerNhcTable"
-        self._children_yang_names.add("nhrpServerNhcTable")
 
-        self.nhrpserverstattable = NHRPMIB.Nhrpserverstattable()
+        self.nhrpserverstattable = NHRPMIB.NhrpServerStatTable()
         self.nhrpserverstattable.parent = self
         self._children_name_map["nhrpserverstattable"] = "nhrpServerStatTable"
-        self._children_yang_names.add("nhrpServerStatTable")
         self._segment_path = lambda: "NHRP-MIB:NHRP-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(NHRPMIB, [], name, value)
 
-    class Nhrpgeneralobjects(Entity):
+
+    class NhrpGeneralObjects(Entity):
         """
         
         
@@ -168,15 +159,14 @@ class NHRPMIB(Entity):
         _revision = '1999-08-26'
 
         def __init__(self):
-            super(NHRPMIB.Nhrpgeneralobjects, self).__init__()
+            super(NHRPMIB.NhrpGeneralObjects, self).__init__()
 
             self.yang_name = "nhrpGeneralObjects"
             self.yang_parent_name = "NHRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('nhrpnextindex', YLeaf(YType.uint32, 'nhrpNextIndex')),
             ])
@@ -185,10 +175,10 @@ class NHRPMIB(Entity):
             self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NHRPMIB.Nhrpgeneralobjects, ['nhrpnextindex'], name, value)
+            self._perform_setattr(NHRPMIB.NhrpGeneralObjects, ['nhrpnextindex'], name, value)
 
 
-    class Nhrpcachetable(Entity):
+    class NhrpCacheTable(Entity):
         """
         This table contains mappings between internetwork layer
         addresses and NBMA subnetwork layer addresses.
@@ -196,7 +186,7 @@ class NHRPMIB(Entity):
         .. attribute:: nhrpcacheentry
         
         	A cached mapping between an internetwork layer address and an NBMA address. Entries can be created by the network administrator using the nhrpCacheRowStatus column, or they may be added dynamically based on protocol operation (including NHRP, SCSP, and others, such as ATMARP).  When created based by NHRP protocol operations this entry is largely based on contents contained in the Client Information Entry (CIE).  Zero or more Client Information Entries (CIEs) may be included in the NHRP Packet. For a complete description of the CIE, refer to Section 5.2.0.1 of RFC 2332 [17]
-        	**type**\: list of  		 :py:class:`Nhrpcacheentry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpcachetable.Nhrpcacheentry>`
+        	**type**\: list of  		 :py:class:`NhrpCacheEntry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpCacheTable.NhrpCacheEntry>`
         
         
 
@@ -206,15 +196,14 @@ class NHRPMIB(Entity):
         _revision = '1999-08-26'
 
         def __init__(self):
-            super(NHRPMIB.Nhrpcachetable, self).__init__()
+            super(NHRPMIB.NhrpCacheTable, self).__init__()
 
             self.yang_name = "nhrpCacheTable"
             self.yang_parent_name = "NHRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("nhrpCacheEntry", ("nhrpcacheentry", NHRPMIB.Nhrpcachetable.Nhrpcacheentry))])
+            self._child_classes = OrderedDict([("nhrpCacheEntry", ("nhrpcacheentry", NHRPMIB.NhrpCacheTable.NhrpCacheEntry))])
             self._leafs = OrderedDict()
 
             self.nhrpcacheentry = YList(self)
@@ -222,10 +211,10 @@ class NHRPMIB(Entity):
             self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NHRPMIB.Nhrpcachetable, [], name, value)
+            self._perform_setattr(NHRPMIB.NhrpCacheTable, [], name, value)
 
 
-        class Nhrpcacheentry(Entity):
+        class NhrpCacheEntry(Entity):
             """
             A cached mapping between an internetwork layer address
             and an NBMA address. Entries can be created by the
@@ -262,7 +251,7 @@ class NHRPMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: nhrpcacheindex  (key)
             
@@ -307,12 +296,12 @@ class NHRPMIB(Entity):
             .. attribute:: nhrpcachetype
             
             	An indication of how this cache entry was created. The values are\:  'other(1)'                   The entry was added by some                              other means.  'register(2)'                In a server, added based on a                              client registration.  'resolveAuthoritative(3)'    In a client, added based on                              receiving an Authoritative                              NHRP Resolution Reply.     'resolveNonauthoritative(4)' In a client, added based on                              receiving a Nonauthoritative                              NHRP Resolution Reply.  'transit(5)'                 In a transit server, added by                              examining a forwarded NHRP                              packet.  'administrativelyAdded(6)'   In a client or server,                              manually added by the                              administrator. The                              StorageType of this entry is                              reflected in                              'nhrpCacheStorageType'.  'atmarp(7)'                  The entry was added due to an                              ATMARP.  'scsp(8)'                    The entry was added due to                              SCSP.   When the entry is under creation using the nhrpCacheRowStatus column, the only value that can be specified by the administrator is 'administrativelyAdded'. Attempting to set any other value will cause an 'inconsistentValue' error.  The value cannot be modified once the entry is active
-            	**type**\:  :py:class:`Nhrpcachetype <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpcachetable.Nhrpcacheentry.Nhrpcachetype>`
+            	**type**\:  :py:class:`NhrpCacheType <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpCacheTable.NhrpCacheEntry.NhrpCacheType>`
             
             .. attribute:: nhrpcachestate
             
             	An indication of the state of this entry. The values are\:  'incomplete(1)' The client has sent a NHRP Resolution                 Request but has not yet received the                 NHRP Resolution Reply.   'ackReply(2)'   For a client or server, this is a                 cached valid mapping.  'nakReply(3)'   For a client or server, this is a                 cached NAK mapping
-            	**type**\:  :py:class:`Nhrpcachestate <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpcachetable.Nhrpcacheentry.Nhrpcachestate>`
+            	**type**\:  :py:class:`NhrpCacheState <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpCacheTable.NhrpCacheEntry.NhrpCacheState>`
             
             .. attribute:: nhrpcacheholdingtimevalid
             
@@ -360,15 +349,14 @@ class NHRPMIB(Entity):
             _revision = '1999-08-26'
 
             def __init__(self):
-                super(NHRPMIB.Nhrpcachetable.Nhrpcacheentry, self).__init__()
+                super(NHRPMIB.NhrpCacheTable.NhrpCacheEntry, self).__init__()
 
                 self.yang_name = "nhrpCacheEntry"
                 self.yang_parent_name = "nhrpCacheTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['nhrpcacheinternetworkaddrtype','nhrpcacheinternetworkaddr','ifindex','nhrpcacheindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('nhrpcacheinternetworkaddrtype', YLeaf(YType.enumeration, 'nhrpCacheInternetworkAddrType')),
                     ('nhrpcacheinternetworkaddr', YLeaf(YType.str, 'nhrpCacheInternetworkAddr')),
@@ -409,11 +397,11 @@ class NHRPMIB(Entity):
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpCacheTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NHRPMIB.Nhrpcachetable.Nhrpcacheentry, ['nhrpcacheinternetworkaddrtype', 'nhrpcacheinternetworkaddr', 'ifindex', 'nhrpcacheindex', 'nhrpcacheprefixlength', 'nhrpcachenexthopinternetworkaddr', 'nhrpcachenbmaaddrtype', 'nhrpcachenbmaaddr', 'nhrpcachenbmasubaddr', 'nhrpcachetype', 'nhrpcachestate', 'nhrpcacheholdingtimevalid', 'nhrpcacheholdingtime', 'nhrpcachenegotiatedmtu', 'nhrpcachepreference', 'nhrpcachestoragetype', 'nhrpcacherowstatus'], name, value)
+                self._perform_setattr(NHRPMIB.NhrpCacheTable.NhrpCacheEntry, ['nhrpcacheinternetworkaddrtype', 'nhrpcacheinternetworkaddr', 'ifindex', 'nhrpcacheindex', 'nhrpcacheprefixlength', 'nhrpcachenexthopinternetworkaddr', 'nhrpcachenbmaaddrtype', 'nhrpcachenbmaaddr', 'nhrpcachenbmasubaddr', 'nhrpcachetype', 'nhrpcachestate', 'nhrpcacheholdingtimevalid', 'nhrpcacheholdingtime', 'nhrpcachenegotiatedmtu', 'nhrpcachepreference', 'nhrpcachestoragetype', 'nhrpcacherowstatus'], name, value)
 
-            class Nhrpcachestate(Enum):
+            class NhrpCacheState(Enum):
                 """
-                Nhrpcachestate (Enum Class)
+                NhrpCacheState (Enum Class)
 
                 An indication of the state of this entry. The values are\:
 
@@ -446,9 +434,9 @@ class NHRPMIB(Entity):
                 nakReply = Enum.YLeaf(3, "nakReply")
 
 
-            class Nhrpcachetype(Enum):
+            class NhrpCacheType(Enum):
                 """
-                Nhrpcachetype (Enum Class)
+                NhrpCacheType (Enum Class)
 
                 An indication of how this cache entry
 
@@ -548,14 +536,14 @@ class NHRPMIB(Entity):
 
 
 
-    class Nhrppurgereqtable(Entity):
+    class NhrpPurgeReqTable(Entity):
         """
         This table will track Purge Request Information.
         
         .. attribute:: nhrppurgereqentry
         
         	Information regarding a Purge Request
-        	**type**\: list of  		 :py:class:`Nhrppurgereqentry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrppurgereqtable.Nhrppurgereqentry>`
+        	**type**\: list of  		 :py:class:`NhrpPurgeReqEntry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpPurgeReqTable.NhrpPurgeReqEntry>`
         
         
 
@@ -565,15 +553,14 @@ class NHRPMIB(Entity):
         _revision = '1999-08-26'
 
         def __init__(self):
-            super(NHRPMIB.Nhrppurgereqtable, self).__init__()
+            super(NHRPMIB.NhrpPurgeReqTable, self).__init__()
 
             self.yang_name = "nhrpPurgeReqTable"
             self.yang_parent_name = "NHRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("nhrpPurgeReqEntry", ("nhrppurgereqentry", NHRPMIB.Nhrppurgereqtable.Nhrppurgereqentry))])
+            self._child_classes = OrderedDict([("nhrpPurgeReqEntry", ("nhrppurgereqentry", NHRPMIB.NhrpPurgeReqTable.NhrpPurgeReqEntry))])
             self._leafs = OrderedDict()
 
             self.nhrppurgereqentry = YList(self)
@@ -581,10 +568,10 @@ class NHRPMIB(Entity):
             self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NHRPMIB.Nhrppurgereqtable, [], name, value)
+            self._perform_setattr(NHRPMIB.NhrpPurgeReqTable, [], name, value)
 
 
-        class Nhrppurgereqentry(Entity):
+        class NhrpPurgeReqEntry(Entity):
             """
             Information regarding a Purge Request.
             
@@ -634,15 +621,14 @@ class NHRPMIB(Entity):
             _revision = '1999-08-26'
 
             def __init__(self):
-                super(NHRPMIB.Nhrppurgereqtable.Nhrppurgereqentry, self).__init__()
+                super(NHRPMIB.NhrpPurgeReqTable.NhrpPurgeReqEntry, self).__init__()
 
                 self.yang_name = "nhrpPurgeReqEntry"
                 self.yang_parent_name = "nhrpPurgeReqTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['nhrppurgeindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('nhrppurgeindex', YLeaf(YType.uint32, 'nhrpPurgeIndex')),
                     ('nhrppurgecacheidentifier', YLeaf(YType.uint32, 'nhrpPurgeCacheIdentifier')),
@@ -661,10 +647,10 @@ class NHRPMIB(Entity):
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpPurgeReqTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NHRPMIB.Nhrppurgereqtable.Nhrppurgereqentry, ['nhrppurgeindex', 'nhrppurgecacheidentifier', 'nhrppurgeprefixlength', 'nhrppurgerequestid', 'nhrppurgereplyexpected', 'nhrppurgerowstatus'], name, value)
+                self._perform_setattr(NHRPMIB.NhrpPurgeReqTable.NhrpPurgeReqEntry, ['nhrppurgeindex', 'nhrppurgecacheidentifier', 'nhrppurgeprefixlength', 'nhrppurgerequestid', 'nhrppurgereplyexpected', 'nhrppurgerowstatus'], name, value)
 
 
-    class Nhrpclienttable(Entity):
+    class NhrpClientTable(Entity):
         """
         Information about NHRP clients (NHCs) managed by this
         agent.
@@ -672,7 +658,7 @@ class NHRPMIB(Entity):
         .. attribute:: nhrpcliententry
         
         	Information about a single NHC
-        	**type**\: list of  		 :py:class:`Nhrpcliententry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclienttable.Nhrpcliententry>`
+        	**type**\: list of  		 :py:class:`NhrpClientEntry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpClientTable.NhrpClientEntry>`
         
         
 
@@ -682,15 +668,14 @@ class NHRPMIB(Entity):
         _revision = '1999-08-26'
 
         def __init__(self):
-            super(NHRPMIB.Nhrpclienttable, self).__init__()
+            super(NHRPMIB.NhrpClientTable, self).__init__()
 
             self.yang_name = "nhrpClientTable"
             self.yang_parent_name = "NHRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("nhrpClientEntry", ("nhrpcliententry", NHRPMIB.Nhrpclienttable.Nhrpcliententry))])
+            self._child_classes = OrderedDict([("nhrpClientEntry", ("nhrpcliententry", NHRPMIB.NhrpClientTable.NhrpClientEntry))])
             self._leafs = OrderedDict()
 
             self.nhrpcliententry = YList(self)
@@ -698,10 +683,10 @@ class NHRPMIB(Entity):
             self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NHRPMIB.Nhrpclienttable, [], name, value)
+            self._perform_setattr(NHRPMIB.NhrpClientTable, [], name, value)
 
 
-        class Nhrpcliententry(Entity):
+        class NhrpClientEntry(Entity):
             """
             Information about a single NHC.
             
@@ -814,15 +799,14 @@ class NHRPMIB(Entity):
             _revision = '1999-08-26'
 
             def __init__(self):
-                super(NHRPMIB.Nhrpclienttable.Nhrpcliententry, self).__init__()
+                super(NHRPMIB.NhrpClientTable.NhrpClientEntry, self).__init__()
 
                 self.yang_name = "nhrpClientEntry"
                 self.yang_parent_name = "nhrpClientTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['nhrpclientindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('nhrpclientindex', YLeaf(YType.uint32, 'nhrpClientIndex')),
                     ('nhrpclientinternetworkaddrtype', YLeaf(YType.enumeration, 'nhrpClientInternetworkAddrType')),
@@ -859,10 +843,10 @@ class NHRPMIB(Entity):
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpClientTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NHRPMIB.Nhrpclienttable.Nhrpcliententry, ['nhrpclientindex', 'nhrpclientinternetworkaddrtype', 'nhrpclientinternetworkaddr', 'nhrpclientnbmaaddrtype', 'nhrpclientnbmaaddr', 'nhrpclientnbmasubaddr', 'nhrpclientinitialrequesttimeout', 'nhrpclientregistrationrequestretries', 'nhrpclientresolutionrequestretries', 'nhrpclientpurgerequestretries', 'nhrpclientdefaultmtu', 'nhrpclientholdtime', 'nhrpclientrequestid', 'nhrpclientstoragetype', 'nhrpclientrowstatus'], name, value)
+                self._perform_setattr(NHRPMIB.NhrpClientTable.NhrpClientEntry, ['nhrpclientindex', 'nhrpclientinternetworkaddrtype', 'nhrpclientinternetworkaddr', 'nhrpclientnbmaaddrtype', 'nhrpclientnbmaaddr', 'nhrpclientnbmasubaddr', 'nhrpclientinitialrequesttimeout', 'nhrpclientregistrationrequestretries', 'nhrpclientresolutionrequestretries', 'nhrpclientpurgerequestretries', 'nhrpclientdefaultmtu', 'nhrpclientholdtime', 'nhrpclientrequestid', 'nhrpclientstoragetype', 'nhrpclientrowstatus'], name, value)
 
 
-    class Nhrpclientregistrationtable(Entity):
+    class NhrpClientRegistrationTable(Entity):
         """
         A table of Registration Request Information that
         needs to be maintained by the NHCs (clients).
@@ -870,7 +854,7 @@ class NHRPMIB(Entity):
         .. attribute:: nhrpclientregistrationentry
         
         	An NHC needs to maintain registration request information between the NHC and the NHS.  An entry in this table represents information for a single registration request
-        	**type**\: list of  		 :py:class:`Nhrpclientregistrationentry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclientregistrationtable.Nhrpclientregistrationentry>`
+        	**type**\: list of  		 :py:class:`NhrpClientRegistrationEntry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpClientRegistrationTable.NhrpClientRegistrationEntry>`
         
         
 
@@ -880,15 +864,14 @@ class NHRPMIB(Entity):
         _revision = '1999-08-26'
 
         def __init__(self):
-            super(NHRPMIB.Nhrpclientregistrationtable, self).__init__()
+            super(NHRPMIB.NhrpClientRegistrationTable, self).__init__()
 
             self.yang_name = "nhrpClientRegistrationTable"
             self.yang_parent_name = "NHRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("nhrpClientRegistrationEntry", ("nhrpclientregistrationentry", NHRPMIB.Nhrpclientregistrationtable.Nhrpclientregistrationentry))])
+            self._child_classes = OrderedDict([("nhrpClientRegistrationEntry", ("nhrpclientregistrationentry", NHRPMIB.NhrpClientRegistrationTable.NhrpClientRegistrationEntry))])
             self._leafs = OrderedDict()
 
             self.nhrpclientregistrationentry = YList(self)
@@ -896,10 +879,10 @@ class NHRPMIB(Entity):
             self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NHRPMIB.Nhrpclientregistrationtable, [], name, value)
+            self._perform_setattr(NHRPMIB.NhrpClientRegistrationTable, [], name, value)
 
 
-        class Nhrpclientregistrationentry(Entity):
+        class NhrpClientRegistrationEntry(Entity):
             """
             An NHC needs to maintain registration request information
             between the NHC and the NHS.  An entry in this table
@@ -912,7 +895,7 @@ class NHRPMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`nhrpclientindex <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclienttable.Nhrpcliententry>`
+            	**refers to**\:  :py:class:`nhrpclientindex <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpClientTable.NhrpClientEntry>`
             
             .. attribute:: nhrpclientregindex  (key)
             
@@ -924,12 +907,12 @@ class NHRPMIB(Entity):
             .. attribute:: nhrpclientreguniqueness
             
             	The Uniqueness indicator for this Registration Request. If this object has the value of requestUnique(1), then the Uniqueness bit is set in the the NHRP Registration Request represented by this row.  The value cannot be changed once the row is created
-            	**type**\:  :py:class:`Nhrpclientreguniqueness <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclientregistrationtable.Nhrpclientregistrationentry.Nhrpclientreguniqueness>`
+            	**type**\:  :py:class:`NhrpClientRegUniqueness <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpClientRegistrationTable.NhrpClientRegistrationEntry.NhrpClientRegUniqueness>`
             
             .. attribute:: nhrpclientregstate
             
             	The registration state of this client. The values are\: 'other(1)'             The state of the registration                        request is not one of                        'registering',                        'ackRegisterReply' or                        'nakRegisterReply'.  'registering(2)'        A registration request has                         been issued and a registration                         reply is expected.  'ackRegisterReply(3)'   A positive registration reply                         has been received.  'nakRegisterReply(4)'   The client has received a                         negative registration                         reply (NAK)
-            	**type**\:  :py:class:`Nhrpclientregstate <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclientregistrationtable.Nhrpclientregistrationentry.Nhrpclientregstate>`
+            	**type**\:  :py:class:`NhrpClientRegState <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpClientRegistrationTable.NhrpClientRegistrationEntry.NhrpClientRegState>`
             
             .. attribute:: nhrpclientregrowstatus
             
@@ -944,15 +927,14 @@ class NHRPMIB(Entity):
             _revision = '1999-08-26'
 
             def __init__(self):
-                super(NHRPMIB.Nhrpclientregistrationtable.Nhrpclientregistrationentry, self).__init__()
+                super(NHRPMIB.NhrpClientRegistrationTable.NhrpClientRegistrationEntry, self).__init__()
 
                 self.yang_name = "nhrpClientRegistrationEntry"
                 self.yang_parent_name = "nhrpClientRegistrationTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['nhrpclientindex','nhrpclientregindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('nhrpclientindex', YLeaf(YType.str, 'nhrpClientIndex')),
                     ('nhrpclientregindex', YLeaf(YType.uint32, 'nhrpClientRegIndex')),
@@ -969,11 +951,11 @@ class NHRPMIB(Entity):
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpClientRegistrationTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NHRPMIB.Nhrpclientregistrationtable.Nhrpclientregistrationentry, ['nhrpclientindex', 'nhrpclientregindex', 'nhrpclientreguniqueness', 'nhrpclientregstate', 'nhrpclientregrowstatus'], name, value)
+                self._perform_setattr(NHRPMIB.NhrpClientRegistrationTable.NhrpClientRegistrationEntry, ['nhrpclientindex', 'nhrpclientregindex', 'nhrpclientreguniqueness', 'nhrpclientregstate', 'nhrpclientregrowstatus'], name, value)
 
-            class Nhrpclientregstate(Enum):
+            class NhrpClientRegState(Enum):
                 """
-                Nhrpclientregstate (Enum Class)
+                NhrpClientRegState (Enum Class)
 
                 The registration state of this client. The values are\:
 
@@ -1022,9 +1004,9 @@ class NHRPMIB(Entity):
                 nakRegisterReply = Enum.YLeaf(4, "nakRegisterReply")
 
 
-            class Nhrpclientreguniqueness(Enum):
+            class NhrpClientRegUniqueness(Enum):
                 """
-                Nhrpclientreguniqueness (Enum Class)
+                NhrpClientRegUniqueness (Enum Class)
 
                 The Uniqueness indicator for this Registration Request.
 
@@ -1048,7 +1030,7 @@ class NHRPMIB(Entity):
 
 
 
-    class Nhrpclientnhstable(Entity):
+    class NhrpClientNhsTable(Entity):
         """
         A table of NHSes that are available for use by this NHC
         (client). By default, the agent will add an entry to this
@@ -1057,7 +1039,7 @@ class NHRPMIB(Entity):
         .. attribute:: nhrpclientnhsentry
         
         	An NHS that may be used by an NHC
-        	**type**\: list of  		 :py:class:`Nhrpclientnhsentry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclientnhstable.Nhrpclientnhsentry>`
+        	**type**\: list of  		 :py:class:`NhrpClientNhsEntry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpClientNhsTable.NhrpClientNhsEntry>`
         
         
 
@@ -1067,15 +1049,14 @@ class NHRPMIB(Entity):
         _revision = '1999-08-26'
 
         def __init__(self):
-            super(NHRPMIB.Nhrpclientnhstable, self).__init__()
+            super(NHRPMIB.NhrpClientNhsTable, self).__init__()
 
             self.yang_name = "nhrpClientNhsTable"
             self.yang_parent_name = "NHRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("nhrpClientNhsEntry", ("nhrpclientnhsentry", NHRPMIB.Nhrpclientnhstable.Nhrpclientnhsentry))])
+            self._child_classes = OrderedDict([("nhrpClientNhsEntry", ("nhrpclientnhsentry", NHRPMIB.NhrpClientNhsTable.NhrpClientNhsEntry))])
             self._leafs = OrderedDict()
 
             self.nhrpclientnhsentry = YList(self)
@@ -1083,10 +1064,10 @@ class NHRPMIB(Entity):
             self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NHRPMIB.Nhrpclientnhstable, [], name, value)
+            self._perform_setattr(NHRPMIB.NhrpClientNhsTable, [], name, value)
 
 
-        class Nhrpclientnhsentry(Entity):
+        class NhrpClientNhsEntry(Entity):
             """
             An NHS that may be used by an NHC.
             
@@ -1097,7 +1078,7 @@ class NHRPMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`nhrpclientindex <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclienttable.Nhrpcliententry>`
+            	**refers to**\:  :py:class:`nhrpclientindex <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpClientTable.NhrpClientEntry>`
             
             .. attribute:: nhrpclientnhsindex  (key)
             
@@ -1155,15 +1136,14 @@ class NHRPMIB(Entity):
             _revision = '1999-08-26'
 
             def __init__(self):
-                super(NHRPMIB.Nhrpclientnhstable.Nhrpclientnhsentry, self).__init__()
+                super(NHRPMIB.NhrpClientNhsTable.NhrpClientNhsEntry, self).__init__()
 
                 self.yang_name = "nhrpClientNhsEntry"
                 self.yang_parent_name = "nhrpClientNhsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['nhrpclientindex','nhrpclientnhsindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('nhrpclientindex', YLeaf(YType.str, 'nhrpClientIndex')),
                     ('nhrpclientnhsindex', YLeaf(YType.uint32, 'nhrpClientNhsIndex')),
@@ -1188,10 +1168,10 @@ class NHRPMIB(Entity):
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpClientNhsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NHRPMIB.Nhrpclientnhstable.Nhrpclientnhsentry, ['nhrpclientindex', 'nhrpclientnhsindex', 'nhrpclientnhsinternetworkaddrtype', 'nhrpclientnhsinternetworkaddr', 'nhrpclientnhsnbmaaddrtype', 'nhrpclientnhsnbmaaddr', 'nhrpclientnhsnbmasubaddr', 'nhrpclientnhsinuse', 'nhrpclientnhsrowstatus'], name, value)
+                self._perform_setattr(NHRPMIB.NhrpClientNhsTable.NhrpClientNhsEntry, ['nhrpclientindex', 'nhrpclientnhsindex', 'nhrpclientnhsinternetworkaddrtype', 'nhrpclientnhsinternetworkaddr', 'nhrpclientnhsnbmaaddrtype', 'nhrpclientnhsnbmaaddr', 'nhrpclientnhsnbmasubaddr', 'nhrpclientnhsinuse', 'nhrpclientnhsrowstatus'], name, value)
 
 
-    class Nhrpclientstattable(Entity):
+    class NhrpClientStatTable(Entity):
         """
         This table contains statistics collected by NHRP
         clients.
@@ -1199,7 +1179,7 @@ class NHRPMIB(Entity):
         .. attribute:: nhrpclientstatentry
         
         	Statistics collected by a NHRP client
-        	**type**\: list of  		 :py:class:`Nhrpclientstatentry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclientstattable.Nhrpclientstatentry>`
+        	**type**\: list of  		 :py:class:`NhrpClientStatEntry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpClientStatTable.NhrpClientStatEntry>`
         
         
 
@@ -1209,15 +1189,14 @@ class NHRPMIB(Entity):
         _revision = '1999-08-26'
 
         def __init__(self):
-            super(NHRPMIB.Nhrpclientstattable, self).__init__()
+            super(NHRPMIB.NhrpClientStatTable, self).__init__()
 
             self.yang_name = "nhrpClientStatTable"
             self.yang_parent_name = "NHRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("nhrpClientStatEntry", ("nhrpclientstatentry", NHRPMIB.Nhrpclientstattable.Nhrpclientstatentry))])
+            self._child_classes = OrderedDict([("nhrpClientStatEntry", ("nhrpclientstatentry", NHRPMIB.NhrpClientStatTable.NhrpClientStatEntry))])
             self._leafs = OrderedDict()
 
             self.nhrpclientstatentry = YList(self)
@@ -1225,10 +1204,10 @@ class NHRPMIB(Entity):
             self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NHRPMIB.Nhrpclientstattable, [], name, value)
+            self._perform_setattr(NHRPMIB.NhrpClientStatTable, [], name, value)
 
 
-        class Nhrpclientstatentry(Entity):
+        class NhrpClientStatEntry(Entity):
             """
             Statistics collected by a NHRP client.
             
@@ -1239,7 +1218,7 @@ class NHRPMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`nhrpclientindex <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclienttable.Nhrpcliententry>`
+            	**refers to**\:  :py:class:`nhrpclientindex <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpClientTable.NhrpClientEntry>`
             
             .. attribute:: nhrpclientstattxresolvereq
             
@@ -1424,15 +1403,14 @@ class NHRPMIB(Entity):
             _revision = '1999-08-26'
 
             def __init__(self):
-                super(NHRPMIB.Nhrpclientstattable.Nhrpclientstatentry, self).__init__()
+                super(NHRPMIB.NhrpClientStatTable.NhrpClientStatEntry, self).__init__()
 
                 self.yang_name = "nhrpClientStatEntry"
                 self.yang_parent_name = "nhrpClientStatTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['nhrpclientindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('nhrpclientindex', YLeaf(YType.str, 'nhrpClientIndex')),
                     ('nhrpclientstattxresolvereq', YLeaf(YType.uint32, 'nhrpClientStatTxResolveReq')),
@@ -1491,10 +1469,10 @@ class NHRPMIB(Entity):
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpClientStatTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NHRPMIB.Nhrpclientstattable.Nhrpclientstatentry, ['nhrpclientindex', 'nhrpclientstattxresolvereq', 'nhrpclientstatrxresolvereplyack', 'nhrpclientstatrxresolvereplynakprohibited', 'nhrpclientstatrxresolvereplynakinsufresources', 'nhrpclientstatrxresolvereplynaknobinding', 'nhrpclientstatrxresolvereplynaknotunique', 'nhrpclientstattxregisterreq', 'nhrpclientstatrxregisterack', 'nhrpclientstatrxregisternakprohibited', 'nhrpclientstatrxregisternakinsufresources', 'nhrpclientstatrxregisternakalreadyreg', 'nhrpclientstatrxpurgereq', 'nhrpclientstattxpurgereq', 'nhrpclientstatrxpurgereply', 'nhrpclientstattxpurgereply', 'nhrpclientstattxerrorindication', 'nhrpclientstatrxerrunrecognizedextension', 'nhrpclientstatrxerrloopdetected', 'nhrpclientstatrxerrprotoaddrunreachable', 'nhrpclientstatrxerrprotoerror', 'nhrpclientstatrxerrsdusizeexceeded', 'nhrpclientstatrxerrinvalidextension', 'nhrpclientstatrxerrauthenticationfailure', 'nhrpclientstatrxerrhopcountexceeded', 'nhrpclientstatdiscontinuitytime'], name, value)
+                self._perform_setattr(NHRPMIB.NhrpClientStatTable.NhrpClientStatEntry, ['nhrpclientindex', 'nhrpclientstattxresolvereq', 'nhrpclientstatrxresolvereplyack', 'nhrpclientstatrxresolvereplynakprohibited', 'nhrpclientstatrxresolvereplynakinsufresources', 'nhrpclientstatrxresolvereplynaknobinding', 'nhrpclientstatrxresolvereplynaknotunique', 'nhrpclientstattxregisterreq', 'nhrpclientstatrxregisterack', 'nhrpclientstatrxregisternakprohibited', 'nhrpclientstatrxregisternakinsufresources', 'nhrpclientstatrxregisternakalreadyreg', 'nhrpclientstatrxpurgereq', 'nhrpclientstattxpurgereq', 'nhrpclientstatrxpurgereply', 'nhrpclientstattxpurgereply', 'nhrpclientstattxerrorindication', 'nhrpclientstatrxerrunrecognizedextension', 'nhrpclientstatrxerrloopdetected', 'nhrpclientstatrxerrprotoaddrunreachable', 'nhrpclientstatrxerrprotoerror', 'nhrpclientstatrxerrsdusizeexceeded', 'nhrpclientstatrxerrinvalidextension', 'nhrpclientstatrxerrauthenticationfailure', 'nhrpclientstatrxerrhopcountexceeded', 'nhrpclientstatdiscontinuitytime'], name, value)
 
 
-    class Nhrpservertable(Entity):
+    class NhrpServerTable(Entity):
         """
         This table contains information for a set of NHSes
         associated with this agent.
@@ -1502,7 +1480,7 @@ class NHRPMIB(Entity):
         .. attribute:: nhrpserverentry
         
         	Information about a single NHS
-        	**type**\: list of  		 :py:class:`Nhrpserverentry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpservertable.Nhrpserverentry>`
+        	**type**\: list of  		 :py:class:`NhrpServerEntry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpServerTable.NhrpServerEntry>`
         
         
 
@@ -1512,15 +1490,14 @@ class NHRPMIB(Entity):
         _revision = '1999-08-26'
 
         def __init__(self):
-            super(NHRPMIB.Nhrpservertable, self).__init__()
+            super(NHRPMIB.NhrpServerTable, self).__init__()
 
             self.yang_name = "nhrpServerTable"
             self.yang_parent_name = "NHRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("nhrpServerEntry", ("nhrpserverentry", NHRPMIB.Nhrpservertable.Nhrpserverentry))])
+            self._child_classes = OrderedDict([("nhrpServerEntry", ("nhrpserverentry", NHRPMIB.NhrpServerTable.NhrpServerEntry))])
             self._leafs = OrderedDict()
 
             self.nhrpserverentry = YList(self)
@@ -1528,10 +1505,10 @@ class NHRPMIB(Entity):
             self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NHRPMIB.Nhrpservertable, [], name, value)
+            self._perform_setattr(NHRPMIB.NhrpServerTable, [], name, value)
 
 
-        class Nhrpserverentry(Entity):
+        class NhrpServerEntry(Entity):
             """
             Information about a single NHS.
             
@@ -1591,15 +1568,14 @@ class NHRPMIB(Entity):
             _revision = '1999-08-26'
 
             def __init__(self):
-                super(NHRPMIB.Nhrpservertable.Nhrpserverentry, self).__init__()
+                super(NHRPMIB.NhrpServerTable.NhrpServerEntry, self).__init__()
 
                 self.yang_name = "nhrpServerEntry"
                 self.yang_parent_name = "nhrpServerTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['nhrpserverindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('nhrpserverindex', YLeaf(YType.uint32, 'nhrpServerIndex')),
                     ('nhrpserverinternetworkaddrtype', YLeaf(YType.enumeration, 'nhrpServerInternetworkAddrType')),
@@ -1622,10 +1598,10 @@ class NHRPMIB(Entity):
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpServerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NHRPMIB.Nhrpservertable.Nhrpserverentry, ['nhrpserverindex', 'nhrpserverinternetworkaddrtype', 'nhrpserverinternetworkaddr', 'nhrpservernbmaaddrtype', 'nhrpservernbmaaddr', 'nhrpservernbmasubaddr', 'nhrpserverstoragetype', 'nhrpserverrowstatus'], name, value)
+                self._perform_setattr(NHRPMIB.NhrpServerTable.NhrpServerEntry, ['nhrpserverindex', 'nhrpserverinternetworkaddrtype', 'nhrpserverinternetworkaddr', 'nhrpservernbmaaddrtype', 'nhrpservernbmaaddr', 'nhrpservernbmasubaddr', 'nhrpserverstoragetype', 'nhrpserverrowstatus'], name, value)
 
 
-    class Nhrpservercachetable(Entity):
+    class NhrpServerCacheTable(Entity):
         """
         This table extends the nhrpCacheTable for
         NHSes.  If the nhrpCacheTable has a row added due to
@@ -1643,7 +1619,7 @@ class NHRPMIB(Entity):
         .. attribute:: nhrpservercacheentry
         
         	Additional information kept by a NHS for a relevant Next Hop Resolution Cache entry
-        	**type**\: list of  		 :py:class:`Nhrpservercacheentry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpservercachetable.Nhrpservercacheentry>`
+        	**type**\: list of  		 :py:class:`NhrpServerCacheEntry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpServerCacheTable.NhrpServerCacheEntry>`
         
         
 
@@ -1653,15 +1629,14 @@ class NHRPMIB(Entity):
         _revision = '1999-08-26'
 
         def __init__(self):
-            super(NHRPMIB.Nhrpservercachetable, self).__init__()
+            super(NHRPMIB.NhrpServerCacheTable, self).__init__()
 
             self.yang_name = "nhrpServerCacheTable"
             self.yang_parent_name = "NHRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("nhrpServerCacheEntry", ("nhrpservercacheentry", NHRPMIB.Nhrpservercachetable.Nhrpservercacheentry))])
+            self._child_classes = OrderedDict([("nhrpServerCacheEntry", ("nhrpservercacheentry", NHRPMIB.NhrpServerCacheTable.NhrpServerCacheEntry))])
             self._leafs = OrderedDict()
 
             self.nhrpservercacheentry = YList(self)
@@ -1669,10 +1644,10 @@ class NHRPMIB(Entity):
             self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NHRPMIB.Nhrpservercachetable, [], name, value)
+            self._perform_setattr(NHRPMIB.NhrpServerCacheTable, [], name, value)
 
 
-        class Nhrpservercacheentry(Entity):
+        class NhrpServerCacheEntry(Entity):
             """
             Additional information kept by a NHS for a relevant
             Next Hop Resolution Cache entry.
@@ -1689,7 +1664,7 @@ class NHRPMIB(Entity):
             
             	**length:** 0..64
             
-            	**refers to**\:  :py:class:`nhrpcacheinternetworkaddr <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpcachetable.Nhrpcacheentry>`
+            	**refers to**\:  :py:class:`nhrpcacheinternetworkaddr <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpCacheTable.NhrpCacheEntry>`
             
             .. attribute:: ifindex  (key)
             
@@ -1698,7 +1673,7 @@ class NHRPMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: nhrpcacheindex  (key)
             
@@ -1707,7 +1682,7 @@ class NHRPMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`nhrpcacheindex <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpcachetable.Nhrpcacheentry>`
+            	**refers to**\:  :py:class:`nhrpcacheindex <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpCacheTable.NhrpCacheEntry>`
             
             .. attribute:: nhrpservercacheauthoritative
             
@@ -1727,15 +1702,14 @@ class NHRPMIB(Entity):
             _revision = '1999-08-26'
 
             def __init__(self):
-                super(NHRPMIB.Nhrpservercachetable.Nhrpservercacheentry, self).__init__()
+                super(NHRPMIB.NhrpServerCacheTable.NhrpServerCacheEntry, self).__init__()
 
                 self.yang_name = "nhrpServerCacheEntry"
                 self.yang_parent_name = "nhrpServerCacheTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['nhrpcacheinternetworkaddrtype','nhrpcacheinternetworkaddr','ifindex','nhrpcacheindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('nhrpcacheinternetworkaddrtype', YLeaf(YType.enumeration, 'nhrpCacheInternetworkAddrType')),
                     ('nhrpcacheinternetworkaddr', YLeaf(YType.str, 'nhrpCacheInternetworkAddr')),
@@ -1754,10 +1728,10 @@ class NHRPMIB(Entity):
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpServerCacheTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NHRPMIB.Nhrpservercachetable.Nhrpservercacheentry, ['nhrpcacheinternetworkaddrtype', 'nhrpcacheinternetworkaddr', 'ifindex', 'nhrpcacheindex', 'nhrpservercacheauthoritative', 'nhrpservercacheuniqueness'], name, value)
+                self._perform_setattr(NHRPMIB.NhrpServerCacheTable.NhrpServerCacheEntry, ['nhrpcacheinternetworkaddrtype', 'nhrpcacheinternetworkaddr', 'ifindex', 'nhrpcacheindex', 'nhrpservercacheauthoritative', 'nhrpservercacheuniqueness'], name, value)
 
 
-    class Nhrpservernhctable(Entity):
+    class NhrpServerNhcTable(Entity):
         """
         A table of NHCs that are available for use by this NHS
         (Server).
@@ -1765,7 +1739,7 @@ class NHRPMIB(Entity):
         .. attribute:: nhrpservernhcentry
         
         	An NHC that may be used by an NHS
-        	**type**\: list of  		 :py:class:`Nhrpservernhcentry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpservernhctable.Nhrpservernhcentry>`
+        	**type**\: list of  		 :py:class:`NhrpServerNhcEntry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpServerNhcTable.NhrpServerNhcEntry>`
         
         
 
@@ -1775,15 +1749,14 @@ class NHRPMIB(Entity):
         _revision = '1999-08-26'
 
         def __init__(self):
-            super(NHRPMIB.Nhrpservernhctable, self).__init__()
+            super(NHRPMIB.NhrpServerNhcTable, self).__init__()
 
             self.yang_name = "nhrpServerNhcTable"
             self.yang_parent_name = "NHRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("nhrpServerNhcEntry", ("nhrpservernhcentry", NHRPMIB.Nhrpservernhctable.Nhrpservernhcentry))])
+            self._child_classes = OrderedDict([("nhrpServerNhcEntry", ("nhrpservernhcentry", NHRPMIB.NhrpServerNhcTable.NhrpServerNhcEntry))])
             self._leafs = OrderedDict()
 
             self.nhrpservernhcentry = YList(self)
@@ -1791,10 +1764,10 @@ class NHRPMIB(Entity):
             self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NHRPMIB.Nhrpservernhctable, [], name, value)
+            self._perform_setattr(NHRPMIB.NhrpServerNhcTable, [], name, value)
 
 
-        class Nhrpservernhcentry(Entity):
+        class NhrpServerNhcEntry(Entity):
             """
             An NHC that may be used by an NHS.
             
@@ -1805,7 +1778,7 @@ class NHRPMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`nhrpserverindex <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpservertable.Nhrpserverentry>`
+            	**refers to**\:  :py:class:`nhrpserverindex <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpServerTable.NhrpServerEntry>`
             
             .. attribute:: nhrpservernhcindex  (key)
             
@@ -1870,15 +1843,14 @@ class NHRPMIB(Entity):
             _revision = '1999-08-26'
 
             def __init__(self):
-                super(NHRPMIB.Nhrpservernhctable.Nhrpservernhcentry, self).__init__()
+                super(NHRPMIB.NhrpServerNhcTable.NhrpServerNhcEntry, self).__init__()
 
                 self.yang_name = "nhrpServerNhcEntry"
                 self.yang_parent_name = "nhrpServerNhcTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['nhrpserverindex','nhrpservernhcindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('nhrpserverindex', YLeaf(YType.str, 'nhrpServerIndex')),
                     ('nhrpservernhcindex', YLeaf(YType.uint32, 'nhrpServerNhcIndex')),
@@ -1905,17 +1877,17 @@ class NHRPMIB(Entity):
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpServerNhcTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NHRPMIB.Nhrpservernhctable.Nhrpservernhcentry, ['nhrpserverindex', 'nhrpservernhcindex', 'nhrpservernhcprefixlength', 'nhrpservernhcinternetworkaddrtype', 'nhrpservernhcinternetworkaddr', 'nhrpservernhcnbmaaddrtype', 'nhrpservernhcnbmaaddr', 'nhrpservernhcnbmasubaddr', 'nhrpservernhcinuse', 'nhrpservernhcrowstatus'], name, value)
+                self._perform_setattr(NHRPMIB.NhrpServerNhcTable.NhrpServerNhcEntry, ['nhrpserverindex', 'nhrpservernhcindex', 'nhrpservernhcprefixlength', 'nhrpservernhcinternetworkaddrtype', 'nhrpservernhcinternetworkaddr', 'nhrpservernhcnbmaaddrtype', 'nhrpservernhcnbmaaddr', 'nhrpservernhcnbmasubaddr', 'nhrpservernhcinuse', 'nhrpservernhcrowstatus'], name, value)
 
 
-    class Nhrpserverstattable(Entity):
+    class NhrpServerStatTable(Entity):
         """
         Statistics collected by Next Hop Servers.
         
         .. attribute:: nhrpserverstatentry
         
         	Statistics for a particular NHS. The statistics are broken into received (Rx), transmitted (Tx) and forwarded (Fw).  Forwarded (Fw) would be done by a transit NHS
-        	**type**\: list of  		 :py:class:`Nhrpserverstatentry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpserverstattable.Nhrpserverstatentry>`
+        	**type**\: list of  		 :py:class:`NhrpServerStatEntry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpServerStatTable.NhrpServerStatEntry>`
         
         
 
@@ -1925,15 +1897,14 @@ class NHRPMIB(Entity):
         _revision = '1999-08-26'
 
         def __init__(self):
-            super(NHRPMIB.Nhrpserverstattable, self).__init__()
+            super(NHRPMIB.NhrpServerStatTable, self).__init__()
 
             self.yang_name = "nhrpServerStatTable"
             self.yang_parent_name = "NHRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("nhrpServerStatEntry", ("nhrpserverstatentry", NHRPMIB.Nhrpserverstattable.Nhrpserverstatentry))])
+            self._child_classes = OrderedDict([("nhrpServerStatEntry", ("nhrpserverstatentry", NHRPMIB.NhrpServerStatTable.NhrpServerStatEntry))])
             self._leafs = OrderedDict()
 
             self.nhrpserverstatentry = YList(self)
@@ -1941,10 +1912,10 @@ class NHRPMIB(Entity):
             self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NHRPMIB.Nhrpserverstattable, [], name, value)
+            self._perform_setattr(NHRPMIB.NhrpServerStatTable, [], name, value)
 
 
-        class Nhrpserverstatentry(Entity):
+        class NhrpServerStatEntry(Entity):
             """
             Statistics for a particular NHS. The statistics are
             broken into received (Rx), transmitted (Tx)
@@ -1958,7 +1929,7 @@ class NHRPMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`nhrpserverindex <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpservertable.Nhrpserverentry>`
+            	**refers to**\:  :py:class:`nhrpserverindex <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.NhrpServerTable.NhrpServerEntry>`
             
             .. attribute:: nhrpserverstatrxresolvereq
             
@@ -2248,15 +2219,14 @@ class NHRPMIB(Entity):
             _revision = '1999-08-26'
 
             def __init__(self):
-                super(NHRPMIB.Nhrpserverstattable.Nhrpserverstatentry, self).__init__()
+                super(NHRPMIB.NhrpServerStatTable.NhrpServerStatEntry, self).__init__()
 
                 self.yang_name = "nhrpServerStatEntry"
                 self.yang_parent_name = "nhrpServerStatTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['nhrpserverindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('nhrpserverindex', YLeaf(YType.str, 'nhrpServerIndex')),
                     ('nhrpserverstatrxresolvereq', YLeaf(YType.uint32, 'nhrpServerStatRxResolveReq')),
@@ -2345,7 +2315,7 @@ class NHRPMIB(Entity):
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpServerStatTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NHRPMIB.Nhrpserverstattable.Nhrpserverstatentry, ['nhrpserverindex', 'nhrpserverstatrxresolvereq', 'nhrpserverstattxresolvereplyack', 'nhrpserverstattxresolvereplynakprohibited', 'nhrpserverstattxresolvereplynakinsufresources', 'nhrpserverstattxresolvereplynaknobinding', 'nhrpserverstattxresolvereplynaknotunique', 'nhrpserverstatrxregisterreq', 'nhrpserverstattxregisterack', 'nhrpserverstattxregisternakprohibited', 'nhrpserverstattxregisternakinsufresources', 'nhrpserverstattxregisternakalreadyreg', 'nhrpserverstatrxpurgereq', 'nhrpserverstattxpurgereq', 'nhrpserverstatrxpurgereply', 'nhrpserverstattxpurgereply', 'nhrpserverstatrxerrunrecognizedextension', 'nhrpserverstatrxerrloopdetected', 'nhrpserverstatrxerrprotoaddrunreachable', 'nhrpserverstatrxerrprotoerror', 'nhrpserverstatrxerrsdusizeexceeded', 'nhrpserverstatrxerrinvalidextension', 'nhrpserverstatrxerrinvalidresreplyreceived', 'nhrpserverstatrxerrauthenticationfailure', 'nhrpserverstatrxerrhopcountexceeded', 'nhrpserverstattxerrunrecognizedextension', 'nhrpserverstattxerrloopdetected', 'nhrpserverstattxerrprotoaddrunreachable', 'nhrpserverstattxerrprotoerror', 'nhrpserverstattxerrsdusizeexceeded', 'nhrpserverstattxerrinvalidextension', 'nhrpserverstattxerrauthenticationfailure', 'nhrpserverstattxerrhopcountexceeded', 'nhrpserverstatfwresolvereq', 'nhrpserverstatfwresolvereply', 'nhrpserverstatfwregisterreq', 'nhrpserverstatfwregisterreply', 'nhrpserverstatfwpurgereq', 'nhrpserverstatfwpurgereply', 'nhrpserverstatfwerrorindication', 'nhrpserverstatdiscontinuitytime'], name, value)
+                self._perform_setattr(NHRPMIB.NhrpServerStatTable.NhrpServerStatEntry, ['nhrpserverindex', 'nhrpserverstatrxresolvereq', 'nhrpserverstattxresolvereplyack', 'nhrpserverstattxresolvereplynakprohibited', 'nhrpserverstattxresolvereplynakinsufresources', 'nhrpserverstattxresolvereplynaknobinding', 'nhrpserverstattxresolvereplynaknotunique', 'nhrpserverstatrxregisterreq', 'nhrpserverstattxregisterack', 'nhrpserverstattxregisternakprohibited', 'nhrpserverstattxregisternakinsufresources', 'nhrpserverstattxregisternakalreadyreg', 'nhrpserverstatrxpurgereq', 'nhrpserverstattxpurgereq', 'nhrpserverstatrxpurgereply', 'nhrpserverstattxpurgereply', 'nhrpserverstatrxerrunrecognizedextension', 'nhrpserverstatrxerrloopdetected', 'nhrpserverstatrxerrprotoaddrunreachable', 'nhrpserverstatrxerrprotoerror', 'nhrpserverstatrxerrsdusizeexceeded', 'nhrpserverstatrxerrinvalidextension', 'nhrpserverstatrxerrinvalidresreplyreceived', 'nhrpserverstatrxerrauthenticationfailure', 'nhrpserverstatrxerrhopcountexceeded', 'nhrpserverstattxerrunrecognizedextension', 'nhrpserverstattxerrloopdetected', 'nhrpserverstattxerrprotoaddrunreachable', 'nhrpserverstattxerrprotoerror', 'nhrpserverstattxerrsdusizeexceeded', 'nhrpserverstattxerrinvalidextension', 'nhrpserverstattxerrauthenticationfailure', 'nhrpserverstattxerrhopcountexceeded', 'nhrpserverstatfwresolvereq', 'nhrpserverstatfwresolvereply', 'nhrpserverstatfwregisterreq', 'nhrpserverstatfwregisterreply', 'nhrpserverstatfwpurgereq', 'nhrpserverstatfwpurgereply', 'nhrpserverstatfwerrorindication', 'nhrpserverstatdiscontinuitytime'], name, value)
 
     def clone_ptr(self):
         self._top_entity = NHRPMIB()

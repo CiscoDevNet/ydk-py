@@ -27,52 +27,52 @@ class CISCOPROCESSMIB(Entity):
     .. attribute:: cpmcpuhistory
     
     	
-    	**type**\:  :py:class:`Cpmcpuhistory <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcpuhistory>`
+    	**type**\:  :py:class:`CpmCPUHistory <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmCPUHistory>`
     
     .. attribute:: cpmcputotaltable
     
     	A table of overall CPU statistics
-    	**type**\:  :py:class:`Cpmcputotaltable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputotaltable>`
+    	**type**\:  :py:class:`CpmCPUTotalTable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmCPUTotalTable>`
     
     .. attribute:: cpmcoretable
     
     	A table of per\-Core statistics
-    	**type**\:  :py:class:`Cpmcoretable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcoretable>`
+    	**type**\:  :py:class:`CpmCoreTable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmCoreTable>`
     
     .. attribute:: cpmprocesstable
     
     	A table of generic information on all active processes on this device
-    	**type**\:  :py:class:`Cpmprocesstable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocesstable>`
+    	**type**\:  :py:class:`CpmProcessTable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmProcessTable>`
     
     .. attribute:: cpmprocessextrevtable
     
     	This table contains information that may or may not be available on all cisco devices. It contains additional objects for the more general cpmProcessTable. This object deprecates  cpmProcessExtTable
-    	**type**\:  :py:class:`Cpmprocessextrevtable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocessextrevtable>`
+    	**type**\:  :py:class:`CpmProcessExtRevTable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmProcessExtRevTable>`
     
     .. attribute:: cpmcputhresholdtable
     
     	This table contains the information about the thresholding values for CPU , configured by the user
-    	**type**\:  :py:class:`Cpmcputhresholdtable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputhresholdtable>`
+    	**type**\:  :py:class:`CpmCPUThresholdTable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmCPUThresholdTable>`
     
     .. attribute:: cpmcpuhistorytable
     
     	A list of CPU utilization history entries
-    	**type**\:  :py:class:`Cpmcpuhistorytable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcpuhistorytable>`
+    	**type**\:  :py:class:`CpmCPUHistoryTable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmCPUHistoryTable>`
     
     .. attribute:: cpmcpuprocesshistorytable
     
     	A list of process history entries. This table contains CPU utilization of processes which crossed the  cpmCPUHistoryThreshold
-    	**type**\:  :py:class:`Cpmcpuprocesshistorytable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcpuprocesshistorytable>`
+    	**type**\:  :py:class:`CpmCPUProcessHistoryTable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmCPUProcessHistoryTable>`
     
     .. attribute:: cpmthreadtable
     
     	This table contains generic information about POSIX threads in the device
-    	**type**\:  :py:class:`Cpmthreadtable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmthreadtable>`
+    	**type**\:  :py:class:`CpmThreadTable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmThreadTable>`
     
     .. attribute:: cpmvirtualprocesstable
     
     	This table contains information about virtual processes in a virtual machine
-    	**type**\:  :py:class:`Cpmvirtualprocesstable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmvirtualprocesstable>`
+    	**type**\:  :py:class:`CpmVirtualProcessTable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmVirtualProcessTable>`
     
     
 
@@ -90,63 +90,55 @@ class CISCOPROCESSMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cpmCPUHistory", ("cpmcpuhistory", CISCOPROCESSMIB.Cpmcpuhistory)), ("cpmCPUTotalTable", ("cpmcputotaltable", CISCOPROCESSMIB.Cpmcputotaltable)), ("cpmCoreTable", ("cpmcoretable", CISCOPROCESSMIB.Cpmcoretable)), ("cpmProcessTable", ("cpmprocesstable", CISCOPROCESSMIB.Cpmprocesstable)), ("cpmProcessExtRevTable", ("cpmprocessextrevtable", CISCOPROCESSMIB.Cpmprocessextrevtable)), ("cpmCPUThresholdTable", ("cpmcputhresholdtable", CISCOPROCESSMIB.Cpmcputhresholdtable)), ("cpmCPUHistoryTable", ("cpmcpuhistorytable", CISCOPROCESSMIB.Cpmcpuhistorytable)), ("cpmCPUProcessHistoryTable", ("cpmcpuprocesshistorytable", CISCOPROCESSMIB.Cpmcpuprocesshistorytable)), ("cpmThreadTable", ("cpmthreadtable", CISCOPROCESSMIB.Cpmthreadtable)), ("cpmVirtualProcessTable", ("cpmvirtualprocesstable", CISCOPROCESSMIB.Cpmvirtualprocesstable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cpmCPUHistory", ("cpmcpuhistory", CISCOPROCESSMIB.CpmCPUHistory)), ("cpmCPUTotalTable", ("cpmcputotaltable", CISCOPROCESSMIB.CpmCPUTotalTable)), ("cpmCoreTable", ("cpmcoretable", CISCOPROCESSMIB.CpmCoreTable)), ("cpmProcessTable", ("cpmprocesstable", CISCOPROCESSMIB.CpmProcessTable)), ("cpmProcessExtRevTable", ("cpmprocessextrevtable", CISCOPROCESSMIB.CpmProcessExtRevTable)), ("cpmCPUThresholdTable", ("cpmcputhresholdtable", CISCOPROCESSMIB.CpmCPUThresholdTable)), ("cpmCPUHistoryTable", ("cpmcpuhistorytable", CISCOPROCESSMIB.CpmCPUHistoryTable)), ("cpmCPUProcessHistoryTable", ("cpmcpuprocesshistorytable", CISCOPROCESSMIB.CpmCPUProcessHistoryTable)), ("cpmThreadTable", ("cpmthreadtable", CISCOPROCESSMIB.CpmThreadTable)), ("cpmVirtualProcessTable", ("cpmvirtualprocesstable", CISCOPROCESSMIB.CpmVirtualProcessTable))])
         self._leafs = OrderedDict()
 
-        self.cpmcpuhistory = CISCOPROCESSMIB.Cpmcpuhistory()
+        self.cpmcpuhistory = CISCOPROCESSMIB.CpmCPUHistory()
         self.cpmcpuhistory.parent = self
         self._children_name_map["cpmcpuhistory"] = "cpmCPUHistory"
-        self._children_yang_names.add("cpmCPUHistory")
 
-        self.cpmcputotaltable = CISCOPROCESSMIB.Cpmcputotaltable()
+        self.cpmcputotaltable = CISCOPROCESSMIB.CpmCPUTotalTable()
         self.cpmcputotaltable.parent = self
         self._children_name_map["cpmcputotaltable"] = "cpmCPUTotalTable"
-        self._children_yang_names.add("cpmCPUTotalTable")
 
-        self.cpmcoretable = CISCOPROCESSMIB.Cpmcoretable()
+        self.cpmcoretable = CISCOPROCESSMIB.CpmCoreTable()
         self.cpmcoretable.parent = self
         self._children_name_map["cpmcoretable"] = "cpmCoreTable"
-        self._children_yang_names.add("cpmCoreTable")
 
-        self.cpmprocesstable = CISCOPROCESSMIB.Cpmprocesstable()
+        self.cpmprocesstable = CISCOPROCESSMIB.CpmProcessTable()
         self.cpmprocesstable.parent = self
         self._children_name_map["cpmprocesstable"] = "cpmProcessTable"
-        self._children_yang_names.add("cpmProcessTable")
 
-        self.cpmprocessextrevtable = CISCOPROCESSMIB.Cpmprocessextrevtable()
+        self.cpmprocessextrevtable = CISCOPROCESSMIB.CpmProcessExtRevTable()
         self.cpmprocessextrevtable.parent = self
         self._children_name_map["cpmprocessextrevtable"] = "cpmProcessExtRevTable"
-        self._children_yang_names.add("cpmProcessExtRevTable")
 
-        self.cpmcputhresholdtable = CISCOPROCESSMIB.Cpmcputhresholdtable()
+        self.cpmcputhresholdtable = CISCOPROCESSMIB.CpmCPUThresholdTable()
         self.cpmcputhresholdtable.parent = self
         self._children_name_map["cpmcputhresholdtable"] = "cpmCPUThresholdTable"
-        self._children_yang_names.add("cpmCPUThresholdTable")
 
-        self.cpmcpuhistorytable = CISCOPROCESSMIB.Cpmcpuhistorytable()
+        self.cpmcpuhistorytable = CISCOPROCESSMIB.CpmCPUHistoryTable()
         self.cpmcpuhistorytable.parent = self
         self._children_name_map["cpmcpuhistorytable"] = "cpmCPUHistoryTable"
-        self._children_yang_names.add("cpmCPUHistoryTable")
 
-        self.cpmcpuprocesshistorytable = CISCOPROCESSMIB.Cpmcpuprocesshistorytable()
+        self.cpmcpuprocesshistorytable = CISCOPROCESSMIB.CpmCPUProcessHistoryTable()
         self.cpmcpuprocesshistorytable.parent = self
         self._children_name_map["cpmcpuprocesshistorytable"] = "cpmCPUProcessHistoryTable"
-        self._children_yang_names.add("cpmCPUProcessHistoryTable")
 
-        self.cpmthreadtable = CISCOPROCESSMIB.Cpmthreadtable()
+        self.cpmthreadtable = CISCOPROCESSMIB.CpmThreadTable()
         self.cpmthreadtable.parent = self
         self._children_name_map["cpmthreadtable"] = "cpmThreadTable"
-        self._children_yang_names.add("cpmThreadTable")
 
-        self.cpmvirtualprocesstable = CISCOPROCESSMIB.Cpmvirtualprocesstable()
+        self.cpmvirtualprocesstable = CISCOPROCESSMIB.CpmVirtualProcessTable()
         self.cpmvirtualprocesstable.parent = self
         self._children_name_map["cpmvirtualprocesstable"] = "cpmVirtualProcessTable"
-        self._children_yang_names.add("cpmVirtualProcessTable")
         self._segment_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOPROCESSMIB, [], name, value)
 
-    class Cpmcpuhistory(Entity):
+
+    class CpmCPUHistory(Entity):
         """
         
         
@@ -172,15 +164,14 @@ class CISCOPROCESSMIB(Entity):
         _revision = '2011-06-23'
 
         def __init__(self):
-            super(CISCOPROCESSMIB.Cpmcpuhistory, self).__init__()
+            super(CISCOPROCESSMIB.CpmCPUHistory, self).__init__()
 
             self.yang_name = "cpmCPUHistory"
             self.yang_parent_name = "CISCO-PROCESS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cpmcpuhistorythreshold', YLeaf(YType.uint32, 'cpmCPUHistoryThreshold')),
                 ('cpmcpuhistorysize', YLeaf(YType.uint32, 'cpmCPUHistorySize')),
@@ -191,17 +182,17 @@ class CISCOPROCESSMIB(Entity):
             self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPROCESSMIB.Cpmcpuhistory, ['cpmcpuhistorythreshold', 'cpmcpuhistorysize'], name, value)
+            self._perform_setattr(CISCOPROCESSMIB.CpmCPUHistory, ['cpmcpuhistorythreshold', 'cpmcpuhistorysize'], name, value)
 
 
-    class Cpmcputotaltable(Entity):
+    class CpmCPUTotalTable(Entity):
         """
         A table of overall CPU statistics.
         
         .. attribute:: cpmcputotalentry
         
         	Overall information about the CPU load. Entries in this table come and go as CPUs are added and removed from the system
-        	**type**\: list of  		 :py:class:`Cpmcputotalentry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputotaltable.Cpmcputotalentry>`
+        	**type**\: list of  		 :py:class:`CpmCPUTotalEntry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmCPUTotalTable.CpmCPUTotalEntry>`
         
         
 
@@ -211,15 +202,14 @@ class CISCOPROCESSMIB(Entity):
         _revision = '2011-06-23'
 
         def __init__(self):
-            super(CISCOPROCESSMIB.Cpmcputotaltable, self).__init__()
+            super(CISCOPROCESSMIB.CpmCPUTotalTable, self).__init__()
 
             self.yang_name = "cpmCPUTotalTable"
             self.yang_parent_name = "CISCO-PROCESS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpmCPUTotalEntry", ("cpmcputotalentry", CISCOPROCESSMIB.Cpmcputotaltable.Cpmcputotalentry))])
+            self._child_classes = OrderedDict([("cpmCPUTotalEntry", ("cpmcputotalentry", CISCOPROCESSMIB.CpmCPUTotalTable.CpmCPUTotalEntry))])
             self._leafs = OrderedDict()
 
             self.cpmcputotalentry = YList(self)
@@ -227,10 +217,10 @@ class CISCOPROCESSMIB(Entity):
             self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPROCESSMIB.Cpmcputotaltable, [], name, value)
+            self._perform_setattr(CISCOPROCESSMIB.CpmCPUTotalTable, [], name, value)
 
 
-        class Cpmcputotalentry(Entity):
+        class CpmCPUTotalEntry(Entity):
             """
             Overall information about the CPU load. Entries in this
             table come and go as CPUs are added and removed from the
@@ -497,15 +487,14 @@ class CISCOPROCESSMIB(Entity):
             _revision = '2011-06-23'
 
             def __init__(self):
-                super(CISCOPROCESSMIB.Cpmcputotaltable.Cpmcputotalentry, self).__init__()
+                super(CISCOPROCESSMIB.CpmCPUTotalTable.CpmCPUTotalEntry, self).__init__()
 
                 self.yang_name = "cpmCPUTotalEntry"
                 self.yang_parent_name = "cpmCPUTotalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpmcputotalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpmcputotalindex', YLeaf(YType.uint32, 'cpmCPUTotalIndex')),
                     ('cpmcputotalphysicalindex', YLeaf(YType.int32, 'cpmCPUTotalPhysicalIndex')),
@@ -570,17 +559,17 @@ class CISCOPROCESSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmCPUTotalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPROCESSMIB.Cpmcputotaltable.Cpmcputotalentry, ['cpmcputotalindex', 'cpmcputotalphysicalindex', 'cpmcputotal5sec', 'cpmcputotal1min', 'cpmcputotal5min', 'cpmcputotal5secrev', 'cpmcputotal1minrev', 'cpmcputotal5minrev', 'cpmcpumoninterval', 'cpmcputotalmonintervalvalue', 'cpmcpuinterruptmonintervalvalue', 'cpmcpumemoryused', 'cpmcpumemoryfree', 'cpmcpumemorykernelreserved', 'cpmcpumemorylowest', 'cpmcpumemoryusedovrflw', 'cpmcpumemoryhcused', 'cpmcpumemoryfreeovrflw', 'cpmcpumemoryhcfree', 'cpmcpumemorykernelreservedovrflw', 'cpmcpumemoryhckernelreserved', 'cpmcpumemorylowestovrflw', 'cpmcpumemoryhclowest', 'cpmcpuloadavg1min', 'cpmcpuloadavg5min', 'cpmcpuloadavg15min', 'cpmcpumemorycommitted', 'cpmcpumemorycommittedovrflw', 'cpmcpumemoryhccommitted'], name, value)
+                self._perform_setattr(CISCOPROCESSMIB.CpmCPUTotalTable.CpmCPUTotalEntry, ['cpmcputotalindex', 'cpmcputotalphysicalindex', 'cpmcputotal5sec', 'cpmcputotal1min', 'cpmcputotal5min', 'cpmcputotal5secrev', 'cpmcputotal1minrev', 'cpmcputotal5minrev', 'cpmcpumoninterval', 'cpmcputotalmonintervalvalue', 'cpmcpuinterruptmonintervalvalue', 'cpmcpumemoryused', 'cpmcpumemoryfree', 'cpmcpumemorykernelreserved', 'cpmcpumemorylowest', 'cpmcpumemoryusedovrflw', 'cpmcpumemoryhcused', 'cpmcpumemoryfreeovrflw', 'cpmcpumemoryhcfree', 'cpmcpumemorykernelreservedovrflw', 'cpmcpumemoryhckernelreserved', 'cpmcpumemorylowestovrflw', 'cpmcpumemoryhclowest', 'cpmcpuloadavg1min', 'cpmcpuloadavg5min', 'cpmcpuloadavg15min', 'cpmcpumemorycommitted', 'cpmcpumemorycommittedovrflw', 'cpmcpumemoryhccommitted'], name, value)
 
 
-    class Cpmcoretable(Entity):
+    class CpmCoreTable(Entity):
         """
         A table of per\-Core statistics.
         
         .. attribute:: cpmcoreentry
         
         	Overall information about the Core load. Entries in this table could come and go as Cores go online or offline
-        	**type**\: list of  		 :py:class:`Cpmcoreentry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcoretable.Cpmcoreentry>`
+        	**type**\: list of  		 :py:class:`CpmCoreEntry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmCoreTable.CpmCoreEntry>`
         
         
 
@@ -590,15 +579,14 @@ class CISCOPROCESSMIB(Entity):
         _revision = '2011-06-23'
 
         def __init__(self):
-            super(CISCOPROCESSMIB.Cpmcoretable, self).__init__()
+            super(CISCOPROCESSMIB.CpmCoreTable, self).__init__()
 
             self.yang_name = "cpmCoreTable"
             self.yang_parent_name = "CISCO-PROCESS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpmCoreEntry", ("cpmcoreentry", CISCOPROCESSMIB.Cpmcoretable.Cpmcoreentry))])
+            self._child_classes = OrderedDict([("cpmCoreEntry", ("cpmcoreentry", CISCOPROCESSMIB.CpmCoreTable.CpmCoreEntry))])
             self._leafs = OrderedDict()
 
             self.cpmcoreentry = YList(self)
@@ -606,10 +594,10 @@ class CISCOPROCESSMIB(Entity):
             self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPROCESSMIB.Cpmcoretable, [], name, value)
+            self._perform_setattr(CISCOPROCESSMIB.CpmCoreTable, [], name, value)
 
 
-        class Cpmcoreentry(Entity):
+        class CpmCoreEntry(Entity):
             """
             Overall information about the Core load. Entries in this
             table could come and go as Cores go online or offline.
@@ -621,7 +609,7 @@ class CISCOPROCESSMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`cpmcputotalindex <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputotaltable.Cpmcputotalentry>`
+            	**refers to**\:  :py:class:`cpmcputotalindex <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmCPUTotalTable.CpmCPUTotalEntry>`
             
             .. attribute:: cpmcoreindex  (key)
             
@@ -693,15 +681,14 @@ class CISCOPROCESSMIB(Entity):
             _revision = '2011-06-23'
 
             def __init__(self):
-                super(CISCOPROCESSMIB.Cpmcoretable.Cpmcoreentry, self).__init__()
+                super(CISCOPROCESSMIB.CpmCoreTable.CpmCoreEntry, self).__init__()
 
                 self.yang_name = "cpmCoreEntry"
                 self.yang_parent_name = "cpmCoreTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpmcputotalindex','cpmcoreindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpmcputotalindex', YLeaf(YType.str, 'cpmCPUTotalIndex')),
                     ('cpmcoreindex', YLeaf(YType.uint32, 'cpmCoreIndex')),
@@ -726,10 +713,10 @@ class CISCOPROCESSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmCoreTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPROCESSMIB.Cpmcoretable.Cpmcoreentry, ['cpmcputotalindex', 'cpmcoreindex', 'cpmcorephysicalindex', 'cpmcore5sec', 'cpmcore1min', 'cpmcore5min', 'cpmcoreloadavg1min', 'cpmcoreloadavg5min', 'cpmcoreloadavg15min'], name, value)
+                self._perform_setattr(CISCOPROCESSMIB.CpmCoreTable.CpmCoreEntry, ['cpmcputotalindex', 'cpmcoreindex', 'cpmcorephysicalindex', 'cpmcore5sec', 'cpmcore1min', 'cpmcore5min', 'cpmcoreloadavg1min', 'cpmcoreloadavg5min', 'cpmcoreloadavg15min'], name, value)
 
 
-    class Cpmprocesstable(Entity):
+    class CpmProcessTable(Entity):
         """
         A table of generic information on all active
         processes on this device.
@@ -737,7 +724,7 @@ class CISCOPROCESSMIB(Entity):
         .. attribute:: cpmprocessentry
         
         	Generic information about an active process on this device. Entries in this table come and go as processes are  created and destroyed by the device
-        	**type**\: list of  		 :py:class:`Cpmprocessentry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocesstable.Cpmprocessentry>`
+        	**type**\: list of  		 :py:class:`CpmProcessEntry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmProcessTable.CpmProcessEntry>`
         
         
 
@@ -747,15 +734,14 @@ class CISCOPROCESSMIB(Entity):
         _revision = '2011-06-23'
 
         def __init__(self):
-            super(CISCOPROCESSMIB.Cpmprocesstable, self).__init__()
+            super(CISCOPROCESSMIB.CpmProcessTable, self).__init__()
 
             self.yang_name = "cpmProcessTable"
             self.yang_parent_name = "CISCO-PROCESS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpmProcessEntry", ("cpmprocessentry", CISCOPROCESSMIB.Cpmprocesstable.Cpmprocessentry))])
+            self._child_classes = OrderedDict([("cpmProcessEntry", ("cpmprocessentry", CISCOPROCESSMIB.CpmProcessTable.CpmProcessEntry))])
             self._leafs = OrderedDict()
 
             self.cpmprocessentry = YList(self)
@@ -763,10 +749,10 @@ class CISCOPROCESSMIB(Entity):
             self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPROCESSMIB.Cpmprocesstable, [], name, value)
+            self._perform_setattr(CISCOPROCESSMIB.CpmProcessTable, [], name, value)
 
 
-        class Cpmprocessentry(Entity):
+        class CpmProcessEntry(Entity):
             """
             Generic information about an active process on this
             device. Entries in this table come and go as processes are 
@@ -779,7 +765,7 @@ class CISCOPROCESSMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`cpmcputotalindex <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputotaltable.Cpmcputotalentry>`
+            	**refers to**\:  :py:class:`cpmcputotalindex <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmCPUTotalTable.CpmCPUTotalEntry>`
             
             .. attribute:: cpmprocesspid  (key)
             
@@ -894,7 +880,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocextpriority
             
             	The priority level at which the process is running. This object is deprecated by cpmProcExtPriorityRev
-            	**type**\:  :py:class:`Cpmprocextpriority <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocesstable.Cpmprocessentry.Cpmprocextpriority>`
+            	**type**\:  :py:class:`CpmProcExtPriority <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmProcessTable.CpmProcessEntry.CpmProcExtPriority>`
             
             	**status**\: deprecated
             
@@ -906,15 +892,14 @@ class CISCOPROCESSMIB(Entity):
             _revision = '2011-06-23'
 
             def __init__(self):
-                super(CISCOPROCESSMIB.Cpmprocesstable.Cpmprocessentry, self).__init__()
+                super(CISCOPROCESSMIB.CpmProcessTable.CpmProcessEntry, self).__init__()
 
                 self.yang_name = "cpmProcessEntry"
                 self.yang_parent_name = "cpmProcessTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpmcputotalindex','cpmprocesspid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpmcputotalindex', YLeaf(YType.str, 'cpmCPUTotalIndex')),
                     ('cpmprocesspid', YLeaf(YType.uint32, 'cpmProcessPID')),
@@ -949,11 +934,11 @@ class CISCOPROCESSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmProcessTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPROCESSMIB.Cpmprocesstable.Cpmprocessentry, ['cpmcputotalindex', 'cpmprocesspid', 'cpmprocessname', 'cpmprocessusecs', 'cpmprocesstimecreated', 'cpmprocessaverageusecs', 'cpmprocextmemallocated', 'cpmprocextmemfreed', 'cpmprocextinvoked', 'cpmprocextruntime', 'cpmprocextutil5sec', 'cpmprocextutil1min', 'cpmprocextutil5min', 'cpmprocextpriority'], name, value)
+                self._perform_setattr(CISCOPROCESSMIB.CpmProcessTable.CpmProcessEntry, ['cpmcputotalindex', 'cpmprocesspid', 'cpmprocessname', 'cpmprocessusecs', 'cpmprocesstimecreated', 'cpmprocessaverageusecs', 'cpmprocextmemallocated', 'cpmprocextmemfreed', 'cpmprocextinvoked', 'cpmprocextruntime', 'cpmprocextutil5sec', 'cpmprocextutil1min', 'cpmprocextutil5min', 'cpmprocextpriority'], name, value)
 
-            class Cpmprocextpriority(Enum):
+            class CpmProcExtPriority(Enum):
                 """
-                Cpmprocextpriority (Enum Class)
+                CpmProcExtPriority (Enum Class)
 
                 The priority level at which the process is
 
@@ -985,7 +970,7 @@ class CISCOPROCESSMIB(Entity):
 
 
 
-    class Cpmprocessextrevtable(Entity):
+    class CpmProcessExtRevTable(Entity):
         """
         This table contains information that may or may
         not be available on all cisco devices. It contains
@@ -996,7 +981,7 @@ class CISCOPROCESSMIB(Entity):
         .. attribute:: cpmprocessextreventry
         
         	An entry containing additional information for a particular process. This object deprecates  cpmProcessExtEntry
-        	**type**\: list of  		 :py:class:`Cpmprocessextreventry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocessextrevtable.Cpmprocessextreventry>`
+        	**type**\: list of  		 :py:class:`CpmProcessExtRevEntry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmProcessExtRevTable.CpmProcessExtRevEntry>`
         
         
 
@@ -1006,15 +991,14 @@ class CISCOPROCESSMIB(Entity):
         _revision = '2011-06-23'
 
         def __init__(self):
-            super(CISCOPROCESSMIB.Cpmprocessextrevtable, self).__init__()
+            super(CISCOPROCESSMIB.CpmProcessExtRevTable, self).__init__()
 
             self.yang_name = "cpmProcessExtRevTable"
             self.yang_parent_name = "CISCO-PROCESS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpmProcessExtRevEntry", ("cpmprocessextreventry", CISCOPROCESSMIB.Cpmprocessextrevtable.Cpmprocessextreventry))])
+            self._child_classes = OrderedDict([("cpmProcessExtRevEntry", ("cpmprocessextreventry", CISCOPROCESSMIB.CpmProcessExtRevTable.CpmProcessExtRevEntry))])
             self._leafs = OrderedDict()
 
             self.cpmprocessextreventry = YList(self)
@@ -1022,10 +1006,10 @@ class CISCOPROCESSMIB(Entity):
             self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPROCESSMIB.Cpmprocessextrevtable, [], name, value)
+            self._perform_setattr(CISCOPROCESSMIB.CpmProcessExtRevTable, [], name, value)
 
 
-        class Cpmprocessextreventry(Entity):
+        class CpmProcessExtRevEntry(Entity):
             """
             An entry containing additional information for
             a particular process. This object deprecates 
@@ -1038,7 +1022,7 @@ class CISCOPROCESSMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`cpmcputotalindex <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputotaltable.Cpmcputotalentry>`
+            	**refers to**\:  :py:class:`cpmcputotalindex <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmCPUTotalTable.CpmCPUTotalEntry>`
             
             .. attribute:: cpmprocesspid  (key)
             
@@ -1047,7 +1031,7 @@ class CISCOPROCESSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`cpmprocesspid <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocesstable.Cpmprocessentry>`
+            	**refers to**\:  :py:class:`cpmprocesspid <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmProcessTable.CpmProcessEntry>`
             
             .. attribute:: cpmprocextmemallocatedrev
             
@@ -1113,12 +1097,12 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocextpriorityrev
             
             	The priority level at  which the process is running. This object deprecates  cpmProcExtPriority
-            	**type**\:  :py:class:`Cpmprocextpriorityrev <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocessextrevtable.Cpmprocessextreventry.Cpmprocextpriorityrev>`
+            	**type**\:  :py:class:`CpmProcExtPriorityRev <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmProcessExtRevTable.CpmProcessExtRevEntry.CpmProcExtPriorityRev>`
             
             .. attribute:: cpmprocesstype
             
             	This indicates the kind of process in context
-            	**type**\:  :py:class:`Cpmprocesstype <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocessextrevtable.Cpmprocessextreventry.Cpmprocesstype>`
+            	**type**\:  :py:class:`CpmProcessType <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmProcessExtRevTable.CpmProcessExtRevEntry.CpmProcessType>`
             
             .. attribute:: cpmprocessrespawn
             
@@ -1144,7 +1128,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocessmemorycore
             
             	This indicates the part of process memory to be dumped when a process crashes. The process  memory is used for debugging purposes to trace the  root cause of the crash. sparse        \- Some operating systems support minimal                 dump of process core like register                 info, partial stack, partial memory                 pages especially for critical process                 to facilitate faster process restart
-            	**type**\:  :py:class:`Cpmprocessmemorycore <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocessextrevtable.Cpmprocessextreventry.Cpmprocessmemorycore>`
+            	**type**\:  :py:class:`CpmProcessMemoryCore <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmProcessExtRevTable.CpmProcessExtRevEntry.CpmProcessMemoryCore>`
             
             .. attribute:: cpmprocesslastrestartuser
             
@@ -1303,15 +1287,14 @@ class CISCOPROCESSMIB(Entity):
             _revision = '2011-06-23'
 
             def __init__(self):
-                super(CISCOPROCESSMIB.Cpmprocessextrevtable.Cpmprocessextreventry, self).__init__()
+                super(CISCOPROCESSMIB.CpmProcessExtRevTable.CpmProcessExtRevEntry, self).__init__()
 
                 self.yang_name = "cpmProcessExtRevEntry"
                 self.yang_parent_name = "cpmProcessExtRevTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpmcputotalindex','cpmprocesspid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpmcputotalindex', YLeaf(YType.str, 'cpmCPUTotalIndex')),
                     ('cpmprocesspid', YLeaf(YType.str, 'cpmProcessPID')),
@@ -1382,11 +1365,44 @@ class CISCOPROCESSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmProcessExtRevTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPROCESSMIB.Cpmprocessextrevtable.Cpmprocessextreventry, ['cpmcputotalindex', 'cpmprocesspid', 'cpmprocextmemallocatedrev', 'cpmprocextmemfreedrev', 'cpmprocextinvokedrev', 'cpmprocextruntimerev', 'cpmprocextutil5secrev', 'cpmprocextutil1minrev', 'cpmprocextutil5minrev', 'cpmprocextpriorityrev', 'cpmprocesstype', 'cpmprocessrespawn', 'cpmprocessrespawncount', 'cpmprocessrespawnafterlastpatch', 'cpmprocessmemorycore', 'cpmprocesslastrestartuser', 'cpmprocesstextsegmentsize', 'cpmprocessdatasegmentsize', 'cpmprocessstacksize', 'cpmprocessdynamicmemorysize', 'cpmprocextmemallocatedrevovrflw', 'cpmprocexthcmemallocatedrev', 'cpmprocextmemfreedrevovrflw', 'cpmprocexthcmemfreedrev', 'cpmprocesstextsegmentsizeovrflw', 'cpmprocesshctextsegmentsize', 'cpmprocessdatasegmentsizeovrflw', 'cpmprocesshcdatasegmentsize', 'cpmprocessstacksizeovrflw', 'cpmprocesshcstacksize', 'cpmprocessdynamicmemorysizeovrflw', 'cpmprocesshcdynamicmemorysize'], name, value)
+                self._perform_setattr(CISCOPROCESSMIB.CpmProcessExtRevTable.CpmProcessExtRevEntry, ['cpmcputotalindex', 'cpmprocesspid', 'cpmprocextmemallocatedrev', 'cpmprocextmemfreedrev', 'cpmprocextinvokedrev', 'cpmprocextruntimerev', 'cpmprocextutil5secrev', 'cpmprocextutil1minrev', 'cpmprocextutil5minrev', 'cpmprocextpriorityrev', 'cpmprocesstype', 'cpmprocessrespawn', 'cpmprocessrespawncount', 'cpmprocessrespawnafterlastpatch', 'cpmprocessmemorycore', 'cpmprocesslastrestartuser', 'cpmprocesstextsegmentsize', 'cpmprocessdatasegmentsize', 'cpmprocessstacksize', 'cpmprocessdynamicmemorysize', 'cpmprocextmemallocatedrevovrflw', 'cpmprocexthcmemallocatedrev', 'cpmprocextmemfreedrevovrflw', 'cpmprocexthcmemfreedrev', 'cpmprocesstextsegmentsizeovrflw', 'cpmprocesshctextsegmentsize', 'cpmprocessdatasegmentsizeovrflw', 'cpmprocesshcdatasegmentsize', 'cpmprocessstacksizeovrflw', 'cpmprocesshcstacksize', 'cpmprocessdynamicmemorysizeovrflw', 'cpmprocesshcdynamicmemorysize'], name, value)
 
-            class Cpmprocessmemorycore(Enum):
+            class CpmProcExtPriorityRev(Enum):
                 """
-                Cpmprocessmemorycore (Enum Class)
+                CpmProcExtPriorityRev (Enum Class)
+
+                The priority level at  which the process is
+
+                running. This object deprecates 
+
+                cpmProcExtPriority.
+
+                .. data:: critical = 1
+
+                .. data:: high = 2
+
+                .. data:: normal = 3
+
+                .. data:: low = 4
+
+                .. data:: notAssigned = 5
+
+                """
+
+                critical = Enum.YLeaf(1, "critical")
+
+                high = Enum.YLeaf(2, "high")
+
+                normal = Enum.YLeaf(3, "normal")
+
+                low = Enum.YLeaf(4, "low")
+
+                notAssigned = Enum.YLeaf(5, "notAssigned")
+
+
+            class CpmProcessMemoryCore(Enum):
+                """
+                CpmProcessMemoryCore (Enum Class)
 
                 This indicates the part of process memory to be
 
@@ -1445,9 +1461,9 @@ class CISCOPROCESSMIB(Entity):
                 off = Enum.YLeaf(8, "off")
 
 
-            class Cpmprocesstype(Enum):
+            class CpmProcessType(Enum):
                 """
-                Cpmprocesstype (Enum Class)
+                CpmProcessType (Enum Class)
 
                 This indicates the kind of process in context.
 
@@ -1470,41 +1486,8 @@ class CISCOPROCESSMIB(Entity):
                 ios = Enum.YLeaf(3, "ios")
 
 
-            class Cpmprocextpriorityrev(Enum):
-                """
-                Cpmprocextpriorityrev (Enum Class)
 
-                The priority level at  which the process is
-
-                running. This object deprecates 
-
-                cpmProcExtPriority.
-
-                .. data:: critical = 1
-
-                .. data:: high = 2
-
-                .. data:: normal = 3
-
-                .. data:: low = 4
-
-                .. data:: notAssigned = 5
-
-                """
-
-                critical = Enum.YLeaf(1, "critical")
-
-                high = Enum.YLeaf(2, "high")
-
-                normal = Enum.YLeaf(3, "normal")
-
-                low = Enum.YLeaf(4, "low")
-
-                notAssigned = Enum.YLeaf(5, "notAssigned")
-
-
-
-    class Cpmcputhresholdtable(Entity):
+    class CpmCPUThresholdTable(Entity):
         """
         This table contains the information about the
         thresholding values for CPU , configured by the user.
@@ -1512,7 +1495,7 @@ class CISCOPROCESSMIB(Entity):
         .. attribute:: cpmcputhresholdentry
         
         	An entry containing information about CPU thresholding parameters. cpmCPUTotalIndex identifies the CPU (or group of CPUs) for which this configuration applies
-        	**type**\: list of  		 :py:class:`Cpmcputhresholdentry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputhresholdtable.Cpmcputhresholdentry>`
+        	**type**\: list of  		 :py:class:`CpmCPUThresholdEntry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmCPUThresholdTable.CpmCPUThresholdEntry>`
         
         
 
@@ -1522,15 +1505,14 @@ class CISCOPROCESSMIB(Entity):
         _revision = '2011-06-23'
 
         def __init__(self):
-            super(CISCOPROCESSMIB.Cpmcputhresholdtable, self).__init__()
+            super(CISCOPROCESSMIB.CpmCPUThresholdTable, self).__init__()
 
             self.yang_name = "cpmCPUThresholdTable"
             self.yang_parent_name = "CISCO-PROCESS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpmCPUThresholdEntry", ("cpmcputhresholdentry", CISCOPROCESSMIB.Cpmcputhresholdtable.Cpmcputhresholdentry))])
+            self._child_classes = OrderedDict([("cpmCPUThresholdEntry", ("cpmcputhresholdentry", CISCOPROCESSMIB.CpmCPUThresholdTable.CpmCPUThresholdEntry))])
             self._leafs = OrderedDict()
 
             self.cpmcputhresholdentry = YList(self)
@@ -1538,10 +1520,10 @@ class CISCOPROCESSMIB(Entity):
             self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPROCESSMIB.Cpmcputhresholdtable, [], name, value)
+            self._perform_setattr(CISCOPROCESSMIB.CpmCPUThresholdTable, [], name, value)
 
 
-        class Cpmcputhresholdentry(Entity):
+        class CpmCPUThresholdEntry(Entity):
             """
             An entry containing information about
             CPU thresholding parameters. cpmCPUTotalIndex
@@ -1555,12 +1537,12 @@ class CISCOPROCESSMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`cpmcputotalindex <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputotaltable.Cpmcputotalentry>`
+            	**refers to**\:  :py:class:`cpmcputotalindex <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmCPUTotalTable.CpmCPUTotalEntry>`
             
             .. attribute:: cpmcputhresholdclass  (key)
             
             	Value of this object indicates the type of utilization, which is monitored. The total(1) indicates the total CPU utilization, interrupt(2) indicates the the CPU utilization in interrupt context and process(3) indicates the CPU utilization in the process level execution context
-            	**type**\:  :py:class:`Cpmcputhresholdclass <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputhresholdtable.Cpmcputhresholdentry.Cpmcputhresholdclass>`
+            	**type**\:  :py:class:`CpmCPUThresholdClass <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmCPUThresholdTable.CpmCPUThresholdEntry.CpmCPUThresholdClass>`
             
             .. attribute:: cpmcpurisingthresholdvalue
             
@@ -1607,15 +1589,14 @@ class CISCOPROCESSMIB(Entity):
             _revision = '2011-06-23'
 
             def __init__(self):
-                super(CISCOPROCESSMIB.Cpmcputhresholdtable.Cpmcputhresholdentry, self).__init__()
+                super(CISCOPROCESSMIB.CpmCPUThresholdTable.CpmCPUThresholdEntry, self).__init__()
 
                 self.yang_name = "cpmCPUThresholdEntry"
                 self.yang_parent_name = "cpmCPUThresholdTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpmcputotalindex','cpmcputhresholdclass']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpmcputotalindex', YLeaf(YType.str, 'cpmCPUTotalIndex')),
                     ('cpmcputhresholdclass', YLeaf(YType.enumeration, 'cpmCPUThresholdClass')),
@@ -1636,11 +1617,11 @@ class CISCOPROCESSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmCPUThresholdTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPROCESSMIB.Cpmcputhresholdtable.Cpmcputhresholdentry, ['cpmcputotalindex', 'cpmcputhresholdclass', 'cpmcpurisingthresholdvalue', 'cpmcpurisingthresholdperiod', 'cpmcpufallingthresholdvalue', 'cpmcpufallingthresholdperiod', 'cpmcputhresholdentrystatus'], name, value)
+                self._perform_setattr(CISCOPROCESSMIB.CpmCPUThresholdTable.CpmCPUThresholdEntry, ['cpmcputotalindex', 'cpmcputhresholdclass', 'cpmcpurisingthresholdvalue', 'cpmcpurisingthresholdperiod', 'cpmcpufallingthresholdvalue', 'cpmcpufallingthresholdperiod', 'cpmcputhresholdentrystatus'], name, value)
 
-            class Cpmcputhresholdclass(Enum):
+            class CpmCPUThresholdClass(Enum):
                 """
-                Cpmcputhresholdclass (Enum Class)
+                CpmCPUThresholdClass (Enum Class)
 
                 Value of this object indicates the type of
 
@@ -1670,14 +1651,14 @@ class CISCOPROCESSMIB(Entity):
 
 
 
-    class Cpmcpuhistorytable(Entity):
+    class CpmCPUHistoryTable(Entity):
         """
         A list of CPU utilization history entries.
         
         .. attribute:: cpmcpuhistoryentry
         
         	A historical sample of CPU utilization statistics. cpmCPUTotalIndex identifies the CPU (or group of CPUs) for which this history is collected.  When the cpmCPUHistorySize is reached the least recent entry is lost
-        	**type**\: list of  		 :py:class:`Cpmcpuhistoryentry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcpuhistorytable.Cpmcpuhistoryentry>`
+        	**type**\: list of  		 :py:class:`CpmCPUHistoryEntry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmCPUHistoryTable.CpmCPUHistoryEntry>`
         
         
 
@@ -1687,15 +1668,14 @@ class CISCOPROCESSMIB(Entity):
         _revision = '2011-06-23'
 
         def __init__(self):
-            super(CISCOPROCESSMIB.Cpmcpuhistorytable, self).__init__()
+            super(CISCOPROCESSMIB.CpmCPUHistoryTable, self).__init__()
 
             self.yang_name = "cpmCPUHistoryTable"
             self.yang_parent_name = "CISCO-PROCESS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpmCPUHistoryEntry", ("cpmcpuhistoryentry", CISCOPROCESSMIB.Cpmcpuhistorytable.Cpmcpuhistoryentry))])
+            self._child_classes = OrderedDict([("cpmCPUHistoryEntry", ("cpmcpuhistoryentry", CISCOPROCESSMIB.CpmCPUHistoryTable.CpmCPUHistoryEntry))])
             self._leafs = OrderedDict()
 
             self.cpmcpuhistoryentry = YList(self)
@@ -1703,10 +1683,10 @@ class CISCOPROCESSMIB(Entity):
             self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPROCESSMIB.Cpmcpuhistorytable, [], name, value)
+            self._perform_setattr(CISCOPROCESSMIB.CpmCPUHistoryTable, [], name, value)
 
 
-        class Cpmcpuhistoryentry(Entity):
+        class CpmCPUHistoryEntry(Entity):
             """
             A historical sample of CPU utilization statistics.
             cpmCPUTotalIndex identifies the CPU (or group of CPUs)
@@ -1721,7 +1701,7 @@ class CISCOPROCESSMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`cpmcputotalindex <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputotaltable.Cpmcputotalentry>`
+            	**refers to**\:  :py:class:`cpmcputotalindex <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmCPUTotalTable.CpmCPUTotalEntry>`
             
             .. attribute:: cpmcpuhistoryreportid  (key)
             
@@ -1770,15 +1750,14 @@ class CISCOPROCESSMIB(Entity):
             _revision = '2011-06-23'
 
             def __init__(self):
-                super(CISCOPROCESSMIB.Cpmcpuhistorytable.Cpmcpuhistoryentry, self).__init__()
+                super(CISCOPROCESSMIB.CpmCPUHistoryTable.CpmCPUHistoryEntry, self).__init__()
 
                 self.yang_name = "cpmCPUHistoryEntry"
                 self.yang_parent_name = "cpmCPUHistoryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpmcputotalindex','cpmcpuhistoryreportid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpmcputotalindex', YLeaf(YType.str, 'cpmCPUTotalIndex')),
                     ('cpmcpuhistoryreportid', YLeaf(YType.uint32, 'cpmCPUHistoryReportId')),
@@ -1797,10 +1776,10 @@ class CISCOPROCESSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmCPUHistoryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPROCESSMIB.Cpmcpuhistorytable.Cpmcpuhistoryentry, ['cpmcputotalindex', 'cpmcpuhistoryreportid', 'cpmcpuhistoryreportsize', 'cpmcpuhistorytotalutil', 'cpmcpuhistoryinterruptutil', 'cpmcpuhistorycreatedtime'], name, value)
+                self._perform_setattr(CISCOPROCESSMIB.CpmCPUHistoryTable.CpmCPUHistoryEntry, ['cpmcputotalindex', 'cpmcpuhistoryreportid', 'cpmcpuhistoryreportsize', 'cpmcpuhistorytotalutil', 'cpmcpuhistoryinterruptutil', 'cpmcpuhistorycreatedtime'], name, value)
 
 
-    class Cpmcpuprocesshistorytable(Entity):
+    class CpmCPUProcessHistoryTable(Entity):
         """
         A list of process history entries. This table contains
         CPU utilization of processes which crossed the 
@@ -1809,7 +1788,7 @@ class CISCOPROCESSMIB(Entity):
         .. attribute:: cpmcpuprocesshistoryentry
         
         	A historical sample of process utilization statistics. The entries in this table will have corresponding entires in the cpmCPUHistoryTable. The entries in this table get deleted when the entry associated with this entry in the cpmCPUHistoryTable  gets deleted
-        	**type**\: list of  		 :py:class:`Cpmcpuprocesshistoryentry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcpuprocesshistorytable.Cpmcpuprocesshistoryentry>`
+        	**type**\: list of  		 :py:class:`CpmCPUProcessHistoryEntry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmCPUProcessHistoryTable.CpmCPUProcessHistoryEntry>`
         
         
 
@@ -1819,15 +1798,14 @@ class CISCOPROCESSMIB(Entity):
         _revision = '2011-06-23'
 
         def __init__(self):
-            super(CISCOPROCESSMIB.Cpmcpuprocesshistorytable, self).__init__()
+            super(CISCOPROCESSMIB.CpmCPUProcessHistoryTable, self).__init__()
 
             self.yang_name = "cpmCPUProcessHistoryTable"
             self.yang_parent_name = "CISCO-PROCESS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpmCPUProcessHistoryEntry", ("cpmcpuprocesshistoryentry", CISCOPROCESSMIB.Cpmcpuprocesshistorytable.Cpmcpuprocesshistoryentry))])
+            self._child_classes = OrderedDict([("cpmCPUProcessHistoryEntry", ("cpmcpuprocesshistoryentry", CISCOPROCESSMIB.CpmCPUProcessHistoryTable.CpmCPUProcessHistoryEntry))])
             self._leafs = OrderedDict()
 
             self.cpmcpuprocesshistoryentry = YList(self)
@@ -1835,10 +1813,10 @@ class CISCOPROCESSMIB(Entity):
             self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPROCESSMIB.Cpmcpuprocesshistorytable, [], name, value)
+            self._perform_setattr(CISCOPROCESSMIB.CpmCPUProcessHistoryTable, [], name, value)
 
 
-        class Cpmcpuprocesshistoryentry(Entity):
+        class CpmCPUProcessHistoryEntry(Entity):
             """
             A historical sample of process utilization
             statistics. The entries in this table will have
@@ -1854,7 +1832,7 @@ class CISCOPROCESSMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`cpmcputotalindex <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputotaltable.Cpmcputotalentry>`
+            	**refers to**\:  :py:class:`cpmcputotalindex <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmCPUTotalTable.CpmCPUTotalEntry>`
             
             .. attribute:: cpmcpuhistoryreportid  (key)
             
@@ -1863,7 +1841,7 @@ class CISCOPROCESSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`cpmcpuhistoryreportid <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcpuhistorytable.Cpmcpuhistoryentry>`
+            	**refers to**\:  :py:class:`cpmcpuhistoryreportid <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmCPUHistoryTable.CpmCPUHistoryEntry>`
             
             .. attribute:: cpmcpuprocesshistoryindex  (key)
             
@@ -1908,15 +1886,14 @@ class CISCOPROCESSMIB(Entity):
             _revision = '2011-06-23'
 
             def __init__(self):
-                super(CISCOPROCESSMIB.Cpmcpuprocesshistorytable.Cpmcpuprocesshistoryentry, self).__init__()
+                super(CISCOPROCESSMIB.CpmCPUProcessHistoryTable.CpmCPUProcessHistoryEntry, self).__init__()
 
                 self.yang_name = "cpmCPUProcessHistoryEntry"
                 self.yang_parent_name = "cpmCPUProcessHistoryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpmcputotalindex','cpmcpuhistoryreportid','cpmcpuprocesshistoryindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpmcputotalindex', YLeaf(YType.str, 'cpmCPUTotalIndex')),
                     ('cpmcpuhistoryreportid', YLeaf(YType.str, 'cpmCPUHistoryReportId')),
@@ -1937,10 +1914,10 @@ class CISCOPROCESSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmCPUProcessHistoryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPROCESSMIB.Cpmcpuprocesshistorytable.Cpmcpuprocesshistoryentry, ['cpmcputotalindex', 'cpmcpuhistoryreportid', 'cpmcpuprocesshistoryindex', 'cpmcpuhistoryprocid', 'cpmcpuhistoryprocname', 'cpmcpuhistoryproccreated', 'cpmcpuhistoryprocutil'], name, value)
+                self._perform_setattr(CISCOPROCESSMIB.CpmCPUProcessHistoryTable.CpmCPUProcessHistoryEntry, ['cpmcputotalindex', 'cpmcpuhistoryreportid', 'cpmcpuprocesshistoryindex', 'cpmcpuhistoryprocid', 'cpmcpuhistoryprocname', 'cpmcpuhistoryproccreated', 'cpmcpuhistoryprocutil'], name, value)
 
 
-    class Cpmthreadtable(Entity):
+    class CpmThreadTable(Entity):
         """
         This table contains generic information about
         POSIX threads in the device.
@@ -1948,7 +1925,7 @@ class CISCOPROCESSMIB(Entity):
         .. attribute:: cpmthreadentry
         
         	An entry containing the general statistics of a POSIX thread
-        	**type**\: list of  		 :py:class:`Cpmthreadentry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmthreadtable.Cpmthreadentry>`
+        	**type**\: list of  		 :py:class:`CpmThreadEntry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmThreadTable.CpmThreadEntry>`
         
         
 
@@ -1958,15 +1935,14 @@ class CISCOPROCESSMIB(Entity):
         _revision = '2011-06-23'
 
         def __init__(self):
-            super(CISCOPROCESSMIB.Cpmthreadtable, self).__init__()
+            super(CISCOPROCESSMIB.CpmThreadTable, self).__init__()
 
             self.yang_name = "cpmThreadTable"
             self.yang_parent_name = "CISCO-PROCESS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpmThreadEntry", ("cpmthreadentry", CISCOPROCESSMIB.Cpmthreadtable.Cpmthreadentry))])
+            self._child_classes = OrderedDict([("cpmThreadEntry", ("cpmthreadentry", CISCOPROCESSMIB.CpmThreadTable.CpmThreadEntry))])
             self._leafs = OrderedDict()
 
             self.cpmthreadentry = YList(self)
@@ -1974,10 +1950,10 @@ class CISCOPROCESSMIB(Entity):
             self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPROCESSMIB.Cpmthreadtable, [], name, value)
+            self._perform_setattr(CISCOPROCESSMIB.CpmThreadTable, [], name, value)
 
 
-        class Cpmthreadentry(Entity):
+        class CpmThreadEntry(Entity):
             """
             An entry containing the general statistics
             of a POSIX thread.
@@ -1989,7 +1965,7 @@ class CISCOPROCESSMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`cpmcputotalindex <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputotaltable.Cpmcputotalentry>`
+            	**refers to**\:  :py:class:`cpmcputotalindex <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmCPUTotalTable.CpmCPUTotalEntry>`
             
             .. attribute:: cpmprocesspid  (key)
             
@@ -1998,7 +1974,7 @@ class CISCOPROCESSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`cpmprocesspid <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocesstable.Cpmprocessentry>`
+            	**refers to**\:  :py:class:`cpmprocesspid <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmProcessTable.CpmProcessEntry>`
             
             .. attribute:: cpmthreadid  (key)
             
@@ -2022,7 +1998,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmthreadstate
             
             	This object indicates the current state of a thread. Running state means that the thread is actively  consumig CPU. All the other states are just waiting  states. The valid states are\: other         \- Any other state apart from the listed                  ones. dead          \- Kernel is waiting to release the                  thread's resources. running       \- Actively running on a CPU. ready         \- Not running on a CPU, but is ready to                  run (one or more higher or equal                  priority threads are running). stopped       \- Suspended (SIGSTOP signal). send          \- Waiting for a server to receive                  a message. receive       \- Waiting for a client to send a message. reply         \- Waiting for a server to reply to a                  message. stack         \- Waiting for more stack to be allocated. waitpage      \- Waiting for process manager to                  resolve a fault on a page. sigsuspend    \- Suspended for a signal. sigwaitinfo   \- Waiting for a signal. nanosleep     \- Sleeping for a period of time. mutex         \- Waiting to acquire a mutex condvar       \- Waiting for a condition variable to be                  signalled. join          \- Waiting for the completion of another                  thread. intr          \- Waiting for an interrupt. sem           \- Waiting to acquire a semaphore
-            	**type**\:  :py:class:`Cpmthreadstate <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmthreadtable.Cpmthreadentry.Cpmthreadstate>`
+            	**type**\:  :py:class:`CpmThreadState <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmThreadTable.CpmThreadEntry.CpmThreadState>`
             
             .. attribute:: cpmthreadblockingprocess
             
@@ -2075,15 +2051,14 @@ class CISCOPROCESSMIB(Entity):
             _revision = '2011-06-23'
 
             def __init__(self):
-                super(CISCOPROCESSMIB.Cpmthreadtable.Cpmthreadentry, self).__init__()
+                super(CISCOPROCESSMIB.CpmThreadTable.CpmThreadEntry, self).__init__()
 
                 self.yang_name = "cpmThreadEntry"
                 self.yang_parent_name = "cpmThreadTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpmcputotalindex','cpmprocesspid','cpmthreadid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpmcputotalindex', YLeaf(YType.str, 'cpmCPUTotalIndex')),
                     ('cpmprocesspid', YLeaf(YType.str, 'cpmProcessPID')),
@@ -2112,11 +2087,11 @@ class CISCOPROCESSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmThreadTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPROCESSMIB.Cpmthreadtable.Cpmthreadentry, ['cpmcputotalindex', 'cpmprocesspid', 'cpmthreadid', 'cpmthreadname', 'cpmthreadpriority', 'cpmthreadstate', 'cpmthreadblockingprocess', 'cpmthreadcpuutilization', 'cpmthreadstacksize', 'cpmthreadstacksizeovrflw', 'cpmthreadhcstacksize'], name, value)
+                self._perform_setattr(CISCOPROCESSMIB.CpmThreadTable.CpmThreadEntry, ['cpmcputotalindex', 'cpmprocesspid', 'cpmthreadid', 'cpmthreadname', 'cpmthreadpriority', 'cpmthreadstate', 'cpmthreadblockingprocess', 'cpmthreadcpuutilization', 'cpmthreadstacksize', 'cpmthreadstacksizeovrflw', 'cpmthreadhcstacksize'], name, value)
 
-            class Cpmthreadstate(Enum):
+            class CpmThreadState(Enum):
                 """
-                Cpmthreadstate (Enum Class)
+                CpmThreadState (Enum Class)
 
                 This object indicates the current state of a thread.
 
@@ -2256,7 +2231,7 @@ class CISCOPROCESSMIB(Entity):
 
 
 
-    class Cpmvirtualprocesstable(Entity):
+    class CpmVirtualProcessTable(Entity):
         """
         This table contains information about virtual
         processes in a virtual machine.
@@ -2264,7 +2239,7 @@ class CISCOPROCESSMIB(Entity):
         .. attribute:: cpmvirtualprocessentry
         
         	An entry containing the general statistics of a virtual process in a virtual machine
-        	**type**\: list of  		 :py:class:`Cpmvirtualprocessentry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmvirtualprocesstable.Cpmvirtualprocessentry>`
+        	**type**\: list of  		 :py:class:`CpmVirtualProcessEntry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmVirtualProcessTable.CpmVirtualProcessEntry>`
         
         
 
@@ -2274,15 +2249,14 @@ class CISCOPROCESSMIB(Entity):
         _revision = '2011-06-23'
 
         def __init__(self):
-            super(CISCOPROCESSMIB.Cpmvirtualprocesstable, self).__init__()
+            super(CISCOPROCESSMIB.CpmVirtualProcessTable, self).__init__()
 
             self.yang_name = "cpmVirtualProcessTable"
             self.yang_parent_name = "CISCO-PROCESS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpmVirtualProcessEntry", ("cpmvirtualprocessentry", CISCOPROCESSMIB.Cpmvirtualprocesstable.Cpmvirtualprocessentry))])
+            self._child_classes = OrderedDict([("cpmVirtualProcessEntry", ("cpmvirtualprocessentry", CISCOPROCESSMIB.CpmVirtualProcessTable.CpmVirtualProcessEntry))])
             self._leafs = OrderedDict()
 
             self.cpmvirtualprocessentry = YList(self)
@@ -2290,10 +2264,10 @@ class CISCOPROCESSMIB(Entity):
             self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPROCESSMIB.Cpmvirtualprocesstable, [], name, value)
+            self._perform_setattr(CISCOPROCESSMIB.CpmVirtualProcessTable, [], name, value)
 
 
-        class Cpmvirtualprocessentry(Entity):
+        class CpmVirtualProcessEntry(Entity):
             """
             An entry containing the general statistics of a
             virtual process in a virtual machine.
@@ -2305,7 +2279,7 @@ class CISCOPROCESSMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`cpmcputotalindex <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputotaltable.Cpmcputotalentry>`
+            	**refers to**\:  :py:class:`cpmcputotalindex <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmCPUTotalTable.CpmCPUTotalEntry>`
             
             .. attribute:: cpmprocesspid  (key)
             
@@ -2314,7 +2288,7 @@ class CISCOPROCESSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`cpmprocesspid <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocesstable.Cpmprocessentry>`
+            	**refers to**\:  :py:class:`cpmprocesspid <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.CpmProcessTable.CpmProcessEntry>`
             
             .. attribute:: cpmvirtualprocessid  (key)
             
@@ -2435,15 +2409,14 @@ class CISCOPROCESSMIB(Entity):
             _revision = '2011-06-23'
 
             def __init__(self):
-                super(CISCOPROCESSMIB.Cpmvirtualprocesstable.Cpmvirtualprocessentry, self).__init__()
+                super(CISCOPROCESSMIB.CpmVirtualProcessTable.CpmVirtualProcessEntry, self).__init__()
 
                 self.yang_name = "cpmVirtualProcessEntry"
                 self.yang_parent_name = "cpmVirtualProcessTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpmcputotalindex','cpmprocesspid','cpmvirtualprocessid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpmcputotalindex', YLeaf(YType.str, 'cpmCPUTotalIndex')),
                     ('cpmprocesspid', YLeaf(YType.str, 'cpmProcessPID')),
@@ -2480,7 +2453,7 @@ class CISCOPROCESSMIB(Entity):
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmVirtualProcessTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPROCESSMIB.Cpmvirtualprocesstable.Cpmvirtualprocessentry, ['cpmcputotalindex', 'cpmprocesspid', 'cpmvirtualprocessid', 'cpmvirtualprocessname', 'cpmvirtualprocessutil5sec', 'cpmvirtualprocessutil1min', 'cpmvirtualprocessutil5min', 'cpmvirtualprocessmemallocated', 'cpmvirtualprocessmemfreed', 'cpmvirtualprocessinvokecount', 'cpmvirtualprocessruntime', 'cpmvirtualprocessmemallocatedovrflw', 'cpmvirtualprocesshcmemallocated', 'cpmvirtualprocessmemfreedovrflw', 'cpmvirtualprocesshcmemfreed'], name, value)
+                self._perform_setattr(CISCOPROCESSMIB.CpmVirtualProcessTable.CpmVirtualProcessEntry, ['cpmcputotalindex', 'cpmprocesspid', 'cpmvirtualprocessid', 'cpmvirtualprocessname', 'cpmvirtualprocessutil5sec', 'cpmvirtualprocessutil1min', 'cpmvirtualprocessutil5min', 'cpmvirtualprocessmemallocated', 'cpmvirtualprocessmemfreed', 'cpmvirtualprocessinvokecount', 'cpmvirtualprocessruntime', 'cpmvirtualprocessmemallocatedovrflw', 'cpmvirtualprocesshcmemallocated', 'cpmvirtualprocessmemfreedovrflw', 'cpmvirtualprocesshcmemfreed'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOPROCESSMIB()

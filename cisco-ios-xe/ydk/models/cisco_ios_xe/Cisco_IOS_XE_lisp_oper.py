@@ -205,8 +205,7 @@ class LispState(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("lisp-routers", ("lisp_routers", LispState.LispRouters))])
+        self._child_classes = OrderedDict([("lisp-routers", ("lisp_routers", LispState.LispRouters))])
         self._leafs = OrderedDict()
 
         self.lisp_routers = YList(self)
@@ -271,8 +270,7 @@ class LispState(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['top_id']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("instances", ("instances", LispState.LispRouters.Instances)), ("sessions", ("sessions", LispState.LispRouters.Sessions)), ("local-rlocs", ("local_rlocs", LispState.LispRouters.LocalRlocs))])
+            self._child_classes = OrderedDict([("instances", ("instances", LispState.LispRouters.Instances)), ("sessions", ("sessions", LispState.LispRouters.Sessions)), ("local-rlocs", ("local_rlocs", LispState.LispRouters.LocalRlocs))])
             self._leafs = OrderedDict([
                 ('top_id', YLeaf(YType.uint32, 'top-id')),
                 ('site_id', YLeaf(YType.uint64, 'site-id')),
@@ -343,8 +341,7 @@ class LispState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['iid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("af", ("af", LispState.LispRouters.Instances.Af)), ("ms-eid-membership", ("ms_eid_membership", LispState.LispRouters.Instances.MsEidMembership)), ("etr-eid-membership", ("etr_eid_membership", LispState.LispRouters.Instances.EtrEidMembership))])
+                self._child_classes = OrderedDict([("af", ("af", LispState.LispRouters.Instances.Af)), ("ms-eid-membership", ("ms_eid_membership", LispState.LispRouters.Instances.MsEidMembership)), ("etr-eid-membership", ("etr_eid_membership", LispState.LispRouters.Instances.EtrEidMembership))])
                 self._leafs = OrderedDict([
                     ('iid', YLeaf(YType.uint32, 'iid')),
                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
@@ -966,8 +963,7 @@ class LispState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['iaftype']
-                    self._child_container_classes = OrderedDict([("role", ("role", LispState.LispRouters.Instances.Af.Role))])
-                    self._child_list_classes = OrderedDict([("map-cache", ("map_cache", LispState.LispRouters.Instances.Af.MapCache)), ("local-dbase", ("local_dbase", LispState.LispRouters.Instances.Af.LocalDbase)), ("ms-registrations", ("ms_registrations", LispState.LispRouters.Instances.Af.MsRegistrations)), ("map-servers", ("map_servers", LispState.LispRouters.Instances.Af.MapServers)), ("map-resolvers", ("map_resolvers", LispState.LispRouters.Instances.Af.MapResolvers)), ("proxy-etrs", ("proxy_etrs", LispState.LispRouters.Instances.Af.ProxyEtrs))])
+                    self._child_classes = OrderedDict([("role", ("role", LispState.LispRouters.Instances.Af.Role)), ("map-cache", ("map_cache", LispState.LispRouters.Instances.Af.MapCache)), ("local-dbase", ("local_dbase", LispState.LispRouters.Instances.Af.LocalDbase)), ("ms-registrations", ("ms_registrations", LispState.LispRouters.Instances.Af.MsRegistrations)), ("map-servers", ("map_servers", LispState.LispRouters.Instances.Af.MapServers)), ("map-resolvers", ("map_resolvers", LispState.LispRouters.Instances.Af.MapResolvers)), ("proxy-etrs", ("proxy_etrs", LispState.LispRouters.Instances.Af.ProxyEtrs))])
                     self._leafs = OrderedDict([
                         ('iaftype', YLeaf(YType.enumeration, 'iaftype')),
                         ('l2_domain_id', YLeaf(YType.uint32, 'l2-domain-id')),
@@ -1132,7 +1128,6 @@ class LispState(Entity):
                     self.role = LispState.LispRouters.Instances.Af.Role()
                     self.role.parent = self
                     self._children_name_map["role"] = "role"
-                    self._children_yang_names.add("role")
 
                     self.map_cache = YList(self)
                     self.local_dbase = YList(self)
@@ -1195,8 +1190,7 @@ class LispState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('is_ms', YLeaf(YType.boolean, 'is-ms')),
                             ('is_mr', YLeaf(YType.boolean, 'is-mr')),
@@ -1327,8 +1321,7 @@ class LispState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['afi','prefix']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("map-cache-rloc", ("map_cache_rloc", LispState.LispRouters.Instances.Af.MapCache.MapCacheRloc))])
+                        self._child_classes = OrderedDict([("map-cache-rloc", ("map_cache_rloc", LispState.LispRouters.Instances.Af.MapCache.MapCacheRloc))])
                         self._leafs = OrderedDict([
                             ('afi', YLeaf(YType.enumeration, 'afi')),
                             ('prefix', YLeaf(YType.str, 'prefix')),
@@ -1429,8 +1422,7 @@ class LispState(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['afi','address']
-                            self._child_container_classes = OrderedDict([("params", ("params", LispState.LispRouters.Instances.Af.MapCache.MapCacheRloc.Params))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("params", ("params", LispState.LispRouters.Instances.Af.MapCache.MapCacheRloc.Params))])
                             self._leafs = OrderedDict([
                                 ('afi', YLeaf(YType.enumeration, 'afi')),
                                 ('address', YLeaf(YType.str, 'address')),
@@ -1449,7 +1441,6 @@ class LispState(Entity):
                             self.params = LispState.LispRouters.Instances.Af.MapCache.MapCacheRloc.Params()
                             self.params.parent = self
                             self._children_name_map["params"] = "params"
-                            self._children_yang_names.add("params")
                             self._segment_path = lambda: "map-cache-rloc" + "[afi='" + str(self.afi) + "']" + "[address='" + str(self.address) + "']"
 
                         def __setattr__(self, name, value):
@@ -1503,8 +1494,7 @@ class LispState(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('priority', YLeaf(YType.uint8, 'priority')),
                                     ('weight', YLeaf(YType.uint8, 'weight')),
@@ -1567,8 +1557,7 @@ class LispState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['afi','prefix']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("local-dbase-rloc", ("local_dbase_rloc", LispState.LispRouters.Instances.Af.LocalDbase.LocalDbaseRloc))])
+                        self._child_classes = OrderedDict([("local-dbase-rloc", ("local_dbase_rloc", LispState.LispRouters.Instances.Af.LocalDbase.LocalDbaseRloc))])
                         self._leafs = OrderedDict([
                             ('afi', YLeaf(YType.enumeration, 'afi')),
                             ('prefix', YLeaf(YType.str, 'prefix')),
@@ -1631,8 +1620,7 @@ class LispState(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['afi','address']
-                            self._child_container_classes = OrderedDict([("params", ("params", LispState.LispRouters.Instances.Af.LocalDbase.LocalDbaseRloc.Params))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("params", ("params", LispState.LispRouters.Instances.Af.LocalDbase.LocalDbaseRloc.Params))])
                             self._leafs = OrderedDict([
                                 ('afi', YLeaf(YType.enumeration, 'afi')),
                                 ('address', YLeaf(YType.str, 'address')),
@@ -1647,7 +1635,6 @@ class LispState(Entity):
                             self.params = LispState.LispRouters.Instances.Af.LocalDbase.LocalDbaseRloc.Params()
                             self.params.parent = self
                             self._children_name_map["params"] = "params"
-                            self._children_yang_names.add("params")
                             self._segment_path = lambda: "local-dbase-rloc" + "[afi='" + str(self.afi) + "']" + "[address='" + str(self.address) + "']"
 
                         def __setattr__(self, name, value):
@@ -1701,8 +1688,7 @@ class LispState(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('priority', YLeaf(YType.uint8, 'priority')),
                                     ('weight', YLeaf(YType.uint8, 'weight')),
@@ -1808,8 +1794,7 @@ class LispState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['afi','prefix']
-                        self._child_container_classes = OrderedDict([("last-registration-source", ("last_registration_source", LispState.LispRouters.Instances.Af.MsRegistrations.LastRegistrationSource))])
-                        self._child_list_classes = OrderedDict([("etr-registrations", ("etr_registrations", LispState.LispRouters.Instances.Af.MsRegistrations.EtrRegistrations))])
+                        self._child_classes = OrderedDict([("last-registration-source", ("last_registration_source", LispState.LispRouters.Instances.Af.MsRegistrations.LastRegistrationSource)), ("etr-registrations", ("etr_registrations", LispState.LispRouters.Instances.Af.MsRegistrations.EtrRegistrations))])
                         self._leafs = OrderedDict([
                             ('afi', YLeaf(YType.enumeration, 'afi')),
                             ('prefix', YLeaf(YType.str, 'prefix')),
@@ -1836,7 +1821,6 @@ class LispState(Entity):
                         self.last_registration_source = LispState.LispRouters.Instances.Af.MsRegistrations.LastRegistrationSource()
                         self.last_registration_source.parent = self
                         self._children_name_map["last_registration_source"] = "last-registration-source"
-                        self._children_yang_names.add("last-registration-source")
 
                         self.etr_registrations = YList(self)
                         self._segment_path = lambda: "ms-registrations" + "[afi='" + str(self.afi) + "']" + "[prefix='" + str(self.prefix) + "']"
@@ -1875,8 +1859,7 @@ class LispState(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('afi', YLeaf(YType.enumeration, 'afi')),
                                 ('address', YLeaf(YType.str, 'address')),
@@ -1960,8 +1943,7 @@ class LispState(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['source_address','source_port']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("ms-registration-rloc", ("ms_registration_rloc", LispState.LispRouters.Instances.Af.MsRegistrations.EtrRegistrations.MsRegistrationRloc))])
+                            self._child_classes = OrderedDict([("ms-registration-rloc", ("ms_registration_rloc", LispState.LispRouters.Instances.Af.MsRegistrations.EtrRegistrations.MsRegistrationRloc))])
                             self._leafs = OrderedDict([
                                 ('source_address', YLeaf(YType.str, 'source-address')),
                                 ('source_port', YLeaf(YType.uint16, 'source-port')),
@@ -2028,8 +2010,7 @@ class LispState(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['afi','address']
-                                self._child_container_classes = OrderedDict([("params", ("params", LispState.LispRouters.Instances.Af.MsRegistrations.EtrRegistrations.MsRegistrationRloc.Params))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("params", ("params", LispState.LispRouters.Instances.Af.MsRegistrations.EtrRegistrations.MsRegistrationRloc.Params))])
                                 self._leafs = OrderedDict([
                                     ('afi', YLeaf(YType.enumeration, 'afi')),
                                     ('address', YLeaf(YType.str, 'address')),
@@ -2044,7 +2025,6 @@ class LispState(Entity):
                                 self.params = LispState.LispRouters.Instances.Af.MsRegistrations.EtrRegistrations.MsRegistrationRloc.Params()
                                 self.params.parent = self
                                 self._children_name_map["params"] = "params"
-                                self._children_yang_names.add("params")
                                 self._segment_path = lambda: "ms-registration-rloc" + "[afi='" + str(self.afi) + "']" + "[address='" + str(self.address) + "']"
 
                             def __setattr__(self, name, value):
@@ -2098,8 +2078,7 @@ class LispState(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('priority', YLeaf(YType.uint8, 'priority')),
                                         ('weight', YLeaf(YType.uint8, 'weight')),
@@ -2150,8 +2129,7 @@ class LispState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['afi','address']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('afi', YLeaf(YType.enumeration, 'afi')),
                             ('address', YLeaf(YType.str, 'address')),
@@ -2201,8 +2179,7 @@ class LispState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['afi','address']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('afi', YLeaf(YType.enumeration, 'afi')),
                             ('address', YLeaf(YType.str, 'address')),
@@ -2257,8 +2234,7 @@ class LispState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['afi','address']
-                        self._child_container_classes = OrderedDict([("params", ("params", LispState.LispRouters.Instances.Af.ProxyEtrs.Params))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("params", ("params", LispState.LispRouters.Instances.Af.ProxyEtrs.Params))])
                         self._leafs = OrderedDict([
                             ('afi', YLeaf(YType.enumeration, 'afi')),
                             ('address', YLeaf(YType.str, 'address')),
@@ -2271,7 +2247,6 @@ class LispState(Entity):
                         self.params = LispState.LispRouters.Instances.Af.ProxyEtrs.Params()
                         self.params.parent = self
                         self._children_name_map["params"] = "params"
-                        self._children_yang_names.add("params")
                         self._segment_path = lambda: "proxy-etrs" + "[afi='" + str(self.afi) + "']" + "[address='" + str(self.address) + "']"
 
                     def __setattr__(self, name, value):
@@ -2325,8 +2300,7 @@ class LispState(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('priority', YLeaf(YType.uint8, 'priority')),
                                 ('weight', YLeaf(YType.uint8, 'weight')),
@@ -2394,8 +2368,7 @@ class LispState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['rloc']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('rloc', YLeaf(YType.str, 'rloc')),
                         ('member_since', YLeaf(YType.str, 'member-since')),
@@ -2462,8 +2435,7 @@ class LispState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['rloc']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('rloc', YLeaf(YType.str, 'rloc')),
                         ('member_since', YLeaf(YType.str, 'member-since')),
@@ -2589,8 +2561,7 @@ class LispState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['local_address','peer_address','local_port','peer_port']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('local_address', YLeaf(YType.str, 'local-address')),
                     ('peer_address', YLeaf(YType.str, 'peer-address')),
@@ -2663,8 +2634,7 @@ class LispState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['afi','address']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('afi', YLeaf(YType.enumeration, 'afi')),
                     ('address', YLeaf(YType.str, 'address')),

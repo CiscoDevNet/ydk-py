@@ -56,8 +56,7 @@ class ModulesState(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("module", ("module", ModulesState.Module))])
+        self._child_classes = OrderedDict([("module", ("module", ModulesState.Module))])
         self._leafs = OrderedDict([
             ('module_set_id', YLeaf(YType.str, 'module-set-id')),
         ])
@@ -146,8 +145,7 @@ class ModulesState(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['name','revision']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("deviation", ("deviation", ModulesState.Module.Deviation)), ("submodule", ("submodule", ModulesState.Module.Submodule))])
+            self._child_classes = OrderedDict([("deviation", ("deviation", ModulesState.Module.Deviation)), ("submodule", ("submodule", ModulesState.Module.Submodule))])
             self._leafs = OrderedDict([
                 ('name', YLeaf(YType.str, 'name')),
                 ('revision', YLeaf(YType.str, 'revision')),
@@ -275,8 +273,7 @@ class ModulesState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['name','revision']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('revision', YLeaf(YType.str, 'revision')),
@@ -334,8 +331,7 @@ class ModulesState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['name','revision']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('revision', YLeaf(YType.str, 'revision')),

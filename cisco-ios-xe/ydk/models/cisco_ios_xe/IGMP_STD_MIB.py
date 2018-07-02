@@ -19,12 +19,12 @@ class IGMPSTDMIB(Entity):
     .. attribute:: igmpinterfacetable
     
     	The (conceptual) table listing the interfaces on which IGMP is enabled
-    	**type**\:  :py:class:`Igmpinterfacetable <ydk.models.cisco_ios_xe.IGMP_STD_MIB.IGMPSTDMIB.Igmpinterfacetable>`
+    	**type**\:  :py:class:`IgmpInterfaceTable <ydk.models.cisco_ios_xe.IGMP_STD_MIB.IGMPSTDMIB.IgmpInterfaceTable>`
     
     .. attribute:: igmpcachetable
     
     	The (conceptual) table listing the IP multicast groups for which there are members on a particular interface
-    	**type**\:  :py:class:`Igmpcachetable <ydk.models.cisco_ios_xe.IGMP_STD_MIB.IGMPSTDMIB.Igmpcachetable>`
+    	**type**\:  :py:class:`IgmpCacheTable <ydk.models.cisco_ios_xe.IGMP_STD_MIB.IGMPSTDMIB.IgmpCacheTable>`
     
     
 
@@ -42,23 +42,23 @@ class IGMPSTDMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("igmpInterfaceTable", ("igmpinterfacetable", IGMPSTDMIB.Igmpinterfacetable)), ("igmpCacheTable", ("igmpcachetable", IGMPSTDMIB.Igmpcachetable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("igmpInterfaceTable", ("igmpinterfacetable", IGMPSTDMIB.IgmpInterfaceTable)), ("igmpCacheTable", ("igmpcachetable", IGMPSTDMIB.IgmpCacheTable))])
         self._leafs = OrderedDict()
 
-        self.igmpinterfacetable = IGMPSTDMIB.Igmpinterfacetable()
+        self.igmpinterfacetable = IGMPSTDMIB.IgmpInterfaceTable()
         self.igmpinterfacetable.parent = self
         self._children_name_map["igmpinterfacetable"] = "igmpInterfaceTable"
-        self._children_yang_names.add("igmpInterfaceTable")
 
-        self.igmpcachetable = IGMPSTDMIB.Igmpcachetable()
+        self.igmpcachetable = IGMPSTDMIB.IgmpCacheTable()
         self.igmpcachetable.parent = self
         self._children_name_map["igmpcachetable"] = "igmpCacheTable"
-        self._children_yang_names.add("igmpCacheTable")
         self._segment_path = lambda: "IGMP-STD-MIB:IGMP-STD-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(IGMPSTDMIB, [], name, value)
 
-    class Igmpinterfacetable(Entity):
+
+    class IgmpInterfaceTable(Entity):
         """
         The (conceptual) table listing the interfaces on which IGMP
         is enabled.
@@ -66,7 +66,7 @@ class IGMPSTDMIB(Entity):
         .. attribute:: igmpinterfaceentry
         
         	An entry (conceptual row) representing an interface on which IGMP is enabled
-        	**type**\: list of  		 :py:class:`Igmpinterfaceentry <ydk.models.cisco_ios_xe.IGMP_STD_MIB.IGMPSTDMIB.Igmpinterfacetable.Igmpinterfaceentry>`
+        	**type**\: list of  		 :py:class:`IgmpInterfaceEntry <ydk.models.cisco_ios_xe.IGMP_STD_MIB.IGMPSTDMIB.IgmpInterfaceTable.IgmpInterfaceEntry>`
         
         
 
@@ -76,15 +76,14 @@ class IGMPSTDMIB(Entity):
         _revision = '2000-09-28'
 
         def __init__(self):
-            super(IGMPSTDMIB.Igmpinterfacetable, self).__init__()
+            super(IGMPSTDMIB.IgmpInterfaceTable, self).__init__()
 
             self.yang_name = "igmpInterfaceTable"
             self.yang_parent_name = "IGMP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("igmpInterfaceEntry", ("igmpinterfaceentry", IGMPSTDMIB.Igmpinterfacetable.Igmpinterfaceentry))])
+            self._child_classes = OrderedDict([("igmpInterfaceEntry", ("igmpinterfaceentry", IGMPSTDMIB.IgmpInterfaceTable.IgmpInterfaceEntry))])
             self._leafs = OrderedDict()
 
             self.igmpinterfaceentry = YList(self)
@@ -92,10 +91,10 @@ class IGMPSTDMIB(Entity):
             self._absolute_path = lambda: "IGMP-STD-MIB:IGMP-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IGMPSTDMIB.Igmpinterfacetable, [], name, value)
+            self._perform_setattr(IGMPSTDMIB.IgmpInterfaceTable, [], name, value)
 
 
-        class Igmpinterfaceentry(Entity):
+        class IgmpInterfaceEntry(Entity):
             """
             An entry (conceptual row) representing an interface on
             which IGMP is enabled.
@@ -217,15 +216,14 @@ class IGMPSTDMIB(Entity):
             _revision = '2000-09-28'
 
             def __init__(self):
-                super(IGMPSTDMIB.Igmpinterfacetable.Igmpinterfaceentry, self).__init__()
+                super(IGMPSTDMIB.IgmpInterfaceTable.IgmpInterfaceEntry, self).__init__()
 
                 self.yang_name = "igmpInterfaceEntry"
                 self.yang_parent_name = "igmpInterfaceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['igmpinterfaceifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('igmpinterfaceifindex', YLeaf(YType.int32, 'igmpInterfaceIfIndex')),
                     ('igmpinterfacequeryinterval', YLeaf(YType.uint32, 'igmpInterfaceQueryInterval')),
@@ -262,10 +260,10 @@ class IGMPSTDMIB(Entity):
                 self._absolute_path = lambda: "IGMP-STD-MIB:IGMP-STD-MIB/igmpInterfaceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IGMPSTDMIB.Igmpinterfacetable.Igmpinterfaceentry, ['igmpinterfaceifindex', 'igmpinterfacequeryinterval', 'igmpinterfacestatus', 'igmpinterfaceversion', 'igmpinterfacequerier', 'igmpinterfacequerymaxresponsetime', 'igmpinterfacequerieruptime', 'igmpinterfacequerierexpirytime', 'igmpinterfaceversion1queriertimer', 'igmpinterfacewrongversionqueries', 'igmpinterfacejoins', 'igmpinterfaceproxyifindex', 'igmpinterfacegroups', 'igmpinterfacerobustness', 'igmpinterfacelastmembqueryintvl'], name, value)
+                self._perform_setattr(IGMPSTDMIB.IgmpInterfaceTable.IgmpInterfaceEntry, ['igmpinterfaceifindex', 'igmpinterfacequeryinterval', 'igmpinterfacestatus', 'igmpinterfaceversion', 'igmpinterfacequerier', 'igmpinterfacequerymaxresponsetime', 'igmpinterfacequerieruptime', 'igmpinterfacequerierexpirytime', 'igmpinterfaceversion1queriertimer', 'igmpinterfacewrongversionqueries', 'igmpinterfacejoins', 'igmpinterfaceproxyifindex', 'igmpinterfacegroups', 'igmpinterfacerobustness', 'igmpinterfacelastmembqueryintvl'], name, value)
 
 
-    class Igmpcachetable(Entity):
+    class IgmpCacheTable(Entity):
         """
         The (conceptual) table listing the IP multicast groups for
         which there are members on a particular interface.
@@ -273,7 +271,7 @@ class IGMPSTDMIB(Entity):
         .. attribute:: igmpcacheentry
         
         	An entry (conceptual row) in the igmpCacheTable
-        	**type**\: list of  		 :py:class:`Igmpcacheentry <ydk.models.cisco_ios_xe.IGMP_STD_MIB.IGMPSTDMIB.Igmpcachetable.Igmpcacheentry>`
+        	**type**\: list of  		 :py:class:`IgmpCacheEntry <ydk.models.cisco_ios_xe.IGMP_STD_MIB.IGMPSTDMIB.IgmpCacheTable.IgmpCacheEntry>`
         
         
 
@@ -283,15 +281,14 @@ class IGMPSTDMIB(Entity):
         _revision = '2000-09-28'
 
         def __init__(self):
-            super(IGMPSTDMIB.Igmpcachetable, self).__init__()
+            super(IGMPSTDMIB.IgmpCacheTable, self).__init__()
 
             self.yang_name = "igmpCacheTable"
             self.yang_parent_name = "IGMP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("igmpCacheEntry", ("igmpcacheentry", IGMPSTDMIB.Igmpcachetable.Igmpcacheentry))])
+            self._child_classes = OrderedDict([("igmpCacheEntry", ("igmpcacheentry", IGMPSTDMIB.IgmpCacheTable.IgmpCacheEntry))])
             self._leafs = OrderedDict()
 
             self.igmpcacheentry = YList(self)
@@ -299,10 +296,10 @@ class IGMPSTDMIB(Entity):
             self._absolute_path = lambda: "IGMP-STD-MIB:IGMP-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(IGMPSTDMIB.Igmpcachetable, [], name, value)
+            self._perform_setattr(IGMPSTDMIB.IgmpCacheTable, [], name, value)
 
 
-        class Igmpcacheentry(Entity):
+        class IgmpCacheEntry(Entity):
             """
             An entry (conceptual row) in the igmpCacheTable.
             
@@ -366,15 +363,14 @@ class IGMPSTDMIB(Entity):
             _revision = '2000-09-28'
 
             def __init__(self):
-                super(IGMPSTDMIB.Igmpcachetable.Igmpcacheentry, self).__init__()
+                super(IGMPSTDMIB.IgmpCacheTable.IgmpCacheEntry, self).__init__()
 
                 self.yang_name = "igmpCacheEntry"
                 self.yang_parent_name = "igmpCacheTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['igmpcacheaddress','igmpcacheifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('igmpcacheaddress', YLeaf(YType.str, 'igmpCacheAddress')),
                     ('igmpcacheifindex', YLeaf(YType.int32, 'igmpCacheIfIndex')),
@@ -397,7 +393,7 @@ class IGMPSTDMIB(Entity):
                 self._absolute_path = lambda: "IGMP-STD-MIB:IGMP-STD-MIB/igmpCacheTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(IGMPSTDMIB.Igmpcachetable.Igmpcacheentry, ['igmpcacheaddress', 'igmpcacheifindex', 'igmpcacheself', 'igmpcachelastreporter', 'igmpcacheuptime', 'igmpcacheexpirytime', 'igmpcachestatus', 'igmpcacheversion1hosttimer'], name, value)
+                self._perform_setattr(IGMPSTDMIB.IgmpCacheTable.IgmpCacheEntry, ['igmpcacheaddress', 'igmpcacheifindex', 'igmpcacheself', 'igmpcachelastreporter', 'igmpcacheuptime', 'igmpcacheexpirytime', 'igmpcachestatus', 'igmpcacheversion1hosttimer'], name, value)
 
     def clone_ptr(self):
         self._top_entity = IGMPSTDMIB()

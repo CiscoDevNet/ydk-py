@@ -75,12 +75,12 @@ class CISCOAAASERVERMIB(Entity):
     .. attribute:: casconfig
     
     	
-    	**type**\:  :py:class:`Casconfig <ydk.models.cisco_ios_xe.CISCO_AAA_SERVER_MIB.CISCOAAASERVERMIB.Casconfig>`
+    	**type**\:  :py:class:`CasConfig <ydk.models.cisco_ios_xe.CISCO_AAA_SERVER_MIB.CISCOAAASERVERMIB.CasConfig>`
     
     .. attribute:: casconfigtable
     
     	This table shows current configurations for each AAA server, allows existing servers to	be removed and new ones to be created
-    	**type**\:  :py:class:`Casconfigtable <ydk.models.cisco_ios_xe.CISCO_AAA_SERVER_MIB.CISCOAAASERVERMIB.Casconfigtable>`
+    	**type**\:  :py:class:`CasConfigTable <ydk.models.cisco_ios_xe.CISCO_AAA_SERVER_MIB.CISCOAAASERVERMIB.CasConfigTable>`
     
     
 
@@ -98,23 +98,23 @@ class CISCOAAASERVERMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("casConfig", ("casconfig", CISCOAAASERVERMIB.Casconfig)), ("casConfigTable", ("casconfigtable", CISCOAAASERVERMIB.Casconfigtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("casConfig", ("casconfig", CISCOAAASERVERMIB.CasConfig)), ("casConfigTable", ("casconfigtable", CISCOAAASERVERMIB.CasConfigTable))])
         self._leafs = OrderedDict()
 
-        self.casconfig = CISCOAAASERVERMIB.Casconfig()
+        self.casconfig = CISCOAAASERVERMIB.CasConfig()
         self.casconfig.parent = self
         self._children_name_map["casconfig"] = "casConfig"
-        self._children_yang_names.add("casConfig")
 
-        self.casconfigtable = CISCOAAASERVERMIB.Casconfigtable()
+        self.casconfigtable = CISCOAAASERVERMIB.CasConfigTable()
         self.casconfigtable.parent = self
         self._children_name_map["casconfigtable"] = "casConfigTable"
-        self._children_yang_names.add("casConfigTable")
         self._segment_path = lambda: "CISCO-AAA-SERVER-MIB:CISCO-AAA-SERVER-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOAAASERVERMIB, [], name, value)
 
-    class Casconfig(Entity):
+
+    class CasConfig(Entity):
         """
         
         
@@ -131,15 +131,14 @@ class CISCOAAASERVERMIB(Entity):
         _revision = '2003-11-17'
 
         def __init__(self):
-            super(CISCOAAASERVERMIB.Casconfig, self).__init__()
+            super(CISCOAAASERVERMIB.CasConfig, self).__init__()
 
             self.yang_name = "casConfig"
             self.yang_parent_name = "CISCO-AAA-SERVER-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('casserverstatechangeenable', YLeaf(YType.boolean, 'casServerStateChangeEnable')),
             ])
@@ -148,10 +147,10 @@ class CISCOAAASERVERMIB(Entity):
             self._absolute_path = lambda: "CISCO-AAA-SERVER-MIB:CISCO-AAA-SERVER-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOAAASERVERMIB.Casconfig, ['casserverstatechangeenable'], name, value)
+            self._perform_setattr(CISCOAAASERVERMIB.CasConfig, ['casserverstatechangeenable'], name, value)
 
 
-    class Casconfigtable(Entity):
+    class CasConfigTable(Entity):
         """
         This table shows current configurations for each
         AAA server, allows existing servers to	be removed
@@ -160,7 +159,7 @@ class CISCOAAASERVERMIB(Entity):
         .. attribute:: casconfigentry
         
         	An	AAA server configuration identified by its protocol and its index.  An	entry is created/removed when a	server is defined or	undefined with IOS configuration commands via CLI or by issuing appropriate sets	to this	table using snmp.  A management station wishing to create an entry should first generate a random number to be used as the index to	this sparse table.  The	station	should then create the associated	instance of the	row status and row index objects. It	must also, either in the same or in successive PDUs, create an instance	of casAddress where casAddress is the IP	address	of the server to be added.  It	should also modify the default values for casAuthenPort, casAcctPort if the	defaults are not appropriate.  If	casKey is a zero\-length	string or is not explicitly set, then the global key will be used.	Otherwise, this	value is	used as	the key	for this server	instance.  Once the appropriate instance of all the configuration objects have been created,	either by an explicit SNMP set request or	by default, the	row status should be set to active(1) to initiate the request.  After the AAA server is made active, the entry can	not be modified \-	the only allowed operation after this is to destroy the entry by setting casConfigRowStatus to	destroy(6).  casPriority is automatically assigned once	the entry is made active and reflects the relative priority of the defined server with respect to already configured servers. Newly\-created servers will	be assigned the	lowest priority. To	reassign server	priorities to existing server entries, it	may be necessary to destroy and	recreate entries in order of	priority.  Entries in	this table with	casConfigRowStatus equal to active(1) remain in the table until destroyed.  Entries in	this table with	casConfigRowStatus equal to values other than active(1) will be destroyed after timeout (5	minutes).  If	a server address being created via SNMP	exists already in	another	active casConfigEntry, then a newly created row can not be	made active until the original row with	the with the same server address value	is destroyed.  Upon reload, casIndex values may be changed, but the priorities	that were saved	before reload will be retained, with lowest priority number corresponding to the higher priority servers
-        	**type**\: list of  		 :py:class:`Casconfigentry <ydk.models.cisco_ios_xe.CISCO_AAA_SERVER_MIB.CISCOAAASERVERMIB.Casconfigtable.Casconfigentry>`
+        	**type**\: list of  		 :py:class:`CasConfigEntry <ydk.models.cisco_ios_xe.CISCO_AAA_SERVER_MIB.CISCOAAASERVERMIB.CasConfigTable.CasConfigEntry>`
         
         
 
@@ -170,15 +169,14 @@ class CISCOAAASERVERMIB(Entity):
         _revision = '2003-11-17'
 
         def __init__(self):
-            super(CISCOAAASERVERMIB.Casconfigtable, self).__init__()
+            super(CISCOAAASERVERMIB.CasConfigTable, self).__init__()
 
             self.yang_name = "casConfigTable"
             self.yang_parent_name = "CISCO-AAA-SERVER-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("casConfigEntry", ("casconfigentry", CISCOAAASERVERMIB.Casconfigtable.Casconfigentry))])
+            self._child_classes = OrderedDict([("casConfigEntry", ("casconfigentry", CISCOAAASERVERMIB.CasConfigTable.CasConfigEntry))])
             self._leafs = OrderedDict()
 
             self.casconfigentry = YList(self)
@@ -186,10 +184,10 @@ class CISCOAAASERVERMIB(Entity):
             self._absolute_path = lambda: "CISCO-AAA-SERVER-MIB:CISCO-AAA-SERVER-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOAAASERVERMIB.Casconfigtable, [], name, value)
+            self._perform_setattr(CISCOAAASERVERMIB.CasConfigTable, [], name, value)
 
 
-        class Casconfigentry(Entity):
+        class CasConfigEntry(Entity):
             """
             An	AAA server configuration identified by its protocol
             and its index.
@@ -469,7 +467,7 @@ class CISCOAAASERVERMIB(Entity):
             .. attribute:: casstate
             
             	Current state of this server.  up(1)	 \- Server responding to	requests  dead(2) \- Server failed to respond  A server is marked	dead if	it does	not respond after maximum retransmissions.  A server is marked	up again either	after a	waiting period or if some response	is received from it.  The initial value of casState is 'up(1)' at system re\-initialization.	This will only transistion to 'dead(2)' if	an attempt to communicate fails
-            	**type**\:  :py:class:`Casstate <ydk.models.cisco_ios_xe.CISCO_AAA_SERVER_MIB.CISCOAAASERVERMIB.Casconfigtable.Casconfigentry.Casstate>`
+            	**type**\:  :py:class:`CasState <ydk.models.cisco_ios_xe.CISCO_AAA_SERVER_MIB.CISCOAAASERVERMIB.CasConfigTable.CasConfigEntry.CasState>`
             
             .. attribute:: cascurrentstateduration
             
@@ -507,15 +505,14 @@ class CISCOAAASERVERMIB(Entity):
             _revision = '2003-11-17'
 
             def __init__(self):
-                super(CISCOAAASERVERMIB.Casconfigtable.Casconfigentry, self).__init__()
+                super(CISCOAAASERVERMIB.CasConfigTable.CasConfigEntry, self).__init__()
 
                 self.yang_name = "casConfigEntry"
                 self.yang_parent_name = "casConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['casprotocol','casindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('casprotocol', YLeaf(YType.enumeration, 'casProtocol')),
                     ('casindex', YLeaf(YType.uint32, 'casIndex')),
@@ -596,11 +593,11 @@ class CISCOAAASERVERMIB(Entity):
                 self._absolute_path = lambda: "CISCO-AAA-SERVER-MIB:CISCO-AAA-SERVER-MIB/casConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOAAASERVERMIB.Casconfigtable.Casconfigentry, ['casprotocol', 'casindex', 'casaddress', 'casauthenport', 'casacctport', 'caskey', 'caspriority', 'casconfigrowstatus', 'casauthenrequests', 'casauthenrequesttimeouts', 'casauthenunexpectedresponses', 'casauthenservererrorresponses', 'casauthenincorrectresponses', 'casauthenresponsetime', 'casauthentransactionsuccesses', 'casauthentransactionfailures', 'casauthorrequests', 'casauthorrequesttimeouts', 'casauthorunexpectedresponses', 'casauthorservererrorresponses', 'casauthorincorrectresponses', 'casauthorresponsetime', 'casauthortransactionsuccesses', 'casauthortransactionfailures', 'casacctrequests', 'casacctrequesttimeouts', 'casacctunexpectedresponses', 'casacctservererrorresponses', 'casacctincorrectresponses', 'casacctresponsetime', 'casaccttransactionsuccesses', 'casaccttransactionfailures', 'casstate', 'cascurrentstateduration', 'caspreviousstateduration', 'castotaldeadtime', 'casdeadcount'], name, value)
+                self._perform_setattr(CISCOAAASERVERMIB.CasConfigTable.CasConfigEntry, ['casprotocol', 'casindex', 'casaddress', 'casauthenport', 'casacctport', 'caskey', 'caspriority', 'casconfigrowstatus', 'casauthenrequests', 'casauthenrequesttimeouts', 'casauthenunexpectedresponses', 'casauthenservererrorresponses', 'casauthenincorrectresponses', 'casauthenresponsetime', 'casauthentransactionsuccesses', 'casauthentransactionfailures', 'casauthorrequests', 'casauthorrequesttimeouts', 'casauthorunexpectedresponses', 'casauthorservererrorresponses', 'casauthorincorrectresponses', 'casauthorresponsetime', 'casauthortransactionsuccesses', 'casauthortransactionfailures', 'casacctrequests', 'casacctrequesttimeouts', 'casacctunexpectedresponses', 'casacctservererrorresponses', 'casacctincorrectresponses', 'casacctresponsetime', 'casaccttransactionsuccesses', 'casaccttransactionfailures', 'casstate', 'cascurrentstateduration', 'caspreviousstateduration', 'castotaldeadtime', 'casdeadcount'], name, value)
 
-            class Casstate(Enum):
+            class CasState(Enum):
                 """
-                Casstate (Enum Class)
+                CasState (Enum Class)
 
                 Current state of this server.
 

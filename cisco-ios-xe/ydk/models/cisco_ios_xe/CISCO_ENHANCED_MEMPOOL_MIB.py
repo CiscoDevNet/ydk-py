@@ -169,22 +169,22 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
     .. attribute:: cempnotificationconfig
     
     	
-    	**type**\:  :py:class:`Cempnotificationconfig <ydk.models.cisco_ios_xe.CISCO_ENHANCED_MEMPOOL_MIB.CISCOENHANCEDMEMPOOLMIB.Cempnotificationconfig>`
+    	**type**\:  :py:class:`CempNotificationConfig <ydk.models.cisco_ios_xe.CISCO_ENHANCED_MEMPOOL_MIB.CISCOENHANCEDMEMPOOLMIB.CempNotificationConfig>`
     
     .. attribute:: cempmempooltable
     
     	A table of memory pool monitoring entries for all physical entities on a managed system
-    	**type**\:  :py:class:`Cempmempooltable <ydk.models.cisco_ios_xe.CISCO_ENHANCED_MEMPOOL_MIB.CISCOENHANCEDMEMPOOLMIB.Cempmempooltable>`
+    	**type**\:  :py:class:`CempMemPoolTable <ydk.models.cisco_ios_xe.CISCO_ENHANCED_MEMPOOL_MIB.CISCOENHANCEDMEMPOOLMIB.CempMemPoolTable>`
     
     .. attribute:: cempmembufferpooltable
     
     	Entries in this table define entities (buffer pools in this case) which are contained in an entity  (memory pool) defined by an entry from cempMemPoolTable. \-\- Basic Pool Architecture \-\- 1)Pools are classified as being either Static or    Dynamic. Static pools make no attempt to increase    the number of buffers contained within them if the    number of free buffers (cempMemBufferFree) are less   than the number of minimum buffers (cempMemBufferMin).   With Dynamic pools, the pool attempts to meet the    demands of its users. 2)Buffers in a pool are classified as being either    Permanent or Temporary. Permanent buffers, as their   name suggests, are always in the pool and are never   destroyed unless the number of permanent buffers    (cempMemBufferPermanent) is changed. Temporary   buffers are transient buffers that are created in   dynamic pools whenever the free count    (cempMemBufferFree) of buffers in the pool drops    below the minimum (cempMemBufferMin). 3)Buffers pools are classified as either Public or    Private. Public pools are available for all users    to allocate buffers from. Private pools are   primarily used by interface drivers
-    	**type**\:  :py:class:`Cempmembufferpooltable <ydk.models.cisco_ios_xe.CISCO_ENHANCED_MEMPOOL_MIB.CISCOENHANCEDMEMPOOLMIB.Cempmembufferpooltable>`
+    	**type**\:  :py:class:`CempMemBufferPoolTable <ydk.models.cisco_ios_xe.CISCO_ENHANCED_MEMPOOL_MIB.CISCOENHANCEDMEMPOOLMIB.CempMemBufferPoolTable>`
     
     .. attribute:: cempmembuffercachepooltable
     
     	A table that lists the cache buffer pools configured on a managed system.  1)To provide a noticeable performance boost,    Cache Pool can be used. A Cache Pool is effectively   a lookaside list of free buffers that can be    accessed quickly. Cache Pool is tied to Buffer Pool.  2)Cache pools can optionally have a threshold value   on the number of cache buffers used in a pool. This   can provide flow control management by having a    implementation specific approach such as invoking a   vector when pool cache rises above the optional    threshold set for it on creation
-    	**type**\:  :py:class:`Cempmembuffercachepooltable <ydk.models.cisco_ios_xe.CISCO_ENHANCED_MEMPOOL_MIB.CISCOENHANCEDMEMPOOLMIB.Cempmembuffercachepooltable>`
+    	**type**\:  :py:class:`CempMemBufferCachePoolTable <ydk.models.cisco_ios_xe.CISCO_ENHANCED_MEMPOOL_MIB.CISCOENHANCEDMEMPOOLMIB.CempMemBufferCachePoolTable>`
     
     
 
@@ -202,33 +202,31 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cempNotificationConfig", ("cempnotificationconfig", CISCOENHANCEDMEMPOOLMIB.Cempnotificationconfig)), ("cempMemPoolTable", ("cempmempooltable", CISCOENHANCEDMEMPOOLMIB.Cempmempooltable)), ("cempMemBufferPoolTable", ("cempmembufferpooltable", CISCOENHANCEDMEMPOOLMIB.Cempmembufferpooltable)), ("cempMemBufferCachePoolTable", ("cempmembuffercachepooltable", CISCOENHANCEDMEMPOOLMIB.Cempmembuffercachepooltable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cempNotificationConfig", ("cempnotificationconfig", CISCOENHANCEDMEMPOOLMIB.CempNotificationConfig)), ("cempMemPoolTable", ("cempmempooltable", CISCOENHANCEDMEMPOOLMIB.CempMemPoolTable)), ("cempMemBufferPoolTable", ("cempmembufferpooltable", CISCOENHANCEDMEMPOOLMIB.CempMemBufferPoolTable)), ("cempMemBufferCachePoolTable", ("cempmembuffercachepooltable", CISCOENHANCEDMEMPOOLMIB.CempMemBufferCachePoolTable))])
         self._leafs = OrderedDict()
 
-        self.cempnotificationconfig = CISCOENHANCEDMEMPOOLMIB.Cempnotificationconfig()
+        self.cempnotificationconfig = CISCOENHANCEDMEMPOOLMIB.CempNotificationConfig()
         self.cempnotificationconfig.parent = self
         self._children_name_map["cempnotificationconfig"] = "cempNotificationConfig"
-        self._children_yang_names.add("cempNotificationConfig")
 
-        self.cempmempooltable = CISCOENHANCEDMEMPOOLMIB.Cempmempooltable()
+        self.cempmempooltable = CISCOENHANCEDMEMPOOLMIB.CempMemPoolTable()
         self.cempmempooltable.parent = self
         self._children_name_map["cempmempooltable"] = "cempMemPoolTable"
-        self._children_yang_names.add("cempMemPoolTable")
 
-        self.cempmembufferpooltable = CISCOENHANCEDMEMPOOLMIB.Cempmembufferpooltable()
+        self.cempmembufferpooltable = CISCOENHANCEDMEMPOOLMIB.CempMemBufferPoolTable()
         self.cempmembufferpooltable.parent = self
         self._children_name_map["cempmembufferpooltable"] = "cempMemBufferPoolTable"
-        self._children_yang_names.add("cempMemBufferPoolTable")
 
-        self.cempmembuffercachepooltable = CISCOENHANCEDMEMPOOLMIB.Cempmembuffercachepooltable()
+        self.cempmembuffercachepooltable = CISCOENHANCEDMEMPOOLMIB.CempMemBufferCachePoolTable()
         self.cempmembuffercachepooltable.parent = self
         self._children_name_map["cempmembuffercachepooltable"] = "cempMemBufferCachePoolTable"
-        self._children_yang_names.add("cempMemBufferCachePoolTable")
         self._segment_path = lambda: "CISCO-ENHANCED-MEMPOOL-MIB:CISCO-ENHANCED-MEMPOOL-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOENHANCEDMEMPOOLMIB, [], name, value)
 
-    class Cempnotificationconfig(Entity):
+
+    class CempNotificationConfig(Entity):
         """
         
         
@@ -245,15 +243,14 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
         _revision = '2008-12-05'
 
         def __init__(self):
-            super(CISCOENHANCEDMEMPOOLMIB.Cempnotificationconfig, self).__init__()
+            super(CISCOENHANCEDMEMPOOLMIB.CempNotificationConfig, self).__init__()
 
             self.yang_name = "cempNotificationConfig"
             self.yang_parent_name = "CISCO-ENHANCED-MEMPOOL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cempmembuffernotifyenabled', YLeaf(YType.boolean, 'cempMemBufferNotifyEnabled')),
             ])
@@ -262,10 +259,10 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENHANCED-MEMPOOL-MIB:CISCO-ENHANCED-MEMPOOL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENHANCEDMEMPOOLMIB.Cempnotificationconfig, ['cempmembuffernotifyenabled'], name, value)
+            self._perform_setattr(CISCOENHANCEDMEMPOOLMIB.CempNotificationConfig, ['cempmembuffernotifyenabled'], name, value)
 
 
-    class Cempmempooltable(Entity):
+    class CempMemPoolTable(Entity):
         """
         A table of memory pool monitoring entries for all
         physical entities on a managed system.
@@ -273,7 +270,7 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
         .. attribute:: cempmempoolentry
         
         	An entry in the memory pool monitoring table
-        	**type**\: list of  		 :py:class:`Cempmempoolentry <ydk.models.cisco_ios_xe.CISCO_ENHANCED_MEMPOOL_MIB.CISCOENHANCEDMEMPOOLMIB.Cempmempooltable.Cempmempoolentry>`
+        	**type**\: list of  		 :py:class:`CempMemPoolEntry <ydk.models.cisco_ios_xe.CISCO_ENHANCED_MEMPOOL_MIB.CISCOENHANCEDMEMPOOLMIB.CempMemPoolTable.CempMemPoolEntry>`
         
         
 
@@ -283,15 +280,14 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
         _revision = '2008-12-05'
 
         def __init__(self):
-            super(CISCOENHANCEDMEMPOOLMIB.Cempmempooltable, self).__init__()
+            super(CISCOENHANCEDMEMPOOLMIB.CempMemPoolTable, self).__init__()
 
             self.yang_name = "cempMemPoolTable"
             self.yang_parent_name = "CISCO-ENHANCED-MEMPOOL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cempMemPoolEntry", ("cempmempoolentry", CISCOENHANCEDMEMPOOLMIB.Cempmempooltable.Cempmempoolentry))])
+            self._child_classes = OrderedDict([("cempMemPoolEntry", ("cempmempoolentry", CISCOENHANCEDMEMPOOLMIB.CempMemPoolTable.CempMemPoolEntry))])
             self._leafs = OrderedDict()
 
             self.cempmempoolentry = YList(self)
@@ -299,10 +295,10 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENHANCED-MEMPOOL-MIB:CISCO-ENHANCED-MEMPOOL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENHANCEDMEMPOOLMIB.Cempmempooltable, [], name, value)
+            self._perform_setattr(CISCOENHANCEDMEMPOOLMIB.CempMemPoolTable, [], name, value)
 
 
-        class Cempmempoolentry(Entity):
+        class CempMemPoolEntry(Entity):
             """
             An entry in the memory pool monitoring table.
             
@@ -313,7 +309,7 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cempmempoolindex  (key)
             
@@ -547,15 +543,14 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
             _revision = '2008-12-05'
 
             def __init__(self):
-                super(CISCOENHANCEDMEMPOOLMIB.Cempmempooltable.Cempmempoolentry, self).__init__()
+                super(CISCOENHANCEDMEMPOOLMIB.CempMemPoolTable.CempMemPoolEntry, self).__init__()
 
                 self.yang_name = "cempMemPoolEntry"
                 self.yang_parent_name = "cempMemPoolTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','cempmempoolindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cempmempoolindex', YLeaf(YType.int32, 'cempMemPoolIndex')),
@@ -620,10 +615,10 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENHANCED-MEMPOOL-MIB:CISCO-ENHANCED-MEMPOOL-MIB/cempMemPoolTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENHANCEDMEMPOOLMIB.Cempmempooltable.Cempmempoolentry, ['entphysicalindex', 'cempmempoolindex', 'cempmempooltype', 'cempmempoolname', 'cempmempoolplatformmemory', 'cempmempoolalternate', 'cempmempoolvalid', 'cempmempoolused', 'cempmempoolfree', 'cempmempoollargestfree', 'cempmempoollowestfree', 'cempmempoolusedlowwatermark', 'cempmempoolallochit', 'cempmempoolallocmiss', 'cempmempoolfreehit', 'cempmempoolfreemiss', 'cempmempoolshared', 'cempmempoolusedovrflw', 'cempmempoolhcused', 'cempmempoolfreeovrflw', 'cempmempoolhcfree', 'cempmempoollargestfreeovrflw', 'cempmempoolhclargestfree', 'cempmempoollowestfreeovrflw', 'cempmempoolhclowestfree', 'cempmempoolusedlowwatermarkovrflw', 'cempmempoolhcusedlowwatermark', 'cempmempoolsharedovrflw', 'cempmempoolhcshared'], name, value)
+                self._perform_setattr(CISCOENHANCEDMEMPOOLMIB.CempMemPoolTable.CempMemPoolEntry, ['entphysicalindex', 'cempmempoolindex', 'cempmempooltype', 'cempmempoolname', 'cempmempoolplatformmemory', 'cempmempoolalternate', 'cempmempoolvalid', 'cempmempoolused', 'cempmempoolfree', 'cempmempoollargestfree', 'cempmempoollowestfree', 'cempmempoolusedlowwatermark', 'cempmempoolallochit', 'cempmempoolallocmiss', 'cempmempoolfreehit', 'cempmempoolfreemiss', 'cempmempoolshared', 'cempmempoolusedovrflw', 'cempmempoolhcused', 'cempmempoolfreeovrflw', 'cempmempoolhcfree', 'cempmempoollargestfreeovrflw', 'cempmempoolhclargestfree', 'cempmempoollowestfreeovrflw', 'cempmempoolhclowestfree', 'cempmempoolusedlowwatermarkovrflw', 'cempmempoolhcusedlowwatermark', 'cempmempoolsharedovrflw', 'cempmempoolhcshared'], name, value)
 
 
-    class Cempmembufferpooltable(Entity):
+    class CempMemBufferPoolTable(Entity):
         """
         Entries in this table define entities (buffer pools
         in this case) which are contained in an entity 
@@ -654,7 +649,7 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
         .. attribute:: cempmembufferpoolentry
         
         	This contains all the memory buffer pool configurations object values. The  entPhysicalIndex identifies the entity on which memory buffer pools are present
-        	**type**\: list of  		 :py:class:`Cempmembufferpoolentry <ydk.models.cisco_ios_xe.CISCO_ENHANCED_MEMPOOL_MIB.CISCOENHANCEDMEMPOOLMIB.Cempmembufferpooltable.Cempmembufferpoolentry>`
+        	**type**\: list of  		 :py:class:`CempMemBufferPoolEntry <ydk.models.cisco_ios_xe.CISCO_ENHANCED_MEMPOOL_MIB.CISCOENHANCEDMEMPOOLMIB.CempMemBufferPoolTable.CempMemBufferPoolEntry>`
         
         
 
@@ -664,15 +659,14 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
         _revision = '2008-12-05'
 
         def __init__(self):
-            super(CISCOENHANCEDMEMPOOLMIB.Cempmembufferpooltable, self).__init__()
+            super(CISCOENHANCEDMEMPOOLMIB.CempMemBufferPoolTable, self).__init__()
 
             self.yang_name = "cempMemBufferPoolTable"
             self.yang_parent_name = "CISCO-ENHANCED-MEMPOOL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cempMemBufferPoolEntry", ("cempmembufferpoolentry", CISCOENHANCEDMEMPOOLMIB.Cempmembufferpooltable.Cempmembufferpoolentry))])
+            self._child_classes = OrderedDict([("cempMemBufferPoolEntry", ("cempmembufferpoolentry", CISCOENHANCEDMEMPOOLMIB.CempMemBufferPoolTable.CempMemBufferPoolEntry))])
             self._leafs = OrderedDict()
 
             self.cempmembufferpoolentry = YList(self)
@@ -680,10 +674,10 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENHANCED-MEMPOOL-MIB:CISCO-ENHANCED-MEMPOOL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENHANCEDMEMPOOLMIB.Cempmembufferpooltable, [], name, value)
+            self._perform_setattr(CISCOENHANCEDMEMPOOLMIB.CempMemBufferPoolTable, [], name, value)
 
 
-        class Cempmembufferpoolentry(Entity):
+        class CempMemBufferPoolEntry(Entity):
             """
             This contains all the memory buffer pool
             configurations object values. The 
@@ -697,7 +691,7 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cempmembufferpoolindex  (key)
             
@@ -859,15 +853,14 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
             _revision = '2008-12-05'
 
             def __init__(self):
-                super(CISCOENHANCEDMEMPOOLMIB.Cempmembufferpooltable.Cempmembufferpoolentry, self).__init__()
+                super(CISCOENHANCEDMEMPOOLMIB.CempMemBufferPoolTable.CempMemBufferPoolEntry, self).__init__()
 
                 self.yang_name = "cempMemBufferPoolEntry"
                 self.yang_parent_name = "cempMemBufferPoolTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','cempmembufferpoolindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cempmembufferpoolindex', YLeaf(YType.uint32, 'cempMemBufferPoolIndex')),
@@ -920,10 +913,10 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENHANCED-MEMPOOL-MIB:CISCO-ENHANCED-MEMPOOL-MIB/cempMemBufferPoolTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENHANCEDMEMPOOLMIB.Cempmembufferpooltable.Cempmembufferpoolentry, ['entphysicalindex', 'cempmembufferpoolindex', 'cempmembuffermempoolindex', 'cempmembuffername', 'cempmembufferdynamic', 'cempmembuffersize', 'cempmembuffermin', 'cempmembuffermax', 'cempmembufferpermanent', 'cempmembuffertransient', 'cempmembuffertotal', 'cempmembufferfree', 'cempmembufferhit', 'cempmembuffermiss', 'cempmembufferfreehit', 'cempmembufferfreemiss', 'cempmembufferpermchange', 'cempmembufferpeak', 'cempmembufferpeaktime', 'cempmembuffertrim', 'cempmembuffergrow', 'cempmembufferfailures', 'cempmembuffernostorage'], name, value)
+                self._perform_setattr(CISCOENHANCEDMEMPOOLMIB.CempMemBufferPoolTable.CempMemBufferPoolEntry, ['entphysicalindex', 'cempmembufferpoolindex', 'cempmembuffermempoolindex', 'cempmembuffername', 'cempmembufferdynamic', 'cempmembuffersize', 'cempmembuffermin', 'cempmembuffermax', 'cempmembufferpermanent', 'cempmembuffertransient', 'cempmembuffertotal', 'cempmembufferfree', 'cempmembufferhit', 'cempmembuffermiss', 'cempmembufferfreehit', 'cempmembufferfreemiss', 'cempmembufferpermchange', 'cempmembufferpeak', 'cempmembufferpeaktime', 'cempmembuffertrim', 'cempmembuffergrow', 'cempmembufferfailures', 'cempmembuffernostorage'], name, value)
 
 
-    class Cempmembuffercachepooltable(Entity):
+    class CempMemBufferCachePoolTable(Entity):
         """
         A table that lists the cache buffer pools
         configured on a managed system. 
@@ -941,7 +934,7 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
         .. attribute:: cempmembuffercachepoolentry
         
         	Each entry represents one of the cache buffer pools available in the system and it contains the parameters configured for it. Note \: cempMemBufferCachePoolTable has a sparse dependency with cempMemBufferPoolTable (i.e all the entires in cempMemBufferPoolTable need not have an entry in cempMemBufferCachePoolTable
-        	**type**\: list of  		 :py:class:`Cempmembuffercachepoolentry <ydk.models.cisco_ios_xe.CISCO_ENHANCED_MEMPOOL_MIB.CISCOENHANCEDMEMPOOLMIB.Cempmembuffercachepooltable.Cempmembuffercachepoolentry>`
+        	**type**\: list of  		 :py:class:`CempMemBufferCachePoolEntry <ydk.models.cisco_ios_xe.CISCO_ENHANCED_MEMPOOL_MIB.CISCOENHANCEDMEMPOOLMIB.CempMemBufferCachePoolTable.CempMemBufferCachePoolEntry>`
         
         
 
@@ -951,15 +944,14 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
         _revision = '2008-12-05'
 
         def __init__(self):
-            super(CISCOENHANCEDMEMPOOLMIB.Cempmembuffercachepooltable, self).__init__()
+            super(CISCOENHANCEDMEMPOOLMIB.CempMemBufferCachePoolTable, self).__init__()
 
             self.yang_name = "cempMemBufferCachePoolTable"
             self.yang_parent_name = "CISCO-ENHANCED-MEMPOOL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cempMemBufferCachePoolEntry", ("cempmembuffercachepoolentry", CISCOENHANCEDMEMPOOLMIB.Cempmembuffercachepooltable.Cempmembuffercachepoolentry))])
+            self._child_classes = OrderedDict([("cempMemBufferCachePoolEntry", ("cempmembuffercachepoolentry", CISCOENHANCEDMEMPOOLMIB.CempMemBufferCachePoolTable.CempMemBufferCachePoolEntry))])
             self._leafs = OrderedDict()
 
             self.cempmembuffercachepoolentry = YList(self)
@@ -967,10 +959,10 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
             self._absolute_path = lambda: "CISCO-ENHANCED-MEMPOOL-MIB:CISCO-ENHANCED-MEMPOOL-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENHANCEDMEMPOOLMIB.Cempmembuffercachepooltable, [], name, value)
+            self._perform_setattr(CISCOENHANCEDMEMPOOLMIB.CempMemBufferCachePoolTable, [], name, value)
 
 
-        class Cempmembuffercachepoolentry(Entity):
+        class CempMemBufferCachePoolEntry(Entity):
             """
             Each entry represents one of the cache buffer pools
             available in the system and it contains the
@@ -987,7 +979,7 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: cempmembufferpoolindex  (key)
             
@@ -996,7 +988,7 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`cempmembufferpoolindex <ydk.models.cisco_ios_xe.CISCO_ENHANCED_MEMPOOL_MIB.CISCOENHANCEDMEMPOOLMIB.Cempmembufferpooltable.Cempmembufferpoolentry>`
+            	**refers to**\:  :py:class:`cempmembufferpoolindex <ydk.models.cisco_ios_xe.CISCO_ENHANCED_MEMPOOL_MIB.CISCOENHANCEDMEMPOOLMIB.CempMemBufferPoolTable.CempMemBufferPoolEntry>`
             
             .. attribute:: cempmembuffercachesize
             
@@ -1055,15 +1047,14 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
             _revision = '2008-12-05'
 
             def __init__(self):
-                super(CISCOENHANCEDMEMPOOLMIB.Cempmembuffercachepooltable.Cempmembuffercachepoolentry, self).__init__()
+                super(CISCOENHANCEDMEMPOOLMIB.CempMemBufferCachePoolTable.CempMemBufferCachePoolEntry, self).__init__()
 
                 self.yang_name = "cempMemBufferCachePoolEntry"
                 self.yang_parent_name = "cempMemBufferCachePoolTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex','cempmembufferpoolindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('cempmembufferpoolindex', YLeaf(YType.str, 'cempMemBufferPoolIndex')),
@@ -1088,7 +1079,7 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
                 self._absolute_path = lambda: "CISCO-ENHANCED-MEMPOOL-MIB:CISCO-ENHANCED-MEMPOOL-MIB/cempMemBufferCachePoolTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENHANCEDMEMPOOLMIB.Cempmembuffercachepooltable.Cempmembuffercachepoolentry, ['entphysicalindex', 'cempmembufferpoolindex', 'cempmembuffercachesize', 'cempmembuffercachetotal', 'cempmembuffercacheused', 'cempmembuffercachehit', 'cempmembuffercachemiss', 'cempmembuffercachethreshold', 'cempmembuffercachethresholdcount'], name, value)
+                self._perform_setattr(CISCOENHANCEDMEMPOOLMIB.CempMemBufferCachePoolTable.CempMemBufferCachePoolEntry, ['entphysicalindex', 'cempmembufferpoolindex', 'cempmembuffercachesize', 'cempmembuffercachetotal', 'cempmembuffercacheused', 'cempmembuffercachehit', 'cempmembuffercachemiss', 'cempmembuffercachethreshold', 'cempmembuffercachethresholdcount'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOENHANCEDMEMPOOLMIB()

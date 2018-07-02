@@ -7,7 +7,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-segment\-routing\-ms\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2018 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,27 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
+
+class XtcAddressFamily(Enum):
+    """
+    XtcAddressFamily (Enum Class)
+
+    Xtc address family
+
+    .. data:: af_type_ipv4 = 1
+
+    	IPv4 address family
+
+    .. data:: xtc_af_type_ipv6 = 2
+
+    	IPv6 address family
+
+    """
+
+    af_type_ipv4 = Enum.YLeaf(1, "af-type-ipv4")
+
+    xtc_af_type_ipv6 = Enum.YLeaf(2, "xtc-af-type-ipv6")
 
 
 class XtcAffinityRule(Enum):
@@ -44,6 +65,27 @@ class XtcAffinityRule(Enum):
     affinity_exclude_any = Enum.YLeaf(1, "affinity-exclude-any")
 
     affinity_include_any = Enum.YLeaf(2, "affinity-include-any")
+
+
+class XtcAutoRouteMetric(Enum):
+    """
+    XtcAutoRouteMetric (Enum Class)
+
+    Xtc auto route metric
+
+    .. data:: relative = 1
+
+    	Autoroute relative metric type
+
+    .. data:: constant = 3
+
+    	Autoroute constant metric type
+
+    """
+
+    relative = Enum.YLeaf(1, "relative")
+
+    constant = Enum.YLeaf(3, "constant")
 
 
 class XtcBindingSid(Enum):
@@ -156,11 +198,17 @@ class XtcMetric(Enum):
 
     	TE metric type
 
+    .. data:: latency = 3
+
+    	Latency metric type
+
     """
 
     igp = Enum.YLeaf(1, "igp")
 
     te = Enum.YLeaf(2, "te")
+
+    latency = Enum.YLeaf(3, "latency")
 
 
 class XtcMetricValue(Enum):

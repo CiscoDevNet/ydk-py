@@ -112,8 +112,7 @@ class Watchdog(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("threshold-memory", ("threshold_memory", Watchdog.ThresholdMemory))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("threshold-memory", ("threshold_memory", Watchdog.ThresholdMemory))])
         self._leafs = OrderedDict([
             ('threshold_memory_switchover', YLeaf(YType.uint32, 'threshold-memory-switchover')),
             ('restart_deadlock_disable', YLeaf(YType.empty, 'restart-deadlock-disable')),
@@ -138,7 +137,6 @@ class Watchdog(Entity):
         self.threshold_memory = Watchdog.ThresholdMemory()
         self.threshold_memory.parent = self
         self._children_name_map["threshold_memory"] = "threshold-memory"
-        self._children_yang_names.add("threshold-memory")
         self._segment_path = lambda: "Cisco-IOS-XR-wd-cfg:watchdog"
 
     def __setattr__(self, name, value):
@@ -185,8 +183,7 @@ class Watchdog(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('minor', YLeaf(YType.uint32, 'minor')),
                 ('severe', YLeaf(YType.uint32, 'severe')),

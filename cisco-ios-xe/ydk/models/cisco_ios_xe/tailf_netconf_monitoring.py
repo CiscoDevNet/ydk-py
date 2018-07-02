@@ -13,9 +13,9 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class CliConsole(Identity):
+class RestHttps(Identity):
     """
-    CLI on the console.
+    REST over HTTPS.
     
     
 
@@ -25,7 +25,7 @@ class CliConsole(Identity):
     _revision = '2016-11-24'
 
     def __init__(self):
-        super(CliConsole, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:cli-console")
+        super(RestHttps, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:rest-https")
 
 
 class CliSsh(Identity):
@@ -43,9 +43,9 @@ class CliSsh(Identity):
         super(CliSsh, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:cli-ssh")
 
 
-class CliTcp(Identity):
+class CliConsole(Identity):
     """
-    CLI over TCP.
+    CLI on the console.
     
     
 
@@ -55,22 +55,7 @@ class CliTcp(Identity):
     _revision = '2016-11-24'
 
     def __init__(self):
-        super(CliTcp, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:cli-tcp")
-
-
-class WebuiHttp(Identity):
-    """
-    WebUI over HTTP.
-    
-    
-
-    """
-
-    _prefix = 'tncm'
-    _revision = '2016-11-24'
-
-    def __init__(self):
-        super(WebuiHttp, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:webui-http")
+        super(CliConsole, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:cli-console")
 
 
 class WebuiHttps(Identity):
@@ -88,21 +73,6 @@ class WebuiHttps(Identity):
         super(WebuiHttps, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:webui-https")
 
 
-class NetconfTcp(Identity):
-    """
-    NETCONF over TCP.
-    
-    
-
-    """
-
-    _prefix = 'tncm'
-    _revision = '2016-11-24'
-
-    def __init__(self):
-        super(NetconfTcp, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:netconf-tcp")
-
-
 class SnmpUdp(Identity):
     """
     SNMP over UDP.
@@ -116,6 +86,21 @@ class SnmpUdp(Identity):
 
     def __init__(self):
         super(SnmpUdp, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:snmp-udp")
+
+
+class WebuiHttp(Identity):
+    """
+    WebUI over HTTP.
+    
+    
+
+    """
+
+    _prefix = 'tncm'
+    _revision = '2016-11-24'
+
+    def __init__(self):
+        super(WebuiHttp, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:webui-http")
 
 
 class RestHttp(Identity):
@@ -133,9 +118,9 @@ class RestHttp(Identity):
         super(RestHttp, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:rest-http")
 
 
-class RestHttps(Identity):
+class NetconfTcp(Identity):
     """
-    REST over HTTPS.
+    NETCONF over TCP.
     
     
 
@@ -145,6 +130,21 @@ class RestHttps(Identity):
     _revision = '2016-11-24'
 
     def __init__(self):
-        super(RestHttps, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:rest-https")
+        super(NetconfTcp, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:netconf-tcp")
+
+
+class CliTcp(Identity):
+    """
+    CLI over TCP.
+    
+    
+
+    """
+
+    _prefix = 'tncm'
+    _revision = '2016-11-24'
+
+    def __init__(self):
+        super(CliTcp, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:cli-tcp")
 
 

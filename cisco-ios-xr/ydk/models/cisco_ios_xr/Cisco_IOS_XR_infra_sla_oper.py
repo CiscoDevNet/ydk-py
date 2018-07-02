@@ -46,15 +46,16 @@ class Sla(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("protocols", ("protocols", Sla.Protocols))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("protocols", ("protocols", Sla.Protocols))])
         self._leafs = OrderedDict()
 
         self.protocols = Sla.Protocols()
         self.protocols.parent = self
         self._children_name_map["protocols"] = "protocols"
-        self._children_yang_names.add("protocols")
         self._segment_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Sla, [], name, value)
 
 
     class Protocols(Entity):
@@ -81,16 +82,17 @@ class Sla(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("Cisco-IOS-XR-ethernet-cfm-oper:ethernet", ("ethernet", Sla.Protocols.Ethernet))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("Cisco-IOS-XR-ethernet-cfm-oper:ethernet", ("ethernet", Sla.Protocols.Ethernet))])
             self._leafs = OrderedDict()
 
             self.ethernet = Sla.Protocols.Ethernet()
             self.ethernet.parent = self
             self._children_name_map["ethernet"] = "Cisco-IOS-XR-ethernet-cfm-oper:ethernet"
-            self._children_yang_names.add("Cisco-IOS-XR-ethernet-cfm-oper:ethernet")
             self._segment_path = lambda: "protocols"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Sla.Protocols, [], name, value)
 
 
         class Ethernet(Entity):
@@ -137,7 +139,7 @@ class Sla(Entity):
             """
 
             _prefix = 'ethernet-cfm-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-10-06'
 
             def __init__(self):
                 super(Sla.Protocols.Ethernet, self).__init__()
@@ -147,46 +149,41 @@ class Sla(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("statistics-on-demand-currents", ("statistics_on_demand_currents", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents)), ("operations", ("operations", Sla.Protocols.Ethernet.Operations)), ("statistics-historicals", ("statistics_historicals", Sla.Protocols.Ethernet.StatisticsHistoricals)), ("statistics-on-demand-historicals", ("statistics_on_demand_historicals", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals)), ("config-errors", ("config_errors", Sla.Protocols.Ethernet.ConfigErrors)), ("on-demand-operations", ("on_demand_operations", Sla.Protocols.Ethernet.OnDemandOperations)), ("statistics-currents", ("statistics_currents", Sla.Protocols.Ethernet.StatisticsCurrents))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("statistics-on-demand-currents", ("statistics_on_demand_currents", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents)), ("operations", ("operations", Sla.Protocols.Ethernet.Operations)), ("statistics-historicals", ("statistics_historicals", Sla.Protocols.Ethernet.StatisticsHistoricals)), ("statistics-on-demand-historicals", ("statistics_on_demand_historicals", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals)), ("config-errors", ("config_errors", Sla.Protocols.Ethernet.ConfigErrors)), ("on-demand-operations", ("on_demand_operations", Sla.Protocols.Ethernet.OnDemandOperations)), ("statistics-currents", ("statistics_currents", Sla.Protocols.Ethernet.StatisticsCurrents))])
                 self._leafs = OrderedDict()
 
                 self.statistics_on_demand_currents = Sla.Protocols.Ethernet.StatisticsOnDemandCurrents()
                 self.statistics_on_demand_currents.parent = self
                 self._children_name_map["statistics_on_demand_currents"] = "statistics-on-demand-currents"
-                self._children_yang_names.add("statistics-on-demand-currents")
 
                 self.operations = Sla.Protocols.Ethernet.Operations()
                 self.operations.parent = self
                 self._children_name_map["operations"] = "operations"
-                self._children_yang_names.add("operations")
 
                 self.statistics_historicals = Sla.Protocols.Ethernet.StatisticsHistoricals()
                 self.statistics_historicals.parent = self
                 self._children_name_map["statistics_historicals"] = "statistics-historicals"
-                self._children_yang_names.add("statistics-historicals")
 
                 self.statistics_on_demand_historicals = Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals()
                 self.statistics_on_demand_historicals.parent = self
                 self._children_name_map["statistics_on_demand_historicals"] = "statistics-on-demand-historicals"
-                self._children_yang_names.add("statistics-on-demand-historicals")
 
                 self.config_errors = Sla.Protocols.Ethernet.ConfigErrors()
                 self.config_errors.parent = self
                 self._children_name_map["config_errors"] = "config-errors"
-                self._children_yang_names.add("config-errors")
 
                 self.on_demand_operations = Sla.Protocols.Ethernet.OnDemandOperations()
                 self.on_demand_operations.parent = self
                 self._children_name_map["on_demand_operations"] = "on-demand-operations"
-                self._children_yang_names.add("on-demand-operations")
 
                 self.statistics_currents = Sla.Protocols.Ethernet.StatisticsCurrents()
                 self.statistics_currents.parent = self
                 self._children_name_map["statistics_currents"] = "statistics-currents"
-                self._children_yang_names.add("statistics-currents")
                 self._segment_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:ethernet"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Sla.Protocols.Ethernet, [], name, value)
 
 
             class StatisticsOnDemandCurrents(Entity):
@@ -204,7 +201,7 @@ class Sla(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-10-06'
 
                 def __init__(self):
                     super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents, self).__init__()
@@ -214,8 +211,7 @@ class Sla(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("statistics-on-demand-current", ("statistics_on_demand_current", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent))])
+                    self._child_classes = OrderedDict([("statistics-on-demand-current", ("statistics_on_demand_current", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent))])
                     self._leafs = OrderedDict()
 
                     self.statistics_on_demand_current = YList(self)
@@ -308,7 +304,7 @@ class Sla(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent, self).__init__()
@@ -318,8 +314,7 @@ class Sla(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("specific-options", ("specific_options", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions)), ("operation-schedule", ("operation_schedule", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationSchedule))])
-                        self._child_list_classes = OrderedDict([("operation-metric", ("operation_metric", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric))])
+                        self._child_classes = OrderedDict([("specific-options", ("specific_options", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions)), ("operation-schedule", ("operation_schedule", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationSchedule)), ("operation-metric", ("operation_metric", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric))])
                         self._leafs = OrderedDict([
                             ('operation_id', YLeaf(YType.uint32, 'operation-id')),
                             ('domain_name', YLeaf(YType.str, 'domain-name')),
@@ -344,19 +339,17 @@ class Sla(Entity):
                         self.specific_options = Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions()
                         self.specific_options.parent = self
                         self._children_name_map["specific_options"] = "specific-options"
-                        self._children_yang_names.add("specific-options")
 
                         self.operation_schedule = Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationSchedule()
                         self.operation_schedule.parent = self
                         self._children_name_map["operation_schedule"] = "operation-schedule"
-                        self._children_yang_names.add("operation-schedule")
 
                         self.operation_metric = YList(self)
                         self._segment_path = lambda: "statistics-on-demand-current"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-currents/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent, ['operation_id', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'probe_type', 'display_short', 'display_long', 'flr_calculation_interval'], name, value)
+                        self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent, ['operation_id', 'domain_name', 'interface_name', 'mep_id', 'mac_address', u'probe_type', u'display_short', u'display_long', u'flr_calculation_interval'], name, value)
 
 
                     class SpecificOptions(Entity):
@@ -383,7 +376,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions, self).__init__()
@@ -393,8 +386,7 @@ class Sla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("configured-operation-options", ("configured_operation_options", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.ConfiguredOperationOptions)), ("ondemand-operation-options", ("ondemand_operation_options", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.OndemandOperationOptions))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("configured-operation-options", ("configured_operation_options", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.ConfiguredOperationOptions)), ("ondemand-operation-options", ("ondemand_operation_options", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.OndemandOperationOptions))])
                             self._leafs = OrderedDict([
                                 ('oper_type', YLeaf(YType.enumeration, 'oper-type')),
                             ])
@@ -403,17 +395,15 @@ class Sla(Entity):
                             self.configured_operation_options = Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.ConfiguredOperationOptions()
                             self.configured_operation_options.parent = self
                             self._children_name_map["configured_operation_options"] = "configured-operation-options"
-                            self._children_yang_names.add("configured-operation-options")
 
                             self.ondemand_operation_options = Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.OndemandOperationOptions()
                             self.ondemand_operation_options.parent = self
                             self._children_name_map["ondemand_operation_options"] = "ondemand-operation-options"
-                            self._children_yang_names.add("ondemand-operation-options")
                             self._segment_path = lambda: "specific-options"
                             self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-currents/statistics-on-demand-current/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions, ['oper_type'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions, [u'oper_type'], name, value)
 
 
                         class ConfiguredOperationOptions(Entity):
@@ -430,7 +420,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.ConfiguredOperationOptions, self).__init__()
@@ -440,8 +430,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('profile_name', YLeaf(YType.str, 'profile-name')),
                                 ])
@@ -450,7 +439,7 @@ class Sla(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-currents/statistics-on-demand-current/specific-options/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.ConfiguredOperationOptions, ['profile_name'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.ConfiguredOperationOptions, [u'profile_name'], name, value)
 
 
                         class OndemandOperationOptions(Entity):
@@ -476,7 +465,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.OndemandOperationOptions, self).__init__()
@@ -486,8 +475,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('ondemand_operation_id', YLeaf(YType.uint32, 'ondemand-operation-id')),
                                     ('probe_count', YLeaf(YType.uint8, 'probe-count')),
@@ -498,7 +486,7 @@ class Sla(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-currents/statistics-on-demand-current/specific-options/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.OndemandOperationOptions, ['ondemand_operation_id', 'probe_count'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.OndemandOperationOptions, [u'ondemand_operation_id', u'probe_count'], name, value)
 
 
                     class OperationSchedule(Entity):
@@ -542,7 +530,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationSchedule, self).__init__()
@@ -552,8 +540,7 @@ class Sla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('start_time', YLeaf(YType.uint32, 'start-time')),
                                 ('start_time_configured', YLeaf(YType.boolean, 'start-time-configured')),
@@ -568,7 +555,7 @@ class Sla(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-currents/statistics-on-demand-current/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationSchedule, ['start_time', 'start_time_configured', 'schedule_duration', 'schedule_interval'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationSchedule, [u'start_time', u'start_time_configured', u'schedule_duration', u'schedule_interval'], name, value)
 
 
                     class OperationMetric(Entity):
@@ -590,7 +577,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric, self).__init__()
@@ -600,14 +587,12 @@ class Sla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("config", ("config", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Config))])
-                            self._child_list_classes = OrderedDict([("bucket", ("bucket", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket))])
+                            self._child_classes = OrderedDict([("config", ("config", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Config)), ("bucket", ("bucket", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket))])
                             self._leafs = OrderedDict()
 
                             self.config = Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
-                            self._children_yang_names.add("config")
 
                             self.bucket = YList(self)
                             self._segment_path = lambda: "operation-metric"
@@ -664,7 +649,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Config, self).__init__()
@@ -674,8 +659,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
                                     ('bins_count', YLeaf(YType.uint16, 'bins-count')),
@@ -694,7 +678,7 @@ class Sla(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-currents/statistics-on-demand-current/operation-metric/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Config, ['metric_type', 'bins_count', 'bins_width', 'bucket_size', 'bucket_size_unit', 'buckets_archive'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Config, [u'metric_type', u'bins_count', u'bins_width', u'bucket_size', u'bucket_size_unit', u'buckets_archive'], name, value)
 
 
                         class Bucket(Entity):
@@ -906,7 +890,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket, self).__init__()
@@ -916,8 +900,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("contents", ("contents", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("contents", ("contents", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents))])
                                 self._leafs = OrderedDict([
                                     ('start_at', YLeaf(YType.uint32, 'start-at')),
                                     ('duration', YLeaf(YType.uint32, 'duration')),
@@ -986,12 +969,11 @@ class Sla(Entity):
                                 self.contents = Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents()
                                 self.contents.parent = self
                                 self._children_name_map["contents"] = "contents"
-                                self._children_yang_names.add("contents")
                                 self._segment_path = lambda: "bucket"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-currents/statistics-on-demand-current/operation-metric/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket, ['start_at', 'duration', 'sent', 'lost', 'corrupt', 'out_of_order', 'duplicates', 'minimum', 'maximum', 'time_of_minimum', 'time_of_maximum', 'average', 'standard_deviation', 'result_count', 'data_sent_count', 'data_lost_count', 'overall_flr', 'suspect_start_mid_bucket', 'suspect_schedule_latency', 'suspect_send_fail', 'suspect_premature_end', 'suspect_clock_drift', 'suspect_memory_allocation_failed', 'suspect_cleared_mid_bucket', 'suspect_probe_restarted', 'suspect_management_latency', 'suspect_multiple_buckets', 'suspect_misordering', 'suspect_flr_low_packet_count', 'premature_reason', 'premature_reason_string'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket, [u'start_at', u'duration', u'sent', u'lost', u'corrupt', u'out_of_order', u'duplicates', u'minimum', u'maximum', u'time_of_minimum', u'time_of_maximum', u'average', u'standard_deviation', u'result_count', u'data_sent_count', u'data_lost_count', u'overall_flr', u'suspect_start_mid_bucket', u'suspect_schedule_latency', u'suspect_send_fail', u'suspect_premature_end', u'suspect_clock_drift', u'suspect_memory_allocation_failed', u'suspect_cleared_mid_bucket', u'suspect_probe_restarted', u'suspect_management_latency', u'suspect_multiple_buckets', u'suspect_misordering', u'suspect_flr_low_packet_count', u'premature_reason', u'premature_reason_string'], name, value)
 
 
                             class Contents(Entity):
@@ -1018,7 +1000,7 @@ class Sla(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-10-06'
 
                                 def __init__(self):
                                     super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents, self).__init__()
@@ -1028,8 +1010,7 @@ class Sla(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("aggregated", ("aggregated", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated)), ("unaggregated", ("unaggregated", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("aggregated", ("aggregated", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated)), ("unaggregated", ("unaggregated", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated))])
                                     self._leafs = OrderedDict([
                                         ('bucket_type', YLeaf(YType.enumeration, 'bucket-type')),
                                     ])
@@ -1038,17 +1019,15 @@ class Sla(Entity):
                                     self.aggregated = Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated()
                                     self.aggregated.parent = self
                                     self._children_name_map["aggregated"] = "aggregated"
-                                    self._children_yang_names.add("aggregated")
 
                                     self.unaggregated = Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated()
                                     self.unaggregated.parent = self
                                     self._children_name_map["unaggregated"] = "unaggregated"
-                                    self._children_yang_names.add("unaggregated")
                                     self._segment_path = lambda: "contents"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-currents/statistics-on-demand-current/operation-metric/bucket/%s" % self._segment_path()
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents, ['bucket_type'], name, value)
+                                    self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents, [u'bucket_type'], name, value)
 
 
                                 class Aggregated(Entity):
@@ -1065,7 +1044,7 @@ class Sla(Entity):
                                     """
 
                                     _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-10-06'
 
                                     def __init__(self):
                                         super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated, self).__init__()
@@ -1075,8 +1054,7 @@ class Sla(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("bins", ("bins", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins))])
+                                        self._child_classes = OrderedDict([("bins", ("bins", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins))])
                                         self._leafs = OrderedDict()
 
                                         self.bins = YList(self)
@@ -1142,7 +1120,7 @@ class Sla(Entity):
                                         """
 
                                         _prefix = 'ethernet-cfm-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-10-06'
 
                                         def __init__(self):
                                             super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins, self).__init__()
@@ -1152,8 +1130,7 @@ class Sla(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('lower_bound', YLeaf(YType.int32, 'lower-bound')),
                                                 ('upper_bound', YLeaf(YType.int32, 'upper-bound')),
@@ -1172,7 +1149,7 @@ class Sla(Entity):
                                             self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-currents/statistics-on-demand-current/operation-metric/bucket/contents/aggregated/%s" % self._segment_path()
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins, ['lower_bound', 'upper_bound', 'lower_bound_tenths', 'upper_bound_tenths', 'sum', 'count'], name, value)
+                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins, [u'lower_bound', u'upper_bound', u'lower_bound_tenths', u'upper_bound_tenths', u'sum', u'count'], name, value)
 
 
                                 class Unaggregated(Entity):
@@ -1189,7 +1166,7 @@ class Sla(Entity):
                                     """
 
                                     _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-10-06'
 
                                     def __init__(self):
                                         super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated, self).__init__()
@@ -1199,8 +1176,7 @@ class Sla(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("sample", ("sample", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample))])
+                                        self._child_classes = OrderedDict([("sample", ("sample", Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample))])
                                         self._leafs = OrderedDict()
 
                                         self.sample = YList(self)
@@ -1275,7 +1251,7 @@ class Sla(Entity):
                                         """
 
                                         _prefix = 'ethernet-cfm-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-10-06'
 
                                         def __init__(self):
                                             super(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample, self).__init__()
@@ -1285,8 +1261,7 @@ class Sla(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('sent_at', YLeaf(YType.uint32, 'sent-at')),
                                                 ('sent', YLeaf(YType.boolean, 'sent')),
@@ -1311,7 +1286,7 @@ class Sla(Entity):
                                             self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-currents/statistics-on-demand-current/operation-metric/bucket/contents/unaggregated/%s" % self._segment_path()
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample, ['sent_at', 'sent', 'timed_out', 'corrupt', 'out_of_order', 'no_data_packets', 'result', 'frames_sent', 'frames_lost'], name, value)
+                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample, [u'sent_at', u'sent', u'timed_out', u'corrupt', u'out_of_order', u'no_data_packets', u'result', u'frames_sent', u'frames_lost'], name, value)
 
 
             class Operations(Entity):
@@ -1328,7 +1303,7 @@ class Sla(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-10-06'
 
                 def __init__(self):
                     super(Sla.Protocols.Ethernet.Operations, self).__init__()
@@ -1338,8 +1313,7 @@ class Sla(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("operation", ("operation_", Sla.Protocols.Ethernet.Operations.Operation))])
+                    self._child_classes = OrderedDict([("operation", ("operation_", Sla.Protocols.Ethernet.Operations.Operation))])
                     self._leafs = OrderedDict()
 
                     self.operation_ = YList(self)
@@ -1419,7 +1393,7 @@ class Sla(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(Sla.Protocols.Ethernet.Operations.Operation, self).__init__()
@@ -1429,8 +1403,7 @@ class Sla(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("profile-options", ("profile_options", Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions)), ("specific-options", ("specific_options", Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("profile-options", ("profile_options", Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions)), ("specific-options", ("specific_options", Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions))])
                         self._leafs = OrderedDict([
                             ('profile_name', YLeaf(YType.str, 'profile-name')),
                             ('domain_name', YLeaf(YType.str, 'domain-name')),
@@ -1453,17 +1426,15 @@ class Sla(Entity):
                         self.profile_options = Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions()
                         self.profile_options.parent = self
                         self._children_name_map["profile_options"] = "profile-options"
-                        self._children_yang_names.add("profile-options")
 
                         self.specific_options = Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions()
                         self.specific_options.parent = self
                         self._children_name_map["specific_options"] = "specific-options"
-                        self._children_yang_names.add("specific-options")
                         self._segment_path = lambda: "operation"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/operations/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'display_short', 'display_long', 'last_run'], name, value)
+                        self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', u'display_short', u'display_long', u'last_run'], name, value)
 
 
                     class ProfileOptions(Entity):
@@ -1542,7 +1513,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions, self).__init__()
@@ -1552,8 +1523,7 @@ class Sla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("packet-padding", ("packet_padding", Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.PacketPadding)), ("priority", ("priority", Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.Priority)), ("operation-schedule", ("operation_schedule", Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationSchedule))])
-                            self._child_list_classes = OrderedDict([("operation-metric", ("operation_metric", Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric))])
+                            self._child_classes = OrderedDict([("packet-padding", ("packet_padding", Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.PacketPadding)), ("priority", ("priority", Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.Priority)), ("operation-schedule", ("operation_schedule", Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationSchedule)), ("operation-metric", ("operation_metric", Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric))])
                             self._leafs = OrderedDict([
                                 ('probe_type', YLeaf(YType.str, 'probe-type')),
                                 ('packets_per_burst', YLeaf(YType.uint16, 'packets-per-burst')),
@@ -1572,24 +1542,21 @@ class Sla(Entity):
                             self.packet_padding = Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.PacketPadding()
                             self.packet_padding.parent = self
                             self._children_name_map["packet_padding"] = "packet-padding"
-                            self._children_yang_names.add("packet-padding")
 
                             self.priority = Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.Priority()
                             self.priority.parent = self
                             self._children_name_map["priority"] = "priority"
-                            self._children_yang_names.add("priority")
 
                             self.operation_schedule = Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationSchedule()
                             self.operation_schedule.parent = self
                             self._children_name_map["operation_schedule"] = "operation-schedule"
-                            self._children_yang_names.add("operation-schedule")
 
                             self.operation_metric = YList(self)
                             self._segment_path = lambda: "profile-options"
                             self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/operations/operation/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions, ['probe_type', 'packets_per_burst', 'inter_packet_interval', 'bursts_per_probe', 'inter_burst_interval', 'flr_calculation_interval'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions, [u'probe_type', u'packets_per_burst', u'inter_packet_interval', u'bursts_per_probe', u'inter_burst_interval', u'flr_calculation_interval'], name, value)
 
 
                         class PacketPadding(Entity):
@@ -1620,7 +1587,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.PacketPadding, self).__init__()
@@ -1630,8 +1597,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packet_pad_size', YLeaf(YType.uint16, 'packet-pad-size')),
                                     ('test_pattern_pad_scheme', YLeaf(YType.enumeration, 'test-pattern-pad-scheme')),
@@ -1644,7 +1610,7 @@ class Sla(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/operations/operation/profile-options/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.PacketPadding, ['packet_pad_size', 'test_pattern_pad_scheme', 'test_pattern_pad_hex_string'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.PacketPadding, [u'packet_pad_size', u'test_pattern_pad_scheme', u'test_pattern_pad_hex_string'], name, value)
 
 
                         class Priority(Entity):
@@ -1669,7 +1635,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.Priority, self).__init__()
@@ -1679,8 +1645,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('priority_type', YLeaf(YType.enumeration, 'priority-type')),
                                     ('cos', YLeaf(YType.uint8, 'cos')),
@@ -1691,7 +1656,7 @@ class Sla(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/operations/operation/profile-options/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.Priority, ['priority_type', 'cos'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.Priority, [u'priority_type', u'cos'], name, value)
 
 
                         class OperationSchedule(Entity):
@@ -1735,7 +1700,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationSchedule, self).__init__()
@@ -1745,8 +1710,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('start_time', YLeaf(YType.uint32, 'start-time')),
                                     ('start_time_configured', YLeaf(YType.boolean, 'start-time-configured')),
@@ -1761,7 +1725,7 @@ class Sla(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/operations/operation/profile-options/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationSchedule, ['start_time', 'start_time_configured', 'schedule_duration', 'schedule_interval'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationSchedule, [u'start_time', u'start_time_configured', u'schedule_duration', u'schedule_interval'], name, value)
 
 
                         class OperationMetric(Entity):
@@ -1786,7 +1750,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric, self).__init__()
@@ -1796,8 +1760,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("metric-config", ("metric_config", Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric.MetricConfig))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("metric-config", ("metric_config", Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric.MetricConfig))])
                                 self._leafs = OrderedDict([
                                     ('current_buckets_archive', YLeaf(YType.uint32, 'current-buckets-archive')),
                                 ])
@@ -1806,12 +1769,11 @@ class Sla(Entity):
                                 self.metric_config = Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric.MetricConfig()
                                 self.metric_config.parent = self
                                 self._children_name_map["metric_config"] = "metric-config"
-                                self._children_yang_names.add("metric-config")
                                 self._segment_path = lambda: "operation-metric"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/operations/operation/profile-options/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric, ['current_buckets_archive'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric, [u'current_buckets_archive'], name, value)
 
 
                             class MetricConfig(Entity):
@@ -1861,7 +1823,7 @@ class Sla(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-10-06'
 
                                 def __init__(self):
                                     super(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric.MetricConfig, self).__init__()
@@ -1871,8 +1833,7 @@ class Sla(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
                                         ('bins_count', YLeaf(YType.uint16, 'bins-count')),
@@ -1891,7 +1852,7 @@ class Sla(Entity):
                                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/operations/operation/profile-options/operation-metric/%s" % self._segment_path()
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric.MetricConfig, ['metric_type', 'bins_count', 'bins_width', 'bucket_size', 'bucket_size_unit', 'buckets_archive'], name, value)
+                                    self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric.MetricConfig, [u'metric_type', u'bins_count', u'bins_width', u'bucket_size', u'bucket_size_unit', u'buckets_archive'], name, value)
 
 
                     class SpecificOptions(Entity):
@@ -1918,7 +1879,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions, self).__init__()
@@ -1928,8 +1889,7 @@ class Sla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("configured-operation-options", ("configured_operation_options", Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.ConfiguredOperationOptions)), ("ondemand-operation-options", ("ondemand_operation_options", Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.OndemandOperationOptions))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("configured-operation-options", ("configured_operation_options", Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.ConfiguredOperationOptions)), ("ondemand-operation-options", ("ondemand_operation_options", Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.OndemandOperationOptions))])
                             self._leafs = OrderedDict([
                                 ('oper_type', YLeaf(YType.enumeration, 'oper-type')),
                             ])
@@ -1938,17 +1898,15 @@ class Sla(Entity):
                             self.configured_operation_options = Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.ConfiguredOperationOptions()
                             self.configured_operation_options.parent = self
                             self._children_name_map["configured_operation_options"] = "configured-operation-options"
-                            self._children_yang_names.add("configured-operation-options")
 
                             self.ondemand_operation_options = Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.OndemandOperationOptions()
                             self.ondemand_operation_options.parent = self
                             self._children_name_map["ondemand_operation_options"] = "ondemand-operation-options"
-                            self._children_yang_names.add("ondemand-operation-options")
                             self._segment_path = lambda: "specific-options"
                             self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/operations/operation/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions, ['oper_type'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions, [u'oper_type'], name, value)
 
 
                         class ConfiguredOperationOptions(Entity):
@@ -1965,7 +1923,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.ConfiguredOperationOptions, self).__init__()
@@ -1975,8 +1933,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('profile_name', YLeaf(YType.str, 'profile-name')),
                                 ])
@@ -1985,7 +1942,7 @@ class Sla(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/operations/operation/specific-options/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.ConfiguredOperationOptions, ['profile_name'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.ConfiguredOperationOptions, [u'profile_name'], name, value)
 
 
                         class OndemandOperationOptions(Entity):
@@ -2011,7 +1968,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.OndemandOperationOptions, self).__init__()
@@ -2021,8 +1978,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('ondemand_operation_id', YLeaf(YType.uint32, 'ondemand-operation-id')),
                                     ('probe_count', YLeaf(YType.uint8, 'probe-count')),
@@ -2033,7 +1989,7 @@ class Sla(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/operations/operation/specific-options/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.OndemandOperationOptions, ['ondemand_operation_id', 'probe_count'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.OndemandOperationOptions, [u'ondemand_operation_id', u'probe_count'], name, value)
 
 
             class StatisticsHistoricals(Entity):
@@ -2051,7 +2007,7 @@ class Sla(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-10-06'
 
                 def __init__(self):
                     super(Sla.Protocols.Ethernet.StatisticsHistoricals, self).__init__()
@@ -2061,8 +2017,7 @@ class Sla(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("statistics-historical", ("statistics_historical", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical))])
+                    self._child_classes = OrderedDict([("statistics-historical", ("statistics_historical", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical))])
                     self._leafs = OrderedDict()
 
                     self.statistics_historical = YList(self)
@@ -2155,7 +2110,7 @@ class Sla(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical, self).__init__()
@@ -2165,8 +2120,7 @@ class Sla(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("specific-options", ("specific_options", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions)), ("operation-schedule", ("operation_schedule", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationSchedule))])
-                        self._child_list_classes = OrderedDict([("operation-metric", ("operation_metric", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric))])
+                        self._child_classes = OrderedDict([("specific-options", ("specific_options", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions)), ("operation-schedule", ("operation_schedule", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationSchedule)), ("operation-metric", ("operation_metric", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric))])
                         self._leafs = OrderedDict([
                             ('profile_name', YLeaf(YType.str, 'profile-name')),
                             ('domain_name', YLeaf(YType.str, 'domain-name')),
@@ -2191,19 +2145,17 @@ class Sla(Entity):
                         self.specific_options = Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions()
                         self.specific_options.parent = self
                         self._children_name_map["specific_options"] = "specific-options"
-                        self._children_yang_names.add("specific-options")
 
                         self.operation_schedule = Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationSchedule()
                         self.operation_schedule.parent = self
                         self._children_name_map["operation_schedule"] = "operation-schedule"
-                        self._children_yang_names.add("operation-schedule")
 
                         self.operation_metric = YList(self)
                         self._segment_path = lambda: "statistics-historical"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-historicals/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'probe_type', 'display_short', 'display_long', 'flr_calculation_interval'], name, value)
+                        self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', u'probe_type', u'display_short', u'display_long', u'flr_calculation_interval'], name, value)
 
 
                     class SpecificOptions(Entity):
@@ -2230,7 +2182,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions, self).__init__()
@@ -2240,8 +2192,7 @@ class Sla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("configured-operation-options", ("configured_operation_options", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.ConfiguredOperationOptions)), ("ondemand-operation-options", ("ondemand_operation_options", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.OndemandOperationOptions))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("configured-operation-options", ("configured_operation_options", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.ConfiguredOperationOptions)), ("ondemand-operation-options", ("ondemand_operation_options", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.OndemandOperationOptions))])
                             self._leafs = OrderedDict([
                                 ('oper_type', YLeaf(YType.enumeration, 'oper-type')),
                             ])
@@ -2250,17 +2201,15 @@ class Sla(Entity):
                             self.configured_operation_options = Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.ConfiguredOperationOptions()
                             self.configured_operation_options.parent = self
                             self._children_name_map["configured_operation_options"] = "configured-operation-options"
-                            self._children_yang_names.add("configured-operation-options")
 
                             self.ondemand_operation_options = Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.OndemandOperationOptions()
                             self.ondemand_operation_options.parent = self
                             self._children_name_map["ondemand_operation_options"] = "ondemand-operation-options"
-                            self._children_yang_names.add("ondemand-operation-options")
                             self._segment_path = lambda: "specific-options"
                             self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-historicals/statistics-historical/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions, ['oper_type'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions, [u'oper_type'], name, value)
 
 
                         class ConfiguredOperationOptions(Entity):
@@ -2277,7 +2226,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.ConfiguredOperationOptions, self).__init__()
@@ -2287,8 +2236,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('profile_name', YLeaf(YType.str, 'profile-name')),
                                 ])
@@ -2297,7 +2245,7 @@ class Sla(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-historicals/statistics-historical/specific-options/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.ConfiguredOperationOptions, ['profile_name'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.ConfiguredOperationOptions, [u'profile_name'], name, value)
 
 
                         class OndemandOperationOptions(Entity):
@@ -2323,7 +2271,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.OndemandOperationOptions, self).__init__()
@@ -2333,8 +2281,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('ondemand_operation_id', YLeaf(YType.uint32, 'ondemand-operation-id')),
                                     ('probe_count', YLeaf(YType.uint8, 'probe-count')),
@@ -2345,7 +2292,7 @@ class Sla(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-historicals/statistics-historical/specific-options/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.OndemandOperationOptions, ['ondemand_operation_id', 'probe_count'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.OndemandOperationOptions, [u'ondemand_operation_id', u'probe_count'], name, value)
 
 
                     class OperationSchedule(Entity):
@@ -2389,7 +2336,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationSchedule, self).__init__()
@@ -2399,8 +2346,7 @@ class Sla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('start_time', YLeaf(YType.uint32, 'start-time')),
                                 ('start_time_configured', YLeaf(YType.boolean, 'start-time-configured')),
@@ -2415,7 +2361,7 @@ class Sla(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-historicals/statistics-historical/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationSchedule, ['start_time', 'start_time_configured', 'schedule_duration', 'schedule_interval'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationSchedule, [u'start_time', u'start_time_configured', u'schedule_duration', u'schedule_interval'], name, value)
 
 
                     class OperationMetric(Entity):
@@ -2437,7 +2383,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric, self).__init__()
@@ -2447,14 +2393,12 @@ class Sla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("config", ("config", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Config))])
-                            self._child_list_classes = OrderedDict([("bucket", ("bucket", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket))])
+                            self._child_classes = OrderedDict([("config", ("config", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Config)), ("bucket", ("bucket", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket))])
                             self._leafs = OrderedDict()
 
                             self.config = Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
-                            self._children_yang_names.add("config")
 
                             self.bucket = YList(self)
                             self._segment_path = lambda: "operation-metric"
@@ -2511,7 +2455,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Config, self).__init__()
@@ -2521,8 +2465,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
                                     ('bins_count', YLeaf(YType.uint16, 'bins-count')),
@@ -2541,7 +2484,7 @@ class Sla(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-historicals/statistics-historical/operation-metric/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Config, ['metric_type', 'bins_count', 'bins_width', 'bucket_size', 'bucket_size_unit', 'buckets_archive'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Config, [u'metric_type', u'bins_count', u'bins_width', u'bucket_size', u'bucket_size_unit', u'buckets_archive'], name, value)
 
 
                         class Bucket(Entity):
@@ -2753,7 +2696,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket, self).__init__()
@@ -2763,8 +2706,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("contents", ("contents", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("contents", ("contents", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents))])
                                 self._leafs = OrderedDict([
                                     ('start_at', YLeaf(YType.uint32, 'start-at')),
                                     ('duration', YLeaf(YType.uint32, 'duration')),
@@ -2833,12 +2775,11 @@ class Sla(Entity):
                                 self.contents = Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents()
                                 self.contents.parent = self
                                 self._children_name_map["contents"] = "contents"
-                                self._children_yang_names.add("contents")
                                 self._segment_path = lambda: "bucket"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-historicals/statistics-historical/operation-metric/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket, ['start_at', 'duration', 'sent', 'lost', 'corrupt', 'out_of_order', 'duplicates', 'minimum', 'maximum', 'time_of_minimum', 'time_of_maximum', 'average', 'standard_deviation', 'result_count', 'data_sent_count', 'data_lost_count', 'overall_flr', 'suspect_start_mid_bucket', 'suspect_schedule_latency', 'suspect_send_fail', 'suspect_premature_end', 'suspect_clock_drift', 'suspect_memory_allocation_failed', 'suspect_cleared_mid_bucket', 'suspect_probe_restarted', 'suspect_management_latency', 'suspect_multiple_buckets', 'suspect_misordering', 'suspect_flr_low_packet_count', 'premature_reason', 'premature_reason_string'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket, [u'start_at', u'duration', u'sent', u'lost', u'corrupt', u'out_of_order', u'duplicates', u'minimum', u'maximum', u'time_of_minimum', u'time_of_maximum', u'average', u'standard_deviation', u'result_count', u'data_sent_count', u'data_lost_count', u'overall_flr', u'suspect_start_mid_bucket', u'suspect_schedule_latency', u'suspect_send_fail', u'suspect_premature_end', u'suspect_clock_drift', u'suspect_memory_allocation_failed', u'suspect_cleared_mid_bucket', u'suspect_probe_restarted', u'suspect_management_latency', u'suspect_multiple_buckets', u'suspect_misordering', u'suspect_flr_low_packet_count', u'premature_reason', u'premature_reason_string'], name, value)
 
 
                             class Contents(Entity):
@@ -2865,7 +2806,7 @@ class Sla(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-10-06'
 
                                 def __init__(self):
                                     super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents, self).__init__()
@@ -2875,8 +2816,7 @@ class Sla(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("aggregated", ("aggregated", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated)), ("unaggregated", ("unaggregated", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("aggregated", ("aggregated", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated)), ("unaggregated", ("unaggregated", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated))])
                                     self._leafs = OrderedDict([
                                         ('bucket_type', YLeaf(YType.enumeration, 'bucket-type')),
                                     ])
@@ -2885,17 +2825,15 @@ class Sla(Entity):
                                     self.aggregated = Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated()
                                     self.aggregated.parent = self
                                     self._children_name_map["aggregated"] = "aggregated"
-                                    self._children_yang_names.add("aggregated")
 
                                     self.unaggregated = Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated()
                                     self.unaggregated.parent = self
                                     self._children_name_map["unaggregated"] = "unaggregated"
-                                    self._children_yang_names.add("unaggregated")
                                     self._segment_path = lambda: "contents"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-historicals/statistics-historical/operation-metric/bucket/%s" % self._segment_path()
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents, ['bucket_type'], name, value)
+                                    self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents, [u'bucket_type'], name, value)
 
 
                                 class Aggregated(Entity):
@@ -2912,7 +2850,7 @@ class Sla(Entity):
                                     """
 
                                     _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-10-06'
 
                                     def __init__(self):
                                         super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated, self).__init__()
@@ -2922,8 +2860,7 @@ class Sla(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("bins", ("bins", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins))])
+                                        self._child_classes = OrderedDict([("bins", ("bins", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins))])
                                         self._leafs = OrderedDict()
 
                                         self.bins = YList(self)
@@ -2989,7 +2926,7 @@ class Sla(Entity):
                                         """
 
                                         _prefix = 'ethernet-cfm-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-10-06'
 
                                         def __init__(self):
                                             super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins, self).__init__()
@@ -2999,8 +2936,7 @@ class Sla(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('lower_bound', YLeaf(YType.int32, 'lower-bound')),
                                                 ('upper_bound', YLeaf(YType.int32, 'upper-bound')),
@@ -3019,7 +2955,7 @@ class Sla(Entity):
                                             self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-historicals/statistics-historical/operation-metric/bucket/contents/aggregated/%s" % self._segment_path()
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins, ['lower_bound', 'upper_bound', 'lower_bound_tenths', 'upper_bound_tenths', 'sum', 'count'], name, value)
+                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins, [u'lower_bound', u'upper_bound', u'lower_bound_tenths', u'upper_bound_tenths', u'sum', u'count'], name, value)
 
 
                                 class Unaggregated(Entity):
@@ -3036,7 +2972,7 @@ class Sla(Entity):
                                     """
 
                                     _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-10-06'
 
                                     def __init__(self):
                                         super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated, self).__init__()
@@ -3046,8 +2982,7 @@ class Sla(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("sample", ("sample", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample))])
+                                        self._child_classes = OrderedDict([("sample", ("sample", Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample))])
                                         self._leafs = OrderedDict()
 
                                         self.sample = YList(self)
@@ -3122,7 +3057,7 @@ class Sla(Entity):
                                         """
 
                                         _prefix = 'ethernet-cfm-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-10-06'
 
                                         def __init__(self):
                                             super(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample, self).__init__()
@@ -3132,8 +3067,7 @@ class Sla(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('sent_at', YLeaf(YType.uint32, 'sent-at')),
                                                 ('sent', YLeaf(YType.boolean, 'sent')),
@@ -3158,7 +3092,7 @@ class Sla(Entity):
                                             self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-historicals/statistics-historical/operation-metric/bucket/contents/unaggregated/%s" % self._segment_path()
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample, ['sent_at', 'sent', 'timed_out', 'corrupt', 'out_of_order', 'no_data_packets', 'result', 'frames_sent', 'frames_lost'], name, value)
+                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample, [u'sent_at', u'sent', u'timed_out', u'corrupt', u'out_of_order', u'no_data_packets', u'result', u'frames_sent', u'frames_lost'], name, value)
 
 
             class StatisticsOnDemandHistoricals(Entity):
@@ -3176,7 +3110,7 @@ class Sla(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-10-06'
 
                 def __init__(self):
                     super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals, self).__init__()
@@ -3186,8 +3120,7 @@ class Sla(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("statistics-on-demand-historical", ("statistics_on_demand_historical", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical))])
+                    self._child_classes = OrderedDict([("statistics-on-demand-historical", ("statistics_on_demand_historical", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical))])
                     self._leafs = OrderedDict()
 
                     self.statistics_on_demand_historical = YList(self)
@@ -3280,7 +3213,7 @@ class Sla(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical, self).__init__()
@@ -3290,8 +3223,7 @@ class Sla(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("specific-options", ("specific_options", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions)), ("operation-schedule", ("operation_schedule", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationSchedule))])
-                        self._child_list_classes = OrderedDict([("operation-metric", ("operation_metric", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric))])
+                        self._child_classes = OrderedDict([("specific-options", ("specific_options", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions)), ("operation-schedule", ("operation_schedule", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationSchedule)), ("operation-metric", ("operation_metric", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric))])
                         self._leafs = OrderedDict([
                             ('operation_id', YLeaf(YType.uint32, 'operation-id')),
                             ('domain_name', YLeaf(YType.str, 'domain-name')),
@@ -3316,19 +3248,17 @@ class Sla(Entity):
                         self.specific_options = Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions()
                         self.specific_options.parent = self
                         self._children_name_map["specific_options"] = "specific-options"
-                        self._children_yang_names.add("specific-options")
 
                         self.operation_schedule = Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationSchedule()
                         self.operation_schedule.parent = self
                         self._children_name_map["operation_schedule"] = "operation-schedule"
-                        self._children_yang_names.add("operation-schedule")
 
                         self.operation_metric = YList(self)
                         self._segment_path = lambda: "statistics-on-demand-historical"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-historicals/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical, ['operation_id', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'probe_type', 'display_short', 'display_long', 'flr_calculation_interval'], name, value)
+                        self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical, ['operation_id', 'domain_name', 'interface_name', 'mep_id', 'mac_address', u'probe_type', u'display_short', u'display_long', u'flr_calculation_interval'], name, value)
 
 
                     class SpecificOptions(Entity):
@@ -3355,7 +3285,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions, self).__init__()
@@ -3365,8 +3295,7 @@ class Sla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("configured-operation-options", ("configured_operation_options", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.ConfiguredOperationOptions)), ("ondemand-operation-options", ("ondemand_operation_options", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.OndemandOperationOptions))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("configured-operation-options", ("configured_operation_options", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.ConfiguredOperationOptions)), ("ondemand-operation-options", ("ondemand_operation_options", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.OndemandOperationOptions))])
                             self._leafs = OrderedDict([
                                 ('oper_type', YLeaf(YType.enumeration, 'oper-type')),
                             ])
@@ -3375,17 +3304,15 @@ class Sla(Entity):
                             self.configured_operation_options = Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.ConfiguredOperationOptions()
                             self.configured_operation_options.parent = self
                             self._children_name_map["configured_operation_options"] = "configured-operation-options"
-                            self._children_yang_names.add("configured-operation-options")
 
                             self.ondemand_operation_options = Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.OndemandOperationOptions()
                             self.ondemand_operation_options.parent = self
                             self._children_name_map["ondemand_operation_options"] = "ondemand-operation-options"
-                            self._children_yang_names.add("ondemand-operation-options")
                             self._segment_path = lambda: "specific-options"
                             self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-historicals/statistics-on-demand-historical/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions, ['oper_type'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions, [u'oper_type'], name, value)
 
 
                         class ConfiguredOperationOptions(Entity):
@@ -3402,7 +3329,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.ConfiguredOperationOptions, self).__init__()
@@ -3412,8 +3339,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('profile_name', YLeaf(YType.str, 'profile-name')),
                                 ])
@@ -3422,7 +3348,7 @@ class Sla(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-historicals/statistics-on-demand-historical/specific-options/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.ConfiguredOperationOptions, ['profile_name'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.ConfiguredOperationOptions, [u'profile_name'], name, value)
 
 
                         class OndemandOperationOptions(Entity):
@@ -3448,7 +3374,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.OndemandOperationOptions, self).__init__()
@@ -3458,8 +3384,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('ondemand_operation_id', YLeaf(YType.uint32, 'ondemand-operation-id')),
                                     ('probe_count', YLeaf(YType.uint8, 'probe-count')),
@@ -3470,7 +3395,7 @@ class Sla(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-historicals/statistics-on-demand-historical/specific-options/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.OndemandOperationOptions, ['ondemand_operation_id', 'probe_count'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.OndemandOperationOptions, [u'ondemand_operation_id', u'probe_count'], name, value)
 
 
                     class OperationSchedule(Entity):
@@ -3514,7 +3439,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationSchedule, self).__init__()
@@ -3524,8 +3449,7 @@ class Sla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('start_time', YLeaf(YType.uint32, 'start-time')),
                                 ('start_time_configured', YLeaf(YType.boolean, 'start-time-configured')),
@@ -3540,7 +3464,7 @@ class Sla(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-historicals/statistics-on-demand-historical/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationSchedule, ['start_time', 'start_time_configured', 'schedule_duration', 'schedule_interval'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationSchedule, [u'start_time', u'start_time_configured', u'schedule_duration', u'schedule_interval'], name, value)
 
 
                     class OperationMetric(Entity):
@@ -3562,7 +3486,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric, self).__init__()
@@ -3572,14 +3496,12 @@ class Sla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("config", ("config", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Config))])
-                            self._child_list_classes = OrderedDict([("bucket", ("bucket", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket))])
+                            self._child_classes = OrderedDict([("config", ("config", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Config)), ("bucket", ("bucket", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket))])
                             self._leafs = OrderedDict()
 
                             self.config = Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
-                            self._children_yang_names.add("config")
 
                             self.bucket = YList(self)
                             self._segment_path = lambda: "operation-metric"
@@ -3636,7 +3558,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Config, self).__init__()
@@ -3646,8 +3568,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
                                     ('bins_count', YLeaf(YType.uint16, 'bins-count')),
@@ -3666,7 +3587,7 @@ class Sla(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-historicals/statistics-on-demand-historical/operation-metric/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Config, ['metric_type', 'bins_count', 'bins_width', 'bucket_size', 'bucket_size_unit', 'buckets_archive'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Config, [u'metric_type', u'bins_count', u'bins_width', u'bucket_size', u'bucket_size_unit', u'buckets_archive'], name, value)
 
 
                         class Bucket(Entity):
@@ -3878,7 +3799,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket, self).__init__()
@@ -3888,8 +3809,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("contents", ("contents", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("contents", ("contents", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents))])
                                 self._leafs = OrderedDict([
                                     ('start_at', YLeaf(YType.uint32, 'start-at')),
                                     ('duration', YLeaf(YType.uint32, 'duration')),
@@ -3958,12 +3878,11 @@ class Sla(Entity):
                                 self.contents = Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents()
                                 self.contents.parent = self
                                 self._children_name_map["contents"] = "contents"
-                                self._children_yang_names.add("contents")
                                 self._segment_path = lambda: "bucket"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-historicals/statistics-on-demand-historical/operation-metric/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket, ['start_at', 'duration', 'sent', 'lost', 'corrupt', 'out_of_order', 'duplicates', 'minimum', 'maximum', 'time_of_minimum', 'time_of_maximum', 'average', 'standard_deviation', 'result_count', 'data_sent_count', 'data_lost_count', 'overall_flr', 'suspect_start_mid_bucket', 'suspect_schedule_latency', 'suspect_send_fail', 'suspect_premature_end', 'suspect_clock_drift', 'suspect_memory_allocation_failed', 'suspect_cleared_mid_bucket', 'suspect_probe_restarted', 'suspect_management_latency', 'suspect_multiple_buckets', 'suspect_misordering', 'suspect_flr_low_packet_count', 'premature_reason', 'premature_reason_string'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket, [u'start_at', u'duration', u'sent', u'lost', u'corrupt', u'out_of_order', u'duplicates', u'minimum', u'maximum', u'time_of_minimum', u'time_of_maximum', u'average', u'standard_deviation', u'result_count', u'data_sent_count', u'data_lost_count', u'overall_flr', u'suspect_start_mid_bucket', u'suspect_schedule_latency', u'suspect_send_fail', u'suspect_premature_end', u'suspect_clock_drift', u'suspect_memory_allocation_failed', u'suspect_cleared_mid_bucket', u'suspect_probe_restarted', u'suspect_management_latency', u'suspect_multiple_buckets', u'suspect_misordering', u'suspect_flr_low_packet_count', u'premature_reason', u'premature_reason_string'], name, value)
 
 
                             class Contents(Entity):
@@ -3990,7 +3909,7 @@ class Sla(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-10-06'
 
                                 def __init__(self):
                                     super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents, self).__init__()
@@ -4000,8 +3919,7 @@ class Sla(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("aggregated", ("aggregated", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated)), ("unaggregated", ("unaggregated", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("aggregated", ("aggregated", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated)), ("unaggregated", ("unaggregated", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated))])
                                     self._leafs = OrderedDict([
                                         ('bucket_type', YLeaf(YType.enumeration, 'bucket-type')),
                                     ])
@@ -4010,17 +3928,15 @@ class Sla(Entity):
                                     self.aggregated = Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated()
                                     self.aggregated.parent = self
                                     self._children_name_map["aggregated"] = "aggregated"
-                                    self._children_yang_names.add("aggregated")
 
                                     self.unaggregated = Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated()
                                     self.unaggregated.parent = self
                                     self._children_name_map["unaggregated"] = "unaggregated"
-                                    self._children_yang_names.add("unaggregated")
                                     self._segment_path = lambda: "contents"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-historicals/statistics-on-demand-historical/operation-metric/bucket/%s" % self._segment_path()
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents, ['bucket_type'], name, value)
+                                    self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents, [u'bucket_type'], name, value)
 
 
                                 class Aggregated(Entity):
@@ -4037,7 +3953,7 @@ class Sla(Entity):
                                     """
 
                                     _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-10-06'
 
                                     def __init__(self):
                                         super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated, self).__init__()
@@ -4047,8 +3963,7 @@ class Sla(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("bins", ("bins", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins))])
+                                        self._child_classes = OrderedDict([("bins", ("bins", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins))])
                                         self._leafs = OrderedDict()
 
                                         self.bins = YList(self)
@@ -4114,7 +4029,7 @@ class Sla(Entity):
                                         """
 
                                         _prefix = 'ethernet-cfm-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-10-06'
 
                                         def __init__(self):
                                             super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins, self).__init__()
@@ -4124,8 +4039,7 @@ class Sla(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('lower_bound', YLeaf(YType.int32, 'lower-bound')),
                                                 ('upper_bound', YLeaf(YType.int32, 'upper-bound')),
@@ -4144,7 +4058,7 @@ class Sla(Entity):
                                             self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-historicals/statistics-on-demand-historical/operation-metric/bucket/contents/aggregated/%s" % self._segment_path()
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins, ['lower_bound', 'upper_bound', 'lower_bound_tenths', 'upper_bound_tenths', 'sum', 'count'], name, value)
+                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins, [u'lower_bound', u'upper_bound', u'lower_bound_tenths', u'upper_bound_tenths', u'sum', u'count'], name, value)
 
 
                                 class Unaggregated(Entity):
@@ -4161,7 +4075,7 @@ class Sla(Entity):
                                     """
 
                                     _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-10-06'
 
                                     def __init__(self):
                                         super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated, self).__init__()
@@ -4171,8 +4085,7 @@ class Sla(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("sample", ("sample", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample))])
+                                        self._child_classes = OrderedDict([("sample", ("sample", Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample))])
                                         self._leafs = OrderedDict()
 
                                         self.sample = YList(self)
@@ -4247,7 +4160,7 @@ class Sla(Entity):
                                         """
 
                                         _prefix = 'ethernet-cfm-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-10-06'
 
                                         def __init__(self):
                                             super(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample, self).__init__()
@@ -4257,8 +4170,7 @@ class Sla(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('sent_at', YLeaf(YType.uint32, 'sent-at')),
                                                 ('sent', YLeaf(YType.boolean, 'sent')),
@@ -4283,7 +4195,7 @@ class Sla(Entity):
                                             self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-on-demand-historicals/statistics-on-demand-historical/operation-metric/bucket/contents/unaggregated/%s" % self._segment_path()
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample, ['sent_at', 'sent', 'timed_out', 'corrupt', 'out_of_order', 'no_data_packets', 'result', 'frames_sent', 'frames_lost'], name, value)
+                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample, [u'sent_at', u'sent', u'timed_out', u'corrupt', u'out_of_order', u'no_data_packets', u'result', u'frames_sent', u'frames_lost'], name, value)
 
 
             class ConfigErrors(Entity):
@@ -4301,7 +4213,7 @@ class Sla(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-10-06'
 
                 def __init__(self):
                     super(Sla.Protocols.Ethernet.ConfigErrors, self).__init__()
@@ -4311,8 +4223,7 @@ class Sla(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("config-error", ("config_error", Sla.Protocols.Ethernet.ConfigErrors.ConfigError))])
+                    self._child_classes = OrderedDict([("config-error", ("config_error", Sla.Protocols.Ethernet.ConfigErrors.ConfigError))])
                     self._leafs = OrderedDict()
 
                     self.config_error = YList(self)
@@ -4461,7 +4372,7 @@ class Sla(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(Sla.Protocols.Ethernet.ConfigErrors.ConfigError, self).__init__()
@@ -4471,8 +4382,7 @@ class Sla(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('profile_name', YLeaf(YType.str, 'profile-name')),
                             ('domain_name', YLeaf(YType.str, 'domain-name')),
@@ -4527,7 +4437,7 @@ class Sla(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/config-errors/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sla.Protocols.Ethernet.ConfigErrors.ConfigError, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'profile_name_xr', 'display_short', 'rt_delay_inconsistent', 'ow_delay_sd_inconsistent', 'ow_delay_ds_inconsistent', 'rt_jitter_inconsistent', 'ow_jitter_sd_inconsistent', 'ow_jitter_ds_inconsistent', 'ow_loss_sd_inconsistent', 'ow_loss_ds_inconsistent', 'packet_pad_inconsistent', 'packet_rand_pad_inconsistent', 'min_packet_interval_inconsistent', 'priority_inconsistent', 'packet_type_inconsistent', 'profile_doesnt_exist', 'synthetic_loss_not_supported', 'probe_too_big', 'error_string'], name, value)
+                        self._perform_setattr(Sla.Protocols.Ethernet.ConfigErrors.ConfigError, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', u'profile_name_xr', u'display_short', u'rt_delay_inconsistent', u'ow_delay_sd_inconsistent', u'ow_delay_ds_inconsistent', u'rt_jitter_inconsistent', u'ow_jitter_sd_inconsistent', u'ow_jitter_ds_inconsistent', u'ow_loss_sd_inconsistent', u'ow_loss_ds_inconsistent', u'packet_pad_inconsistent', u'packet_rand_pad_inconsistent', u'min_packet_interval_inconsistent', u'priority_inconsistent', u'packet_type_inconsistent', u'profile_doesnt_exist', u'synthetic_loss_not_supported', u'probe_too_big', u'error_string'], name, value)
 
 
             class OnDemandOperations(Entity):
@@ -4544,7 +4454,7 @@ class Sla(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-10-06'
 
                 def __init__(self):
                     super(Sla.Protocols.Ethernet.OnDemandOperations, self).__init__()
@@ -4554,8 +4464,7 @@ class Sla(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("on-demand-operation", ("on_demand_operation", Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation))])
+                    self._child_classes = OrderedDict([("on-demand-operation", ("on_demand_operation", Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation))])
                     self._leafs = OrderedDict()
 
                     self.on_demand_operation = YList(self)
@@ -4636,7 +4545,7 @@ class Sla(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation, self).__init__()
@@ -4646,8 +4555,7 @@ class Sla(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("profile-options", ("profile_options", Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions)), ("specific-options", ("specific_options", Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("profile-options", ("profile_options", Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions)), ("specific-options", ("specific_options", Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions))])
                         self._leafs = OrderedDict([
                             ('operation_id', YLeaf(YType.uint32, 'operation-id')),
                             ('domain_name', YLeaf(YType.str, 'domain-name')),
@@ -4670,17 +4578,15 @@ class Sla(Entity):
                         self.profile_options = Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions()
                         self.profile_options.parent = self
                         self._children_name_map["profile_options"] = "profile-options"
-                        self._children_yang_names.add("profile-options")
 
                         self.specific_options = Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions()
                         self.specific_options.parent = self
                         self._children_name_map["specific_options"] = "specific-options"
-                        self._children_yang_names.add("specific-options")
                         self._segment_path = lambda: "on-demand-operation"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/on-demand-operations/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation, ['operation_id', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'display_short', 'display_long', 'last_run'], name, value)
+                        self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation, ['operation_id', 'domain_name', 'interface_name', 'mep_id', 'mac_address', u'display_short', u'display_long', u'last_run'], name, value)
 
 
                     class ProfileOptions(Entity):
@@ -4759,7 +4665,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions, self).__init__()
@@ -4769,8 +4675,7 @@ class Sla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("packet-padding", ("packet_padding", Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.PacketPadding)), ("priority", ("priority", Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.Priority)), ("operation-schedule", ("operation_schedule", Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationSchedule))])
-                            self._child_list_classes = OrderedDict([("operation-metric", ("operation_metric", Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric))])
+                            self._child_classes = OrderedDict([("packet-padding", ("packet_padding", Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.PacketPadding)), ("priority", ("priority", Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.Priority)), ("operation-schedule", ("operation_schedule", Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationSchedule)), ("operation-metric", ("operation_metric", Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric))])
                             self._leafs = OrderedDict([
                                 ('probe_type', YLeaf(YType.str, 'probe-type')),
                                 ('packets_per_burst', YLeaf(YType.uint16, 'packets-per-burst')),
@@ -4789,24 +4694,21 @@ class Sla(Entity):
                             self.packet_padding = Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.PacketPadding()
                             self.packet_padding.parent = self
                             self._children_name_map["packet_padding"] = "packet-padding"
-                            self._children_yang_names.add("packet-padding")
 
                             self.priority = Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.Priority()
                             self.priority.parent = self
                             self._children_name_map["priority"] = "priority"
-                            self._children_yang_names.add("priority")
 
                             self.operation_schedule = Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationSchedule()
                             self.operation_schedule.parent = self
                             self._children_name_map["operation_schedule"] = "operation-schedule"
-                            self._children_yang_names.add("operation-schedule")
 
                             self.operation_metric = YList(self)
                             self._segment_path = lambda: "profile-options"
                             self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/on-demand-operations/on-demand-operation/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions, ['probe_type', 'packets_per_burst', 'inter_packet_interval', 'bursts_per_probe', 'inter_burst_interval', 'flr_calculation_interval'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions, [u'probe_type', u'packets_per_burst', u'inter_packet_interval', u'bursts_per_probe', u'inter_burst_interval', u'flr_calculation_interval'], name, value)
 
 
                         class PacketPadding(Entity):
@@ -4837,7 +4739,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.PacketPadding, self).__init__()
@@ -4847,8 +4749,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('packet_pad_size', YLeaf(YType.uint16, 'packet-pad-size')),
                                     ('test_pattern_pad_scheme', YLeaf(YType.enumeration, 'test-pattern-pad-scheme')),
@@ -4861,7 +4762,7 @@ class Sla(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/on-demand-operations/on-demand-operation/profile-options/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.PacketPadding, ['packet_pad_size', 'test_pattern_pad_scheme', 'test_pattern_pad_hex_string'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.PacketPadding, [u'packet_pad_size', u'test_pattern_pad_scheme', u'test_pattern_pad_hex_string'], name, value)
 
 
                         class Priority(Entity):
@@ -4886,7 +4787,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.Priority, self).__init__()
@@ -4896,8 +4797,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('priority_type', YLeaf(YType.enumeration, 'priority-type')),
                                     ('cos', YLeaf(YType.uint8, 'cos')),
@@ -4908,7 +4808,7 @@ class Sla(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/on-demand-operations/on-demand-operation/profile-options/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.Priority, ['priority_type', 'cos'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.Priority, [u'priority_type', u'cos'], name, value)
 
 
                         class OperationSchedule(Entity):
@@ -4952,7 +4852,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationSchedule, self).__init__()
@@ -4962,8 +4862,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('start_time', YLeaf(YType.uint32, 'start-time')),
                                     ('start_time_configured', YLeaf(YType.boolean, 'start-time-configured')),
@@ -4978,7 +4877,7 @@ class Sla(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/on-demand-operations/on-demand-operation/profile-options/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationSchedule, ['start_time', 'start_time_configured', 'schedule_duration', 'schedule_interval'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationSchedule, [u'start_time', u'start_time_configured', u'schedule_duration', u'schedule_interval'], name, value)
 
 
                         class OperationMetric(Entity):
@@ -5003,7 +4902,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric, self).__init__()
@@ -5013,8 +4912,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("metric-config", ("metric_config", Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric.MetricConfig))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("metric-config", ("metric_config", Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric.MetricConfig))])
                                 self._leafs = OrderedDict([
                                     ('current_buckets_archive', YLeaf(YType.uint32, 'current-buckets-archive')),
                                 ])
@@ -5023,12 +4921,11 @@ class Sla(Entity):
                                 self.metric_config = Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric.MetricConfig()
                                 self.metric_config.parent = self
                                 self._children_name_map["metric_config"] = "metric-config"
-                                self._children_yang_names.add("metric-config")
                                 self._segment_path = lambda: "operation-metric"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/on-demand-operations/on-demand-operation/profile-options/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric, ['current_buckets_archive'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric, [u'current_buckets_archive'], name, value)
 
 
                             class MetricConfig(Entity):
@@ -5078,7 +4975,7 @@ class Sla(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-10-06'
 
                                 def __init__(self):
                                     super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric.MetricConfig, self).__init__()
@@ -5088,8 +4985,7 @@ class Sla(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
                                         ('bins_count', YLeaf(YType.uint16, 'bins-count')),
@@ -5108,7 +5004,7 @@ class Sla(Entity):
                                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/on-demand-operations/on-demand-operation/profile-options/operation-metric/%s" % self._segment_path()
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric.MetricConfig, ['metric_type', 'bins_count', 'bins_width', 'bucket_size', 'bucket_size_unit', 'buckets_archive'], name, value)
+                                    self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric.MetricConfig, [u'metric_type', u'bins_count', u'bins_width', u'bucket_size', u'bucket_size_unit', u'buckets_archive'], name, value)
 
 
                     class SpecificOptions(Entity):
@@ -5135,7 +5031,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions, self).__init__()
@@ -5145,8 +5041,7 @@ class Sla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("configured-operation-options", ("configured_operation_options", Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.ConfiguredOperationOptions)), ("ondemand-operation-options", ("ondemand_operation_options", Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.OndemandOperationOptions))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("configured-operation-options", ("configured_operation_options", Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.ConfiguredOperationOptions)), ("ondemand-operation-options", ("ondemand_operation_options", Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.OndemandOperationOptions))])
                             self._leafs = OrderedDict([
                                 ('oper_type', YLeaf(YType.enumeration, 'oper-type')),
                             ])
@@ -5155,17 +5050,15 @@ class Sla(Entity):
                             self.configured_operation_options = Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.ConfiguredOperationOptions()
                             self.configured_operation_options.parent = self
                             self._children_name_map["configured_operation_options"] = "configured-operation-options"
-                            self._children_yang_names.add("configured-operation-options")
 
                             self.ondemand_operation_options = Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.OndemandOperationOptions()
                             self.ondemand_operation_options.parent = self
                             self._children_name_map["ondemand_operation_options"] = "ondemand-operation-options"
-                            self._children_yang_names.add("ondemand-operation-options")
                             self._segment_path = lambda: "specific-options"
                             self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/on-demand-operations/on-demand-operation/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions, ['oper_type'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions, [u'oper_type'], name, value)
 
 
                         class ConfiguredOperationOptions(Entity):
@@ -5182,7 +5075,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.ConfiguredOperationOptions, self).__init__()
@@ -5192,8 +5085,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('profile_name', YLeaf(YType.str, 'profile-name')),
                                 ])
@@ -5202,7 +5094,7 @@ class Sla(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/on-demand-operations/on-demand-operation/specific-options/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.ConfiguredOperationOptions, ['profile_name'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.ConfiguredOperationOptions, [u'profile_name'], name, value)
 
 
                         class OndemandOperationOptions(Entity):
@@ -5228,7 +5120,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.OndemandOperationOptions, self).__init__()
@@ -5238,8 +5130,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('ondemand_operation_id', YLeaf(YType.uint32, 'ondemand-operation-id')),
                                     ('probe_count', YLeaf(YType.uint8, 'probe-count')),
@@ -5250,7 +5141,7 @@ class Sla(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/on-demand-operations/on-demand-operation/specific-options/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.OndemandOperationOptions, ['ondemand_operation_id', 'probe_count'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.OndemandOperationOptions, [u'ondemand_operation_id', u'probe_count'], name, value)
 
 
             class StatisticsCurrents(Entity):
@@ -5267,7 +5158,7 @@ class Sla(Entity):
                 """
 
                 _prefix = 'ethernet-cfm-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-10-06'
 
                 def __init__(self):
                     super(Sla.Protocols.Ethernet.StatisticsCurrents, self).__init__()
@@ -5277,8 +5168,7 @@ class Sla(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("statistics-current", ("statistics_current", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent))])
+                    self._child_classes = OrderedDict([("statistics-current", ("statistics_current", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent))])
                     self._leafs = OrderedDict()
 
                     self.statistics_current = YList(self)
@@ -5371,7 +5261,7 @@ class Sla(Entity):
                     """
 
                     _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-10-06'
 
                     def __init__(self):
                         super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent, self).__init__()
@@ -5381,8 +5271,7 @@ class Sla(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("specific-options", ("specific_options", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions)), ("operation-schedule", ("operation_schedule", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationSchedule))])
-                        self._child_list_classes = OrderedDict([("operation-metric", ("operation_metric", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric))])
+                        self._child_classes = OrderedDict([("specific-options", ("specific_options", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions)), ("operation-schedule", ("operation_schedule", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationSchedule)), ("operation-metric", ("operation_metric", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric))])
                         self._leafs = OrderedDict([
                             ('profile_name', YLeaf(YType.str, 'profile-name')),
                             ('domain_name', YLeaf(YType.str, 'domain-name')),
@@ -5407,19 +5296,17 @@ class Sla(Entity):
                         self.specific_options = Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions()
                         self.specific_options.parent = self
                         self._children_name_map["specific_options"] = "specific-options"
-                        self._children_yang_names.add("specific-options")
 
                         self.operation_schedule = Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationSchedule()
                         self.operation_schedule.parent = self
                         self._children_name_map["operation_schedule"] = "operation-schedule"
-                        self._children_yang_names.add("operation-schedule")
 
                         self.operation_metric = YList(self)
                         self._segment_path = lambda: "statistics-current"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-currents/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'probe_type', 'display_short', 'display_long', 'flr_calculation_interval'], name, value)
+                        self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', u'probe_type', u'display_short', u'display_long', u'flr_calculation_interval'], name, value)
 
 
                     class SpecificOptions(Entity):
@@ -5446,7 +5333,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions, self).__init__()
@@ -5456,8 +5343,7 @@ class Sla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("configured-operation-options", ("configured_operation_options", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.ConfiguredOperationOptions)), ("ondemand-operation-options", ("ondemand_operation_options", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.OndemandOperationOptions))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("configured-operation-options", ("configured_operation_options", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.ConfiguredOperationOptions)), ("ondemand-operation-options", ("ondemand_operation_options", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.OndemandOperationOptions))])
                             self._leafs = OrderedDict([
                                 ('oper_type', YLeaf(YType.enumeration, 'oper-type')),
                             ])
@@ -5466,17 +5352,15 @@ class Sla(Entity):
                             self.configured_operation_options = Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.ConfiguredOperationOptions()
                             self.configured_operation_options.parent = self
                             self._children_name_map["configured_operation_options"] = "configured-operation-options"
-                            self._children_yang_names.add("configured-operation-options")
 
                             self.ondemand_operation_options = Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.OndemandOperationOptions()
                             self.ondemand_operation_options.parent = self
                             self._children_name_map["ondemand_operation_options"] = "ondemand-operation-options"
-                            self._children_yang_names.add("ondemand-operation-options")
                             self._segment_path = lambda: "specific-options"
                             self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-currents/statistics-current/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions, ['oper_type'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions, [u'oper_type'], name, value)
 
 
                         class ConfiguredOperationOptions(Entity):
@@ -5493,7 +5377,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.ConfiguredOperationOptions, self).__init__()
@@ -5503,8 +5387,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('profile_name', YLeaf(YType.str, 'profile-name')),
                                 ])
@@ -5513,7 +5396,7 @@ class Sla(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-currents/statistics-current/specific-options/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.ConfiguredOperationOptions, ['profile_name'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.ConfiguredOperationOptions, [u'profile_name'], name, value)
 
 
                         class OndemandOperationOptions(Entity):
@@ -5539,7 +5422,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.OndemandOperationOptions, self).__init__()
@@ -5549,8 +5432,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('ondemand_operation_id', YLeaf(YType.uint32, 'ondemand-operation-id')),
                                     ('probe_count', YLeaf(YType.uint8, 'probe-count')),
@@ -5561,7 +5443,7 @@ class Sla(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-currents/statistics-current/specific-options/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.OndemandOperationOptions, ['ondemand_operation_id', 'probe_count'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.OndemandOperationOptions, [u'ondemand_operation_id', u'probe_count'], name, value)
 
 
                     class OperationSchedule(Entity):
@@ -5605,7 +5487,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationSchedule, self).__init__()
@@ -5615,8 +5497,7 @@ class Sla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('start_time', YLeaf(YType.uint32, 'start-time')),
                                 ('start_time_configured', YLeaf(YType.boolean, 'start-time-configured')),
@@ -5631,7 +5512,7 @@ class Sla(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-currents/statistics-current/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationSchedule, ['start_time', 'start_time_configured', 'schedule_duration', 'schedule_interval'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationSchedule, [u'start_time', u'start_time_configured', u'schedule_duration', u'schedule_interval'], name, value)
 
 
                     class OperationMetric(Entity):
@@ -5653,7 +5534,7 @@ class Sla(Entity):
                         """
 
                         _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-10-06'
 
                         def __init__(self):
                             super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric, self).__init__()
@@ -5663,14 +5544,12 @@ class Sla(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("config", ("config", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Config))])
-                            self._child_list_classes = OrderedDict([("bucket", ("bucket", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket))])
+                            self._child_classes = OrderedDict([("config", ("config", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Config)), ("bucket", ("bucket", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket))])
                             self._leafs = OrderedDict()
 
                             self.config = Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
-                            self._children_yang_names.add("config")
 
                             self.bucket = YList(self)
                             self._segment_path = lambda: "operation-metric"
@@ -5727,7 +5606,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Config, self).__init__()
@@ -5737,8 +5616,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
                                     ('bins_count', YLeaf(YType.uint16, 'bins-count')),
@@ -5757,7 +5635,7 @@ class Sla(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-currents/statistics-current/operation-metric/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Config, ['metric_type', 'bins_count', 'bins_width', 'bucket_size', 'bucket_size_unit', 'buckets_archive'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Config, [u'metric_type', u'bins_count', u'bins_width', u'bucket_size', u'bucket_size_unit', u'buckets_archive'], name, value)
 
 
                         class Bucket(Entity):
@@ -5969,7 +5847,7 @@ class Sla(Entity):
                             """
 
                             _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-10-06'
 
                             def __init__(self):
                                 super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket, self).__init__()
@@ -5979,8 +5857,7 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("contents", ("contents", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("contents", ("contents", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents))])
                                 self._leafs = OrderedDict([
                                     ('start_at', YLeaf(YType.uint32, 'start-at')),
                                     ('duration', YLeaf(YType.uint32, 'duration')),
@@ -6049,12 +5926,11 @@ class Sla(Entity):
                                 self.contents = Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents()
                                 self.contents.parent = self
                                 self._children_name_map["contents"] = "contents"
-                                self._children_yang_names.add("contents")
                                 self._segment_path = lambda: "bucket"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-currents/statistics-current/operation-metric/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket, ['start_at', 'duration', 'sent', 'lost', 'corrupt', 'out_of_order', 'duplicates', 'minimum', 'maximum', 'time_of_minimum', 'time_of_maximum', 'average', 'standard_deviation', 'result_count', 'data_sent_count', 'data_lost_count', 'overall_flr', 'suspect_start_mid_bucket', 'suspect_schedule_latency', 'suspect_send_fail', 'suspect_premature_end', 'suspect_clock_drift', 'suspect_memory_allocation_failed', 'suspect_cleared_mid_bucket', 'suspect_probe_restarted', 'suspect_management_latency', 'suspect_multiple_buckets', 'suspect_misordering', 'suspect_flr_low_packet_count', 'premature_reason', 'premature_reason_string'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket, [u'start_at', u'duration', u'sent', u'lost', u'corrupt', u'out_of_order', u'duplicates', u'minimum', u'maximum', u'time_of_minimum', u'time_of_maximum', u'average', u'standard_deviation', u'result_count', u'data_sent_count', u'data_lost_count', u'overall_flr', u'suspect_start_mid_bucket', u'suspect_schedule_latency', u'suspect_send_fail', u'suspect_premature_end', u'suspect_clock_drift', u'suspect_memory_allocation_failed', u'suspect_cleared_mid_bucket', u'suspect_probe_restarted', u'suspect_management_latency', u'suspect_multiple_buckets', u'suspect_misordering', u'suspect_flr_low_packet_count', u'premature_reason', u'premature_reason_string'], name, value)
 
 
                             class Contents(Entity):
@@ -6081,7 +5957,7 @@ class Sla(Entity):
                                 """
 
                                 _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-10-06'
 
                                 def __init__(self):
                                     super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents, self).__init__()
@@ -6091,8 +5967,7 @@ class Sla(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("aggregated", ("aggregated", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated)), ("unaggregated", ("unaggregated", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("aggregated", ("aggregated", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated)), ("unaggregated", ("unaggregated", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated))])
                                     self._leafs = OrderedDict([
                                         ('bucket_type', YLeaf(YType.enumeration, 'bucket-type')),
                                     ])
@@ -6101,17 +5976,15 @@ class Sla(Entity):
                                     self.aggregated = Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated()
                                     self.aggregated.parent = self
                                     self._children_name_map["aggregated"] = "aggregated"
-                                    self._children_yang_names.add("aggregated")
 
                                     self.unaggregated = Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated()
                                     self.unaggregated.parent = self
                                     self._children_name_map["unaggregated"] = "unaggregated"
-                                    self._children_yang_names.add("unaggregated")
                                     self._segment_path = lambda: "contents"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-currents/statistics-current/operation-metric/bucket/%s" % self._segment_path()
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents, ['bucket_type'], name, value)
+                                    self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents, [u'bucket_type'], name, value)
 
 
                                 class Aggregated(Entity):
@@ -6128,7 +6001,7 @@ class Sla(Entity):
                                     """
 
                                     _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-10-06'
 
                                     def __init__(self):
                                         super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated, self).__init__()
@@ -6138,8 +6011,7 @@ class Sla(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("bins", ("bins", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins))])
+                                        self._child_classes = OrderedDict([("bins", ("bins", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins))])
                                         self._leafs = OrderedDict()
 
                                         self.bins = YList(self)
@@ -6205,7 +6077,7 @@ class Sla(Entity):
                                         """
 
                                         _prefix = 'ethernet-cfm-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-10-06'
 
                                         def __init__(self):
                                             super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins, self).__init__()
@@ -6215,8 +6087,7 @@ class Sla(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('lower_bound', YLeaf(YType.int32, 'lower-bound')),
                                                 ('upper_bound', YLeaf(YType.int32, 'upper-bound')),
@@ -6235,7 +6106,7 @@ class Sla(Entity):
                                             self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-currents/statistics-current/operation-metric/bucket/contents/aggregated/%s" % self._segment_path()
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins, ['lower_bound', 'upper_bound', 'lower_bound_tenths', 'upper_bound_tenths', 'sum', 'count'], name, value)
+                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins, [u'lower_bound', u'upper_bound', u'lower_bound_tenths', u'upper_bound_tenths', u'sum', u'count'], name, value)
 
 
                                 class Unaggregated(Entity):
@@ -6252,7 +6123,7 @@ class Sla(Entity):
                                     """
 
                                     _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-10-06'
 
                                     def __init__(self):
                                         super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated, self).__init__()
@@ -6262,8 +6133,7 @@ class Sla(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([("sample", ("sample", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample))])
+                                        self._child_classes = OrderedDict([("sample", ("sample", Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample))])
                                         self._leafs = OrderedDict()
 
                                         self.sample = YList(self)
@@ -6338,7 +6208,7 @@ class Sla(Entity):
                                         """
 
                                         _prefix = 'ethernet-cfm-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-10-06'
 
                                         def __init__(self):
                                             super(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample, self).__init__()
@@ -6348,8 +6218,7 @@ class Sla(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('sent_at', YLeaf(YType.uint32, 'sent-at')),
                                                 ('sent', YLeaf(YType.boolean, 'sent')),
@@ -6374,7 +6243,7 @@ class Sla(Entity):
                                             self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla/protocols/Cisco-IOS-XR-ethernet-cfm-oper:ethernet/statistics-currents/statistics-current/operation-metric/bucket/contents/unaggregated/%s" % self._segment_path()
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample, ['sent_at', 'sent', 'timed_out', 'corrupt', 'out_of_order', 'no_data_packets', 'result', 'frames_sent', 'frames_lost'], name, value)
+                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample, [u'sent_at', u'sent', u'timed_out', u'corrupt', u'out_of_order', u'no_data_packets', u'result', u'frames_sent', u'frames_lost'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Sla()
@@ -6400,8 +6269,7 @@ class SlaNodes(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-infra-sla-oper:sla-nodes"
 

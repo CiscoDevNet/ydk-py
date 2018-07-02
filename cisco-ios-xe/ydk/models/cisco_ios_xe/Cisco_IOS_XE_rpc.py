@@ -44,19 +44,16 @@ class Switch(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = Switch.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = Switch.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:switch"
 
 
@@ -107,8 +104,7 @@ class Switch(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("statck", ("statck", Switch.Input.Statck))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("statck", ("statck", Switch.Input.Statck))])
             self._leafs = OrderedDict([
                 ('y_switch_number', YLeaf(YType.uint8, '_switch-number')),
                 ('priority', YLeaf(YType.uint8, 'priority')),
@@ -121,7 +117,6 @@ class Switch(Entity):
             self.statck = Switch.Input.Statck()
             self.statck.parent = self
             self._children_name_map["statck"] = "statck"
-            self._children_yang_names.add("statck")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:switch/%s" % self._segment_path()
 
@@ -155,8 +150,7 @@ class Switch(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('port', YLeaf(YType.uint8, 'port')),
                 ])
@@ -192,8 +186,7 @@ class Switch(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('result', YLeaf(YType.str, 'result')),
             ])
@@ -238,19 +231,16 @@ class Default(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = Default.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = Default.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:default"
 
 
@@ -280,8 +270,7 @@ class Default(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('interface', YLeaf(YType.str, 'interface')),
             ])
@@ -317,8 +306,7 @@ class Default(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('result', YLeaf(YType.str, 'result')),
             ])
@@ -363,19 +351,16 @@ class Clear(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = Clear.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = Clear.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:clear"
 
 
@@ -434,8 +419,7 @@ class Clear(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("flow", ("flow", Clear.Input.Flow)), ("ip", ("ip", Clear.Input.Ip)), ("arp-cache", ("arp_cache", Clear.Input.ArpCache)), ("aaa", ("aaa", Clear.Input.Aaa))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("flow", ("flow", Clear.Input.Flow)), ("ip", ("ip", Clear.Input.Ip)), ("arp-cache", ("arp_cache", Clear.Input.ArpCache)), ("aaa", ("aaa", Clear.Input.Aaa))])
             self._leafs = OrderedDict([
                 ('interface', YLeaf(YType.str, 'interface')),
                 ('count', YLeaf(YType.str, 'count')),
@@ -446,21 +430,17 @@ class Clear(Entity):
             self.flow = Clear.Input.Flow()
             self.flow.parent = self
             self._children_name_map["flow"] = "flow"
-            self._children_yang_names.add("flow")
 
             self.ip = Clear.Input.Ip()
             self.ip.parent = self
             self._children_name_map["ip"] = "ip"
-            self._children_yang_names.add("ip")
 
             self.arp_cache = None
             self._children_name_map["arp_cache"] = "arp-cache"
-            self._children_yang_names.add("arp-cache")
 
             self.aaa = Clear.Input.Aaa()
             self.aaa.parent = self
             self._children_name_map["aaa"] = "aaa"
-            self._children_yang_names.add("aaa")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/%s" % self._segment_path()
 
@@ -497,21 +477,21 @@ class Clear(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("monitor", ("monitor", Clear.Input.Flow.Monitor)), ("exporter", ("exporter", Clear.Input.Flow.Exporter))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("monitor", ("monitor", Clear.Input.Flow.Monitor)), ("exporter", ("exporter", Clear.Input.Flow.Exporter))])
                 self._leafs = OrderedDict()
 
                 self.monitor = Clear.Input.Flow.Monitor()
                 self.monitor.parent = self
                 self._children_name_map["monitor"] = "monitor"
-                self._children_yang_names.add("monitor")
 
                 self.exporter = Clear.Input.Flow.Exporter()
                 self.exporter.parent = self
                 self._children_name_map["exporter"] = "exporter"
-                self._children_yang_names.add("exporter")
                 self._segment_path = lambda: "flow"
                 self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Clear.Input.Flow, [], name, value)
 
 
             class Monitor(Entity):
@@ -555,8 +535,7 @@ class Clear(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("cache", ("cache", Clear.Input.Flow.Monitor.Cache))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("cache", ("cache", Clear.Input.Flow.Monitor.Cache))])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                         ('force_export', YLeaf(YType.empty, 'force-export')),
@@ -569,7 +548,6 @@ class Clear(Entity):
                     self.cache = Clear.Input.Flow.Monitor.Cache()
                     self.cache.parent = self
                     self._children_name_map["cache"] = "cache"
-                    self._children_yang_names.add("cache")
                     self._segment_path = lambda: "monitor"
                     self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/flow/%s" % self._segment_path()
 
@@ -601,8 +579,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('force_export', YLeaf(YType.empty, 'force-export')),
                         ])
@@ -643,8 +620,7 @@ class Clear(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                         ('statistics', YLeaf(YType.empty, 'statistics')),
@@ -692,26 +668,25 @@ class Clear(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("dhcp", ("dhcp", Clear.Input.Ip.Dhcp)), ("ospf", ("ospf", Clear.Input.Ip.Ospf)), ("bgp", ("bgp", Clear.Input.Ip.Bgp))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("dhcp", ("dhcp", Clear.Input.Ip.Dhcp)), ("ospf", ("ospf", Clear.Input.Ip.Ospf)), ("bgp", ("bgp", Clear.Input.Ip.Bgp))])
                 self._leafs = OrderedDict()
 
                 self.dhcp = Clear.Input.Ip.Dhcp()
                 self.dhcp.parent = self
                 self._children_name_map["dhcp"] = "dhcp"
-                self._children_yang_names.add("dhcp")
 
                 self.ospf = Clear.Input.Ip.Ospf()
                 self.ospf.parent = self
                 self._children_name_map["ospf"] = "ospf"
-                self._children_yang_names.add("ospf")
 
                 self.bgp = Clear.Input.Ip.Bgp()
                 self.bgp.parent = self
                 self._children_name_map["bgp"] = "bgp"
-                self._children_yang_names.add("bgp")
                 self._segment_path = lambda: "ip"
                 self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Clear.Input.Ip, [], name, value)
 
 
             class Dhcp(Entity):
@@ -738,16 +713,17 @@ class Clear(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("binding", ("binding", Clear.Input.Ip.Dhcp.Binding))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("binding", ("binding", Clear.Input.Ip.Dhcp.Binding))])
                     self._leafs = OrderedDict()
 
                     self.binding = Clear.Input.Ip.Dhcp.Binding()
                     self.binding.parent = self
                     self._children_name_map["binding"] = "binding"
-                    self._children_yang_names.add("binding")
                     self._segment_path = lambda: "dhcp"
                     self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/ip/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Clear.Input.Ip.Dhcp, [], name, value)
 
 
                 class Binding(Entity):
@@ -783,8 +759,7 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('vrf', YLeaf(YType.str, 'vrf')),
                             ('y_all', YLeaf(YType.str, '_all')),
@@ -829,8 +804,7 @@ class Clear(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('y_id', YLeaf(YType.uint16, '_id')),
                         ('process', YLeaf(YType.empty, 'process')),
@@ -881,8 +855,7 @@ class Clear(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('y_peer_address', YLeaf(YType.str, '_peer-address')),
                         ('vrf', YLeaf(YType.str, 'vrf')),
@@ -936,8 +909,7 @@ class Clear(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
                     ('vrf', YLeaf(YType.str, 'vrf')),
@@ -978,16 +950,17 @@ class Clear(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("local", ("local", Clear.Input.Aaa.Local))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("local", ("local", Clear.Input.Aaa.Local))])
                 self._leafs = OrderedDict()
 
                 self.local = Clear.Input.Aaa.Local()
                 self.local.parent = self
                 self._children_name_map["local"] = "local"
-                self._children_yang_names.add("local")
                 self._segment_path = lambda: "aaa"
                 self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Clear.Input.Aaa, [], name, value)
 
 
             class Local(Entity):
@@ -1014,16 +987,17 @@ class Clear(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("user", ("user", Clear.Input.Aaa.Local.User))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("user", ("user", Clear.Input.Aaa.Local.User))])
                     self._leafs = OrderedDict()
 
                     self.user = Clear.Input.Aaa.Local.User()
                     self.user.parent = self
                     self._children_name_map["user"] = "user"
-                    self._children_yang_names.add("user")
                     self._segment_path = lambda: "local"
                     self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/aaa/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Clear.Input.Aaa.Local, [], name, value)
 
 
                 class User(Entity):
@@ -1050,16 +1024,17 @@ class Clear(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("lockout", ("lockout", Clear.Input.Aaa.Local.User.Lockout))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("lockout", ("lockout", Clear.Input.Aaa.Local.User.Lockout))])
                         self._leafs = OrderedDict()
 
                         self.lockout = Clear.Input.Aaa.Local.User.Lockout()
                         self.lockout.parent = self
                         self._children_name_map["lockout"] = "lockout"
-                        self._children_yang_names.add("lockout")
                         self._segment_path = lambda: "user"
                         self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/aaa/local/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Clear.Input.Aaa.Local.User, [], name, value)
 
 
                     class Lockout(Entity):
@@ -1086,8 +1061,7 @@ class Clear(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('username', YLeaf(YType.str, 'username')),
                             ])
@@ -1123,8 +1097,7 @@ class Clear(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('result', YLeaf(YType.str, 'result')),
             ])
@@ -1169,19 +1142,16 @@ class Release(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = Release.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = Release.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:release"
 
 
@@ -1209,8 +1179,7 @@ class Release(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('dhcp', YLeaf(YType.str, 'dhcp')),
             ])
@@ -1246,8 +1215,7 @@ class Release(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('result', YLeaf(YType.str, 'result')),
             ])
@@ -1292,19 +1260,16 @@ class Reload(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = Reload.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = Reload.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:reload"
 
 
@@ -1337,8 +1302,7 @@ class Reload(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('force', YLeaf(YType.boolean, 'force')),
                 ('reason', YLeaf(YType.str, 'reason')),
@@ -1376,8 +1340,7 @@ class Reload(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('result', YLeaf(YType.str, 'result')),
             ])
@@ -1422,19 +1385,16 @@ class Cellular(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = Cellular.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = Cellular.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:cellular"
 
 
@@ -1467,8 +1427,7 @@ class Cellular(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("lte", ("lte", Cellular.Input.Lte))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("lte", ("lte", Cellular.Input.Lte))])
             self._leafs = OrderedDict([
                 ('y_if_name', YLeaf(YType.str, '_if-name')),
             ])
@@ -1477,7 +1436,6 @@ class Cellular(Entity):
             self.lte = Cellular.Input.Lte()
             self.lte.parent = self
             self._children_name_map["lte"] = "lte"
-            self._children_yang_names.add("lte")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:cellular/%s" % self._segment_path()
 
@@ -1514,21 +1472,21 @@ class Cellular(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("technology", ("technology", Cellular.Input.Lte.Technology)), ("profile", ("profile", Cellular.Input.Lte.Profile))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("technology", ("technology", Cellular.Input.Lte.Technology)), ("profile", ("profile", Cellular.Input.Lte.Profile))])
                 self._leafs = OrderedDict()
 
                 self.technology = Cellular.Input.Lte.Technology()
                 self.technology.parent = self
                 self._children_name_map["technology"] = "technology"
-                self._children_yang_names.add("technology")
 
                 self.profile = Cellular.Input.Lte.Profile()
                 self.profile.parent = self
                 self._children_name_map["profile"] = "profile"
-                self._children_yang_names.add("profile")
                 self._segment_path = lambda: "lte"
                 self._absolute_path = lambda: "Cisco-IOS-XE-rpc:cellular/input/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Cellular.Input.Lte, [], name, value)
 
 
             class Technology(Entity):
@@ -1565,8 +1523,7 @@ class Cellular(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('lte', YLeaf(YType.empty, 'lte')),
                         ('auto', YLeaf(YType.empty, 'auto')),
@@ -1611,21 +1568,21 @@ class Cellular(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("delete", ("delete", Cellular.Input.Lte.Profile.Delete)), ("create", ("create", Cellular.Input.Lte.Profile.Create))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("delete", ("delete", Cellular.Input.Lte.Profile.Delete)), ("create", ("create", Cellular.Input.Lte.Profile.Create))])
                     self._leafs = OrderedDict()
 
                     self.delete = Cellular.Input.Lte.Profile.Delete()
                     self.delete.parent = self
                     self._children_name_map["delete"] = "delete"
-                    self._children_yang_names.add("delete")
 
                     self.create = Cellular.Input.Lte.Profile.Create()
                     self.create.parent = self
                     self._children_name_map["create"] = "create"
-                    self._children_yang_names.add("create")
                     self._segment_path = lambda: "profile"
                     self._absolute_path = lambda: "Cisco-IOS-XE-rpc:cellular/input/lte/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Cellular.Input.Lte.Profile, [], name, value)
 
 
                 class Delete(Entity):
@@ -1654,8 +1611,7 @@ class Cellular(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('y_profile_id', YLeaf(YType.uint8, '_profile-id')),
                         ])
@@ -1743,8 +1699,7 @@ class Cellular(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('y_profile_id', YLeaf(YType.uint8, '_profile-id')),
                             ('y_prof_name', YLeaf(YType.str, '_prof_name')),
@@ -1800,8 +1755,7 @@ class Cellular(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('result', YLeaf(YType.str, 'result')),
             ])
@@ -1846,19 +1800,16 @@ class License(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = License.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = License.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:license"
 
 
@@ -1886,16 +1837,17 @@ class License(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("smart", ("smart", License.Input.Smart))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("smart", ("smart", License.Input.Smart))])
             self._leafs = OrderedDict()
 
             self.smart = License.Input.Smart()
             self.smart.parent = self
             self._children_name_map["smart"] = "smart"
-            self._children_yang_names.add("smart")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:license/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(License.Input, [], name, value)
 
 
         class Smart(Entity):
@@ -1932,8 +1884,7 @@ class License(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("register", ("register", License.Input.Smart.Register)), ("renew", ("renew", License.Input.Smart.Renew))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("register", ("register", License.Input.Smart.Register)), ("renew", ("renew", License.Input.Smart.Renew))])
                 self._leafs = OrderedDict([
                     ('deregister', YLeaf(YType.empty, 'deregister')),
                 ])
@@ -1942,12 +1893,10 @@ class License(Entity):
                 self.register = License.Input.Smart.Register()
                 self.register.parent = self
                 self._children_name_map["register"] = "register"
-                self._children_yang_names.add("register")
 
                 self.renew = License.Input.Smart.Renew()
                 self.renew.parent = self
                 self._children_name_map["renew"] = "renew"
-                self._children_yang_names.add("renew")
                 self._segment_path = lambda: "smart"
                 self._absolute_path = lambda: "Cisco-IOS-XE-rpc:license/input/%s" % self._segment_path()
 
@@ -1986,8 +1935,7 @@ class License(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('idtoken', YLeaf(YType.str, 'idtoken')),
                         ('force', YLeaf(YType.empty, 'force')),
@@ -2030,8 +1978,7 @@ class License(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('id', YLeaf(YType.empty, 'ID')),
                         ('auth', YLeaf(YType.empty, 'auth')),
@@ -2069,8 +2016,7 @@ class License(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('result', YLeaf(YType.str, 'result')),
             ])
@@ -2115,19 +2061,16 @@ class Service(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = Service.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = Service.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:service"
 
 
@@ -2155,16 +2098,17 @@ class Service(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("sd-avc", ("sd_avc", Service.Input.SdAvc))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("sd-avc", ("sd_avc", Service.Input.SdAvc))])
             self._leafs = OrderedDict()
 
             self.sd_avc = Service.Input.SdAvc()
             self.sd_avc.parent = self
             self._children_name_map["sd_avc"] = "sd-avc"
-            self._children_yang_names.add("sd-avc")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:service/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Service.Input, [], name, value)
 
 
         class SdAvc(Entity):
@@ -2236,8 +2180,7 @@ class Service(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("configure", ("configure", Service.Input.SdAvc.Configure)), ("install", ("install", Service.Input.SdAvc.Install)), ("upgrade", ("upgrade", Service.Input.SdAvc.Upgrade))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("configure", ("configure", Service.Input.SdAvc.Configure)), ("install", ("install", Service.Input.SdAvc.Install)), ("upgrade", ("upgrade", Service.Input.SdAvc.Upgrade))])
                 self._leafs = OrderedDict([
                     ('activate', YLeaf(YType.empty, 'activate')),
                     ('connect', YLeaf(YType.empty, 'connect')),
@@ -2258,17 +2201,14 @@ class Service(Entity):
                 self.configure = Service.Input.SdAvc.Configure()
                 self.configure.parent = self
                 self._children_name_map["configure"] = "configure"
-                self._children_yang_names.add("configure")
 
                 self.install = Service.Input.SdAvc.Install()
                 self.install.parent = self
                 self._children_name_map["install"] = "install"
-                self._children_yang_names.add("install")
 
                 self.upgrade = Service.Input.SdAvc.Upgrade()
                 self.upgrade.parent = self
                 self._children_name_map["upgrade"] = "upgrade"
-                self._children_yang_names.add("upgrade")
                 self._segment_path = lambda: "sd-avc"
                 self._absolute_path = lambda: "Cisco-IOS-XE-rpc:service/input/%s" % self._segment_path()
 
@@ -2300,16 +2240,17 @@ class Service(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("gateway", ("gateway", Service.Input.SdAvc.Configure.Gateway))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("gateway", ("gateway", Service.Input.SdAvc.Configure.Gateway))])
                     self._leafs = OrderedDict()
 
                     self.gateway = Service.Input.SdAvc.Configure.Gateway()
                     self.gateway.parent = self
                     self._children_name_map["gateway"] = "gateway"
-                    self._children_yang_names.add("gateway")
                     self._segment_path = lambda: "configure"
                     self._absolute_path = lambda: "Cisco-IOS-XE-rpc:service/input/sd-avc/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Service.Input.SdAvc.Configure, [], name, value)
 
 
                 class Gateway(Entity):
@@ -2348,8 +2289,7 @@ class Service(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface', YLeaf(YType.str, 'interface')),
                             ('service_ip', YLeaf(YType.str, 'service-ip')),
@@ -2389,8 +2329,7 @@ class Service(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('package', YLeaf(YType.str, 'package')),
                     ])
@@ -2426,8 +2365,7 @@ class Service(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('package', YLeaf(YType.str, 'package')),
                     ])
@@ -2463,8 +2401,7 @@ class Service(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('result', YLeaf(YType.str, 'result')),
             ])
@@ -2509,19 +2446,16 @@ class VirtualService(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = VirtualService.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = VirtualService.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:virtual-service"
 
 
@@ -2559,26 +2493,25 @@ class VirtualService(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("install", ("install", VirtualService.Input.Install)), ("uninstall", ("uninstall", VirtualService.Input.Uninstall)), ("upgrade", ("upgrade", VirtualService.Input.Upgrade))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("install", ("install", VirtualService.Input.Install)), ("uninstall", ("uninstall", VirtualService.Input.Uninstall)), ("upgrade", ("upgrade", VirtualService.Input.Upgrade))])
             self._leafs = OrderedDict()
 
             self.install = VirtualService.Input.Install()
             self.install.parent = self
             self._children_name_map["install"] = "install"
-            self._children_yang_names.add("install")
 
             self.uninstall = VirtualService.Input.Uninstall()
             self.uninstall.parent = self
             self._children_name_map["uninstall"] = "uninstall"
-            self._children_yang_names.add("uninstall")
 
             self.upgrade = VirtualService.Input.Upgrade()
             self.upgrade.parent = self
             self._children_name_map["upgrade"] = "upgrade"
-            self._children_yang_names.add("upgrade")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:virtual-service/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(VirtualService.Input, [], name, value)
 
 
         class Install(Entity):
@@ -2615,8 +2548,7 @@ class VirtualService(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('package', YLeaf(YType.str, 'package')),
@@ -2656,8 +2588,7 @@ class VirtualService(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                 ])
@@ -2698,8 +2629,7 @@ class VirtualService(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('package', YLeaf(YType.str, 'package')),
@@ -2737,8 +2667,7 @@ class VirtualService(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('result', YLeaf(YType.str, 'result')),
             ])
@@ -2783,19 +2712,16 @@ class Copy(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = Copy.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = Copy.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:copy"
 
 
@@ -2836,8 +2762,7 @@ class Copy(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('y_source', YLeaf(YType.str, '_source')),
                 ('y_destination', YLeaf(YType.str, '_destination')),
@@ -2875,8 +2800,7 @@ class Copy(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('result', YLeaf(YType.str, 'result')),
             ])
@@ -2921,19 +2845,16 @@ class Delete(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = Delete.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = Delete.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:delete"
 
 
@@ -2965,8 +2886,7 @@ class Delete(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('y_filename', YLeaf(YType.str, '_filename')),
             ])
@@ -3002,8 +2922,7 @@ class Delete(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('result', YLeaf(YType.str, 'result')),
             ])
@@ -3048,19 +2967,16 @@ class AppHosting(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = AppHosting.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = AppHosting.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:app-hosting"
 
 
@@ -3113,41 +3029,37 @@ class AppHosting(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("install", ("install", AppHosting.Input.Install)), ("uninstall", ("uninstall", AppHosting.Input.Uninstall)), ("activate", ("activate", AppHosting.Input.Activate)), ("deactivate", ("deactivate", AppHosting.Input.Deactivate)), ("start", ("start", AppHosting.Input.Start)), ("stop", ("stop", AppHosting.Input.Stop))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("install", ("install", AppHosting.Input.Install)), ("uninstall", ("uninstall", AppHosting.Input.Uninstall)), ("activate", ("activate", AppHosting.Input.Activate)), ("deactivate", ("deactivate", AppHosting.Input.Deactivate)), ("start", ("start", AppHosting.Input.Start)), ("stop", ("stop", AppHosting.Input.Stop))])
             self._leafs = OrderedDict()
 
             self.install = AppHosting.Input.Install()
             self.install.parent = self
             self._children_name_map["install"] = "install"
-            self._children_yang_names.add("install")
 
             self.uninstall = AppHosting.Input.Uninstall()
             self.uninstall.parent = self
             self._children_name_map["uninstall"] = "uninstall"
-            self._children_yang_names.add("uninstall")
 
             self.activate = AppHosting.Input.Activate()
             self.activate.parent = self
             self._children_name_map["activate"] = "activate"
-            self._children_yang_names.add("activate")
 
             self.deactivate = AppHosting.Input.Deactivate()
             self.deactivate.parent = self
             self._children_name_map["deactivate"] = "deactivate"
-            self._children_yang_names.add("deactivate")
 
             self.start = AppHosting.Input.Start()
             self.start.parent = self
             self._children_name_map["start"] = "start"
-            self._children_yang_names.add("start")
 
             self.stop = AppHosting.Input.Stop()
             self.stop.parent = self
             self._children_name_map["stop"] = "stop"
-            self._children_yang_names.add("stop")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:app-hosting/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(AppHosting.Input, [], name, value)
 
 
         class Install(Entity):
@@ -3179,8 +3091,7 @@ class AppHosting(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('appid', YLeaf(YType.str, 'appid')),
                     ('package', YLeaf(YType.str, 'package')),
@@ -3218,8 +3129,7 @@ class AppHosting(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('appid', YLeaf(YType.str, 'appid')),
                 ])
@@ -3255,8 +3165,7 @@ class AppHosting(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('appid', YLeaf(YType.str, 'appid')),
                 ])
@@ -3292,8 +3201,7 @@ class AppHosting(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('appid', YLeaf(YType.str, 'appid')),
                 ])
@@ -3329,8 +3237,7 @@ class AppHosting(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('appid', YLeaf(YType.str, 'appid')),
                 ])
@@ -3366,8 +3273,7 @@ class AppHosting(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('appid', YLeaf(YType.str, 'appid')),
                 ])
@@ -3403,8 +3309,7 @@ class AppHosting(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('result', YLeaf(YType.str, 'result')),
             ])
@@ -3449,19 +3354,16 @@ class Guestshell(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = Guestshell.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = Guestshell.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:guestshell"
 
 
@@ -3499,8 +3401,7 @@ class Guestshell(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('destroy', YLeaf(YType.empty, 'destroy')),
                 ('disable', YLeaf(YType.empty, 'disable')),
@@ -3540,8 +3441,7 @@ class Guestshell(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('result', YLeaf(YType.str, 'result')),
             ])

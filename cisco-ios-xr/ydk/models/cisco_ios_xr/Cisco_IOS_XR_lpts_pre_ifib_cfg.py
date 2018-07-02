@@ -771,4 +771,25 @@ class LptsPreIFibPrecedenceNumber(Enum):
     routine = Enum.YLeaf(0, "routine")
 
 
+class Lptsafi(Enum):
+    """
+    Lptsafi (Enum Class)
+
+    Lptsafi
+
+    .. data:: ipv4 = 1
+
+    	IPv4 type
+
+    .. data:: ipv6 = 2
+
+    	IPv6 type
+
+    """
+
+    ipv4 = Enum.YLeaf(1, "ipv4")
+
+    ipv6 = Enum.YLeaf(2, "ipv6")
+
+
 

@@ -143,7 +143,7 @@ class Snmp(Entity):
     """
 
     _prefix = 'snmp-agent-oper'
-    _revision = '2017-05-01'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(Snmp, self).__init__()
@@ -154,55 +154,48 @@ class Snmp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("trap-servers", ("trap_servers", Snmp.TrapServers)), ("information", ("information", Snmp.Information)), ("interfaces", ("interfaces", Snmp.Interfaces)), ("correlator", ("correlator", Snmp.Correlator)), ("interface-indexes", ("interface_indexes", Snmp.InterfaceIndexes)), ("if-indexes", ("if_indexes", Snmp.IfIndexes)), ("Cisco-IOS-XR-snmp-entitymib-oper:entity-mib", ("entity_mib", Snmp.EntityMib)), ("Cisco-IOS-XR-snmp-ifmib-oper:interface-mib", ("interface_mib", Snmp.InterfaceMib)), ("Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib", ("sensor_mib", Snmp.SensorMib))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("trap-servers", ("trap_servers", Snmp.TrapServers)), ("information", ("information", Snmp.Information)), ("interfaces", ("interfaces", Snmp.Interfaces)), ("correlator", ("correlator", Snmp.Correlator)), ("interface-indexes", ("interface_indexes", Snmp.InterfaceIndexes)), ("if-indexes", ("if_indexes", Snmp.IfIndexes)), ("Cisco-IOS-XR-snmp-entitymib-oper:entity-mib", ("entity_mib", Snmp.EntityMib)), ("Cisco-IOS-XR-snmp-ifmib-oper:interface-mib", ("interface_mib", Snmp.InterfaceMib)), ("Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib", ("sensor_mib", Snmp.SensorMib))])
         self._leafs = OrderedDict()
 
         self.trap_servers = Snmp.TrapServers()
         self.trap_servers.parent = self
         self._children_name_map["trap_servers"] = "trap-servers"
-        self._children_yang_names.add("trap-servers")
 
         self.information = Snmp.Information()
         self.information.parent = self
         self._children_name_map["information"] = "information"
-        self._children_yang_names.add("information")
 
         self.interfaces = Snmp.Interfaces()
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
-        self._children_yang_names.add("interfaces")
 
         self.correlator = Snmp.Correlator()
         self.correlator.parent = self
         self._children_name_map["correlator"] = "correlator"
-        self._children_yang_names.add("correlator")
 
         self.interface_indexes = Snmp.InterfaceIndexes()
         self.interface_indexes.parent = self
         self._children_name_map["interface_indexes"] = "interface-indexes"
-        self._children_yang_names.add("interface-indexes")
 
         self.if_indexes = Snmp.IfIndexes()
         self.if_indexes.parent = self
         self._children_name_map["if_indexes"] = "if-indexes"
-        self._children_yang_names.add("if-indexes")
 
         self.entity_mib = Snmp.EntityMib()
         self.entity_mib.parent = self
         self._children_name_map["entity_mib"] = "Cisco-IOS-XR-snmp-entitymib-oper:entity-mib"
-        self._children_yang_names.add("Cisco-IOS-XR-snmp-entitymib-oper:entity-mib")
 
         self.interface_mib = Snmp.InterfaceMib()
         self.interface_mib.parent = self
         self._children_name_map["interface_mib"] = "Cisco-IOS-XR-snmp-ifmib-oper:interface-mib"
-        self._children_yang_names.add("Cisco-IOS-XR-snmp-ifmib-oper:interface-mib")
 
         self.sensor_mib = Snmp.SensorMib()
         self.sensor_mib.parent = self
         self._children_name_map["sensor_mib"] = "Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib"
-        self._children_yang_names.add("Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib")
         self._segment_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Snmp, [], name, value)
 
 
     class TrapServers(Entity):
@@ -219,7 +212,7 @@ class Snmp(Entity):
         """
 
         _prefix = 'snmp-agent-oper'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Snmp.TrapServers, self).__init__()
@@ -229,8 +222,7 @@ class Snmp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("trap-server", ("trap_server", Snmp.TrapServers.TrapServer))])
+            self._child_classes = OrderedDict([("trap-server", ("trap_server", Snmp.TrapServers.TrapServer))])
             self._leafs = OrderedDict()
 
             self.trap_server = YList(self)
@@ -291,7 +283,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.TrapServers.TrapServer, self).__init__()
@@ -301,8 +293,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('trap_host', YLeaf(YType.str, 'trap-host')),
                     ('port', YLeaf(YType.uint16, 'port')),
@@ -321,7 +312,7 @@ class Snmp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/trap-servers/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.TrapServers.TrapServer, ['trap_host', 'port', 'number_of_pkts_in_trap_q', 'max_q_length_of_trap_q', 'number_of_pkts_sent', 'number_of_pkts_dropped'], name, value)
+                self._perform_setattr(Snmp.TrapServers.TrapServer, ['trap_host', 'port', u'number_of_pkts_in_trap_q', u'max_q_length_of_trap_q', u'number_of_pkts_sent', u'number_of_pkts_dropped'], name, value)
 
 
     class Information(Entity):
@@ -458,7 +449,7 @@ class Snmp(Entity):
         """
 
         _prefix = 'snmp-agent-oper'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Snmp.Information, self).__init__()
@@ -468,136 +459,113 @@ class Snmp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("hosts", ("hosts", Snmp.Information.Hosts)), ("system-up-time", ("system_up_time", Snmp.Information.SystemUpTime)), ("nms-addresses", ("nms_addresses", Snmp.Information.NmsAddresses)), ("engine-id", ("engine_id", Snmp.Information.EngineId)), ("rx-queue", ("rx_queue", Snmp.Information.RxQueue)), ("system-name", ("system_name", Snmp.Information.SystemName)), ("request-type-detail", ("request_type_detail", Snmp.Information.RequestTypeDetail)), ("duplicate-drop", ("duplicate_drop", Snmp.Information.DuplicateDrop)), ("bulk-stats-transfers", ("bulk_stats_transfers", Snmp.Information.BulkStatsTransfers)), ("trap-infos", ("trap_infos", Snmp.Information.TrapInfos)), ("poll-oids", ("poll_oids", Snmp.Information.PollOids)), ("infom-details", ("infom_details", Snmp.Information.InfomDetails)), ("statistics", ("statistics", Snmp.Information.Statistics)), ("incoming-queue", ("incoming_queue", Snmp.Information.IncomingQueue)), ("context-mapping", ("context_mapping", Snmp.Information.ContextMapping)), ("trap-oids", ("trap_oids", Snmp.Information.TrapOids)), ("nm-spackets", ("nm_spackets", Snmp.Information.NmSpackets)), ("mibs", ("mibs", Snmp.Information.Mibs)), ("serial-numbers", ("serial_numbers", Snmp.Information.SerialNumbers)), ("drop-nms-addresses", ("drop_nms_addresses", Snmp.Information.DropNmsAddresses)), ("views", ("views", Snmp.Information.Views)), ("system-descr", ("system_descr", Snmp.Information.SystemDescr)), ("tables", ("tables", Snmp.Information.Tables)), ("system-oid", ("system_oid", Snmp.Information.SystemOid)), ("trap-queue", ("trap_queue", Snmp.Information.TrapQueue))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("hosts", ("hosts", Snmp.Information.Hosts)), ("system-up-time", ("system_up_time", Snmp.Information.SystemUpTime)), ("nms-addresses", ("nms_addresses", Snmp.Information.NmsAddresses)), ("engine-id", ("engine_id", Snmp.Information.EngineId)), ("rx-queue", ("rx_queue", Snmp.Information.RxQueue)), ("system-name", ("system_name", Snmp.Information.SystemName)), ("request-type-detail", ("request_type_detail", Snmp.Information.RequestTypeDetail)), ("duplicate-drop", ("duplicate_drop", Snmp.Information.DuplicateDrop)), ("bulk-stats-transfers", ("bulk_stats_transfers", Snmp.Information.BulkStatsTransfers)), ("trap-infos", ("trap_infos", Snmp.Information.TrapInfos)), ("poll-oids", ("poll_oids", Snmp.Information.PollOids)), ("infom-details", ("infom_details", Snmp.Information.InfomDetails)), ("statistics", ("statistics", Snmp.Information.Statistics)), ("incoming-queue", ("incoming_queue", Snmp.Information.IncomingQueue)), ("context-mapping", ("context_mapping", Snmp.Information.ContextMapping)), ("trap-oids", ("trap_oids", Snmp.Information.TrapOids)), ("nm-spackets", ("nm_spackets", Snmp.Information.NmSpackets)), ("mibs", ("mibs", Snmp.Information.Mibs)), ("serial-numbers", ("serial_numbers", Snmp.Information.SerialNumbers)), ("drop-nms-addresses", ("drop_nms_addresses", Snmp.Information.DropNmsAddresses)), ("views", ("views", Snmp.Information.Views)), ("system-descr", ("system_descr", Snmp.Information.SystemDescr)), ("tables", ("tables", Snmp.Information.Tables)), ("system-oid", ("system_oid", Snmp.Information.SystemOid)), ("trap-queue", ("trap_queue", Snmp.Information.TrapQueue))])
             self._leafs = OrderedDict()
 
             self.hosts = Snmp.Information.Hosts()
             self.hosts.parent = self
             self._children_name_map["hosts"] = "hosts"
-            self._children_yang_names.add("hosts")
 
             self.system_up_time = Snmp.Information.SystemUpTime()
             self.system_up_time.parent = self
             self._children_name_map["system_up_time"] = "system-up-time"
-            self._children_yang_names.add("system-up-time")
 
             self.nms_addresses = Snmp.Information.NmsAddresses()
             self.nms_addresses.parent = self
             self._children_name_map["nms_addresses"] = "nms-addresses"
-            self._children_yang_names.add("nms-addresses")
 
             self.engine_id = Snmp.Information.EngineId()
             self.engine_id.parent = self
             self._children_name_map["engine_id"] = "engine-id"
-            self._children_yang_names.add("engine-id")
 
             self.rx_queue = Snmp.Information.RxQueue()
             self.rx_queue.parent = self
             self._children_name_map["rx_queue"] = "rx-queue"
-            self._children_yang_names.add("rx-queue")
 
             self.system_name = Snmp.Information.SystemName()
             self.system_name.parent = self
             self._children_name_map["system_name"] = "system-name"
-            self._children_yang_names.add("system-name")
 
             self.request_type_detail = Snmp.Information.RequestTypeDetail()
             self.request_type_detail.parent = self
             self._children_name_map["request_type_detail"] = "request-type-detail"
-            self._children_yang_names.add("request-type-detail")
 
             self.duplicate_drop = Snmp.Information.DuplicateDrop()
             self.duplicate_drop.parent = self
             self._children_name_map["duplicate_drop"] = "duplicate-drop"
-            self._children_yang_names.add("duplicate-drop")
 
             self.bulk_stats_transfers = Snmp.Information.BulkStatsTransfers()
             self.bulk_stats_transfers.parent = self
             self._children_name_map["bulk_stats_transfers"] = "bulk-stats-transfers"
-            self._children_yang_names.add("bulk-stats-transfers")
 
             self.trap_infos = Snmp.Information.TrapInfos()
             self.trap_infos.parent = self
             self._children_name_map["trap_infos"] = "trap-infos"
-            self._children_yang_names.add("trap-infos")
 
             self.poll_oids = Snmp.Information.PollOids()
             self.poll_oids.parent = self
             self._children_name_map["poll_oids"] = "poll-oids"
-            self._children_yang_names.add("poll-oids")
 
             self.infom_details = Snmp.Information.InfomDetails()
             self.infom_details.parent = self
             self._children_name_map["infom_details"] = "infom-details"
-            self._children_yang_names.add("infom-details")
 
             self.statistics = Snmp.Information.Statistics()
             self.statistics.parent = self
             self._children_name_map["statistics"] = "statistics"
-            self._children_yang_names.add("statistics")
 
             self.incoming_queue = Snmp.Information.IncomingQueue()
             self.incoming_queue.parent = self
             self._children_name_map["incoming_queue"] = "incoming-queue"
-            self._children_yang_names.add("incoming-queue")
 
             self.context_mapping = Snmp.Information.ContextMapping()
             self.context_mapping.parent = self
             self._children_name_map["context_mapping"] = "context-mapping"
-            self._children_yang_names.add("context-mapping")
 
             self.trap_oids = Snmp.Information.TrapOids()
             self.trap_oids.parent = self
             self._children_name_map["trap_oids"] = "trap-oids"
-            self._children_yang_names.add("trap-oids")
 
             self.nm_spackets = Snmp.Information.NmSpackets()
             self.nm_spackets.parent = self
             self._children_name_map["nm_spackets"] = "nm-spackets"
-            self._children_yang_names.add("nm-spackets")
 
             self.mibs = Snmp.Information.Mibs()
             self.mibs.parent = self
             self._children_name_map["mibs"] = "mibs"
-            self._children_yang_names.add("mibs")
 
             self.serial_numbers = Snmp.Information.SerialNumbers()
             self.serial_numbers.parent = self
             self._children_name_map["serial_numbers"] = "serial-numbers"
-            self._children_yang_names.add("serial-numbers")
 
             self.drop_nms_addresses = Snmp.Information.DropNmsAddresses()
             self.drop_nms_addresses.parent = self
             self._children_name_map["drop_nms_addresses"] = "drop-nms-addresses"
-            self._children_yang_names.add("drop-nms-addresses")
 
             self.views = Snmp.Information.Views()
             self.views.parent = self
             self._children_name_map["views"] = "views"
-            self._children_yang_names.add("views")
 
             self.system_descr = Snmp.Information.SystemDescr()
             self.system_descr.parent = self
             self._children_name_map["system_descr"] = "system-descr"
-            self._children_yang_names.add("system-descr")
 
             self.tables = Snmp.Information.Tables()
             self.tables.parent = self
             self._children_name_map["tables"] = "tables"
-            self._children_yang_names.add("tables")
 
             self.system_oid = Snmp.Information.SystemOid()
             self.system_oid.parent = self
             self._children_name_map["system_oid"] = "system-oid"
-            self._children_yang_names.add("system-oid")
 
             self.trap_queue = Snmp.Information.TrapQueue()
             self.trap_queue.parent = self
             self._children_name_map["trap_queue"] = "trap-queue"
-            self._children_yang_names.add("trap-queue")
             self._segment_path = lambda: "information"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Snmp.Information, [], name, value)
 
 
         class Hosts(Entity):
@@ -614,7 +582,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Information.Hosts, self).__init__()
@@ -624,8 +592,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("host", ("host", Snmp.Information.Hosts.Host))])
+                self._child_classes = OrderedDict([("host", ("host", Snmp.Information.Hosts.Host))])
                 self._leafs = OrderedDict()
 
                 self.host = YList(self)
@@ -657,7 +624,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Snmp.Information.Hosts.Host, self).__init__()
@@ -667,8 +634,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("host-information", ("host_information", Snmp.Information.Hosts.Host.HostInformation))])
+                    self._child_classes = OrderedDict([("host-information", ("host_information", Snmp.Information.Hosts.Host.HostInformation))])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                     ])
@@ -729,7 +695,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Snmp.Information.Hosts.Host.HostInformation, self).__init__()
@@ -739,8 +705,7 @@ class Snmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['user']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('user', YLeaf(YType.str, 'user')),
                             ('snmp_target_address_t_host', YLeaf(YType.str, 'snmp-target-address-t-host')),
@@ -760,7 +725,7 @@ class Snmp(Entity):
                         self._segment_path = lambda: "host-information" + "[user='" + str(self.user) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Information.Hosts.Host.HostInformation, ['user', 'snmp_target_address_t_host', 'snmp_target_address_port', 'snmp_target_addresstype', 'snmp_target_params_security_model', 'snmp_target_params_security_name', 'snmp_target_params_security_level'], name, value)
+                        self._perform_setattr(Snmp.Information.Hosts.Host.HostInformation, ['user', u'snmp_target_address_t_host', u'snmp_target_address_port', u'snmp_target_addresstype', u'snmp_target_params_security_model', u'snmp_target_params_security_name', u'snmp_target_params_security_level'], name, value)
 
 
         class SystemUpTime(Entity):
@@ -777,7 +742,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Information.SystemUpTime, self).__init__()
@@ -787,8 +752,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('system_up_time_edm', YLeaf(YType.str, 'system-up-time-edm')),
                 ])
@@ -797,7 +761,7 @@ class Snmp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Information.SystemUpTime, ['system_up_time_edm'], name, value)
+                self._perform_setattr(Snmp.Information.SystemUpTime, [u'system_up_time_edm'], name, value)
 
 
         class NmsAddresses(Entity):
@@ -814,7 +778,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Information.NmsAddresses, self).__init__()
@@ -824,8 +788,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("nms-address", ("nms_address", Snmp.Information.NmsAddresses.NmsAddress))])
+                self._child_classes = OrderedDict([("nms-address", ("nms_address", Snmp.Information.NmsAddresses.NmsAddress))])
                 self._leafs = OrderedDict()
 
                 self.nms_address = YList(self)
@@ -892,7 +855,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Snmp.Information.NmsAddresses.NmsAddress, self).__init__()
@@ -902,8 +865,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['nms_addr']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('nms_addr', YLeaf(YType.str, 'nms-addr')),
                         ('nms_address', YLeaf(YType.str, 'nms-address')),
@@ -924,7 +886,7 @@ class Snmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/nms-addresses/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.NmsAddresses.NmsAddress, ['nms_addr', 'nms_address', 'get_request_count', 'getnext_request_count', 'getbulk_request_count', 'set_request_count', 'test_request_count'], name, value)
+                    self._perform_setattr(Snmp.Information.NmsAddresses.NmsAddress, ['nms_addr', u'nms_address', u'get_request_count', u'getnext_request_count', u'getbulk_request_count', u'set_request_count', u'test_request_count'], name, value)
 
 
         class EngineId(Entity):
@@ -941,7 +903,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Information.EngineId, self).__init__()
@@ -951,8 +913,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('engine_id', YLeaf(YType.str, 'engine-id')),
                 ])
@@ -961,7 +922,7 @@ class Snmp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Information.EngineId, ['engine_id'], name, value)
+                self._perform_setattr(Snmp.Information.EngineId, [u'engine_id'], name, value)
 
 
         class RxQueue(Entity):
@@ -1032,7 +993,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Information.RxQueue, self).__init__()
@@ -1042,8 +1003,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("incoming-q", ("incoming_q", Snmp.Information.RxQueue.IncomingQ)), ("pending-q", ("pending_q", Snmp.Information.RxQueue.PendingQ))])
+                self._child_classes = OrderedDict([("incoming-q", ("incoming_q", Snmp.Information.RxQueue.IncomingQ)), ("pending-q", ("pending_q", Snmp.Information.RxQueue.PendingQ))])
                 self._leafs = OrderedDict([
                     ('qlen', YLeaf(YType.uint32, 'qlen')),
                     ('in_min', YLeaf(YType.uint32, 'in-min')),
@@ -1067,7 +1027,7 @@ class Snmp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Information.RxQueue, ['qlen', 'in_min', 'in_avg', 'in_max', 'pend_min', 'pend_avg', 'pend_max'], name, value)
+                self._perform_setattr(Snmp.Information.RxQueue, [u'qlen', u'in_min', u'in_avg', u'in_max', u'pend_min', u'pend_avg', u'pend_max'], name, value)
 
 
             class IncomingQ(Entity):
@@ -1100,7 +1060,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Snmp.Information.RxQueue.IncomingQ, self).__init__()
@@ -1110,8 +1070,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('min', YLeaf(YType.uint32, 'min')),
                         ('avg', YLeaf(YType.uint32, 'avg')),
@@ -1124,7 +1083,7 @@ class Snmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/rx-queue/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.RxQueue.IncomingQ, ['min', 'avg', 'max'], name, value)
+                    self._perform_setattr(Snmp.Information.RxQueue.IncomingQ, [u'min', u'avg', u'max'], name, value)
 
 
             class PendingQ(Entity):
@@ -1157,7 +1116,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Snmp.Information.RxQueue.PendingQ, self).__init__()
@@ -1167,8 +1126,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('min', YLeaf(YType.uint32, 'min')),
                         ('avg', YLeaf(YType.uint32, 'avg')),
@@ -1181,7 +1139,7 @@ class Snmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/rx-queue/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.RxQueue.PendingQ, ['min', 'avg', 'max'], name, value)
+                    self._perform_setattr(Snmp.Information.RxQueue.PendingQ, [u'min', u'avg', u'max'], name, value)
 
 
         class SystemName(Entity):
@@ -1198,7 +1156,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Information.SystemName, self).__init__()
@@ -1208,8 +1166,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('system_name', YLeaf(YType.str, 'system-name')),
                 ])
@@ -1218,7 +1175,7 @@ class Snmp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Information.SystemName, ['system_name'], name, value)
+                self._perform_setattr(Snmp.Information.SystemName, [u'system_name'], name, value)
 
 
         class RequestTypeDetail(Entity):
@@ -1235,7 +1192,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Information.RequestTypeDetail, self).__init__()
@@ -1245,16 +1202,17 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("nms-addresses", ("nms_addresses", Snmp.Information.RequestTypeDetail.NmsAddresses))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("nms-addresses", ("nms_addresses", Snmp.Information.RequestTypeDetail.NmsAddresses))])
                 self._leafs = OrderedDict()
 
                 self.nms_addresses = Snmp.Information.RequestTypeDetail.NmsAddresses()
                 self.nms_addresses.parent = self
                 self._children_name_map["nms_addresses"] = "nms-addresses"
-                self._children_yang_names.add("nms-addresses")
                 self._segment_path = lambda: "request-type-detail"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Information.RequestTypeDetail, [], name, value)
 
 
             class NmsAddresses(Entity):
@@ -1271,7 +1229,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Snmp.Information.RequestTypeDetail.NmsAddresses, self).__init__()
@@ -1281,8 +1239,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("nms-address", ("nms_address", Snmp.Information.RequestTypeDetail.NmsAddresses.NmsAddress))])
+                    self._child_classes = OrderedDict([("nms-address", ("nms_address", Snmp.Information.RequestTypeDetail.NmsAddresses.NmsAddress))])
                     self._leafs = OrderedDict()
 
                     self.nms_address = YList(self)
@@ -1351,7 +1308,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Snmp.Information.RequestTypeDetail.NmsAddresses.NmsAddress, self).__init__()
@@ -1361,8 +1318,7 @@ class Snmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['nms_addr']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('nms_addr', YLeaf(YType.str, 'nms-addr')),
                             ('total_count', YLeaf(YType.uint32, 'total-count')),
@@ -1383,7 +1339,7 @@ class Snmp(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/request-type-detail/nms-addresses/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Information.RequestTypeDetail.NmsAddresses.NmsAddress, ['nms_addr', 'total_count', 'agent_request_count', 'interface_request_count', 'entity_request_count', 'route_request_count', 'infra_request_count'], name, value)
+                        self._perform_setattr(Snmp.Information.RequestTypeDetail.NmsAddresses.NmsAddress, ['nms_addr', u'total_count', u'agent_request_count', u'interface_request_count', u'entity_request_count', u'route_request_count', u'infra_request_count'], name, value)
 
 
         class DuplicateDrop(Entity):
@@ -1464,7 +1420,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Information.DuplicateDrop, self).__init__()
@@ -1474,8 +1430,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('duplicate_request_status', YLeaf(YType.enumeration, 'duplicate-request-status')),
                     ('last_status_change_time', YLeaf(YType.str, 'last-status-change-time')),
@@ -1504,7 +1459,7 @@ class Snmp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Information.DuplicateDrop, ['duplicate_request_status', 'last_status_change_time', 'duplicate_drop_configured_timeout', 'duplicate_dropped_requests', 'retry_processed_requests', 'first_enable_time', 'latest_duplicate_dropped_requests', 'latest_retry_processed_requests', 'duplicate_request_latest_enable_time', 'duplicate_drop_enable_count', 'duplicate_drop_disable_count'], name, value)
+                self._perform_setattr(Snmp.Information.DuplicateDrop, [u'duplicate_request_status', u'last_status_change_time', u'duplicate_drop_configured_timeout', u'duplicate_dropped_requests', u'retry_processed_requests', u'first_enable_time', u'latest_duplicate_dropped_requests', u'latest_retry_processed_requests', u'duplicate_request_latest_enable_time', u'duplicate_drop_enable_count', u'duplicate_drop_disable_count'], name, value)
 
 
         class BulkStatsTransfers(Entity):
@@ -1521,7 +1476,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Information.BulkStatsTransfers, self).__init__()
@@ -1531,8 +1486,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("bulk-stats-transfer", ("bulk_stats_transfer", Snmp.Information.BulkStatsTransfers.BulkStatsTransfer))])
+                self._child_classes = OrderedDict([("bulk-stats-transfer", ("bulk_stats_transfer", Snmp.Information.BulkStatsTransfers.BulkStatsTransfer))])
                 self._leafs = OrderedDict()
 
                 self.bulk_stats_transfer = YList(self)
@@ -1595,7 +1549,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Snmp.Information.BulkStatsTransfers.BulkStatsTransfer, self).__init__()
@@ -1605,8 +1559,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['transfer_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('transfer_name', YLeaf(YType.str, 'transfer-name')),
                         ('transfer_name_xr', YLeaf(YType.str, 'transfer-name-xr')),
@@ -1627,7 +1580,7 @@ class Snmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/bulk-stats-transfers/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.BulkStatsTransfers.BulkStatsTransfer, ['transfer_name', 'transfer_name_xr', 'url_primary', 'url_secondary', 'retained_file', 'time_left', 'retry_left'], name, value)
+                    self._perform_setattr(Snmp.Information.BulkStatsTransfers.BulkStatsTransfer, ['transfer_name', u'transfer_name_xr', u'url_primary', u'url_secondary', u'retained_file', u'time_left', u'retry_left'], name, value)
 
 
         class TrapInfos(Entity):
@@ -1644,7 +1597,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Information.TrapInfos, self).__init__()
@@ -1654,8 +1607,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("trap-info", ("trap_info", Snmp.Information.TrapInfos.TrapInfo))])
+                self._child_classes = OrderedDict([("trap-info", ("trap_info", Snmp.Information.TrapInfos.TrapInfo))])
                 self._leafs = OrderedDict()
 
                 self.trap_info = YList(self)
@@ -1712,7 +1664,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Snmp.Information.TrapInfos.TrapInfo, self).__init__()
@@ -1722,8 +1674,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("trap-oi-dinfo", ("trap_oi_dinfo", Snmp.Information.TrapInfos.TrapInfo.TrapOiDinfo))])
+                    self._child_classes = OrderedDict([("trap-oi-dinfo", ("trap_oi_dinfo", Snmp.Information.TrapInfos.TrapInfo.TrapOiDinfo))])
                     self._leafs = OrderedDict([
                         ('trap_host', YLeaf(YType.str, 'trap-host')),
                         ('port', YLeaf(YType.uint16, 'port')),
@@ -1742,7 +1693,7 @@ class Snmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/trap-infos/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.TrapInfos.TrapInfo, ['trap_host', 'port', 'host', 'port_xr', 'trap_oid_count'], name, value)
+                    self._perform_setattr(Snmp.Information.TrapInfos.TrapInfo, ['trap_host', 'port', u'host', u'port_xr', u'trap_oid_count'], name, value)
 
 
                 class TrapOiDinfo(Entity):
@@ -1790,7 +1741,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Snmp.Information.TrapInfos.TrapInfo.TrapOiDinfo, self).__init__()
@@ -1800,8 +1751,7 @@ class Snmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('trap_oid', YLeaf(YType.str, 'trap-oid')),
                             ('count', YLeaf(YType.uint32, 'count')),
@@ -1820,7 +1770,7 @@ class Snmp(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/trap-infos/trap-info/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Information.TrapInfos.TrapInfo.TrapOiDinfo, ['trap_oid', 'count', 'drop_count', 'retry_count', 'lastsent_time', 'lasrdrop_time'], name, value)
+                        self._perform_setattr(Snmp.Information.TrapInfos.TrapInfo.TrapOiDinfo, [u'trap_oid', u'count', u'drop_count', u'retry_count', u'lastsent_time', u'lasrdrop_time'], name, value)
 
 
         class PollOids(Entity):
@@ -1837,7 +1787,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Information.PollOids, self).__init__()
@@ -1847,8 +1797,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("poll-oid", ("poll_oid", Snmp.Information.PollOids.PollOid))])
+                self._child_classes = OrderedDict([("poll-oid", ("poll_oid", Snmp.Information.PollOids.PollOid))])
                 self._leafs = OrderedDict()
 
                 self.poll_oid = YList(self)
@@ -1894,7 +1843,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Snmp.Information.PollOids.PollOid, self).__init__()
@@ -1904,8 +1853,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['object_id']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('object_id', YLeaf(YType.str, 'object-id')),
                         ('nms_count', YLeaf(YType.uint32, 'nms-count')),
@@ -1920,7 +1868,7 @@ class Snmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/poll-oids/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.PollOids.PollOid, ['object_id', 'nms_count', 'nms', 'request_count'], name, value)
+                    self._perform_setattr(Snmp.Information.PollOids.PollOid, ['object_id', u'nms_count', u'nms', u'request_count'], name, value)
 
 
         class InfomDetails(Entity):
@@ -1937,7 +1885,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Information.InfomDetails, self).__init__()
@@ -1947,8 +1895,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("infom-detail", ("infom_detail", Snmp.Information.InfomDetails.InfomDetail))])
+                self._child_classes = OrderedDict([("infom-detail", ("infom_detail", Snmp.Information.InfomDetails.InfomDetail))])
                 self._leafs = OrderedDict()
 
                 self.infom_detail = YList(self)
@@ -2005,7 +1952,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Snmp.Information.InfomDetails.InfomDetail, self).__init__()
@@ -2015,8 +1962,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("trap-oi-dinfo", ("trap_oi_dinfo", Snmp.Information.InfomDetails.InfomDetail.TrapOiDinfo))])
+                    self._child_classes = OrderedDict([("trap-oi-dinfo", ("trap_oi_dinfo", Snmp.Information.InfomDetails.InfomDetail.TrapOiDinfo))])
                     self._leafs = OrderedDict([
                         ('trap_host', YLeaf(YType.str, 'trap-host')),
                         ('port', YLeaf(YType.uint16, 'port')),
@@ -2035,7 +1981,7 @@ class Snmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/infom-details/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.InfomDetails.InfomDetail, ['trap_host', 'port', 'host', 'port_xr', 'trap_oid_count'], name, value)
+                    self._perform_setattr(Snmp.Information.InfomDetails.InfomDetail, ['trap_host', 'port', u'host', u'port_xr', u'trap_oid_count'], name, value)
 
 
                 class TrapOiDinfo(Entity):
@@ -2083,7 +2029,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Snmp.Information.InfomDetails.InfomDetail.TrapOiDinfo, self).__init__()
@@ -2093,8 +2039,7 @@ class Snmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('trap_oid', YLeaf(YType.str, 'trap-oid')),
                             ('count', YLeaf(YType.uint32, 'count')),
@@ -2113,7 +2058,7 @@ class Snmp(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/infom-details/infom-detail/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Information.InfomDetails.InfomDetail.TrapOiDinfo, ['trap_oid', 'count', 'drop_count', 'retry_count', 'lastsent_time', 'lasrdrop_time'], name, value)
+                        self._perform_setattr(Snmp.Information.InfomDetails.InfomDetail.TrapOiDinfo, [u'trap_oid', u'count', u'drop_count', u'retry_count', u'lastsent_time', u'lasrdrop_time'], name, value)
 
 
         class Statistics(Entity):
@@ -2335,7 +2280,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Information.Statistics, self).__init__()
@@ -2345,8 +2290,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('packets_received', YLeaf(YType.uint32, 'packets-received')),
                     ('bad_versions_received', YLeaf(YType.uint32, 'bad-versions-received')),
@@ -2413,7 +2357,7 @@ class Snmp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Information.Statistics, ['packets_received', 'bad_versions_received', 'bad_community_names_received', 'bad_community_uses_received', 'asn_parse_errors_received', 'silent_drop_count', 'proxy_drop_count', 'too_big_packet_received', 'max_packet_size', 'no_such_names_received', 'bad_values_received', 'read_only_received', 'total_general_errors', 'total_requested_variables', 'total_set_variables_received', 'get_requests_received', 'get_next_requests_received', 'set_requests_received', 'get_responses_received', 'traps_received', 'total_packets_sent', 'too_big_packets_sent', 'no_such_names_sent', 'bad_values_sent', 'general_errors_sent', 'get_requests_sent', 'get_next_request_sent', 'set_requests_sent', 'get_responses_sent', 'traps_sent'], name, value)
+                self._perform_setattr(Snmp.Information.Statistics, [u'packets_received', u'bad_versions_received', u'bad_community_names_received', u'bad_community_uses_received', u'asn_parse_errors_received', u'silent_drop_count', u'proxy_drop_count', u'too_big_packet_received', u'max_packet_size', u'no_such_names_received', u'bad_values_received', u'read_only_received', u'total_general_errors', u'total_requested_variables', u'total_set_variables_received', u'get_requests_received', u'get_next_requests_received', u'set_requests_received', u'get_responses_received', u'traps_received', u'total_packets_sent', u'too_big_packets_sent', u'no_such_names_sent', u'bad_values_sent', u'general_errors_sent', u'get_requests_sent', u'get_next_request_sent', u'set_requests_sent', u'get_responses_sent', u'traps_sent'], name, value)
 
 
         class IncomingQueue(Entity):
@@ -2437,7 +2381,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Information.IncomingQueue, self).__init__()
@@ -2447,8 +2391,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("inq-entry", ("inq_entry", Snmp.Information.IncomingQueue.InqEntry))])
+                self._child_classes = OrderedDict([("inq-entry", ("inq_entry", Snmp.Information.IncomingQueue.InqEntry))])
                 self._leafs = OrderedDict([
                     ('queue_count', YLeaf(YType.uint32, 'queue-count')),
                 ])
@@ -2459,7 +2402,7 @@ class Snmp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Information.IncomingQueue, ['queue_count'], name, value)
+                self._perform_setattr(Snmp.Information.IncomingQueue, [u'queue_count'], name, value)
 
 
             class InqEntry(Entity):
@@ -2502,7 +2445,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Snmp.Information.IncomingQueue.InqEntry, self).__init__()
@@ -2512,8 +2455,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('address_of_queue', YLeaf(YType.str, 'address-of-queue')),
                         ('request_count', YLeaf(YType.uint32, 'request-count')),
@@ -2530,7 +2472,7 @@ class Snmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/incoming-queue/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.IncomingQueue.InqEntry, ['address_of_queue', 'request_count', 'processed_request_count', 'last_access_time', 'priority'], name, value)
+                    self._perform_setattr(Snmp.Information.IncomingQueue.InqEntry, [u'address_of_queue', u'request_count', u'processed_request_count', u'last_access_time', u'priority'], name, value)
 
 
         class ContextMapping(Entity):
@@ -2548,7 +2490,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Information.ContextMapping, self).__init__()
@@ -2558,8 +2500,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("contex-mapping", ("contex_mapping", Snmp.Information.ContextMapping.ContexMapping))])
+                self._child_classes = OrderedDict([("contex-mapping", ("contex_mapping", Snmp.Information.ContextMapping.ContexMapping))])
                 self._leafs = OrderedDict()
 
                 self.contex_mapping = YList(self)
@@ -2604,7 +2545,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Snmp.Information.ContextMapping.ContexMapping, self).__init__()
@@ -2614,8 +2555,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('context', YLeaf(YType.str, 'context')),
                         ('feature_name', YLeaf(YType.str, 'feature-name')),
@@ -2632,7 +2572,7 @@ class Snmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/context-mapping/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.ContextMapping.ContexMapping, ['context', 'feature_name', 'instance', 'topology', 'feature'], name, value)
+                    self._perform_setattr(Snmp.Information.ContextMapping.ContexMapping, [u'context', u'feature_name', u'instance', u'topology', u'feature'], name, value)
 
 
         class TrapOids(Entity):
@@ -2649,7 +2589,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Information.TrapOids, self).__init__()
@@ -2659,8 +2599,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("trap-oid", ("trap_oid", Snmp.Information.TrapOids.TrapOid))])
+                self._child_classes = OrderedDict([("trap-oid", ("trap_oid", Snmp.Information.TrapOids.TrapOid))])
                 self._leafs = OrderedDict()
 
                 self.trap_oid = YList(self)
@@ -2699,7 +2638,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Snmp.Information.TrapOids.TrapOid, self).__init__()
@@ -2709,8 +2648,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['trap_oid']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('trap_oid', YLeaf(YType.str, 'trap-oid')),
                         ('trap_oid_count', YLeaf(YType.uint32, 'trap-oid-count')),
@@ -2723,7 +2661,7 @@ class Snmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/trap-oids/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.TrapOids.TrapOid, ['trap_oid', 'trap_oid_count', 'trap_oid_xr'], name, value)
+                    self._perform_setattr(Snmp.Information.TrapOids.TrapOid, ['trap_oid', u'trap_oid_count', u'trap_oid_xr'], name, value)
 
 
         class NmSpackets(Entity):
@@ -2740,7 +2678,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Information.NmSpackets, self).__init__()
@@ -2750,8 +2688,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("nm-spacket", ("nm_spacket", Snmp.Information.NmSpackets.NmSpacket))])
+                self._child_classes = OrderedDict([("nm-spacket", ("nm_spacket", Snmp.Information.NmSpackets.NmSpacket))])
                 self._leafs = OrderedDict()
 
                 self.nm_spacket = YList(self)
@@ -2802,7 +2739,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Snmp.Information.NmSpackets.NmSpacket, self).__init__()
@@ -2812,8 +2749,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['packetcount']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('packetcount', YLeaf(YType.str, 'packetcount')),
                         ('number_of_nmsq_pkts_dropped', YLeaf(YType.uint32, 'number-of-nmsq-pkts-dropped')),
@@ -2830,7 +2766,7 @@ class Snmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/nm-spackets/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.NmSpackets.NmSpacket, ['packetcount', 'number_of_nmsq_pkts_dropped', 'number_of_pkts_dropped', 'overload_start_time', 'overload_end_time'], name, value)
+                    self._perform_setattr(Snmp.Information.NmSpackets.NmSpacket, ['packetcount', u'number_of_nmsq_pkts_dropped', u'number_of_pkts_dropped', u'overload_start_time', u'overload_end_time'], name, value)
 
 
         class Mibs(Entity):
@@ -2847,7 +2783,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Information.Mibs, self).__init__()
@@ -2857,8 +2793,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("mib", ("mib", Snmp.Information.Mibs.Mib))])
+                self._child_classes = OrderedDict([("mib", ("mib", Snmp.Information.Mibs.Mib))])
                 self._leafs = OrderedDict()
 
                 self.mib = YList(self)
@@ -2895,7 +2830,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Snmp.Information.Mibs.Mib, self).__init__()
@@ -2905,8 +2840,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([("oids", ("oids", Snmp.Information.Mibs.Mib.Oids)), ("mib-information", ("mib_information", Snmp.Information.Mibs.Mib.MibInformation))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("oids", ("oids", Snmp.Information.Mibs.Mib.Oids)), ("mib-information", ("mib_information", Snmp.Information.Mibs.Mib.MibInformation))])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                     ])
@@ -2915,12 +2849,10 @@ class Snmp(Entity):
                     self.oids = Snmp.Information.Mibs.Mib.Oids()
                     self.oids.parent = self
                     self._children_name_map["oids"] = "oids"
-                    self._children_yang_names.add("oids")
 
                     self.mib_information = Snmp.Information.Mibs.Mib.MibInformation()
                     self.mib_information.parent = self
                     self._children_name_map["mib_information"] = "mib-information"
-                    self._children_yang_names.add("mib-information")
                     self._segment_path = lambda: "mib" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/mibs/%s" % self._segment_path()
 
@@ -2942,7 +2874,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Snmp.Information.Mibs.Mib.Oids, self).__init__()
@@ -2952,8 +2884,7 @@ class Snmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("oid", ("oid", Snmp.Information.Mibs.Mib.Oids.Oid))])
+                        self._child_classes = OrderedDict([("oid", ("oid", Snmp.Information.Mibs.Mib.Oids.Oid))])
                         self._leafs = OrderedDict()
 
                         self.oid = YList(self)
@@ -2984,7 +2915,7 @@ class Snmp(Entity):
                         """
 
                         _prefix = 'snmp-agent-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Snmp.Information.Mibs.Mib.Oids.Oid, self).__init__()
@@ -2994,8 +2925,7 @@ class Snmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['oid']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('oid', YLeaf(YType.str, 'oid')),
                                 ('oid_name', YLeaf(YType.str, 'oid-name')),
@@ -3061,7 +2991,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Snmp.Information.Mibs.Mib.MibInformation, self).__init__()
@@ -3071,8 +3001,7 @@ class Snmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('mib_name', YLeaf(YType.str, 'mib-name')),
                             ('dll_name', YLeaf(YType.str, 'dll-name')),
@@ -3094,7 +3023,7 @@ class Snmp(Entity):
                         self._segment_path = lambda: "mib-information"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Information.Mibs.Mib.MibInformation, ['mib_name', 'dll_name', 'mib_config_filename', 'is_mib_loaded', 'dll_capabilities', 'trap_strings', 'timeout', 'load_time'], name, value)
+                        self._perform_setattr(Snmp.Information.Mibs.Mib.MibInformation, [u'mib_name', u'dll_name', u'mib_config_filename', u'is_mib_loaded', u'dll_capabilities', u'trap_strings', u'timeout', u'load_time'], name, value)
 
 
         class SerialNumbers(Entity):
@@ -3111,7 +3040,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Information.SerialNumbers, self).__init__()
@@ -3121,8 +3050,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("serial-number", ("serial_number", Snmp.Information.SerialNumbers.SerialNumber))])
+                self._child_classes = OrderedDict([("serial-number", ("serial_number", Snmp.Information.SerialNumbers.SerialNumber))])
                 self._leafs = OrderedDict()
 
                 self.serial_number = YList(self)
@@ -3149,7 +3077,7 @@ class Snmp(Entity):
                 	Request ID
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: port
                 
@@ -3229,7 +3157,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Snmp.Information.SerialNumbers.SerialNumber, self).__init__()
@@ -3239,11 +3167,10 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('number', YLeaf(YType.str, 'number')),
-                        ('req_id', YLeaf(YType.int32, 'req-id')),
+                        ('req_id', YLeaf(YType.uint32, 'req-id')),
                         ('port', YLeaf(YType.uint16, 'port')),
                         ('nms', YLeaf(YType.str, 'nms')),
                         ('request_id', YLeaf(YType.uint32, 'request-id')),
@@ -3273,7 +3200,7 @@ class Snmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/serial-numbers/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.SerialNumbers.SerialNumber, ['number', 'req_id', 'port', 'nms', 'request_id', 'port_xr', 'pdu_type', 'error_status', 'serial_num', 'input_q', 'output_q', 'pending_q', 'response_out'], name, value)
+                    self._perform_setattr(Snmp.Information.SerialNumbers.SerialNumber, ['number', 'req_id', 'port', u'nms', u'request_id', u'port_xr', u'pdu_type', u'error_status', u'serial_num', u'input_q', u'output_q', u'pending_q', u'response_out'], name, value)
 
 
         class DropNmsAddresses(Entity):
@@ -3290,7 +3217,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Information.DropNmsAddresses, self).__init__()
@@ -3300,8 +3227,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("drop-nms-address", ("drop_nms_address", Snmp.Information.DropNmsAddresses.DropNmsAddress))])
+                self._child_classes = OrderedDict([("drop-nms-address", ("drop_nms_address", Snmp.Information.DropNmsAddresses.DropNmsAddress))])
                 self._leafs = OrderedDict()
 
                 self.drop_nms_address = YList(self)
@@ -3396,7 +3322,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Snmp.Information.DropNmsAddresses.DropNmsAddress, self).__init__()
@@ -3406,8 +3332,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['nms_addr']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('nms_addr', YLeaf(YType.str, 'nms-addr')),
                         ('nms_address', YLeaf(YType.str, 'nms-address')),
@@ -3436,7 +3361,7 @@ class Snmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/drop-nms-addresses/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.DropNmsAddresses.DropNmsAddress, ['nms_addr', 'nms_address', 'incoming_q_count', 'threshold_incoming_q_count', 'encode_count', 'duplicate_count', 'stack_count', 'aipc_count', 'overload_count', 'timeout_count', 'internal_count'], name, value)
+                    self._perform_setattr(Snmp.Information.DropNmsAddresses.DropNmsAddress, ['nms_addr', u'nms_address', u'incoming_q_count', u'threshold_incoming_q_count', u'encode_count', u'duplicate_count', u'stack_count', u'aipc_count', u'overload_count', u'timeout_count', u'internal_count'], name, value)
 
 
         class Views(Entity):
@@ -3453,7 +3378,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Information.Views, self).__init__()
@@ -3463,8 +3388,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("view", ("view", Snmp.Information.Views.View))])
+                self._child_classes = OrderedDict([("view", ("view", Snmp.Information.Views.View))])
                 self._leafs = OrderedDict()
 
                 self.view = YList(self)
@@ -3496,7 +3420,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Snmp.Information.Views.View, self).__init__()
@@ -3506,8 +3430,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("view-information", ("view_information", Snmp.Information.Views.View.ViewInformation))])
+                    self._child_classes = OrderedDict([("view-information", ("view_information", Snmp.Information.Views.View.ViewInformation))])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                     ])
@@ -3552,7 +3475,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Snmp.Information.Views.View.ViewInformation, self).__init__()
@@ -3562,8 +3485,7 @@ class Snmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['object_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('object_id', YLeaf(YType.str, 'object-id')),
                             ('snmp_view_family_type', YLeaf(YType.str, 'snmp-view-family-type')),
@@ -3577,7 +3499,7 @@ class Snmp(Entity):
                         self._segment_path = lambda: "view-information" + "[object-id='" + str(self.object_id) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Information.Views.View.ViewInformation, ['object_id', 'snmp_view_family_type', 'snmp_view_family_storage_type', 'snmp_view_family_status'], name, value)
+                        self._perform_setattr(Snmp.Information.Views.View.ViewInformation, ['object_id', u'snmp_view_family_type', u'snmp_view_family_storage_type', u'snmp_view_family_status'], name, value)
 
 
         class SystemDescr(Entity):
@@ -3594,7 +3516,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Information.SystemDescr, self).__init__()
@@ -3604,8 +3526,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('sys_descr', YLeaf(YType.str, 'sys-descr')),
                 ])
@@ -3614,7 +3535,7 @@ class Snmp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Information.SystemDescr, ['sys_descr'], name, value)
+                self._perform_setattr(Snmp.Information.SystemDescr, [u'sys_descr'], name, value)
 
 
         class Tables(Entity):
@@ -3636,7 +3557,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Information.Tables, self).__init__()
@@ -3646,21 +3567,21 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("groups", ("groups", Snmp.Information.Tables.Groups)), ("user-engine-ids", ("user_engine_ids", Snmp.Information.Tables.UserEngineIds))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("groups", ("groups", Snmp.Information.Tables.Groups)), ("user-engine-ids", ("user_engine_ids", Snmp.Information.Tables.UserEngineIds))])
                 self._leafs = OrderedDict()
 
                 self.groups = Snmp.Information.Tables.Groups()
                 self.groups.parent = self
                 self._children_name_map["groups"] = "groups"
-                self._children_yang_names.add("groups")
 
                 self.user_engine_ids = Snmp.Information.Tables.UserEngineIds()
                 self.user_engine_ids.parent = self
                 self._children_name_map["user_engine_ids"] = "user-engine-ids"
-                self._children_yang_names.add("user-engine-ids")
                 self._segment_path = lambda: "tables"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Snmp.Information.Tables, [], name, value)
 
 
             class Groups(Entity):
@@ -3677,7 +3598,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Snmp.Information.Tables.Groups, self).__init__()
@@ -3687,8 +3608,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("group", ("group", Snmp.Information.Tables.Groups.Group))])
+                    self._child_classes = OrderedDict([("group", ("group", Snmp.Information.Tables.Groups.Group))])
                     self._leafs = OrderedDict()
 
                     self.group = YList(self)
@@ -3720,7 +3640,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Snmp.Information.Tables.Groups.Group, self).__init__()
@@ -3730,8 +3650,7 @@ class Snmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['name']
-                        self._child_container_classes = OrderedDict([("group-informations", ("group_informations", Snmp.Information.Tables.Groups.Group.GroupInformations))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("group-informations", ("group_informations", Snmp.Information.Tables.Groups.Group.GroupInformations))])
                         self._leafs = OrderedDict([
                             ('name', YLeaf(YType.str, 'name')),
                         ])
@@ -3740,7 +3659,6 @@ class Snmp(Entity):
                         self.group_informations = Snmp.Information.Tables.Groups.Group.GroupInformations()
                         self.group_informations.parent = self
                         self._children_name_map["group_informations"] = "group-informations"
-                        self._children_yang_names.add("group-informations")
                         self._segment_path = lambda: "group" + "[name='" + str(self.name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/tables/groups/%s" % self._segment_path()
 
@@ -3762,7 +3680,7 @@ class Snmp(Entity):
                         """
 
                         _prefix = 'snmp-agent-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Snmp.Information.Tables.Groups.Group.GroupInformations, self).__init__()
@@ -3772,8 +3690,7 @@ class Snmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("group-information", ("group_information", Snmp.Information.Tables.Groups.Group.GroupInformations.GroupInformation))])
+                            self._child_classes = OrderedDict([("group-information", ("group_information", Snmp.Information.Tables.Groups.Group.GroupInformations.GroupInformation))])
                             self._leafs = OrderedDict()
 
                             self.group_information = YList(self)
@@ -3828,7 +3745,7 @@ class Snmp(Entity):
                             """
 
                             _prefix = 'snmp-agent-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(Snmp.Information.Tables.Groups.Group.GroupInformations.GroupInformation, self).__init__()
@@ -3838,8 +3755,7 @@ class Snmp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('modelnumber', YLeaf(YType.str, 'modelnumber')),
                                     ('level', YLeaf(YType.str, 'level')),
@@ -3857,7 +3773,7 @@ class Snmp(Entity):
                                 self._segment_path = lambda: "group-information"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Snmp.Information.Tables.Groups.Group.GroupInformations.GroupInformation, ['modelnumber', 'level', 'vacm_access_read_view_name', 'vacm_access_write_view_name', 'vacm_access_notify_view_name', 'vacm_access_status'], name, value)
+                                self._perform_setattr(Snmp.Information.Tables.Groups.Group.GroupInformations.GroupInformation, ['modelnumber', 'level', u'vacm_access_read_view_name', u'vacm_access_write_view_name', u'vacm_access_notify_view_name', u'vacm_access_status'], name, value)
 
 
             class UserEngineIds(Entity):
@@ -3874,7 +3790,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Snmp.Information.Tables.UserEngineIds, self).__init__()
@@ -3884,8 +3800,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("user-engine-id", ("user_engine_id", Snmp.Information.Tables.UserEngineIds.UserEngineId))])
+                    self._child_classes = OrderedDict([("user-engine-id", ("user_engine_id", Snmp.Information.Tables.UserEngineIds.UserEngineId))])
                     self._leafs = OrderedDict()
 
                     self.user_engine_id = YList(self)
@@ -3917,7 +3832,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Snmp.Information.Tables.UserEngineIds.UserEngineId, self).__init__()
@@ -3927,8 +3842,7 @@ class Snmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['engine_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("user-name", ("user_name", Snmp.Information.Tables.UserEngineIds.UserEngineId.UserName))])
+                        self._child_classes = OrderedDict([("user-name", ("user_name", Snmp.Information.Tables.UserEngineIds.UserEngineId.UserName))])
                         self._leafs = OrderedDict([
                             ('engine_id', YLeaf(YType.str, 'engine-id')),
                         ])
@@ -3972,7 +3886,7 @@ class Snmp(Entity):
                         """
 
                         _prefix = 'snmp-agent-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Snmp.Information.Tables.UserEngineIds.UserEngineId.UserName, self).__init__()
@@ -3982,8 +3896,7 @@ class Snmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['user_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('user_name', YLeaf(YType.str, 'user-name')),
                                 ('usm_user_storage_type', YLeaf(YType.uint32, 'usm-user-storage-type')),
@@ -3995,7 +3908,7 @@ class Snmp(Entity):
                             self._segment_path = lambda: "user-name" + "[user-name='" + str(self.user_name) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Snmp.Information.Tables.UserEngineIds.UserEngineId.UserName, ['user_name', 'usm_user_storage_type', 'usm_user_status'], name, value)
+                            self._perform_setattr(Snmp.Information.Tables.UserEngineIds.UserEngineId.UserName, ['user_name', u'usm_user_storage_type', u'usm_user_status'], name, value)
 
 
         class SystemOid(Entity):
@@ -4012,7 +3925,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Information.SystemOid, self).__init__()
@@ -4022,8 +3935,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('sys_obj_id', YLeaf(YType.str, 'sys-obj-id')),
                 ])
@@ -4032,7 +3944,7 @@ class Snmp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Information.SystemOid, ['sys_obj_id'], name, value)
+                self._perform_setattr(Snmp.Information.SystemOid, [u'sys_obj_id'], name, value)
 
 
         class TrapQueue(Entity):
@@ -4070,7 +3982,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Information.TrapQueue, self).__init__()
@@ -4080,8 +3992,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("trap-q", ("trap_q", Snmp.Information.TrapQueue.TrapQ))])
+                self._child_classes = OrderedDict([("trap-q", ("trap_q", Snmp.Information.TrapQueue.TrapQ))])
                 self._leafs = OrderedDict([
                     ('trap_min', YLeaf(YType.uint32, 'trap-min')),
                     ('trap_avg', YLeaf(YType.uint32, 'trap-avg')),
@@ -4096,7 +4007,7 @@ class Snmp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Information.TrapQueue, ['trap_min', 'trap_avg', 'trap_max'], name, value)
+                self._perform_setattr(Snmp.Information.TrapQueue, [u'trap_min', u'trap_avg', u'trap_max'], name, value)
 
 
             class TrapQ(Entity):
@@ -4129,7 +4040,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Snmp.Information.TrapQueue.TrapQ, self).__init__()
@@ -4139,8 +4050,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('min', YLeaf(YType.uint32, 'min')),
                         ('avg', YLeaf(YType.uint32, 'avg')),
@@ -4153,7 +4063,7 @@ class Snmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/trap-queue/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.TrapQueue.TrapQ, ['min', 'avg', 'max'], name, value)
+                    self._perform_setattr(Snmp.Information.TrapQueue.TrapQ, [u'min', u'avg', u'max'], name, value)
 
 
     class Interfaces(Entity):
@@ -4170,7 +4080,7 @@ class Snmp(Entity):
         """
 
         _prefix = 'snmp-agent-oper'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Snmp.Interfaces, self).__init__()
@@ -4180,8 +4090,7 @@ class Snmp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("interface", ("interface", Snmp.Interfaces.Interface))])
+            self._child_classes = OrderedDict([("interface", ("interface", Snmp.Interfaces.Interface))])
             self._leafs = OrderedDict()
 
             self.interface = YList(self)
@@ -4208,7 +4117,7 @@ class Snmp(Entity):
             	Interface Index as used by MIB tables
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             	**mandatory**\: True
             
@@ -4217,7 +4126,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Interfaces.Interface, self).__init__()
@@ -4227,11 +4136,10 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
-                    ('interface_index', YLeaf(YType.int32, 'interface-index')),
+                    ('interface_index', YLeaf(YType.uint32, 'interface-index')),
                 ])
                 self.name = None
                 self.interface_index = None
@@ -4271,7 +4179,7 @@ class Snmp(Entity):
         """
 
         _prefix = 'snmp-agent-oper'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Snmp.Correlator, self).__init__()
@@ -4281,31 +4189,29 @@ class Snmp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("rule-details", ("rule_details", Snmp.Correlator.RuleDetails)), ("buffer-status", ("buffer_status", Snmp.Correlator.BufferStatus)), ("rule-set-details", ("rule_set_details", Snmp.Correlator.RuleSetDetails)), ("traps", ("traps", Snmp.Correlator.Traps))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("rule-details", ("rule_details", Snmp.Correlator.RuleDetails)), ("buffer-status", ("buffer_status", Snmp.Correlator.BufferStatus)), ("rule-set-details", ("rule_set_details", Snmp.Correlator.RuleSetDetails)), ("traps", ("traps", Snmp.Correlator.Traps))])
             self._leafs = OrderedDict()
 
             self.rule_details = Snmp.Correlator.RuleDetails()
             self.rule_details.parent = self
             self._children_name_map["rule_details"] = "rule-details"
-            self._children_yang_names.add("rule-details")
 
             self.buffer_status = Snmp.Correlator.BufferStatus()
             self.buffer_status.parent = self
             self._children_name_map["buffer_status"] = "buffer-status"
-            self._children_yang_names.add("buffer-status")
 
             self.rule_set_details = Snmp.Correlator.RuleSetDetails()
             self.rule_set_details.parent = self
             self._children_name_map["rule_set_details"] = "rule-set-details"
-            self._children_yang_names.add("rule-set-details")
 
             self.traps = Snmp.Correlator.Traps()
             self.traps.parent = self
             self._children_name_map["traps"] = "traps"
-            self._children_yang_names.add("traps")
             self._segment_path = lambda: "correlator"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Snmp.Correlator, [], name, value)
 
 
         class RuleDetails(Entity):
@@ -4323,7 +4229,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Correlator.RuleDetails, self).__init__()
@@ -4333,8 +4239,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("rule-detail", ("rule_detail", Snmp.Correlator.RuleDetails.RuleDetail))])
+                self._child_classes = OrderedDict([("rule-detail", ("rule_detail", Snmp.Correlator.RuleDetails.RuleDetail))])
                 self._leafs = OrderedDict()
 
                 self.rule_detail = YList(self)
@@ -4388,7 +4293,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Snmp.Correlator.RuleDetails.RuleDetail, self).__init__()
@@ -4398,8 +4303,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['rule_name']
-                    self._child_container_classes = OrderedDict([("rule-summary", ("rule_summary", Snmp.Correlator.RuleDetails.RuleDetail.RuleSummary)), ("root-cause", ("root_cause", Snmp.Correlator.RuleDetails.RuleDetail.RootCause))])
-                    self._child_list_classes = OrderedDict([("non-rootcaus", ("non_rootcaus", Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus)), ("apply-host", ("apply_host", Snmp.Correlator.RuleDetails.RuleDetail.ApplyHost))])
+                    self._child_classes = OrderedDict([("rule-summary", ("rule_summary", Snmp.Correlator.RuleDetails.RuleDetail.RuleSummary)), ("root-cause", ("root_cause", Snmp.Correlator.RuleDetails.RuleDetail.RootCause)), ("non-rootcaus", ("non_rootcaus", Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus)), ("apply-host", ("apply_host", Snmp.Correlator.RuleDetails.RuleDetail.ApplyHost))])
                     self._leafs = OrderedDict([
                         ('rule_name', YLeaf(YType.str, 'rule-name')),
                         ('timeout', YLeaf(YType.uint32, 'timeout')),
@@ -4410,12 +4314,10 @@ class Snmp(Entity):
                     self.rule_summary = Snmp.Correlator.RuleDetails.RuleDetail.RuleSummary()
                     self.rule_summary.parent = self
                     self._children_name_map["rule_summary"] = "rule-summary"
-                    self._children_yang_names.add("rule-summary")
 
                     self.root_cause = Snmp.Correlator.RuleDetails.RuleDetail.RootCause()
                     self.root_cause.parent = self
                     self._children_name_map["root_cause"] = "root-cause"
-                    self._children_yang_names.add("root-cause")
 
                     self.non_rootcaus = YList(self)
                     self.apply_host = YList(self)
@@ -4423,7 +4325,7 @@ class Snmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/correlator/rule-details/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail, ['rule_name', 'timeout'], name, value)
+                    self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail, ['rule_name', u'timeout'], name, value)
 
 
                 class RuleSummary(Entity):
@@ -4452,7 +4354,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Snmp.Correlator.RuleDetails.RuleDetail.RuleSummary, self).__init__()
@@ -4462,8 +4364,7 @@ class Snmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('rule_name', YLeaf(YType.str, 'rule-name')),
                             ('rule_state', YLeaf(YType.enumeration, 'rule-state')),
@@ -4475,7 +4376,7 @@ class Snmp(Entity):
                         self._segment_path = lambda: "rule-summary"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.RuleSummary, ['rule_name', 'rule_state', 'buffered_traps_count'], name, value)
+                        self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.RuleSummary, [u'rule_name', u'rule_state', u'buffered_traps_count'], name, value)
 
 
                 class RootCause(Entity):
@@ -4498,7 +4399,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Snmp.Correlator.RuleDetails.RuleDetail.RootCause, self).__init__()
@@ -4508,8 +4409,7 @@ class Snmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("var-bind", ("var_bind", Snmp.Correlator.RuleDetails.RuleDetail.RootCause.VarBind))])
+                        self._child_classes = OrderedDict([("var-bind", ("var_bind", Snmp.Correlator.RuleDetails.RuleDetail.RootCause.VarBind))])
                         self._leafs = OrderedDict([
                             ('oid', YLeaf(YType.str, 'oid')),
                         ])
@@ -4519,7 +4419,7 @@ class Snmp(Entity):
                         self._segment_path = lambda: "root-cause"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.RootCause, ['oid'], name, value)
+                        self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.RootCause, [u'oid'], name, value)
 
 
                     class VarBind(Entity):
@@ -4546,7 +4446,7 @@ class Snmp(Entity):
                         """
 
                         _prefix = 'snmp-agent-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Snmp.Correlator.RuleDetails.RuleDetail.RootCause.VarBind, self).__init__()
@@ -4556,8 +4456,7 @@ class Snmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('oid', YLeaf(YType.str, 'oid')),
                                 ('match_type', YLeaf(YType.enumeration, 'match-type')),
@@ -4569,7 +4468,7 @@ class Snmp(Entity):
                             self._segment_path = lambda: "var-bind"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.RootCause.VarBind, ['oid', 'match_type', 'reg_exp'], name, value)
+                            self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.RootCause.VarBind, [u'oid', u'match_type', u'reg_exp'], name, value)
 
 
                 class NonRootcaus(Entity):
@@ -4592,7 +4491,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus, self).__init__()
@@ -4602,8 +4501,7 @@ class Snmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("var-bind", ("var_bind", Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus.VarBind))])
+                        self._child_classes = OrderedDict([("var-bind", ("var_bind", Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus.VarBind))])
                         self._leafs = OrderedDict([
                             ('oid', YLeaf(YType.str, 'oid')),
                         ])
@@ -4613,7 +4511,7 @@ class Snmp(Entity):
                         self._segment_path = lambda: "non-rootcaus"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus, ['oid'], name, value)
+                        self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus, [u'oid'], name, value)
 
 
                     class VarBind(Entity):
@@ -4640,7 +4538,7 @@ class Snmp(Entity):
                         """
 
                         _prefix = 'snmp-agent-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus.VarBind, self).__init__()
@@ -4650,8 +4548,7 @@ class Snmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('oid', YLeaf(YType.str, 'oid')),
                                 ('match_type', YLeaf(YType.enumeration, 'match-type')),
@@ -4663,7 +4560,7 @@ class Snmp(Entity):
                             self._segment_path = lambda: "var-bind"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus.VarBind, ['oid', 'match_type', 'reg_exp'], name, value)
+                            self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus.VarBind, [u'oid', u'match_type', u'reg_exp'], name, value)
 
 
                 class ApplyHost(Entity):
@@ -4687,7 +4584,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Snmp.Correlator.RuleDetails.RuleDetail.ApplyHost, self).__init__()
@@ -4697,8 +4594,7 @@ class Snmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('ip_address', YLeaf(YType.str, 'ip-address')),
                             ('port', YLeaf(YType.uint16, 'port')),
@@ -4708,7 +4604,7 @@ class Snmp(Entity):
                         self._segment_path = lambda: "apply-host"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.ApplyHost, ['ip_address', 'port'], name, value)
+                        self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.ApplyHost, [u'ip_address', u'port'], name, value)
 
 
         class BufferStatus(Entity):
@@ -4735,7 +4631,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Correlator.BufferStatus, self).__init__()
@@ -4745,8 +4641,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('current_size', YLeaf(YType.uint32, 'current-size')),
                     ('configured_size', YLeaf(YType.uint32, 'configured-size')),
@@ -4757,7 +4652,7 @@ class Snmp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/correlator/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Correlator.BufferStatus, ['current_size', 'configured_size'], name, value)
+                self._perform_setattr(Snmp.Correlator.BufferStatus, [u'current_size', u'configured_size'], name, value)
 
 
         class RuleSetDetails(Entity):
@@ -4774,7 +4669,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Correlator.RuleSetDetails, self).__init__()
@@ -4784,8 +4679,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("rule-set-detail", ("rule_set_detail", Snmp.Correlator.RuleSetDetails.RuleSetDetail))])
+                self._child_classes = OrderedDict([("rule-set-detail", ("rule_set_detail", Snmp.Correlator.RuleSetDetails.RuleSetDetail))])
                 self._leafs = OrderedDict()
 
                 self.rule_set_detail = YList(self)
@@ -4822,7 +4716,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Snmp.Correlator.RuleSetDetails.RuleSetDetail, self).__init__()
@@ -4832,8 +4726,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['rule_set_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("rules", ("rules", Snmp.Correlator.RuleSetDetails.RuleSetDetail.Rules))])
+                    self._child_classes = OrderedDict([("rules", ("rules", Snmp.Correlator.RuleSetDetails.RuleSetDetail.Rules))])
                     self._leafs = OrderedDict([
                         ('rule_set_name', YLeaf(YType.str, 'rule-set-name')),
                         ('rule_set_name_xr', YLeaf(YType.str, 'rule-set-name-xr')),
@@ -4846,7 +4739,7 @@ class Snmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/correlator/rule-set-details/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Correlator.RuleSetDetails.RuleSetDetail, ['rule_set_name', 'rule_set_name_xr'], name, value)
+                    self._perform_setattr(Snmp.Correlator.RuleSetDetails.RuleSetDetail, ['rule_set_name', u'rule_set_name_xr'], name, value)
 
 
                 class Rules(Entity):
@@ -4875,7 +4768,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Snmp.Correlator.RuleSetDetails.RuleSetDetail.Rules, self).__init__()
@@ -4885,8 +4778,7 @@ class Snmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('rule_name', YLeaf(YType.str, 'rule-name')),
                             ('rule_state', YLeaf(YType.enumeration, 'rule-state')),
@@ -4898,7 +4790,7 @@ class Snmp(Entity):
                         self._segment_path = lambda: "rules"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Correlator.RuleSetDetails.RuleSetDetail.Rules, ['rule_name', 'rule_state', 'buffered_traps_count'], name, value)
+                        self._perform_setattr(Snmp.Correlator.RuleSetDetails.RuleSetDetail.Rules, [u'rule_name', u'rule_state', u'buffered_traps_count'], name, value)
 
 
         class Traps(Entity):
@@ -4915,7 +4807,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.Correlator.Traps, self).__init__()
@@ -4925,8 +4817,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("trap", ("trap", Snmp.Correlator.Traps.Trap))])
+                self._child_classes = OrderedDict([("trap", ("trap", Snmp.Correlator.Traps.Trap))])
                 self._leafs = OrderedDict()
 
                 self.trap = YList(self)
@@ -4946,7 +4837,7 @@ class Snmp(Entity):
                 	Entry ID
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: trap_info
                 
@@ -4975,7 +4866,7 @@ class Snmp(Entity):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Snmp.Correlator.Traps.Trap, self).__init__()
@@ -4985,10 +4876,9 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['entry_id']
-                    self._child_container_classes = OrderedDict([("trap-info", ("trap_info", Snmp.Correlator.Traps.Trap.TrapInfo))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("trap-info", ("trap_info", Snmp.Correlator.Traps.Trap.TrapInfo))])
                     self._leafs = OrderedDict([
-                        ('entry_id', YLeaf(YType.int32, 'entry-id')),
+                        ('entry_id', YLeaf(YType.uint32, 'entry-id')),
                         ('correlation_id', YLeaf(YType.uint32, 'correlation-id')),
                         ('is_root_cause', YLeaf(YType.boolean, 'is-root-cause')),
                         ('rule_name', YLeaf(YType.str, 'rule-name')),
@@ -5001,12 +4891,11 @@ class Snmp(Entity):
                     self.trap_info = Snmp.Correlator.Traps.Trap.TrapInfo()
                     self.trap_info.parent = self
                     self._children_name_map["trap_info"] = "trap-info"
-                    self._children_yang_names.add("trap-info")
                     self._segment_path = lambda: "trap" + "[entry-id='" + str(self.entry_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/correlator/traps/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Correlator.Traps.Trap, ['entry_id', 'correlation_id', 'is_root_cause', 'rule_name'], name, value)
+                    self._perform_setattr(Snmp.Correlator.Traps.Trap, ['entry_id', u'correlation_id', u'is_root_cause', u'rule_name'], name, value)
 
 
                 class TrapInfo(Entity):
@@ -5046,7 +4935,7 @@ class Snmp(Entity):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Snmp.Correlator.Traps.Trap.TrapInfo, self).__init__()
@@ -5056,8 +4945,7 @@ class Snmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("var-bind", ("var_bind", Snmp.Correlator.Traps.Trap.TrapInfo.VarBind))])
+                        self._child_classes = OrderedDict([("var-bind", ("var_bind", Snmp.Correlator.Traps.Trap.TrapInfo.VarBind))])
                         self._leafs = OrderedDict([
                             ('oid', YLeaf(YType.str, 'oid')),
                             ('relative_timestamp', YLeaf(YType.uint32, 'relative-timestamp')),
@@ -5071,7 +4959,7 @@ class Snmp(Entity):
                         self._segment_path = lambda: "trap-info"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Correlator.Traps.Trap.TrapInfo, ['oid', 'relative_timestamp', 'timestamp'], name, value)
+                        self._perform_setattr(Snmp.Correlator.Traps.Trap.TrapInfo, [u'oid', u'relative_timestamp', u'timestamp'], name, value)
 
 
                     class VarBind(Entity):
@@ -5093,7 +4981,7 @@ class Snmp(Entity):
                         """
 
                         _prefix = 'snmp-agent-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Snmp.Correlator.Traps.Trap.TrapInfo.VarBind, self).__init__()
@@ -5103,8 +4991,7 @@ class Snmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('oid', YLeaf(YType.str, 'oid')),
                                 ('value', YLeaf(YType.str, 'value')),
@@ -5114,7 +5001,7 @@ class Snmp(Entity):
                             self._segment_path = lambda: "var-bind"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Snmp.Correlator.Traps.Trap.TrapInfo.VarBind, ['oid', 'value'], name, value)
+                            self._perform_setattr(Snmp.Correlator.Traps.Trap.TrapInfo.VarBind, [u'oid', u'value'], name, value)
 
 
     class InterfaceIndexes(Entity):
@@ -5131,7 +5018,7 @@ class Snmp(Entity):
         """
 
         _prefix = 'snmp-agent-oper'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Snmp.InterfaceIndexes, self).__init__()
@@ -5141,8 +5028,7 @@ class Snmp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("interface-index", ("interface_index", Snmp.InterfaceIndexes.InterfaceIndex))])
+            self._child_classes = OrderedDict([("interface-index", ("interface_index", Snmp.InterfaceIndexes.InterfaceIndex))])
             self._leafs = OrderedDict()
 
             self.interface_index = YList(self)
@@ -5162,7 +5048,7 @@ class Snmp(Entity):
             	Interface Index as used by MIB tables
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: interface_name
             
@@ -5176,7 +5062,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.InterfaceIndexes.InterfaceIndex, self).__init__()
@@ -5186,10 +5072,9 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface_index']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('interface_index', YLeaf(YType.int32, 'interface-index')),
+                    ('interface_index', YLeaf(YType.uint32, 'interface-index')),
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                 ])
                 self.interface_index = None
@@ -5215,7 +5100,7 @@ class Snmp(Entity):
         """
 
         _prefix = 'snmp-agent-oper'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Snmp.IfIndexes, self).__init__()
@@ -5225,8 +5110,7 @@ class Snmp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("if-index", ("if_index", Snmp.IfIndexes.IfIndex))])
+            self._child_classes = OrderedDict([("if-index", ("if_index", Snmp.IfIndexes.IfIndex))])
             self._leafs = OrderedDict()
 
             self.if_index = YList(self)
@@ -5246,7 +5130,7 @@ class Snmp(Entity):
             	Interface Index as used by MIB tables
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: interface_name
             
@@ -5258,7 +5142,7 @@ class Snmp(Entity):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Snmp.IfIndexes.IfIndex, self).__init__()
@@ -5268,10 +5152,9 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface_index']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('interface_index', YLeaf(YType.int32, 'interface-index')),
+                    ('interface_index', YLeaf(YType.uint32, 'interface-index')),
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                 ])
                 self.interface_index = None
@@ -5280,7 +5163,7 @@ class Snmp(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/if-indexes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.IfIndexes.IfIndex, ['interface_index', 'interface_name'], name, value)
+                self._perform_setattr(Snmp.IfIndexes.IfIndex, ['interface_index', u'interface_name'], name, value)
 
 
     class EntityMib(Entity):
@@ -5307,16 +5190,17 @@ class Snmp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("entity-physical-indexes", ("entity_physical_indexes", Snmp.EntityMib.EntityPhysicalIndexes))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("entity-physical-indexes", ("entity_physical_indexes", Snmp.EntityMib.EntityPhysicalIndexes))])
             self._leafs = OrderedDict()
 
             self.entity_physical_indexes = Snmp.EntityMib.EntityPhysicalIndexes()
             self.entity_physical_indexes.parent = self
             self._children_name_map["entity_physical_indexes"] = "entity-physical-indexes"
-            self._children_yang_names.add("entity-physical-indexes")
             self._segment_path = lambda: "Cisco-IOS-XR-snmp-entitymib-oper:entity-mib"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Snmp.EntityMib, [], name, value)
 
 
         class EntityPhysicalIndexes(Entity):
@@ -5343,8 +5227,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("entity-physical-index", ("entity_physical_index", Snmp.EntityMib.EntityPhysicalIndexes.EntityPhysicalIndex))])
+                self._child_classes = OrderedDict([("entity-physical-index", ("entity_physical_index", Snmp.EntityMib.EntityPhysicalIndexes.EntityPhysicalIndex))])
                 self._leafs = OrderedDict()
 
                 self.entity_physical_index = YList(self)
@@ -5433,8 +5316,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['entity_phynum']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('entity_phynum', YLeaf(YType.str, 'entity-phynum')),
                         ('physical_index', YLeaf(YType.uint32, 'physical-index')),
@@ -5463,7 +5345,7 @@ class Snmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-entitymib-oper:entity-mib/entity-physical-indexes/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.EntityMib.EntityPhysicalIndexes.EntityPhysicalIndex, ['entity_phynum', 'physical_index', 'ent_physical_name', 'location', 'ent_physical_descr', 'ent_physical_firmware_rev', 'ent_physical_hardware_rev', 'ent_physical_modelname', 'ent_physical_serial_num', 'ent_physical_software_rev', 'ent_physical_mfg_name'], name, value)
+                    self._perform_setattr(Snmp.EntityMib.EntityPhysicalIndexes.EntityPhysicalIndex, ['entity_phynum', u'physical_index', u'ent_physical_name', u'location', u'ent_physical_descr', u'ent_physical_firmware_rev', u'ent_physical_hardware_rev', u'ent_physical_modelname', u'ent_physical_serial_num', u'ent_physical_software_rev', u'ent_physical_mfg_name'], name, value)
 
 
     class InterfaceMib(Entity):
@@ -5510,36 +5392,33 @@ class Snmp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("interfaces", ("interfaces", Snmp.InterfaceMib.Interfaces)), ("interface-connectors", ("interface_connectors", Snmp.InterfaceMib.InterfaceConnectors)), ("interface-aliases", ("interface_aliases", Snmp.InterfaceMib.InterfaceAliases)), ("notification-interfaces", ("notification_interfaces", Snmp.InterfaceMib.NotificationInterfaces)), ("interface-stack-statuses", ("interface_stack_statuses", Snmp.InterfaceMib.InterfaceStackStatuses))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("interfaces", ("interfaces", Snmp.InterfaceMib.Interfaces)), ("interface-connectors", ("interface_connectors", Snmp.InterfaceMib.InterfaceConnectors)), ("interface-aliases", ("interface_aliases", Snmp.InterfaceMib.InterfaceAliases)), ("notification-interfaces", ("notification_interfaces", Snmp.InterfaceMib.NotificationInterfaces)), ("interface-stack-statuses", ("interface_stack_statuses", Snmp.InterfaceMib.InterfaceStackStatuses))])
             self._leafs = OrderedDict()
 
             self.interfaces = Snmp.InterfaceMib.Interfaces()
             self.interfaces.parent = self
             self._children_name_map["interfaces"] = "interfaces"
-            self._children_yang_names.add("interfaces")
 
             self.interface_connectors = Snmp.InterfaceMib.InterfaceConnectors()
             self.interface_connectors.parent = self
             self._children_name_map["interface_connectors"] = "interface-connectors"
-            self._children_yang_names.add("interface-connectors")
 
             self.interface_aliases = Snmp.InterfaceMib.InterfaceAliases()
             self.interface_aliases.parent = self
             self._children_name_map["interface_aliases"] = "interface-aliases"
-            self._children_yang_names.add("interface-aliases")
 
             self.notification_interfaces = Snmp.InterfaceMib.NotificationInterfaces()
             self.notification_interfaces.parent = self
             self._children_name_map["notification_interfaces"] = "notification-interfaces"
-            self._children_yang_names.add("notification-interfaces")
 
             self.interface_stack_statuses = Snmp.InterfaceMib.InterfaceStackStatuses()
             self.interface_stack_statuses.parent = self
             self._children_name_map["interface_stack_statuses"] = "interface-stack-statuses"
-            self._children_yang_names.add("interface-stack-statuses")
             self._segment_path = lambda: "Cisco-IOS-XR-snmp-ifmib-oper:interface-mib"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Snmp.InterfaceMib, [], name, value)
 
 
         class Interfaces(Entity):
@@ -5566,8 +5445,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("interface", ("interface", Snmp.InterfaceMib.Interfaces.Interface))])
+                self._child_classes = OrderedDict([("interface", ("interface", Snmp.InterfaceMib.Interfaces.Interface))])
                 self._leafs = OrderedDict()
 
                 self.interface = YList(self)
@@ -5611,8 +5489,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['interface_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ('if_index', YLeaf(YType.uint32, 'if-index')),
@@ -5623,7 +5500,7 @@ class Snmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/interfaces/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.InterfaceMib.Interfaces.Interface, ['interface_name', 'if_index'], name, value)
+                    self._perform_setattr(Snmp.InterfaceMib.Interfaces.Interface, ['interface_name', u'if_index'], name, value)
 
 
         class InterfaceConnectors(Entity):
@@ -5650,8 +5527,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("interface-connector", ("interface_connector", Snmp.InterfaceMib.InterfaceConnectors.InterfaceConnector))])
+                self._child_classes = OrderedDict([("interface-connector", ("interface_connector", Snmp.InterfaceMib.InterfaceConnectors.InterfaceConnector))])
                 self._leafs = OrderedDict()
 
                 self.interface_connector = YList(self)
@@ -5694,8 +5570,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['interface_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ('if_connector_present', YLeaf(YType.str, 'if-connector-present')),
@@ -5706,7 +5581,7 @@ class Snmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/interface-connectors/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.InterfaceMib.InterfaceConnectors.InterfaceConnector, ['interface_name', 'if_connector_present'], name, value)
+                    self._perform_setattr(Snmp.InterfaceMib.InterfaceConnectors.InterfaceConnector, ['interface_name', u'if_connector_present'], name, value)
 
 
         class InterfaceAliases(Entity):
@@ -5733,8 +5608,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("interface-alias", ("interface_alias", Snmp.InterfaceMib.InterfaceAliases.InterfaceAlias))])
+                self._child_classes = OrderedDict([("interface-alias", ("interface_alias", Snmp.InterfaceMib.InterfaceAliases.InterfaceAlias))])
                 self._leafs = OrderedDict()
 
                 self.interface_alias = YList(self)
@@ -5776,8 +5650,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['interface_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ('if_alias', YLeaf(YType.str, 'if-alias')),
@@ -5788,7 +5661,7 @@ class Snmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/interface-aliases/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.InterfaceMib.InterfaceAliases.InterfaceAlias, ['interface_name', 'if_alias'], name, value)
+                    self._perform_setattr(Snmp.InterfaceMib.InterfaceAliases.InterfaceAlias, ['interface_name', u'if_alias'], name, value)
 
 
         class NotificationInterfaces(Entity):
@@ -5815,8 +5688,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("notification-interface", ("notification_interface", Snmp.InterfaceMib.NotificationInterfaces.NotificationInterface))])
+                self._child_classes = OrderedDict([("notification-interface", ("notification_interface", Snmp.InterfaceMib.NotificationInterfaces.NotificationInterface))])
                 self._leafs = OrderedDict()
 
                 self.notification_interface = YList(self)
@@ -5858,8 +5730,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['interface_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ('link_up_down_notif_status', YLeaf(YType.enumeration, 'link-up-down-notif-status')),
@@ -5870,7 +5741,7 @@ class Snmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/notification-interfaces/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.InterfaceMib.NotificationInterfaces.NotificationInterface, ['interface_name', 'link_up_down_notif_status'], name, value)
+                    self._perform_setattr(Snmp.InterfaceMib.NotificationInterfaces.NotificationInterface, ['interface_name', u'link_up_down_notif_status'], name, value)
 
 
         class InterfaceStackStatuses(Entity):
@@ -5897,8 +5768,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("interface-stack-status", ("interface_stack_status", Snmp.InterfaceMib.InterfaceStackStatuses.InterfaceStackStatus))])
+                self._child_classes = OrderedDict([("interface-stack-status", ("interface_stack_status", Snmp.InterfaceMib.InterfaceStackStatuses.InterfaceStackStatus))])
                 self._leafs = OrderedDict()
 
                 self.interface_stack_status = YList(self)
@@ -5950,8 +5820,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['interface_stack_status']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interface_stack_status', YLeaf(YType.str, 'interface-stack-status')),
                         ('if_stack_higher_layer', YLeaf(YType.str, 'if-stack-higher-layer')),
@@ -5966,7 +5835,7 @@ class Snmp(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/interface-stack-statuses/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.InterfaceMib.InterfaceStackStatuses.InterfaceStackStatus, ['interface_stack_status', 'if_stack_higher_layer', 'if_stack_lower_layer', 'if_stack_status'], name, value)
+                    self._perform_setattr(Snmp.InterfaceMib.InterfaceStackStatuses.InterfaceStackStatus, ['interface_stack_status', u'if_stack_higher_layer', u'if_stack_lower_layer', u'if_stack_status'], name, value)
 
 
     class SensorMib(Entity):
@@ -5998,21 +5867,21 @@ class Snmp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("physical-indexes", ("physical_indexes", Snmp.SensorMib.PhysicalIndexes)), ("ent-phy-indexes", ("ent_phy_indexes", Snmp.SensorMib.EntPhyIndexes))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("physical-indexes", ("physical_indexes", Snmp.SensorMib.PhysicalIndexes)), ("ent-phy-indexes", ("ent_phy_indexes", Snmp.SensorMib.EntPhyIndexes))])
             self._leafs = OrderedDict()
 
             self.physical_indexes = Snmp.SensorMib.PhysicalIndexes()
             self.physical_indexes.parent = self
             self._children_name_map["physical_indexes"] = "physical-indexes"
-            self._children_yang_names.add("physical-indexes")
 
             self.ent_phy_indexes = Snmp.SensorMib.EntPhyIndexes()
             self.ent_phy_indexes.parent = self
             self._children_name_map["ent_phy_indexes"] = "ent-phy-indexes"
-            self._children_yang_names.add("ent-phy-indexes")
             self._segment_path = lambda: "Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Snmp.SensorMib, [], name, value)
 
 
         class PhysicalIndexes(Entity):
@@ -6040,8 +5909,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("physical-index", ("physical_index", Snmp.SensorMib.PhysicalIndexes.PhysicalIndex))])
+                self._child_classes = OrderedDict([("physical-index", ("physical_index", Snmp.SensorMib.PhysicalIndexes.PhysicalIndex))])
                 self._leafs = OrderedDict()
 
                 self.physical_index = YList(self)
@@ -6083,8 +5951,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['index']
-                    self._child_container_classes = OrderedDict([("threshold-indexes", ("threshold_indexes", Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("threshold-indexes", ("threshold_indexes", Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes))])
                     self._leafs = OrderedDict([
                         ('index', YLeaf(YType.str, 'index')),
                     ])
@@ -6093,7 +5960,6 @@ class Snmp(Entity):
                     self.threshold_indexes = Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes()
                     self.threshold_indexes.parent = self
                     self._children_name_map["threshold_indexes"] = "threshold-indexes"
-                    self._children_yang_names.add("threshold-indexes")
                     self._segment_path = lambda: "physical-index" + "[index='" + str(self.index) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib/physical-indexes/%s" % self._segment_path()
 
@@ -6125,8 +5991,7 @@ class Snmp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("threshold-index", ("threshold_index", Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex))])
+                        self._child_classes = OrderedDict([("threshold-index", ("threshold_index", Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex))])
                         self._leafs = OrderedDict()
 
                         self.threshold_index = YList(self)
@@ -6200,8 +6065,7 @@ class Snmp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('phy_index', YLeaf(YType.str, 'phy-index')),
                                 ('thre_index', YLeaf(YType.str, 'thre-index')),
@@ -6221,7 +6085,7 @@ class Snmp(Entity):
                             self._segment_path = lambda: "threshold-index"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex, ['phy_index', 'thre_index', 'threshold_severity', 'threshold_relation', 'threshold_value', 'threshold_evaluation', 'threshold_notification_enabled'], name, value)
+                            self._perform_setattr(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex, ['phy_index', 'thre_index', u'threshold_severity', u'threshold_relation', u'threshold_value', u'threshold_evaluation', u'threshold_notification_enabled'], name, value)
 
 
         class EntPhyIndexes(Entity):
@@ -6248,8 +6112,7 @@ class Snmp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("ent-phy-index", ("ent_phy_index", Snmp.SensorMib.EntPhyIndexes.EntPhyIndex))])
+                self._child_classes = OrderedDict([("ent-phy-index", ("ent_phy_index", Snmp.SensorMib.EntPhyIndexes.EntPhyIndex))])
                 self._leafs = OrderedDict()
 
                 self.ent_phy_index = YList(self)
@@ -6377,8 +6240,7 @@ class Snmp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['index']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('index', YLeaf(YType.str, 'index')),
                         ('field_validity_bitmap', YLeaf(YType.uint32, 'field-validity-bitmap')),

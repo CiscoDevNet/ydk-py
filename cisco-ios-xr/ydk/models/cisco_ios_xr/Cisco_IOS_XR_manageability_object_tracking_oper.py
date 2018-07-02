@@ -143,50 +143,44 @@ class ObjectTracking(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("track-type-interface", ("track_type_interface", ObjectTracking.TrackTypeInterface)), ("track-briefs", ("track_briefs", ObjectTracking.TrackBriefs)), ("track-type-rtr-reachability", ("track_type_rtr_reachability", ObjectTracking.TrackTypeRtrReachability)), ("track-type-rtr-reachability-brief", ("track_type_rtr_reachability_brief", ObjectTracking.TrackTypeRtrReachabilityBrief)), ("tracks", ("tracks", ObjectTracking.Tracks)), ("track-type-ipv4-route-brief", ("track_type_ipv4_route_brief", ObjectTracking.TrackTypeIpv4RouteBrief)), ("track-type-ipv4-route", ("track_type_ipv4_route", ObjectTracking.TrackTypeIpv4Route)), ("track-type-interface-brief", ("track_type_interface_brief", ObjectTracking.TrackTypeInterfaceBrief))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("track-type-interface", ("track_type_interface", ObjectTracking.TrackTypeInterface)), ("track-briefs", ("track_briefs", ObjectTracking.TrackBriefs)), ("track-type-rtr-reachability", ("track_type_rtr_reachability", ObjectTracking.TrackTypeRtrReachability)), ("track-type-rtr-reachability-brief", ("track_type_rtr_reachability_brief", ObjectTracking.TrackTypeRtrReachabilityBrief)), ("tracks", ("tracks", ObjectTracking.Tracks)), ("track-type-ipv4-route-brief", ("track_type_ipv4_route_brief", ObjectTracking.TrackTypeIpv4RouteBrief)), ("track-type-ipv4-route", ("track_type_ipv4_route", ObjectTracking.TrackTypeIpv4Route)), ("track-type-interface-brief", ("track_type_interface_brief", ObjectTracking.TrackTypeInterfaceBrief))])
         self._leafs = OrderedDict()
 
         self.track_type_interface = ObjectTracking.TrackTypeInterface()
         self.track_type_interface.parent = self
         self._children_name_map["track_type_interface"] = "track-type-interface"
-        self._children_yang_names.add("track-type-interface")
 
         self.track_briefs = ObjectTracking.TrackBriefs()
         self.track_briefs.parent = self
         self._children_name_map["track_briefs"] = "track-briefs"
-        self._children_yang_names.add("track-briefs")
 
         self.track_type_rtr_reachability = ObjectTracking.TrackTypeRtrReachability()
         self.track_type_rtr_reachability.parent = self
         self._children_name_map["track_type_rtr_reachability"] = "track-type-rtr-reachability"
-        self._children_yang_names.add("track-type-rtr-reachability")
 
         self.track_type_rtr_reachability_brief = ObjectTracking.TrackTypeRtrReachabilityBrief()
         self.track_type_rtr_reachability_brief.parent = self
         self._children_name_map["track_type_rtr_reachability_brief"] = "track-type-rtr-reachability-brief"
-        self._children_yang_names.add("track-type-rtr-reachability-brief")
 
         self.tracks = ObjectTracking.Tracks()
         self.tracks.parent = self
         self._children_name_map["tracks"] = "tracks"
-        self._children_yang_names.add("tracks")
 
         self.track_type_ipv4_route_brief = ObjectTracking.TrackTypeIpv4RouteBrief()
         self.track_type_ipv4_route_brief.parent = self
         self._children_name_map["track_type_ipv4_route_brief"] = "track-type-ipv4-route-brief"
-        self._children_yang_names.add("track-type-ipv4-route-brief")
 
         self.track_type_ipv4_route = ObjectTracking.TrackTypeIpv4Route()
         self.track_type_ipv4_route.parent = self
         self._children_name_map["track_type_ipv4_route"] = "track-type-ipv4-route"
-        self._children_yang_names.add("track-type-ipv4-route")
 
         self.track_type_interface_brief = ObjectTracking.TrackTypeInterfaceBrief()
         self.track_type_interface_brief.parent = self
         self._children_name_map["track_type_interface_brief"] = "track-type-interface-brief"
-        self._children_yang_names.add("track-type-interface-brief")
         self._segment_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(ObjectTracking, [], name, value)
 
 
     class TrackTypeInterface(Entity):
@@ -213,8 +207,7 @@ class ObjectTracking(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("track-info", ("track_info", ObjectTracking.TrackTypeInterface.TrackInfo))])
+            self._child_classes = OrderedDict([("track-info", ("track_info", ObjectTracking.TrackTypeInterface.TrackInfo))])
             self._leafs = OrderedDict()
 
             self.track_info = YList(self)
@@ -316,8 +309,7 @@ class ObjectTracking(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("track-type-info", ("track_type_info", ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo)), ("bool-tracks", ("bool_tracks", ObjectTracking.TrackTypeInterface.TrackInfo.BoolTracks)), ("threshold-tracks", ("threshold_tracks", ObjectTracking.TrackTypeInterface.TrackInfo.ThresholdTracks)), ("tracking-interaces", ("tracking_interaces", ObjectTracking.TrackTypeInterface.TrackInfo.TrackingInteraces)), ("delayed", ("delayed", ObjectTracking.TrackTypeInterface.TrackInfo.Delayed))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("track-type-info", ("track_type_info", ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo)), ("bool-tracks", ("bool_tracks", ObjectTracking.TrackTypeInterface.TrackInfo.BoolTracks)), ("threshold-tracks", ("threshold_tracks", ObjectTracking.TrackTypeInterface.TrackInfo.ThresholdTracks)), ("tracking-interaces", ("tracking_interaces", ObjectTracking.TrackTypeInterface.TrackInfo.TrackingInteraces)), ("delayed", ("delayed", ObjectTracking.TrackTypeInterface.TrackInfo.Delayed))])
                 self._leafs = OrderedDict([
                     ('tracke_name', YLeaf(YType.str, 'tracke-name')),
                     ('type', YLeaf(YType.enumeration, 'type')),
@@ -338,27 +330,22 @@ class ObjectTracking(Entity):
                 self.track_type_info = ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo()
                 self.track_type_info.parent = self
                 self._children_name_map["track_type_info"] = "track-type-info"
-                self._children_yang_names.add("track-type-info")
 
                 self.bool_tracks = ObjectTracking.TrackTypeInterface.TrackInfo.BoolTracks()
                 self.bool_tracks.parent = self
                 self._children_name_map["bool_tracks"] = "bool-tracks"
-                self._children_yang_names.add("bool-tracks")
 
                 self.threshold_tracks = ObjectTracking.TrackTypeInterface.TrackInfo.ThresholdTracks()
                 self.threshold_tracks.parent = self
                 self._children_name_map["threshold_tracks"] = "threshold-tracks"
-                self._children_yang_names.add("threshold-tracks")
 
                 self.tracking_interaces = ObjectTracking.TrackTypeInterface.TrackInfo.TrackingInteraces()
                 self.tracking_interaces.parent = self
                 self._children_name_map["tracking_interaces"] = "tracking-interaces"
-                self._children_yang_names.add("tracking-interaces")
 
                 self.delayed = ObjectTracking.TrackTypeInterface.TrackInfo.Delayed()
                 self.delayed.parent = self
                 self._children_name_map["delayed"] = "delayed"
-                self._children_yang_names.add("delayed")
                 self._segment_path = lambda: "track-info"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/%s" % self._segment_path()
 
@@ -410,8 +397,7 @@ class ObjectTracking(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("interface-tracks", ("interface_tracks", ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.InterfaceTracks)), ("route-tracks", ("route_tracks", ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.RouteTracks)), ("ipsla-tracks", ("ipsla_tracks", ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.IpslaTracks)), ("bfd-tracks", ("bfd_tracks", ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.BfdTracks))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("interface-tracks", ("interface_tracks", ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.InterfaceTracks)), ("route-tracks", ("route_tracks", ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.RouteTracks)), ("ipsla-tracks", ("ipsla_tracks", ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.IpslaTracks)), ("bfd-tracks", ("bfd_tracks", ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.BfdTracks))])
                     self._leafs = OrderedDict([
                         ('discriminant', YLeaf(YType.enumeration, 'discriminant')),
                     ])
@@ -420,22 +406,18 @@ class ObjectTracking(Entity):
                     self.interface_tracks = ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.InterfaceTracks()
                     self.interface_tracks.parent = self
                     self._children_name_map["interface_tracks"] = "interface-tracks"
-                    self._children_yang_names.add("interface-tracks")
 
                     self.route_tracks = ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.RouteTracks()
                     self.route_tracks.parent = self
                     self._children_name_map["route_tracks"] = "route-tracks"
-                    self._children_yang_names.add("route-tracks")
 
                     self.ipsla_tracks = ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.IpslaTracks()
                     self.ipsla_tracks.parent = self
                     self._children_name_map["ipsla_tracks"] = "ipsla-tracks"
-                    self._children_yang_names.add("ipsla-tracks")
 
                     self.bfd_tracks = ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.BfdTracks()
                     self.bfd_tracks.parent = self
                     self._children_name_map["bfd_tracks"] = "bfd-tracks"
-                    self._children_yang_names.add("bfd-tracks")
                     self._segment_path = lambda: "track-type-info"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/%s" % self._segment_path()
 
@@ -469,8 +451,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ])
@@ -529,8 +510,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('prefix', YLeaf(YType.uint32, 'prefix')),
                             ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
@@ -588,8 +568,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('ipsla_op_id', YLeaf(YType.uint32, 'ipsla-op-id')),
                             ('rtt', YLeaf(YType.uint32, 'rtt')),
@@ -652,8 +631,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('destination_address', YLeaf(YType.uint32, 'destination-address')),
@@ -695,8 +673,7 @@ class ObjectTracking(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("bool-track-info", ("bool_track_info", ObjectTracking.TrackTypeInterface.TrackInfo.BoolTracks.BoolTrackInfo))])
+                    self._child_classes = OrderedDict([("bool-track-info", ("bool_track_info", ObjectTracking.TrackTypeInterface.TrackInfo.BoolTracks.BoolTrackInfo))])
                     self._leafs = OrderedDict()
 
                     self.bool_track_info = YList(self)
@@ -743,8 +720,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('object_name', YLeaf(YType.str, 'object-name')),
                             ('track_state', YLeaf(YType.boolean, 'track-state')),
@@ -784,8 +760,7 @@ class ObjectTracking(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("threshold-track-info", ("threshold_track_info", ObjectTracking.TrackTypeInterface.TrackInfo.ThresholdTracks.ThresholdTrackInfo))])
+                    self._child_classes = OrderedDict([("threshold-track-info", ("threshold_track_info", ObjectTracking.TrackTypeInterface.TrackInfo.ThresholdTracks.ThresholdTrackInfo))])
                     self._leafs = OrderedDict()
 
                     self.threshold_track_info = YList(self)
@@ -836,8 +811,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('object_name', YLeaf(YType.str, 'object-name')),
                             ('track_state', YLeaf(YType.boolean, 'track-state')),
@@ -877,8 +851,7 @@ class ObjectTracking(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface-tracking-info", ("interface_tracking_info", ObjectTracking.TrackTypeInterface.TrackInfo.TrackingInteraces.InterfaceTrackingInfo))])
+                    self._child_classes = OrderedDict([("interface-tracking-info", ("interface_tracking_info", ObjectTracking.TrackTypeInterface.TrackInfo.TrackingInteraces.InterfaceTrackingInfo))])
                     self._leafs = OrderedDict()
 
                     self.interface_tracking_info = YList(self)
@@ -915,8 +888,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ])
@@ -961,8 +933,7 @@ class ObjectTracking(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('time_remaining', YLeaf(YType.uint32, 'time-remaining')),
                         ('track_state', YLeaf(YType.boolean, 'track-state')),
@@ -1000,8 +971,7 @@ class ObjectTracking(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("track-brief", ("track_brief", ObjectTracking.TrackBriefs.TrackBrief))])
+            self._child_classes = OrderedDict([("track-brief", ("track_brief", ObjectTracking.TrackBriefs.TrackBrief))])
             self._leafs = OrderedDict()
 
             self.track_brief = YList(self)
@@ -1043,8 +1013,7 @@ class ObjectTracking(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['track_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("track-info-brief", ("track_info_brief", ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief))])
+                self._child_classes = OrderedDict([("track-info-brief", ("track_info_brief", ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief))])
                 self._leafs = OrderedDict([
                     ('track_name', YLeaf(YType.str, 'track-name')),
                 ])
@@ -1099,8 +1068,7 @@ class ObjectTracking(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("track-type-info", ("track_type_info", ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("track-type-info", ("track_type_info", ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo))])
                     self._leafs = OrderedDict([
                         ('tracke_name', YLeaf(YType.str, 'tracke-name')),
                         ('type', YLeaf(YType.enumeration, 'type')),
@@ -1113,7 +1081,6 @@ class ObjectTracking(Entity):
                     self.track_type_info = ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo()
                     self.track_type_info.parent = self
                     self._children_name_map["track_type_info"] = "track-type-info"
-                    self._children_yang_names.add("track-type-info")
                     self._segment_path = lambda: "track-info-brief"
 
                 def __setattr__(self, name, value):
@@ -1164,8 +1131,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("interface-tracks", ("interface_tracks", ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks)), ("route-tracks", ("route_tracks", ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks)), ("ipsla-tracks", ("ipsla_tracks", ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks)), ("bfd-tracks", ("bfd_tracks", ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("interface-tracks", ("interface_tracks", ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks)), ("route-tracks", ("route_tracks", ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks)), ("ipsla-tracks", ("ipsla_tracks", ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks)), ("bfd-tracks", ("bfd_tracks", ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks))])
                         self._leafs = OrderedDict([
                             ('discriminant', YLeaf(YType.enumeration, 'discriminant')),
                         ])
@@ -1174,22 +1140,18 @@ class ObjectTracking(Entity):
                         self.interface_tracks = ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks()
                         self.interface_tracks.parent = self
                         self._children_name_map["interface_tracks"] = "interface-tracks"
-                        self._children_yang_names.add("interface-tracks")
 
                         self.route_tracks = ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks()
                         self.route_tracks.parent = self
                         self._children_name_map["route_tracks"] = "route-tracks"
-                        self._children_yang_names.add("route-tracks")
 
                         self.ipsla_tracks = ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks()
                         self.ipsla_tracks.parent = self
                         self._children_name_map["ipsla_tracks"] = "ipsla-tracks"
-                        self._children_yang_names.add("ipsla-tracks")
 
                         self.bfd_tracks = ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks()
                         self.bfd_tracks.parent = self
                         self._children_name_map["bfd_tracks"] = "bfd-tracks"
-                        self._children_yang_names.add("bfd-tracks")
                         self._segment_path = lambda: "track-type-info"
 
                     def __setattr__(self, name, value):
@@ -1222,8 +1184,7 @@ class ObjectTracking(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ])
@@ -1281,8 +1242,7 @@ class ObjectTracking(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('prefix', YLeaf(YType.uint32, 'prefix')),
                                 ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
@@ -1339,8 +1299,7 @@ class ObjectTracking(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('ipsla_op_id', YLeaf(YType.uint32, 'ipsla-op-id')),
                                 ('rtt', YLeaf(YType.uint32, 'rtt')),
@@ -1402,8 +1361,7 @@ class ObjectTracking(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                                 ('destination_address', YLeaf(YType.uint32, 'destination-address')),
@@ -1444,8 +1402,7 @@ class ObjectTracking(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("track-info", ("track_info", ObjectTracking.TrackTypeRtrReachability.TrackInfo))])
+            self._child_classes = OrderedDict([("track-info", ("track_info", ObjectTracking.TrackTypeRtrReachability.TrackInfo))])
             self._leafs = OrderedDict()
 
             self.track_info = YList(self)
@@ -1547,8 +1504,7 @@ class ObjectTracking(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("track-type-info", ("track_type_info", ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo)), ("bool-tracks", ("bool_tracks", ObjectTracking.TrackTypeRtrReachability.TrackInfo.BoolTracks)), ("threshold-tracks", ("threshold_tracks", ObjectTracking.TrackTypeRtrReachability.TrackInfo.ThresholdTracks)), ("tracking-interaces", ("tracking_interaces", ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackingInteraces)), ("delayed", ("delayed", ObjectTracking.TrackTypeRtrReachability.TrackInfo.Delayed))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("track-type-info", ("track_type_info", ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo)), ("bool-tracks", ("bool_tracks", ObjectTracking.TrackTypeRtrReachability.TrackInfo.BoolTracks)), ("threshold-tracks", ("threshold_tracks", ObjectTracking.TrackTypeRtrReachability.TrackInfo.ThresholdTracks)), ("tracking-interaces", ("tracking_interaces", ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackingInteraces)), ("delayed", ("delayed", ObjectTracking.TrackTypeRtrReachability.TrackInfo.Delayed))])
                 self._leafs = OrderedDict([
                     ('tracke_name', YLeaf(YType.str, 'tracke-name')),
                     ('type', YLeaf(YType.enumeration, 'type')),
@@ -1569,27 +1525,22 @@ class ObjectTracking(Entity):
                 self.track_type_info = ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo()
                 self.track_type_info.parent = self
                 self._children_name_map["track_type_info"] = "track-type-info"
-                self._children_yang_names.add("track-type-info")
 
                 self.bool_tracks = ObjectTracking.TrackTypeRtrReachability.TrackInfo.BoolTracks()
                 self.bool_tracks.parent = self
                 self._children_name_map["bool_tracks"] = "bool-tracks"
-                self._children_yang_names.add("bool-tracks")
 
                 self.threshold_tracks = ObjectTracking.TrackTypeRtrReachability.TrackInfo.ThresholdTracks()
                 self.threshold_tracks.parent = self
                 self._children_name_map["threshold_tracks"] = "threshold-tracks"
-                self._children_yang_names.add("threshold-tracks")
 
                 self.tracking_interaces = ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackingInteraces()
                 self.tracking_interaces.parent = self
                 self._children_name_map["tracking_interaces"] = "tracking-interaces"
-                self._children_yang_names.add("tracking-interaces")
 
                 self.delayed = ObjectTracking.TrackTypeRtrReachability.TrackInfo.Delayed()
                 self.delayed.parent = self
                 self._children_name_map["delayed"] = "delayed"
-                self._children_yang_names.add("delayed")
                 self._segment_path = lambda: "track-info"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/%s" % self._segment_path()
 
@@ -1641,8 +1592,7 @@ class ObjectTracking(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("interface-tracks", ("interface_tracks", ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.InterfaceTracks)), ("route-tracks", ("route_tracks", ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.RouteTracks)), ("ipsla-tracks", ("ipsla_tracks", ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.IpslaTracks)), ("bfd-tracks", ("bfd_tracks", ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.BfdTracks))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("interface-tracks", ("interface_tracks", ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.InterfaceTracks)), ("route-tracks", ("route_tracks", ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.RouteTracks)), ("ipsla-tracks", ("ipsla_tracks", ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.IpslaTracks)), ("bfd-tracks", ("bfd_tracks", ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.BfdTracks))])
                     self._leafs = OrderedDict([
                         ('discriminant', YLeaf(YType.enumeration, 'discriminant')),
                     ])
@@ -1651,22 +1601,18 @@ class ObjectTracking(Entity):
                     self.interface_tracks = ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.InterfaceTracks()
                     self.interface_tracks.parent = self
                     self._children_name_map["interface_tracks"] = "interface-tracks"
-                    self._children_yang_names.add("interface-tracks")
 
                     self.route_tracks = ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.RouteTracks()
                     self.route_tracks.parent = self
                     self._children_name_map["route_tracks"] = "route-tracks"
-                    self._children_yang_names.add("route-tracks")
 
                     self.ipsla_tracks = ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.IpslaTracks()
                     self.ipsla_tracks.parent = self
                     self._children_name_map["ipsla_tracks"] = "ipsla-tracks"
-                    self._children_yang_names.add("ipsla-tracks")
 
                     self.bfd_tracks = ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.BfdTracks()
                     self.bfd_tracks.parent = self
                     self._children_name_map["bfd_tracks"] = "bfd-tracks"
-                    self._children_yang_names.add("bfd-tracks")
                     self._segment_path = lambda: "track-type-info"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/%s" % self._segment_path()
 
@@ -1700,8 +1646,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ])
@@ -1760,8 +1705,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('prefix', YLeaf(YType.uint32, 'prefix')),
                             ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
@@ -1819,8 +1763,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('ipsla_op_id', YLeaf(YType.uint32, 'ipsla-op-id')),
                             ('rtt', YLeaf(YType.uint32, 'rtt')),
@@ -1883,8 +1826,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('destination_address', YLeaf(YType.uint32, 'destination-address')),
@@ -1926,8 +1868,7 @@ class ObjectTracking(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("bool-track-info", ("bool_track_info", ObjectTracking.TrackTypeRtrReachability.TrackInfo.BoolTracks.BoolTrackInfo))])
+                    self._child_classes = OrderedDict([("bool-track-info", ("bool_track_info", ObjectTracking.TrackTypeRtrReachability.TrackInfo.BoolTracks.BoolTrackInfo))])
                     self._leafs = OrderedDict()
 
                     self.bool_track_info = YList(self)
@@ -1974,8 +1915,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('object_name', YLeaf(YType.str, 'object-name')),
                             ('track_state', YLeaf(YType.boolean, 'track-state')),
@@ -2015,8 +1955,7 @@ class ObjectTracking(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("threshold-track-info", ("threshold_track_info", ObjectTracking.TrackTypeRtrReachability.TrackInfo.ThresholdTracks.ThresholdTrackInfo))])
+                    self._child_classes = OrderedDict([("threshold-track-info", ("threshold_track_info", ObjectTracking.TrackTypeRtrReachability.TrackInfo.ThresholdTracks.ThresholdTrackInfo))])
                     self._leafs = OrderedDict()
 
                     self.threshold_track_info = YList(self)
@@ -2067,8 +2006,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('object_name', YLeaf(YType.str, 'object-name')),
                             ('track_state', YLeaf(YType.boolean, 'track-state')),
@@ -2108,8 +2046,7 @@ class ObjectTracking(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface-tracking-info", ("interface_tracking_info", ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackingInteraces.InterfaceTrackingInfo))])
+                    self._child_classes = OrderedDict([("interface-tracking-info", ("interface_tracking_info", ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackingInteraces.InterfaceTrackingInfo))])
                     self._leafs = OrderedDict()
 
                     self.interface_tracking_info = YList(self)
@@ -2146,8 +2083,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ])
@@ -2192,8 +2128,7 @@ class ObjectTracking(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('time_remaining', YLeaf(YType.uint32, 'time-remaining')),
                         ('track_state', YLeaf(YType.boolean, 'track-state')),
@@ -2231,8 +2166,7 @@ class ObjectTracking(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("track-info-brief", ("track_info_brief", ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief))])
+            self._child_classes = OrderedDict([("track-info-brief", ("track_info_brief", ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief))])
             self._leafs = OrderedDict()
 
             self.track_info_brief = YList(self)
@@ -2284,8 +2218,7 @@ class ObjectTracking(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("track-type-info", ("track_type_info", ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("track-type-info", ("track_type_info", ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo))])
                 self._leafs = OrderedDict([
                     ('tracke_name', YLeaf(YType.str, 'tracke-name')),
                     ('type', YLeaf(YType.enumeration, 'type')),
@@ -2298,7 +2231,6 @@ class ObjectTracking(Entity):
                 self.track_type_info = ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo()
                 self.track_type_info.parent = self
                 self._children_name_map["track_type_info"] = "track-type-info"
-                self._children_yang_names.add("track-type-info")
                 self._segment_path = lambda: "track-info-brief"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability-brief/%s" % self._segment_path()
 
@@ -2350,8 +2282,7 @@ class ObjectTracking(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("interface-tracks", ("interface_tracks", ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks)), ("route-tracks", ("route_tracks", ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks)), ("ipsla-tracks", ("ipsla_tracks", ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks)), ("bfd-tracks", ("bfd_tracks", ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("interface-tracks", ("interface_tracks", ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks)), ("route-tracks", ("route_tracks", ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks)), ("ipsla-tracks", ("ipsla_tracks", ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks)), ("bfd-tracks", ("bfd_tracks", ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks))])
                     self._leafs = OrderedDict([
                         ('discriminant', YLeaf(YType.enumeration, 'discriminant')),
                     ])
@@ -2360,22 +2291,18 @@ class ObjectTracking(Entity):
                     self.interface_tracks = ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks()
                     self.interface_tracks.parent = self
                     self._children_name_map["interface_tracks"] = "interface-tracks"
-                    self._children_yang_names.add("interface-tracks")
 
                     self.route_tracks = ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks()
                     self.route_tracks.parent = self
                     self._children_name_map["route_tracks"] = "route-tracks"
-                    self._children_yang_names.add("route-tracks")
 
                     self.ipsla_tracks = ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks()
                     self.ipsla_tracks.parent = self
                     self._children_name_map["ipsla_tracks"] = "ipsla-tracks"
-                    self._children_yang_names.add("ipsla-tracks")
 
                     self.bfd_tracks = ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks()
                     self.bfd_tracks.parent = self
                     self._children_name_map["bfd_tracks"] = "bfd-tracks"
-                    self._children_yang_names.add("bfd-tracks")
                     self._segment_path = lambda: "track-type-info"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability-brief/track-info-brief/%s" % self._segment_path()
 
@@ -2409,8 +2336,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ])
@@ -2469,8 +2395,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('prefix', YLeaf(YType.uint32, 'prefix')),
                             ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
@@ -2528,8 +2453,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('ipsla_op_id', YLeaf(YType.uint32, 'ipsla-op-id')),
                             ('rtt', YLeaf(YType.uint32, 'rtt')),
@@ -2592,8 +2516,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('destination_address', YLeaf(YType.uint32, 'destination-address')),
@@ -2635,8 +2558,7 @@ class ObjectTracking(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("track", ("track", ObjectTracking.Tracks.Track))])
+            self._child_classes = OrderedDict([("track", ("track", ObjectTracking.Tracks.Track))])
             self._leafs = OrderedDict()
 
             self.track = YList(self)
@@ -2678,8 +2600,7 @@ class ObjectTracking(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['track_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("track-info", ("track_info", ObjectTracking.Tracks.Track.TrackInfo))])
+                self._child_classes = OrderedDict([("track-info", ("track_info", ObjectTracking.Tracks.Track.TrackInfo))])
                 self._leafs = OrderedDict([
                     ('track_name', YLeaf(YType.str, 'track-name')),
                 ])
@@ -2784,8 +2705,7 @@ class ObjectTracking(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("track-type-info", ("track_type_info", ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo)), ("bool-tracks", ("bool_tracks", ObjectTracking.Tracks.Track.TrackInfo.BoolTracks)), ("threshold-tracks", ("threshold_tracks", ObjectTracking.Tracks.Track.TrackInfo.ThresholdTracks)), ("tracking-interaces", ("tracking_interaces", ObjectTracking.Tracks.Track.TrackInfo.TrackingInteraces)), ("delayed", ("delayed", ObjectTracking.Tracks.Track.TrackInfo.Delayed))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("track-type-info", ("track_type_info", ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo)), ("bool-tracks", ("bool_tracks", ObjectTracking.Tracks.Track.TrackInfo.BoolTracks)), ("threshold-tracks", ("threshold_tracks", ObjectTracking.Tracks.Track.TrackInfo.ThresholdTracks)), ("tracking-interaces", ("tracking_interaces", ObjectTracking.Tracks.Track.TrackInfo.TrackingInteraces)), ("delayed", ("delayed", ObjectTracking.Tracks.Track.TrackInfo.Delayed))])
                     self._leafs = OrderedDict([
                         ('tracke_name', YLeaf(YType.str, 'tracke-name')),
                         ('type', YLeaf(YType.enumeration, 'type')),
@@ -2806,27 +2726,22 @@ class ObjectTracking(Entity):
                     self.track_type_info = ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo()
                     self.track_type_info.parent = self
                     self._children_name_map["track_type_info"] = "track-type-info"
-                    self._children_yang_names.add("track-type-info")
 
                     self.bool_tracks = ObjectTracking.Tracks.Track.TrackInfo.BoolTracks()
                     self.bool_tracks.parent = self
                     self._children_name_map["bool_tracks"] = "bool-tracks"
-                    self._children_yang_names.add("bool-tracks")
 
                     self.threshold_tracks = ObjectTracking.Tracks.Track.TrackInfo.ThresholdTracks()
                     self.threshold_tracks.parent = self
                     self._children_name_map["threshold_tracks"] = "threshold-tracks"
-                    self._children_yang_names.add("threshold-tracks")
 
                     self.tracking_interaces = ObjectTracking.Tracks.Track.TrackInfo.TrackingInteraces()
                     self.tracking_interaces.parent = self
                     self._children_name_map["tracking_interaces"] = "tracking-interaces"
-                    self._children_yang_names.add("tracking-interaces")
 
                     self.delayed = ObjectTracking.Tracks.Track.TrackInfo.Delayed()
                     self.delayed.parent = self
                     self._children_name_map["delayed"] = "delayed"
-                    self._children_yang_names.add("delayed")
                     self._segment_path = lambda: "track-info"
 
                 def __setattr__(self, name, value):
@@ -2877,8 +2792,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("interface-tracks", ("interface_tracks", ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.InterfaceTracks)), ("route-tracks", ("route_tracks", ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.RouteTracks)), ("ipsla-tracks", ("ipsla_tracks", ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.IpslaTracks)), ("bfd-tracks", ("bfd_tracks", ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.BfdTracks))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("interface-tracks", ("interface_tracks", ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.InterfaceTracks)), ("route-tracks", ("route_tracks", ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.RouteTracks)), ("ipsla-tracks", ("ipsla_tracks", ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.IpslaTracks)), ("bfd-tracks", ("bfd_tracks", ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.BfdTracks))])
                         self._leafs = OrderedDict([
                             ('discriminant', YLeaf(YType.enumeration, 'discriminant')),
                         ])
@@ -2887,22 +2801,18 @@ class ObjectTracking(Entity):
                         self.interface_tracks = ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.InterfaceTracks()
                         self.interface_tracks.parent = self
                         self._children_name_map["interface_tracks"] = "interface-tracks"
-                        self._children_yang_names.add("interface-tracks")
 
                         self.route_tracks = ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.RouteTracks()
                         self.route_tracks.parent = self
                         self._children_name_map["route_tracks"] = "route-tracks"
-                        self._children_yang_names.add("route-tracks")
 
                         self.ipsla_tracks = ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.IpslaTracks()
                         self.ipsla_tracks.parent = self
                         self._children_name_map["ipsla_tracks"] = "ipsla-tracks"
-                        self._children_yang_names.add("ipsla-tracks")
 
                         self.bfd_tracks = ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.BfdTracks()
                         self.bfd_tracks.parent = self
                         self._children_name_map["bfd_tracks"] = "bfd-tracks"
-                        self._children_yang_names.add("bfd-tracks")
                         self._segment_path = lambda: "track-type-info"
 
                     def __setattr__(self, name, value):
@@ -2935,8 +2845,7 @@ class ObjectTracking(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ])
@@ -2994,8 +2903,7 @@ class ObjectTracking(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('prefix', YLeaf(YType.uint32, 'prefix')),
                                 ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
@@ -3052,8 +2960,7 @@ class ObjectTracking(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('ipsla_op_id', YLeaf(YType.uint32, 'ipsla-op-id')),
                                 ('rtt', YLeaf(YType.uint32, 'rtt')),
@@ -3115,8 +3022,7 @@ class ObjectTracking(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                                 ('destination_address', YLeaf(YType.uint32, 'destination-address')),
@@ -3157,8 +3063,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("bool-track-info", ("bool_track_info", ObjectTracking.Tracks.Track.TrackInfo.BoolTracks.BoolTrackInfo))])
+                        self._child_classes = OrderedDict([("bool-track-info", ("bool_track_info", ObjectTracking.Tracks.Track.TrackInfo.BoolTracks.BoolTrackInfo))])
                         self._leafs = OrderedDict()
 
                         self.bool_track_info = YList(self)
@@ -3204,8 +3109,7 @@ class ObjectTracking(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('object_name', YLeaf(YType.str, 'object-name')),
                                 ('track_state', YLeaf(YType.boolean, 'track-state')),
@@ -3244,8 +3148,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("threshold-track-info", ("threshold_track_info", ObjectTracking.Tracks.Track.TrackInfo.ThresholdTracks.ThresholdTrackInfo))])
+                        self._child_classes = OrderedDict([("threshold-track-info", ("threshold_track_info", ObjectTracking.Tracks.Track.TrackInfo.ThresholdTracks.ThresholdTrackInfo))])
                         self._leafs = OrderedDict()
 
                         self.threshold_track_info = YList(self)
@@ -3295,8 +3198,7 @@ class ObjectTracking(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('object_name', YLeaf(YType.str, 'object-name')),
                                 ('track_state', YLeaf(YType.boolean, 'track-state')),
@@ -3335,8 +3237,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("interface-tracking-info", ("interface_tracking_info", ObjectTracking.Tracks.Track.TrackInfo.TrackingInteraces.InterfaceTrackingInfo))])
+                        self._child_classes = OrderedDict([("interface-tracking-info", ("interface_tracking_info", ObjectTracking.Tracks.Track.TrackInfo.TrackingInteraces.InterfaceTrackingInfo))])
                         self._leafs = OrderedDict()
 
                         self.interface_tracking_info = YList(self)
@@ -3372,8 +3273,7 @@ class ObjectTracking(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ])
@@ -3417,8 +3317,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('time_remaining', YLeaf(YType.uint32, 'time-remaining')),
                             ('track_state', YLeaf(YType.boolean, 'track-state')),
@@ -3455,8 +3354,7 @@ class ObjectTracking(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("track-info-brief", ("track_info_brief", ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief))])
+            self._child_classes = OrderedDict([("track-info-brief", ("track_info_brief", ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief))])
             self._leafs = OrderedDict()
 
             self.track_info_brief = YList(self)
@@ -3508,8 +3406,7 @@ class ObjectTracking(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("track-type-info", ("track_type_info", ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("track-type-info", ("track_type_info", ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo))])
                 self._leafs = OrderedDict([
                     ('tracke_name', YLeaf(YType.str, 'tracke-name')),
                     ('type', YLeaf(YType.enumeration, 'type')),
@@ -3522,7 +3419,6 @@ class ObjectTracking(Entity):
                 self.track_type_info = ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo()
                 self.track_type_info.parent = self
                 self._children_name_map["track_type_info"] = "track-type-info"
-                self._children_yang_names.add("track-type-info")
                 self._segment_path = lambda: "track-info-brief"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route-brief/%s" % self._segment_path()
 
@@ -3574,8 +3470,7 @@ class ObjectTracking(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("interface-tracks", ("interface_tracks", ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks)), ("route-tracks", ("route_tracks", ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks)), ("ipsla-tracks", ("ipsla_tracks", ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks)), ("bfd-tracks", ("bfd_tracks", ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("interface-tracks", ("interface_tracks", ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks)), ("route-tracks", ("route_tracks", ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks)), ("ipsla-tracks", ("ipsla_tracks", ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks)), ("bfd-tracks", ("bfd_tracks", ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks))])
                     self._leafs = OrderedDict([
                         ('discriminant', YLeaf(YType.enumeration, 'discriminant')),
                     ])
@@ -3584,22 +3479,18 @@ class ObjectTracking(Entity):
                     self.interface_tracks = ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks()
                     self.interface_tracks.parent = self
                     self._children_name_map["interface_tracks"] = "interface-tracks"
-                    self._children_yang_names.add("interface-tracks")
 
                     self.route_tracks = ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks()
                     self.route_tracks.parent = self
                     self._children_name_map["route_tracks"] = "route-tracks"
-                    self._children_yang_names.add("route-tracks")
 
                     self.ipsla_tracks = ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks()
                     self.ipsla_tracks.parent = self
                     self._children_name_map["ipsla_tracks"] = "ipsla-tracks"
-                    self._children_yang_names.add("ipsla-tracks")
 
                     self.bfd_tracks = ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks()
                     self.bfd_tracks.parent = self
                     self._children_name_map["bfd_tracks"] = "bfd-tracks"
-                    self._children_yang_names.add("bfd-tracks")
                     self._segment_path = lambda: "track-type-info"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route-brief/track-info-brief/%s" % self._segment_path()
 
@@ -3633,8 +3524,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ])
@@ -3693,8 +3583,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('prefix', YLeaf(YType.uint32, 'prefix')),
                             ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
@@ -3752,8 +3641,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('ipsla_op_id', YLeaf(YType.uint32, 'ipsla-op-id')),
                             ('rtt', YLeaf(YType.uint32, 'rtt')),
@@ -3816,8 +3704,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('destination_address', YLeaf(YType.uint32, 'destination-address')),
@@ -3859,8 +3746,7 @@ class ObjectTracking(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("track-info", ("track_info", ObjectTracking.TrackTypeIpv4Route.TrackInfo))])
+            self._child_classes = OrderedDict([("track-info", ("track_info", ObjectTracking.TrackTypeIpv4Route.TrackInfo))])
             self._leafs = OrderedDict()
 
             self.track_info = YList(self)
@@ -3962,8 +3848,7 @@ class ObjectTracking(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("track-type-info", ("track_type_info", ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo)), ("bool-tracks", ("bool_tracks", ObjectTracking.TrackTypeIpv4Route.TrackInfo.BoolTracks)), ("threshold-tracks", ("threshold_tracks", ObjectTracking.TrackTypeIpv4Route.TrackInfo.ThresholdTracks)), ("tracking-interaces", ("tracking_interaces", ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackingInteraces)), ("delayed", ("delayed", ObjectTracking.TrackTypeIpv4Route.TrackInfo.Delayed))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("track-type-info", ("track_type_info", ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo)), ("bool-tracks", ("bool_tracks", ObjectTracking.TrackTypeIpv4Route.TrackInfo.BoolTracks)), ("threshold-tracks", ("threshold_tracks", ObjectTracking.TrackTypeIpv4Route.TrackInfo.ThresholdTracks)), ("tracking-interaces", ("tracking_interaces", ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackingInteraces)), ("delayed", ("delayed", ObjectTracking.TrackTypeIpv4Route.TrackInfo.Delayed))])
                 self._leafs = OrderedDict([
                     ('tracke_name', YLeaf(YType.str, 'tracke-name')),
                     ('type', YLeaf(YType.enumeration, 'type')),
@@ -3984,27 +3869,22 @@ class ObjectTracking(Entity):
                 self.track_type_info = ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo()
                 self.track_type_info.parent = self
                 self._children_name_map["track_type_info"] = "track-type-info"
-                self._children_yang_names.add("track-type-info")
 
                 self.bool_tracks = ObjectTracking.TrackTypeIpv4Route.TrackInfo.BoolTracks()
                 self.bool_tracks.parent = self
                 self._children_name_map["bool_tracks"] = "bool-tracks"
-                self._children_yang_names.add("bool-tracks")
 
                 self.threshold_tracks = ObjectTracking.TrackTypeIpv4Route.TrackInfo.ThresholdTracks()
                 self.threshold_tracks.parent = self
                 self._children_name_map["threshold_tracks"] = "threshold-tracks"
-                self._children_yang_names.add("threshold-tracks")
 
                 self.tracking_interaces = ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackingInteraces()
                 self.tracking_interaces.parent = self
                 self._children_name_map["tracking_interaces"] = "tracking-interaces"
-                self._children_yang_names.add("tracking-interaces")
 
                 self.delayed = ObjectTracking.TrackTypeIpv4Route.TrackInfo.Delayed()
                 self.delayed.parent = self
                 self._children_name_map["delayed"] = "delayed"
-                self._children_yang_names.add("delayed")
                 self._segment_path = lambda: "track-info"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/%s" % self._segment_path()
 
@@ -4056,8 +3936,7 @@ class ObjectTracking(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("interface-tracks", ("interface_tracks", ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.InterfaceTracks)), ("route-tracks", ("route_tracks", ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.RouteTracks)), ("ipsla-tracks", ("ipsla_tracks", ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.IpslaTracks)), ("bfd-tracks", ("bfd_tracks", ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.BfdTracks))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("interface-tracks", ("interface_tracks", ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.InterfaceTracks)), ("route-tracks", ("route_tracks", ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.RouteTracks)), ("ipsla-tracks", ("ipsla_tracks", ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.IpslaTracks)), ("bfd-tracks", ("bfd_tracks", ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.BfdTracks))])
                     self._leafs = OrderedDict([
                         ('discriminant', YLeaf(YType.enumeration, 'discriminant')),
                     ])
@@ -4066,22 +3945,18 @@ class ObjectTracking(Entity):
                     self.interface_tracks = ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.InterfaceTracks()
                     self.interface_tracks.parent = self
                     self._children_name_map["interface_tracks"] = "interface-tracks"
-                    self._children_yang_names.add("interface-tracks")
 
                     self.route_tracks = ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.RouteTracks()
                     self.route_tracks.parent = self
                     self._children_name_map["route_tracks"] = "route-tracks"
-                    self._children_yang_names.add("route-tracks")
 
                     self.ipsla_tracks = ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.IpslaTracks()
                     self.ipsla_tracks.parent = self
                     self._children_name_map["ipsla_tracks"] = "ipsla-tracks"
-                    self._children_yang_names.add("ipsla-tracks")
 
                     self.bfd_tracks = ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.BfdTracks()
                     self.bfd_tracks.parent = self
                     self._children_name_map["bfd_tracks"] = "bfd-tracks"
-                    self._children_yang_names.add("bfd-tracks")
                     self._segment_path = lambda: "track-type-info"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/%s" % self._segment_path()
 
@@ -4115,8 +3990,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ])
@@ -4175,8 +4049,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('prefix', YLeaf(YType.uint32, 'prefix')),
                             ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
@@ -4234,8 +4107,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('ipsla_op_id', YLeaf(YType.uint32, 'ipsla-op-id')),
                             ('rtt', YLeaf(YType.uint32, 'rtt')),
@@ -4298,8 +4170,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('destination_address', YLeaf(YType.uint32, 'destination-address')),
@@ -4341,8 +4212,7 @@ class ObjectTracking(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("bool-track-info", ("bool_track_info", ObjectTracking.TrackTypeIpv4Route.TrackInfo.BoolTracks.BoolTrackInfo))])
+                    self._child_classes = OrderedDict([("bool-track-info", ("bool_track_info", ObjectTracking.TrackTypeIpv4Route.TrackInfo.BoolTracks.BoolTrackInfo))])
                     self._leafs = OrderedDict()
 
                     self.bool_track_info = YList(self)
@@ -4389,8 +4259,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('object_name', YLeaf(YType.str, 'object-name')),
                             ('track_state', YLeaf(YType.boolean, 'track-state')),
@@ -4430,8 +4299,7 @@ class ObjectTracking(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("threshold-track-info", ("threshold_track_info", ObjectTracking.TrackTypeIpv4Route.TrackInfo.ThresholdTracks.ThresholdTrackInfo))])
+                    self._child_classes = OrderedDict([("threshold-track-info", ("threshold_track_info", ObjectTracking.TrackTypeIpv4Route.TrackInfo.ThresholdTracks.ThresholdTrackInfo))])
                     self._leafs = OrderedDict()
 
                     self.threshold_track_info = YList(self)
@@ -4482,8 +4350,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('object_name', YLeaf(YType.str, 'object-name')),
                             ('track_state', YLeaf(YType.boolean, 'track-state')),
@@ -4523,8 +4390,7 @@ class ObjectTracking(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("interface-tracking-info", ("interface_tracking_info", ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackingInteraces.InterfaceTrackingInfo))])
+                    self._child_classes = OrderedDict([("interface-tracking-info", ("interface_tracking_info", ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackingInteraces.InterfaceTrackingInfo))])
                     self._leafs = OrderedDict()
 
                     self.interface_tracking_info = YList(self)
@@ -4561,8 +4427,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ])
@@ -4607,8 +4472,7 @@ class ObjectTracking(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('time_remaining', YLeaf(YType.uint32, 'time-remaining')),
                         ('track_state', YLeaf(YType.boolean, 'track-state')),
@@ -4646,8 +4510,7 @@ class ObjectTracking(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("track-info-brief", ("track_info_brief", ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief))])
+            self._child_classes = OrderedDict([("track-info-brief", ("track_info_brief", ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief))])
             self._leafs = OrderedDict()
 
             self.track_info_brief = YList(self)
@@ -4699,8 +4562,7 @@ class ObjectTracking(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("track-type-info", ("track_type_info", ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("track-type-info", ("track_type_info", ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo))])
                 self._leafs = OrderedDict([
                     ('tracke_name', YLeaf(YType.str, 'tracke-name')),
                     ('type', YLeaf(YType.enumeration, 'type')),
@@ -4713,7 +4575,6 @@ class ObjectTracking(Entity):
                 self.track_type_info = ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo()
                 self.track_type_info.parent = self
                 self._children_name_map["track_type_info"] = "track-type-info"
-                self._children_yang_names.add("track-type-info")
                 self._segment_path = lambda: "track-info-brief"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface-brief/%s" % self._segment_path()
 
@@ -4765,8 +4626,7 @@ class ObjectTracking(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("interface-tracks", ("interface_tracks", ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks)), ("route-tracks", ("route_tracks", ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks)), ("ipsla-tracks", ("ipsla_tracks", ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks)), ("bfd-tracks", ("bfd_tracks", ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("interface-tracks", ("interface_tracks", ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks)), ("route-tracks", ("route_tracks", ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks)), ("ipsla-tracks", ("ipsla_tracks", ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks)), ("bfd-tracks", ("bfd_tracks", ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks))])
                     self._leafs = OrderedDict([
                         ('discriminant', YLeaf(YType.enumeration, 'discriminant')),
                     ])
@@ -4775,22 +4635,18 @@ class ObjectTracking(Entity):
                     self.interface_tracks = ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks()
                     self.interface_tracks.parent = self
                     self._children_name_map["interface_tracks"] = "interface-tracks"
-                    self._children_yang_names.add("interface-tracks")
 
                     self.route_tracks = ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks()
                     self.route_tracks.parent = self
                     self._children_name_map["route_tracks"] = "route-tracks"
-                    self._children_yang_names.add("route-tracks")
 
                     self.ipsla_tracks = ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks()
                     self.ipsla_tracks.parent = self
                     self._children_name_map["ipsla_tracks"] = "ipsla-tracks"
-                    self._children_yang_names.add("ipsla-tracks")
 
                     self.bfd_tracks = ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks()
                     self.bfd_tracks.parent = self
                     self._children_name_map["bfd_tracks"] = "bfd-tracks"
-                    self._children_yang_names.add("bfd-tracks")
                     self._segment_path = lambda: "track-type-info"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface-brief/track-info-brief/%s" % self._segment_path()
 
@@ -4824,8 +4680,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ])
@@ -4884,8 +4739,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('prefix', YLeaf(YType.uint32, 'prefix')),
                             ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
@@ -4943,8 +4797,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('ipsla_op_id', YLeaf(YType.uint32, 'ipsla-op-id')),
                             ('rtt', YLeaf(YType.uint32, 'rtt')),
@@ -5007,8 +4860,7 @@ class ObjectTracking(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('destination_address', YLeaf(YType.uint32, 'destination-address')),

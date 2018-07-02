@@ -40,8 +40,7 @@ class LldpEntries(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("lldp-entry", ("lldp_entry", LldpEntries.LldpEntry))])
+        self._child_classes = OrderedDict([("lldp-entry", ("lldp_entry", LldpEntries.LldpEntry))])
         self._leafs = OrderedDict()
 
         self.lldp_entry = YList(self)
@@ -97,8 +96,7 @@ class LldpEntries(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['device_id','local_interface','connecting_interface']
-            self._child_container_classes = OrderedDict([("capabilities", ("capabilities", LldpEntries.LldpEntry.Capabilities))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("capabilities", ("capabilities", LldpEntries.LldpEntry.Capabilities))])
             self._leafs = OrderedDict([
                 ('device_id', YLeaf(YType.str, 'device-id')),
                 ('local_interface', YLeaf(YType.str, 'local-interface')),
@@ -113,7 +111,6 @@ class LldpEntries(Entity):
             self.capabilities = LldpEntries.LldpEntry.Capabilities()
             self.capabilities.parent = self
             self._children_name_map["capabilities"] = "capabilities"
-            self._children_yang_names.add("capabilities")
             self._segment_path = lambda: "lldp-entry" + "[device-id='" + str(self.device_id) + "']" + "[local-interface='" + str(self.local_interface) + "']" + "[connecting-interface='" + str(self.connecting_interface) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-lldp-oper:lldp-entries/%s" % self._segment_path()
 
@@ -180,8 +177,7 @@ class LldpEntries(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('repeater', YLeaf(YType.empty, 'repeater')),
                     ('bridge', YLeaf(YType.empty, 'bridge')),

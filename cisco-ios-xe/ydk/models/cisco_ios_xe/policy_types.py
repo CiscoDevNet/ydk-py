@@ -114,131 +114,6 @@ class RateUnit(Enum):
 
 
 
-class PolicyType(Identity):
-    """
-     
-    This is identity of base policy\-type
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(PolicyType, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:policy-type")
-
-
-class ClassType(Identity):
-    """
-     
-    This is identity of base class\-type
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(ClassType, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:class-type")
-
-
-class Cos(Identity):
-    """
-    
-    Filter\-type IEEE 802.1Q/ISL class of service/user 
-    priority values
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(Cos, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:cos")
-
-
-class CosInner(Identity):
-    """
-    ATM VC configured as Access VC
-    class of service/user priority values
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(CosInner, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:cos-inner")
-
-
-class Ipv4AclName(Identity):
-    """
-    IPV4 access group list
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(Ipv4AclName, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:ipv4-acl-name")
-
-
-class Ipv6AclName(Identity):
-    """
-    IPV6 access group list
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(Ipv6AclName, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:ipv6-acl-name")
-
-
-class Ipv4Acl(Identity):
-    """
-    IPV4 access group Index
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(Ipv4Acl, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:ipv4-acl")
-
-
-class Ipv6Acl(Identity):
-    """
-    IPV6 access group Index
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(Ipv6Acl, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:ipv6-acl")
-
-
 class InputInterface(Identity):
     """
     Input interface
@@ -267,308 +142,6 @@ class SrcMac(Identity):
 
     def __init__(self):
         super(SrcMac, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:src-mac")
-
-
-class DstMac(Identity):
-    """
-    Destination MAC address
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(DstMac, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:dst-mac")
-
-
-class MplsExpTop(Identity):
-    """
-    Multi Protocol Label Switching experimental 
-    topmost specific values
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(MplsExpTop, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:mpls-exp-top")
-
-
-class MplsExpImp(Identity):
-    """
-    Multi Protocol Label Switching experimental 
-    imposition specific values
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(MplsExpImp, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:mpls-exp-imp")
-
-
-class PacketLength(Identity):
-    """
-    Layer 3 packet length
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(PacketLength, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:packet-length")
-
-
-class Prec(Identity):
-    """
-    IP precendence
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(Prec, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:prec")
-
-
-class QosGroup(Identity):
-    """
-    QOS group
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(QosGroup, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:qos-group")
-
-
-class Vlan(Identity):
-    """
-    Vlan
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(Vlan, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:vlan")
-
-
-class VlanInner(Identity):
-    """
-    Vlan\-inner
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(VlanInner, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:vlan-inner")
-
-
-class AtmClp(Identity):
-    """
-    ATM CLP bit
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(AtmClp, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:atm-clp")
-
-
-class AtmVci(Identity):
-    """
-    ATM VCI number
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(AtmVci, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:atm-vci")
-
-
-class Dei(Identity):
-    """
-    Frame\-relay DE bit
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(Dei, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:dei")
-
-
-class DeiInner(Identity):
-    """
-    Frame\-relay inner DE bit
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(DeiInner, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:dei-inner")
-
-
-class FlowIp(Identity):
-    """
-    Flow IP
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(FlowIp, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:flow-ip")
-
-
-class FlowRecord(Identity):
-    """
-    FLow record
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(FlowRecord, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:flow-record")
-
-
-class FlowDe(Identity):
-    """
-    Flow DE
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(FlowDe, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:flow-de")
-
-
-class FlowDlci(Identity):
-    """
-    Frame\-relay DLCI
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(FlowDlci, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:flow-dlci")
-
-
-class WlanUserPriority(Identity):
-    """
-    WLAN user priority
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(WlanUserPriority, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:wlan-user-priority")
-
-
-class DiscardClass(Identity):
-    """
-    Discard behavior identifier
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(DiscardClass, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:discard-class")
-
-
-class ClassMap(Identity):
-    """
-    class\-map
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(ClassMap, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:class-map")
-
-
-class Metadata(Identity):
-    """
-    metadata
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(Metadata, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:metadata")
 
 
 class Application(Identity):
@@ -601,9 +174,9 @@ class SecurityGroupName(Identity):
         super(SecurityGroupName, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:security-group-name")
 
 
-class SecurityGroupTag(Identity):
+class Ipv4AclName(Identity):
     """
-    security group tag
+    IPV4 access group list
     
     
 
@@ -613,7 +186,232 @@ class SecurityGroupTag(Identity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        super(SecurityGroupTag, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:security-group-tag")
+        super(Ipv4AclName, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:ipv4-acl-name")
+
+
+class FlowDlci(Identity):
+    """
+    Frame\-relay DLCI
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(FlowDlci, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:flow-dlci")
+
+
+class Dei(Identity):
+    """
+    Frame\-relay DE bit
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(Dei, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:dei")
+
+
+class Prec(Identity):
+    """
+    IP precendence
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(Prec, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:prec")
+
+
+class PacketLength(Identity):
+    """
+    Layer 3 packet length
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(PacketLength, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:packet-length")
+
+
+class Ipv4Acl(Identity):
+    """
+    IPV4 access group Index
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(Ipv4Acl, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:ipv4-acl")
+
+
+class FlowDe(Identity):
+    """
+    Flow DE
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(FlowDe, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:flow-de")
+
+
+class FlowIp(Identity):
+    """
+    Flow IP
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(FlowIp, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:flow-ip")
+
+
+class FlowRecord(Identity):
+    """
+    FLow record
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(FlowRecord, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:flow-record")
+
+
+class VlanInner(Identity):
+    """
+    Vlan\-inner
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(VlanInner, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:vlan-inner")
+
+
+class Metadata(Identity):
+    """
+    metadata
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(Metadata, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:metadata")
+
+
+class Vlan(Identity):
+    """
+    Vlan
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(Vlan, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:vlan")
+
+
+class AtmVci(Identity):
+    """
+    ATM VCI number
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(AtmVci, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:atm-vci")
+
+
+class ClassMap(Identity):
+    """
+    class\-map
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(ClassMap, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:class-map")
+
+
+class QosGroup(Identity):
+    """
+    QOS group
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(QosGroup, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:qos-group")
+
+
+class WlanUserPriority(Identity):
+    """
+    WLAN user priority
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(WlanUserPriority, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:wlan-user-priority")
 
 
 class IpRtp(Identity):
@@ -631,6 +429,192 @@ class IpRtp(Identity):
         super(IpRtp, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:ip-rtp")
 
 
+class Ipv6Acl(Identity):
+    """
+    IPV6 access group Index
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(Ipv6Acl, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:ipv6-acl")
+
+
+class AtmClp(Identity):
+    """
+    ATM CLP bit
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(AtmClp, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:atm-clp")
+
+
+class DstMac(Identity):
+    """
+    Destination MAC address
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(DstMac, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:dst-mac")
+
+
+class Cos(Identity):
+    """
+    
+    Filter\-type IEEE 802.1Q/ISL class of service/user 
+    priority values
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(Cos, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:cos")
+
+
+class DeiInner(Identity):
+    """
+    Frame\-relay inner DE bit
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(DeiInner, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:dei-inner")
+
+
+class MplsExpTop(Identity):
+    """
+    Multi Protocol Label Switching experimental 
+    topmost specific values
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(MplsExpTop, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:mpls-exp-top")
+
+
+class CosInner(Identity):
+    """
+    ATM VC configured as Access VC
+    class of service/user priority values
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(CosInner, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:cos-inner")
+
+
+class Ipv6AclName(Identity):
+    """
+    IPV6 access group list
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(Ipv6AclName, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:ipv6-acl-name")
+
+
+class MplsExpImp(Identity):
+    """
+    Multi Protocol Label Switching experimental 
+    imposition specific values
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(MplsExpImp, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:mpls-exp-imp")
+
+
+class SecurityGroupTag(Identity):
+    """
+    security group tag
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(SecurityGroupTag, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:security-group-tag")
+
+
+class ClassType(Identity):
+    """
+     
+    This is identity of base class\-type
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(ClassType, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:class-type")
+
+
+class DiscardClass(Identity):
+    """
+    Discard behavior identifier
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(DiscardClass, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:discard-class")
+
+
 class Vpls(Identity):
     """
     VPLS
@@ -644,6 +628,38 @@ class Vpls(Identity):
 
     def __init__(self):
         super(Vpls, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:vpls")
+
+
+class PolicyType(Identity):
+    """
+     
+    This is identity of base policy\-type
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(PolicyType, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:policy-type")
+
+
+class Control(Identity):
+    """
+    
+    Policy\-type control policy\-map
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(Control, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:control")
 
 
 class Qos(Identity):
@@ -662,22 +678,6 @@ class Qos(Identity):
         super(Qos, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:qos")
 
 
-class Pbr(Identity):
-    """
-    
-    Policy\-type PBR (policy based routing)
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(Pbr, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:pbr")
-
-
 class PerfMon(Identity):
     """
     
@@ -692,6 +692,118 @@ class PerfMon(Identity):
 
     def __init__(self):
         super(PerfMon, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:perf-mon")
+
+
+class PacketService(Identity):
+    """
+    
+    Policy\-type Packet Service Policy Map
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(PacketService, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:packet-service")
+
+
+class QosClass(Identity):
+    """
+    
+    QOS class\-map
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(QosClass, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:qos-class")
+
+
+class ControlClass(Identity):
+    """
+    
+    Control policy class\-map
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(ControlClass, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:control-class")
+
+
+class InspectClass(Identity):
+    """
+    
+    Firewall Class Map
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(InspectClass, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:inspect-class")
+
+
+class AppnavClass(Identity):
+    """
+    
+    APPNAV Class Map
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(AppnavClass, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:appnav-class")
+
+
+class Service(Identity):
+    """
+    
+    Policy\-type policymap service configuration
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(Service, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:service")
+
+
+class AccessControlClass(Identity):
+    """
+    
+    Access\-control specific class\-map
+    
+    
+
+    """
+
+    _prefix = 'policy-types'
+    _revision = '2013-10-07'
+
+    def __init__(self):
+        super(AccessControlClass, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:access-control-class")
 
 
 class AccessControl(Identity):
@@ -726,22 +838,6 @@ class Appnav(Identity):
         super(Appnav, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:appnav")
 
 
-class Control(Identity):
-    """
-    
-    Policy\-type control policy\-map
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(Control, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:control")
-
-
 class Inspect(Identity):
     """
     
@@ -758,26 +854,10 @@ class Inspect(Identity):
         super(Inspect, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:inspect")
 
 
-class PacketService(Identity):
+class Pbr(Identity):
     """
     
-    Policy\-type Packet Service Policy Map
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(PacketService, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:packet-service")
-
-
-class Service(Identity):
-    """
-    
-    Policy\-type policymap service configuration
+    Policy\-type PBR (policy based routing)
     
     
 
@@ -787,86 +867,6 @@ class Service(Identity):
     _revision = '2013-10-07'
 
     def __init__(self):
-        super(Service, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:service")
-
-
-class QosClass(Identity):
-    """
-    
-    QOS class\-map
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(QosClass, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:qos-class")
-
-
-class AccessControlClass(Identity):
-    """
-    
-    Access\-control specific class\-map
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(AccessControlClass, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:access-control-class")
-
-
-class AppnavClass(Identity):
-    """
-    
-    APPNAV Class Map
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(AppnavClass, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:appnav-class")
-
-
-class ControlClass(Identity):
-    """
-    
-    Control policy class\-map
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(ControlClass, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:control-class")
-
-
-class InspectClass(Identity):
-    """
-    
-    Firewall Class Map
-    
-    
-
-    """
-
-    _prefix = 'policy-types'
-    _revision = '2013-10-07'
-
-    def __init__(self):
-        super(InspectClass, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:inspect-class")
+        super(Pbr, self).__init__("urn:ietf:params:xml:ns:yang:c3pl-types", "policy-types", "policy-types:pbr")
 
 

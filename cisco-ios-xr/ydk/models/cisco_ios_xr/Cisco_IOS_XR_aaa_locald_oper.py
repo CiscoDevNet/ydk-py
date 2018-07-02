@@ -69,6 +69,11 @@ class Aaa(Entity):
     	Specific Usergroup Information
     	**type**\:  :py:class:`CurrentUsergroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.CurrentUsergroup>`
     
+    .. attribute:: tacacs
+    
+    	TACACS operational data
+    	**type**\:  :py:class:`Tacacs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs>`
+    
     .. attribute:: diameter
     
     	Diameter operational data
@@ -78,11 +83,6 @@ class Aaa(Entity):
     
     	RADIUS operational data
     	**type**\:  :py:class:`Radius <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius>`
-    
-    .. attribute:: tacacs
-    
-    	TACACS operational data
-    	**type**\:  :py:class:`Tacacs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs>`
     
     
 
@@ -100,70 +100,60 @@ class Aaa(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("all-tasks", ("all_tasks", Aaa.AllTasks)), ("currentuser-detail", ("currentuser_detail", Aaa.CurrentuserDetail)), ("task-map", ("task_map", Aaa.TaskMap)), ("taskgroups", ("taskgroups", Aaa.Taskgroups)), ("users", ("users", Aaa.Users)), ("password-policies", ("password_policies", Aaa.PasswordPolicies)), ("usergroups", ("usergroups", Aaa.Usergroups)), ("authen-method", ("authen_method", Aaa.AuthenMethod)), ("current-usergroup", ("current_usergroup", Aaa.CurrentUsergroup)), ("Cisco-IOS-XR-aaa-diameter-oper:diameter", ("diameter", Aaa.Diameter)), ("Cisco-IOS-XR-aaa-protocol-radius-oper:radius", ("radius", Aaa.Radius)), ("Cisco-IOS-XR-aaa-tacacs-oper:tacacs", ("tacacs", Aaa.Tacacs))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("all-tasks", ("all_tasks", Aaa.AllTasks)), ("currentuser-detail", ("currentuser_detail", Aaa.CurrentuserDetail)), ("task-map", ("task_map", Aaa.TaskMap)), ("taskgroups", ("taskgroups", Aaa.Taskgroups)), ("users", ("users", Aaa.Users)), ("password-policies", ("password_policies", Aaa.PasswordPolicies)), ("usergroups", ("usergroups", Aaa.Usergroups)), ("authen-method", ("authen_method", Aaa.AuthenMethod)), ("current-usergroup", ("current_usergroup", Aaa.CurrentUsergroup)), ("Cisco-IOS-XR-aaa-tacacs-oper:tacacs", ("tacacs", Aaa.Tacacs)), ("Cisco-IOS-XR-aaa-diameter-oper:diameter", ("diameter", Aaa.Diameter)), ("Cisco-IOS-XR-aaa-protocol-radius-oper:radius", ("radius", Aaa.Radius))])
         self._leafs = OrderedDict()
 
         self.all_tasks = Aaa.AllTasks()
         self.all_tasks.parent = self
         self._children_name_map["all_tasks"] = "all-tasks"
-        self._children_yang_names.add("all-tasks")
 
         self.currentuser_detail = Aaa.CurrentuserDetail()
         self.currentuser_detail.parent = self
         self._children_name_map["currentuser_detail"] = "currentuser-detail"
-        self._children_yang_names.add("currentuser-detail")
 
         self.task_map = Aaa.TaskMap()
         self.task_map.parent = self
         self._children_name_map["task_map"] = "task-map"
-        self._children_yang_names.add("task-map")
 
         self.taskgroups = Aaa.Taskgroups()
         self.taskgroups.parent = self
         self._children_name_map["taskgroups"] = "taskgroups"
-        self._children_yang_names.add("taskgroups")
 
         self.users = Aaa.Users()
         self.users.parent = self
         self._children_name_map["users"] = "users"
-        self._children_yang_names.add("users")
 
         self.password_policies = Aaa.PasswordPolicies()
         self.password_policies.parent = self
         self._children_name_map["password_policies"] = "password-policies"
-        self._children_yang_names.add("password-policies")
 
         self.usergroups = Aaa.Usergroups()
         self.usergroups.parent = self
         self._children_name_map["usergroups"] = "usergroups"
-        self._children_yang_names.add("usergroups")
 
         self.authen_method = Aaa.AuthenMethod()
         self.authen_method.parent = self
         self._children_name_map["authen_method"] = "authen-method"
-        self._children_yang_names.add("authen-method")
 
         self.current_usergroup = Aaa.CurrentUsergroup()
         self.current_usergroup.parent = self
         self._children_name_map["current_usergroup"] = "current-usergroup"
-        self._children_yang_names.add("current-usergroup")
-
-        self.diameter = Aaa.Diameter()
-        self.diameter.parent = self
-        self._children_name_map["diameter"] = "Cisco-IOS-XR-aaa-diameter-oper:diameter"
-        self._children_yang_names.add("Cisco-IOS-XR-aaa-diameter-oper:diameter")
-
-        self.radius = Aaa.Radius()
-        self.radius.parent = self
-        self._children_name_map["radius"] = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius"
-        self._children_yang_names.add("Cisco-IOS-XR-aaa-protocol-radius-oper:radius")
 
         self.tacacs = Aaa.Tacacs()
         self.tacacs.parent = self
         self._children_name_map["tacacs"] = "Cisco-IOS-XR-aaa-tacacs-oper:tacacs"
-        self._children_yang_names.add("Cisco-IOS-XR-aaa-tacacs-oper:tacacs")
+
+        self.diameter = Aaa.Diameter()
+        self.diameter.parent = self
+        self._children_name_map["diameter"] = "Cisco-IOS-XR-aaa-diameter-oper:diameter"
+
+        self.radius = Aaa.Radius()
+        self.radius.parent = self
+        self._children_name_map["radius"] = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius"
         self._segment_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Aaa, [], name, value)
 
 
     class AllTasks(Entity):
@@ -190,8 +180,7 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('task_id', YLeafList(YType.str, 'task-id')),
             ])
@@ -244,8 +233,7 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('name', YLeaf(YType.str, 'name')),
                 ('authenmethod', YLeaf(YType.int32, 'authenmethod')),
@@ -304,8 +292,7 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('name', YLeaf(YType.str, 'name')),
                 ('authenmethod', YLeaf(YType.int32, 'authenmethod')),
@@ -347,8 +334,7 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("taskgroup", ("taskgroup", Aaa.Taskgroups.Taskgroup))])
+            self._child_classes = OrderedDict([("taskgroup", ("taskgroup", Aaa.Taskgroups.Taskgroup))])
             self._leafs = OrderedDict()
 
             self.taskgroup = YList(self)
@@ -398,8 +384,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([("included-task-ids", ("included_task_ids", Aaa.Taskgroups.Taskgroup.IncludedTaskIds)), ("task-map", ("task_map", Aaa.Taskgroups.Taskgroup.TaskMap))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("included-task-ids", ("included_task_ids", Aaa.Taskgroups.Taskgroup.IncludedTaskIds)), ("task-map", ("task_map", Aaa.Taskgroups.Taskgroup.TaskMap))])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('name_xr', YLeaf(YType.str, 'name-xr')),
@@ -410,17 +395,15 @@ class Aaa(Entity):
                 self.included_task_ids = Aaa.Taskgroups.Taskgroup.IncludedTaskIds()
                 self.included_task_ids.parent = self
                 self._children_name_map["included_task_ids"] = "included-task-ids"
-                self._children_yang_names.add("included-task-ids")
 
                 self.task_map = Aaa.Taskgroups.Taskgroup.TaskMap()
                 self.task_map.parent = self
                 self._children_name_map["task_map"] = "task-map"
-                self._children_yang_names.add("task-map")
                 self._segment_path = lambda: "taskgroup" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/taskgroups/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Taskgroups.Taskgroup, ['name', 'name_xr'], name, value)
+                self._perform_setattr(Aaa.Taskgroups.Taskgroup, [u'name', 'name_xr'], name, value)
 
 
             class IncludedTaskIds(Entity):
@@ -447,8 +430,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("tasks", ("tasks", Aaa.Taskgroups.Taskgroup.IncludedTaskIds.Tasks))])
+                    self._child_classes = OrderedDict([("tasks", ("tasks", Aaa.Taskgroups.Taskgroup.IncludedTaskIds.Tasks))])
                     self._leafs = OrderedDict()
 
                     self.tasks = YList(self)
@@ -502,8 +484,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('task_id', YLeaf(YType.str, 'task-id')),
                             ('read', YLeaf(YType.boolean, 'read')),
@@ -546,8 +527,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("tasks", ("tasks", Aaa.Taskgroups.Taskgroup.TaskMap.Tasks))])
+                    self._child_classes = OrderedDict([("tasks", ("tasks", Aaa.Taskgroups.Taskgroup.TaskMap.Tasks))])
                     self._leafs = OrderedDict()
 
                     self.tasks = YList(self)
@@ -601,8 +581,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('task_id', YLeaf(YType.str, 'task-id')),
                             ('read', YLeaf(YType.boolean, 'read')),
@@ -645,8 +624,7 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("user", ("user", Aaa.Users.User))])
+            self._child_classes = OrderedDict([("user", ("user", Aaa.Users.User))])
             self._leafs = OrderedDict()
 
             self.user = YList(self)
@@ -706,8 +684,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([("task-map", ("task_map", Aaa.Users.User.TaskMap))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("task-map", ("task_map", Aaa.Users.User.TaskMap))])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('name_xr', YLeaf(YType.str, 'name-xr')),
@@ -724,12 +701,11 @@ class Aaa(Entity):
                 self.task_map = Aaa.Users.User.TaskMap()
                 self.task_map.parent = self
                 self._children_name_map["task_map"] = "task-map"
-                self._children_yang_names.add("task-map")
                 self._segment_path = lambda: "user" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/users/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Users.User, ['name', 'name_xr', 'admin_user', 'first_user', 'usergroup'], name, value)
+                self._perform_setattr(Aaa.Users.User, [u'name', 'name_xr', 'admin_user', 'first_user', 'usergroup'], name, value)
 
 
             class TaskMap(Entity):
@@ -756,8 +732,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("tasks", ("tasks", Aaa.Users.User.TaskMap.Tasks))])
+                    self._child_classes = OrderedDict([("tasks", ("tasks", Aaa.Users.User.TaskMap.Tasks))])
                     self._leafs = OrderedDict()
 
                     self.tasks = YList(self)
@@ -811,8 +786,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('task_id', YLeaf(YType.str, 'task-id')),
                             ('read', YLeaf(YType.boolean, 'read')),
@@ -856,8 +830,7 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("password-policy", ("password_policy", Aaa.PasswordPolicies.PasswordPolicy))])
+            self._child_classes = OrderedDict([("password-policy", ("password_policy", Aaa.PasswordPolicies.PasswordPolicy))])
             self._leafs = OrderedDict()
 
             self.password_policy = YList(self)
@@ -991,8 +964,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([("life-time", ("life_time", Aaa.PasswordPolicies.PasswordPolicy.LifeTime)), ("lock-out-time", ("lock_out_time", Aaa.PasswordPolicies.PasswordPolicy.LockOutTime))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("life-time", ("life_time", Aaa.PasswordPolicies.PasswordPolicy.LifeTime)), ("lock-out-time", ("lock_out_time", Aaa.PasswordPolicies.PasswordPolicy.LockOutTime))])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('name_xr', YLeaf(YType.str, 'name-xr')),
@@ -1027,17 +999,15 @@ class Aaa(Entity):
                 self.life_time = Aaa.PasswordPolicies.PasswordPolicy.LifeTime()
                 self.life_time.parent = self
                 self._children_name_map["life_time"] = "life-time"
-                self._children_yang_names.add("life-time")
 
                 self.lock_out_time = Aaa.PasswordPolicies.PasswordPolicy.LockOutTime()
                 self.lock_out_time.parent = self
                 self._children_name_map["lock_out_time"] = "lock-out-time"
-                self._children_yang_names.add("lock-out-time")
                 self._segment_path = lambda: "password-policy" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/password-policies/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.PasswordPolicies.PasswordPolicy, ['name', 'name_xr', 'min_len', 'max_len', 'spl_char', 'upper_case', 'lower_case', 'numeric', 'min_char_change', 'num_of_users', 'max_fail_attempts', 'usr_count', 'err_count', 'lock_out_count'], name, value)
+                self._perform_setattr(Aaa.PasswordPolicies.PasswordPolicy, [u'name', 'name_xr', 'min_len', 'max_len', 'spl_char', 'upper_case', 'lower_case', 'numeric', 'min_char_change', 'num_of_users', 'max_fail_attempts', 'usr_count', 'err_count', 'lock_out_count'], name, value)
 
 
             class LifeTime(Entity):
@@ -1101,8 +1071,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('years', YLeaf(YType.uint8, 'years')),
                         ('months', YLeaf(YType.uint8, 'months')),
@@ -1184,8 +1153,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('years', YLeaf(YType.uint8, 'years')),
                         ('months', YLeaf(YType.uint8, 'months')),
@@ -1230,8 +1198,7 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("usergroup", ("usergroup", Aaa.Usergroups.Usergroup))])
+            self._child_classes = OrderedDict([("usergroup", ("usergroup", Aaa.Usergroups.Usergroup))])
             self._leafs = OrderedDict()
 
             self.usergroup = YList(self)
@@ -1281,8 +1248,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([("task-map", ("task_map", Aaa.Usergroups.Usergroup.TaskMap))])
-                self._child_list_classes = OrderedDict([("taskgroup", ("taskgroup", Aaa.Usergroups.Usergroup.Taskgroup))])
+                self._child_classes = OrderedDict([("task-map", ("task_map", Aaa.Usergroups.Usergroup.TaskMap)), ("taskgroup", ("taskgroup", Aaa.Usergroups.Usergroup.Taskgroup))])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('name_xr', YLeaf(YType.str, 'name-xr')),
@@ -1293,14 +1259,13 @@ class Aaa(Entity):
                 self.task_map = Aaa.Usergroups.Usergroup.TaskMap()
                 self.task_map.parent = self
                 self._children_name_map["task_map"] = "task-map"
-                self._children_yang_names.add("task-map")
 
                 self.taskgroup = YList(self)
                 self._segment_path = lambda: "usergroup" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/usergroups/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Usergroups.Usergroup, ['name', 'name_xr'], name, value)
+                self._perform_setattr(Aaa.Usergroups.Usergroup, [u'name', 'name_xr'], name, value)
 
 
             class TaskMap(Entity):
@@ -1327,8 +1292,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("tasks", ("tasks", Aaa.Usergroups.Usergroup.TaskMap.Tasks))])
+                    self._child_classes = OrderedDict([("tasks", ("tasks", Aaa.Usergroups.Usergroup.TaskMap.Tasks))])
                     self._leafs = OrderedDict()
 
                     self.tasks = YList(self)
@@ -1382,8 +1346,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('task_id', YLeaf(YType.str, 'task-id')),
                             ('read', YLeaf(YType.boolean, 'read')),
@@ -1436,8 +1399,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("included-task-ids", ("included_task_ids", Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds)), ("task-map", ("task_map", Aaa.Usergroups.Usergroup.Taskgroup.TaskMap))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("included-task-ids", ("included_task_ids", Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds)), ("task-map", ("task_map", Aaa.Usergroups.Usergroup.Taskgroup.TaskMap))])
                     self._leafs = OrderedDict([
                         ('name_xr', YLeaf(YType.str, 'name-xr')),
                     ])
@@ -1446,12 +1408,10 @@ class Aaa(Entity):
                     self.included_task_ids = Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds()
                     self.included_task_ids.parent = self
                     self._children_name_map["included_task_ids"] = "included-task-ids"
-                    self._children_yang_names.add("included-task-ids")
 
                     self.task_map = Aaa.Usergroups.Usergroup.Taskgroup.TaskMap()
                     self.task_map.parent = self
                     self._children_name_map["task_map"] = "task-map"
-                    self._children_yang_names.add("task-map")
                     self._segment_path = lambda: "taskgroup"
 
                 def __setattr__(self, name, value):
@@ -1482,8 +1442,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("tasks", ("tasks", Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds.Tasks))])
+                        self._child_classes = OrderedDict([("tasks", ("tasks", Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds.Tasks))])
                         self._leafs = OrderedDict()
 
                         self.tasks = YList(self)
@@ -1537,8 +1496,7 @@ class Aaa(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('task_id', YLeaf(YType.str, 'task-id')),
                                 ('read', YLeaf(YType.boolean, 'read')),
@@ -1581,8 +1539,7 @@ class Aaa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("tasks", ("tasks", Aaa.Usergroups.Usergroup.Taskgroup.TaskMap.Tasks))])
+                        self._child_classes = OrderedDict([("tasks", ("tasks", Aaa.Usergroups.Usergroup.Taskgroup.TaskMap.Tasks))])
                         self._leafs = OrderedDict()
 
                         self.tasks = YList(self)
@@ -1636,8 +1593,7 @@ class Aaa(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('task_id', YLeaf(YType.str, 'task-id')),
                                 ('read', YLeaf(YType.boolean, 'read')),
@@ -1697,8 +1653,7 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('name', YLeaf(YType.str, 'name')),
                 ('authenmethod', YLeaf(YType.int32, 'authenmethod')),
@@ -1757,8 +1712,7 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('name', YLeaf(YType.str, 'name')),
                 ('authenmethod', YLeaf(YType.int32, 'authenmethod')),
@@ -1774,6 +1728,757 @@ class Aaa(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(Aaa.CurrentUsergroup, ['name', 'authenmethod', 'usergroup', 'taskmap'], name, value)
+
+
+    class Tacacs(Entity):
+        """
+        TACACS operational data
+        
+        .. attribute:: requests
+        
+        	TACACS Active Request List
+        	**type**\:  :py:class:`Requests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests>`
+        
+        .. attribute:: servers
+        
+        	TACACS server Information
+        	**type**\:  :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers>`
+        
+        .. attribute:: server_groups
+        
+        	TACACS sg Information
+        	**type**\:  :py:class:`ServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups>`
+        
+        
+
+        """
+
+        _prefix = 'aaa-tacacs-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Aaa.Tacacs, self).__init__()
+
+            self.yang_name = "tacacs"
+            self.yang_parent_name = "aaa"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("requests", ("requests", Aaa.Tacacs.Requests)), ("servers", ("servers", Aaa.Tacacs.Servers)), ("server-groups", ("server_groups", Aaa.Tacacs.ServerGroups))])
+            self._leafs = OrderedDict()
+
+            self.requests = Aaa.Tacacs.Requests()
+            self.requests.parent = self
+            self._children_name_map["requests"] = "requests"
+
+            self.servers = Aaa.Tacacs.Servers()
+            self.servers.parent = self
+            self._children_name_map["servers"] = "servers"
+
+            self.server_groups = Aaa.Tacacs.ServerGroups()
+            self.server_groups.parent = self
+            self._children_name_map["server_groups"] = "server-groups"
+            self._segment_path = lambda: "Cisco-IOS-XR-aaa-tacacs-oper:tacacs"
+            self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Aaa.Tacacs, [], name, value)
+
+
+        class Requests(Entity):
+            """
+            TACACS Active Request List
+            
+            .. attribute:: request
+            
+            	request
+            	**type**\: list of  		 :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-tacacs-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Aaa.Tacacs.Requests, self).__init__()
+
+                self.yang_name = "requests"
+                self.yang_parent_name = "tacacs"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("request", ("request", Aaa.Tacacs.Requests.Request))])
+                self._leafs = OrderedDict()
+
+                self.request = YList(self)
+                self._segment_path = lambda: "requests"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.Tacacs.Requests, [], name, value)
+
+
+            class Request(Entity):
+                """
+                request
+                
+                .. attribute:: tacacs_requestbag
+                
+                	tacacs requestbag
+                	**type**\: list of  		 :py:class:`TacacsRequestbag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request.TacacsRequestbag>`
+                
+                
+
+                """
+
+                _prefix = 'aaa-tacacs-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Aaa.Tacacs.Requests.Request, self).__init__()
+
+                    self.yang_name = "request"
+                    self.yang_parent_name = "requests"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("tacacs-requestbag", ("tacacs_requestbag", Aaa.Tacacs.Requests.Request.TacacsRequestbag))])
+                    self._leafs = OrderedDict()
+
+                    self.tacacs_requestbag = YList(self)
+                    self._segment_path = lambda: "request"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/requests/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.Tacacs.Requests.Request, [], name, value)
+
+
+                class TacacsRequestbag(Entity):
+                    """
+                    tacacs requestbag
+                    
+                    .. attribute:: time_remaining
+                    
+                    	time remaining for this request
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: bytes_out
+                    
+                    	bytes written
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: out_pak_size
+                    
+                    	size of the packet to be sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: bytes_in
+                    
+                    	bytes read from socket
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: in_pak_size
+                    
+                    	size of the packet to be received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: pak_type
+                    
+                    	the type of packet
+                    	**type**\: str
+                    
+                    .. attribute:: session_id
+                    
+                    	same as in pkt hdr
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: sock
+                    
+                    	socket number
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    
+
+                    """
+
+                    _prefix = 'aaa-tacacs-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Aaa.Tacacs.Requests.Request.TacacsRequestbag, self).__init__()
+
+                        self.yang_name = "tacacs-requestbag"
+                        self.yang_parent_name = "request"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('time_remaining', YLeaf(YType.uint32, 'time-remaining')),
+                            ('bytes_out', YLeaf(YType.uint32, 'bytes-out')),
+                            ('out_pak_size', YLeaf(YType.uint32, 'out-pak-size')),
+                            ('bytes_in', YLeaf(YType.uint32, 'bytes-in')),
+                            ('in_pak_size', YLeaf(YType.uint32, 'in-pak-size')),
+                            ('pak_type', YLeaf(YType.str, 'pak-type')),
+                            ('session_id', YLeaf(YType.int32, 'session-id')),
+                            ('sock', YLeaf(YType.int32, 'sock')),
+                        ])
+                        self.time_remaining = None
+                        self.bytes_out = None
+                        self.out_pak_size = None
+                        self.bytes_in = None
+                        self.in_pak_size = None
+                        self.pak_type = None
+                        self.session_id = None
+                        self.sock = None
+                        self._segment_path = lambda: "tacacs-requestbag"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/requests/request/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Aaa.Tacacs.Requests.Request.TacacsRequestbag, [u'time_remaining', u'bytes_out', u'out_pak_size', u'bytes_in', u'in_pak_size', u'pak_type', u'session_id', u'sock'], name, value)
+
+
+        class Servers(Entity):
+            """
+            TACACS server Information
+            
+            .. attribute:: server
+            
+            	server
+            	**type**\: list of  		 :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers.Server>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-tacacs-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Aaa.Tacacs.Servers, self).__init__()
+
+                self.yang_name = "servers"
+                self.yang_parent_name = "tacacs"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("server", ("server", Aaa.Tacacs.Servers.Server))])
+                self._leafs = OrderedDict()
+
+                self.server = YList(self)
+                self._segment_path = lambda: "servers"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.Tacacs.Servers, [], name, value)
+
+
+            class Server(Entity):
+                """
+                server
+                
+                .. attribute:: addr
+                
+                	internet address of T+ server
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                .. attribute:: timeout
+                
+                	per\-server timeout
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: port
+                
+                	per server port to use
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: bytes_in
+                
+                	# of bytes read
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: byte
+                
+                .. attribute:: bytes_out
+                
+                	# of bytes out
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: byte
+                
+                .. attribute:: closes
+                
+                	socket closes
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: opens
+                
+                	socket opens
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: errors
+                
+                	error count
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: aborts
+                
+                	abort count
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: paks_in
+                
+                	# of incoming packets read
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: paks_out
+                
+                	# of outgoing packets sent
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: replies_expected
+                
+                	# of replies expected to arrive
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: up
+                
+                	is the server UP or down ?
+                	**type**\: bool
+                
+                .. attribute:: conn_up
+                
+                	is the server connected ?
+                	**type**\: bool
+                
+                .. attribute:: single_connect
+                
+                	is this a single connect server ?
+                	**type**\: bool
+                
+                .. attribute:: is_private
+                
+                	is this a private server ?
+                	**type**\: bool
+                
+                .. attribute:: vrf_name
+                
+                	VRF in which server is reachable
+                	**type**\: str
+                
+                	**length:** 0..33
+                
+                .. attribute:: addr_buf
+                
+                	IP address buffer
+                	**type**\: str
+                
+                	**length:** 0..46
+                
+                .. attribute:: family
+                
+                	IP address Family
+                	**type**\: str
+                
+                	**length:** 0..5
+                
+                
+
+                """
+
+                _prefix = 'aaa-tacacs-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Aaa.Tacacs.Servers.Server, self).__init__()
+
+                    self.yang_name = "server"
+                    self.yang_parent_name = "servers"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('addr', YLeaf(YType.str, 'addr')),
+                        ('timeout', YLeaf(YType.uint32, 'timeout')),
+                        ('port', YLeaf(YType.uint32, 'port')),
+                        ('bytes_in', YLeaf(YType.uint32, 'bytes-in')),
+                        ('bytes_out', YLeaf(YType.uint32, 'bytes-out')),
+                        ('closes', YLeaf(YType.uint32, 'closes')),
+                        ('opens', YLeaf(YType.uint32, 'opens')),
+                        ('errors', YLeaf(YType.uint32, 'errors')),
+                        ('aborts', YLeaf(YType.uint32, 'aborts')),
+                        ('paks_in', YLeaf(YType.uint32, 'paks-in')),
+                        ('paks_out', YLeaf(YType.uint32, 'paks-out')),
+                        ('replies_expected', YLeaf(YType.uint32, 'replies-expected')),
+                        ('up', YLeaf(YType.boolean, 'up')),
+                        ('conn_up', YLeaf(YType.boolean, 'conn-up')),
+                        ('single_connect', YLeaf(YType.boolean, 'single-connect')),
+                        ('is_private', YLeaf(YType.boolean, 'is-private')),
+                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                        ('addr_buf', YLeaf(YType.str, 'addr-buf')),
+                        ('family', YLeaf(YType.str, 'family')),
+                    ])
+                    self.addr = None
+                    self.timeout = None
+                    self.port = None
+                    self.bytes_in = None
+                    self.bytes_out = None
+                    self.closes = None
+                    self.opens = None
+                    self.errors = None
+                    self.aborts = None
+                    self.paks_in = None
+                    self.paks_out = None
+                    self.replies_expected = None
+                    self.up = None
+                    self.conn_up = None
+                    self.single_connect = None
+                    self.is_private = None
+                    self.vrf_name = None
+                    self.addr_buf = None
+                    self.family = None
+                    self._segment_path = lambda: "server"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/servers/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.Tacacs.Servers.Server, [u'addr', u'timeout', u'port', u'bytes_in', u'bytes_out', u'closes', u'opens', u'errors', u'aborts', u'paks_in', u'paks_out', u'replies_expected', u'up', u'conn_up', u'single_connect', u'is_private', u'vrf_name', u'addr_buf', u'family'], name, value)
+
+
+        class ServerGroups(Entity):
+            """
+            TACACS sg Information
+            
+            .. attribute:: server_group
+            
+            	server group
+            	**type**\: list of  		 :py:class:`ServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-tacacs-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Aaa.Tacacs.ServerGroups, self).__init__()
+
+                self.yang_name = "server-groups"
+                self.yang_parent_name = "tacacs"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("server-group", ("server_group", Aaa.Tacacs.ServerGroups.ServerGroup))])
+                self._leafs = OrderedDict()
+
+                self.server_group = YList(self)
+                self._segment_path = lambda: "server-groups"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.Tacacs.ServerGroups, [], name, value)
+
+
+            class ServerGroup(Entity):
+                """
+                server group
+                
+                .. attribute:: group_name
+                
+                	name of the server group
+                	**type**\: str
+                
+                .. attribute:: sg_map_num
+                
+                	server group mapped number
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: vrf_name
+                
+                	vrf of the group
+                	**type**\: str
+                
+                	**length:** 0..33
+                
+                .. attribute:: server
+                
+                	list of servers in this group
+                	**type**\: list of  		 :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup.Server>`
+                
+                
+
+                """
+
+                _prefix = 'aaa-tacacs-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Aaa.Tacacs.ServerGroups.ServerGroup, self).__init__()
+
+                    self.yang_name = "server-group"
+                    self.yang_parent_name = "server-groups"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("server", ("server", Aaa.Tacacs.ServerGroups.ServerGroup.Server))])
+                    self._leafs = OrderedDict([
+                        ('group_name', YLeaf(YType.str, 'group-name')),
+                        ('sg_map_num', YLeaf(YType.uint32, 'sg-map-num')),
+                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ])
+                    self.group_name = None
+                    self.sg_map_num = None
+                    self.vrf_name = None
+
+                    self.server = YList(self)
+                    self._segment_path = lambda: "server-group"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/server-groups/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.Tacacs.ServerGroups.ServerGroup, [u'group_name', u'sg_map_num', u'vrf_name'], name, value)
+
+
+                class Server(Entity):
+                    """
+                    list of servers in this group
+                    
+                    .. attribute:: addr
+                    
+                    	internet address of T+ server
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: timeout
+                    
+                    	per\-server timeout
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: port
+                    
+                    	per server port to use
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: bytes_in
+                    
+                    	# of bytes read
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: bytes_out
+                    
+                    	# of bytes out
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: closes
+                    
+                    	socket closes
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: opens
+                    
+                    	socket opens
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: errors
+                    
+                    	error count
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: aborts
+                    
+                    	abort count
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: paks_in
+                    
+                    	# of incoming packets read
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: paks_out
+                    
+                    	# of outgoing packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: replies_expected
+                    
+                    	# of replies expected to arrive
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: up
+                    
+                    	is the server UP or down ?
+                    	**type**\: bool
+                    
+                    .. attribute:: conn_up
+                    
+                    	is the server connected ?
+                    	**type**\: bool
+                    
+                    .. attribute:: single_connect
+                    
+                    	is this a single connect server ?
+                    	**type**\: bool
+                    
+                    .. attribute:: is_private
+                    
+                    	is this a private server ?
+                    	**type**\: bool
+                    
+                    .. attribute:: vrf_name
+                    
+                    	VRF in which server is reachable
+                    	**type**\: str
+                    
+                    	**length:** 0..33
+                    
+                    .. attribute:: addr_buf
+                    
+                    	IP address buffer
+                    	**type**\: str
+                    
+                    	**length:** 0..46
+                    
+                    .. attribute:: family
+                    
+                    	IP address Family
+                    	**type**\: str
+                    
+                    	**length:** 0..5
+                    
+                    
+
+                    """
+
+                    _prefix = 'aaa-tacacs-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Aaa.Tacacs.ServerGroups.ServerGroup.Server, self).__init__()
+
+                        self.yang_name = "server"
+                        self.yang_parent_name = "server-group"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('addr', YLeaf(YType.str, 'addr')),
+                            ('timeout', YLeaf(YType.uint32, 'timeout')),
+                            ('port', YLeaf(YType.uint32, 'port')),
+                            ('bytes_in', YLeaf(YType.uint32, 'bytes-in')),
+                            ('bytes_out', YLeaf(YType.uint32, 'bytes-out')),
+                            ('closes', YLeaf(YType.uint32, 'closes')),
+                            ('opens', YLeaf(YType.uint32, 'opens')),
+                            ('errors', YLeaf(YType.uint32, 'errors')),
+                            ('aborts', YLeaf(YType.uint32, 'aborts')),
+                            ('paks_in', YLeaf(YType.uint32, 'paks-in')),
+                            ('paks_out', YLeaf(YType.uint32, 'paks-out')),
+                            ('replies_expected', YLeaf(YType.uint32, 'replies-expected')),
+                            ('up', YLeaf(YType.boolean, 'up')),
+                            ('conn_up', YLeaf(YType.boolean, 'conn-up')),
+                            ('single_connect', YLeaf(YType.boolean, 'single-connect')),
+                            ('is_private', YLeaf(YType.boolean, 'is-private')),
+                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ('addr_buf', YLeaf(YType.str, 'addr-buf')),
+                            ('family', YLeaf(YType.str, 'family')),
+                        ])
+                        self.addr = None
+                        self.timeout = None
+                        self.port = None
+                        self.bytes_in = None
+                        self.bytes_out = None
+                        self.closes = None
+                        self.opens = None
+                        self.errors = None
+                        self.aborts = None
+                        self.paks_in = None
+                        self.paks_out = None
+                        self.replies_expected = None
+                        self.up = None
+                        self.conn_up = None
+                        self.single_connect = None
+                        self.is_private = None
+                        self.vrf_name = None
+                        self.addr_buf = None
+                        self.family = None
+                        self._segment_path = lambda: "server"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/server-groups/server-group/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Aaa.Tacacs.ServerGroups.ServerGroup.Server, [u'addr', u'timeout', u'port', u'bytes_in', u'bytes_out', u'closes', u'opens', u'errors', u'aborts', u'paks_in', u'paks_out', u'replies_expected', u'up', u'conn_up', u'single_connect', u'is_private', u'vrf_name', u'addr_buf', u'family'], name, value)
 
 
     class Diameter(Entity):
@@ -1835,7 +2540,7 @@ class Aaa(Entity):
         """
 
         _prefix = 'aaa-diameter-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Aaa.Diameter, self).__init__()
@@ -1845,61 +2550,53 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("gy", ("gy", Aaa.Diameter.Gy)), ("gx-statistics", ("gx_statistics", Aaa.Diameter.GxStatistics)), ("gx", ("gx", Aaa.Diameter.Gx)), ("peers", ("peers", Aaa.Diameter.Peers)), ("nas", ("nas", Aaa.Diameter.Nas)), ("nas-summary", ("nas_summary", Aaa.Diameter.NasSummary)), ("gy-session-ids", ("gy_session_ids", Aaa.Diameter.GySessionIds)), ("gy-statistics", ("gy_statistics", Aaa.Diameter.GyStatistics)), ("gx-session-ids", ("gx_session_ids", Aaa.Diameter.GxSessionIds)), ("nas-session", ("nas_session", Aaa.Diameter.NasSession))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("gy", ("gy", Aaa.Diameter.Gy)), ("gx-statistics", ("gx_statistics", Aaa.Diameter.GxStatistics)), ("gx", ("gx", Aaa.Diameter.Gx)), ("peers", ("peers", Aaa.Diameter.Peers)), ("nas", ("nas", Aaa.Diameter.Nas)), ("nas-summary", ("nas_summary", Aaa.Diameter.NasSummary)), ("gy-session-ids", ("gy_session_ids", Aaa.Diameter.GySessionIds)), ("gy-statistics", ("gy_statistics", Aaa.Diameter.GyStatistics)), ("gx-session-ids", ("gx_session_ids", Aaa.Diameter.GxSessionIds)), ("nas-session", ("nas_session", Aaa.Diameter.NasSession))])
             self._leafs = OrderedDict()
 
             self.gy = Aaa.Diameter.Gy()
             self.gy.parent = self
             self._children_name_map["gy"] = "gy"
-            self._children_yang_names.add("gy")
 
             self.gx_statistics = Aaa.Diameter.GxStatistics()
             self.gx_statistics.parent = self
             self._children_name_map["gx_statistics"] = "gx-statistics"
-            self._children_yang_names.add("gx-statistics")
 
             self.gx = Aaa.Diameter.Gx()
             self.gx.parent = self
             self._children_name_map["gx"] = "gx"
-            self._children_yang_names.add("gx")
 
             self.peers = Aaa.Diameter.Peers()
             self.peers.parent = self
             self._children_name_map["peers"] = "peers"
-            self._children_yang_names.add("peers")
 
             self.nas = Aaa.Diameter.Nas()
             self.nas.parent = self
             self._children_name_map["nas"] = "nas"
-            self._children_yang_names.add("nas")
 
             self.nas_summary = Aaa.Diameter.NasSummary()
             self.nas_summary.parent = self
             self._children_name_map["nas_summary"] = "nas-summary"
-            self._children_yang_names.add("nas-summary")
 
             self.gy_session_ids = Aaa.Diameter.GySessionIds()
             self.gy_session_ids.parent = self
             self._children_name_map["gy_session_ids"] = "gy-session-ids"
-            self._children_yang_names.add("gy-session-ids")
 
             self.gy_statistics = Aaa.Diameter.GyStatistics()
             self.gy_statistics.parent = self
             self._children_name_map["gy_statistics"] = "gy-statistics"
-            self._children_yang_names.add("gy-statistics")
 
             self.gx_session_ids = Aaa.Diameter.GxSessionIds()
             self.gx_session_ids.parent = self
             self._children_name_map["gx_session_ids"] = "gx-session-ids"
-            self._children_yang_names.add("gx-session-ids")
 
             self.nas_session = Aaa.Diameter.NasSession()
             self.nas_session.parent = self
             self._children_name_map["nas_session"] = "nas-session"
-            self._children_yang_names.add("nas-session")
             self._segment_path = lambda: "Cisco-IOS-XR-aaa-diameter-oper:diameter"
             self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Aaa.Diameter, [], name, value)
 
 
         class Gy(Entity):
@@ -1932,7 +2629,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Diameter.Gy, self).__init__()
@@ -1942,8 +2639,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('is_enabled', YLeaf(YType.boolean, 'is-enabled')),
                     ('tx_timer', YLeaf(YType.uint32, 'tx-timer')),
@@ -2192,7 +2888,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Diameter.GxStatistics, self).__init__()
@@ -2202,8 +2898,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ccr_init_messages', YLeaf(YType.uint32, 'ccr-init-messages')),
                     ('ccr_init_failed_messages', YLeaf(YType.uint32, 'ccr-init-failed-messages')),
@@ -2307,7 +3002,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Diameter.Gx, self).__init__()
@@ -2317,8 +3012,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('is_enabled', YLeaf(YType.boolean, 'is-enabled')),
                     ('tx_timer', YLeaf(YType.uint32, 'tx-timer')),
@@ -2409,7 +3103,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Diameter.Peers, self).__init__()
@@ -2419,8 +3113,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("peer", ("peer", Aaa.Diameter.Peers.Peer))])
+                self._child_classes = OrderedDict([("peer", ("peer", Aaa.Diameter.Peers.Peer))])
                 self._leafs = OrderedDict([
                     ('origin_host', YLeaf(YType.str, 'origin-host')),
                     ('origin_realm', YLeaf(YType.str, 'origin-realm')),
@@ -2877,7 +3570,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-diameter-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.Diameter.Peers.Peer, self).__init__()
@@ -2887,8 +3580,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('peer_name', YLeaf(YType.str, 'peer-name')),
                         ('peer_index', YLeaf(YType.uint32, 'peer-index')),
@@ -3041,7 +3733,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Diameter.Nas, self).__init__()
@@ -3051,8 +3743,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("list-of-nas", ("list_of_nas", Aaa.Diameter.Nas.ListOfNas))])
+                self._child_classes = OrderedDict([("list-of-nas", ("list_of_nas", Aaa.Diameter.Nas.ListOfNas))])
                 self._leafs = OrderedDict([
                     ('aaanas_id', YLeaf(YType.str, 'aaanas-id')),
                 ])
@@ -3144,7 +3835,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-diameter-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.Diameter.Nas.ListOfNas, self).__init__()
@@ -3154,8 +3845,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('aaa_session_id', YLeaf(YType.str, 'aaa-session-id')),
                         ('diameter_session_id', YLeaf(YType.str, 'diameter-session-id')),
@@ -3532,7 +4222,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Diameter.NasSummary, self).__init__()
@@ -3542,8 +4232,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('authen_response_in_packets', YLeaf(YType.uint32, 'authen-response-in-packets')),
                     ('authen_request_out_packets', YLeaf(YType.uint32, 'authen-request-out-packets')),
@@ -3663,7 +4352,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Diameter.GySessionIds, self).__init__()
@@ -3673,8 +4362,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("gy-session-id", ("gy_session_id", Aaa.Diameter.GySessionIds.GySessionId))])
+                self._child_classes = OrderedDict([("gy-session-id", ("gy_session_id", Aaa.Diameter.GySessionIds.GySessionId))])
                 self._leafs = OrderedDict()
 
                 self.gy_session_id = YList(self)
@@ -3694,7 +4382,7 @@ class Aaa(Entity):
                 	Session Id
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: aaa_session_id
                 
@@ -3744,7 +4432,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-diameter-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.Diameter.GySessionIds.GySessionId, self).__init__()
@@ -3754,10 +4442,9 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['session_id']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('session_id', YLeaf(YType.int32, 'session-id')),
+                        ('session_id', YLeaf(YType.uint32, 'session-id')),
                         ('aaa_session_id', YLeaf(YType.uint32, 'aaa-session-id')),
                         ('parent_aaa_session_id', YLeaf(YType.uint32, 'parent-aaa-session-id')),
                         ('diameter_session_id', YLeaf(YType.str, 'diameter-session-id')),
@@ -4007,7 +4694,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Diameter.GyStatistics, self).__init__()
@@ -4017,8 +4704,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ccr_init_messages', YLeaf(YType.uint32, 'ccr-init-messages')),
                     ('ccr_init_failed_messages', YLeaf(YType.uint32, 'ccr-init-failed-messages')),
@@ -4104,7 +4790,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Diameter.GxSessionIds, self).__init__()
@@ -4114,8 +4800,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("gx-session-id", ("gx_session_id", Aaa.Diameter.GxSessionIds.GxSessionId))])
+                self._child_classes = OrderedDict([("gx-session-id", ("gx_session_id", Aaa.Diameter.GxSessionIds.GxSessionId))])
                 self._leafs = OrderedDict()
 
                 self.gx_session_id = YList(self)
@@ -4135,7 +4820,7 @@ class Aaa(Entity):
                 	Session Id
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: aaa_session_id
                 
@@ -4178,7 +4863,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-diameter-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.Diameter.GxSessionIds.GxSessionId, self).__init__()
@@ -4188,10 +4873,9 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['session_id']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('session_id', YLeaf(YType.int32, 'session-id')),
+                        ('session_id', YLeaf(YType.uint32, 'session-id')),
                         ('aaa_session_id', YLeaf(YType.uint32, 'aaa-session-id')),
                         ('diameter_session_id', YLeaf(YType.str, 'diameter-session-id')),
                         ('request_number', YLeaf(YType.uint32, 'request-number')),
@@ -4232,7 +4916,7 @@ class Aaa(Entity):
             """
 
             _prefix = 'aaa-diameter-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Aaa.Diameter.NasSession, self).__init__()
@@ -4242,8 +4926,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("list-of-nas", ("list_of_nas", Aaa.Diameter.NasSession.ListOfNas))])
+                self._child_classes = OrderedDict([("list-of-nas", ("list_of_nas", Aaa.Diameter.NasSession.ListOfNas))])
                 self._leafs = OrderedDict([
                     ('aaanas_id', YLeaf(YType.str, 'aaanas-id')),
                 ])
@@ -4335,7 +5018,7 @@ class Aaa(Entity):
                 """
 
                 _prefix = 'aaa-diameter-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Aaa.Diameter.NasSession.ListOfNas, self).__init__()
@@ -4345,8 +5028,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('aaa_session_id', YLeaf(YType.str, 'aaa-session-id')),
                         ('diameter_session_id', YLeaf(YType.str, 'diameter-session-id')),
@@ -4412,26 +5094,25 @@ class Aaa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("servers", ("servers", Aaa.Radius.Servers)), ("radius-source-interface", ("radius_source_interface", Aaa.Radius.RadiusSourceInterface)), ("global", ("global_", Aaa.Radius.Global))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("servers", ("servers", Aaa.Radius.Servers)), ("radius-source-interface", ("radius_source_interface", Aaa.Radius.RadiusSourceInterface)), ("global", ("global_", Aaa.Radius.Global))])
             self._leafs = OrderedDict()
 
             self.servers = Aaa.Radius.Servers()
             self.servers.parent = self
             self._children_name_map["servers"] = "servers"
-            self._children_yang_names.add("servers")
 
             self.radius_source_interface = Aaa.Radius.RadiusSourceInterface()
             self.radius_source_interface.parent = self
             self._children_name_map["radius_source_interface"] = "radius-source-interface"
-            self._children_yang_names.add("radius-source-interface")
 
             self.global_ = Aaa.Radius.Global()
             self.global_.parent = self
             self._children_name_map["global_"] = "global"
-            self._children_yang_names.add("global")
             self._segment_path = lambda: "Cisco-IOS-XR-aaa-protocol-radius-oper:radius"
             self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Aaa.Radius, [], name, value)
 
 
         class Servers(Entity):
@@ -4458,8 +5139,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("server", ("server", Aaa.Radius.Servers.Server))])
+                self._child_classes = OrderedDict([("server", ("server", Aaa.Radius.Servers.Server))])
                 self._leafs = OrderedDict()
 
                 self.server = YList(self)
@@ -5109,8 +5789,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('ip_address', YLeaf(YType.str, 'ip-address')),
                         ('auth_port_number', YLeaf(YType.uint32, 'auth-port-number')),
@@ -5320,8 +5999,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("list-of-source-interface", ("list_of_source_interface", Aaa.Radius.RadiusSourceInterface.ListOfSourceInterface))])
+                self._child_classes = OrderedDict([("list-of-source-interface", ("list_of_source_interface", Aaa.Radius.RadiusSourceInterface.ListOfSourceInterface))])
                 self._leafs = OrderedDict()
 
                 self.list_of_source_interface = YList(self)
@@ -5373,8 +6051,7 @@ class Aaa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ('ipaddrv4', YLeaf(YType.str, 'ipaddrv4')),
@@ -5435,8 +6112,7 @@ class Aaa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('unknown_authentication_response', YLeaf(YType.uint32, 'unknown-authentication-response')),
                     ('authentication_nas_id', YLeaf(YType.str, 'authentication-nas-id')),
@@ -5452,766 +6128,6 @@ class Aaa(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Aaa.Radius.Global, ['unknown_authentication_response', 'authentication_nas_id', 'unknown_accounting_response', 'accounting_nas_id'], name, value)
-
-
-    class Tacacs(Entity):
-        """
-        TACACS operational data
-        
-        .. attribute:: requests
-        
-        	TACACS Active Request List
-        	**type**\:  :py:class:`Requests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests>`
-        
-        .. attribute:: servers
-        
-        	TACACS server Information
-        	**type**\:  :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers>`
-        
-        .. attribute:: server_groups
-        
-        	TACACS sg Information
-        	**type**\:  :py:class:`ServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups>`
-        
-        
-
-        """
-
-        _prefix = 'aaa-tacacs-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(Aaa.Tacacs, self).__init__()
-
-            self.yang_name = "tacacs"
-            self.yang_parent_name = "aaa"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("requests", ("requests", Aaa.Tacacs.Requests)), ("servers", ("servers", Aaa.Tacacs.Servers)), ("server-groups", ("server_groups", Aaa.Tacacs.ServerGroups))])
-            self._child_list_classes = OrderedDict([])
-            self._leafs = OrderedDict()
-
-            self.requests = Aaa.Tacacs.Requests()
-            self.requests.parent = self
-            self._children_name_map["requests"] = "requests"
-            self._children_yang_names.add("requests")
-
-            self.servers = Aaa.Tacacs.Servers()
-            self.servers.parent = self
-            self._children_name_map["servers"] = "servers"
-            self._children_yang_names.add("servers")
-
-            self.server_groups = Aaa.Tacacs.ServerGroups()
-            self.server_groups.parent = self
-            self._children_name_map["server_groups"] = "server-groups"
-            self._children_yang_names.add("server-groups")
-            self._segment_path = lambda: "Cisco-IOS-XR-aaa-tacacs-oper:tacacs"
-            self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/%s" % self._segment_path()
-
-
-        class Requests(Entity):
-            """
-            TACACS Active Request List
-            
-            .. attribute:: request
-            
-            	request
-            	**type**\: list of  		 :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-tacacs-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.Tacacs.Requests, self).__init__()
-
-                self.yang_name = "requests"
-                self.yang_parent_name = "tacacs"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("request", ("request", Aaa.Tacacs.Requests.Request))])
-                self._leafs = OrderedDict()
-
-                self.request = YList(self)
-                self._segment_path = lambda: "requests"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Tacacs.Requests, [], name, value)
-
-
-            class Request(Entity):
-                """
-                request
-                
-                .. attribute:: tacacs_requestbag
-                
-                	tacacs requestbag
-                	**type**\: list of  		 :py:class:`TacacsRequestbag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request.TacacsRequestbag>`
-                
-                
-
-                """
-
-                _prefix = 'aaa-tacacs-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Aaa.Tacacs.Requests.Request, self).__init__()
-
-                    self.yang_name = "request"
-                    self.yang_parent_name = "requests"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("tacacs-requestbag", ("tacacs_requestbag", Aaa.Tacacs.Requests.Request.TacacsRequestbag))])
-                    self._leafs = OrderedDict()
-
-                    self.tacacs_requestbag = YList(self)
-                    self._segment_path = lambda: "request"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/requests/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Tacacs.Requests.Request, [], name, value)
-
-
-                class TacacsRequestbag(Entity):
-                    """
-                    tacacs requestbag
-                    
-                    .. attribute:: time_remaining
-                    
-                    	time remaining for this request
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: bytes_out
-                    
-                    	bytes written
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: out_pak_size
-                    
-                    	size of the packet to be sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: bytes_in
-                    
-                    	bytes read from socket
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: in_pak_size
-                    
-                    	size of the packet to be received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: pak_type
-                    
-                    	the type of packet
-                    	**type**\: str
-                    
-                    .. attribute:: session_id
-                    
-                    	same as in pkt hdr
-                    	**type**\: int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: sock
-                    
-                    	socket number
-                    	**type**\: int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    
-
-                    """
-
-                    _prefix = 'aaa-tacacs-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Aaa.Tacacs.Requests.Request.TacacsRequestbag, self).__init__()
-
-                        self.yang_name = "tacacs-requestbag"
-                        self.yang_parent_name = "request"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('time_remaining', YLeaf(YType.uint32, 'time-remaining')),
-                            ('bytes_out', YLeaf(YType.uint32, 'bytes-out')),
-                            ('out_pak_size', YLeaf(YType.uint32, 'out-pak-size')),
-                            ('bytes_in', YLeaf(YType.uint32, 'bytes-in')),
-                            ('in_pak_size', YLeaf(YType.uint32, 'in-pak-size')),
-                            ('pak_type', YLeaf(YType.str, 'pak-type')),
-                            ('session_id', YLeaf(YType.int32, 'session-id')),
-                            ('sock', YLeaf(YType.int32, 'sock')),
-                        ])
-                        self.time_remaining = None
-                        self.bytes_out = None
-                        self.out_pak_size = None
-                        self.bytes_in = None
-                        self.in_pak_size = None
-                        self.pak_type = None
-                        self.session_id = None
-                        self.sock = None
-                        self._segment_path = lambda: "tacacs-requestbag"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/requests/request/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Aaa.Tacacs.Requests.Request.TacacsRequestbag, ['time_remaining', 'bytes_out', 'out_pak_size', 'bytes_in', 'in_pak_size', 'pak_type', 'session_id', 'sock'], name, value)
-
-
-        class Servers(Entity):
-            """
-            TACACS server Information
-            
-            .. attribute:: server
-            
-            	server
-            	**type**\: list of  		 :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers.Server>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-tacacs-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.Tacacs.Servers, self).__init__()
-
-                self.yang_name = "servers"
-                self.yang_parent_name = "tacacs"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("server", ("server", Aaa.Tacacs.Servers.Server))])
-                self._leafs = OrderedDict()
-
-                self.server = YList(self)
-                self._segment_path = lambda: "servers"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Tacacs.Servers, [], name, value)
-
-
-            class Server(Entity):
-                """
-                server
-                
-                .. attribute:: addr
-                
-                	internet address of T+ server
-                	**type**\: str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: timeout
-                
-                	per\-server timeout
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: port
-                
-                	per server port to use
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: bytes_in
-                
-                	# of bytes read
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: byte
-                
-                .. attribute:: bytes_out
-                
-                	# of bytes out
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: byte
-                
-                .. attribute:: closes
-                
-                	socket closes
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: opens
-                
-                	socket opens
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: errors
-                
-                	error count
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: aborts
-                
-                	abort count
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: paks_in
-                
-                	# of incoming packets read
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: paks_out
-                
-                	# of outgoing packets sent
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: replies_expected
-                
-                	# of replies expected to arrive
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: up
-                
-                	is the server UP or down ?
-                	**type**\: bool
-                
-                .. attribute:: conn_up
-                
-                	is the server connected ?
-                	**type**\: bool
-                
-                .. attribute:: single_connect
-                
-                	is this a single connect server ?
-                	**type**\: bool
-                
-                .. attribute:: is_private
-                
-                	is this a private server ?
-                	**type**\: bool
-                
-                .. attribute:: vrf_name
-                
-                	VRF in which server is reachable
-                	**type**\: str
-                
-                	**length:** 0..33
-                
-                .. attribute:: addr_buf
-                
-                	IP address buffer
-                	**type**\: str
-                
-                	**length:** 0..46
-                
-                .. attribute:: family
-                
-                	IP address Family
-                	**type**\: str
-                
-                	**length:** 0..5
-                
-                
-
-                """
-
-                _prefix = 'aaa-tacacs-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Aaa.Tacacs.Servers.Server, self).__init__()
-
-                    self.yang_name = "server"
-                    self.yang_parent_name = "servers"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('addr', YLeaf(YType.str, 'addr')),
-                        ('timeout', YLeaf(YType.uint32, 'timeout')),
-                        ('port', YLeaf(YType.uint32, 'port')),
-                        ('bytes_in', YLeaf(YType.uint32, 'bytes-in')),
-                        ('bytes_out', YLeaf(YType.uint32, 'bytes-out')),
-                        ('closes', YLeaf(YType.uint32, 'closes')),
-                        ('opens', YLeaf(YType.uint32, 'opens')),
-                        ('errors', YLeaf(YType.uint32, 'errors')),
-                        ('aborts', YLeaf(YType.uint32, 'aborts')),
-                        ('paks_in', YLeaf(YType.uint32, 'paks-in')),
-                        ('paks_out', YLeaf(YType.uint32, 'paks-out')),
-                        ('replies_expected', YLeaf(YType.uint32, 'replies-expected')),
-                        ('up', YLeaf(YType.boolean, 'up')),
-                        ('conn_up', YLeaf(YType.boolean, 'conn-up')),
-                        ('single_connect', YLeaf(YType.boolean, 'single-connect')),
-                        ('is_private', YLeaf(YType.boolean, 'is-private')),
-                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                        ('addr_buf', YLeaf(YType.str, 'addr-buf')),
-                        ('family', YLeaf(YType.str, 'family')),
-                    ])
-                    self.addr = None
-                    self.timeout = None
-                    self.port = None
-                    self.bytes_in = None
-                    self.bytes_out = None
-                    self.closes = None
-                    self.opens = None
-                    self.errors = None
-                    self.aborts = None
-                    self.paks_in = None
-                    self.paks_out = None
-                    self.replies_expected = None
-                    self.up = None
-                    self.conn_up = None
-                    self.single_connect = None
-                    self.is_private = None
-                    self.vrf_name = None
-                    self.addr_buf = None
-                    self.family = None
-                    self._segment_path = lambda: "server"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/servers/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Tacacs.Servers.Server, ['addr', 'timeout', 'port', 'bytes_in', 'bytes_out', 'closes', 'opens', 'errors', 'aborts', 'paks_in', 'paks_out', 'replies_expected', 'up', 'conn_up', 'single_connect', 'is_private', 'vrf_name', 'addr_buf', 'family'], name, value)
-
-
-        class ServerGroups(Entity):
-            """
-            TACACS sg Information
-            
-            .. attribute:: server_group
-            
-            	server group
-            	**type**\: list of  		 :py:class:`ServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-tacacs-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.Tacacs.ServerGroups, self).__init__()
-
-                self.yang_name = "server-groups"
-                self.yang_parent_name = "tacacs"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("server-group", ("server_group", Aaa.Tacacs.ServerGroups.ServerGroup))])
-                self._leafs = OrderedDict()
-
-                self.server_group = YList(self)
-                self._segment_path = lambda: "server-groups"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Tacacs.ServerGroups, [], name, value)
-
-
-            class ServerGroup(Entity):
-                """
-                server group
-                
-                .. attribute:: group_name
-                
-                	name of the server group
-                	**type**\: str
-                
-                .. attribute:: sg_map_num
-                
-                	server group mapped number
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: vrf_name
-                
-                	vrf of the group
-                	**type**\: str
-                
-                	**length:** 0..33
-                
-                .. attribute:: server
-                
-                	list of servers in this group
-                	**type**\: list of  		 :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup.Server>`
-                
-                
-
-                """
-
-                _prefix = 'aaa-tacacs-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Aaa.Tacacs.ServerGroups.ServerGroup, self).__init__()
-
-                    self.yang_name = "server-group"
-                    self.yang_parent_name = "server-groups"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("server", ("server", Aaa.Tacacs.ServerGroups.ServerGroup.Server))])
-                    self._leafs = OrderedDict([
-                        ('group_name', YLeaf(YType.str, 'group-name')),
-                        ('sg_map_num', YLeaf(YType.uint32, 'sg-map-num')),
-                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ])
-                    self.group_name = None
-                    self.sg_map_num = None
-                    self.vrf_name = None
-
-                    self.server = YList(self)
-                    self._segment_path = lambda: "server-group"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/server-groups/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Tacacs.ServerGroups.ServerGroup, ['group_name', 'sg_map_num', 'vrf_name'], name, value)
-
-
-                class Server(Entity):
-                    """
-                    list of servers in this group
-                    
-                    .. attribute:: addr
-                    
-                    	internet address of T+ server
-                    	**type**\: str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    .. attribute:: timeout
-                    
-                    	per\-server timeout
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: port
-                    
-                    	per server port to use
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: bytes_in
-                    
-                    	# of bytes read
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: bytes_out
-                    
-                    	# of bytes out
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: closes
-                    
-                    	socket closes
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: opens
-                    
-                    	socket opens
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: errors
-                    
-                    	error count
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: aborts
-                    
-                    	abort count
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: paks_in
-                    
-                    	# of incoming packets read
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: paks_out
-                    
-                    	# of outgoing packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: replies_expected
-                    
-                    	# of replies expected to arrive
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: up
-                    
-                    	is the server UP or down ?
-                    	**type**\: bool
-                    
-                    .. attribute:: conn_up
-                    
-                    	is the server connected ?
-                    	**type**\: bool
-                    
-                    .. attribute:: single_connect
-                    
-                    	is this a single connect server ?
-                    	**type**\: bool
-                    
-                    .. attribute:: is_private
-                    
-                    	is this a private server ?
-                    	**type**\: bool
-                    
-                    .. attribute:: vrf_name
-                    
-                    	VRF in which server is reachable
-                    	**type**\: str
-                    
-                    	**length:** 0..33
-                    
-                    .. attribute:: addr_buf
-                    
-                    	IP address buffer
-                    	**type**\: str
-                    
-                    	**length:** 0..46
-                    
-                    .. attribute:: family
-                    
-                    	IP address Family
-                    	**type**\: str
-                    
-                    	**length:** 0..5
-                    
-                    
-
-                    """
-
-                    _prefix = 'aaa-tacacs-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Aaa.Tacacs.ServerGroups.ServerGroup.Server, self).__init__()
-
-                        self.yang_name = "server"
-                        self.yang_parent_name = "server-group"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('addr', YLeaf(YType.str, 'addr')),
-                            ('timeout', YLeaf(YType.uint32, 'timeout')),
-                            ('port', YLeaf(YType.uint32, 'port')),
-                            ('bytes_in', YLeaf(YType.uint32, 'bytes-in')),
-                            ('bytes_out', YLeaf(YType.uint32, 'bytes-out')),
-                            ('closes', YLeaf(YType.uint32, 'closes')),
-                            ('opens', YLeaf(YType.uint32, 'opens')),
-                            ('errors', YLeaf(YType.uint32, 'errors')),
-                            ('aborts', YLeaf(YType.uint32, 'aborts')),
-                            ('paks_in', YLeaf(YType.uint32, 'paks-in')),
-                            ('paks_out', YLeaf(YType.uint32, 'paks-out')),
-                            ('replies_expected', YLeaf(YType.uint32, 'replies-expected')),
-                            ('up', YLeaf(YType.boolean, 'up')),
-                            ('conn_up', YLeaf(YType.boolean, 'conn-up')),
-                            ('single_connect', YLeaf(YType.boolean, 'single-connect')),
-                            ('is_private', YLeaf(YType.boolean, 'is-private')),
-                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                            ('addr_buf', YLeaf(YType.str, 'addr-buf')),
-                            ('family', YLeaf(YType.str, 'family')),
-                        ])
-                        self.addr = None
-                        self.timeout = None
-                        self.port = None
-                        self.bytes_in = None
-                        self.bytes_out = None
-                        self.closes = None
-                        self.opens = None
-                        self.errors = None
-                        self.aborts = None
-                        self.paks_in = None
-                        self.paks_out = None
-                        self.replies_expected = None
-                        self.up = None
-                        self.conn_up = None
-                        self.single_connect = None
-                        self.is_private = None
-                        self.vrf_name = None
-                        self.addr_buf = None
-                        self.family = None
-                        self._segment_path = lambda: "server"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/server-groups/server-group/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Aaa.Tacacs.ServerGroups.ServerGroup.Server, ['addr', 'timeout', 'port', 'bytes_in', 'bytes_out', 'closes', 'opens', 'errors', 'aborts', 'paks_in', 'paks_out', 'replies_expected', 'up', 'conn_up', 'single_connect', 'is_private', 'vrf_name', 'addr_buf', 'family'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Aaa()

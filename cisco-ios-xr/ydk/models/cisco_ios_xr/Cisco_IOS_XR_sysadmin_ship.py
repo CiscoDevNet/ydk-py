@@ -44,8 +44,7 @@ class Stat(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("ship_comp", ("ship_comp", Stat.ShipComp))])
+        self._child_classes = OrderedDict([("ship_comp", ("ship_comp", Stat.ShipComp))])
         self._leafs = OrderedDict()
 
         self.ship_comp = YList(self)
@@ -84,8 +83,7 @@ class Stat(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['comp_name']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("process", ("process", Stat.ShipComp.Process))])
+            self._child_classes = OrderedDict([("process", ("process", Stat.ShipComp.Process))])
             self._leafs = OrderedDict([
                 ('comp_name', YLeaf(YType.str, 'comp-name')),
             ])
@@ -128,8 +126,7 @@ class Stat(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['process_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("client", ("client", Stat.ShipComp.Process.Client))])
+                self._child_classes = OrderedDict([("client", ("client", Stat.ShipComp.Process.Client))])
                 self._leafs = OrderedDict([
                     ('process_name', YLeaf(YType.str, 'process-name')),
                 ])
@@ -171,8 +168,7 @@ class Stat(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['client_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("cat", ("cat", Stat.ShipComp.Process.Client.Cat))])
+                    self._child_classes = OrderedDict([("cat", ("cat", Stat.ShipComp.Process.Client.Cat))])
                     self._leafs = OrderedDict([
                         ('client_name', YLeaf(YType.str, 'client-name')),
                     ])
@@ -214,8 +210,7 @@ class Stat(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['cat_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("counter-32b", ("counter_32b", Stat.ShipComp.Process.Client.Cat.Counter32b))])
+                        self._child_classes = OrderedDict([("counter-32b", ("counter_32b", Stat.ShipComp.Process.Client.Cat.Counter32b))])
                         self._leafs = OrderedDict([
                             ('cat_name', YLeaf(YType.enumeration, 'cat-name')),
                         ])
@@ -472,8 +467,7 @@ class Stat(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['counter_name']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('counter_name', YLeaf(YType.str, 'counter-name')),
                                 ('counter_value', YLeaf(YType.uint32, 'counter-value')),

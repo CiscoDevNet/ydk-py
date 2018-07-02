@@ -66,15 +66,16 @@ class Pppea(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", Pppea.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", Pppea.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = Pppea.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-ppp-ea-oper:pppea"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Pppea, [], name, value)
 
 
     class Nodes(Entity):
@@ -101,8 +102,7 @@ class Pppea(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", Pppea.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", Pppea.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -145,8 +145,7 @@ class Pppea(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("ea-interface-names", ("ea_interface_names", Pppea.Nodes.Node.EaInterfaceNames))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("ea-interface-names", ("ea_interface_names", Pppea.Nodes.Node.EaInterfaceNames))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -155,7 +154,6 @@ class Pppea(Entity):
                 self.ea_interface_names = Pppea.Nodes.Node.EaInterfaceNames()
                 self.ea_interface_names.parent = self
                 self._children_name_map["ea_interface_names"] = "ea-interface-names"
-                self._children_yang_names.add("ea-interface-names")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ppp-ea-oper:pppea/nodes/%s" % self._segment_path()
 
@@ -188,8 +186,7 @@ class Pppea(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("ea-interface-name", ("ea_interface_name", Pppea.Nodes.Node.EaInterfaceNames.EaInterfaceName))])
+                    self._child_classes = OrderedDict([("ea-interface-name", ("ea_interface_name", Pppea.Nodes.Node.EaInterfaceNames.EaInterfaceName))])
                     self._leafs = OrderedDict()
 
                     self.ea_interface_name = YList(self)
@@ -420,8 +417,7 @@ class Pppea(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                             ('interface', YLeaf(YType.str, 'interface')),
@@ -495,7 +491,7 @@ class Pppea(Entity):
                         self._segment_path = lambda: "ea-interface-name" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pppea.Nodes.Node.EaInterfaceNames.EaInterfaceName, ['interface_name', 'interface', 'is_lcp_running', 'is_ipcp_running', 'is_ipv6cp_running', 'is_mplscp_running', 'local_mtu', 'local_mrru', 'peer_mrru', 'local_magic', 'peer_magic', 'local_mcmp_classes', 'peer_mcmp_classes', 'echo_request_interval', 'echo_request_retry_count', 'is_multilink_bundle', 'synchronized', 'forwarding_enabled', 'multilink_interface', 'l2_tunnel_enabled', 'l2_provisioned', 'l2ip_interworking_enabled', 'is_vpdn_tunneled', 'xconnect_id', 'parent_interface_handle', 'vrf_table_id', 'ipv6vrf_table_id', 'l2_adjacency_state', 'l2ip_interworking_adjacency_state', 'lac_adjacency_state', 'interface_adjacency_state', 'ipv4_adjacency_state', 'ipv6_adjacency_state', 'mpls_adjacency_state'], name, value)
+                        self._perform_setattr(Pppea.Nodes.Node.EaInterfaceNames.EaInterfaceName, ['interface_name', u'interface', u'is_lcp_running', u'is_ipcp_running', u'is_ipv6cp_running', u'is_mplscp_running', u'local_mtu', u'local_mrru', u'peer_mrru', u'local_magic', u'peer_magic', u'local_mcmp_classes', u'peer_mcmp_classes', u'echo_request_interval', u'echo_request_retry_count', u'is_multilink_bundle', u'synchronized', u'forwarding_enabled', u'multilink_interface', u'l2_tunnel_enabled', u'l2_provisioned', u'l2ip_interworking_enabled', u'is_vpdn_tunneled', u'xconnect_id', u'parent_interface_handle', u'vrf_table_id', u'ipv6vrf_table_id', u'l2_adjacency_state', u'l2ip_interworking_adjacency_state', u'lac_adjacency_state', u'interface_adjacency_state', u'ipv4_adjacency_state', u'ipv6_adjacency_state', u'mpls_adjacency_state'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Pppea()

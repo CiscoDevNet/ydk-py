@@ -41,14 +41,12 @@ class ClearOspfv3Routes(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = ClearOspfv3Routes.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-routes"
 
 
@@ -83,8 +81,7 @@ class ClearOspfv3Routes(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("instance", ("instance", ClearOspfv3Routes.Input.Instance))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("instance", ("instance", ClearOspfv3Routes.Input.Instance))])
             self._leafs = OrderedDict([
                 ('route', YLeaf(YType.empty, 'route')),
             ])
@@ -93,7 +90,6 @@ class ClearOspfv3Routes(Entity):
             self.instance = ClearOspfv3Routes.Input.Instance()
             self.instance.parent = self
             self._children_name_map["instance"] = "instance"
-            self._children_yang_names.add("instance")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-routes/%s" % self._segment_path()
 
@@ -125,8 +121,7 @@ class ClearOspfv3Routes(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('instance_identifier', YLeaf(YType.str, 'instance-identifier')),
                 ])
@@ -166,14 +161,12 @@ class ClearOspfv3Redistribution(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = ClearOspfv3Redistribution.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-redistribution"
 
 
@@ -208,8 +201,7 @@ class ClearOspfv3Redistribution(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("instance", ("instance", ClearOspfv3Redistribution.Input.Instance))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("instance", ("instance", ClearOspfv3Redistribution.Input.Instance))])
             self._leafs = OrderedDict([
                 ('redistribution', YLeaf(YType.empty, 'redistribution')),
             ])
@@ -218,7 +210,6 @@ class ClearOspfv3Redistribution(Entity):
             self.instance = ClearOspfv3Redistribution.Input.Instance()
             self.instance.parent = self
             self._children_name_map["instance"] = "instance"
-            self._children_yang_names.add("instance")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-redistribution/%s" % self._segment_path()
 
@@ -250,8 +241,7 @@ class ClearOspfv3Redistribution(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('instance_identifier', YLeaf(YType.str, 'instance-identifier')),
                 ])
@@ -291,14 +281,12 @@ class ClearOspfv3Process(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = ClearOspfv3Process.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-process"
 
 
@@ -333,8 +321,7 @@ class ClearOspfv3Process(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("instance", ("instance", ClearOspfv3Process.Input.Instance))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("instance", ("instance", ClearOspfv3Process.Input.Instance))])
             self._leafs = OrderedDict([
                 ('process', YLeaf(YType.empty, 'process')),
             ])
@@ -343,7 +330,6 @@ class ClearOspfv3Process(Entity):
             self.instance = ClearOspfv3Process.Input.Instance()
             self.instance.parent = self
             self._children_name_map["instance"] = "instance"
-            self._children_yang_names.add("instance")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-process/%s" % self._segment_path()
 
@@ -375,8 +361,7 @@ class ClearOspfv3Process(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('instance_identifier', YLeaf(YType.str, 'instance-identifier')),
                 ])
@@ -416,14 +401,12 @@ class ClearOspfv3StatisticsNeighbor(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = ClearOspfv3StatisticsNeighbor.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-statistics-neighbor"
 
 
@@ -456,21 +439,21 @@ class ClearOspfv3StatisticsNeighbor(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("instance", ("instance", ClearOspfv3StatisticsNeighbor.Input.Instance)), ("neighbor", ("neighbor", ClearOspfv3StatisticsNeighbor.Input.Neighbor))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("instance", ("instance", ClearOspfv3StatisticsNeighbor.Input.Instance)), ("neighbor", ("neighbor", ClearOspfv3StatisticsNeighbor.Input.Neighbor))])
             self._leafs = OrderedDict()
 
             self.instance = ClearOspfv3StatisticsNeighbor.Input.Instance()
             self.instance.parent = self
             self._children_name_map["instance"] = "instance"
-            self._children_yang_names.add("instance")
 
             self.neighbor = ClearOspfv3StatisticsNeighbor.Input.Neighbor()
             self.neighbor.parent = self
             self._children_name_map["neighbor"] = "neighbor"
-            self._children_yang_names.add("neighbor")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-statistics-neighbor/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(ClearOspfv3StatisticsNeighbor.Input, [], name, value)
 
 
         class Instance(Entity):
@@ -497,8 +480,7 @@ class ClearOspfv3StatisticsNeighbor(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('instance_identifier', YLeaf(YType.str, 'instance-identifier')),
                 ])
@@ -543,8 +525,7 @@ class ClearOspfv3StatisticsNeighbor(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('neighbor_id', YLeaf(YType.str, 'neighbor-id')),
                     ('interface_name', YLeaf(YType.str, 'interface-name')),
@@ -586,14 +567,12 @@ class ClearOspfv3Statistics(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = ClearOspfv3Statistics.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-statistics"
 
 
@@ -636,8 +615,7 @@ class ClearOspfv3Statistics(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("instance", ("instance", ClearOspfv3Statistics.Input.Instance))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("instance", ("instance", ClearOspfv3Statistics.Input.Instance))])
             self._leafs = OrderedDict([
                 ('prefix_priority', YLeaf(YType.empty, 'prefix-priority')),
                 ('spf', YLeaf(YType.empty, 'spf')),
@@ -650,7 +628,6 @@ class ClearOspfv3Statistics(Entity):
             self.instance = ClearOspfv3Statistics.Input.Instance()
             self.instance.parent = self
             self._children_name_map["instance"] = "instance"
-            self._children_yang_names.add("instance")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-statistics/%s" % self._segment_path()
 
@@ -682,8 +659,7 @@ class ClearOspfv3Statistics(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('instance_identifier', YLeaf(YType.str, 'instance-identifier')),
                 ])
@@ -723,14 +699,12 @@ class ClearOspfv3InstanceVrf(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = ClearOspfv3InstanceVrf.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf"
 
 
@@ -758,16 +732,17 @@ class ClearOspfv3InstanceVrf(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("instance", ("instance", ClearOspfv3InstanceVrf.Input.Instance))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("instance", ("instance", ClearOspfv3InstanceVrf.Input.Instance))])
             self._leafs = OrderedDict()
 
             self.instance = ClearOspfv3InstanceVrf.Input.Instance()
             self.instance.parent = self
             self._children_name_map["instance"] = "instance"
-            self._children_yang_names.add("instance")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(ClearOspfv3InstanceVrf.Input, [], name, value)
 
 
         class Instance(Entity):
@@ -811,8 +786,7 @@ class ClearOspfv3InstanceVrf(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("vrf", ("vrf", ClearOspfv3InstanceVrf.Input.Instance.Vrf)), ("all", ("all", ClearOspfv3InstanceVrf.Input.Instance.All)), ("all-inclusive", ("all_inclusive", ClearOspfv3InstanceVrf.Input.Instance.AllInclusive))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("vrf", ("vrf", ClearOspfv3InstanceVrf.Input.Instance.Vrf)), ("all", ("all", ClearOspfv3InstanceVrf.Input.Instance.All)), ("all-inclusive", ("all_inclusive", ClearOspfv3InstanceVrf.Input.Instance.AllInclusive))])
                 self._leafs = OrderedDict([
                     ('instance_identifier', YLeaf(YType.str, 'instance-identifier')),
                 ])
@@ -821,17 +795,14 @@ class ClearOspfv3InstanceVrf(Entity):
                 self.vrf = ClearOspfv3InstanceVrf.Input.Instance.Vrf()
                 self.vrf.parent = self
                 self._children_name_map["vrf"] = "vrf"
-                self._children_yang_names.add("vrf")
 
                 self.all = ClearOspfv3InstanceVrf.Input.Instance.All()
                 self.all.parent = self
                 self._children_name_map["all"] = "all"
-                self._children_yang_names.add("all")
 
                 self.all_inclusive = ClearOspfv3InstanceVrf.Input.Instance.AllInclusive()
                 self.all_inclusive.parent = self
                 self._children_name_map["all_inclusive"] = "all-inclusive"
-                self._children_yang_names.add("all-inclusive")
                 self._segment_path = lambda: "instance"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/%s" % self._segment_path()
 
@@ -885,8 +856,7 @@ class ClearOspfv3InstanceVrf(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("stats", ("stats", ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("stats", ("stats", ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats))])
                     self._leafs = OrderedDict([
                         ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                         ('process', YLeaf(YType.empty, 'process')),
@@ -901,7 +871,6 @@ class ClearOspfv3InstanceVrf(Entity):
                     self.stats = ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats()
                     self.stats.parent = self
                     self._children_name_map["stats"] = "stats"
-                    self._children_yang_names.add("stats")
                     self._segment_path = lambda: "vrf"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/%s" % self._segment_path()
 
@@ -943,8 +912,7 @@ class ClearOspfv3InstanceVrf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("neighbor", ("neighbor", ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("neighbor", ("neighbor", ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor))])
                         self._leafs = OrderedDict([
                             ('spf', YLeaf(YType.empty, 'spf')),
                             ('prefix_priority', YLeaf(YType.empty, 'prefix-priority')),
@@ -955,7 +923,6 @@ class ClearOspfv3InstanceVrf(Entity):
                         self.neighbor = ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor()
                         self.neighbor.parent = self
                         self._children_name_map["neighbor"] = "neighbor"
-                        self._children_yang_names.add("neighbor")
                         self._segment_path = lambda: "stats"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/vrf/%s" % self._segment_path()
 
@@ -994,8 +961,7 @@ class ClearOspfv3InstanceVrf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("interface", ("interface", ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("interface", ("interface", ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface))])
                             self._leafs = OrderedDict([
                                 ('neighbor_id', YLeaf(YType.str, 'neighbor-id')),
                             ])
@@ -1004,7 +970,6 @@ class ClearOspfv3InstanceVrf(Entity):
                             self.interface = ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface()
                             self.interface.parent = self
                             self._children_name_map["interface"] = "interface"
-                            self._children_yang_names.add("interface")
                             self._segment_path = lambda: "neighbor"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/vrf/stats/%s" % self._segment_path()
 
@@ -1038,8 +1003,7 @@ class ClearOspfv3InstanceVrf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                                 ])
@@ -1090,8 +1054,7 @@ class ClearOspfv3InstanceVrf(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("stats", ("stats", ClearOspfv3InstanceVrf.Input.Instance.All.Stats))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("stats", ("stats", ClearOspfv3InstanceVrf.Input.Instance.All.Stats))])
                     self._leafs = OrderedDict([
                         ('process', YLeaf(YType.empty, 'process')),
                         ('redistribution', YLeaf(YType.empty, 'redistribution')),
@@ -1104,7 +1067,6 @@ class ClearOspfv3InstanceVrf(Entity):
                     self.stats = ClearOspfv3InstanceVrf.Input.Instance.All.Stats()
                     self.stats.parent = self
                     self._children_name_map["stats"] = "stats"
-                    self._children_yang_names.add("stats")
                     self._segment_path = lambda: "all"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/%s" % self._segment_path()
 
@@ -1146,8 +1108,7 @@ class ClearOspfv3InstanceVrf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("neighbor", ("neighbor", ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("neighbor", ("neighbor", ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor))])
                         self._leafs = OrderedDict([
                             ('spf', YLeaf(YType.empty, 'spf')),
                             ('prefix_priority', YLeaf(YType.empty, 'prefix-priority')),
@@ -1158,7 +1119,6 @@ class ClearOspfv3InstanceVrf(Entity):
                         self.neighbor = ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor()
                         self.neighbor.parent = self
                         self._children_name_map["neighbor"] = "neighbor"
-                        self._children_yang_names.add("neighbor")
                         self._segment_path = lambda: "stats"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/all/%s" % self._segment_path()
 
@@ -1197,8 +1157,7 @@ class ClearOspfv3InstanceVrf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("interface", ("interface", ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor.Interface))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("interface", ("interface", ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor.Interface))])
                             self._leafs = OrderedDict([
                                 ('neighbor_id', YLeaf(YType.str, 'neighbor-id')),
                             ])
@@ -1207,7 +1166,6 @@ class ClearOspfv3InstanceVrf(Entity):
                             self.interface = ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor.Interface()
                             self.interface.parent = self
                             self._children_name_map["interface"] = "interface"
-                            self._children_yang_names.add("interface")
                             self._segment_path = lambda: "neighbor"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/all/stats/%s" % self._segment_path()
 
@@ -1241,8 +1199,7 @@ class ClearOspfv3InstanceVrf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                                 ])
@@ -1293,8 +1250,7 @@ class ClearOspfv3InstanceVrf(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("stats", ("stats", ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("stats", ("stats", ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats))])
                     self._leafs = OrderedDict([
                         ('process', YLeaf(YType.empty, 'process')),
                         ('redistribution', YLeaf(YType.empty, 'redistribution')),
@@ -1307,7 +1263,6 @@ class ClearOspfv3InstanceVrf(Entity):
                     self.stats = ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats()
                     self.stats.parent = self
                     self._children_name_map["stats"] = "stats"
-                    self._children_yang_names.add("stats")
                     self._segment_path = lambda: "all-inclusive"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/%s" % self._segment_path()
 
@@ -1349,8 +1304,7 @@ class ClearOspfv3InstanceVrf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("neighbor", ("neighbor", ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("neighbor", ("neighbor", ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor))])
                         self._leafs = OrderedDict([
                             ('spf', YLeaf(YType.empty, 'spf')),
                             ('prefix_priority', YLeaf(YType.empty, 'prefix-priority')),
@@ -1361,7 +1315,6 @@ class ClearOspfv3InstanceVrf(Entity):
                         self.neighbor = ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor()
                         self.neighbor.parent = self
                         self._children_name_map["neighbor"] = "neighbor"
-                        self._children_yang_names.add("neighbor")
                         self._segment_path = lambda: "stats"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/all-inclusive/%s" % self._segment_path()
 
@@ -1400,8 +1353,7 @@ class ClearOspfv3InstanceVrf(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("interface", ("interface", ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("interface", ("interface", ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface))])
                             self._leafs = OrderedDict([
                                 ('neighbor_id', YLeaf(YType.str, 'neighbor-id')),
                             ])
@@ -1410,7 +1362,6 @@ class ClearOspfv3InstanceVrf(Entity):
                             self.interface = ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface()
                             self.interface.parent = self
                             self._children_name_map["interface"] = "interface"
-                            self._children_yang_names.add("interface")
                             self._segment_path = lambda: "neighbor"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-act:clear-ospfv3-instance-vrf/input/instance/all-inclusive/stats/%s" % self._segment_path()
 
@@ -1444,8 +1395,7 @@ class ClearOspfv3InstanceVrf(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('interface_name', YLeaf(YType.str, 'interface-name')),
                                 ])

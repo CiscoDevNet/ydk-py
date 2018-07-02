@@ -88,15 +88,16 @@ class Netconf(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("agent", ("agent", Netconf.Agent))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("agent", ("agent", Netconf.Agent))])
         self._leafs = OrderedDict()
 
         self.agent = Netconf.Agent()
         self.agent.parent = self
         self._children_name_map["agent"] = "agent"
-        self._children_yang_names.add("agent")
         self._segment_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:netconf"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Netconf, [], name, value)
 
 
     class Agent(Entity):
@@ -123,16 +124,17 @@ class Netconf(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("tty", ("tty", Netconf.Agent.Tty))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("tty", ("tty", Netconf.Agent.Tty))])
             self._leafs = OrderedDict()
 
             self.tty = Netconf.Agent.Tty()
             self.tty.parent = self
             self._children_name_map["tty"] = "tty"
-            self._children_yang_names.add("tty")
             self._segment_path = lambda: "agent"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:netconf/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Netconf.Agent, [], name, value)
 
 
         class Tty(Entity):
@@ -159,16 +161,17 @@ class Netconf(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("sessions", ("sessions", Netconf.Agent.Tty.Sessions))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("sessions", ("sessions", Netconf.Agent.Tty.Sessions))])
                 self._leafs = OrderedDict()
 
                 self.sessions = Netconf.Agent.Tty.Sessions()
                 self.sessions.parent = self
                 self._children_name_map["sessions"] = "sessions"
-                self._children_yang_names.add("sessions")
                 self._segment_path = lambda: "tty"
                 self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:netconf/agent/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Netconf.Agent.Tty, [], name, value)
 
 
             class Sessions(Entity):
@@ -195,8 +198,7 @@ class Netconf(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("session", ("session", Netconf.Agent.Tty.Sessions.Session))])
+                    self._child_classes = OrderedDict([("session", ("session", Netconf.Agent.Tty.Sessions.Session))])
                     self._leafs = OrderedDict()
 
                     self.session = YList(self)
@@ -302,8 +304,7 @@ class Netconf(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['session_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('session_id', YLeaf(YType.int32, 'session-id')),
                             ('username', YLeaf(YType.str, 'username')),
@@ -334,7 +335,7 @@ class Netconf(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:netconf/agent/tty/sessions/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Netconf.Agent.Tty.Sessions.Session, ['session_id', 'username', 'state', 'client_address', 'client_port', 'config_session_id', 'admin_config_session_id', 'alarm_notification', 'vrf_name', 'start_time', 'elapsed_time', 'last_state_change'], name, value)
+                        self._perform_setattr(Netconf.Agent.Tty.Sessions.Session, ['session_id', u'username', u'state', u'client_address', u'client_port', u'config_session_id', u'admin_config_session_id', u'alarm_notification', u'vrf_name', u'start_time', u'elapsed_time', u'last_state_change'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Netconf()
@@ -365,15 +366,16 @@ class XrXml(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("agent", ("agent", XrXml.Agent))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("agent", ("agent", XrXml.Agent))])
         self._leafs = OrderedDict()
 
         self.agent = XrXml.Agent()
         self.agent.parent = self
         self._children_name_map["agent"] = "agent"
-        self._children_yang_names.add("agent")
         self._segment_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(XrXml, [], name, value)
 
 
     class Agent(Entity):
@@ -410,26 +412,25 @@ class XrXml(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("tty", ("tty", XrXml.Agent.Tty)), ("default", ("default", XrXml.Agent.Default)), ("ssl", ("ssl", XrXml.Agent.Ssl))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("tty", ("tty", XrXml.Agent.Tty)), ("default", ("default", XrXml.Agent.Default)), ("ssl", ("ssl", XrXml.Agent.Ssl))])
             self._leafs = OrderedDict()
 
             self.tty = XrXml.Agent.Tty()
             self.tty.parent = self
             self._children_name_map["tty"] = "tty"
-            self._children_yang_names.add("tty")
 
             self.default = XrXml.Agent.Default()
             self.default.parent = self
             self._children_name_map["default"] = "default"
-            self._children_yang_names.add("default")
 
             self.ssl = XrXml.Agent.Ssl()
             self.ssl.parent = self
             self._children_name_map["ssl"] = "ssl"
-            self._children_yang_names.add("ssl")
             self._segment_path = lambda: "agent"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(XrXml.Agent, [], name, value)
 
 
         class Tty(Entity):
@@ -456,16 +457,17 @@ class XrXml(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("sessions", ("sessions", XrXml.Agent.Tty.Sessions))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("sessions", ("sessions", XrXml.Agent.Tty.Sessions))])
                 self._leafs = OrderedDict()
 
                 self.sessions = XrXml.Agent.Tty.Sessions()
                 self.sessions.parent = self
                 self._children_name_map["sessions"] = "sessions"
-                self._children_yang_names.add("sessions")
                 self._segment_path = lambda: "tty"
                 self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(XrXml.Agent.Tty, [], name, value)
 
 
             class Sessions(Entity):
@@ -492,8 +494,7 @@ class XrXml(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("session", ("session", XrXml.Agent.Tty.Sessions.Session))])
+                    self._child_classes = OrderedDict([("session", ("session", XrXml.Agent.Tty.Sessions.Session))])
                     self._leafs = OrderedDict()
 
                     self.session = YList(self)
@@ -599,8 +600,7 @@ class XrXml(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['session_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('session_id', YLeaf(YType.int32, 'session-id')),
                             ('username', YLeaf(YType.str, 'username')),
@@ -631,7 +631,7 @@ class XrXml(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/tty/sessions/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(XrXml.Agent.Tty.Sessions.Session, ['session_id', 'username', 'state', 'client_address', 'client_port', 'config_session_id', 'admin_config_session_id', 'alarm_notification', 'vrf_name', 'start_time', 'elapsed_time', 'last_state_change'], name, value)
+                        self._perform_setattr(XrXml.Agent.Tty.Sessions.Session, ['session_id', u'username', u'state', u'client_address', u'client_port', u'config_session_id', u'admin_config_session_id', u'alarm_notification', u'vrf_name', u'start_time', u'elapsed_time', u'last_state_change'], name, value)
 
 
         class Default(Entity):
@@ -658,16 +658,17 @@ class XrXml(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("sessions", ("sessions", XrXml.Agent.Default.Sessions))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("sessions", ("sessions", XrXml.Agent.Default.Sessions))])
                 self._leafs = OrderedDict()
 
                 self.sessions = XrXml.Agent.Default.Sessions()
                 self.sessions.parent = self
                 self._children_name_map["sessions"] = "sessions"
-                self._children_yang_names.add("sessions")
                 self._segment_path = lambda: "default"
                 self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(XrXml.Agent.Default, [], name, value)
 
 
             class Sessions(Entity):
@@ -694,8 +695,7 @@ class XrXml(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("session", ("session", XrXml.Agent.Default.Sessions.Session))])
+                    self._child_classes = OrderedDict([("session", ("session", XrXml.Agent.Default.Sessions.Session))])
                     self._leafs = OrderedDict()
 
                     self.session = YList(self)
@@ -801,8 +801,7 @@ class XrXml(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['session_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('session_id', YLeaf(YType.int32, 'session-id')),
                             ('username', YLeaf(YType.str, 'username')),
@@ -833,7 +832,7 @@ class XrXml(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/default/sessions/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(XrXml.Agent.Default.Sessions.Session, ['session_id', 'username', 'state', 'client_address', 'client_port', 'config_session_id', 'admin_config_session_id', 'alarm_notification', 'vrf_name', 'start_time', 'elapsed_time', 'last_state_change'], name, value)
+                        self._perform_setattr(XrXml.Agent.Default.Sessions.Session, ['session_id', u'username', u'state', u'client_address', u'client_port', u'config_session_id', u'admin_config_session_id', u'alarm_notification', u'vrf_name', u'start_time', u'elapsed_time', u'last_state_change'], name, value)
 
 
         class Ssl(Entity):
@@ -860,16 +859,17 @@ class XrXml(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("sessions", ("sessions", XrXml.Agent.Ssl.Sessions))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("sessions", ("sessions", XrXml.Agent.Ssl.Sessions))])
                 self._leafs = OrderedDict()
 
                 self.sessions = XrXml.Agent.Ssl.Sessions()
                 self.sessions.parent = self
                 self._children_name_map["sessions"] = "sessions"
-                self._children_yang_names.add("sessions")
                 self._segment_path = lambda: "ssl"
                 self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(XrXml.Agent.Ssl, [], name, value)
 
 
             class Sessions(Entity):
@@ -896,8 +896,7 @@ class XrXml(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("session", ("session", XrXml.Agent.Ssl.Sessions.Session))])
+                    self._child_classes = OrderedDict([("session", ("session", XrXml.Agent.Ssl.Sessions.Session))])
                     self._leafs = OrderedDict()
 
                     self.session = YList(self)
@@ -1003,8 +1002,7 @@ class XrXml(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['session_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('session_id', YLeaf(YType.int32, 'session-id')),
                             ('username', YLeaf(YType.str, 'username')),
@@ -1035,7 +1033,7 @@ class XrXml(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/ssl/sessions/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(XrXml.Agent.Ssl.Sessions.Session, ['session_id', 'username', 'state', 'client_address', 'client_port', 'config_session_id', 'admin_config_session_id', 'alarm_notification', 'vrf_name', 'start_time', 'elapsed_time', 'last_state_change'], name, value)
+                        self._perform_setattr(XrXml.Agent.Ssl.Sessions.Session, ['session_id', u'username', u'state', u'client_address', u'client_port', u'config_session_id', u'admin_config_session_id', u'alarm_notification', u'vrf_name', u'start_time', u'elapsed_time', u'last_state_change'], name, value)
 
     def clone_ptr(self):
         self._top_entity = XrXml()

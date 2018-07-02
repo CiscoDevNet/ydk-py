@@ -41,17 +41,17 @@ class INTEGRATEDSERVICESMIB(Entity):
     .. attribute:: intsrvgenobjects
     
     	
-    	**type**\:  :py:class:`Intsrvgenobjects <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.Intsrvgenobjects>`
+    	**type**\:  :py:class:`IntSrvGenObjects <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.IntSrvGenObjects>`
     
     .. attribute:: intsrvifattribtable
     
     	The reservable attributes of the system's  in\- terfaces
-    	**type**\:  :py:class:`Intsrvifattribtable <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.Intsrvifattribtable>`
+    	**type**\:  :py:class:`IntSrvIfAttribTable <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.IntSrvIfAttribTable>`
     
     .. attribute:: intsrvflowtable
     
     	Information describing the reserved flows  us\- ing the system's interfaces
-    	**type**\:  :py:class:`Intsrvflowtable <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.Intsrvflowtable>`
+    	**type**\:  :py:class:`IntSrvFlowTable <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.IntSrvFlowTable>`
     
     
 
@@ -69,28 +69,27 @@ class INTEGRATEDSERVICESMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("intSrvGenObjects", ("intsrvgenobjects", INTEGRATEDSERVICESMIB.Intsrvgenobjects)), ("intSrvIfAttribTable", ("intsrvifattribtable", INTEGRATEDSERVICESMIB.Intsrvifattribtable)), ("intSrvFlowTable", ("intsrvflowtable", INTEGRATEDSERVICESMIB.Intsrvflowtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("intSrvGenObjects", ("intsrvgenobjects", INTEGRATEDSERVICESMIB.IntSrvGenObjects)), ("intSrvIfAttribTable", ("intsrvifattribtable", INTEGRATEDSERVICESMIB.IntSrvIfAttribTable)), ("intSrvFlowTable", ("intsrvflowtable", INTEGRATEDSERVICESMIB.IntSrvFlowTable))])
         self._leafs = OrderedDict()
 
-        self.intsrvgenobjects = INTEGRATEDSERVICESMIB.Intsrvgenobjects()
+        self.intsrvgenobjects = INTEGRATEDSERVICESMIB.IntSrvGenObjects()
         self.intsrvgenobjects.parent = self
         self._children_name_map["intsrvgenobjects"] = "intSrvGenObjects"
-        self._children_yang_names.add("intSrvGenObjects")
 
-        self.intsrvifattribtable = INTEGRATEDSERVICESMIB.Intsrvifattribtable()
+        self.intsrvifattribtable = INTEGRATEDSERVICESMIB.IntSrvIfAttribTable()
         self.intsrvifattribtable.parent = self
         self._children_name_map["intsrvifattribtable"] = "intSrvIfAttribTable"
-        self._children_yang_names.add("intSrvIfAttribTable")
 
-        self.intsrvflowtable = INTEGRATEDSERVICESMIB.Intsrvflowtable()
+        self.intsrvflowtable = INTEGRATEDSERVICESMIB.IntSrvFlowTable()
         self.intsrvflowtable.parent = self
         self._children_name_map["intsrvflowtable"] = "intSrvFlowTable"
-        self._children_yang_names.add("intSrvFlowTable")
         self._segment_path = lambda: "INTEGRATED-SERVICES-MIB:INTEGRATED-SERVICES-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(INTEGRATEDSERVICESMIB, [], name, value)
 
-    class Intsrvgenobjects(Entity):
+
+    class IntSrvGenObjects(Entity):
         """
         
         
@@ -109,15 +108,14 @@ class INTEGRATEDSERVICESMIB(Entity):
         _revision = '1995-11-03'
 
         def __init__(self):
-            super(INTEGRATEDSERVICESMIB.Intsrvgenobjects, self).__init__()
+            super(INTEGRATEDSERVICESMIB.IntSrvGenObjects, self).__init__()
 
             self.yang_name = "intSrvGenObjects"
             self.yang_parent_name = "INTEGRATED-SERVICES-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('intsrvflownewindex', YLeaf(YType.int32, 'intSrvFlowNewIndex')),
             ])
@@ -126,10 +124,10 @@ class INTEGRATEDSERVICESMIB(Entity):
             self._absolute_path = lambda: "INTEGRATED-SERVICES-MIB:INTEGRATED-SERVICES-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(INTEGRATEDSERVICESMIB.Intsrvgenobjects, ['intsrvflownewindex'], name, value)
+            self._perform_setattr(INTEGRATEDSERVICESMIB.IntSrvGenObjects, [u'intsrvflownewindex'], name, value)
 
 
-    class Intsrvifattribtable(Entity):
+    class IntSrvIfAttribTable(Entity):
         """
         The reservable attributes of the system's  in\-
         terfaces.
@@ -137,7 +135,7 @@ class INTEGRATEDSERVICESMIB(Entity):
         .. attribute:: intsrvifattribentry
         
         	The reservable attributes of  a  given  inter\- face
-        	**type**\: list of  		 :py:class:`Intsrvifattribentry <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.Intsrvifattribtable.Intsrvifattribentry>`
+        	**type**\: list of  		 :py:class:`IntSrvIfAttribEntry <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.IntSrvIfAttribTable.IntSrvIfAttribEntry>`
         
         
 
@@ -147,15 +145,14 @@ class INTEGRATEDSERVICESMIB(Entity):
         _revision = '1995-11-03'
 
         def __init__(self):
-            super(INTEGRATEDSERVICESMIB.Intsrvifattribtable, self).__init__()
+            super(INTEGRATEDSERVICESMIB.IntSrvIfAttribTable, self).__init__()
 
             self.yang_name = "intSrvIfAttribTable"
             self.yang_parent_name = "INTEGRATED-SERVICES-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("intSrvIfAttribEntry", ("intsrvifattribentry", INTEGRATEDSERVICESMIB.Intsrvifattribtable.Intsrvifattribentry))])
+            self._child_classes = OrderedDict([("intSrvIfAttribEntry", ("intsrvifattribentry", INTEGRATEDSERVICESMIB.IntSrvIfAttribTable.IntSrvIfAttribEntry))])
             self._leafs = OrderedDict()
 
             self.intsrvifattribentry = YList(self)
@@ -163,10 +160,10 @@ class INTEGRATEDSERVICESMIB(Entity):
             self._absolute_path = lambda: "INTEGRATED-SERVICES-MIB:INTEGRATED-SERVICES-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(INTEGRATEDSERVICESMIB.Intsrvifattribtable, [], name, value)
+            self._perform_setattr(INTEGRATEDSERVICESMIB.IntSrvIfAttribTable, [], name, value)
 
 
-        class Intsrvifattribentry(Entity):
+        class IntSrvIfAttribEntry(Entity):
             """
             The reservable attributes of  a  given  inter\-
             face.
@@ -178,7 +175,7 @@ class INTEGRATEDSERVICESMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: intsrvifattriballocatedbits
             
@@ -236,15 +233,14 @@ class INTEGRATEDSERVICESMIB(Entity):
             _revision = '1995-11-03'
 
             def __init__(self):
-                super(INTEGRATEDSERVICESMIB.Intsrvifattribtable.Intsrvifattribentry, self).__init__()
+                super(INTEGRATEDSERVICESMIB.IntSrvIfAttribTable.IntSrvIfAttribEntry, self).__init__()
 
                 self.yang_name = "intSrvIfAttribEntry"
                 self.yang_parent_name = "intSrvIfAttribTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('intsrvifattriballocatedbits', YLeaf(YType.int32, 'intSrvIfAttribAllocatedBits')),
@@ -265,10 +261,10 @@ class INTEGRATEDSERVICESMIB(Entity):
                 self._absolute_path = lambda: "INTEGRATED-SERVICES-MIB:INTEGRATED-SERVICES-MIB/intSrvIfAttribTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(INTEGRATEDSERVICESMIB.Intsrvifattribtable.Intsrvifattribentry, ['ifindex', 'intsrvifattriballocatedbits', 'intsrvifattribmaxallocatedbits', 'intsrvifattriballocatedbuffer', 'intsrvifattribflows', 'intsrvifattribpropagationdelay', 'intsrvifattribstatus'], name, value)
+                self._perform_setattr(INTEGRATEDSERVICESMIB.IntSrvIfAttribTable.IntSrvIfAttribEntry, [u'ifindex', u'intsrvifattriballocatedbits', u'intsrvifattribmaxallocatedbits', u'intsrvifattriballocatedbuffer', u'intsrvifattribflows', u'intsrvifattribpropagationdelay', u'intsrvifattribstatus'], name, value)
 
 
-    class Intsrvflowtable(Entity):
+    class IntSrvFlowTable(Entity):
         """
         Information describing the reserved flows  us\-
         ing the system's interfaces.
@@ -276,7 +272,7 @@ class INTEGRATEDSERVICESMIB(Entity):
         .. attribute:: intsrvflowentry
         
         	Information describing the use of a given  in\- terface   by   a   given   flow.   The  counter intSrvFlowPoliced starts counting  at  the  in\- stallation of the flow
-        	**type**\: list of  		 :py:class:`Intsrvflowentry <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.Intsrvflowtable.Intsrvflowentry>`
+        	**type**\: list of  		 :py:class:`IntSrvFlowEntry <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.IntSrvFlowTable.IntSrvFlowEntry>`
         
         
 
@@ -286,15 +282,14 @@ class INTEGRATEDSERVICESMIB(Entity):
         _revision = '1995-11-03'
 
         def __init__(self):
-            super(INTEGRATEDSERVICESMIB.Intsrvflowtable, self).__init__()
+            super(INTEGRATEDSERVICESMIB.IntSrvFlowTable, self).__init__()
 
             self.yang_name = "intSrvFlowTable"
             self.yang_parent_name = "INTEGRATED-SERVICES-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("intSrvFlowEntry", ("intsrvflowentry", INTEGRATEDSERVICESMIB.Intsrvflowtable.Intsrvflowentry))])
+            self._child_classes = OrderedDict([("intSrvFlowEntry", ("intsrvflowentry", INTEGRATEDSERVICESMIB.IntSrvFlowTable.IntSrvFlowEntry))])
             self._leafs = OrderedDict()
 
             self.intsrvflowentry = YList(self)
@@ -302,10 +297,10 @@ class INTEGRATEDSERVICESMIB(Entity):
             self._absolute_path = lambda: "INTEGRATED-SERVICES-MIB:INTEGRATED-SERVICES-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(INTEGRATEDSERVICESMIB.Intsrvflowtable, [], name, value)
+            self._perform_setattr(INTEGRATEDSERVICESMIB.IntSrvFlowTable, [], name, value)
 
 
-        class Intsrvflowentry(Entity):
+        class IntSrvFlowEntry(Entity):
             """
             Information describing the use of a given  in\-
             terface   by   a   given   flow.   The  counter
@@ -329,7 +324,7 @@ class INTEGRATEDSERVICESMIB(Entity):
             .. attribute:: intsrvflowowner
             
             	The process that installed this  flow  in  the queue policy database
-            	**type**\:  :py:class:`Intsrvflowowner <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.Intsrvflowtable.Intsrvflowentry.Intsrvflowowner>`
+            	**type**\:  :py:class:`IntSrvFlowOwner <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.IntSrvFlowTable.IntSrvFlowEntry.IntSrvFlowOwner>`
             
             .. attribute:: intsrvflowdestaddr
             
@@ -491,15 +486,14 @@ class INTEGRATEDSERVICESMIB(Entity):
             _revision = '1995-11-03'
 
             def __init__(self):
-                super(INTEGRATEDSERVICESMIB.Intsrvflowtable.Intsrvflowentry, self).__init__()
+                super(INTEGRATEDSERVICESMIB.IntSrvFlowTable.IntSrvFlowEntry, self).__init__()
 
                 self.yang_name = "intSrvFlowEntry"
                 self.yang_parent_name = "intSrvFlowTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['intsrvflownumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('intsrvflownumber', YLeaf(YType.int32, 'intSrvFlowNumber')),
                     ('intsrvflowtype', YLeaf(YType.int32, 'intSrvFlowType')),
@@ -556,11 +550,11 @@ class INTEGRATEDSERVICESMIB(Entity):
                 self._absolute_path = lambda: "INTEGRATED-SERVICES-MIB:INTEGRATED-SERVICES-MIB/intSrvFlowTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(INTEGRATEDSERVICESMIB.Intsrvflowtable.Intsrvflowentry, ['intsrvflownumber', 'intsrvflowtype', 'intsrvflowowner', 'intsrvflowdestaddr', 'intsrvflowsenderaddr', 'intsrvflowdestaddrlength', 'intsrvflowsenderaddrlength', 'intsrvflowprotocol', 'intsrvflowdestport', 'intsrvflowport', 'intsrvflowflowid', 'intsrvflowinterface', 'intsrvflowifaddr', 'intsrvflowrate', 'intsrvflowburst', 'intsrvflowweight', 'intsrvflowqueue', 'intsrvflowmintu', 'intsrvflowmaxtu', 'intsrvflowbesteffort', 'intsrvflowpoliced', 'intsrvflowdiscard', 'intsrvflowservice', 'intsrvfloworder', 'intsrvflowstatus'], name, value)
+                self._perform_setattr(INTEGRATEDSERVICESMIB.IntSrvFlowTable.IntSrvFlowEntry, [u'intsrvflownumber', u'intsrvflowtype', u'intsrvflowowner', u'intsrvflowdestaddr', u'intsrvflowsenderaddr', u'intsrvflowdestaddrlength', u'intsrvflowsenderaddrlength', u'intsrvflowprotocol', u'intsrvflowdestport', u'intsrvflowport', u'intsrvflowflowid', u'intsrvflowinterface', u'intsrvflowifaddr', u'intsrvflowrate', u'intsrvflowburst', u'intsrvflowweight', u'intsrvflowqueue', u'intsrvflowmintu', u'intsrvflowmaxtu', u'intsrvflowbesteffort', u'intsrvflowpoliced', u'intsrvflowdiscard', u'intsrvflowservice', u'intsrvfloworder', u'intsrvflowstatus'], name, value)
 
-            class Intsrvflowowner(Enum):
+            class IntSrvFlowOwner(Enum):
                 """
-                Intsrvflowowner (Enum Class)
+                IntSrvFlowOwner (Enum Class)
 
                 The process that installed this  flow  in  the
 

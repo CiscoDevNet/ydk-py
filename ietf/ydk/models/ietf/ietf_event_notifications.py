@@ -56,6 +56,37 @@ class Stream(Identity):
         super(Stream, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:stream")
 
 
+class Encodings(Identity):
+    """
+    Base identity to represent data encodings
+    
+    
+
+    """
+
+    _prefix = 'notif-bis'
+    _revision = '2016-10-27'
+
+    def __init__(self):
+        super(Encodings, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:encodings")
+
+
+class Transport(Identity):
+    """
+    An identity that represents a transport protocol for
+    event notifications
+    
+    
+
+    """
+
+    _prefix = 'notif-bis'
+    _revision = '2016-10-27'
+
+    def __init__(self):
+        super(Transport, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:transport")
+
+
 class SubscriptionResult(Identity):
     """
     Base identity for RPC responses to requests surrounding
@@ -106,37 +137,6 @@ class SubscriptionErrors(Identity):
         super(SubscriptionErrors, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:subscription-errors")
 
 
-class Encodings(Identity):
-    """
-    Base identity to represent data encodings
-    
-    
-
-    """
-
-    _prefix = 'notif-bis'
-    _revision = '2016-10-27'
-
-    def __init__(self):
-        super(Encodings, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:encodings")
-
-
-class Transport(Identity):
-    """
-    An identity that represents a transport protocol for
-    event notifications
-    
-    
-
-    """
-
-    _prefix = 'notif-bis'
-    _revision = '2016-10-27'
-
-    def __init__(self):
-        super(Transport, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:transport")
-
-
 class EstablishSubscription(Entity):
     """
     This RPC allows a subscriber to create
@@ -178,19 +178,16 @@ class EstablishSubscription(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = EstablishSubscription.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = EstablishSubscription.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "ietf-event-notifications:establish-subscription"
 
 
@@ -319,8 +316,7 @@ class EstablishSubscription(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('stream', YLeaf(YType.identityref, 'stream')),
                 ('encoding', YLeaf(YType.identityref, 'encoding')),
@@ -359,7 +355,7 @@ class EstablishSubscription(Entity):
             self._absolute_path = lambda: "ietf-event-notifications:establish-subscription/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EstablishSubscription.Input, ['stream', 'encoding', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+            self._perform_setattr(EstablishSubscription.Input, [u'stream', u'encoding', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
 
 
     class Output(Entity):
@@ -503,8 +499,7 @@ class EstablishSubscription(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('subscription_result', YLeaf(YType.identityref, 'subscription-result')),
                 ('subscription_id', YLeaf(YType.uint32, 'subscription-id')),
@@ -547,7 +542,7 @@ class EstablishSubscription(Entity):
             self._absolute_path = lambda: "ietf-event-notifications:establish-subscription/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EstablishSubscription.Output, ['subscription_result', 'subscription_id', 'stream', 'encoding', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+            self._perform_setattr(EstablishSubscription.Output, [u'subscription_result', u'subscription_id', u'stream', u'encoding', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
 
     def clone_ptr(self):
         self._top_entity = EstablishSubscription()
@@ -584,14 +579,12 @@ class CreateSubscription(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = CreateSubscription.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
         self._segment_path = lambda: "ietf-event-notifications:create-subscription"
 
 
@@ -647,8 +640,7 @@ class CreateSubscription(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('stream', YLeaf(YType.identityref, 'stream')),
                 ('encoding', YLeaf(YType.identityref, 'encoding')),
@@ -665,7 +657,7 @@ class CreateSubscription(Entity):
             self._absolute_path = lambda: "ietf-event-notifications:create-subscription/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CreateSubscription.Input, ['stream', 'encoding', 'filter', 'starttime', 'stoptime'], name, value)
+            self._perform_setattr(CreateSubscription.Input, [u'stream', u'encoding', u'filter', u'starttime', u'stoptime'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CreateSubscription()
@@ -713,19 +705,16 @@ class ModifySubscription(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = ModifySubscription.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = ModifySubscription.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "ietf-event-notifications:modify-subscription"
 
 
@@ -828,8 +817,7 @@ class ModifySubscription(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('subscription_id', YLeaf(YType.uint32, 'subscription-id')),
                 ('filter', YLeaf(YType.str, 'filter')),
@@ -860,7 +848,7 @@ class ModifySubscription(Entity):
             self._absolute_path = lambda: "ietf-event-notifications:modify-subscription/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ModifySubscription.Input, ['subscription_id', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change'], name, value)
+            self._perform_setattr(ModifySubscription.Input, [u'subscription_id', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change'], name, value)
 
 
     class Output(Entity):
@@ -1004,8 +992,7 @@ class ModifySubscription(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('subscription_result', YLeaf(YType.identityref, 'subscription-result')),
                 ('subscription_id', YLeaf(YType.uint32, 'subscription-id')),
@@ -1048,7 +1035,7 @@ class ModifySubscription(Entity):
             self._absolute_path = lambda: "ietf-event-notifications:modify-subscription/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ModifySubscription.Output, ['subscription_result', 'subscription_id', 'stream', 'encoding', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+            self._perform_setattr(ModifySubscription.Output, [u'subscription_result', u'subscription_id', u'stream', u'encoding', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ModifySubscription()
@@ -1085,19 +1072,16 @@ class DeleteSubscription(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
 
         self.input = DeleteSubscription.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
 
         self.output = DeleteSubscription.Output()
         self.output.parent = self
         self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
         self._segment_path = lambda: "ietf-event-notifications:delete-subscription"
 
 
@@ -1129,8 +1113,7 @@ class DeleteSubscription(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('subscription_id', YLeaf(YType.uint32, 'subscription-id')),
             ])
@@ -1139,7 +1122,7 @@ class DeleteSubscription(Entity):
             self._absolute_path = lambda: "ietf-event-notifications:delete-subscription/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DeleteSubscription.Input, ['subscription_id'], name, value)
+            self._perform_setattr(DeleteSubscription.Input, [u'subscription_id'], name, value)
 
 
     class Output(Entity):
@@ -1168,8 +1151,7 @@ class DeleteSubscription(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('subscription_result', YLeaf(YType.identityref, 'subscription-result')),
             ])
@@ -1178,7 +1160,7 @@ class DeleteSubscription(Entity):
             self._absolute_path = lambda: "ietf-event-notifications:delete-subscription/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DeleteSubscription.Output, ['subscription_result'], name, value)
+            self._perform_setattr(DeleteSubscription.Output, [u'subscription_result'], name, value)
 
     def clone_ptr(self):
         self._top_entity = DeleteSubscription()
@@ -1210,8 +1192,7 @@ class Streams(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict([
             ('stream', YLeafList(YType.identityref, 'stream')),
         ])
@@ -1219,7 +1200,7 @@ class Streams(Entity):
         self._segment_path = lambda: "ietf-event-notifications:streams"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Streams, ['stream'], name, value)
+        self._perform_setattr(Streams, [u'stream'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Streams()
@@ -1252,8 +1233,7 @@ class Filters(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("filter", ("filter", Filters.Filter))])
+        self._child_classes = OrderedDict([("filter", ("filter", Filters.Filter))])
         self._leafs = OrderedDict()
 
         self.filter = YList(self)
@@ -1305,8 +1285,7 @@ class Filters(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['filter_id']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('filter_id', YLeaf(YType.uint32, 'filter-id')),
                 ('filter', YLeaf(YType.str, 'filter')),
@@ -1321,7 +1300,7 @@ class Filters(Entity):
             self._absolute_path = lambda: "ietf-event-notifications:filters/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Filters.Filter, ['filter_id', 'filter', 'subtree_filter', 'xpath_filter'], name, value)
+            self._perform_setattr(Filters.Filter, [u'filter_id', u'filter', 'subtree_filter', 'xpath_filter'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Filters()
@@ -1353,8 +1332,7 @@ class SubscriptionConfig(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("subscription", ("subscription", SubscriptionConfig.Subscription))])
+        self._child_classes = OrderedDict([("subscription", ("subscription", SubscriptionConfig.Subscription))])
         self._leafs = OrderedDict()
 
         self.subscription = YList(self)
@@ -1530,8 +1508,7 @@ class SubscriptionConfig(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['subscription_id']
-            self._child_container_classes = OrderedDict([("receivers", ("receivers", SubscriptionConfig.Subscription.Receivers))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("receivers", ("receivers", SubscriptionConfig.Subscription.Receivers))])
             self._leafs = OrderedDict([
                 ('subscription_id', YLeaf(YType.uint32, 'subscription-id')),
                 ('stream', YLeaf(YType.identityref, 'stream')),
@@ -1578,12 +1555,11 @@ class SubscriptionConfig(Entity):
             self.receivers = SubscriptionConfig.Subscription.Receivers()
             self.receivers.parent = self
             self._children_name_map["receivers"] = "receivers"
-            self._children_yang_names.add("receivers")
             self._segment_path = lambda: "subscription" + "[subscription-id='" + str(self.subscription_id) + "']"
             self._absolute_path = lambda: "ietf-event-notifications:subscription-config/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SubscriptionConfig.Subscription, ['subscription_id', 'stream', 'encoding', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'source_interface', 'source_vrf', 'source_address', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+            self._perform_setattr(SubscriptionConfig.Subscription, [u'subscription_id', u'stream', u'encoding', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', u'source_interface', u'source_vrf', u'source_address', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
 
 
         class Receivers(Entity):
@@ -1610,8 +1586,7 @@ class SubscriptionConfig(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("receiver", ("receiver", SubscriptionConfig.Subscription.Receivers.Receiver))])
+                self._child_classes = OrderedDict([("receiver", ("receiver", SubscriptionConfig.Subscription.Receivers.Receiver))])
                 self._leafs = OrderedDict()
 
                 self.receiver = YList(self)
@@ -1676,8 +1651,7 @@ class SubscriptionConfig(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['address']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('address', YLeaf(YType.str, 'address')),
                         ('port', YLeaf(YType.uint16, 'port')),
@@ -1689,7 +1663,7 @@ class SubscriptionConfig(Entity):
                     self._segment_path = lambda: "receiver" + "[address='" + str(self.address) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SubscriptionConfig.Subscription.Receivers.Receiver, ['address', 'port', 'protocol'], name, value)
+                    self._perform_setattr(SubscriptionConfig.Subscription.Receivers.Receiver, [u'address', u'port', u'protocol'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SubscriptionConfig()
@@ -1727,8 +1701,7 @@ class Subscriptions(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("subscription", ("subscription", Subscriptions.Subscription))])
+        self._child_classes = OrderedDict([("subscription", ("subscription", Subscriptions.Subscription))])
         self._leafs = OrderedDict()
 
         self.subscription = YList(self)
@@ -1916,8 +1889,7 @@ class Subscriptions(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['subscription_id']
-            self._child_container_classes = OrderedDict([("receivers", ("receivers", Subscriptions.Subscription.Receivers))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("receivers", ("receivers", Subscriptions.Subscription.Receivers))])
             self._leafs = OrderedDict([
                 ('subscription_id', YLeaf(YType.uint32, 'subscription-id')),
                 ('configured_subscription', YLeaf(YType.empty, 'configured-subscription')),
@@ -1968,12 +1940,11 @@ class Subscriptions(Entity):
             self.receivers = Subscriptions.Subscription.Receivers()
             self.receivers.parent = self
             self._children_name_map["receivers"] = "receivers"
-            self._children_yang_names.add("receivers")
             self._segment_path = lambda: "subscription" + "[subscription-id='" + str(self.subscription_id) + "']"
             self._absolute_path = lambda: "ietf-event-notifications:subscriptions/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Subscriptions.Subscription, ['subscription_id', 'configured_subscription', 'subscription_status', 'stream', 'encoding', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'source_interface', 'source_vrf', 'source_address', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+            self._perform_setattr(Subscriptions.Subscription, [u'subscription_id', u'configured_subscription', u'subscription_status', u'stream', u'encoding', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', u'source_interface', u'source_vrf', u'source_address', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
 
 
         class Receivers(Entity):
@@ -2000,8 +1971,7 @@ class Subscriptions(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("receiver", ("receiver", Subscriptions.Subscription.Receivers.Receiver))])
+                self._child_classes = OrderedDict([("receiver", ("receiver", Subscriptions.Subscription.Receivers.Receiver))])
                 self._leafs = OrderedDict()
 
                 self.receiver = YList(self)
@@ -2066,8 +2036,7 @@ class Subscriptions(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['address']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('address', YLeaf(YType.str, 'address')),
                         ('port', YLeaf(YType.uint16, 'port')),
@@ -2079,17 +2048,15 @@ class Subscriptions(Entity):
                     self._segment_path = lambda: "receiver" + "[address='" + str(self.address) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Subscriptions.Subscription.Receivers.Receiver, ['address', 'port', 'protocol'], name, value)
+                    self._perform_setattr(Subscriptions.Subscription.Receivers.Receiver, [u'address', u'port', u'protocol'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Subscriptions()
         return self._top_entity
 
-class NETCONF(Identity):
+class NoResources(Identity):
     """
-    Default NETCONF event stream, containing events based on
-    notifications defined as YANG modules that are supported
-    by the system.
+    Lack of resources, e.g. CPU, memory, bandwidth
     
     
 
@@ -2099,131 +2066,7 @@ class NETCONF(Identity):
     _revision = '2016-10-27'
 
     def __init__(self):
-        super(NETCONF, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:NETCONF")
-
-
-class Ok(Identity):
-    """
-    OK \- RPC was successful and was performed as requested.
-    
-    
-
-    """
-
-    _prefix = 'notif-bis'
-    _revision = '2016-10-27'
-
-    def __init__(self):
-        super(Ok, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:ok")
-
-
-class Error(Identity):
-    """
-    RPC was not successful.
-    Base identity for error return codes.
-    
-    
-
-    """
-
-    _prefix = 'notif-bis'
-    _revision = '2016-10-27'
-
-    def __init__(self):
-        super(Error, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:error")
-
-
-class ErrorNoSuchSubscription(Identity):
-    """
-    A subscription with the requested subscription ID
-    does not exist.
-    
-    
-
-    """
-
-    _prefix = 'notif-bis'
-    _revision = '2016-10-27'
-
-    def __init__(self):
-        super(ErrorNoSuchSubscription, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:error-no-such-subscription")
-
-
-class ErrorNoSuchOption(Identity):
-    """
-    A requested parameter setting is not supported.
-    
-    
-
-    """
-
-    _prefix = 'notif-bis'
-    _revision = '2016-10-27'
-
-    def __init__(self):
-        super(ErrorNoSuchOption, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:error-no-such-option")
-
-
-class ErrorInsufficientResources(Identity):
-    """
-    The publisher has insufficient resources to support the
-    subscription as requested.
-    
-    
-
-    """
-
-    _prefix = 'notif-bis'
-    _revision = '2016-10-27'
-
-    def __init__(self):
-        super(ErrorInsufficientResources, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:error-insufficient-resources")
-
-
-class ErrorConfiguredSubscription(Identity):
-    """
-    Cannot apply RPC to a configured subscription, i.e.
-    to a subscription that was not established via RPC.
-    
-    
-
-    """
-
-    _prefix = 'notif-bis'
-    _revision = '2016-10-27'
-
-    def __init__(self):
-        super(ErrorConfiguredSubscription, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:error-configured-subscription")
-
-
-class ErrorOther(Identity):
-    """
-    An unspecified error has occurred (catch all).
-    
-    
-
-    """
-
-    _prefix = 'notif-bis'
-    _revision = '2016-10-27'
-
-    def __init__(self):
-        super(ErrorOther, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:error-other")
-
-
-class Active(Identity):
-    """
-    Status is active and healthy.
-    
-    
-
-    """
-
-    _prefix = 'notif-bis'
-    _revision = '2016-10-27'
-
-    def __init__(self):
-        super(Active, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:active")
+        super(NoResources, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:no-resources")
 
 
 class Inactive(Identity):
@@ -2259,11 +2102,9 @@ class Suspended(Identity):
         super(Suspended, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:suspended")
 
 
-class InError(Identity):
+class EncodeJson(Identity):
     """
-    The status is in error or degraded, meaning that
-    stream and/or subscription is currently unable to provide
-    the negotiated notifications.
+    Encode data using JSON
     
     
 
@@ -2273,7 +2114,7 @@ class InError(Identity):
     _revision = '2016-10-27'
 
     def __init__(self):
-        super(InError, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:in-error")
+        super(EncodeJson, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:encode-json")
 
 
 class InternalError(Identity):
@@ -2291,9 +2132,9 @@ class InternalError(Identity):
         super(InternalError, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:internal-error")
 
 
-class NoResources(Identity):
+class Other(Identity):
     """
-    Lack of resources, e.g. CPU, memory, bandwidth
+    Fallback reason \- any other reason
     
     
 
@@ -2303,7 +2144,117 @@ class NoResources(Identity):
     _revision = '2016-10-27'
 
     def __init__(self):
-        super(NoResources, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:no-resources")
+        super(Other, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:other")
+
+
+class InError(Identity):
+    """
+    The status is in error or degraded, meaning that
+    stream and/or subscription is currently unable to provide
+    the negotiated notifications.
+    
+    
+
+    """
+
+    _prefix = 'notif-bis'
+    _revision = '2016-10-27'
+
+    def __init__(self):
+        super(InError, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:in-error")
+
+
+class Netconf(Identity):
+    """
+    Netconf notifications as a transport.
+    
+    
+
+    """
+
+    _prefix = 'notif-bis'
+    _revision = '2016-10-27'
+
+    def __init__(self):
+        super(Netconf, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:netconf")
+
+
+class Error(Identity):
+    """
+    RPC was not successful.
+    Base identity for error return codes.
+    
+    
+
+    """
+
+    _prefix = 'notif-bis'
+    _revision = '2016-10-27'
+
+    def __init__(self):
+        super(Error, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:error")
+
+
+class Active(Identity):
+    """
+    Status is active and healthy.
+    
+    
+
+    """
+
+    _prefix = 'notif-bis'
+    _revision = '2016-10-27'
+
+    def __init__(self):
+        super(Active, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:active")
+
+
+class NETCONF(Identity):
+    """
+    Default NETCONF event stream, containing events based on
+    notifications defined as YANG modules that are supported
+    by the system.
+    
+    
+
+    """
+
+    _prefix = 'notif-bis'
+    _revision = '2016-10-27'
+
+    def __init__(self):
+        super(NETCONF, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:NETCONF")
+
+
+class Ok(Identity):
+    """
+    OK \- RPC was successful and was performed as requested.
+    
+    
+
+    """
+
+    _prefix = 'notif-bis'
+    _revision = '2016-10-27'
+
+    def __init__(self):
+        super(Ok, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:ok")
+
+
+class EncodeXml(Identity):
+    """
+    Encode data using XML
+    
+    
+
+    """
+
+    _prefix = 'notif-bis'
+    _revision = '2016-10-27'
+
+    def __init__(self):
+        super(EncodeXml, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:encode-xml")
 
 
 class SubscriptionDeleted(Identity):
@@ -2322,9 +2273,9 @@ class SubscriptionDeleted(Identity):
         super(SubscriptionDeleted, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:subscription-deleted")
 
 
-class Other(Identity):
+class ErrorNoSuchOption(Identity):
     """
-    Fallback reason \- any other reason
+    A requested parameter setting is not supported.
     
     
 
@@ -2334,12 +2285,13 @@ class Other(Identity):
     _revision = '2016-10-27'
 
     def __init__(self):
-        super(Other, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:other")
+        super(ErrorNoSuchOption, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:error-no-such-option")
 
 
-class EncodeXml(Identity):
+class ErrorNoSuchSubscription(Identity):
     """
-    Encode data using XML
+    A subscription with the requested subscription ID
+    does not exist.
     
     
 
@@ -2349,12 +2301,12 @@ class EncodeXml(Identity):
     _revision = '2016-10-27'
 
     def __init__(self):
-        super(EncodeXml, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:encode-xml")
+        super(ErrorNoSuchSubscription, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:error-no-such-subscription")
 
 
-class EncodeJson(Identity):
+class ErrorOther(Identity):
     """
-    Encode data using JSON
+    An unspecified error has occurred (catch all).
     
     
 
@@ -2364,12 +2316,13 @@ class EncodeJson(Identity):
     _revision = '2016-10-27'
 
     def __init__(self):
-        super(EncodeJson, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:encode-json")
+        super(ErrorOther, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:error-other")
 
 
-class Netconf(Identity):
+class ErrorInsufficientResources(Identity):
     """
-    Netconf notifications as a transport.
+    The publisher has insufficient resources to support the
+    subscription as requested.
     
     
 
@@ -2379,6 +2332,22 @@ class Netconf(Identity):
     _revision = '2016-10-27'
 
     def __init__(self):
-        super(Netconf, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:netconf")
+        super(ErrorInsufficientResources, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:error-insufficient-resources")
+
+
+class ErrorConfiguredSubscription(Identity):
+    """
+    Cannot apply RPC to a configured subscription, i.e.
+    to a subscription that was not established via RPC.
+    
+    
+
+    """
+
+    _prefix = 'notif-bis'
+    _revision = '2016-10-27'
+
+    def __init__(self):
+        super(ErrorConfiguredSubscription, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:error-configured-subscription")
 
 

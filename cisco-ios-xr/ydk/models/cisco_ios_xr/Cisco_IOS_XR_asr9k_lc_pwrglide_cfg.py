@@ -45,8 +45,7 @@ class HardwareModulePortMode(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("config-mode", ("config_mode", HardwareModulePortMode.ConfigMode))])
+        self._child_classes = OrderedDict([("config-mode", ("config_mode", HardwareModulePortMode.ConfigMode))])
         self._leafs = OrderedDict()
 
         self.config_mode = YList(self)
@@ -87,8 +86,7 @@ class HardwareModulePortMode(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['id1']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", HardwareModulePortMode.ConfigMode.Node))])
+            self._child_classes = OrderedDict([("node", ("node", HardwareModulePortMode.ConfigMode.Node))])
             self._leafs = OrderedDict([
                 ('id1', YLeaf(YType.str, 'id1')),
             ])
@@ -133,8 +131,7 @@ class HardwareModulePortMode(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['id2']
-                self._child_container_classes = OrderedDict([("port-mode", ("port_mode", HardwareModulePortMode.ConfigMode.Node.PortMode))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("port-mode", ("port_mode", HardwareModulePortMode.ConfigMode.Node.PortMode))])
                 self._leafs = OrderedDict([
                     ('id2', YLeaf(YType.str, 'id2')),
                 ])
@@ -143,7 +140,6 @@ class HardwareModulePortMode(Entity):
                 self.port_mode = HardwareModulePortMode.ConfigMode.Node.PortMode()
                 self.port_mode.parent = self
                 self._children_name_map["port_mode"] = "port-mode"
-                self._children_yang_names.add("port-mode")
                 self._segment_path = lambda: "node" + "[id2='" + str(self.id2) + "']"
 
             def __setattr__(self, name, value):
@@ -174,8 +170,7 @@ class HardwareModulePortMode(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('if_port_mode', YLeaf(YType.str, 'if-port-mode')),
                     ])

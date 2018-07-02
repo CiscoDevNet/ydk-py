@@ -45,15 +45,16 @@ class CrossBarStats(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", CrossBarStats.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", CrossBarStats.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = CrossBarStats.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-asr9k-xbar-oper:cross-bar-stats"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(CrossBarStats, [], name, value)
 
 
     class Nodes(Entity):
@@ -80,8 +81,7 @@ class CrossBarStats(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", CrossBarStats.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", CrossBarStats.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -123,8 +123,7 @@ class CrossBarStats(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("cross-bar-table", ("cross_bar_table", CrossBarStats.Nodes.Node.CrossBarTable))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("cross-bar-table", ("cross_bar_table", CrossBarStats.Nodes.Node.CrossBarTable))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -133,7 +132,6 @@ class CrossBarStats(Entity):
                 self.cross_bar_table = CrossBarStats.Nodes.Node.CrossBarTable()
                 self.cross_bar_table.parent = self
                 self._children_name_map["cross_bar_table"] = "cross-bar-table"
-                self._children_yang_names.add("cross-bar-table")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-xbar-oper:cross-bar-stats/nodes/%s" % self._segment_path()
 
@@ -170,20 +168,20 @@ class CrossBarStats(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("pkt-stats", ("pkt_stats", CrossBarStats.Nodes.Node.CrossBarTable.PktStats)), ("sm15-stats", ("sm15_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("pkt-stats", ("pkt_stats", CrossBarStats.Nodes.Node.CrossBarTable.PktStats)), ("sm15-stats", ("sm15_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats))])
                     self._leafs = OrderedDict()
 
                     self.pkt_stats = CrossBarStats.Nodes.Node.CrossBarTable.PktStats()
                     self.pkt_stats.parent = self
                     self._children_name_map["pkt_stats"] = "pkt-stats"
-                    self._children_yang_names.add("pkt-stats")
 
                     self.sm15_stats = CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats()
                     self.sm15_stats.parent = self
                     self._children_name_map["sm15_stats"] = "sm15-stats"
-                    self._children_yang_names.add("sm15-stats")
                     self._segment_path = lambda: "cross-bar-table"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable, [], name, value)
 
 
                 class PktStats(Entity):
@@ -210,8 +208,7 @@ class CrossBarStats(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("pkt-stat", ("pkt_stat", CrossBarStats.Nodes.Node.CrossBarTable.PktStats.PktStat))])
+                        self._child_classes = OrderedDict([("pkt-stat", ("pkt_stat", CrossBarStats.Nodes.Node.CrossBarTable.PktStats.PktStat))])
                         self._leafs = OrderedDict()
 
                         self.pkt_stat = YList(self)
@@ -570,8 +567,7 @@ class CrossBarStats(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('asic_id', YLeaf(YType.str, 'asic-id')),
                                 ('port', YLeaf(YType.str, 'port')),
@@ -671,7 +667,7 @@ class CrossBarStats(Entity):
                             self._segment_path = lambda: "pkt-stat"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.PktStats.PktStat, ['asic_id', 'port', 'internal_error_count', 'input_buffer_queued_packet_count_high', 'ingress_packet_count_since_last_read_high', 'ingress_channel_utilization_count_high', 'input_buffer_back_pressure_count_high', 'xbar_timeout_drop_count_high', 'holdrop_count_high', 'null_fpoe_drop_count_high', 'diagnostic_packet_count_high', 'input_buffer_correctable_ecc_error_count_high', 'input_buffer_uncorrectable_ecc_error_count_high', 'header_crc_error_count_high', 'short_input_header_error_count_high', 'packet_crc_error_count_high', 'short_packet_error_count_high', 'output_buffer_queued_packet_count_high', 'egress_packet_count_since_last_read_high', 'egress_channel_utilization_count_high', 'output_buffer_back_pressure_count_high', 'output_buffer_correctable_ecc_error_count_high', 'output_buffer_uncorrectable_ecc_error_count_high', 'fpoedb_correctable_ecc_error_count_high', 'fpoedb_uncorrectable_ecc_error_count_high', 'input_buffer_queued_packet_count_low', 'ingress_packet_count_since_last_read_low', 'ingress_channel_utilization_count_low', 'input_buffer_back_pressure_count_low', 'xbar_timeout_drop_count_low', 'holdrop_count_low', 'null_fpoe_drop_count_low', 'diagnostic_packet_count_low', 'input_buffer_correctable_ecc_error_count_low', 'input_buffer_uncorrectable_ecc_error_count_low', 'header_crc_error_count_low', 'short_input_header_error_count_low', 'packet_crc_error_count_low', 'short_packet_error_count_low', 'output_buffer_queued_packet_count_low', 'egress_packet_count_since_last_read_low', 'egress_channel_utilization_count_low', 'output_buffer_back_pressure_count_low', 'output_buffer_correctable_ecc_error_count_low', 'output_buffer_uncorrectable_ecc_error_count_low', 'fpoedb_correctable_ecc_error_count_low', 'fpoedb_uncorrectable_ecc_error_count_low'], name, value)
+                            self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.PktStats.PktStat, ['asic_id', 'port', u'internal_error_count', u'input_buffer_queued_packet_count_high', u'ingress_packet_count_since_last_read_high', u'ingress_channel_utilization_count_high', u'input_buffer_back_pressure_count_high', u'xbar_timeout_drop_count_high', u'holdrop_count_high', u'null_fpoe_drop_count_high', u'diagnostic_packet_count_high', u'input_buffer_correctable_ecc_error_count_high', u'input_buffer_uncorrectable_ecc_error_count_high', u'header_crc_error_count_high', u'short_input_header_error_count_high', u'packet_crc_error_count_high', u'short_packet_error_count_high', u'output_buffer_queued_packet_count_high', u'egress_packet_count_since_last_read_high', u'egress_channel_utilization_count_high', u'output_buffer_back_pressure_count_high', u'output_buffer_correctable_ecc_error_count_high', u'output_buffer_uncorrectable_ecc_error_count_high', u'fpoedb_correctable_ecc_error_count_high', u'fpoedb_uncorrectable_ecc_error_count_high', u'input_buffer_queued_packet_count_low', u'ingress_packet_count_since_last_read_low', u'ingress_channel_utilization_count_low', u'input_buffer_back_pressure_count_low', u'xbar_timeout_drop_count_low', u'holdrop_count_low', u'null_fpoe_drop_count_low', u'diagnostic_packet_count_low', u'input_buffer_correctable_ecc_error_count_low', u'input_buffer_uncorrectable_ecc_error_count_low', u'header_crc_error_count_low', u'short_input_header_error_count_low', u'packet_crc_error_count_low', u'short_packet_error_count_low', u'output_buffer_queued_packet_count_low', u'egress_packet_count_since_last_read_low', u'egress_channel_utilization_count_low', u'output_buffer_back_pressure_count_low', u'output_buffer_correctable_ecc_error_count_low', u'output_buffer_uncorrectable_ecc_error_count_low', u'fpoedb_correctable_ecc_error_count_low', u'fpoedb_uncorrectable_ecc_error_count_low'], name, value)
 
 
                 class Sm15Stats(Entity):
@@ -698,8 +694,7 @@ class CrossBarStats(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("sm15-stat", ("sm15_stat", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat))])
+                        self._child_classes = OrderedDict([("sm15-stat", ("sm15_stat", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat))])
                         self._leafs = OrderedDict()
 
                         self.sm15_stat = YList(self)
@@ -815,8 +810,7 @@ class CrossBarStats(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("ua0-stats", ("ua0_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua0Stats)), ("ua1-stats", ("ua1_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua1Stats)), ("ua2-stats", ("ua2_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua2Stats)), ("ma-stats", ("ma_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.MaStats)), ("ca-stats", ("ca_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.CaStats)), ("pi-stats", ("pi_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiStats)), ("pe-stats", ("pe_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeStats)), ("pi-uc-stats", ("pi_uc_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiUcStats)), ("pi-mc-stats", ("pi_mc_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiMcStats)), ("pi-cc-stats", ("pi_cc_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiCcStats)), ("pe-uc-stats", ("pe_uc_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeUcStats)), ("pe-mc-stats", ("pe_mc_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeMcStats)), ("pe-cc-stats", ("pe_cc_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeCcStats))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("ua0-stats", ("ua0_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua0Stats)), ("ua1-stats", ("ua1_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua1Stats)), ("ua2-stats", ("ua2_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua2Stats)), ("ma-stats", ("ma_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.MaStats)), ("ca-stats", ("ca_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.CaStats)), ("pi-stats", ("pi_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiStats)), ("pe-stats", ("pe_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeStats)), ("pi-uc-stats", ("pi_uc_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiUcStats)), ("pi-mc-stats", ("pi_mc_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiMcStats)), ("pi-cc-stats", ("pi_cc_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiCcStats)), ("pe-uc-stats", ("pe_uc_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeUcStats)), ("pe-mc-stats", ("pe_mc_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeMcStats)), ("pe-cc-stats", ("pe_cc_stats", CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeCcStats))])
                             self._leafs = OrderedDict([
                                 ('asic_id', YLeaf(YType.str, 'asic-id')),
                                 ('port', YLeaf(YType.str, 'port')),
@@ -829,71 +823,58 @@ class CrossBarStats(Entity):
                             self.ua0_stats = CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua0Stats()
                             self.ua0_stats.parent = self
                             self._children_name_map["ua0_stats"] = "ua0-stats"
-                            self._children_yang_names.add("ua0-stats")
 
                             self.ua1_stats = CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua1Stats()
                             self.ua1_stats.parent = self
                             self._children_name_map["ua1_stats"] = "ua1-stats"
-                            self._children_yang_names.add("ua1-stats")
 
                             self.ua2_stats = CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua2Stats()
                             self.ua2_stats.parent = self
                             self._children_name_map["ua2_stats"] = "ua2-stats"
-                            self._children_yang_names.add("ua2-stats")
 
                             self.ma_stats = CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.MaStats()
                             self.ma_stats.parent = self
                             self._children_name_map["ma_stats"] = "ma-stats"
-                            self._children_yang_names.add("ma-stats")
 
                             self.ca_stats = CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.CaStats()
                             self.ca_stats.parent = self
                             self._children_name_map["ca_stats"] = "ca-stats"
-                            self._children_yang_names.add("ca-stats")
 
                             self.pi_stats = CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiStats()
                             self.pi_stats.parent = self
                             self._children_name_map["pi_stats"] = "pi-stats"
-                            self._children_yang_names.add("pi-stats")
 
                             self.pe_stats = CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeStats()
                             self.pe_stats.parent = self
                             self._children_name_map["pe_stats"] = "pe-stats"
-                            self._children_yang_names.add("pe-stats")
 
                             self.pi_uc_stats = CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiUcStats()
                             self.pi_uc_stats.parent = self
                             self._children_name_map["pi_uc_stats"] = "pi-uc-stats"
-                            self._children_yang_names.add("pi-uc-stats")
 
                             self.pi_mc_stats = CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiMcStats()
                             self.pi_mc_stats.parent = self
                             self._children_name_map["pi_mc_stats"] = "pi-mc-stats"
-                            self._children_yang_names.add("pi-mc-stats")
 
                             self.pi_cc_stats = CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiCcStats()
                             self.pi_cc_stats.parent = self
                             self._children_name_map["pi_cc_stats"] = "pi-cc-stats"
-                            self._children_yang_names.add("pi-cc-stats")
 
                             self.pe_uc_stats = CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeUcStats()
                             self.pe_uc_stats.parent = self
                             self._children_name_map["pe_uc_stats"] = "pe-uc-stats"
-                            self._children_yang_names.add("pe-uc-stats")
 
                             self.pe_mc_stats = CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeMcStats()
                             self.pe_mc_stats.parent = self
                             self._children_name_map["pe_mc_stats"] = "pe-mc-stats"
-                            self._children_yang_names.add("pe-mc-stats")
 
                             self.pe_cc_stats = CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeCcStats()
                             self.pe_cc_stats.parent = self
                             self._children_name_map["pe_cc_stats"] = "pe-cc-stats"
-                            self._children_yang_names.add("pe-cc-stats")
                             self._segment_path = lambda: "sm15-stat"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat, ['asic_id', 'port', 'internal_err_cnt'], name, value)
+                            self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat, ['asic_id', 'port', u'internal_err_cnt'], name, value)
 
 
                         class Ua0Stats(Entity):
@@ -971,8 +952,7 @@ class CrossBarStats(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('dest_drop_pkt_cnt', YLeaf(YType.uint64, 'dest-drop-pkt-cnt')),
                                     ('src_dest_pkt_cnt', YLeaf(YType.uint64, 'src-dest-pkt-cnt')),
@@ -994,7 +974,7 @@ class CrossBarStats(Entity):
                                 self._segment_path = lambda: "ua0-stats"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua0Stats, ['dest_drop_pkt_cnt', 'src_dest_pkt_cnt', 'dest_src_pkt_cnt', 'rcv_pkt_cnt', 'tx_pkt_cnt', 'rx_drop_pkt_cnt', 'rx_fabric_to_cnt', 'ack_wait_cnt'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua0Stats, [u'dest_drop_pkt_cnt', u'src_dest_pkt_cnt', u'dest_src_pkt_cnt', u'rcv_pkt_cnt', u'tx_pkt_cnt', u'rx_drop_pkt_cnt', u'rx_fabric_to_cnt', u'ack_wait_cnt'], name, value)
 
 
                         class Ua1Stats(Entity):
@@ -1072,8 +1052,7 @@ class CrossBarStats(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('dest_drop_pkt_cnt', YLeaf(YType.uint64, 'dest-drop-pkt-cnt')),
                                     ('src_dest_pkt_cnt', YLeaf(YType.uint64, 'src-dest-pkt-cnt')),
@@ -1095,7 +1074,7 @@ class CrossBarStats(Entity):
                                 self._segment_path = lambda: "ua1-stats"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua1Stats, ['dest_drop_pkt_cnt', 'src_dest_pkt_cnt', 'dest_src_pkt_cnt', 'rcv_pkt_cnt', 'tx_pkt_cnt', 'rx_drop_pkt_cnt', 'rx_fabric_to_cnt', 'ack_wait_cnt'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua1Stats, [u'dest_drop_pkt_cnt', u'src_dest_pkt_cnt', u'dest_src_pkt_cnt', u'rcv_pkt_cnt', u'tx_pkt_cnt', u'rx_drop_pkt_cnt', u'rx_fabric_to_cnt', u'ack_wait_cnt'], name, value)
 
 
                         class Ua2Stats(Entity):
@@ -1173,8 +1152,7 @@ class CrossBarStats(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('dest_drop_pkt_cnt', YLeaf(YType.uint64, 'dest-drop-pkt-cnt')),
                                     ('src_dest_pkt_cnt', YLeaf(YType.uint64, 'src-dest-pkt-cnt')),
@@ -1196,7 +1174,7 @@ class CrossBarStats(Entity):
                                 self._segment_path = lambda: "ua2-stats"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua2Stats, ['dest_drop_pkt_cnt', 'src_dest_pkt_cnt', 'dest_src_pkt_cnt', 'rcv_pkt_cnt', 'tx_pkt_cnt', 'rx_drop_pkt_cnt', 'rx_fabric_to_cnt', 'ack_wait_cnt'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua2Stats, [u'dest_drop_pkt_cnt', u'src_dest_pkt_cnt', u'dest_src_pkt_cnt', u'rcv_pkt_cnt', u'tx_pkt_cnt', u'rx_drop_pkt_cnt', u'rx_fabric_to_cnt', u'ack_wait_cnt'], name, value)
 
 
                         class MaStats(Entity):
@@ -1281,8 +1259,7 @@ class CrossBarStats(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('dest_drop_pkt_cnt', YLeaf(YType.uint64, 'dest-drop-pkt-cnt')),
                                     ('src_dest_pkt_cnt', YLeaf(YType.uint64, 'src-dest-pkt-cnt')),
@@ -1306,7 +1283,7 @@ class CrossBarStats(Entity):
                                 self._segment_path = lambda: "ma-stats"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.MaStats, ['dest_drop_pkt_cnt', 'src_dest_pkt_cnt', 'dest_src_pkt_cnt', 'rcv_pkt_cnt', 'tx_pkt_cnt', 'rx_drop_pkt_cnt', 'rx_re_transmit_cnt', 'rx_fabric_to_cnt', 'rx_hol_to_cnt'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.MaStats, [u'dest_drop_pkt_cnt', u'src_dest_pkt_cnt', u'dest_src_pkt_cnt', u'rcv_pkt_cnt', u'tx_pkt_cnt', u'rx_drop_pkt_cnt', u'rx_re_transmit_cnt', u'rx_fabric_to_cnt', u'rx_hol_to_cnt'], name, value)
 
 
                         class CaStats(Entity):
@@ -1370,8 +1347,7 @@ class CrossBarStats(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('dest_drop_pkt_cnt', YLeaf(YType.uint64, 'dest-drop-pkt-cnt')),
                                     ('src_dest_pkt_cnt', YLeaf(YType.uint64, 'src-dest-pkt-cnt')),
@@ -1389,7 +1365,7 @@ class CrossBarStats(Entity):
                                 self._segment_path = lambda: "ca-stats"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.CaStats, ['dest_drop_pkt_cnt', 'src_dest_pkt_cnt', 'dest_src_pkt_cnt', 'rcv_pkt_cnt', 'tx_pkt_cnt', 'rx_drop_pkt_cnt'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.CaStats, [u'dest_drop_pkt_cnt', u'src_dest_pkt_cnt', u'dest_src_pkt_cnt', u'rcv_pkt_cnt', u'tx_pkt_cnt', u'rx_drop_pkt_cnt'], name, value)
 
 
                         class PiStats(Entity):
@@ -1439,8 +1415,7 @@ class CrossBarStats(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('total_rate1_cnt', YLeaf(YType.uint64, 'total-rate1-cnt')),
                                     ('total_rate2_cnt', YLeaf(YType.uint64, 'total-rate2-cnt')),
@@ -1454,7 +1429,7 @@ class CrossBarStats(Entity):
                                 self._segment_path = lambda: "pi-stats"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiStats, ['total_rate1_cnt', 'total_rate2_cnt', 'total_rate3_cnt', 'total_calc_rate'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiStats, [u'total_rate1_cnt', u'total_rate2_cnt', u'total_rate3_cnt', u'total_calc_rate'], name, value)
 
 
                         class PeStats(Entity):
@@ -1511,8 +1486,7 @@ class CrossBarStats(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('total_rate1_cnt', YLeaf(YType.uint64, 'total-rate1-cnt')),
                                     ('total_rate2_cnt', YLeaf(YType.uint64, 'total-rate2-cnt')),
@@ -1528,7 +1502,7 @@ class CrossBarStats(Entity):
                                 self._segment_path = lambda: "pe-stats"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeStats, ['total_rate1_cnt', 'total_rate2_cnt', 'total_rate3_cnt', 'total_calc_rate', 'mc2uc_preempt_cnt'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeStats, [u'total_rate1_cnt', u'total_rate2_cnt', u'total_rate3_cnt', u'total_calc_rate', u'mc2uc_preempt_cnt'], name, value)
 
 
                         class PiUcStats(Entity):
@@ -1802,8 +1776,7 @@ class CrossBarStats(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('pkt_rcv_cnt', YLeaf(YType.uint64, 'pkt-rcv-cnt')),
                                     ('pkt_seq_err_cnt', YLeaf(YType.uint64, 'pkt-seq-err-cnt')),
@@ -1881,7 +1854,7 @@ class CrossBarStats(Entity):
                                 self._segment_path = lambda: "pi-uc-stats"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiUcStats, ['pkt_rcv_cnt', 'pkt_seq_err_cnt', 'in_coming_pkt_err_cnt', 'min_pkt_len_err_cnt', 'max_pkt_len_err_cnt', 'line_err_drp_pkt', 'pkt_crc_err_cnt', 'pkt_cfh_crc_err_cnt', 'line_s_written_in_mem0', 'line_s_written_in_mem1', 'line_s_written_in_mem2', 'tail_drp_pkt_cnt', 'uc0_data_mem_ecc_1bit_err_cnt', 'uc1_data_mem_ecc_1bit_err_cnt', 'uc2_data_mem_ecc_1bit_err_cnt', 'uc0_data_mem_ecc_2bit_err_cnt', 'uc1_data_mem_ecc_2bit_err_cnt', 'uc2_data_mem_ecc_2bit_err_cnt', 'diag_pkt_cnt', 'pkt_sent_to_disabled_port_cnt', 'pkt_null_poe_sent_ua0_cnt', 'pkt_null_poe_sent_ua1_cnt', 'pkt_null_poe_sent_ua2_cnt', 'pkt_fpoe_addr_rng_hit_cnt', 'fpoe_mem_ecc_1bit_err_cnt', 'fpoe_mem_ecc_2bit_err_cnt', 'pkts_sent_to_ux0_cnt', 'pkts_sent_to_ux1_cnt', 'pkts_sent_to_ux2_cnt', 'cpp_head_drop_pkt_cnt', 'tr_head_drop_pkt_cnt', 'tr_pkt_sent_to_ux', 'stop_thrsh_hit_cnt', 'rate_cnt', 'calc_rate', 'crc_stomp_pkt_cnt'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiUcStats, [u'pkt_rcv_cnt', u'pkt_seq_err_cnt', u'in_coming_pkt_err_cnt', u'min_pkt_len_err_cnt', u'max_pkt_len_err_cnt', u'line_err_drp_pkt', u'pkt_crc_err_cnt', u'pkt_cfh_crc_err_cnt', u'line_s_written_in_mem0', u'line_s_written_in_mem1', u'line_s_written_in_mem2', u'tail_drp_pkt_cnt', u'uc0_data_mem_ecc_1bit_err_cnt', u'uc1_data_mem_ecc_1bit_err_cnt', u'uc2_data_mem_ecc_1bit_err_cnt', u'uc0_data_mem_ecc_2bit_err_cnt', u'uc1_data_mem_ecc_2bit_err_cnt', u'uc2_data_mem_ecc_2bit_err_cnt', u'diag_pkt_cnt', u'pkt_sent_to_disabled_port_cnt', u'pkt_null_poe_sent_ua0_cnt', u'pkt_null_poe_sent_ua1_cnt', u'pkt_null_poe_sent_ua2_cnt', u'pkt_fpoe_addr_rng_hit_cnt', u'fpoe_mem_ecc_1bit_err_cnt', u'fpoe_mem_ecc_2bit_err_cnt', u'pkts_sent_to_ux0_cnt', u'pkts_sent_to_ux1_cnt', u'pkts_sent_to_ux2_cnt', u'cpp_head_drop_pkt_cnt', u'tr_head_drop_pkt_cnt', u'tr_pkt_sent_to_ux', u'stop_thrsh_hit_cnt', u'rate_cnt', u'calc_rate', u'crc_stomp_pkt_cnt'], name, value)
 
 
                         class PiMcStats(Entity):
@@ -2134,8 +2107,7 @@ class CrossBarStats(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('pkt_rcv_cnt', YLeaf(YType.uint64, 'pkt-rcv-cnt')),
                                     ('pkt_seq_err_cnt', YLeaf(YType.uint64, 'pkt-seq-err-cnt')),
@@ -2207,7 +2179,7 @@ class CrossBarStats(Entity):
                                 self._segment_path = lambda: "pi-mc-stats"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiMcStats, ['pkt_rcv_cnt', 'pkt_seq_err_cnt', 'in_coming_pkt_err_cnt', 'min_pkt_len_err_cnt', 'max_pkt_len_err_cnt', 'line_err_drp_pkt', 'pkt_crc_err_cnt', 'pkt_cfh_crc_err_cnt', 'line_s_written_in_mem', 'tail_drp_pkt_cnt', 'data_mem0_ecc_1bit_err_cnt', 'data_mem1_ecc_1bit_err_cnt', 'data_mem2_ecc_1bit_err_cnt', 'data_mem0_ecc_2bit_err_cnt', 'data_mem1_ecc_2bit_err_cnt', 'data_mem2_ecc_2bit_err_cnt', 'diag_pkt_cnt', 'pkt_sent_to_disabled_port', 'pkt_fpoe_match_hit_cnt', 'pkt_null_poe_sent_cnt', 'pkt_fpoe_addr_rng_hit_cnt', 'di_hdr_len_err_pkt_cnt', 'di_err_pkt_cnt', 'fpoe_mem_ecc_1bit_err_cnt', 'fpoe_mem_ecc_2bit_err_cnt', 'pkts_sent_to_mx_cnt', 'cpp_head_drop_pkt_from_ma_cnt', 'tr_head_drop_pkt_from_ma_cnt', 'tr_pkt_sent_to_mx', 'stop_thrsh_hit_cnt', 'rate_cnt', 'calc_rate', 'crc_stomp_pkt_cnt'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiMcStats, [u'pkt_rcv_cnt', u'pkt_seq_err_cnt', u'in_coming_pkt_err_cnt', u'min_pkt_len_err_cnt', u'max_pkt_len_err_cnt', u'line_err_drp_pkt', u'pkt_crc_err_cnt', u'pkt_cfh_crc_err_cnt', u'line_s_written_in_mem', u'tail_drp_pkt_cnt', u'data_mem0_ecc_1bit_err_cnt', u'data_mem1_ecc_1bit_err_cnt', u'data_mem2_ecc_1bit_err_cnt', u'data_mem0_ecc_2bit_err_cnt', u'data_mem1_ecc_2bit_err_cnt', u'data_mem2_ecc_2bit_err_cnt', u'diag_pkt_cnt', u'pkt_sent_to_disabled_port', u'pkt_fpoe_match_hit_cnt', u'pkt_null_poe_sent_cnt', u'pkt_fpoe_addr_rng_hit_cnt', u'di_hdr_len_err_pkt_cnt', u'di_err_pkt_cnt', u'fpoe_mem_ecc_1bit_err_cnt', u'fpoe_mem_ecc_2bit_err_cnt', u'pkts_sent_to_mx_cnt', u'cpp_head_drop_pkt_from_ma_cnt', u'tr_head_drop_pkt_from_ma_cnt', u'tr_pkt_sent_to_mx', u'stop_thrsh_hit_cnt', u'rate_cnt', u'calc_rate', u'crc_stomp_pkt_cnt'], name, value)
 
 
                         class PiCcStats(Entity):
@@ -2439,8 +2411,7 @@ class CrossBarStats(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('in0_ecc_serr_cnt', YLeaf(YType.uint64, 'in0-ecc-serr-cnt')),
                                     ('in0_ecc_derr_cnt', YLeaf(YType.uint64, 'in0-ecc-derr-cnt')),
@@ -2506,7 +2477,7 @@ class CrossBarStats(Entity):
                                 self._segment_path = lambda: "pi-cc-stats"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiCcStats, ['in0_ecc_serr_cnt', 'in0_ecc_derr_cnt', 'in1_ecc_serr_cnt', 'in1_ecc_derr_cnt', 'data_mem_ecc_serr_cnt', 'data_mem_ecc_derr_cnt', 'data_mem_ovf0_cnt', 'data_mem_ovf1_cnt', 'fpoe_mem_ecc_serr_cnt', 'fpoe_mem_ecc_derr_cnt', 'null_poe_cnt', 'shut_ack_cnt', 'in0_fnc_err_cnt', 'in1_fnc_err_cnt', 'in0_drop_cnt', 'in1_drop_cnt', 'in0_cong_cnt', 'in1_cong_cnt', 'in0_shut_cnt', 'in1_shut_cnt', 'tail_drop_msg_cnt', 'in0_pkt_cnt', 'in1_pkt_cnt', 'dmem_rd_cnt', 'in_dmem0_cnt', 'in_dmem1_cnt', 'out_pkt_cnt', 'stop_thrsh_hit_cnt', 'rate_cnt', 'calc_rate'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiCcStats, [u'in0_ecc_serr_cnt', u'in0_ecc_derr_cnt', u'in1_ecc_serr_cnt', u'in1_ecc_derr_cnt', u'data_mem_ecc_serr_cnt', u'data_mem_ecc_derr_cnt', u'data_mem_ovf0_cnt', u'data_mem_ovf1_cnt', u'fpoe_mem_ecc_serr_cnt', u'fpoe_mem_ecc_derr_cnt', u'null_poe_cnt', u'shut_ack_cnt', u'in0_fnc_err_cnt', u'in1_fnc_err_cnt', u'in0_drop_cnt', u'in1_drop_cnt', u'in0_cong_cnt', u'in1_cong_cnt', u'in0_shut_cnt', u'in1_shut_cnt', u'tail_drop_msg_cnt', u'in0_pkt_cnt', u'in1_pkt_cnt', u'dmem_rd_cnt', u'in_dmem0_cnt', u'in_dmem1_cnt', u'out_pkt_cnt', u'stop_thrsh_hit_cnt', u'rate_cnt', u'calc_rate'], name, value)
 
 
                         class PeUcStats(Entity):
@@ -2745,8 +2716,7 @@ class CrossBarStats(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('in_pkt_uc0_cnt', YLeaf(YType.uint64, 'in-pkt-uc0-cnt')),
                                     ('in_pkt_uc1_cnt', YLeaf(YType.uint64, 'in-pkt-uc1-cnt')),
@@ -2814,7 +2784,7 @@ class CrossBarStats(Entity):
                                 self._segment_path = lambda: "pe-uc-stats"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeUcStats, ['in_pkt_uc0_cnt', 'in_pkt_uc1_cnt', 'in_pkt_uc2_cnt', 'in_full_line_uc0_cnt', 'in_full_line_uc1_cnt', 'in_full_line_uc2_cnt', 'pkt_trunc_eop_uc0_cnt', 'pkt_trunc_eop_uc1_cnt', 'pkt_trunc_eop_uc2_cnt', 'pkt_sop_drop_uc0_cnt', 'pkt_sop_drop_uc1_cnt', 'pkt_sop_drop_uc2_cnt', 'pkt_ecc_err_drop_uc_cnt', 'pkt_ecc_trunc_cnt_uc_cnt', 'ecc_1bit_err_uc0_0_cnt', 'ecc_1bit_err_uc0_1_cnt', 'ecc_1bit_err_uc1_0_cnt', 'ecc_1bit_err_uc1_1_cnt', 'ecc_1bit_err_uc2_0_cnt', 'ecc_1bit_err_uc2_1_cnt', 'ecc_2bit_err_uc0_0_cnt', 'ecc_2bit_err_uc0_1_cnt', 'ecc_2bit_err_uc1_0_cnt', 'ecc_2bit_err_uc1_1_cnt', 'ecc_2bit_err_uc2_0_cnt', 'ecc_2bit_err_uc2_1_cnt', 'out_pkt_uc_cnt', 'fe_uc_sop_eop_pack_cnt', 'fc_uc_0_1_trans_cnt', 'rate_cnt', 'calc_rate'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeUcStats, [u'in_pkt_uc0_cnt', u'in_pkt_uc1_cnt', u'in_pkt_uc2_cnt', u'in_full_line_uc0_cnt', u'in_full_line_uc1_cnt', u'in_full_line_uc2_cnt', u'pkt_trunc_eop_uc0_cnt', u'pkt_trunc_eop_uc1_cnt', u'pkt_trunc_eop_uc2_cnt', u'pkt_sop_drop_uc0_cnt', u'pkt_sop_drop_uc1_cnt', u'pkt_sop_drop_uc2_cnt', u'pkt_ecc_err_drop_uc_cnt', u'pkt_ecc_trunc_cnt_uc_cnt', u'ecc_1bit_err_uc0_0_cnt', u'ecc_1bit_err_uc0_1_cnt', u'ecc_1bit_err_uc1_0_cnt', u'ecc_1bit_err_uc1_1_cnt', u'ecc_1bit_err_uc2_0_cnt', u'ecc_1bit_err_uc2_1_cnt', u'ecc_2bit_err_uc0_0_cnt', u'ecc_2bit_err_uc0_1_cnt', u'ecc_2bit_err_uc1_0_cnt', u'ecc_2bit_err_uc1_1_cnt', u'ecc_2bit_err_uc2_0_cnt', u'ecc_2bit_err_uc2_1_cnt', u'out_pkt_uc_cnt', u'fe_uc_sop_eop_pack_cnt', u'fc_uc_0_1_trans_cnt', u'rate_cnt', u'calc_rate'], name, value)
 
 
                         class PeMcStats(Entity):
@@ -2955,8 +2925,7 @@ class CrossBarStats(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('in_pkt_mc_cnt', YLeaf(YType.uint64, 'in-pkt-mc-cnt')),
                                     ('in_full_line_mc_cnt', YLeaf(YType.uint64, 'in-full-line-mc-cnt')),
@@ -2996,7 +2965,7 @@ class CrossBarStats(Entity):
                                 self._segment_path = lambda: "pe-mc-stats"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeMcStats, ['in_pkt_mc_cnt', 'in_full_line_mc_cnt', 'pkt_trunc_eop_mc_cnt', 'pkt_sop_drop_mc_cnt', 'pkt_ecc_err_drop_mc_cnt', 'pkt_ecc_err_trunc_cnt_mc_cnt', 'ecc_1bit_err_mc0_cnt', 'ecc_1bit_err_mc1_cnt', 'ecc_1bit_err_mc2_cnt', 'ecc_2bit_err_mc0_cnt', 'ecc_2bit_err_mc1_cnt', 'ecc_2bit_err_mc2_cnt', 'out_pkt_mc_cnt', 'fe_mc_sop_eop_pack_cnt', 'fc_mc_0_1_trans_cnt', 'rate_cnt', 'calc_rate'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeMcStats, [u'in_pkt_mc_cnt', u'in_full_line_mc_cnt', u'pkt_trunc_eop_mc_cnt', u'pkt_sop_drop_mc_cnt', u'pkt_ecc_err_drop_mc_cnt', u'pkt_ecc_err_trunc_cnt_mc_cnt', u'ecc_1bit_err_mc0_cnt', u'ecc_1bit_err_mc1_cnt', u'ecc_1bit_err_mc2_cnt', u'ecc_2bit_err_mc0_cnt', u'ecc_2bit_err_mc1_cnt', u'ecc_2bit_err_mc2_cnt', u'out_pkt_mc_cnt', u'fe_mc_sop_eop_pack_cnt', u'fc_mc_0_1_trans_cnt', u'rate_cnt', u'calc_rate'], name, value)
 
 
                         class PeCcStats(Entity):
@@ -3130,8 +3099,7 @@ class CrossBarStats(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('in_pkt_cnt', YLeaf(YType.uint64, 'in-pkt-cnt')),
                                     ('out_path0_pkt_cnt', YLeaf(YType.uint64, 'out-path0-pkt-cnt')),
@@ -3169,7 +3137,7 @@ class CrossBarStats(Entity):
                                 self._segment_path = lambda: "pe-cc-stats"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeCcStats, ['in_pkt_cnt', 'out_path0_pkt_cnt', 'out_path1_pkt_cnt', 'xbar_ecc_drop_pkt_cnt', 'mem0_drop_pkt_cnt', 'mem1_drop_pkt_cnt', 'congn_pkt_cnt', 'xbar_ecc_single_err_cnt', 'xbar_ecc_double_err_cnt', 'mem0_ecc_single_err_cnt', 'mem0_ecc_double_err_cnt', 'mem1_ecc_single_err_cnt', 'mem1_ecc_double_err_cnt', 'fc_cc_0_1_trans_cnt', 'rate_cnt', 'calc_rate'], name, value)
+                                self._perform_setattr(CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeCcStats, [u'in_pkt_cnt', u'out_path0_pkt_cnt', u'out_path1_pkt_cnt', u'xbar_ecc_drop_pkt_cnt', u'mem0_drop_pkt_cnt', u'mem1_drop_pkt_cnt', u'congn_pkt_cnt', u'xbar_ecc_single_err_cnt', u'xbar_ecc_double_err_cnt', u'mem0_ecc_single_err_cnt', u'mem0_ecc_double_err_cnt', u'mem1_ecc_single_err_cnt', u'mem1_ecc_double_err_cnt', u'fc_cc_0_1_trans_cnt', u'rate_cnt', u'calc_rate'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CrossBarStats()

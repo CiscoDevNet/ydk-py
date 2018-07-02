@@ -29,12 +29,12 @@ class CISCOIPSLAJITTERMIB(Entity):
     .. attribute:: cipslaudpjittertmpltable
     
     	A table that contains UDP jitter template specific definitions
-    	**type**\:  :py:class:`Cipslaudpjittertmpltable <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CISCOIPSLAJITTERMIB.Cipslaudpjittertmpltable>`
+    	**type**\:  :py:class:`CipslaUdpJitterTmplTable <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CISCOIPSLAJITTERMIB.CipslaUdpJitterTmplTable>`
     
     .. attribute:: cipslaicmpjittertmpltable
     
     	A table that contains ICMP jitter template specific definitions
-    	**type**\:  :py:class:`Cipslaicmpjittertmpltable <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CISCOIPSLAJITTERMIB.Cipslaicmpjittertmpltable>`
+    	**type**\:  :py:class:`CipslaIcmpJitterTmplTable <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CISCOIPSLAJITTERMIB.CipslaIcmpJitterTmplTable>`
     
     
 
@@ -52,30 +52,30 @@ class CISCOIPSLAJITTERMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cipslaUdpJitterTmplTable", ("cipslaudpjittertmpltable", CISCOIPSLAJITTERMIB.Cipslaudpjittertmpltable)), ("cipslaIcmpJitterTmplTable", ("cipslaicmpjittertmpltable", CISCOIPSLAJITTERMIB.Cipslaicmpjittertmpltable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cipslaUdpJitterTmplTable", ("cipslaudpjittertmpltable", CISCOIPSLAJITTERMIB.CipslaUdpJitterTmplTable)), ("cipslaIcmpJitterTmplTable", ("cipslaicmpjittertmpltable", CISCOIPSLAJITTERMIB.CipslaIcmpJitterTmplTable))])
         self._leafs = OrderedDict()
 
-        self.cipslaudpjittertmpltable = CISCOIPSLAJITTERMIB.Cipslaudpjittertmpltable()
+        self.cipslaudpjittertmpltable = CISCOIPSLAJITTERMIB.CipslaUdpJitterTmplTable()
         self.cipslaudpjittertmpltable.parent = self
         self._children_name_map["cipslaudpjittertmpltable"] = "cipslaUdpJitterTmplTable"
-        self._children_yang_names.add("cipslaUdpJitterTmplTable")
 
-        self.cipslaicmpjittertmpltable = CISCOIPSLAJITTERMIB.Cipslaicmpjittertmpltable()
+        self.cipslaicmpjittertmpltable = CISCOIPSLAJITTERMIB.CipslaIcmpJitterTmplTable()
         self.cipslaicmpjittertmpltable.parent = self
         self._children_name_map["cipslaicmpjittertmpltable"] = "cipslaIcmpJitterTmplTable"
-        self._children_yang_names.add("cipslaIcmpJitterTmplTable")
         self._segment_path = lambda: "CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOIPSLAJITTERMIB, [], name, value)
 
-    class Cipslaudpjittertmpltable(Entity):
+
+    class CipslaUdpJitterTmplTable(Entity):
         """
         A table that contains UDP jitter template specific definitions.
         
         .. attribute:: cipslaudpjittertmplentry
         
         	A row entry representing an IPSLA UDP jitter template
-        	**type**\: list of  		 :py:class:`Cipslaudpjittertmplentry <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CISCOIPSLAJITTERMIB.Cipslaudpjittertmpltable.Cipslaudpjittertmplentry>`
+        	**type**\: list of  		 :py:class:`CipslaUdpJitterTmplEntry <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CISCOIPSLAJITTERMIB.CipslaUdpJitterTmplTable.CipslaUdpJitterTmplEntry>`
         
         
 
@@ -85,15 +85,14 @@ class CISCOIPSLAJITTERMIB(Entity):
         _revision = '2007-07-24'
 
         def __init__(self):
-            super(CISCOIPSLAJITTERMIB.Cipslaudpjittertmpltable, self).__init__()
+            super(CISCOIPSLAJITTERMIB.CipslaUdpJitterTmplTable, self).__init__()
 
             self.yang_name = "cipslaUdpJitterTmplTable"
             self.yang_parent_name = "CISCO-IPSLA-JITTER-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cipslaUdpJitterTmplEntry", ("cipslaudpjittertmplentry", CISCOIPSLAJITTERMIB.Cipslaudpjittertmpltable.Cipslaudpjittertmplentry))])
+            self._child_classes = OrderedDict([("cipslaUdpJitterTmplEntry", ("cipslaudpjittertmplentry", CISCOIPSLAJITTERMIB.CipslaUdpJitterTmplTable.CipslaUdpJitterTmplEntry))])
             self._leafs = OrderedDict()
 
             self.cipslaudpjittertmplentry = YList(self)
@@ -101,10 +100,10 @@ class CISCOIPSLAJITTERMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSLAJITTERMIB.Cipslaudpjittertmpltable, [], name, value)
+            self._perform_setattr(CISCOIPSLAJITTERMIB.CipslaUdpJitterTmplTable, [], name, value)
 
 
-        class Cipslaudpjittertmplentry(Entity):
+        class CipslaUdpJitterTmplEntry(Entity):
             """
             A row entry representing an IPSLA UDP jitter template.
             
@@ -213,7 +212,7 @@ class CISCOIPSLAJITTERMIB(Entity):
             .. attribute:: cipslaudpjittertmplprecision
             
             	This object specifies the accuracy of jitter statistics in rttMonJitterStatsTable that needs to be calculated. milliseconds(1) \- The accuracy of stats will be of milliseconds. microseconds(2) \- The accuracy of stats will be in microseconds
-            	**type**\:  :py:class:`Cipslaudpjittertmplprecision <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CISCOIPSLAJITTERMIB.Cipslaudpjittertmpltable.Cipslaudpjittertmplentry.Cipslaudpjittertmplprecision>`
+            	**type**\:  :py:class:`CipslaUdpJitterTmplPrecision <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CISCOIPSLAJITTERMIB.CipslaUdpJitterTmplTable.CipslaUdpJitterTmplEntry.CipslaUdpJitterTmplPrecision>`
             
             .. attribute:: cipslaudpjittertmplreqdatasize
             
@@ -227,7 +226,7 @@ class CISCOIPSLAJITTERMIB(Entity):
             .. attribute:: cipslaudpjittertmplpktpriority
             
             	This object specifies the priority that will be assigned to operation packet.  normal(1) \- The packet is of normal priority. high(2)   \- The packet is of high priority
-            	**type**\:  :py:class:`Cipslaudpjittertmplpktpriority <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CISCOIPSLAJITTERMIB.Cipslaudpjittertmpltable.Cipslaudpjittertmplentry.Cipslaudpjittertmplpktpriority>`
+            	**type**\:  :py:class:`CipslaUdpJitterTmplPktPriority <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CISCOIPSLAJITTERMIB.CipslaUdpJitterTmplTable.CipslaUdpJitterTmplEntry.CipslaUdpJitterTmplPktPriority>`
             
             .. attribute:: cipslaudpjittertmpltos
             
@@ -271,7 +270,7 @@ class CISCOIPSLAJITTERMIB(Entity):
             .. attribute:: cipslaudpjittertmplntptoltype
             
             	This object specifies whether the value specified for oneway NTP sync tolerance is absolute value or percent value.  percent(1)  \- The value for oneway NTP sync tolerance is                absolute value. absolute(2) \- The value for oneway NTP sync tolerance is                percent value
-            	**type**\:  :py:class:`Cipslaudpjittertmplntptoltype <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CISCOIPSLAJITTERMIB.Cipslaudpjittertmpltable.Cipslaudpjittertmplentry.Cipslaudpjittertmplntptoltype>`
+            	**type**\:  :py:class:`CipslaUdpJitterTmplNTPTolType <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CISCOIPSLAJITTERMIB.CipslaUdpJitterTmplTable.CipslaUdpJitterTmplEntry.CipslaUdpJitterTmplNTPTolType>`
             
             .. attribute:: cipslaudpjittertmplicpiffactor
             
@@ -323,15 +322,14 @@ class CISCOIPSLAJITTERMIB(Entity):
             _revision = '2007-07-24'
 
             def __init__(self):
-                super(CISCOIPSLAJITTERMIB.Cipslaudpjittertmpltable.Cipslaudpjittertmplentry, self).__init__()
+                super(CISCOIPSLAJITTERMIB.CipslaUdpJitterTmplTable.CipslaUdpJitterTmplEntry, self).__init__()
 
                 self.yang_name = "cipslaUdpJitterTmplEntry"
                 self.yang_parent_name = "cipslaUdpJitterTmplTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cipslaudpjittertmplname']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cipslaudpjittertmplname', YLeaf(YType.str, 'cipslaUdpJitterTmplName')),
                     ('cipslaudpjittertmpldescription', YLeaf(YType.str, 'cipslaUdpJitterTmplDescription')),
@@ -396,11 +394,11 @@ class CISCOIPSLAJITTERMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB/cipslaUdpJitterTmplTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSLAJITTERMIB.Cipslaudpjittertmpltable.Cipslaudpjittertmplentry, ['cipslaudpjittertmplname', 'cipslaudpjittertmpldescription', 'cipslaudpjittertmplcontrolenable', 'cipslaudpjittertmpltimeout', 'cipslaudpjittertmplverifydata', 'cipslaudpjittertmplcodectype', 'cipslaudpjittertmplcodecinterval', 'cipslaudpjittertmplcodecpayload', 'cipslaudpjittertmplcodecnumpkts', 'cipslaudpjittertmplinterval', 'cipslaudpjittertmplnumpkts', 'cipslaudpjittertmplsrcaddrtype', 'cipslaudpjittertmplsrcaddr', 'cipslaudpjittertmplsrcport', 'cipslaudpjittertmplprecision', 'cipslaudpjittertmplreqdatasize', 'cipslaudpjittertmplpktpriority', 'cipslaudpjittertmpltos', 'cipslaudpjittertmplvrfname', 'cipslaudpjittertmplthreshold', 'cipslaudpjittertmplntptolabs', 'cipslaudpjittertmplntptolpct', 'cipslaudpjittertmplntptoltype', 'cipslaudpjittertmplicpiffactor', 'cipslaudpjittertmplstatshours', 'cipslaudpjittertmpldistbuckets', 'cipslaudpjittertmpldistinterval', 'cipslaudpjittertmplstoragetype', 'cipslaudpjittertmplrowstatus'], name, value)
+                self._perform_setattr(CISCOIPSLAJITTERMIB.CipslaUdpJitterTmplTable.CipslaUdpJitterTmplEntry, ['cipslaudpjittertmplname', 'cipslaudpjittertmpldescription', 'cipslaudpjittertmplcontrolenable', 'cipslaudpjittertmpltimeout', 'cipslaudpjittertmplverifydata', 'cipslaudpjittertmplcodectype', 'cipslaudpjittertmplcodecinterval', 'cipslaudpjittertmplcodecpayload', 'cipslaudpjittertmplcodecnumpkts', 'cipslaudpjittertmplinterval', 'cipslaudpjittertmplnumpkts', 'cipslaudpjittertmplsrcaddrtype', 'cipslaudpjittertmplsrcaddr', 'cipslaudpjittertmplsrcport', 'cipslaudpjittertmplprecision', 'cipslaudpjittertmplreqdatasize', 'cipslaudpjittertmplpktpriority', 'cipslaudpjittertmpltos', 'cipslaudpjittertmplvrfname', 'cipslaudpjittertmplthreshold', 'cipslaudpjittertmplntptolabs', 'cipslaudpjittertmplntptolpct', 'cipslaudpjittertmplntptoltype', 'cipslaudpjittertmplicpiffactor', 'cipslaudpjittertmplstatshours', 'cipslaudpjittertmpldistbuckets', 'cipslaudpjittertmpldistinterval', 'cipslaudpjittertmplstoragetype', 'cipslaudpjittertmplrowstatus'], name, value)
 
-            class Cipslaudpjittertmplntptoltype(Enum):
+            class CipslaUdpJitterTmplNTPTolType(Enum):
                 """
-                Cipslaudpjittertmplntptoltype (Enum Class)
+                CipslaUdpJitterTmplNTPTolType (Enum Class)
 
                 This object specifies whether the value specified for oneway
 
@@ -425,9 +423,9 @@ class CISCOIPSLAJITTERMIB(Entity):
                 absolute = Enum.YLeaf(2, "absolute")
 
 
-            class Cipslaudpjittertmplpktpriority(Enum):
+            class CipslaUdpJitterTmplPktPriority(Enum):
                 """
-                Cipslaudpjittertmplpktpriority (Enum Class)
+                CipslaUdpJitterTmplPktPriority (Enum Class)
 
                 This object specifies the priority that will be assigned
 
@@ -448,9 +446,9 @@ class CISCOIPSLAJITTERMIB(Entity):
                 high = Enum.YLeaf(2, "high")
 
 
-            class Cipslaudpjittertmplprecision(Enum):
+            class CipslaUdpJitterTmplPrecision(Enum):
                 """
-                Cipslaudpjittertmplprecision (Enum Class)
+                CipslaUdpJitterTmplPrecision (Enum Class)
 
                 This object specifies the accuracy of jitter statistics in
 
@@ -472,14 +470,14 @@ class CISCOIPSLAJITTERMIB(Entity):
 
 
 
-    class Cipslaicmpjittertmpltable(Entity):
+    class CipslaIcmpJitterTmplTable(Entity):
         """
         A table that contains ICMP jitter template specific definitions.
         
         .. attribute:: cipslaicmpjittertmplentry
         
         	A row entry representing an IP SLA ICMP Jitter template
-        	**type**\: list of  		 :py:class:`Cipslaicmpjittertmplentry <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CISCOIPSLAJITTERMIB.Cipslaicmpjittertmpltable.Cipslaicmpjittertmplentry>`
+        	**type**\: list of  		 :py:class:`CipslaIcmpJitterTmplEntry <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CISCOIPSLAJITTERMIB.CipslaIcmpJitterTmplTable.CipslaIcmpJitterTmplEntry>`
         
         
 
@@ -489,15 +487,14 @@ class CISCOIPSLAJITTERMIB(Entity):
         _revision = '2007-07-24'
 
         def __init__(self):
-            super(CISCOIPSLAJITTERMIB.Cipslaicmpjittertmpltable, self).__init__()
+            super(CISCOIPSLAJITTERMIB.CipslaIcmpJitterTmplTable, self).__init__()
 
             self.yang_name = "cipslaIcmpJitterTmplTable"
             self.yang_parent_name = "CISCO-IPSLA-JITTER-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cipslaIcmpJitterTmplEntry", ("cipslaicmpjittertmplentry", CISCOIPSLAJITTERMIB.Cipslaicmpjittertmpltable.Cipslaicmpjittertmplentry))])
+            self._child_classes = OrderedDict([("cipslaIcmpJitterTmplEntry", ("cipslaicmpjittertmplentry", CISCOIPSLAJITTERMIB.CipslaIcmpJitterTmplTable.CipslaIcmpJitterTmplEntry))])
             self._leafs = OrderedDict()
 
             self.cipslaicmpjittertmplentry = YList(self)
@@ -505,10 +502,10 @@ class CISCOIPSLAJITTERMIB(Entity):
             self._absolute_path = lambda: "CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSLAJITTERMIB.Cipslaicmpjittertmpltable, [], name, value)
+            self._perform_setattr(CISCOIPSLAJITTERMIB.CipslaIcmpJitterTmplTable, [], name, value)
 
 
-        class Cipslaicmpjittertmplentry(Entity):
+        class CipslaIcmpJitterTmplEntry(Entity):
             """
             A row entry representing an IP SLA ICMP Jitter template.
             
@@ -636,15 +633,14 @@ class CISCOIPSLAJITTERMIB(Entity):
             _revision = '2007-07-24'
 
             def __init__(self):
-                super(CISCOIPSLAJITTERMIB.Cipslaicmpjittertmpltable.Cipslaicmpjittertmplentry, self).__init__()
+                super(CISCOIPSLAJITTERMIB.CipslaIcmpJitterTmplTable.CipslaIcmpJitterTmplEntry, self).__init__()
 
                 self.yang_name = "cipslaIcmpJitterTmplEntry"
                 self.yang_parent_name = "cipslaIcmpJitterTmplTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cipslaicmpjittertmplname']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cipslaicmpjittertmplname', YLeaf(YType.str, 'cipslaIcmpJitterTmplName')),
                     ('cipslaicmpjittertmpldescription', YLeaf(YType.str, 'cipslaIcmpJitterTmplDescription')),
@@ -683,7 +679,7 @@ class CISCOIPSLAJITTERMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB/cipslaIcmpJitterTmplTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSLAJITTERMIB.Cipslaicmpjittertmpltable.Cipslaicmpjittertmplentry, ['cipslaicmpjittertmplname', 'cipslaicmpjittertmpldescription', 'cipslaicmpjittertmpltimeout', 'cipslaicmpjittertmplverifydata', 'cipslaicmpjittertmplnumpkts', 'cipslaicmpjittertmplinterval', 'cipslaicmpjittertmplsrcaddrtype', 'cipslaicmpjittertmplsrcaddr', 'cipslaicmpjittertmpltos', 'cipslaicmpjittertmplvrfname', 'cipslaicmpjittertmplthreshold', 'cipslaicmpjittertmplstatshours', 'cipslaicmpjittertmpldistbuckets', 'cipslaicmpjittertmpldistinterval', 'cipslaicmpjittertmplstoragetype', 'cipslaicmpjittertmplrowstatus'], name, value)
+                self._perform_setattr(CISCOIPSLAJITTERMIB.CipslaIcmpJitterTmplTable.CipslaIcmpJitterTmplEntry, ['cipslaicmpjittertmplname', 'cipslaicmpjittertmpldescription', 'cipslaicmpjittertmpltimeout', 'cipslaicmpjittertmplverifydata', 'cipslaicmpjittertmplnumpkts', 'cipslaicmpjittertmplinterval', 'cipslaicmpjittertmplsrcaddrtype', 'cipslaicmpjittertmplsrcaddr', 'cipslaicmpjittertmpltos', 'cipslaicmpjittertmplvrfname', 'cipslaicmpjittertmplthreshold', 'cipslaicmpjittertmplstatshours', 'cipslaicmpjittertmpldistbuckets', 'cipslaicmpjittertmpldistinterval', 'cipslaicmpjittertmplstoragetype', 'cipslaicmpjittertmplrowstatus'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOIPSLAJITTERMIB()

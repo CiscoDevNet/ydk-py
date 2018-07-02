@@ -167,9 +167,9 @@ class MacLimitNotificationType(Identity):
         super(MacLimitNotificationType, self).__init__("urn:cisco:params:xml:ns:yang:cisco-bridge-common", "cisco-bridge-common", "cisco-bridge-common:mac-limit-notification-type")
 
 
-class NotifNone(Identity):
+class NotifSyslog(Identity):
     """
-    Disable notification
+    Generate syslog
     
     
 
@@ -179,7 +179,7 @@ class NotifNone(Identity):
     _revision = '2016-12-14'
 
     def __init__(self):
-        super(NotifNone, self).__init__("urn:cisco:params:xml:ns:yang:cisco-bridge-common", "cisco-bridge-common", "cisco-bridge-common:notif-none")
+        super(NotifSyslog, self).__init__("urn:cisco:params:xml:ns:yang:cisco-bridge-common", "cisco-bridge-common", "cisco-bridge-common:notif-syslog")
 
 
 class NotifSnmpTrap(Identity):
@@ -197,9 +197,9 @@ class NotifSnmpTrap(Identity):
         super(NotifSnmpTrap, self).__init__("urn:cisco:params:xml:ns:yang:cisco-bridge-common", "cisco-bridge-common", "cisco-bridge-common:notif-snmp-trap")
 
 
-class NotifSyslog(Identity):
+class NotifNone(Identity):
     """
-    Generate syslog
+    Disable notification
     
     
 
@@ -209,7 +209,7 @@ class NotifSyslog(Identity):
     _revision = '2016-12-14'
 
     def __init__(self):
-        super(NotifSyslog, self).__init__("urn:cisco:params:xml:ns:yang:cisco-bridge-common", "cisco-bridge-common", "cisco-bridge-common:notif-syslog")
+        super(NotifNone, self).__init__("urn:cisco:params:xml:ns:yang:cisco-bridge-common", "cisco-bridge-common", "cisco-bridge-common:notif-none")
 
 
 class NotifSyslogAndSnmpTrap(Identity):

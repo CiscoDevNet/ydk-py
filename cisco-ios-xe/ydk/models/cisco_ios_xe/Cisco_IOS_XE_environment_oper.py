@@ -85,8 +85,7 @@ class EnvironmentSensors(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("environment-sensor", ("environment_sensor", EnvironmentSensors.EnvironmentSensor))])
+        self._child_classes = OrderedDict([("environment-sensor", ("environment_sensor", EnvironmentSensors.EnvironmentSensor))])
         self._leafs = OrderedDict()
 
         self.environment_sensor = YList(self)
@@ -170,8 +169,7 @@ class EnvironmentSensors(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['name','location']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('name', YLeaf(YType.str, 'name')),
                 ('location', YLeaf(YType.str, 'location')),

@@ -81,11 +81,6 @@ class Fib(Entity):
     	Set options for adjacency routes overriding RIB routes
     	**type**\: bool
     
-    .. attribute:: frr_follow_bgp_pic
-    
-    	Set option for fast\-reroute to follow BGP PIC update, not to wait for timeout
-    	**type**\: bool
-    
     
 
     """
@@ -102,28 +97,23 @@ class Fib(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("pbts-forward-class-fallbacks", ("pbts_forward_class_fallbacks", Fib.PbtsForwardClassFallbacks)), ("platform", ("platform", Fib.Platform))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("pbts-forward-class-fallbacks", ("pbts_forward_class_fallbacks", Fib.PbtsForwardClassFallbacks)), ("platform", ("platform", Fib.Platform))])
         self._leafs = OrderedDict([
             ('prefer_aib_routes', YLeaf(YType.boolean, 'prefer-aib-routes')),
-            ('frr_follow_bgp_pic', YLeaf(YType.boolean, 'frr-follow-bgp-pic')),
         ])
         self.prefer_aib_routes = None
-        self.frr_follow_bgp_pic = None
 
         self.pbts_forward_class_fallbacks = Fib.PbtsForwardClassFallbacks()
         self.pbts_forward_class_fallbacks.parent = self
         self._children_name_map["pbts_forward_class_fallbacks"] = "pbts-forward-class-fallbacks"
-        self._children_yang_names.add("pbts-forward-class-fallbacks")
 
         self.platform = Fib.Platform()
         self.platform.parent = self
         self._children_name_map["platform"] = "platform"
-        self._children_yang_names.add("platform")
         self._segment_path = lambda: "Cisco-IOS-XR-fib-common-cfg:fib"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Fib, ['prefer_aib_routes', 'frr_follow_bgp_pic'], name, value)
+        self._perform_setattr(Fib, ['prefer_aib_routes'], name, value)
 
 
     class PbtsForwardClassFallbacks(Entity):
@@ -150,8 +140,7 @@ class Fib(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("pbts-forward-class-fallback", ("pbts_forward_class_fallback", Fib.PbtsForwardClassFallbacks.PbtsForwardClassFallback))])
+            self._child_classes = OrderedDict([("pbts-forward-class-fallback", ("pbts_forward_class_fallback", Fib.PbtsForwardClassFallbacks.PbtsForwardClassFallback))])
             self._leafs = OrderedDict()
 
             self.pbts_forward_class_fallback = YList(self)
@@ -206,8 +195,7 @@ class Fib(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['forward_class_number']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('forward_class_number', YLeaf(YType.str, 'forward-class-number')),
                     ('fallback_type', YLeaf(YType.enumeration, 'fallback-type')),
@@ -247,16 +235,17 @@ class Fib(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("label-switched-multicast", ("label_switched_multicast", Fib.Platform.LabelSwitchedMulticast))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("label-switched-multicast", ("label_switched_multicast", Fib.Platform.LabelSwitchedMulticast))])
             self._leafs = OrderedDict()
 
             self.label_switched_multicast = Fib.Platform.LabelSwitchedMulticast()
             self.label_switched_multicast.parent = self
             self._children_name_map["label_switched_multicast"] = "label-switched-multicast"
-            self._children_yang_names.add("label-switched-multicast")
             self._segment_path = lambda: "platform"
             self._absolute_path = lambda: "Cisco-IOS-XR-fib-common-cfg:fib/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Fib.Platform, [], name, value)
 
 
         class LabelSwitchedMulticast(Entity):
@@ -287,8 +276,7 @@ class Fib(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('frr_holdtime', YLeaf(YType.uint32, 'frr-holdtime')),
                 ])

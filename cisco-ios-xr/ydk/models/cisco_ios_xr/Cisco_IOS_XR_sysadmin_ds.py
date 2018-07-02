@@ -1,11 +1,17 @@
 """ Cisco_IOS_XR_sysadmin_ds 
 
+This module contains definitions
+for the Calvados model objects.
+
 This module contains a collection of YANG
 definitions for Cisco IOS\-XR SysAdmin configuration.
 
 The Directory Services (DS).
 
 Copyright(c) 2010\-2017 by Cisco Systems, Inc.
+All rights reserved.
+
+Copyright (c) 2012\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -116,8 +122,7 @@ class Services(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("all-locations", ("all_locations", Services.AllLocations))])
+        self._child_classes = OrderedDict([("all-locations", ("all_locations", Services.AllLocations))])
         self._leafs = OrderedDict()
 
         self.all_locations = YList(self)
@@ -156,8 +161,7 @@ class Services(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['location']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("services", ("services", Services.AllLocations.Services_))])
+            self._child_classes = OrderedDict([("services", ("services", Services.AllLocations.Services_))])
             self._leafs = OrderedDict([
                 ('location', YLeaf(YType.str, 'location')),
             ])
@@ -205,8 +209,7 @@ class Services(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("endpoint", ("endpoint", Services.AllLocations.Services_.Endpoint)), ("registrations", ("registrations", Services.AllLocations.Services_.Registrations))])
+                self._child_classes = OrderedDict([("endpoint", ("endpoint", Services.AllLocations.Services_.Endpoint)), ("registrations", ("registrations", Services.AllLocations.Services_.Registrations))])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                 ])
@@ -273,8 +276,7 @@ class Services(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('scope', YLeaf(YType.enumeration, 'scope')),
                         ('ip', YLeaf(YType.str, 'ip')),
@@ -326,8 +328,7 @@ class Services(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('client', YLeaf(YType.str, 'client')),
                         ('pid', YLeaf(YType.uint32, 'pid')),
@@ -373,14 +374,12 @@ class ServicesStats(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ds", ("ds", ServicesStats.Ds))])
-        self._child_list_classes = OrderedDict([("all-locations", ("all_locations", ServicesStats.AllLocations))])
+        self._child_classes = OrderedDict([("ds", ("ds", ServicesStats.Ds)), ("all-locations", ("all_locations", ServicesStats.AllLocations))])
         self._leafs = OrderedDict()
 
         self.ds = ServicesStats.Ds()
         self.ds.parent = self
         self._children_name_map["ds"] = "ds"
-        self._children_yang_names.add("ds")
 
         self.all_locations = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-ds:services-stats"
@@ -413,8 +412,7 @@ class ServicesStats(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("trace", ("trace", ServicesStats.Ds.Trace))])
+            self._child_classes = OrderedDict([("trace", ("trace", ServicesStats.Ds.Trace))])
             self._leafs = OrderedDict()
 
             self.trace = YList(self)
@@ -454,8 +452,7 @@ class ServicesStats(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['buffer']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", ServicesStats.Ds.Trace.Location))])
+                self._child_classes = OrderedDict([("location", ("location", ServicesStats.Ds.Trace.Location))])
                 self._leafs = OrderedDict([
                     ('buffer', YLeaf(YType.str, 'buffer')),
                 ])
@@ -466,7 +463,7 @@ class ServicesStats(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-ds:services-stats/ds/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ServicesStats.Ds.Trace, ['buffer'], name, value)
+                self._perform_setattr(ServicesStats.Ds.Trace, [u'buffer'], name, value)
 
 
             class Location(Entity):
@@ -498,8 +495,7 @@ class ServicesStats(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("all-options", ("all_options", ServicesStats.Ds.Trace.Location.AllOptions))])
+                    self._child_classes = OrderedDict([("all-options", ("all_options", ServicesStats.Ds.Trace.Location.AllOptions))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location_name')),
                     ])
@@ -509,7 +505,7 @@ class ServicesStats(Entity):
                     self._segment_path = lambda: "location" + "[location_name='" + str(self.location_name) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ServicesStats.Ds.Trace.Location, ['location_name'], name, value)
+                    self._perform_setattr(ServicesStats.Ds.Trace.Location, [u'location_name'], name, value)
 
 
                 class AllOptions(Entity):
@@ -541,8 +537,7 @@ class ServicesStats(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['option']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("trace-blocks", ("trace_blocks", ServicesStats.Ds.Trace.Location.AllOptions.TraceBlocks))])
+                        self._child_classes = OrderedDict([("trace-blocks", ("trace_blocks", ServicesStats.Ds.Trace.Location.AllOptions.TraceBlocks))])
                         self._leafs = OrderedDict([
                             ('option', YLeaf(YType.str, 'option')),
                         ])
@@ -552,7 +547,7 @@ class ServicesStats(Entity):
                         self._segment_path = lambda: "all-options" + "[option='" + str(self.option) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ServicesStats.Ds.Trace.Location.AllOptions, ['option'], name, value)
+                        self._perform_setattr(ServicesStats.Ds.Trace.Location.AllOptions, [u'option'], name, value)
 
 
                     class TraceBlocks(Entity):
@@ -579,8 +574,7 @@ class ServicesStats(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('data', YLeaf(YType.str, 'data')),
                             ])
@@ -588,7 +582,7 @@ class ServicesStats(Entity):
                             self._segment_path = lambda: "trace-blocks"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ServicesStats.Ds.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
+                            self._perform_setattr(ServicesStats.Ds.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
 
     class AllLocations(Entity):
@@ -620,8 +614,7 @@ class ServicesStats(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['location']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("stats", ("stats", ServicesStats.AllLocations.Stats))])
+            self._child_classes = OrderedDict([("stats", ("stats", ServicesStats.AllLocations.Stats))])
             self._leafs = OrderedDict([
                 ('location', YLeaf(YType.str, 'location')),
             ])
@@ -715,8 +708,7 @@ class ServicesStats(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('published', YLeaf(YType.uint32, 'published')),

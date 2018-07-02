@@ -50,20 +50,20 @@ class Grpc(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("statistics", ("statistics", Grpc.Statistics)), ("status", ("status", Grpc.Status))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("statistics", ("statistics", Grpc.Statistics)), ("status", ("status", Grpc.Status))])
         self._leafs = OrderedDict()
 
         self.statistics = Grpc.Statistics()
         self.statistics.parent = self
         self._children_name_map["statistics"] = "statistics"
-        self._children_yang_names.add("statistics")
 
         self.status = Grpc.Status()
         self.status.parent = self
         self._children_name_map["status"] = "status"
-        self._children_yang_names.add("status")
         self._segment_path = lambda: "Cisco-IOS-XR-man-ems-oper:grpc"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Grpc, [], name, value)
 
 
     class Statistics(Entity):
@@ -232,8 +232,7 @@ class Grpc(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('ct_show_cmd_txt_req_recv', YLeaf(YType.uint64, 'ct-show-cmd-txt-req-recv')),
                 ('ct_show_cmd_txt_res_sent', YLeaf(YType.uint64, 'ct-show-cmd-txt-res-sent')),
@@ -282,7 +281,7 @@ class Grpc(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-man-ems-oper:grpc/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Grpc.Statistics, ['ct_show_cmd_txt_req_recv', 'ct_show_cmd_txt_res_sent', 'ct_get_config_req_recv', 'ct_get_config_res_sent', 'ct_cli_config_req_recv', 'ct_cli_config_res_sent', 'ct_merge_config_req_recv', 'ct_merge_config_res_sent', 'ct_commit_replace_req_recv', 'ct_commit_replace_res_sent', 'ct_delete_config_req_recv', 'ct_delete_config_res_sent', 'ct_replace_config_req_recv', 'ct_replace_config_res_sent', 'ct_get_oper_req_recv', 'ct_get_oper_res_sent', 'ct_get_current_session', 'ct_commit_config_req_recv', 'ct_commit_config_res_sent', 'ct_action_json_req_recv', 'ct_action_json_res_sent'], name, value)
+            self._perform_setattr(Grpc.Statistics, [u'ct_show_cmd_txt_req_recv', u'ct_show_cmd_txt_res_sent', u'ct_get_config_req_recv', u'ct_get_config_res_sent', u'ct_cli_config_req_recv', u'ct_cli_config_res_sent', u'ct_merge_config_req_recv', u'ct_merge_config_res_sent', u'ct_commit_replace_req_recv', u'ct_commit_replace_res_sent', u'ct_delete_config_req_recv', u'ct_delete_config_res_sent', u'ct_replace_config_req_recv', u'ct_replace_config_res_sent', u'ct_get_oper_req_recv', u'ct_get_oper_res_sent', u'ct_get_current_session', u'ct_commit_config_req_recv', u'ct_commit_config_res_sent', u'ct_action_json_req_recv', u'ct_action_json_res_sent'], name, value)
 
 
     class Status(Entity):
@@ -350,8 +349,7 @@ class Grpc(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('transport', YLeaf(YType.str, 'transport')),
                 ('address_family', YLeaf(YType.str, 'address-family')),
@@ -374,7 +372,7 @@ class Grpc(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-man-ems-oper:grpc/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Grpc.Status, ['transport', 'address_family', 'tls', 'trustpoint', 'listening_port', 'vrf_socket_ns_path', 'max_req_per_user', 'max_req_total'], name, value)
+            self._perform_setattr(Grpc.Status, [u'transport', u'address_family', u'tls', u'trustpoint', u'listening_port', u'vrf_socket_ns_path', u'max_req_per_user', u'max_req_total'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Grpc()

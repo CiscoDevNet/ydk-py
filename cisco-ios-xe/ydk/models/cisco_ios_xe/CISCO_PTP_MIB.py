@@ -929,77 +929,77 @@ class CISCOPTPMIB(Entity):
     .. attribute:: ciscoptpmibsysteminfo
     
     	
-    	**type**\:  :py:class:`Ciscoptpmibsysteminfo <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Ciscoptpmibsysteminfo>`
+    	**type**\:  :py:class:`CiscoPtpMIBSystemInfo <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CiscoPtpMIBSystemInfo>`
     
     .. attribute:: cptpsystemtable
     
     	Table of count information about the PTP system for all domains
-    	**type**\:  :py:class:`Cptpsystemtable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpsystemtable>`
+    	**type**\:  :py:class:`CPtpSystemTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpSystemTable>`
     
     .. attribute:: cptpsystemdomaintable
     
     	Table of information about the PTP system for all clock modes \-\- ordinary, boundary or transparent
-    	**type**\:  :py:class:`Cptpsystemdomaintable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpsystemdomaintable>`
+    	**type**\:  :py:class:`CPtpSystemDomainTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpSystemDomainTable>`
     
     .. attribute:: cptpclocknodetable
     
     	Table of information about the PTP system for a given domain
-    	**type**\:  :py:class:`Cptpclocknodetable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclocknodetable>`
+    	**type**\:  :py:class:`CPtpClockNodeTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockNodeTable>`
     
     .. attribute:: cptpclockcurrentdstable
     
     	Table of information about the PTP clock Current Datasets for all domains
-    	**type**\:  :py:class:`Cptpclockcurrentdstable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockcurrentdstable>`
+    	**type**\:  :py:class:`CPtpClockCurrentDSTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockCurrentDSTable>`
     
     .. attribute:: cptpclockparentdstable
     
     	Table of information about the PTP clock Parent Datasets for all domains
-    	**type**\:  :py:class:`Cptpclockparentdstable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockparentdstable>`
+    	**type**\:  :py:class:`CPtpClockParentDSTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockParentDSTable>`
     
     .. attribute:: cptpclockdefaultdstable
     
     	Table of information about the PTP clock Default Datasets for all domains
-    	**type**\:  :py:class:`Cptpclockdefaultdstable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockdefaultdstable>`
+    	**type**\:  :py:class:`CPtpClockDefaultDSTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockDefaultDSTable>`
     
     .. attribute:: cptpclockrunningtable
     
     	Table of information about the PTP clock Running Datasets for all domains
-    	**type**\:  :py:class:`Cptpclockrunningtable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockrunningtable>`
+    	**type**\:  :py:class:`CPtpClockRunningTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockRunningTable>`
     
     .. attribute:: cptpclocktimepropertiesdstable
     
     	Table of information about the PTP clock Timeproperties Datasets for all domains
-    	**type**\:  :py:class:`Cptpclocktimepropertiesdstable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclocktimepropertiesdstable>`
+    	**type**\:  :py:class:`CPtpClockTimePropertiesDSTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockTimePropertiesDSTable>`
     
     .. attribute:: cptpclocktransdefaultdstable
     
     	Table of information about the PTP Transparent clock Default Datasets for all domains
-    	**type**\:  :py:class:`Cptpclocktransdefaultdstable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclocktransdefaultdstable>`
+    	**type**\:  :py:class:`CPtpClockTransDefaultDSTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockTransDefaultDSTable>`
     
     .. attribute:: cptpclockporttable
     
     	Table of information about the clock ports for a particular domain
-    	**type**\:  :py:class:`Cptpclockporttable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockporttable>`
+    	**type**\:  :py:class:`CPtpClockPortTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockPortTable>`
     
     .. attribute:: cptpclockportdstable
     
     	Table of information about the clock ports dataset for a particular domain
-    	**type**\:  :py:class:`Cptpclockportdstable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockportdstable>`
+    	**type**\:  :py:class:`CPtpClockPortDSTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockPortDSTable>`
     
     .. attribute:: cptpclockportrunningtable
     
     	Table of information about the clock ports running dataset for a particular domain
-    	**type**\:  :py:class:`Cptpclockportrunningtable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockportrunningtable>`
+    	**type**\:  :py:class:`CPtpClockPortRunningTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockPortRunningTable>`
     
     .. attribute:: cptpclockporttransdstable
     
     	Table of information about the Transparent clock ports running dataset for a particular domain
-    	**type**\:  :py:class:`Cptpclockporttransdstable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockporttransdstable>`
+    	**type**\:  :py:class:`CPtpClockPortTransDSTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockPortTransDSTable>`
     
     .. attribute:: cptpclockportassociatetable
     
     	Table of information about a given port's associated ports.  For a master port \- multiple slave ports which have established sessions with the current master port.   For a slave port \- the list of masters available for a given slave port.   Session information (pkts, errors) to be displayed based on availability and scenario
-    	**type**\:  :py:class:`Cptpclockportassociatetable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockportassociatetable>`
+    	**type**\:  :py:class:`CPtpClockPortAssociateTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockPortAssociateTable>`
     
     
 
@@ -1017,88 +1017,75 @@ class CISCOPTPMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ciscoPtpMIBSystemInfo", ("ciscoptpmibsysteminfo", CISCOPTPMIB.Ciscoptpmibsysteminfo)), ("cPtpSystemTable", ("cptpsystemtable", CISCOPTPMIB.Cptpsystemtable)), ("cPtpSystemDomainTable", ("cptpsystemdomaintable", CISCOPTPMIB.Cptpsystemdomaintable)), ("cPtpClockNodeTable", ("cptpclocknodetable", CISCOPTPMIB.Cptpclocknodetable)), ("cPtpClockCurrentDSTable", ("cptpclockcurrentdstable", CISCOPTPMIB.Cptpclockcurrentdstable)), ("cPtpClockParentDSTable", ("cptpclockparentdstable", CISCOPTPMIB.Cptpclockparentdstable)), ("cPtpClockDefaultDSTable", ("cptpclockdefaultdstable", CISCOPTPMIB.Cptpclockdefaultdstable)), ("cPtpClockRunningTable", ("cptpclockrunningtable", CISCOPTPMIB.Cptpclockrunningtable)), ("cPtpClockTimePropertiesDSTable", ("cptpclocktimepropertiesdstable", CISCOPTPMIB.Cptpclocktimepropertiesdstable)), ("cPtpClockTransDefaultDSTable", ("cptpclocktransdefaultdstable", CISCOPTPMIB.Cptpclocktransdefaultdstable)), ("cPtpClockPortTable", ("cptpclockporttable", CISCOPTPMIB.Cptpclockporttable)), ("cPtpClockPortDSTable", ("cptpclockportdstable", CISCOPTPMIB.Cptpclockportdstable)), ("cPtpClockPortRunningTable", ("cptpclockportrunningtable", CISCOPTPMIB.Cptpclockportrunningtable)), ("cPtpClockPortTransDSTable", ("cptpclockporttransdstable", CISCOPTPMIB.Cptpclockporttransdstable)), ("cPtpClockPortAssociateTable", ("cptpclockportassociatetable", CISCOPTPMIB.Cptpclockportassociatetable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("ciscoPtpMIBSystemInfo", ("ciscoptpmibsysteminfo", CISCOPTPMIB.CiscoPtpMIBSystemInfo)), ("cPtpSystemTable", ("cptpsystemtable", CISCOPTPMIB.CPtpSystemTable)), ("cPtpSystemDomainTable", ("cptpsystemdomaintable", CISCOPTPMIB.CPtpSystemDomainTable)), ("cPtpClockNodeTable", ("cptpclocknodetable", CISCOPTPMIB.CPtpClockNodeTable)), ("cPtpClockCurrentDSTable", ("cptpclockcurrentdstable", CISCOPTPMIB.CPtpClockCurrentDSTable)), ("cPtpClockParentDSTable", ("cptpclockparentdstable", CISCOPTPMIB.CPtpClockParentDSTable)), ("cPtpClockDefaultDSTable", ("cptpclockdefaultdstable", CISCOPTPMIB.CPtpClockDefaultDSTable)), ("cPtpClockRunningTable", ("cptpclockrunningtable", CISCOPTPMIB.CPtpClockRunningTable)), ("cPtpClockTimePropertiesDSTable", ("cptpclocktimepropertiesdstable", CISCOPTPMIB.CPtpClockTimePropertiesDSTable)), ("cPtpClockTransDefaultDSTable", ("cptpclocktransdefaultdstable", CISCOPTPMIB.CPtpClockTransDefaultDSTable)), ("cPtpClockPortTable", ("cptpclockporttable", CISCOPTPMIB.CPtpClockPortTable)), ("cPtpClockPortDSTable", ("cptpclockportdstable", CISCOPTPMIB.CPtpClockPortDSTable)), ("cPtpClockPortRunningTable", ("cptpclockportrunningtable", CISCOPTPMIB.CPtpClockPortRunningTable)), ("cPtpClockPortTransDSTable", ("cptpclockporttransdstable", CISCOPTPMIB.CPtpClockPortTransDSTable)), ("cPtpClockPortAssociateTable", ("cptpclockportassociatetable", CISCOPTPMIB.CPtpClockPortAssociateTable))])
         self._leafs = OrderedDict()
 
-        self.ciscoptpmibsysteminfo = CISCOPTPMIB.Ciscoptpmibsysteminfo()
+        self.ciscoptpmibsysteminfo = CISCOPTPMIB.CiscoPtpMIBSystemInfo()
         self.ciscoptpmibsysteminfo.parent = self
         self._children_name_map["ciscoptpmibsysteminfo"] = "ciscoPtpMIBSystemInfo"
-        self._children_yang_names.add("ciscoPtpMIBSystemInfo")
 
-        self.cptpsystemtable = CISCOPTPMIB.Cptpsystemtable()
+        self.cptpsystemtable = CISCOPTPMIB.CPtpSystemTable()
         self.cptpsystemtable.parent = self
         self._children_name_map["cptpsystemtable"] = "cPtpSystemTable"
-        self._children_yang_names.add("cPtpSystemTable")
 
-        self.cptpsystemdomaintable = CISCOPTPMIB.Cptpsystemdomaintable()
+        self.cptpsystemdomaintable = CISCOPTPMIB.CPtpSystemDomainTable()
         self.cptpsystemdomaintable.parent = self
         self._children_name_map["cptpsystemdomaintable"] = "cPtpSystemDomainTable"
-        self._children_yang_names.add("cPtpSystemDomainTable")
 
-        self.cptpclocknodetable = CISCOPTPMIB.Cptpclocknodetable()
+        self.cptpclocknodetable = CISCOPTPMIB.CPtpClockNodeTable()
         self.cptpclocknodetable.parent = self
         self._children_name_map["cptpclocknodetable"] = "cPtpClockNodeTable"
-        self._children_yang_names.add("cPtpClockNodeTable")
 
-        self.cptpclockcurrentdstable = CISCOPTPMIB.Cptpclockcurrentdstable()
+        self.cptpclockcurrentdstable = CISCOPTPMIB.CPtpClockCurrentDSTable()
         self.cptpclockcurrentdstable.parent = self
         self._children_name_map["cptpclockcurrentdstable"] = "cPtpClockCurrentDSTable"
-        self._children_yang_names.add("cPtpClockCurrentDSTable")
 
-        self.cptpclockparentdstable = CISCOPTPMIB.Cptpclockparentdstable()
+        self.cptpclockparentdstable = CISCOPTPMIB.CPtpClockParentDSTable()
         self.cptpclockparentdstable.parent = self
         self._children_name_map["cptpclockparentdstable"] = "cPtpClockParentDSTable"
-        self._children_yang_names.add("cPtpClockParentDSTable")
 
-        self.cptpclockdefaultdstable = CISCOPTPMIB.Cptpclockdefaultdstable()
+        self.cptpclockdefaultdstable = CISCOPTPMIB.CPtpClockDefaultDSTable()
         self.cptpclockdefaultdstable.parent = self
         self._children_name_map["cptpclockdefaultdstable"] = "cPtpClockDefaultDSTable"
-        self._children_yang_names.add("cPtpClockDefaultDSTable")
 
-        self.cptpclockrunningtable = CISCOPTPMIB.Cptpclockrunningtable()
+        self.cptpclockrunningtable = CISCOPTPMIB.CPtpClockRunningTable()
         self.cptpclockrunningtable.parent = self
         self._children_name_map["cptpclockrunningtable"] = "cPtpClockRunningTable"
-        self._children_yang_names.add("cPtpClockRunningTable")
 
-        self.cptpclocktimepropertiesdstable = CISCOPTPMIB.Cptpclocktimepropertiesdstable()
+        self.cptpclocktimepropertiesdstable = CISCOPTPMIB.CPtpClockTimePropertiesDSTable()
         self.cptpclocktimepropertiesdstable.parent = self
         self._children_name_map["cptpclocktimepropertiesdstable"] = "cPtpClockTimePropertiesDSTable"
-        self._children_yang_names.add("cPtpClockTimePropertiesDSTable")
 
-        self.cptpclocktransdefaultdstable = CISCOPTPMIB.Cptpclocktransdefaultdstable()
+        self.cptpclocktransdefaultdstable = CISCOPTPMIB.CPtpClockTransDefaultDSTable()
         self.cptpclocktransdefaultdstable.parent = self
         self._children_name_map["cptpclocktransdefaultdstable"] = "cPtpClockTransDefaultDSTable"
-        self._children_yang_names.add("cPtpClockTransDefaultDSTable")
 
-        self.cptpclockporttable = CISCOPTPMIB.Cptpclockporttable()
+        self.cptpclockporttable = CISCOPTPMIB.CPtpClockPortTable()
         self.cptpclockporttable.parent = self
         self._children_name_map["cptpclockporttable"] = "cPtpClockPortTable"
-        self._children_yang_names.add("cPtpClockPortTable")
 
-        self.cptpclockportdstable = CISCOPTPMIB.Cptpclockportdstable()
+        self.cptpclockportdstable = CISCOPTPMIB.CPtpClockPortDSTable()
         self.cptpclockportdstable.parent = self
         self._children_name_map["cptpclockportdstable"] = "cPtpClockPortDSTable"
-        self._children_yang_names.add("cPtpClockPortDSTable")
 
-        self.cptpclockportrunningtable = CISCOPTPMIB.Cptpclockportrunningtable()
+        self.cptpclockportrunningtable = CISCOPTPMIB.CPtpClockPortRunningTable()
         self.cptpclockportrunningtable.parent = self
         self._children_name_map["cptpclockportrunningtable"] = "cPtpClockPortRunningTable"
-        self._children_yang_names.add("cPtpClockPortRunningTable")
 
-        self.cptpclockporttransdstable = CISCOPTPMIB.Cptpclockporttransdstable()
+        self.cptpclockporttransdstable = CISCOPTPMIB.CPtpClockPortTransDSTable()
         self.cptpclockporttransdstable.parent = self
         self._children_name_map["cptpclockporttransdstable"] = "cPtpClockPortTransDSTable"
-        self._children_yang_names.add("cPtpClockPortTransDSTable")
 
-        self.cptpclockportassociatetable = CISCOPTPMIB.Cptpclockportassociatetable()
+        self.cptpclockportassociatetable = CISCOPTPMIB.CPtpClockPortAssociateTable()
         self.cptpclockportassociatetable.parent = self
         self._children_name_map["cptpclockportassociatetable"] = "cPtpClockPortAssociateTable"
-        self._children_yang_names.add("cPtpClockPortAssociateTable")
         self._segment_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOPTPMIB, [], name, value)
 
-    class Ciscoptpmibsysteminfo(Entity):
+
+    class CiscoPtpMIBSystemInfo(Entity):
         """
         
         
@@ -1115,15 +1102,14 @@ class CISCOPTPMIB(Entity):
         _revision = '2011-01-28'
 
         def __init__(self):
-            super(CISCOPTPMIB.Ciscoptpmibsysteminfo, self).__init__()
+            super(CISCOPTPMIB.CiscoPtpMIBSystemInfo, self).__init__()
 
             self.yang_name = "ciscoPtpMIBSystemInfo"
             self.yang_parent_name = "CISCO-PTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cptpsystemprofile', YLeaf(YType.enumeration, 'cPtpSystemProfile')),
             ])
@@ -1132,10 +1118,10 @@ class CISCOPTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Ciscoptpmibsysteminfo, ['cptpsystemprofile'], name, value)
+            self._perform_setattr(CISCOPTPMIB.CiscoPtpMIBSystemInfo, ['cptpsystemprofile'], name, value)
 
 
-    class Cptpsystemtable(Entity):
+    class CPtpSystemTable(Entity):
         """
         Table of count information about the PTP system for all
         domains.
@@ -1143,7 +1129,7 @@ class CISCOPTPMIB(Entity):
         .. attribute:: cptpsystementry
         
         	An entry in the table, containing count information about a single domain. New row entries are added when the PTP clock for this domain is configured, while the unconfiguration of the PTP clock removes it
-        	**type**\: list of  		 :py:class:`Cptpsystementry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpsystemtable.Cptpsystementry>`
+        	**type**\: list of  		 :py:class:`CPtpSystemEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpSystemTable.CPtpSystemEntry>`
         
         
 
@@ -1153,15 +1139,14 @@ class CISCOPTPMIB(Entity):
         _revision = '2011-01-28'
 
         def __init__(self):
-            super(CISCOPTPMIB.Cptpsystemtable, self).__init__()
+            super(CISCOPTPMIB.CPtpSystemTable, self).__init__()
 
             self.yang_name = "cPtpSystemTable"
             self.yang_parent_name = "CISCO-PTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cPtpSystemEntry", ("cptpsystementry", CISCOPTPMIB.Cptpsystemtable.Cptpsystementry))])
+            self._child_classes = OrderedDict([("cPtpSystemEntry", ("cptpsystementry", CISCOPTPMIB.CPtpSystemTable.CPtpSystemEntry))])
             self._leafs = OrderedDict()
 
             self.cptpsystementry = YList(self)
@@ -1169,10 +1154,10 @@ class CISCOPTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpsystemtable, [], name, value)
+            self._perform_setattr(CISCOPTPMIB.CPtpSystemTable, [], name, value)
 
 
-        class Cptpsystementry(Entity):
+        class CPtpSystemEntry(Entity):
             """
             An entry in the table, containing count information about a
             single domain. New row entries are added when the PTP clock for
@@ -1219,15 +1204,14 @@ class CISCOPTPMIB(Entity):
             _revision = '2011-01-28'
 
             def __init__(self):
-                super(CISCOPTPMIB.Cptpsystemtable.Cptpsystementry, self).__init__()
+                super(CISCOPTPMIB.CPtpSystemTable.CPtpSystemEntry, self).__init__()
 
                 self.yang_name = "cPtpSystemEntry"
                 self.yang_parent_name = "cPtpSystemTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cptpdomainindex','cptpinstanceindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cptpdomainindex', YLeaf(YType.uint32, 'cPtpDomainIndex')),
                     ('cptpinstanceindex', YLeaf(YType.uint32, 'cPtpInstanceIndex')),
@@ -1242,10 +1226,10 @@ class CISCOPTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpSystemTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpsystemtable.Cptpsystementry, ['cptpdomainindex', 'cptpinstanceindex', 'cptpdomainclockportstotal', 'cptpdomainclockportphysicalinterfacestotal'], name, value)
+                self._perform_setattr(CISCOPTPMIB.CPtpSystemTable.CPtpSystemEntry, ['cptpdomainindex', 'cptpinstanceindex', 'cptpdomainclockportstotal', 'cptpdomainclockportphysicalinterfacestotal'], name, value)
 
 
-    class Cptpsystemdomaintable(Entity):
+    class CPtpSystemDomainTable(Entity):
         """
         Table of information about the PTP system for all clock modes
         \-\- ordinary, boundary or transparent.
@@ -1253,7 +1237,7 @@ class CISCOPTPMIB(Entity):
         .. attribute:: cptpsystemdomainentry
         
         	An entry in the table, containing information about a single clock mode for the PTP system. A row entry gets added when PTP clocks are configured on the router
-        	**type**\: list of  		 :py:class:`Cptpsystemdomainentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpsystemdomaintable.Cptpsystemdomainentry>`
+        	**type**\: list of  		 :py:class:`CPtpSystemDomainEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpSystemDomainTable.CPtpSystemDomainEntry>`
         
         
 
@@ -1263,15 +1247,14 @@ class CISCOPTPMIB(Entity):
         _revision = '2011-01-28'
 
         def __init__(self):
-            super(CISCOPTPMIB.Cptpsystemdomaintable, self).__init__()
+            super(CISCOPTPMIB.CPtpSystemDomainTable, self).__init__()
 
             self.yang_name = "cPtpSystemDomainTable"
             self.yang_parent_name = "CISCO-PTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cPtpSystemDomainEntry", ("cptpsystemdomainentry", CISCOPTPMIB.Cptpsystemdomaintable.Cptpsystemdomainentry))])
+            self._child_classes = OrderedDict([("cPtpSystemDomainEntry", ("cptpsystemdomainentry", CISCOPTPMIB.CPtpSystemDomainTable.CPtpSystemDomainEntry))])
             self._leafs = OrderedDict()
 
             self.cptpsystemdomainentry = YList(self)
@@ -1279,10 +1262,10 @@ class CISCOPTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpsystemdomaintable, [], name, value)
+            self._perform_setattr(CISCOPTPMIB.CPtpSystemDomainTable, [], name, value)
 
 
-        class Cptpsystemdomainentry(Entity):
+        class CPtpSystemDomainEntry(Entity):
             """
             An entry in the table, containing information about a single
             clock mode for the PTP system. A row entry gets added when PTP
@@ -1310,15 +1293,14 @@ class CISCOPTPMIB(Entity):
             _revision = '2011-01-28'
 
             def __init__(self):
-                super(CISCOPTPMIB.Cptpsystemdomaintable.Cptpsystemdomainentry, self).__init__()
+                super(CISCOPTPMIB.CPtpSystemDomainTable.CPtpSystemDomainEntry, self).__init__()
 
                 self.yang_name = "cPtpSystemDomainEntry"
                 self.yang_parent_name = "cPtpSystemDomainTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cptpsystemdomainclocktypeindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cptpsystemdomainclocktypeindex', YLeaf(YType.enumeration, 'cPtpSystemDomainClockTypeIndex')),
                     ('cptpsystemdomaintotals', YLeaf(YType.uint32, 'cPtpSystemDomainTotals')),
@@ -1329,17 +1311,17 @@ class CISCOPTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpSystemDomainTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpsystemdomaintable.Cptpsystemdomainentry, ['cptpsystemdomainclocktypeindex', 'cptpsystemdomaintotals'], name, value)
+                self._perform_setattr(CISCOPTPMIB.CPtpSystemDomainTable.CPtpSystemDomainEntry, ['cptpsystemdomainclocktypeindex', 'cptpsystemdomaintotals'], name, value)
 
 
-    class Cptpclocknodetable(Entity):
+    class CPtpClockNodeTable(Entity):
         """
         Table of information about the PTP system for a given domain.
         
         .. attribute:: cptpclocknodeentry
         
         	An entry in the table, containing information about a single domain. A entry is added when a new PTP clock domain is configured on the router
-        	**type**\: list of  		 :py:class:`Cptpclocknodeentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclocknodetable.Cptpclocknodeentry>`
+        	**type**\: list of  		 :py:class:`CPtpClockNodeEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockNodeTable.CPtpClockNodeEntry>`
         
         
 
@@ -1349,15 +1331,14 @@ class CISCOPTPMIB(Entity):
         _revision = '2011-01-28'
 
         def __init__(self):
-            super(CISCOPTPMIB.Cptpclocknodetable, self).__init__()
+            super(CISCOPTPMIB.CPtpClockNodeTable, self).__init__()
 
             self.yang_name = "cPtpClockNodeTable"
             self.yang_parent_name = "CISCO-PTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cPtpClockNodeEntry", ("cptpclocknodeentry", CISCOPTPMIB.Cptpclocknodetable.Cptpclocknodeentry))])
+            self._child_classes = OrderedDict([("cPtpClockNodeEntry", ("cptpclocknodeentry", CISCOPTPMIB.CPtpClockNodeTable.CPtpClockNodeEntry))])
             self._leafs = OrderedDict()
 
             self.cptpclocknodeentry = YList(self)
@@ -1365,10 +1346,10 @@ class CISCOPTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpclocknodetable, [], name, value)
+            self._perform_setattr(CISCOPTPMIB.CPtpClockNodeTable, [], name, value)
 
 
-        class Cptpclocknodeentry(Entity):
+        class CPtpClockNodeEntry(Entity):
             """
             An entry in the table, containing information about a single
             domain. A entry is added when a new PTP clock domain is
@@ -1453,15 +1434,14 @@ class CISCOPTPMIB(Entity):
             _revision = '2011-01-28'
 
             def __init__(self):
-                super(CISCOPTPMIB.Cptpclocknodetable.Cptpclocknodeentry, self).__init__()
+                super(CISCOPTPMIB.CPtpClockNodeTable.CPtpClockNodeEntry, self).__init__()
 
                 self.yang_name = "cPtpClockNodeEntry"
                 self.yang_parent_name = "cPtpClockNodeTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cptpclockdomainindex','cptpclocktypeindex','cptpclockinstanceindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cptpclockdomainindex', YLeaf(YType.uint32, 'cPtpClockDomainIndex')),
                     ('cptpclocktypeindex', YLeaf(YType.enumeration, 'cPtpClockTypeIndex')),
@@ -1494,10 +1474,10 @@ class CISCOPTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockNodeTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpclocknodetable.Cptpclocknodeentry, ['cptpclockdomainindex', 'cptpclocktypeindex', 'cptpclockinstanceindex', 'cptpclockinput1ppsenabled', 'cptpclockinputfrequencyenabled', 'cptpclocktodenabled', 'cptpclockoutput1ppsenabled', 'cptpclockoutput1ppsoffsetenabled', 'cptpclockoutput1ppsoffsetvalue', 'cptpclockoutput1ppsoffsetnegative', 'cptpclockinput1ppsinterface', 'cptpclockoutput1ppsinterface', 'cptpclocktodinterface'], name, value)
+                self._perform_setattr(CISCOPTPMIB.CPtpClockNodeTable.CPtpClockNodeEntry, ['cptpclockdomainindex', 'cptpclocktypeindex', 'cptpclockinstanceindex', 'cptpclockinput1ppsenabled', 'cptpclockinputfrequencyenabled', 'cptpclocktodenabled', 'cptpclockoutput1ppsenabled', 'cptpclockoutput1ppsoffsetenabled', 'cptpclockoutput1ppsoffsetvalue', 'cptpclockoutput1ppsoffsetnegative', 'cptpclockinput1ppsinterface', 'cptpclockoutput1ppsinterface', 'cptpclocktodinterface'], name, value)
 
 
-    class Cptpclockcurrentdstable(Entity):
+    class CPtpClockCurrentDSTable(Entity):
         """
         Table of information about the PTP clock Current Datasets for
         all domains.
@@ -1505,7 +1485,7 @@ class CISCOPTPMIB(Entity):
         .. attribute:: cptpclockcurrentdsentry
         
         	An entry in the table, containing information about a single PTP clock Current Datasets for a domain
-        	**type**\: list of  		 :py:class:`Cptpclockcurrentdsentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockcurrentdstable.Cptpclockcurrentdsentry>`
+        	**type**\: list of  		 :py:class:`CPtpClockCurrentDSEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockCurrentDSTable.CPtpClockCurrentDSEntry>`
         
         
 
@@ -1515,15 +1495,14 @@ class CISCOPTPMIB(Entity):
         _revision = '2011-01-28'
 
         def __init__(self):
-            super(CISCOPTPMIB.Cptpclockcurrentdstable, self).__init__()
+            super(CISCOPTPMIB.CPtpClockCurrentDSTable, self).__init__()
 
             self.yang_name = "cPtpClockCurrentDSTable"
             self.yang_parent_name = "CISCO-PTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cPtpClockCurrentDSEntry", ("cptpclockcurrentdsentry", CISCOPTPMIB.Cptpclockcurrentdstable.Cptpclockcurrentdsentry))])
+            self._child_classes = OrderedDict([("cPtpClockCurrentDSEntry", ("cptpclockcurrentdsentry", CISCOPTPMIB.CPtpClockCurrentDSTable.CPtpClockCurrentDSEntry))])
             self._leafs = OrderedDict()
 
             self.cptpclockcurrentdsentry = YList(self)
@@ -1531,10 +1510,10 @@ class CISCOPTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpclockcurrentdstable, [], name, value)
+            self._perform_setattr(CISCOPTPMIB.CPtpClockCurrentDSTable, [], name, value)
 
 
-        class Cptpclockcurrentdsentry(Entity):
+        class CPtpClockCurrentDSEntry(Entity):
             """
             An entry in the table, containing information about a single
             PTP clock Current Datasets for a domain.
@@ -1591,15 +1570,14 @@ class CISCOPTPMIB(Entity):
             _revision = '2011-01-28'
 
             def __init__(self):
-                super(CISCOPTPMIB.Cptpclockcurrentdstable.Cptpclockcurrentdsentry, self).__init__()
+                super(CISCOPTPMIB.CPtpClockCurrentDSTable.CPtpClockCurrentDSEntry, self).__init__()
 
                 self.yang_name = "cPtpClockCurrentDSEntry"
                 self.yang_parent_name = "cPtpClockCurrentDSTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cptpclockcurrentdsdomainindex','cptpclockcurrentdsclocktypeindex','cptpclockcurrentdsinstanceindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cptpclockcurrentdsdomainindex', YLeaf(YType.uint32, 'cPtpClockCurrentDSDomainIndex')),
                     ('cptpclockcurrentdsclocktypeindex', YLeaf(YType.enumeration, 'cPtpClockCurrentDSClockTypeIndex')),
@@ -1618,10 +1596,10 @@ class CISCOPTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockCurrentDSTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpclockcurrentdstable.Cptpclockcurrentdsentry, ['cptpclockcurrentdsdomainindex', 'cptpclockcurrentdsclocktypeindex', 'cptpclockcurrentdsinstanceindex', 'cptpclockcurrentdsstepsremoved', 'cptpclockcurrentdsoffsetfrommaster', 'cptpclockcurrentdsmeanpathdelay'], name, value)
+                self._perform_setattr(CISCOPTPMIB.CPtpClockCurrentDSTable.CPtpClockCurrentDSEntry, ['cptpclockcurrentdsdomainindex', 'cptpclockcurrentdsclocktypeindex', 'cptpclockcurrentdsinstanceindex', 'cptpclockcurrentdsstepsremoved', 'cptpclockcurrentdsoffsetfrommaster', 'cptpclockcurrentdsmeanpathdelay'], name, value)
 
 
-    class Cptpclockparentdstable(Entity):
+    class CPtpClockParentDSTable(Entity):
         """
         Table of information about the PTP clock Parent Datasets for
         all domains.
@@ -1629,7 +1607,7 @@ class CISCOPTPMIB(Entity):
         .. attribute:: cptpclockparentdsentry
         
         	An entry in the table, containing information about a single PTP clock Parent Datasets for a domain
-        	**type**\: list of  		 :py:class:`Cptpclockparentdsentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockparentdstable.Cptpclockparentdsentry>`
+        	**type**\: list of  		 :py:class:`CPtpClockParentDSEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockParentDSTable.CPtpClockParentDSEntry>`
         
         
 
@@ -1639,15 +1617,14 @@ class CISCOPTPMIB(Entity):
         _revision = '2011-01-28'
 
         def __init__(self):
-            super(CISCOPTPMIB.Cptpclockparentdstable, self).__init__()
+            super(CISCOPTPMIB.CPtpClockParentDSTable, self).__init__()
 
             self.yang_name = "cPtpClockParentDSTable"
             self.yang_parent_name = "CISCO-PTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cPtpClockParentDSEntry", ("cptpclockparentdsentry", CISCOPTPMIB.Cptpclockparentdstable.Cptpclockparentdsentry))])
+            self._child_classes = OrderedDict([("cPtpClockParentDSEntry", ("cptpclockparentdsentry", CISCOPTPMIB.CPtpClockParentDSTable.CPtpClockParentDSEntry))])
             self._leafs = OrderedDict()
 
             self.cptpclockparentdsentry = YList(self)
@@ -1655,10 +1632,10 @@ class CISCOPTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpclockparentdstable, [], name, value)
+            self._perform_setattr(CISCOPTPMIB.CPtpClockParentDSTable, [], name, value)
 
 
-        class Cptpclockparentdsentry(Entity):
+        class CPtpClockParentDSEntry(Entity):
             """
             An entry in the table, containing information about a single
             PTP clock Parent Datasets for a domain.
@@ -1754,15 +1731,14 @@ class CISCOPTPMIB(Entity):
             _revision = '2011-01-28'
 
             def __init__(self):
-                super(CISCOPTPMIB.Cptpclockparentdstable.Cptpclockparentdsentry, self).__init__()
+                super(CISCOPTPMIB.CPtpClockParentDSTable.CPtpClockParentDSEntry, self).__init__()
 
                 self.yang_name = "cPtpClockParentDSEntry"
                 self.yang_parent_name = "cPtpClockParentDSTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cptpclockparentdsdomainindex','cptpclockparentdsclocktypeindex','cptpclockparentdsinstanceindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cptpclockparentdsdomainindex', YLeaf(YType.uint32, 'cPtpClockParentDSDomainIndex')),
                     ('cptpclockparentdsclocktypeindex', YLeaf(YType.enumeration, 'cPtpClockParentDSClockTypeIndex')),
@@ -1795,10 +1771,10 @@ class CISCOPTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockParentDSTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpclockparentdstable.Cptpclockparentdsentry, ['cptpclockparentdsdomainindex', 'cptpclockparentdsclocktypeindex', 'cptpclockparentdsinstanceindex', 'cptpclockparentdsparentportidentity', 'cptpclockparentdsparentstats', 'cptpclockparentdsoffset', 'cptpclockparentdsclockphchrate', 'cptpclockparentdsgmclockidentity', 'cptpclockparentdsgmclockpriority1', 'cptpclockparentdsgmclockpriority2', 'cptpclockparentdsgmclockqualityclass', 'cptpclockparentdsgmclockqualityaccuracy', 'cptpclockparentdsgmclockqualityoffset'], name, value)
+                self._perform_setattr(CISCOPTPMIB.CPtpClockParentDSTable.CPtpClockParentDSEntry, ['cptpclockparentdsdomainindex', 'cptpclockparentdsclocktypeindex', 'cptpclockparentdsinstanceindex', 'cptpclockparentdsparentportidentity', 'cptpclockparentdsparentstats', 'cptpclockparentdsoffset', 'cptpclockparentdsclockphchrate', 'cptpclockparentdsgmclockidentity', 'cptpclockparentdsgmclockpriority1', 'cptpclockparentdsgmclockpriority2', 'cptpclockparentdsgmclockqualityclass', 'cptpclockparentdsgmclockqualityaccuracy', 'cptpclockparentdsgmclockqualityoffset'], name, value)
 
 
-    class Cptpclockdefaultdstable(Entity):
+    class CPtpClockDefaultDSTable(Entity):
         """
         Table of information about the PTP clock Default Datasets for
         all domains.
@@ -1806,7 +1782,7 @@ class CISCOPTPMIB(Entity):
         .. attribute:: cptpclockdefaultdsentry
         
         	An entry in the table, containing information about a single PTP clock Default Datasets for a domain
-        	**type**\: list of  		 :py:class:`Cptpclockdefaultdsentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockdefaultdstable.Cptpclockdefaultdsentry>`
+        	**type**\: list of  		 :py:class:`CPtpClockDefaultDSEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockDefaultDSTable.CPtpClockDefaultDSEntry>`
         
         
 
@@ -1816,15 +1792,14 @@ class CISCOPTPMIB(Entity):
         _revision = '2011-01-28'
 
         def __init__(self):
-            super(CISCOPTPMIB.Cptpclockdefaultdstable, self).__init__()
+            super(CISCOPTPMIB.CPtpClockDefaultDSTable, self).__init__()
 
             self.yang_name = "cPtpClockDefaultDSTable"
             self.yang_parent_name = "CISCO-PTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cPtpClockDefaultDSEntry", ("cptpclockdefaultdsentry", CISCOPTPMIB.Cptpclockdefaultdstable.Cptpclockdefaultdsentry))])
+            self._child_classes = OrderedDict([("cPtpClockDefaultDSEntry", ("cptpclockdefaultdsentry", CISCOPTPMIB.CPtpClockDefaultDSTable.CPtpClockDefaultDSEntry))])
             self._leafs = OrderedDict()
 
             self.cptpclockdefaultdsentry = YList(self)
@@ -1832,10 +1807,10 @@ class CISCOPTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpclockdefaultdstable, [], name, value)
+            self._perform_setattr(CISCOPTPMIB.CPtpClockDefaultDSTable, [], name, value)
 
 
-        class Cptpclockdefaultdsentry(Entity):
+        class CPtpClockDefaultDSEntry(Entity):
             """
             An entry in the table, containing information about a single
             PTP clock Default Datasets for a domain.
@@ -1917,15 +1892,14 @@ class CISCOPTPMIB(Entity):
             _revision = '2011-01-28'
 
             def __init__(self):
-                super(CISCOPTPMIB.Cptpclockdefaultdstable.Cptpclockdefaultdsentry, self).__init__()
+                super(CISCOPTPMIB.CPtpClockDefaultDSTable.CPtpClockDefaultDSEntry, self).__init__()
 
                 self.yang_name = "cPtpClockDefaultDSEntry"
                 self.yang_parent_name = "cPtpClockDefaultDSTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cptpclockdefaultdsdomainindex','cptpclockdefaultdsclocktypeindex','cptpclockdefaultdsinstanceindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cptpclockdefaultdsdomainindex', YLeaf(YType.uint32, 'cPtpClockDefaultDSDomainIndex')),
                     ('cptpclockdefaultdsclocktypeindex', YLeaf(YType.enumeration, 'cPtpClockDefaultDSClockTypeIndex')),
@@ -1954,10 +1928,10 @@ class CISCOPTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockDefaultDSTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpclockdefaultdstable.Cptpclockdefaultdsentry, ['cptpclockdefaultdsdomainindex', 'cptpclockdefaultdsclocktypeindex', 'cptpclockdefaultdsinstanceindex', 'cptpclockdefaultdstwostepflag', 'cptpclockdefaultdsclockidentity', 'cptpclockdefaultdspriority1', 'cptpclockdefaultdspriority2', 'cptpclockdefaultdsslaveonly', 'cptpclockdefaultdsqualityclass', 'cptpclockdefaultdsqualityaccuracy', 'cptpclockdefaultdsqualityoffset'], name, value)
+                self._perform_setattr(CISCOPTPMIB.CPtpClockDefaultDSTable.CPtpClockDefaultDSEntry, ['cptpclockdefaultdsdomainindex', 'cptpclockdefaultdsclocktypeindex', 'cptpclockdefaultdsinstanceindex', 'cptpclockdefaultdstwostepflag', 'cptpclockdefaultdsclockidentity', 'cptpclockdefaultdspriority1', 'cptpclockdefaultdspriority2', 'cptpclockdefaultdsslaveonly', 'cptpclockdefaultdsqualityclass', 'cptpclockdefaultdsqualityaccuracy', 'cptpclockdefaultdsqualityoffset'], name, value)
 
 
-    class Cptpclockrunningtable(Entity):
+    class CPtpClockRunningTable(Entity):
         """
         Table of information about the PTP clock Running Datasets for
         all domains.
@@ -1965,7 +1939,7 @@ class CISCOPTPMIB(Entity):
         .. attribute:: cptpclockrunningentry
         
         	An entry in the table, containing information about a single PTP clock running Datasets for a domain
-        	**type**\: list of  		 :py:class:`Cptpclockrunningentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockrunningtable.Cptpclockrunningentry>`
+        	**type**\: list of  		 :py:class:`CPtpClockRunningEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockRunningTable.CPtpClockRunningEntry>`
         
         
 
@@ -1975,15 +1949,14 @@ class CISCOPTPMIB(Entity):
         _revision = '2011-01-28'
 
         def __init__(self):
-            super(CISCOPTPMIB.Cptpclockrunningtable, self).__init__()
+            super(CISCOPTPMIB.CPtpClockRunningTable, self).__init__()
 
             self.yang_name = "cPtpClockRunningTable"
             self.yang_parent_name = "CISCO-PTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cPtpClockRunningEntry", ("cptpclockrunningentry", CISCOPTPMIB.Cptpclockrunningtable.Cptpclockrunningentry))])
+            self._child_classes = OrderedDict([("cPtpClockRunningEntry", ("cptpclockrunningentry", CISCOPTPMIB.CPtpClockRunningTable.CPtpClockRunningEntry))])
             self._leafs = OrderedDict()
 
             self.cptpclockrunningentry = YList(self)
@@ -1991,10 +1964,10 @@ class CISCOPTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpclockrunningtable, [], name, value)
+            self._perform_setattr(CISCOPTPMIB.CPtpClockRunningTable, [], name, value)
 
 
-        class Cptpclockrunningentry(Entity):
+        class CPtpClockRunningEntry(Entity):
             """
             An entry in the table, containing information about a single
             PTP clock running Datasets for a domain.
@@ -2045,15 +2018,14 @@ class CISCOPTPMIB(Entity):
             _revision = '2011-01-28'
 
             def __init__(self):
-                super(CISCOPTPMIB.Cptpclockrunningtable.Cptpclockrunningentry, self).__init__()
+                super(CISCOPTPMIB.CPtpClockRunningTable.CPtpClockRunningEntry, self).__init__()
 
                 self.yang_name = "cPtpClockRunningEntry"
                 self.yang_parent_name = "cPtpClockRunningTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cptpclockrunningdomainindex','cptpclockrunningclocktypeindex','cptpclockrunninginstanceindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cptpclockrunningdomainindex', YLeaf(YType.uint32, 'cPtpClockRunningDomainIndex')),
                     ('cptpclockrunningclocktypeindex', YLeaf(YType.enumeration, 'cPtpClockRunningClockTypeIndex')),
@@ -2072,10 +2044,10 @@ class CISCOPTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockRunningTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpclockrunningtable.Cptpclockrunningentry, ['cptpclockrunningdomainindex', 'cptpclockrunningclocktypeindex', 'cptpclockrunninginstanceindex', 'cptpclockrunningstate', 'cptpclockrunningpacketssent', 'cptpclockrunningpacketsreceived'], name, value)
+                self._perform_setattr(CISCOPTPMIB.CPtpClockRunningTable.CPtpClockRunningEntry, ['cptpclockrunningdomainindex', 'cptpclockrunningclocktypeindex', 'cptpclockrunninginstanceindex', 'cptpclockrunningstate', 'cptpclockrunningpacketssent', 'cptpclockrunningpacketsreceived'], name, value)
 
 
-    class Cptpclocktimepropertiesdstable(Entity):
+    class CPtpClockTimePropertiesDSTable(Entity):
         """
         Table of information about the PTP clock Timeproperties
         Datasets for all domains.
@@ -2083,7 +2055,7 @@ class CISCOPTPMIB(Entity):
         .. attribute:: cptpclocktimepropertiesdsentry
         
         	An entry in the table, containing information about a single PTP clock timeproperties Datasets for a domain
-        	**type**\: list of  		 :py:class:`Cptpclocktimepropertiesdsentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclocktimepropertiesdstable.Cptpclocktimepropertiesdsentry>`
+        	**type**\: list of  		 :py:class:`CPtpClockTimePropertiesDSEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockTimePropertiesDSTable.CPtpClockTimePropertiesDSEntry>`
         
         
 
@@ -2093,15 +2065,14 @@ class CISCOPTPMIB(Entity):
         _revision = '2011-01-28'
 
         def __init__(self):
-            super(CISCOPTPMIB.Cptpclocktimepropertiesdstable, self).__init__()
+            super(CISCOPTPMIB.CPtpClockTimePropertiesDSTable, self).__init__()
 
             self.yang_name = "cPtpClockTimePropertiesDSTable"
             self.yang_parent_name = "CISCO-PTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cPtpClockTimePropertiesDSEntry", ("cptpclocktimepropertiesdsentry", CISCOPTPMIB.Cptpclocktimepropertiesdstable.Cptpclocktimepropertiesdsentry))])
+            self._child_classes = OrderedDict([("cPtpClockTimePropertiesDSEntry", ("cptpclocktimepropertiesdsentry", CISCOPTPMIB.CPtpClockTimePropertiesDSTable.CPtpClockTimePropertiesDSEntry))])
             self._leafs = OrderedDict()
 
             self.cptpclocktimepropertiesdsentry = YList(self)
@@ -2109,10 +2080,10 @@ class CISCOPTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpclocktimepropertiesdstable, [], name, value)
+            self._perform_setattr(CISCOPTPMIB.CPtpClockTimePropertiesDSTable, [], name, value)
 
 
-        class Cptpclocktimepropertiesdsentry(Entity):
+        class CPtpClockTimePropertiesDSEntry(Entity):
             """
             An entry in the table, containing information about a single
             PTP clock timeproperties Datasets for a domain.
@@ -2186,15 +2157,14 @@ class CISCOPTPMIB(Entity):
             _revision = '2011-01-28'
 
             def __init__(self):
-                super(CISCOPTPMIB.Cptpclocktimepropertiesdstable.Cptpclocktimepropertiesdsentry, self).__init__()
+                super(CISCOPTPMIB.CPtpClockTimePropertiesDSTable.CPtpClockTimePropertiesDSEntry, self).__init__()
 
                 self.yang_name = "cPtpClockTimePropertiesDSEntry"
                 self.yang_parent_name = "cPtpClockTimePropertiesDSTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cptpclocktimepropertiesdsdomainindex','cptpclocktimepropertiesdsclocktypeindex','cptpclocktimepropertiesdsinstanceindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cptpclocktimepropertiesdsdomainindex', YLeaf(YType.uint32, 'cPtpClockTimePropertiesDSDomainIndex')),
                     ('cptpclocktimepropertiesdsclocktypeindex', YLeaf(YType.enumeration, 'cPtpClockTimePropertiesDSClockTypeIndex')),
@@ -2223,10 +2193,10 @@ class CISCOPTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockTimePropertiesDSTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpclocktimepropertiesdstable.Cptpclocktimepropertiesdsentry, ['cptpclocktimepropertiesdsdomainindex', 'cptpclocktimepropertiesdsclocktypeindex', 'cptpclocktimepropertiesdsinstanceindex', 'cptpclocktimepropertiesdscurrentutcoffsetvalid', 'cptpclocktimepropertiesdscurrentutcoffset', 'cptpclocktimepropertiesdsleap59', 'cptpclocktimepropertiesdsleap61', 'cptpclocktimepropertiesdstimetraceable', 'cptpclocktimepropertiesdsfreqtraceable', 'cptpclocktimepropertiesdsptptimescale', 'cptpclocktimepropertiesdssource'], name, value)
+                self._perform_setattr(CISCOPTPMIB.CPtpClockTimePropertiesDSTable.CPtpClockTimePropertiesDSEntry, ['cptpclocktimepropertiesdsdomainindex', 'cptpclocktimepropertiesdsclocktypeindex', 'cptpclocktimepropertiesdsinstanceindex', 'cptpclocktimepropertiesdscurrentutcoffsetvalid', 'cptpclocktimepropertiesdscurrentutcoffset', 'cptpclocktimepropertiesdsleap59', 'cptpclocktimepropertiesdsleap61', 'cptpclocktimepropertiesdstimetraceable', 'cptpclocktimepropertiesdsfreqtraceable', 'cptpclocktimepropertiesdsptptimescale', 'cptpclocktimepropertiesdssource'], name, value)
 
 
-    class Cptpclocktransdefaultdstable(Entity):
+    class CPtpClockTransDefaultDSTable(Entity):
         """
         Table of information about the PTP Transparent clock Default
         Datasets for all domains.
@@ -2234,7 +2204,7 @@ class CISCOPTPMIB(Entity):
         .. attribute:: cptpclocktransdefaultdsentry
         
         	An entry in the table, containing information about a single PTP Transparent clock Default Datasets for a domain
-        	**type**\: list of  		 :py:class:`Cptpclocktransdefaultdsentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclocktransdefaultdstable.Cptpclocktransdefaultdsentry>`
+        	**type**\: list of  		 :py:class:`CPtpClockTransDefaultDSEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockTransDefaultDSTable.CPtpClockTransDefaultDSEntry>`
         
         
 
@@ -2244,15 +2214,14 @@ class CISCOPTPMIB(Entity):
         _revision = '2011-01-28'
 
         def __init__(self):
-            super(CISCOPTPMIB.Cptpclocktransdefaultdstable, self).__init__()
+            super(CISCOPTPMIB.CPtpClockTransDefaultDSTable, self).__init__()
 
             self.yang_name = "cPtpClockTransDefaultDSTable"
             self.yang_parent_name = "CISCO-PTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cPtpClockTransDefaultDSEntry", ("cptpclocktransdefaultdsentry", CISCOPTPMIB.Cptpclocktransdefaultdstable.Cptpclocktransdefaultdsentry))])
+            self._child_classes = OrderedDict([("cPtpClockTransDefaultDSEntry", ("cptpclocktransdefaultdsentry", CISCOPTPMIB.CPtpClockTransDefaultDSTable.CPtpClockTransDefaultDSEntry))])
             self._leafs = OrderedDict()
 
             self.cptpclocktransdefaultdsentry = YList(self)
@@ -2260,10 +2229,10 @@ class CISCOPTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpclocktransdefaultdstable, [], name, value)
+            self._perform_setattr(CISCOPTPMIB.CPtpClockTransDefaultDSTable, [], name, value)
 
 
-        class Cptpclocktransdefaultdsentry(Entity):
+        class CPtpClockTransDefaultDSEntry(Entity):
             """
             An entry in the table, containing information about a single
             PTP Transparent clock Default Datasets for a domain.
@@ -2316,15 +2285,14 @@ class CISCOPTPMIB(Entity):
             _revision = '2011-01-28'
 
             def __init__(self):
-                super(CISCOPTPMIB.Cptpclocktransdefaultdstable.Cptpclocktransdefaultdsentry, self).__init__()
+                super(CISCOPTPMIB.CPtpClockTransDefaultDSTable.CPtpClockTransDefaultDSEntry, self).__init__()
 
                 self.yang_name = "cPtpClockTransDefaultDSEntry"
                 self.yang_parent_name = "cPtpClockTransDefaultDSTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cptpclocktransdefaultdsdomainindex','cptpclocktransdefaultdsinstanceindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cptpclocktransdefaultdsdomainindex', YLeaf(YType.uint32, 'cPtpClockTransDefaultDSDomainIndex')),
                     ('cptpclocktransdefaultdsinstanceindex', YLeaf(YType.uint32, 'cPtpClockTransDefaultDSInstanceIndex')),
@@ -2343,10 +2311,10 @@ class CISCOPTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockTransDefaultDSTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpclocktransdefaultdstable.Cptpclocktransdefaultdsentry, ['cptpclocktransdefaultdsdomainindex', 'cptpclocktransdefaultdsinstanceindex', 'cptpclocktransdefaultdsclockidentity', 'cptpclocktransdefaultdsnumofports', 'cptpclocktransdefaultdsdelay', 'cptpclocktransdefaultdsprimarydomain'], name, value)
+                self._perform_setattr(CISCOPTPMIB.CPtpClockTransDefaultDSTable.CPtpClockTransDefaultDSEntry, ['cptpclocktransdefaultdsdomainindex', 'cptpclocktransdefaultdsinstanceindex', 'cptpclocktransdefaultdsclockidentity', 'cptpclocktransdefaultdsnumofports', 'cptpclocktransdefaultdsdelay', 'cptpclocktransdefaultdsprimarydomain'], name, value)
 
 
-    class Cptpclockporttable(Entity):
+    class CPtpClockPortTable(Entity):
         """
         Table of information about the clock ports for a particular
         domain.
@@ -2354,7 +2322,7 @@ class CISCOPTPMIB(Entity):
         .. attribute:: cptpclockportentry
         
         	An entry in the table, containing information about a single clock port
-        	**type**\: list of  		 :py:class:`Cptpclockportentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockporttable.Cptpclockportentry>`
+        	**type**\: list of  		 :py:class:`CPtpClockPortEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockPortTable.CPtpClockPortEntry>`
         
         
 
@@ -2364,15 +2332,14 @@ class CISCOPTPMIB(Entity):
         _revision = '2011-01-28'
 
         def __init__(self):
-            super(CISCOPTPMIB.Cptpclockporttable, self).__init__()
+            super(CISCOPTPMIB.CPtpClockPortTable, self).__init__()
 
             self.yang_name = "cPtpClockPortTable"
             self.yang_parent_name = "CISCO-PTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cPtpClockPortEntry", ("cptpclockportentry", CISCOPTPMIB.Cptpclockporttable.Cptpclockportentry))])
+            self._child_classes = OrderedDict([("cPtpClockPortEntry", ("cptpclockportentry", CISCOPTPMIB.CPtpClockPortTable.CPtpClockPortEntry))])
             self._leafs = OrderedDict()
 
             self.cptpclockportentry = YList(self)
@@ -2380,10 +2347,10 @@ class CISCOPTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpclockporttable, [], name, value)
+            self._perform_setattr(CISCOPTPMIB.CPtpClockPortTable, [], name, value)
 
 
-        class Cptpclockportentry(Entity):
+        class CPtpClockPortEntry(Entity):
             """
             An entry in the table, containing information about a single
             clock port.
@@ -2458,15 +2425,14 @@ class CISCOPTPMIB(Entity):
             _revision = '2011-01-28'
 
             def __init__(self):
-                super(CISCOPTPMIB.Cptpclockporttable.Cptpclockportentry, self).__init__()
+                super(CISCOPTPMIB.CPtpClockPortTable.CPtpClockPortEntry, self).__init__()
 
                 self.yang_name = "cPtpClockPortEntry"
                 self.yang_parent_name = "cPtpClockPortTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cptpclockportdomainindex','cptpclockportclocktypeindex','cptpclockportclockinstanceindex','cptpclockporttableportnumberindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cptpclockportdomainindex', YLeaf(YType.uint32, 'cPtpClockPortDomainIndex')),
                     ('cptpclockportclocktypeindex', YLeaf(YType.enumeration, 'cPtpClockPortClockTypeIndex')),
@@ -2493,10 +2459,10 @@ class CISCOPTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpclockporttable.Cptpclockportentry, ['cptpclockportdomainindex', 'cptpclockportclocktypeindex', 'cptpclockportclockinstanceindex', 'cptpclockporttableportnumberindex', 'cptpclockportname', 'cptpclockportrole', 'cptpclockportsynconestep', 'cptpclockportcurrentpeeraddresstype', 'cptpclockportcurrentpeeraddress', 'cptpclockportnumofassociatedports'], name, value)
+                self._perform_setattr(CISCOPTPMIB.CPtpClockPortTable.CPtpClockPortEntry, ['cptpclockportdomainindex', 'cptpclockportclocktypeindex', 'cptpclockportclockinstanceindex', 'cptpclockporttableportnumberindex', 'cptpclockportname', 'cptpclockportrole', 'cptpclockportsynconestep', 'cptpclockportcurrentpeeraddresstype', 'cptpclockportcurrentpeeraddress', 'cptpclockportnumofassociatedports'], name, value)
 
 
-    class Cptpclockportdstable(Entity):
+    class CPtpClockPortDSTable(Entity):
         """
         Table of information about the clock ports dataset for a
         particular domain.
@@ -2504,7 +2470,7 @@ class CISCOPTPMIB(Entity):
         .. attribute:: cptpclockportdsentry
         
         	An entry in the table, containing port dataset information for a single clock port
-        	**type**\: list of  		 :py:class:`Cptpclockportdsentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockportdstable.Cptpclockportdsentry>`
+        	**type**\: list of  		 :py:class:`CPtpClockPortDSEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockPortDSTable.CPtpClockPortDSEntry>`
         
         
 
@@ -2514,15 +2480,14 @@ class CISCOPTPMIB(Entity):
         _revision = '2011-01-28'
 
         def __init__(self):
-            super(CISCOPTPMIB.Cptpclockportdstable, self).__init__()
+            super(CISCOPTPMIB.CPtpClockPortDSTable, self).__init__()
 
             self.yang_name = "cPtpClockPortDSTable"
             self.yang_parent_name = "CISCO-PTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cPtpClockPortDSEntry", ("cptpclockportdsentry", CISCOPTPMIB.Cptpclockportdstable.Cptpclockportdsentry))])
+            self._child_classes = OrderedDict([("cPtpClockPortDSEntry", ("cptpclockportdsentry", CISCOPTPMIB.CPtpClockPortDSTable.CPtpClockPortDSEntry))])
             self._leafs = OrderedDict()
 
             self.cptpclockportdsentry = YList(self)
@@ -2530,10 +2495,10 @@ class CISCOPTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpclockportdstable, [], name, value)
+            self._perform_setattr(CISCOPTPMIB.CPtpClockPortDSTable, [], name, value)
 
 
-        class Cptpclockportdsentry(Entity):
+        class CPtpClockPortDSEntry(Entity):
             """
             An entry in the table, containing port dataset information for
             a single clock port.
@@ -2645,15 +2610,14 @@ class CISCOPTPMIB(Entity):
             _revision = '2011-01-28'
 
             def __init__(self):
-                super(CISCOPTPMIB.Cptpclockportdstable.Cptpclockportdsentry, self).__init__()
+                super(CISCOPTPMIB.CPtpClockPortDSTable.CPtpClockPortDSEntry, self).__init__()
 
                 self.yang_name = "cPtpClockPortDSEntry"
                 self.yang_parent_name = "cPtpClockPortDSTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cptpclockportdsdomainindex','cptpclockportdsclocktypeindex','cptpclockportdsclockinstanceindex','cptpclockportdsportnumberindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cptpclockportdsdomainindex', YLeaf(YType.uint32, 'cPtpClockPortDSDomainIndex')),
                     ('cptpclockportdsclocktypeindex', YLeaf(YType.enumeration, 'cPtpClockPortDSClockTypeIndex')),
@@ -2690,10 +2654,10 @@ class CISCOPTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortDSTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpclockportdstable.Cptpclockportdsentry, ['cptpclockportdsdomainindex', 'cptpclockportdsclocktypeindex', 'cptpclockportdsclockinstanceindex', 'cptpclockportdsportnumberindex', 'cptpclockportdsname', 'cptpclockportdsportidentity', 'cptpclockportdsannouncementinterval', 'cptpclockportdsannouncercttimeout', 'cptpclockportdssyncinterval', 'cptpclockportdsmindelayreqinterval', 'cptpclockportdspeerdelayreqinterval', 'cptpclockportdsdelaymech', 'cptpclockportdspeermeanpathdelay', 'cptpclockportdsgrantduration', 'cptpclockportdsptpversion'], name, value)
+                self._perform_setattr(CISCOPTPMIB.CPtpClockPortDSTable.CPtpClockPortDSEntry, ['cptpclockportdsdomainindex', 'cptpclockportdsclocktypeindex', 'cptpclockportdsclockinstanceindex', 'cptpclockportdsportnumberindex', 'cptpclockportdsname', 'cptpclockportdsportidentity', 'cptpclockportdsannouncementinterval', 'cptpclockportdsannouncercttimeout', 'cptpclockportdssyncinterval', 'cptpclockportdsmindelayreqinterval', 'cptpclockportdspeerdelayreqinterval', 'cptpclockportdsdelaymech', 'cptpclockportdspeermeanpathdelay', 'cptpclockportdsgrantduration', 'cptpclockportdsptpversion'], name, value)
 
 
-    class Cptpclockportrunningtable(Entity):
+    class CPtpClockPortRunningTable(Entity):
         """
         Table of information about the clock ports running dataset for
         a particular domain.
@@ -2701,7 +2665,7 @@ class CISCOPTPMIB(Entity):
         .. attribute:: cptpclockportrunningentry
         
         	An entry in the table, containing runing dataset information about a single clock port
-        	**type**\: list of  		 :py:class:`Cptpclockportrunningentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockportrunningtable.Cptpclockportrunningentry>`
+        	**type**\: list of  		 :py:class:`CPtpClockPortRunningEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockPortRunningTable.CPtpClockPortRunningEntry>`
         
         
 
@@ -2711,15 +2675,14 @@ class CISCOPTPMIB(Entity):
         _revision = '2011-01-28'
 
         def __init__(self):
-            super(CISCOPTPMIB.Cptpclockportrunningtable, self).__init__()
+            super(CISCOPTPMIB.CPtpClockPortRunningTable, self).__init__()
 
             self.yang_name = "cPtpClockPortRunningTable"
             self.yang_parent_name = "CISCO-PTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cPtpClockPortRunningEntry", ("cptpclockportrunningentry", CISCOPTPMIB.Cptpclockportrunningtable.Cptpclockportrunningentry))])
+            self._child_classes = OrderedDict([("cPtpClockPortRunningEntry", ("cptpclockportrunningentry", CISCOPTPMIB.CPtpClockPortRunningTable.CPtpClockPortRunningEntry))])
             self._leafs = OrderedDict()
 
             self.cptpclockportrunningentry = YList(self)
@@ -2727,10 +2690,10 @@ class CISCOPTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpclockportrunningtable, [], name, value)
+            self._perform_setattr(CISCOPTPMIB.CPtpClockPortRunningTable, [], name, value)
 
 
-        class Cptpclockportrunningentry(Entity):
+        class CPtpClockPortRunningEntry(Entity):
             """
             An entry in the table, containing runing dataset information
             about a single clock port.
@@ -2835,15 +2798,14 @@ class CISCOPTPMIB(Entity):
             _revision = '2011-01-28'
 
             def __init__(self):
-                super(CISCOPTPMIB.Cptpclockportrunningtable.Cptpclockportrunningentry, self).__init__()
+                super(CISCOPTPMIB.CPtpClockPortRunningTable.CPtpClockPortRunningEntry, self).__init__()
 
                 self.yang_name = "cPtpClockPortRunningEntry"
                 self.yang_parent_name = "cPtpClockPortRunningTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cptpclockportrunningdomainindex','cptpclockportrunningclocktypeindex','cptpclockportrunningclockinstanceindex','cptpclockportrunningportnumberindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cptpclockportrunningdomainindex', YLeaf(YType.uint32, 'cPtpClockPortRunningDomainIndex')),
                     ('cptpclockportrunningclocktypeindex', YLeaf(YType.enumeration, 'cPtpClockPortRunningClockTypeIndex')),
@@ -2878,10 +2840,10 @@ class CISCOPTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortRunningTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpclockportrunningtable.Cptpclockportrunningentry, ['cptpclockportrunningdomainindex', 'cptpclockportrunningclocktypeindex', 'cptpclockportrunningclockinstanceindex', 'cptpclockportrunningportnumberindex', 'cptpclockportrunningname', 'cptpclockportrunningstate', 'cptpclockportrunningrole', 'cptpclockportrunninginterfaceindex', 'cptpclockportrunningipversion', 'cptpclockportrunningencapsulationtype', 'cptpclockportrunningtxmode', 'cptpclockportrunningrxmode', 'cptpclockportrunningpacketsreceived', 'cptpclockportrunningpacketssent'], name, value)
+                self._perform_setattr(CISCOPTPMIB.CPtpClockPortRunningTable.CPtpClockPortRunningEntry, ['cptpclockportrunningdomainindex', 'cptpclockportrunningclocktypeindex', 'cptpclockportrunningclockinstanceindex', 'cptpclockportrunningportnumberindex', 'cptpclockportrunningname', 'cptpclockportrunningstate', 'cptpclockportrunningrole', 'cptpclockportrunninginterfaceindex', 'cptpclockportrunningipversion', 'cptpclockportrunningencapsulationtype', 'cptpclockportrunningtxmode', 'cptpclockportrunningrxmode', 'cptpclockportrunningpacketsreceived', 'cptpclockportrunningpacketssent'], name, value)
 
 
-    class Cptpclockporttransdstable(Entity):
+    class CPtpClockPortTransDSTable(Entity):
         """
         Table of information about the Transparent clock ports running
         dataset for a particular domain.
@@ -2889,7 +2851,7 @@ class CISCOPTPMIB(Entity):
         .. attribute:: cptpclockporttransdsentry
         
         	An entry in the table, containing clock port Transparent dataset information about a single clock port
-        	**type**\: list of  		 :py:class:`Cptpclockporttransdsentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockporttransdstable.Cptpclockporttransdsentry>`
+        	**type**\: list of  		 :py:class:`CPtpClockPortTransDSEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockPortTransDSTable.CPtpClockPortTransDSEntry>`
         
         
 
@@ -2899,15 +2861,14 @@ class CISCOPTPMIB(Entity):
         _revision = '2011-01-28'
 
         def __init__(self):
-            super(CISCOPTPMIB.Cptpclockporttransdstable, self).__init__()
+            super(CISCOPTPMIB.CPtpClockPortTransDSTable, self).__init__()
 
             self.yang_name = "cPtpClockPortTransDSTable"
             self.yang_parent_name = "CISCO-PTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cPtpClockPortTransDSEntry", ("cptpclockporttransdsentry", CISCOPTPMIB.Cptpclockporttransdstable.Cptpclockporttransdsentry))])
+            self._child_classes = OrderedDict([("cPtpClockPortTransDSEntry", ("cptpclockporttransdsentry", CISCOPTPMIB.CPtpClockPortTransDSTable.CPtpClockPortTransDSEntry))])
             self._leafs = OrderedDict()
 
             self.cptpclockporttransdsentry = YList(self)
@@ -2915,10 +2876,10 @@ class CISCOPTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpclockporttransdstable, [], name, value)
+            self._perform_setattr(CISCOPTPMIB.CPtpClockPortTransDSTable, [], name, value)
 
 
-        class Cptpclockporttransdsentry(Entity):
+        class CPtpClockPortTransDSEntry(Entity):
             """
             An entry in the table, containing clock port Transparent
             dataset information about a single clock port
@@ -2978,15 +2939,14 @@ class CISCOPTPMIB(Entity):
             _revision = '2011-01-28'
 
             def __init__(self):
-                super(CISCOPTPMIB.Cptpclockporttransdstable.Cptpclockporttransdsentry, self).__init__()
+                super(CISCOPTPMIB.CPtpClockPortTransDSTable.CPtpClockPortTransDSEntry, self).__init__()
 
                 self.yang_name = "cPtpClockPortTransDSEntry"
                 self.yang_parent_name = "cPtpClockPortTransDSTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cptpclockporttransdsdomainindex','cptpclockporttransdsinstanceindex','cptpclockporttransdsportnumberindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cptpclockporttransdsdomainindex', YLeaf(YType.uint32, 'cPtpClockPortTransDSDomainIndex')),
                     ('cptpclockporttransdsinstanceindex', YLeaf(YType.uint32, 'cPtpClockPortTransDSInstanceIndex')),
@@ -3007,10 +2967,10 @@ class CISCOPTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortTransDSTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpclockporttransdstable.Cptpclockporttransdsentry, ['cptpclockporttransdsdomainindex', 'cptpclockporttransdsinstanceindex', 'cptpclockporttransdsportnumberindex', 'cptpclockporttransdsportidentity', 'cptpclockporttransdslogminpdelayreqint', 'cptpclockporttransdsfaultyflag', 'cptpclockporttransdspeermeanpathdelay'], name, value)
+                self._perform_setattr(CISCOPTPMIB.CPtpClockPortTransDSTable.CPtpClockPortTransDSEntry, ['cptpclockporttransdsdomainindex', 'cptpclockporttransdsinstanceindex', 'cptpclockporttransdsportnumberindex', 'cptpclockporttransdsportidentity', 'cptpclockporttransdslogminpdelayreqint', 'cptpclockporttransdsfaultyflag', 'cptpclockporttransdspeermeanpathdelay'], name, value)
 
 
-    class Cptpclockportassociatetable(Entity):
+    class CPtpClockPortAssociateTable(Entity):
         """
         Table of information about a given port's associated ports.
         
@@ -3025,7 +2985,7 @@ class CISCOPTPMIB(Entity):
         .. attribute:: cptpclockportassociateentry
         
         	An entry in the table, containing information about a single associated port for the given clockport
-        	**type**\: list of  		 :py:class:`Cptpclockportassociateentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockportassociatetable.Cptpclockportassociateentry>`
+        	**type**\: list of  		 :py:class:`CPtpClockPortAssociateEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockPortAssociateTable.CPtpClockPortAssociateEntry>`
         
         
 
@@ -3035,15 +2995,14 @@ class CISCOPTPMIB(Entity):
         _revision = '2011-01-28'
 
         def __init__(self):
-            super(CISCOPTPMIB.Cptpclockportassociatetable, self).__init__()
+            super(CISCOPTPMIB.CPtpClockPortAssociateTable, self).__init__()
 
             self.yang_name = "cPtpClockPortAssociateTable"
             self.yang_parent_name = "CISCO-PTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cPtpClockPortAssociateEntry", ("cptpclockportassociateentry", CISCOPTPMIB.Cptpclockportassociatetable.Cptpclockportassociateentry))])
+            self._child_classes = OrderedDict([("cPtpClockPortAssociateEntry", ("cptpclockportassociateentry", CISCOPTPMIB.CPtpClockPortAssociateTable.CPtpClockPortAssociateEntry))])
             self._leafs = OrderedDict()
 
             self.cptpclockportassociateentry = YList(self)
@@ -3051,10 +3010,10 @@ class CISCOPTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpclockportassociatetable, [], name, value)
+            self._perform_setattr(CISCOPTPMIB.CPtpClockPortAssociateTable, [], name, value)
 
 
-        class Cptpclockportassociateentry(Entity):
+        class CPtpClockPortAssociateEntry(Entity):
             """
             An entry in the table, containing information about a single
             associated port for the given clockport.
@@ -3148,15 +3107,14 @@ class CISCOPTPMIB(Entity):
             _revision = '2011-01-28'
 
             def __init__(self):
-                super(CISCOPTPMIB.Cptpclockportassociatetable.Cptpclockportassociateentry, self).__init__()
+                super(CISCOPTPMIB.CPtpClockPortAssociateTable.CPtpClockPortAssociateEntry, self).__init__()
 
                 self.yang_name = "cPtpClockPortAssociateEntry"
                 self.yang_parent_name = "cPtpClockPortAssociateTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cptpclockportcurrentdomainindex','cptpclockportcurrentclocktypeindex','cptpclockportcurrentclockinstanceindex','cptpclockportcurrentportnumberindex','cptpclockportassociateportindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cptpclockportcurrentdomainindex', YLeaf(YType.uint32, 'cPtpClockPortCurrentDomainIndex')),
                     ('cptpclockportcurrentclocktypeindex', YLeaf(YType.enumeration, 'cPtpClockPortCurrentClockTypeIndex')),
@@ -3185,7 +3143,7 @@ class CISCOPTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortAssociateTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpclockportassociatetable.Cptpclockportassociateentry, ['cptpclockportcurrentdomainindex', 'cptpclockportcurrentclocktypeindex', 'cptpclockportcurrentclockinstanceindex', 'cptpclockportcurrentportnumberindex', 'cptpclockportassociateportindex', 'cptpclockportassociateaddresstype', 'cptpclockportassociateaddress', 'cptpclockportassociatepacketssent', 'cptpclockportassociatepacketsreceived', 'cptpclockportassociateinerrors', 'cptpclockportassociateouterrors'], name, value)
+                self._perform_setattr(CISCOPTPMIB.CPtpClockPortAssociateTable.CPtpClockPortAssociateEntry, ['cptpclockportcurrentdomainindex', 'cptpclockportcurrentclocktypeindex', 'cptpclockportcurrentclockinstanceindex', 'cptpclockportcurrentportnumberindex', 'cptpclockportassociateportindex', 'cptpclockportassociateaddresstype', 'cptpclockportassociateaddress', 'cptpclockportassociatepacketssent', 'cptpclockportassociatepacketsreceived', 'cptpclockportassociateinerrors', 'cptpclockportassociateouterrors'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOPTPMIB()

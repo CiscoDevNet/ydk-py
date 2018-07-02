@@ -160,17 +160,17 @@ class CISCONTPMIB(Entity):
     .. attribute:: cntpsystem
     
     	
-    	**type**\:  :py:class:`Cntpsystem <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CISCONTPMIB.Cntpsystem>`
+    	**type**\:  :py:class:`CntpSystem <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CISCONTPMIB.CntpSystem>`
     
     .. attribute:: cntppeersvartable
     
     	This table provides information on the peers with which the local NTP server has associations.  The peers are also NTP servers but running on different hosts
-    	**type**\:  :py:class:`Cntppeersvartable <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CISCONTPMIB.Cntppeersvartable>`
+    	**type**\:  :py:class:`CntpPeersVarTable <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CISCONTPMIB.CntpPeersVarTable>`
     
     .. attribute:: cntpfilterregistertable
     
     	The following table contains NTP state variables used by the NTP clock filter and selection algorithms. This table depicts a shift register.  Each stage in the shift register is a 3\-tuple consisting of the measured clock offset, measured clock delay and measured clock dispersion associated with a single observation.  An important factor affecting the accuracy and reliability of time distribution is the complex of algorithms used to reduce the effect of statistical errors and falsetickers due to failure of various subnet components, reference sources or propagation media.  The NTP clock\-filter and selection algorithms are designed to do exactly this.  The objects in the filter register table below are used by these algorthims to minimize the error in the calculated time
-    	**type**\:  :py:class:`Cntpfilterregistertable <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CISCONTPMIB.Cntpfilterregistertable>`
+    	**type**\:  :py:class:`CntpFilterRegisterTable <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CISCONTPMIB.CntpFilterRegisterTable>`
     
     
 
@@ -188,28 +188,27 @@ class CISCONTPMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cntpSystem", ("cntpsystem", CISCONTPMIB.Cntpsystem)), ("cntpPeersVarTable", ("cntppeersvartable", CISCONTPMIB.Cntppeersvartable)), ("cntpFilterRegisterTable", ("cntpfilterregistertable", CISCONTPMIB.Cntpfilterregistertable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cntpSystem", ("cntpsystem", CISCONTPMIB.CntpSystem)), ("cntpPeersVarTable", ("cntppeersvartable", CISCONTPMIB.CntpPeersVarTable)), ("cntpFilterRegisterTable", ("cntpfilterregistertable", CISCONTPMIB.CntpFilterRegisterTable))])
         self._leafs = OrderedDict()
 
-        self.cntpsystem = CISCONTPMIB.Cntpsystem()
+        self.cntpsystem = CISCONTPMIB.CntpSystem()
         self.cntpsystem.parent = self
         self._children_name_map["cntpsystem"] = "cntpSystem"
-        self._children_yang_names.add("cntpSystem")
 
-        self.cntppeersvartable = CISCONTPMIB.Cntppeersvartable()
+        self.cntppeersvartable = CISCONTPMIB.CntpPeersVarTable()
         self.cntppeersvartable.parent = self
         self._children_name_map["cntppeersvartable"] = "cntpPeersVarTable"
-        self._children_yang_names.add("cntpPeersVarTable")
 
-        self.cntpfilterregistertable = CISCONTPMIB.Cntpfilterregistertable()
+        self.cntpfilterregistertable = CISCONTPMIB.CntpFilterRegisterTable()
         self.cntpfilterregistertable.parent = self
         self._children_name_map["cntpfilterregistertable"] = "cntpFilterRegisterTable"
-        self._children_yang_names.add("cntpFilterRegisterTable")
         self._segment_path = lambda: "CISCO-NTP-MIB:CISCO-NTP-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCONTPMIB, [], name, value)
 
-    class Cntpsystem(Entity):
+
+    class CntpSystem(Entity):
         """
         
         
@@ -288,7 +287,7 @@ class CISCONTPMIB(Entity):
         .. attribute:: cntpsyssrvstatus
         
         	Current state of the NTP server with values coded as follows\: 1\: server status is unknown 2\: server is not running 3\: server is not synchronized to any time source 4\: server is synchronized to its own local clock 5\: server is synchronized to a local hardware refclock (e.g. GPS) 6\: server is synchronized to a remote NTP server
-        	**type**\:  :py:class:`Cntpsyssrvstatus <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CISCONTPMIB.Cntpsystem.Cntpsyssrvstatus>`
+        	**type**\:  :py:class:`CntpSysSrvStatus <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CISCONTPMIB.CntpSystem.CntpSysSrvStatus>`
         
         
 
@@ -298,15 +297,14 @@ class CISCONTPMIB(Entity):
         _revision = '2006-07-31'
 
         def __init__(self):
-            super(CISCONTPMIB.Cntpsystem, self).__init__()
+            super(CISCONTPMIB.CntpSystem, self).__init__()
 
             self.yang_name = "cntpSystem"
             self.yang_parent_name = "CISCO-NTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cntpsysleap', YLeaf(YType.enumeration, 'cntpSysLeap')),
                 ('cntpsysstratum', YLeaf(YType.int32, 'cntpSysStratum')),
@@ -335,11 +333,11 @@ class CISCONTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-NTP-MIB:CISCO-NTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCONTPMIB.Cntpsystem, ['cntpsysleap', 'cntpsysstratum', 'cntpsysprecision', 'cntpsysrootdelay', 'cntpsysrootdispersion', 'cntpsysrefid', 'cntpsysreftime', 'cntpsyspoll', 'cntpsyspeer', 'cntpsysclock', 'cntpsyssrvstatus'], name, value)
+            self._perform_setattr(CISCONTPMIB.CntpSystem, ['cntpsysleap', 'cntpsysstratum', 'cntpsysprecision', 'cntpsysrootdelay', 'cntpsysrootdispersion', 'cntpsysrefid', 'cntpsysreftime', 'cntpsyspoll', 'cntpsyspeer', 'cntpsysclock', 'cntpsyssrvstatus'], name, value)
 
-        class Cntpsyssrvstatus(Enum):
+        class CntpSysSrvStatus(Enum):
             """
-            Cntpsyssrvstatus (Enum Class)
+            CntpSysSrvStatus (Enum Class)
 
             Current state of the NTP server with values coded as follows\:
 
@@ -383,7 +381,7 @@ class CISCONTPMIB(Entity):
 
 
 
-    class Cntppeersvartable(Entity):
+    class CntpPeersVarTable(Entity):
         """
         This table provides information on the peers with
         which the local NTP server has associations.  The
@@ -393,7 +391,7 @@ class CISCONTPMIB(Entity):
         .. attribute:: cntppeersvarentry
         
         	Each peers' entry provides NTP information retrieved from a particular peer NTP server.  Each peer is identified by a unique association identifier.  Entries are automatically created when the user configures the NTP server to be associated with remote peers.  Similarly entries are deleted when the user removes the peer association from the NTP server.  Entries can also be created by the management station by setting values for the following objects\: cntpPeersPeerAddress or cntpPeersPeerName,  cntpPeersHostAddress and cntpPeersMode and making the cntpPeersEntryStatus as active(1).  At the least, the management station has to set a value for cntpPeersPeerAddress or cntpPeersPeerName to make the row active
-        	**type**\: list of  		 :py:class:`Cntppeersvarentry <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CISCONTPMIB.Cntppeersvartable.Cntppeersvarentry>`
+        	**type**\: list of  		 :py:class:`CntpPeersVarEntry <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CISCONTPMIB.CntpPeersVarTable.CntpPeersVarEntry>`
         
         
 
@@ -403,15 +401,14 @@ class CISCONTPMIB(Entity):
         _revision = '2006-07-31'
 
         def __init__(self):
-            super(CISCONTPMIB.Cntppeersvartable, self).__init__()
+            super(CISCONTPMIB.CntpPeersVarTable, self).__init__()
 
             self.yang_name = "cntpPeersVarTable"
             self.yang_parent_name = "CISCO-NTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cntpPeersVarEntry", ("cntppeersvarentry", CISCONTPMIB.Cntppeersvartable.Cntppeersvarentry))])
+            self._child_classes = OrderedDict([("cntpPeersVarEntry", ("cntppeersvarentry", CISCONTPMIB.CntpPeersVarTable.CntpPeersVarEntry))])
             self._leafs = OrderedDict()
 
             self.cntppeersvarentry = YList(self)
@@ -419,10 +416,10 @@ class CISCONTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-NTP-MIB:CISCO-NTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCONTPMIB.Cntppeersvartable, [], name, value)
+            self._perform_setattr(CISCONTPMIB.CntpPeersVarTable, [], name, value)
 
 
-        class Cntppeersvarentry(Entity):
+        class CntpPeersVarEntry(Entity):
             """
             Each peers' entry provides NTP information retrieved
             from a particular peer NTP server.  Each peer is
@@ -490,7 +487,7 @@ class CISCONTPMIB(Entity):
             .. attribute:: cntppeersmode
             
             	The association mode of the NTP server, with values coded as follows, 0, unspecified 1, symmetric active \- A host operating in this mode         sends periodic messages regardless of the         reachability state or stratum of its peer.  By         operating in this mode the host announces its         willingness to synchronize and be synchronized         by the peer 2, symmetric passive \- This type of association is         ordinarily created upon arrival of a message         from a peer operating in the symmetric active         mode and persists only as long as the peer is         reachable and operating at a stratum level         less than or equal to the host; otherwise, the         association is dissolved.  However, the         association will always persist until at least         one message has been sent in reply.  By         operating in this mode the host announces its         willingness to synchronize and be synchronized         by the peer 3, client \-  A host operating in this mode sends         periodic messages regardless of the         reachability state or stratum of its peer.  By         operating in this mode the host, usually a LAN         workstation, announces its willingness to be         synchronized by, but not to synchronize the peer 4, server \- This type of association is ordinarily         created upon arrival of a client request message         and exists only in order to reply to that         request, after which the association is         dissolved.  By operating in this mode the host,         usually a LAN time server, announces its         willingness to synchronize, but not to be         synchronized by the peer 5, broadcast \- A host operating in this mode sends         periodic messages regardless of the         reachability state or stratum of the peers.         By operating in this mode the host, usually a         LAN time server operating on a high\-speed         broadcast medium, announces its willingness to         synchronize all of the peers, but not to be         synchronized by any of them 6, reserved for NTP control messages 7, reserved for private use.  When creating a new peer association, if no value is specified for this object, it defaults to symmetricActive(1)
-            	**type**\:  :py:class:`Cntppeersmode <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CISCONTPMIB.Cntppeersvartable.Cntppeersvarentry.Cntppeersmode>`
+            	**type**\:  :py:class:`CntpPeersMode <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CISCONTPMIB.CntpPeersVarTable.CntpPeersVarEntry.CntpPeersMode>`
             
             .. attribute:: cntppeersstratum
             
@@ -669,15 +666,14 @@ class CISCONTPMIB(Entity):
             _revision = '2006-07-31'
 
             def __init__(self):
-                super(CISCONTPMIB.Cntppeersvartable.Cntppeersvarentry, self).__init__()
+                super(CISCONTPMIB.CntpPeersVarTable.CntpPeersVarEntry, self).__init__()
 
                 self.yang_name = "cntpPeersVarEntry"
                 self.yang_parent_name = "cntpPeersVarTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cntppeersassocid']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cntppeersassocid', YLeaf(YType.int32, 'cntpPeersAssocId')),
                     ('cntppeersconfigured', YLeaf(YType.boolean, 'cntpPeersConfigured')),
@@ -746,11 +742,11 @@ class CISCONTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-NTP-MIB:CISCO-NTP-MIB/cntpPeersVarTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCONTPMIB.Cntppeersvartable.Cntppeersvarentry, ['cntppeersassocid', 'cntppeersconfigured', 'cntppeerspeeraddress', 'cntppeerspeerport', 'cntppeershostaddress', 'cntppeershostport', 'cntppeersleap', 'cntppeersmode', 'cntppeersstratum', 'cntppeerspeerpoll', 'cntppeershostpoll', 'cntppeersprecision', 'cntppeersrootdelay', 'cntppeersrootdispersion', 'cntppeersrefid', 'cntppeersreftime', 'cntppeersorgtime', 'cntppeersreceivetime', 'cntppeerstransmittime', 'cntppeersupdatetime', 'cntppeersreach', 'cntppeerstimer', 'cntppeersoffset', 'cntppeersdelay', 'cntppeersdispersion', 'cntppeersfiltervalidentries', 'cntppeersentrystatus', 'cntppeersupdatetimerev1', 'cntppeersprefpeer', 'cntppeerspeertype', 'cntppeerspeername'], name, value)
+                self._perform_setattr(CISCONTPMIB.CntpPeersVarTable.CntpPeersVarEntry, ['cntppeersassocid', 'cntppeersconfigured', 'cntppeerspeeraddress', 'cntppeerspeerport', 'cntppeershostaddress', 'cntppeershostport', 'cntppeersleap', 'cntppeersmode', 'cntppeersstratum', 'cntppeerspeerpoll', 'cntppeershostpoll', 'cntppeersprecision', 'cntppeersrootdelay', 'cntppeersrootdispersion', 'cntppeersrefid', 'cntppeersreftime', 'cntppeersorgtime', 'cntppeersreceivetime', 'cntppeerstransmittime', 'cntppeersupdatetime', 'cntppeersreach', 'cntppeerstimer', 'cntppeersoffset', 'cntppeersdelay', 'cntppeersdispersion', 'cntppeersfiltervalidentries', 'cntppeersentrystatus', 'cntppeersupdatetimerev1', 'cntppeersprefpeer', 'cntppeerspeertype', 'cntppeerspeername'], name, value)
 
-            class Cntppeersmode(Enum):
+            class CntpPeersMode(Enum):
                 """
-                Cntppeersmode (Enum Class)
+                CntpPeersMode (Enum Class)
 
                 The association mode of the NTP server, with values
 
@@ -884,7 +880,7 @@ class CISCONTPMIB(Entity):
 
 
 
-    class Cntpfilterregistertable(Entity):
+    class CntpFilterRegisterTable(Entity):
         """
         The following table contains NTP state variables
         used by the NTP clock filter and selection algorithms.
@@ -908,7 +904,7 @@ class CISCONTPMIB(Entity):
         .. attribute:: cntpfilterregisterentry
         
         	Each entry corresponds to one stage of the shift register, i.e., one reading of the variables clock delay, clock offset and clock dispersion.  Entries are automatically created whenever a peer is configured and deleted when the peer is removed
-        	**type**\: list of  		 :py:class:`Cntpfilterregisterentry <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CISCONTPMIB.Cntpfilterregistertable.Cntpfilterregisterentry>`
+        	**type**\: list of  		 :py:class:`CntpFilterRegisterEntry <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CISCONTPMIB.CntpFilterRegisterTable.CntpFilterRegisterEntry>`
         
         
 
@@ -918,15 +914,14 @@ class CISCONTPMIB(Entity):
         _revision = '2006-07-31'
 
         def __init__(self):
-            super(CISCONTPMIB.Cntpfilterregistertable, self).__init__()
+            super(CISCONTPMIB.CntpFilterRegisterTable, self).__init__()
 
             self.yang_name = "cntpFilterRegisterTable"
             self.yang_parent_name = "CISCO-NTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cntpFilterRegisterEntry", ("cntpfilterregisterentry", CISCONTPMIB.Cntpfilterregistertable.Cntpfilterregisterentry))])
+            self._child_classes = OrderedDict([("cntpFilterRegisterEntry", ("cntpfilterregisterentry", CISCONTPMIB.CntpFilterRegisterTable.CntpFilterRegisterEntry))])
             self._leafs = OrderedDict()
 
             self.cntpfilterregisterentry = YList(self)
@@ -934,10 +929,10 @@ class CISCONTPMIB(Entity):
             self._absolute_path = lambda: "CISCO-NTP-MIB:CISCO-NTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCONTPMIB.Cntpfilterregistertable, [], name, value)
+            self._perform_setattr(CISCONTPMIB.CntpFilterRegisterTable, [], name, value)
 
 
-        class Cntpfilterregisterentry(Entity):
+        class CntpFilterRegisterEntry(Entity):
             """
             Each entry corresponds to one stage of the shift
             register, i.e., one reading of the variables clock
@@ -953,7 +948,7 @@ class CISCONTPMIB(Entity):
             
             	**range:** 0..2147483647
             
-            	**refers to**\:  :py:class:`cntppeersassocid <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CISCONTPMIB.Cntppeersvartable.Cntppeersvarentry>`
+            	**refers to**\:  :py:class:`cntppeersassocid <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CISCONTPMIB.CntpPeersVarTable.CntpPeersVarEntry>`
             
             .. attribute:: cntpfilterindex  (key)
             
@@ -997,15 +992,14 @@ class CISCONTPMIB(Entity):
             _revision = '2006-07-31'
 
             def __init__(self):
-                super(CISCONTPMIB.Cntpfilterregistertable.Cntpfilterregisterentry, self).__init__()
+                super(CISCONTPMIB.CntpFilterRegisterTable.CntpFilterRegisterEntry, self).__init__()
 
                 self.yang_name = "cntpFilterRegisterEntry"
                 self.yang_parent_name = "cntpFilterRegisterTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cntppeersassocid','cntpfilterindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cntppeersassocid', YLeaf(YType.str, 'cntpPeersAssocId')),
                     ('cntpfilterindex', YLeaf(YType.int32, 'cntpFilterIndex')),
@@ -1022,7 +1016,7 @@ class CISCONTPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-NTP-MIB:CISCO-NTP-MIB/cntpFilterRegisterTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCONTPMIB.Cntpfilterregistertable.Cntpfilterregisterentry, ['cntppeersassocid', 'cntpfilterindex', 'cntpfilterpeersoffset', 'cntpfilterpeersdelay', 'cntpfilterpeersdispersion'], name, value)
+                self._perform_setattr(CISCONTPMIB.CntpFilterRegisterTable.CntpFilterRegisterEntry, ['cntppeersassocid', 'cntpfilterindex', 'cntpfilterpeersoffset', 'cntpfilterpeersdelay', 'cntpfilterpeersdispersion'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCONTPMIB()

@@ -59,8 +59,7 @@ class CheckpointArchives(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("archives", ("archives", CheckpointArchives.Archives))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("archives", ("archives", CheckpointArchives.Archives))])
         self._leafs = OrderedDict([
             ('max', YLeaf(YType.uint8, 'max')),
             ('current', YLeaf(YType.uint8, 'current')),
@@ -73,7 +72,6 @@ class CheckpointArchives(Entity):
         self.archives = CheckpointArchives.Archives()
         self.archives.parent = self
         self._children_name_map["archives"] = "archives"
-        self._children_yang_names.add("archives")
         self._segment_path = lambda: "Cisco-IOS-XE-checkpoint-archive-oper:checkpoint-archives"
 
     def __setattr__(self, name, value):
@@ -104,8 +102,7 @@ class CheckpointArchives(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("archive", ("archive", CheckpointArchives.Archives.Archive))])
+            self._child_classes = OrderedDict([("archive", ("archive", CheckpointArchives.Archives.Archive))])
             self._leafs = OrderedDict()
 
             self.archive = YList(self)
@@ -147,8 +144,7 @@ class CheckpointArchives(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['number']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('number', YLeaf(YType.uint16, 'number')),
                     ('name', YLeaf(YType.str, 'name')),

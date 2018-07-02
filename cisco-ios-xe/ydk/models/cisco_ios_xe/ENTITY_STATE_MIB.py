@@ -23,7 +23,7 @@ class ENTITYSTATEMIB(Entity):
     .. attribute:: entstatetable
     
     	A table of information about state/status of entities. This is a sparse augment of the entPhysicalTable.  Entries appear in this table for values of entPhysicalClass [RFC4133] that in this implementation are able to report any of the state or status stored in this table
-    	**type**\:  :py:class:`Entstatetable <ydk.models.cisco_ios_xe.ENTITY_STATE_MIB.ENTITYSTATEMIB.Entstatetable>`
+    	**type**\:  :py:class:`EntStateTable <ydk.models.cisco_ios_xe.ENTITY_STATE_MIB.ENTITYSTATEMIB.EntStateTable>`
     
     
 
@@ -41,18 +41,19 @@ class ENTITYSTATEMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("entStateTable", ("entstatetable", ENTITYSTATEMIB.Entstatetable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("entStateTable", ("entstatetable", ENTITYSTATEMIB.EntStateTable))])
         self._leafs = OrderedDict()
 
-        self.entstatetable = ENTITYSTATEMIB.Entstatetable()
+        self.entstatetable = ENTITYSTATEMIB.EntStateTable()
         self.entstatetable.parent = self
         self._children_name_map["entstatetable"] = "entStateTable"
-        self._children_yang_names.add("entStateTable")
         self._segment_path = lambda: "ENTITY-STATE-MIB:ENTITY-STATE-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(ENTITYSTATEMIB, [], name, value)
 
-    class Entstatetable(Entity):
+
+    class EntStateTable(Entity):
         """
         A table of information about state/status of entities.
         This is a sparse augment of the entPhysicalTable.  Entries
@@ -64,7 +65,7 @@ class ENTITYSTATEMIB(Entity):
         .. attribute:: entstateentry
         
         	State information about this physical entity
-        	**type**\: list of  		 :py:class:`Entstateentry <ydk.models.cisco_ios_xe.ENTITY_STATE_MIB.ENTITYSTATEMIB.Entstatetable.Entstateentry>`
+        	**type**\: list of  		 :py:class:`EntStateEntry <ydk.models.cisco_ios_xe.ENTITY_STATE_MIB.ENTITYSTATEMIB.EntStateTable.EntStateEntry>`
         
         
 
@@ -74,15 +75,14 @@ class ENTITYSTATEMIB(Entity):
         _revision = '2005-11-22'
 
         def __init__(self):
-            super(ENTITYSTATEMIB.Entstatetable, self).__init__()
+            super(ENTITYSTATEMIB.EntStateTable, self).__init__()
 
             self.yang_name = "entStateTable"
             self.yang_parent_name = "ENTITY-STATE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("entStateEntry", ("entstateentry", ENTITYSTATEMIB.Entstatetable.Entstateentry))])
+            self._child_classes = OrderedDict([("entStateEntry", ("entstateentry", ENTITYSTATEMIB.EntStateTable.EntStateEntry))])
             self._leafs = OrderedDict()
 
             self.entstateentry = YList(self)
@@ -90,10 +90,10 @@ class ENTITYSTATEMIB(Entity):
             self._absolute_path = lambda: "ENTITY-STATE-MIB:ENTITY-STATE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ENTITYSTATEMIB.Entstatetable, [], name, value)
+            self._perform_setattr(ENTITYSTATEMIB.EntStateTable, [], name, value)
 
 
-        class Entstateentry(Entity):
+        class EntStateEntry(Entity):
             """
             State information about this physical entity.
             
@@ -104,7 +104,7 @@ class ENTITYSTATEMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
+            	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
             .. attribute:: entstatelastchanged
             
@@ -144,15 +144,14 @@ class ENTITYSTATEMIB(Entity):
             _revision = '2005-11-22'
 
             def __init__(self):
-                super(ENTITYSTATEMIB.Entstatetable.Entstateentry, self).__init__()
+                super(ENTITYSTATEMIB.EntStateTable.EntStateEntry, self).__init__()
 
                 self.yang_name = "entStateEntry"
                 self.yang_parent_name = "entStateTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['entphysicalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
                     ('entstatelastchanged', YLeaf(YType.str, 'entStateLastChanged')),
@@ -173,7 +172,7 @@ class ENTITYSTATEMIB(Entity):
                 self._absolute_path = lambda: "ENTITY-STATE-MIB:ENTITY-STATE-MIB/entStateTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ENTITYSTATEMIB.Entstatetable.Entstateentry, ['entphysicalindex', 'entstatelastchanged', 'entstateadmin', 'entstateoper', 'entstateusage', 'entstatealarm', 'entstatestandby'], name, value)
+                self._perform_setattr(ENTITYSTATEMIB.EntStateTable.EntStateEntry, ['entphysicalindex', 'entstatelastchanged', 'entstateadmin', 'entstateoper', 'entstateusage', 'entstatealarm', 'entstatestandby'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ENTITYSTATEMIB()

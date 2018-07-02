@@ -7,6 +7,7 @@ This module contains definitions
 for the following management objects\:
   hardware\-module\-qos\-mode\: QoS mode in hardware module port(s)
   hardware\-module\-tcp\-mss\-adjust\: hardware module tcp mss adjust
+  hardware\-module\-load\-balance\: hardware module load balance
   hardware\-module\-tcam\: hardware module tcam
   hardware\-module\-efd\: hardware module efd
 
@@ -117,15 +118,16 @@ class HardwareModuleQosMode(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", HardwareModuleQosMode.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", HardwareModuleQosMode.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = HardwareModuleQosMode.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-qos-mode"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(HardwareModuleQosMode, [], name, value)
 
 
     class Nodes(Entity):
@@ -152,8 +154,7 @@ class HardwareModuleQosMode(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", HardwareModuleQosMode.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", HardwareModuleQosMode.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -200,8 +201,7 @@ class HardwareModuleQosMode(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                     ('child_shaping_disable', YLeaf(YType.empty, 'child-shaping-disable')),
@@ -245,15 +245,16 @@ class HardwareModuleTcpMssAdjust(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", HardwareModuleTcpMssAdjust.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", HardwareModuleTcpMssAdjust.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = HardwareModuleTcpMssAdjust.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-tcp-mss-adjust"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(HardwareModuleTcpMssAdjust, [], name, value)
 
 
     class Nodes(Entity):
@@ -280,8 +281,7 @@ class HardwareModuleTcpMssAdjust(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", HardwareModuleTcpMssAdjust.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", HardwareModuleTcpMssAdjust.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -323,8 +323,7 @@ class HardwareModuleTcpMssAdjust(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("nps", ("nps", HardwareModuleTcpMssAdjust.Nodes.Node.Nps))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("nps", ("nps", HardwareModuleTcpMssAdjust.Nodes.Node.Nps))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -333,7 +332,6 @@ class HardwareModuleTcpMssAdjust(Entity):
                 self.nps = HardwareModuleTcpMssAdjust.Nodes.Node.Nps()
                 self.nps.parent = self
                 self._children_name_map["nps"] = "nps"
-                self._children_yang_names.add("nps")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-tcp-mss-adjust/nodes/%s" % self._segment_path()
 
@@ -365,8 +363,7 @@ class HardwareModuleTcpMssAdjust(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("np", ("np", HardwareModuleTcpMssAdjust.Nodes.Node.Nps.Np))])
+                    self._child_classes = OrderedDict([("np", ("np", HardwareModuleTcpMssAdjust.Nodes.Node.Nps.Np))])
                     self._leafs = OrderedDict()
 
                     self.np = YList(self)
@@ -411,8 +408,7 @@ class HardwareModuleTcpMssAdjust(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['np_id']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('np_id', YLeaf(YType.uint32, 'np-id')),
                             ('adjust_value', YLeaf(YType.uint32, 'adjust-value')),
@@ -426,6 +422,119 @@ class HardwareModuleTcpMssAdjust(Entity):
 
     def clone_ptr(self):
         self._top_entity = HardwareModuleTcpMssAdjust()
+        return self._top_entity
+
+class HardwareModuleLoadBalance(Entity):
+    """
+    hardware module load balance
+    
+    .. attribute:: bundle
+    
+    	Bundle load balance options
+    	**type**\:  :py:class:`Bundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleLoadBalance.Bundle>`
+    
+    
+
+    """
+
+    _prefix = 'asr9k-prm-cfg'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(HardwareModuleLoadBalance, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "hardware-module-load-balance"
+        self.yang_parent_name = "Cisco-IOS-XR-asr9k-prm-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self.ylist_key_names = []
+        self._child_classes = OrderedDict([("bundle", ("bundle", HardwareModuleLoadBalance.Bundle))])
+        self._leafs = OrderedDict()
+
+        self.bundle = HardwareModuleLoadBalance.Bundle()
+        self.bundle.parent = self
+        self._children_name_map["bundle"] = "bundle"
+        self._segment_path = lambda: "Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-load-balance"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(HardwareModuleLoadBalance, [], name, value)
+
+
+    class Bundle(Entity):
+        """
+        Bundle load balance options
+        
+        .. attribute:: l2_service
+        
+        	Load balance for L2 services
+        	**type**\:  :py:class:`L2Service <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleLoadBalance.Bundle.L2Service>`
+        
+        
+
+        """
+
+        _prefix = 'asr9k-prm-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(HardwareModuleLoadBalance.Bundle, self).__init__()
+
+            self.yang_name = "bundle"
+            self.yang_parent_name = "hardware-module-load-balance"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("l2-service", ("l2_service", HardwareModuleLoadBalance.Bundle.L2Service))])
+            self._leafs = OrderedDict()
+
+            self.l2_service = HardwareModuleLoadBalance.Bundle.L2Service()
+            self.l2_service.parent = self
+            self._children_name_map["l2_service"] = "l2-service"
+            self._segment_path = lambda: "bundle"
+            self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-load-balance/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(HardwareModuleLoadBalance.Bundle, [], name, value)
+
+
+        class L2Service(Entity):
+            """
+            Load balance for L2 services
+            
+            .. attribute:: l3_parameters
+            
+            	Load balance L2 services over bundle with L3 parameters
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'asr9k-prm-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(HardwareModuleLoadBalance.Bundle.L2Service, self).__init__()
+
+                self.yang_name = "l2-service"
+                self.yang_parent_name = "bundle"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('l3_parameters', YLeaf(YType.empty, 'l3-parameters')),
+                ])
+                self.l3_parameters = None
+                self._segment_path = lambda: "l2-service"
+                self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-load-balance/bundle/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(HardwareModuleLoadBalance.Bundle.L2Service, ['l3_parameters'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = HardwareModuleLoadBalance()
         return self._top_entity
 
 class HardwareModuleTcam(Entity):
@@ -460,8 +569,7 @@ class HardwareModuleTcam(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", HardwareModuleTcam.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", HardwareModuleTcam.Nodes))])
         self._leafs = OrderedDict([
             ('global_profile', YLeaf(YType.enumeration, 'global-profile')),
         ])
@@ -470,7 +578,6 @@ class HardwareModuleTcam(Entity):
         self.nodes = HardwareModuleTcam.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-tcam"
 
     def __setattr__(self, name, value):
@@ -501,8 +608,7 @@ class HardwareModuleTcam(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", HardwareModuleTcam.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", HardwareModuleTcam.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -546,8 +652,7 @@ class HardwareModuleTcam(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                     ('profile', YLeaf(YType.enumeration, 'profile')),
@@ -594,20 +699,20 @@ class HardwareModuleEfd(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("node-all", ("node_all", HardwareModuleEfd.NodeAll)), ("nodes", ("nodes", HardwareModuleEfd.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("node-all", ("node_all", HardwareModuleEfd.NodeAll)), ("nodes", ("nodes", HardwareModuleEfd.Nodes))])
         self._leafs = OrderedDict()
 
         self.node_all = HardwareModuleEfd.NodeAll()
         self.node_all.parent = self
         self._children_name_map["node_all"] = "node-all"
-        self._children_yang_names.add("node-all")
 
         self.nodes = HardwareModuleEfd.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-efd"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(HardwareModuleEfd, [], name, value)
 
 
     class NodeAll(Entity):
@@ -681,8 +786,7 @@ class HardwareModuleEfd(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("vlan-priority-mask", ("vlan_priority_mask", HardwareModuleEfd.NodeAll.VlanPriorityMask)), ("ip-precedence", ("ip_precedence", HardwareModuleEfd.NodeAll.IpPrecedence)), ("vlan-cos", ("vlan_cos", HardwareModuleEfd.NodeAll.VlanCos)), ("ip-priority-mask", ("ip_priority_mask", HardwareModuleEfd.NodeAll.IpPriorityMask)), ("mpls-priority-mask", ("mpls_priority_mask", HardwareModuleEfd.NodeAll.MplsPriorityMask)), ("mpls-exp", ("mpls_exp", HardwareModuleEfd.NodeAll.MplsExp))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("vlan-priority-mask", ("vlan_priority_mask", HardwareModuleEfd.NodeAll.VlanPriorityMask)), ("ip-precedence", ("ip_precedence", HardwareModuleEfd.NodeAll.IpPrecedence)), ("vlan-cos", ("vlan_cos", HardwareModuleEfd.NodeAll.VlanCos)), ("ip-priority-mask", ("ip_priority_mask", HardwareModuleEfd.NodeAll.IpPriorityMask)), ("mpls-priority-mask", ("mpls_priority_mask", HardwareModuleEfd.NodeAll.MplsPriorityMask)), ("mpls-exp", ("mpls_exp", HardwareModuleEfd.NodeAll.MplsExp))])
             self._leafs = OrderedDict([
                 ('enable', YLeaf(YType.empty, 'enable')),
                 ('mode', YLeaf(YType.enumeration, 'mode')),
@@ -692,27 +796,21 @@ class HardwareModuleEfd(Entity):
 
             self.vlan_priority_mask = None
             self._children_name_map["vlan_priority_mask"] = "vlan-priority-mask"
-            self._children_yang_names.add("vlan-priority-mask")
 
             self.ip_precedence = None
             self._children_name_map["ip_precedence"] = "ip-precedence"
-            self._children_yang_names.add("ip-precedence")
 
             self.vlan_cos = None
             self._children_name_map["vlan_cos"] = "vlan-cos"
-            self._children_yang_names.add("vlan-cos")
 
             self.ip_priority_mask = None
             self._children_name_map["ip_priority_mask"] = "ip-priority-mask"
-            self._children_yang_names.add("ip-priority-mask")
 
             self.mpls_priority_mask = None
             self._children_name_map["mpls_priority_mask"] = "mpls-priority-mask"
-            self._children_yang_names.add("mpls-priority-mask")
 
             self.mpls_exp = None
             self._children_name_map["mpls_exp"] = "mpls-exp"
-            self._children_yang_names.add("mpls-exp")
             self._segment_path = lambda: "node-all"
             self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-efd/%s" % self._segment_path()
 
@@ -813,8 +911,7 @@ class HardwareModuleEfd(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
                     ('prec0', YLeaf(YType.uint32, 'prec0')),
@@ -878,8 +975,7 @@ class HardwareModuleEfd(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
                     ('precedence', YLeaf(YType.uint32, 'precedence')),
@@ -931,8 +1027,7 @@ class HardwareModuleEfd(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
                     ('cos', YLeaf(YType.uint32, 'cos')),
@@ -1040,8 +1135,7 @@ class HardwareModuleEfd(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
                     ('prec0', YLeaf(YType.uint32, 'prec0')),
@@ -1161,8 +1255,7 @@ class HardwareModuleEfd(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
                     ('prec0', YLeaf(YType.uint32, 'prec0')),
@@ -1226,8 +1319,7 @@ class HardwareModuleEfd(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
                     ('exp', YLeaf(YType.uint32, 'exp')),
@@ -1266,8 +1358,7 @@ class HardwareModuleEfd(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", HardwareModuleEfd.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", HardwareModuleEfd.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -1356,8 +1447,7 @@ class HardwareModuleEfd(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("vlan-priority-mask", ("vlan_priority_mask", HardwareModuleEfd.Nodes.Node.VlanPriorityMask)), ("ip-precedence", ("ip_precedence", HardwareModuleEfd.Nodes.Node.IpPrecedence)), ("vlan-cos", ("vlan_cos", HardwareModuleEfd.Nodes.Node.VlanCos)), ("ip-priority-mask", ("ip_priority_mask", HardwareModuleEfd.Nodes.Node.IpPriorityMask)), ("mpls-priority-mask", ("mpls_priority_mask", HardwareModuleEfd.Nodes.Node.MplsPriorityMask)), ("mpls-exp", ("mpls_exp", HardwareModuleEfd.Nodes.Node.MplsExp))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("vlan-priority-mask", ("vlan_priority_mask", HardwareModuleEfd.Nodes.Node.VlanPriorityMask)), ("ip-precedence", ("ip_precedence", HardwareModuleEfd.Nodes.Node.IpPrecedence)), ("vlan-cos", ("vlan_cos", HardwareModuleEfd.Nodes.Node.VlanCos)), ("ip-priority-mask", ("ip_priority_mask", HardwareModuleEfd.Nodes.Node.IpPriorityMask)), ("mpls-priority-mask", ("mpls_priority_mask", HardwareModuleEfd.Nodes.Node.MplsPriorityMask)), ("mpls-exp", ("mpls_exp", HardwareModuleEfd.Nodes.Node.MplsExp))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                     ('enable', YLeaf(YType.empty, 'enable')),
@@ -1369,27 +1459,21 @@ class HardwareModuleEfd(Entity):
 
                 self.vlan_priority_mask = None
                 self._children_name_map["vlan_priority_mask"] = "vlan-priority-mask"
-                self._children_yang_names.add("vlan-priority-mask")
 
                 self.ip_precedence = None
                 self._children_name_map["ip_precedence"] = "ip-precedence"
-                self._children_yang_names.add("ip-precedence")
 
                 self.vlan_cos = None
                 self._children_name_map["vlan_cos"] = "vlan-cos"
-                self._children_yang_names.add("vlan-cos")
 
                 self.ip_priority_mask = None
                 self._children_name_map["ip_priority_mask"] = "ip-priority-mask"
-                self._children_yang_names.add("ip-priority-mask")
 
                 self.mpls_priority_mask = None
                 self._children_name_map["mpls_priority_mask"] = "mpls-priority-mask"
-                self._children_yang_names.add("mpls-priority-mask")
 
                 self.mpls_exp = None
                 self._children_name_map["mpls_exp"] = "mpls-exp"
-                self._children_yang_names.add("mpls-exp")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-efd/nodes/%s" % self._segment_path()
 
@@ -1490,8 +1574,7 @@ class HardwareModuleEfd(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('prec0', YLeaf(YType.uint32, 'prec0')),
@@ -1554,8 +1637,7 @@ class HardwareModuleEfd(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('precedence', YLeaf(YType.uint32, 'precedence')),
@@ -1606,8 +1688,7 @@ class HardwareModuleEfd(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('cos', YLeaf(YType.uint32, 'cos')),
@@ -1714,8 +1795,7 @@ class HardwareModuleEfd(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('prec0', YLeaf(YType.uint32, 'prec0')),
@@ -1834,8 +1914,7 @@ class HardwareModuleEfd(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('prec0', YLeaf(YType.uint32, 'prec0')),
@@ -1898,8 +1977,7 @@ class HardwareModuleEfd(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
                         ('exp', YLeaf(YType.uint32, 'exp')),

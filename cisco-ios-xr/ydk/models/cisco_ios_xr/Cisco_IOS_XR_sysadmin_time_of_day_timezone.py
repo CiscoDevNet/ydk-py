@@ -1,5 +1,8 @@
 """ Cisco_IOS_XR_sysadmin_time_of_day_timezone 
 
+This module contains definitions
+for the Calvados model objects.
+
 This module contains a collection of YANG definitions
 for Cisco IOS\-XR syadmin TOD configuration and cli.
 
@@ -8,6 +11,9 @@ for the following management objects\:
 Time of the Day(TOD) Cli and configuration data
 
 Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+All rights reserved.
+
+Copyright (c) 2012\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -45,15 +51,16 @@ class Clock(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("timezone", ("timezone", Clock.Timezone))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("timezone", ("timezone", Clock.Timezone))])
         self._leafs = OrderedDict()
 
         self.timezone = Clock.Timezone()
         self.timezone.parent = self
         self._children_name_map["timezone"] = "timezone"
-        self._children_yang_names.add("timezone")
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-time-of-day-timezone:clock"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Clock, [], name, value)
 
 
     class Timezone(Entity):
@@ -85,8 +92,7 @@ class Clock(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('tzname', YLeaf(YType.str, 'tzname')),
                 ('area', YLeaf(YType.str, 'area')),
@@ -133,20 +139,20 @@ class Trace(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("timezone_config", ("timezone_config", Trace.TimezoneConfig)), ("timezone_notify", ("timezone_notify", Trace.TimezoneNotify))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("timezone_config", ("timezone_config", Trace.TimezoneConfig)), ("timezone_notify", ("timezone_notify", Trace.TimezoneNotify))])
         self._leafs = OrderedDict()
 
         self.timezone_config = Trace.TimezoneConfig()
         self.timezone_config.parent = self
         self._children_name_map["timezone_config"] = "timezone_config"
-        self._children_yang_names.add("timezone_config")
 
         self.timezone_notify = Trace.TimezoneNotify()
         self.timezone_notify.parent = self
         self._children_name_map["timezone_notify"] = "timezone_notify"
-        self._children_yang_names.add("timezone_notify")
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-time-of-day-timezone:trace"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Trace, [], name, value)
 
 
     class TimezoneConfig(Entity):
@@ -173,8 +179,7 @@ class Trace(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("trace", ("trace", Trace.TimezoneConfig.Trace_))])
+            self._child_classes = OrderedDict([("trace", ("trace", Trace.TimezoneConfig.Trace_))])
             self._leafs = OrderedDict()
 
             self.trace = YList(self)
@@ -214,8 +219,7 @@ class Trace(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['buffer']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", Trace.TimezoneConfig.Trace_.Location))])
+                self._child_classes = OrderedDict([("location", ("location", Trace.TimezoneConfig.Trace_.Location))])
                 self._leafs = OrderedDict([
                     ('buffer', YLeaf(YType.str, 'buffer')),
                 ])
@@ -226,7 +230,7 @@ class Trace(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-time-of-day-timezone:trace/timezone_config/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Trace.TimezoneConfig.Trace_, ['buffer'], name, value)
+                self._perform_setattr(Trace.TimezoneConfig.Trace_, [u'buffer'], name, value)
 
 
             class Location(Entity):
@@ -258,8 +262,7 @@ class Trace(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("all-options", ("all_options", Trace.TimezoneConfig.Trace_.Location.AllOptions))])
+                    self._child_classes = OrderedDict([("all-options", ("all_options", Trace.TimezoneConfig.Trace_.Location.AllOptions))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location_name')),
                     ])
@@ -269,7 +272,7 @@ class Trace(Entity):
                     self._segment_path = lambda: "location" + "[location_name='" + str(self.location_name) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Trace.TimezoneConfig.Trace_.Location, ['location_name'], name, value)
+                    self._perform_setattr(Trace.TimezoneConfig.Trace_.Location, [u'location_name'], name, value)
 
 
                 class AllOptions(Entity):
@@ -301,8 +304,7 @@ class Trace(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['option']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("trace-blocks", ("trace_blocks", Trace.TimezoneConfig.Trace_.Location.AllOptions.TraceBlocks))])
+                        self._child_classes = OrderedDict([("trace-blocks", ("trace_blocks", Trace.TimezoneConfig.Trace_.Location.AllOptions.TraceBlocks))])
                         self._leafs = OrderedDict([
                             ('option', YLeaf(YType.str, 'option')),
                         ])
@@ -312,7 +314,7 @@ class Trace(Entity):
                         self._segment_path = lambda: "all-options" + "[option='" + str(self.option) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Trace.TimezoneConfig.Trace_.Location.AllOptions, ['option'], name, value)
+                        self._perform_setattr(Trace.TimezoneConfig.Trace_.Location.AllOptions, [u'option'], name, value)
 
 
                     class TraceBlocks(Entity):
@@ -339,8 +341,7 @@ class Trace(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('data', YLeaf(YType.str, 'data')),
                             ])
@@ -348,7 +349,7 @@ class Trace(Entity):
                             self._segment_path = lambda: "trace-blocks"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Trace.TimezoneConfig.Trace_.Location.AllOptions.TraceBlocks, ['data'], name, value)
+                            self._perform_setattr(Trace.TimezoneConfig.Trace_.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
 
     class TimezoneNotify(Entity):
@@ -375,8 +376,7 @@ class Trace(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("trace", ("trace", Trace.TimezoneNotify.Trace_))])
+            self._child_classes = OrderedDict([("trace", ("trace", Trace.TimezoneNotify.Trace_))])
             self._leafs = OrderedDict()
 
             self.trace = YList(self)
@@ -416,8 +416,7 @@ class Trace(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['buffer']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", Trace.TimezoneNotify.Trace_.Location))])
+                self._child_classes = OrderedDict([("location", ("location", Trace.TimezoneNotify.Trace_.Location))])
                 self._leafs = OrderedDict([
                     ('buffer', YLeaf(YType.str, 'buffer')),
                 ])
@@ -428,7 +427,7 @@ class Trace(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-time-of-day-timezone:trace/timezone_notify/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Trace.TimezoneNotify.Trace_, ['buffer'], name, value)
+                self._perform_setattr(Trace.TimezoneNotify.Trace_, [u'buffer'], name, value)
 
 
             class Location(Entity):
@@ -460,8 +459,7 @@ class Trace(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("all-options", ("all_options", Trace.TimezoneNotify.Trace_.Location.AllOptions))])
+                    self._child_classes = OrderedDict([("all-options", ("all_options", Trace.TimezoneNotify.Trace_.Location.AllOptions))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location_name')),
                     ])
@@ -471,7 +469,7 @@ class Trace(Entity):
                     self._segment_path = lambda: "location" + "[location_name='" + str(self.location_name) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Trace.TimezoneNotify.Trace_.Location, ['location_name'], name, value)
+                    self._perform_setattr(Trace.TimezoneNotify.Trace_.Location, [u'location_name'], name, value)
 
 
                 class AllOptions(Entity):
@@ -503,8 +501,7 @@ class Trace(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['option']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("trace-blocks", ("trace_blocks", Trace.TimezoneNotify.Trace_.Location.AllOptions.TraceBlocks))])
+                        self._child_classes = OrderedDict([("trace-blocks", ("trace_blocks", Trace.TimezoneNotify.Trace_.Location.AllOptions.TraceBlocks))])
                         self._leafs = OrderedDict([
                             ('option', YLeaf(YType.str, 'option')),
                         ])
@@ -514,7 +511,7 @@ class Trace(Entity):
                         self._segment_path = lambda: "all-options" + "[option='" + str(self.option) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Trace.TimezoneNotify.Trace_.Location.AllOptions, ['option'], name, value)
+                        self._perform_setattr(Trace.TimezoneNotify.Trace_.Location.AllOptions, [u'option'], name, value)
 
 
                     class TraceBlocks(Entity):
@@ -541,8 +538,7 @@ class Trace(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('data', YLeaf(YType.str, 'data')),
                             ])
@@ -550,7 +546,7 @@ class Trace(Entity):
                             self._segment_path = lambda: "trace-blocks"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Trace.TimezoneNotify.Trace_.Location.AllOptions.TraceBlocks, ['data'], name, value)
+                            self._perform_setattr(Trace.TimezoneNotify.Trace_.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Trace()

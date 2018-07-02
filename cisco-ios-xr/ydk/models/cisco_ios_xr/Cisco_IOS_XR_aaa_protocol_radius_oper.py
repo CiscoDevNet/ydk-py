@@ -49,15 +49,16 @@ class Radius(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", Radius.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", Radius.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = Radius.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-aaa-protocol-radius-oper:radius"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Radius, [], name, value)
 
 
     class Nodes(Entity):
@@ -84,8 +85,7 @@ class Radius(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", Radius.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", Radius.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -152,8 +152,7 @@ class Radius(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("client", ("client", Radius.Nodes.Node.Client)), ("dead-criteria", ("dead_criteria", Radius.Nodes.Node.DeadCriteria)), ("authentication", ("authentication", Radius.Nodes.Node.Authentication)), ("accounting", ("accounting", Radius.Nodes.Node.Accounting)), ("server-groups", ("server_groups", Radius.Nodes.Node.ServerGroups)), ("dynamic-authorization", ("dynamic_authorization", Radius.Nodes.Node.DynamicAuthorization))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("client", ("client", Radius.Nodes.Node.Client)), ("dead-criteria", ("dead_criteria", Radius.Nodes.Node.DeadCriteria)), ("authentication", ("authentication", Radius.Nodes.Node.Authentication)), ("accounting", ("accounting", Radius.Nodes.Node.Accounting)), ("server-groups", ("server_groups", Radius.Nodes.Node.ServerGroups)), ("dynamic-authorization", ("dynamic_authorization", Radius.Nodes.Node.DynamicAuthorization))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -162,32 +161,26 @@ class Radius(Entity):
                 self.client = Radius.Nodes.Node.Client()
                 self.client.parent = self
                 self._children_name_map["client"] = "client"
-                self._children_yang_names.add("client")
 
                 self.dead_criteria = Radius.Nodes.Node.DeadCriteria()
                 self.dead_criteria.parent = self
                 self._children_name_map["dead_criteria"] = "dead-criteria"
-                self._children_yang_names.add("dead-criteria")
 
                 self.authentication = Radius.Nodes.Node.Authentication()
                 self.authentication.parent = self
                 self._children_name_map["authentication"] = "authentication"
-                self._children_yang_names.add("authentication")
 
                 self.accounting = Radius.Nodes.Node.Accounting()
                 self.accounting.parent = self
                 self._children_name_map["accounting"] = "accounting"
-                self._children_yang_names.add("accounting")
 
                 self.server_groups = Radius.Nodes.Node.ServerGroups()
                 self.server_groups.parent = self
                 self._children_name_map["server_groups"] = "server-groups"
-                self._children_yang_names.add("server-groups")
 
                 self.dynamic_authorization = Radius.Nodes.Node.DynamicAuthorization()
                 self.dynamic_authorization.parent = self
                 self._children_name_map["dynamic_authorization"] = "dynamic-authorization"
-                self._children_yang_names.add("dynamic-authorization")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/nodes/%s" % self._segment_path()
 
@@ -233,8 +226,7 @@ class Radius(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('unknown_authentication_responses', YLeaf(YType.uint32, 'unknown-authentication-responses')),
                         ('authentication_nas_id', YLeaf(YType.str, 'authentication-nas-id')),
@@ -273,15 +265,16 @@ class Radius(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("hosts", ("hosts", Radius.Nodes.Node.DeadCriteria.Hosts))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("hosts", ("hosts", Radius.Nodes.Node.DeadCriteria.Hosts))])
                     self._leafs = OrderedDict()
 
                     self.hosts = Radius.Nodes.Node.DeadCriteria.Hosts()
                     self.hosts.parent = self
                     self._children_name_map["hosts"] = "hosts"
-                    self._children_yang_names.add("hosts")
                     self._segment_path = lambda: "dead-criteria"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Radius.Nodes.Node.DeadCriteria, [], name, value)
 
 
                 class Hosts(Entity):
@@ -308,8 +301,7 @@ class Radius(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("host", ("host", Radius.Nodes.Node.DeadCriteria.Hosts.Host))])
+                        self._child_classes = OrderedDict([("host", ("host", Radius.Nodes.Node.DeadCriteria.Hosts.Host))])
                         self._leafs = OrderedDict()
 
                         self.host = YList(self)
@@ -375,8 +367,7 @@ class Radius(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("time", ("time", Radius.Nodes.Node.DeadCriteria.Hosts.Host.Time)), ("tries", ("tries", Radius.Nodes.Node.DeadCriteria.Hosts.Host.Tries))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("time", ("time", Radius.Nodes.Node.DeadCriteria.Hosts.Host.Time)), ("tries", ("tries", Radius.Nodes.Node.DeadCriteria.Hosts.Host.Tries))])
                             self._leafs = OrderedDict([
                                 ('ip_address', YLeaf(YType.str, 'ip-address')),
                                 ('auth_port_number', YLeaf(YType.uint32, 'auth-port-number')),
@@ -389,12 +380,10 @@ class Radius(Entity):
                             self.time = Radius.Nodes.Node.DeadCriteria.Hosts.Host.Time()
                             self.time.parent = self
                             self._children_name_map["time"] = "time"
-                            self._children_yang_names.add("time")
 
                             self.tries = Radius.Nodes.Node.DeadCriteria.Hosts.Host.Tries()
                             self.tries.parent = self
                             self._children_name_map["tries"] = "tries"
-                            self._children_yang_names.add("tries")
                             self._segment_path = lambda: "host"
 
                         def __setattr__(self, name, value):
@@ -432,8 +421,7 @@ class Radius(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('value', YLeaf(YType.uint32, 'value')),
                                     ('is_computed', YLeaf(YType.boolean, 'is-computed')),
@@ -477,8 +465,7 @@ class Radius(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('value', YLeaf(YType.uint32, 'value')),
                                     ('is_computed', YLeaf(YType.boolean, 'is-computed')),
@@ -515,8 +502,7 @@ class Radius(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("authentication-group", ("authentication_group", Radius.Nodes.Node.Authentication.AuthenticationGroup))])
+                    self._child_classes = OrderedDict([("authentication-group", ("authentication_group", Radius.Nodes.Node.Authentication.AuthenticationGroup))])
                     self._leafs = OrderedDict()
 
                     self.authentication_group = YList(self)
@@ -574,8 +560,7 @@ class Radius(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("authentication", ("authentication", Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication_))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("authentication", ("authentication", Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication_))])
                         self._leafs = OrderedDict([
                             ('server_address', YLeaf(YType.str, 'server-address')),
                             ('port', YLeaf(YType.uint32, 'port')),
@@ -590,7 +575,6 @@ class Radius(Entity):
                         self.authentication = Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication_()
                         self.authentication.parent = self
                         self._children_name_map["authentication"] = "authentication"
-                        self._children_yang_names.add("authentication")
                         self._segment_path = lambda: "authentication-group"
 
                     def __setattr__(self, name, value):
@@ -744,8 +728,7 @@ class Radius(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('access_requests', YLeaf(YType.uint32, 'access-requests')),
                                 ('pending_access_requests', YLeaf(YType.uint32, 'pending-access-requests')),
@@ -814,8 +797,7 @@ class Radius(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("accounting-group", ("accounting_group", Radius.Nodes.Node.Accounting.AccountingGroup))])
+                    self._child_classes = OrderedDict([("accounting-group", ("accounting_group", Radius.Nodes.Node.Accounting.AccountingGroup))])
                     self._leafs = OrderedDict()
 
                     self.accounting_group = YList(self)
@@ -873,8 +855,7 @@ class Radius(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("accounting", ("accounting", Radius.Nodes.Node.Accounting.AccountingGroup.Accounting_))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("accounting", ("accounting", Radius.Nodes.Node.Accounting.AccountingGroup.Accounting_))])
                         self._leafs = OrderedDict([
                             ('server_address', YLeaf(YType.str, 'server-address')),
                             ('port', YLeaf(YType.uint32, 'port')),
@@ -889,7 +870,6 @@ class Radius(Entity):
                         self.accounting = Radius.Nodes.Node.Accounting.AccountingGroup.Accounting_()
                         self.accounting.parent = self
                         self._children_name_map["accounting"] = "accounting"
-                        self._children_yang_names.add("accounting")
                         self._segment_path = lambda: "accounting-group"
 
                     def __setattr__(self, name, value):
@@ -1029,8 +1009,7 @@ class Radius(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('requests', YLeaf(YType.uint32, 'requests')),
                                 ('pending_requests', YLeaf(YType.uint32, 'pending-requests')),
@@ -1095,8 +1074,7 @@ class Radius(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("server-group", ("server_group", Radius.Nodes.Node.ServerGroups.ServerGroup))])
+                    self._child_classes = OrderedDict([("server-group", ("server_group", Radius.Nodes.Node.ServerGroups.ServerGroup))])
                     self._leafs = OrderedDict()
 
                     self.server_group = YList(self)
@@ -1165,8 +1143,7 @@ class Radius(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['server_group_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("server-group", ("server_group", Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_))])
+                        self._child_classes = OrderedDict([("server-group", ("server_group", Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_))])
                         self._leafs = OrderedDict([
                             ('server_group_name', YLeaf(YType.str, 'server-group-name')),
                             ('groups', YLeaf(YType.uint32, 'groups')),
@@ -1257,8 +1234,7 @@ class Radius(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("accounting", ("accounting", Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting)), ("authentication", ("authentication", Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authentication)), ("authorization", ("authorization", Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authorization))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("accounting", ("accounting", Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting)), ("authentication", ("authentication", Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authentication)), ("authorization", ("authorization", Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authorization))])
                             self._leafs = OrderedDict([
                                 ('server_address', YLeaf(YType.str, 'server-address')),
                                 ('authentication_port', YLeaf(YType.uint32, 'authentication-port')),
@@ -1277,17 +1253,14 @@ class Radius(Entity):
                             self.accounting = Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting()
                             self.accounting.parent = self
                             self._children_name_map["accounting"] = "accounting"
-                            self._children_yang_names.add("accounting")
 
                             self.authentication = Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authentication()
                             self.authentication.parent = self
                             self._children_name_map["authentication"] = "authentication"
-                            self._children_yang_names.add("authentication")
 
                             self.authorization = Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authorization()
                             self.authorization.parent = self
                             self._children_name_map["authorization"] = "authorization"
-                            self._children_yang_names.add("authorization")
                             self._segment_path = lambda: "server-group"
 
                         def __setattr__(self, name, value):
@@ -1427,8 +1400,7 @@ class Radius(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('requests', YLeaf(YType.uint32, 'requests')),
                                     ('pending_requests', YLeaf(YType.uint32, 'pending-requests')),
@@ -1616,8 +1588,7 @@ class Radius(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('access_requests', YLeaf(YType.uint32, 'access-requests')),
                                     ('pending_access_requests', YLeaf(YType.uint32, 'pending-access-requests')),
@@ -1737,8 +1708,7 @@ class Radius(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('author_requests', YLeaf(YType.uint32, 'author-requests')),
                                     ('author_request_timeouts', YLeaf(YType.uint32, 'author-request-timeouts')),
@@ -1796,8 +1766,7 @@ class Radius(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('disconnected_invalid_requests', YLeaf(YType.uint32, 'disconnected-invalid-requests')),
                         ('invalid_coa_requests', YLeaf(YType.uint32, 'invalid-coa-requests')),

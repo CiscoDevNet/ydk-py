@@ -1,17 +1,11 @@
 """ Cisco_IOS_XR_sysadmin_sm 
 
-This module contains definitions
-for the Calvados model objects.
-
 This module contains a collection of YANG
 definitions for Cisco IOS\-XR SysAdmin configuration.
 
 This module holds Shelf Management configuration data.
 
 Copyright(c) 2011\-2017 by Cisco Systems, Inc.
-All rights reserved.
-
-Copyright (c) 2012\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -73,7 +67,7 @@ class Oper(Entity):
     """
 
     _prefix = 'shelf_sm'
-    _revision = '2017-04-12'
+    _revision = '2017-07-22'
 
     def __init__(self):
         super(Oper, self).__init__()
@@ -84,44 +78,36 @@ class Oper(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("shelf_mgr", ("shelf_mgr", Oper.ShelfMgr)), ("platform", ("platform", Oper.Platform)), ("chassis", ("chassis", Oper.Chassis)), ("reload", ("reload", Oper.Reload)), ("reboot-history", ("reboot_history", Oper.RebootHistory)), ("reload_vm", ("reload_vm", Oper.ReloadVm)), ("macpool", ("macpool", Oper.Macpool))])
-        self._child_list_classes = OrderedDict([("interface", ("interface", Oper.Interface))])
+        self._child_classes = OrderedDict([("shelf_mgr", ("shelf_mgr", Oper.ShelfMgr)), ("platform", ("platform", Oper.Platform)), ("chassis", ("chassis", Oper.Chassis)), ("reload", ("reload", Oper.Reload)), ("reboot-history", ("reboot_history", Oper.RebootHistory)), ("interface", ("interface", Oper.Interface)), ("reload_vm", ("reload_vm", Oper.ReloadVm)), ("macpool", ("macpool", Oper.Macpool))])
         self._leafs = OrderedDict()
 
         self.shelf_mgr = Oper.ShelfMgr()
         self.shelf_mgr.parent = self
         self._children_name_map["shelf_mgr"] = "shelf_mgr"
-        self._children_yang_names.add("shelf_mgr")
 
         self.platform = Oper.Platform()
         self.platform.parent = self
         self._children_name_map["platform"] = "platform"
-        self._children_yang_names.add("platform")
 
         self.chassis = Oper.Chassis()
         self.chassis.parent = self
         self._children_name_map["chassis"] = "chassis"
-        self._children_yang_names.add("chassis")
 
         self.reload = Oper.Reload()
         self.reload.parent = self
         self._children_name_map["reload"] = "reload"
-        self._children_yang_names.add("reload")
 
         self.reboot_history = Oper.RebootHistory()
         self.reboot_history.parent = self
         self._children_name_map["reboot_history"] = "reboot-history"
-        self._children_yang_names.add("reboot-history")
 
         self.reload_vm = Oper.ReloadVm()
         self.reload_vm.parent = self
         self._children_name_map["reload_vm"] = "reload_vm"
-        self._children_yang_names.add("reload_vm")
 
         self.macpool = Oper.Macpool()
         self.macpool.parent = self
         self._children_name_map["macpool"] = "macpool"
-        self._children_yang_names.add("macpool")
 
         self.interface = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper"
@@ -144,7 +130,7 @@ class Oper(Entity):
         """
 
         _prefix = 'shelf_sm'
-        _revision = '2017-04-12'
+        _revision = '2017-07-22'
 
         def __init__(self):
             super(Oper.ShelfMgr, self).__init__()
@@ -154,8 +140,7 @@ class Oper(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("trace", ("trace", Oper.ShelfMgr.Trace))])
+            self._child_classes = OrderedDict([("trace", ("trace", Oper.ShelfMgr.Trace))])
             self._leafs = OrderedDict()
 
             self.trace = YList(self)
@@ -185,7 +170,7 @@ class Oper(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-04-12'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(Oper.ShelfMgr.Trace, self).__init__()
@@ -195,8 +180,7 @@ class Oper(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['buffer']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", Oper.ShelfMgr.Trace.Location))])
+                self._child_classes = OrderedDict([("location", ("location", Oper.ShelfMgr.Trace.Location))])
                 self._leafs = OrderedDict([
                     ('buffer', YLeaf(YType.str, 'buffer')),
                 ])
@@ -207,7 +191,7 @@ class Oper(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/shelf_mgr/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Oper.ShelfMgr.Trace, ['buffer'], name, value)
+                self._perform_setattr(Oper.ShelfMgr.Trace, [u'buffer'], name, value)
 
 
             class Location(Entity):
@@ -229,7 +213,7 @@ class Oper(Entity):
                 """
 
                 _prefix = 'shelf_sm'
-                _revision = '2017-04-12'
+                _revision = '2017-07-22'
 
                 def __init__(self):
                     super(Oper.ShelfMgr.Trace.Location, self).__init__()
@@ -239,8 +223,7 @@ class Oper(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("all-options", ("all_options", Oper.ShelfMgr.Trace.Location.AllOptions))])
+                    self._child_classes = OrderedDict([("all-options", ("all_options", Oper.ShelfMgr.Trace.Location.AllOptions))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location_name')),
                     ])
@@ -250,7 +233,7 @@ class Oper(Entity):
                     self._segment_path = lambda: "location" + "[location_name='" + str(self.location_name) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Oper.ShelfMgr.Trace.Location, ['location_name'], name, value)
+                    self._perform_setattr(Oper.ShelfMgr.Trace.Location, [u'location_name'], name, value)
 
 
                 class AllOptions(Entity):
@@ -272,7 +255,7 @@ class Oper(Entity):
                     """
 
                     _prefix = 'shelf_sm'
-                    _revision = '2017-04-12'
+                    _revision = '2017-07-22'
 
                     def __init__(self):
                         super(Oper.ShelfMgr.Trace.Location.AllOptions, self).__init__()
@@ -282,8 +265,7 @@ class Oper(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['option']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("trace-blocks", ("trace_blocks", Oper.ShelfMgr.Trace.Location.AllOptions.TraceBlocks))])
+                        self._child_classes = OrderedDict([("trace-blocks", ("trace_blocks", Oper.ShelfMgr.Trace.Location.AllOptions.TraceBlocks))])
                         self._leafs = OrderedDict([
                             ('option', YLeaf(YType.str, 'option')),
                         ])
@@ -293,7 +275,7 @@ class Oper(Entity):
                         self._segment_path = lambda: "all-options" + "[option='" + str(self.option) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Oper.ShelfMgr.Trace.Location.AllOptions, ['option'], name, value)
+                        self._perform_setattr(Oper.ShelfMgr.Trace.Location.AllOptions, [u'option'], name, value)
 
 
                     class TraceBlocks(Entity):
@@ -310,7 +292,7 @@ class Oper(Entity):
                         """
 
                         _prefix = 'shelf_sm'
-                        _revision = '2017-04-12'
+                        _revision = '2017-07-22'
 
                         def __init__(self):
                             super(Oper.ShelfMgr.Trace.Location.AllOptions.TraceBlocks, self).__init__()
@@ -320,8 +302,7 @@ class Oper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('data', YLeaf(YType.str, 'data')),
                             ])
@@ -329,7 +310,7 @@ class Oper(Entity):
                             self._segment_path = lambda: "trace-blocks"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Oper.ShelfMgr.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
+                            self._perform_setattr(Oper.ShelfMgr.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
 
     class Platform(Entity):
@@ -356,7 +337,7 @@ class Oper(Entity):
         """
 
         _prefix = 'shelf_sm'
-        _revision = '2017-04-12'
+        _revision = '2017-07-22'
 
         def __init__(self):
             super(Oper.Platform, self).__init__()
@@ -366,26 +347,25 @@ class Oper(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("summary", ("summary", Oper.Platform.Summary)), ("detail", ("detail", Oper.Platform.Detail)), ("slices", ("slices", Oper.Platform.Slices))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("summary", ("summary", Oper.Platform.Summary)), ("detail", ("detail", Oper.Platform.Detail)), ("slices", ("slices", Oper.Platform.Slices))])
             self._leafs = OrderedDict()
 
             self.summary = Oper.Platform.Summary()
             self.summary.parent = self
             self._children_name_map["summary"] = "summary"
-            self._children_yang_names.add("summary")
 
             self.detail = Oper.Platform.Detail()
             self.detail.parent = self
             self._children_name_map["detail"] = "detail"
-            self._children_yang_names.add("detail")
 
             self.slices = Oper.Platform.Slices()
             self.slices.parent = self
             self._children_name_map["slices"] = "slices"
-            self._children_yang_names.add("slices")
             self._segment_path = lambda: "platform"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Oper.Platform, [], name, value)
 
 
         class Summary(Entity):
@@ -402,7 +382,7 @@ class Oper(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-04-12'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(Oper.Platform.Summary, self).__init__()
@@ -412,8 +392,7 @@ class Oper(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", Oper.Platform.Summary.Location))])
+                self._child_classes = OrderedDict([("location", ("location", Oper.Platform.Summary.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -433,7 +412,7 @@ class Oper(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: summary_data
                 
@@ -445,7 +424,7 @@ class Oper(Entity):
                 """
 
                 _prefix = 'shelf_sm'
-                _revision = '2017-04-12'
+                _revision = '2017-07-22'
 
                 def __init__(self):
                     super(Oper.Platform.Summary.Location, self).__init__()
@@ -455,8 +434,7 @@ class Oper(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['location']
-                    self._child_container_classes = OrderedDict([("summary-data", ("summary_data", Oper.Platform.Summary.Location.SummaryData))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("summary-data", ("summary_data", Oper.Platform.Summary.Location.SummaryData))])
                     self._leafs = OrderedDict([
                         ('location', YLeaf(YType.str, 'location')),
                     ])
@@ -465,7 +443,6 @@ class Oper(Entity):
                     self.summary_data = Oper.Platform.Summary.Location.SummaryData()
                     self.summary_data.parent = self
                     self._children_name_map["summary_data"] = "summary-data"
-                    self._children_yang_names.add("summary-data")
                     self._segment_path = lambda: "location" + "[location='" + str(self.location) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/platform/summary/%s" % self._segment_path()
 
@@ -502,7 +479,7 @@ class Oper(Entity):
                     """
 
                     _prefix = 'shelf_sm'
-                    _revision = '2017-04-12'
+                    _revision = '2017-07-22'
 
                     def __init__(self):
                         super(Oper.Platform.Summary.Location.SummaryData, self).__init__()
@@ -512,8 +489,7 @@ class Oper(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('card_type', YLeaf(YType.str, 'card_type')),
                             ('hw_state', YLeaf(YType.str, 'hw_state')),
@@ -544,7 +520,7 @@ class Oper(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-04-12'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(Oper.Platform.Detail, self).__init__()
@@ -554,8 +530,7 @@ class Oper(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", Oper.Platform.Detail.Location))])
+                self._child_classes = OrderedDict([("location", ("location", Oper.Platform.Detail.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -575,7 +550,7 @@ class Oper(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: detail_data
                 
@@ -587,7 +562,7 @@ class Oper(Entity):
                 """
 
                 _prefix = 'shelf_sm'
-                _revision = '2017-04-12'
+                _revision = '2017-07-22'
 
                 def __init__(self):
                     super(Oper.Platform.Detail.Location, self).__init__()
@@ -597,8 +572,7 @@ class Oper(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['location']
-                    self._child_container_classes = OrderedDict([("detail-data", ("detail_data", Oper.Platform.Detail.Location.DetailData))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("detail-data", ("detail_data", Oper.Platform.Detail.Location.DetailData))])
                     self._leafs = OrderedDict([
                         ('location', YLeaf(YType.str, 'location')),
                     ])
@@ -607,7 +581,6 @@ class Oper(Entity):
                     self.detail_data = Oper.Platform.Detail.Location.DetailData()
                     self.detail_data.parent = self
                     self._children_name_map["detail_data"] = "detail-data"
-                    self._children_yang_names.add("detail-data")
                     self._segment_path = lambda: "location" + "[location='" + str(self.location) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/platform/detail/%s" % self._segment_path()
 
@@ -669,7 +642,7 @@ class Oper(Entity):
                     """
 
                     _prefix = 'shelf_sm'
-                    _revision = '2017-04-12'
+                    _revision = '2017-07-22'
 
                     def __init__(self):
                         super(Oper.Platform.Detail.Location.DetailData, self).__init__()
@@ -679,8 +652,7 @@ class Oper(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('pid', YLeaf(YType.str, 'pid')),
                             ('description', YLeaf(YType.str, 'description')),
@@ -721,7 +693,7 @@ class Oper(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-04-12'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(Oper.Platform.Slices, self).__init__()
@@ -731,8 +703,7 @@ class Oper(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", Oper.Platform.Slices.Location))])
+                self._child_classes = OrderedDict([("location", ("location", Oper.Platform.Slices.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -752,7 +723,7 @@ class Oper(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: slice_values
                 
@@ -764,7 +735,7 @@ class Oper(Entity):
                 """
 
                 _prefix = 'shelf_sm'
-                _revision = '2017-04-12'
+                _revision = '2017-07-22'
 
                 def __init__(self):
                     super(Oper.Platform.Slices.Location, self).__init__()
@@ -774,8 +745,7 @@ class Oper(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['location']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("slice_values", ("slice_values", Oper.Platform.Slices.Location.SliceValues))])
+                    self._child_classes = OrderedDict([("slice_values", ("slice_values", Oper.Platform.Slices.Location.SliceValues))])
                     self._leafs = OrderedDict([
                         ('location', YLeaf(YType.str, 'location')),
                     ])
@@ -810,7 +780,7 @@ class Oper(Entity):
                     """
 
                     _prefix = 'shelf_sm'
-                    _revision = '2017-04-12'
+                    _revision = '2017-07-22'
 
                     def __init__(self):
                         super(Oper.Platform.Slices.Location.SliceValues, self).__init__()
@@ -820,8 +790,7 @@ class Oper(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['slice_idx']
-                        self._child_container_classes = OrderedDict([("slice", ("slice", Oper.Platform.Slices.Location.SliceValues.Slice))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("slice", ("slice", Oper.Platform.Slices.Location.SliceValues.Slice))])
                         self._leafs = OrderedDict([
                             ('slice_idx', YLeaf(YType.uint32, 'slice_idx')),
                         ])
@@ -830,7 +799,6 @@ class Oper(Entity):
                         self.slice = Oper.Platform.Slices.Location.SliceValues.Slice()
                         self.slice.parent = self
                         self._children_name_map["slice"] = "slice"
-                        self._children_yang_names.add("slice")
                         self._segment_path = lambda: "slice_values" + "[slice_idx='" + str(self.slice_idx) + "']"
 
                     def __setattr__(self, name, value):
@@ -863,7 +831,7 @@ class Oper(Entity):
                         """
 
                         _prefix = 'shelf_sm'
-                        _revision = '2017-04-12'
+                        _revision = '2017-07-22'
 
                         def __init__(self):
                             super(Oper.Platform.Slices.Location.SliceValues.Slice, self).__init__()
@@ -873,8 +841,7 @@ class Oper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('slice_num', YLeaf(YType.uint32, 'slice_num')),
                                 ('admin_state', YLeaf(YType.str, 'admin_state')),
@@ -903,7 +870,7 @@ class Oper(Entity):
         """
 
         _prefix = 'shelf_sm'
-        _revision = '2017-04-12'
+        _revision = '2017-07-22'
 
         def __init__(self):
             super(Oper.Chassis, self).__init__()
@@ -913,16 +880,17 @@ class Oper(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("brief", ("brief", Oper.Chassis.Brief))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("brief", ("brief", Oper.Chassis.Brief))])
             self._leafs = OrderedDict()
 
             self.brief = Oper.Chassis.Brief()
             self.brief.parent = self
             self._children_name_map["brief"] = "brief"
-            self._children_yang_names.add("brief")
             self._segment_path = lambda: "chassis"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Oper.Chassis, [], name, value)
 
 
         class Brief(Entity):
@@ -939,7 +907,7 @@ class Oper(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-04-12'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(Oper.Chassis.Brief, self).__init__()
@@ -949,8 +917,7 @@ class Oper(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("chassis_serial", ("chassis_serial", Oper.Chassis.Brief.ChassisSerial))])
+                self._child_classes = OrderedDict([("chassis_serial", ("chassis_serial", Oper.Chassis.Brief.ChassisSerial))])
                 self._leafs = OrderedDict()
 
                 self.chassis_serial = YList(self)
@@ -980,7 +947,7 @@ class Oper(Entity):
                 """
 
                 _prefix = 'shelf_sm'
-                _revision = '2017-04-12'
+                _revision = '2017-07-22'
 
                 def __init__(self):
                     super(Oper.Chassis.Brief.ChassisSerial, self).__init__()
@@ -990,8 +957,7 @@ class Oper(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['serial_number']
-                    self._child_container_classes = OrderedDict([("brief-data", ("brief_data", Oper.Chassis.Brief.ChassisSerial.BriefData))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("brief-data", ("brief_data", Oper.Chassis.Brief.ChassisSerial.BriefData))])
                     self._leafs = OrderedDict([
                         ('serial_number', YLeaf(YType.str, 'serial_number')),
                     ])
@@ -1000,7 +966,6 @@ class Oper(Entity):
                     self.brief_data = Oper.Chassis.Brief.ChassisSerial.BriefData()
                     self.brief_data.parent = self
                     self._children_name_map["brief_data"] = "brief-data"
-                    self._children_yang_names.add("brief-data")
                     self._segment_path = lambda: "chassis_serial" + "[serial_number='" + str(self.serial_number) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/chassis/brief/%s" % self._segment_path()
 
@@ -1042,7 +1007,7 @@ class Oper(Entity):
                     """
 
                     _prefix = 'shelf_sm'
-                    _revision = '2017-04-12'
+                    _revision = '2017-07-22'
 
                     def __init__(self):
                         super(Oper.Chassis.Brief.ChassisSerial.BriefData, self).__init__()
@@ -1052,8 +1017,7 @@ class Oper(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('racknum', YLeaf(YType.str, 'racknum')),
                             ('rack_type', YLeaf(YType.str, 'rack_type')),
@@ -1086,7 +1050,7 @@ class Oper(Entity):
         """
 
         _prefix = 'shelf_sm'
-        _revision = '2017-04-12'
+        _revision = '2017-07-22'
 
         def __init__(self):
             super(Oper.Reload, self).__init__()
@@ -1096,16 +1060,17 @@ class Oper(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("rack", ("rack", Oper.Reload.Rack))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("rack", ("rack", Oper.Reload.Rack))])
             self._leafs = OrderedDict()
 
             self.rack = Oper.Reload.Rack()
             self.rack.parent = self
             self._children_name_map["rack"] = "rack"
-            self._children_yang_names.add("rack")
             self._segment_path = lambda: "reload"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Oper.Reload, [], name, value)
 
 
         class Rack(Entity):
@@ -1122,7 +1087,7 @@ class Oper(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-04-12'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(Oper.Reload.Rack, self).__init__()
@@ -1132,8 +1097,7 @@ class Oper(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("racks", ("racks", Oper.Reload.Rack.Racks))])
+                self._child_classes = OrderedDict([("racks", ("racks", Oper.Reload.Rack.Racks))])
                 self._leafs = OrderedDict()
 
                 self.racks = YList(self)
@@ -1158,7 +1122,7 @@ class Oper(Entity):
                 """
 
                 _prefix = 'shelf_sm'
-                _revision = '2017-04-12'
+                _revision = '2017-07-22'
 
                 def __init__(self):
                     super(Oper.Reload.Rack.Racks, self).__init__()
@@ -1168,8 +1132,7 @@ class Oper(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['rack']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('rack', YLeaf(YType.str, 'rack')),
                     ])
@@ -1205,7 +1168,7 @@ class Oper(Entity):
         """
 
         _prefix = 'shelf_sm'
-        _revision = '2017-04-12'
+        _revision = '2017-07-22'
 
         def __init__(self):
             super(Oper.RebootHistory, self).__init__()
@@ -1215,26 +1178,25 @@ class Oper(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("card", ("card", Oper.RebootHistory.Card)), ("admin-vm", ("admin_vm", Oper.RebootHistory.AdminVm)), ("reverse", ("reverse", Oper.RebootHistory.Reverse))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("card", ("card", Oper.RebootHistory.Card)), ("admin-vm", ("admin_vm", Oper.RebootHistory.AdminVm)), ("reverse", ("reverse", Oper.RebootHistory.Reverse))])
             self._leafs = OrderedDict()
 
             self.card = Oper.RebootHistory.Card()
             self.card.parent = self
             self._children_name_map["card"] = "card"
-            self._children_yang_names.add("card")
 
             self.admin_vm = Oper.RebootHistory.AdminVm()
             self.admin_vm.parent = self
             self._children_name_map["admin_vm"] = "admin-vm"
-            self._children_yang_names.add("admin-vm")
 
             self.reverse = Oper.RebootHistory.Reverse()
             self.reverse.parent = self
             self._children_name_map["reverse"] = "reverse"
-            self._children_yang_names.add("reverse")
             self._segment_path = lambda: "reboot-history"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Oper.RebootHistory, [], name, value)
 
 
         class Card(Entity):
@@ -1251,7 +1213,7 @@ class Oper(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-04-12'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(Oper.RebootHistory.Card, self).__init__()
@@ -1261,8 +1223,7 @@ class Oper(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", Oper.RebootHistory.Card.Location))])
+                self._child_classes = OrderedDict([("location", ("location", Oper.RebootHistory.Card.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -1282,7 +1243,7 @@ class Oper(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: events
                 
@@ -1294,7 +1255,7 @@ class Oper(Entity):
                 """
 
                 _prefix = 'shelf_sm'
-                _revision = '2017-04-12'
+                _revision = '2017-07-22'
 
                 def __init__(self):
                     super(Oper.RebootHistory.Card.Location, self).__init__()
@@ -1304,8 +1265,7 @@ class Oper(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['location']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("events", ("events", Oper.RebootHistory.Card.Location.Events))])
+                    self._child_classes = OrderedDict([("events", ("events", Oper.RebootHistory.Card.Location.Events))])
                     self._leafs = OrderedDict([
                         ('location', YLeaf(YType.str, 'location')),
                     ])
@@ -1340,7 +1300,7 @@ class Oper(Entity):
                     """
 
                     _prefix = 'shelf_sm'
-                    _revision = '2017-04-12'
+                    _revision = '2017-07-22'
 
                     def __init__(self):
                         super(Oper.RebootHistory.Card.Location.Events, self).__init__()
@@ -1350,8 +1310,7 @@ class Oper(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['event_idx']
-                        self._child_container_classes = OrderedDict([("event", ("event", Oper.RebootHistory.Card.Location.Events.Event))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("event", ("event", Oper.RebootHistory.Card.Location.Events.Event))])
                         self._leafs = OrderedDict([
                             ('event_idx', YLeaf(YType.uint32, 'event_idx')),
                         ])
@@ -1360,7 +1319,6 @@ class Oper(Entity):
                         self.event = Oper.RebootHistory.Card.Location.Events.Event()
                         self.event.parent = self
                         self._children_name_map["event"] = "event"
-                        self._children_yang_names.add("event")
                         self._segment_path = lambda: "events" + "[event_idx='" + str(self.event_idx) + "']"
 
                     def __setattr__(self, name, value):
@@ -1403,7 +1361,7 @@ class Oper(Entity):
                         """
 
                         _prefix = 'shelf_sm'
-                        _revision = '2017-04-12'
+                        _revision = '2017-07-22'
 
                         def __init__(self):
                             super(Oper.RebootHistory.Card.Location.Events.Event, self).__init__()
@@ -1413,8 +1371,7 @@ class Oper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('timestamp', YLeaf(YType.str, 'timestamp')),
                                 ('reason_code', YLeaf(YType.uint32, 'reason_code')),
@@ -1447,7 +1404,7 @@ class Oper(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-04-12'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(Oper.RebootHistory.AdminVm, self).__init__()
@@ -1457,8 +1414,7 @@ class Oper(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", Oper.RebootHistory.AdminVm.Location))])
+                self._child_classes = OrderedDict([("location", ("location", Oper.RebootHistory.AdminVm.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -1478,7 +1434,7 @@ class Oper(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: events
                 
@@ -1490,7 +1446,7 @@ class Oper(Entity):
                 """
 
                 _prefix = 'shelf_sm'
-                _revision = '2017-04-12'
+                _revision = '2017-07-22'
 
                 def __init__(self):
                     super(Oper.RebootHistory.AdminVm.Location, self).__init__()
@@ -1500,8 +1456,7 @@ class Oper(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['location']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("events", ("events", Oper.RebootHistory.AdminVm.Location.Events))])
+                    self._child_classes = OrderedDict([("events", ("events", Oper.RebootHistory.AdminVm.Location.Events))])
                     self._leafs = OrderedDict([
                         ('location', YLeaf(YType.str, 'location')),
                     ])
@@ -1536,7 +1491,7 @@ class Oper(Entity):
                     """
 
                     _prefix = 'shelf_sm'
-                    _revision = '2017-04-12'
+                    _revision = '2017-07-22'
 
                     def __init__(self):
                         super(Oper.RebootHistory.AdminVm.Location.Events, self).__init__()
@@ -1546,8 +1501,7 @@ class Oper(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['event_idx']
-                        self._child_container_classes = OrderedDict([("event", ("event", Oper.RebootHistory.AdminVm.Location.Events.Event))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("event", ("event", Oper.RebootHistory.AdminVm.Location.Events.Event))])
                         self._leafs = OrderedDict([
                             ('event_idx', YLeaf(YType.uint32, 'event_idx')),
                         ])
@@ -1556,7 +1510,6 @@ class Oper(Entity):
                         self.event = Oper.RebootHistory.AdminVm.Location.Events.Event()
                         self.event.parent = self
                         self._children_name_map["event"] = "event"
-                        self._children_yang_names.add("event")
                         self._segment_path = lambda: "events" + "[event_idx='" + str(self.event_idx) + "']"
 
                     def __setattr__(self, name, value):
@@ -1599,7 +1552,7 @@ class Oper(Entity):
                         """
 
                         _prefix = 'shelf_sm'
-                        _revision = '2017-04-12'
+                        _revision = '2017-07-22'
 
                         def __init__(self):
                             super(Oper.RebootHistory.AdminVm.Location.Events.Event, self).__init__()
@@ -1609,8 +1562,7 @@ class Oper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('timestamp', YLeaf(YType.str, 'timestamp')),
                                 ('reason_code', YLeaf(YType.uint32, 'reason_code')),
@@ -1648,7 +1600,7 @@ class Oper(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-04-12'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(Oper.RebootHistory.Reverse, self).__init__()
@@ -1658,21 +1610,21 @@ class Oper(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("card", ("card", Oper.RebootHistory.Reverse.Card)), ("admin-vm", ("admin_vm", Oper.RebootHistory.Reverse.AdminVm))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("card", ("card", Oper.RebootHistory.Reverse.Card)), ("admin-vm", ("admin_vm", Oper.RebootHistory.Reverse.AdminVm))])
                 self._leafs = OrderedDict()
 
                 self.card = Oper.RebootHistory.Reverse.Card()
                 self.card.parent = self
                 self._children_name_map["card"] = "card"
-                self._children_yang_names.add("card")
 
                 self.admin_vm = Oper.RebootHistory.Reverse.AdminVm()
                 self.admin_vm.parent = self
                 self._children_name_map["admin_vm"] = "admin-vm"
-                self._children_yang_names.add("admin-vm")
                 self._segment_path = lambda: "reverse"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Oper.RebootHistory.Reverse, [], name, value)
 
 
             class Card(Entity):
@@ -1689,7 +1641,7 @@ class Oper(Entity):
                 """
 
                 _prefix = 'shelf_sm'
-                _revision = '2017-04-12'
+                _revision = '2017-07-22'
 
                 def __init__(self):
                     super(Oper.RebootHistory.Reverse.Card, self).__init__()
@@ -1699,8 +1651,7 @@ class Oper(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("location", ("location", Oper.RebootHistory.Reverse.Card.Location))])
+                    self._child_classes = OrderedDict([("location", ("location", Oper.RebootHistory.Reverse.Card.Location))])
                     self._leafs = OrderedDict()
 
                     self.location = YList(self)
@@ -1720,7 +1671,7 @@ class Oper(Entity):
                     	
                     	**type**\: str
                     
-                    	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                    	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                     
                     .. attribute:: events
                     
@@ -1732,7 +1683,7 @@ class Oper(Entity):
                     """
 
                     _prefix = 'shelf_sm'
-                    _revision = '2017-04-12'
+                    _revision = '2017-07-22'
 
                     def __init__(self):
                         super(Oper.RebootHistory.Reverse.Card.Location, self).__init__()
@@ -1742,8 +1693,7 @@ class Oper(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['location']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("events", ("events", Oper.RebootHistory.Reverse.Card.Location.Events))])
+                        self._child_classes = OrderedDict([("events", ("events", Oper.RebootHistory.Reverse.Card.Location.Events))])
                         self._leafs = OrderedDict([
                             ('location', YLeaf(YType.str, 'location')),
                         ])
@@ -1778,7 +1728,7 @@ class Oper(Entity):
                         """
 
                         _prefix = 'shelf_sm'
-                        _revision = '2017-04-12'
+                        _revision = '2017-07-22'
 
                         def __init__(self):
                             super(Oper.RebootHistory.Reverse.Card.Location.Events, self).__init__()
@@ -1788,8 +1738,7 @@ class Oper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['event_idx']
-                            self._child_container_classes = OrderedDict([("event", ("event", Oper.RebootHistory.Reverse.Card.Location.Events.Event))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("event", ("event", Oper.RebootHistory.Reverse.Card.Location.Events.Event))])
                             self._leafs = OrderedDict([
                                 ('event_idx', YLeaf(YType.uint32, 'event_idx')),
                             ])
@@ -1798,7 +1747,6 @@ class Oper(Entity):
                             self.event = Oper.RebootHistory.Reverse.Card.Location.Events.Event()
                             self.event.parent = self
                             self._children_name_map["event"] = "event"
-                            self._children_yang_names.add("event")
                             self._segment_path = lambda: "events" + "[event_idx='" + str(self.event_idx) + "']"
 
                         def __setattr__(self, name, value):
@@ -1841,7 +1789,7 @@ class Oper(Entity):
                             """
 
                             _prefix = 'shelf_sm'
-                            _revision = '2017-04-12'
+                            _revision = '2017-07-22'
 
                             def __init__(self):
                                 super(Oper.RebootHistory.Reverse.Card.Location.Events.Event, self).__init__()
@@ -1851,8 +1799,7 @@ class Oper(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('timestamp', YLeaf(YType.str, 'timestamp')),
                                     ('reason_code', YLeaf(YType.uint32, 'reason_code')),
@@ -1885,7 +1832,7 @@ class Oper(Entity):
                 """
 
                 _prefix = 'shelf_sm'
-                _revision = '2017-04-12'
+                _revision = '2017-07-22'
 
                 def __init__(self):
                     super(Oper.RebootHistory.Reverse.AdminVm, self).__init__()
@@ -1895,8 +1842,7 @@ class Oper(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("location", ("location", Oper.RebootHistory.Reverse.AdminVm.Location))])
+                    self._child_classes = OrderedDict([("location", ("location", Oper.RebootHistory.Reverse.AdminVm.Location))])
                     self._leafs = OrderedDict()
 
                     self.location = YList(self)
@@ -1916,7 +1862,7 @@ class Oper(Entity):
                     	
                     	**type**\: str
                     
-                    	**pattern:** ((([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                    	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                     
                     .. attribute:: events
                     
@@ -1928,7 +1874,7 @@ class Oper(Entity):
                     """
 
                     _prefix = 'shelf_sm'
-                    _revision = '2017-04-12'
+                    _revision = '2017-07-22'
 
                     def __init__(self):
                         super(Oper.RebootHistory.Reverse.AdminVm.Location, self).__init__()
@@ -1938,8 +1884,7 @@ class Oper(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = ['location']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("events", ("events", Oper.RebootHistory.Reverse.AdminVm.Location.Events))])
+                        self._child_classes = OrderedDict([("events", ("events", Oper.RebootHistory.Reverse.AdminVm.Location.Events))])
                         self._leafs = OrderedDict([
                             ('location', YLeaf(YType.str, 'location')),
                         ])
@@ -1974,7 +1919,7 @@ class Oper(Entity):
                         """
 
                         _prefix = 'shelf_sm'
-                        _revision = '2017-04-12'
+                        _revision = '2017-07-22'
 
                         def __init__(self):
                             super(Oper.RebootHistory.Reverse.AdminVm.Location.Events, self).__init__()
@@ -1984,8 +1929,7 @@ class Oper(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['event_idx']
-                            self._child_container_classes = OrderedDict([("event", ("event", Oper.RebootHistory.Reverse.AdminVm.Location.Events.Event))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("event", ("event", Oper.RebootHistory.Reverse.AdminVm.Location.Events.Event))])
                             self._leafs = OrderedDict([
                                 ('event_idx', YLeaf(YType.uint32, 'event_idx')),
                             ])
@@ -1994,7 +1938,6 @@ class Oper(Entity):
                             self.event = Oper.RebootHistory.Reverse.AdminVm.Location.Events.Event()
                             self.event.parent = self
                             self._children_name_map["event"] = "event"
-                            self._children_yang_names.add("event")
                             self._segment_path = lambda: "events" + "[event_idx='" + str(self.event_idx) + "']"
 
                         def __setattr__(self, name, value):
@@ -2037,7 +1980,7 @@ class Oper(Entity):
                             """
 
                             _prefix = 'shelf_sm'
-                            _revision = '2017-04-12'
+                            _revision = '2017-07-22'
 
                             def __init__(self):
                                 super(Oper.RebootHistory.Reverse.AdminVm.Location.Events.Event, self).__init__()
@@ -2047,8 +1990,7 @@ class Oper(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('timestamp', YLeaf(YType.str, 'timestamp')),
                                     ('reason_code', YLeaf(YType.uint32, 'reason_code')),
@@ -2086,7 +2028,7 @@ class Oper(Entity):
         """
 
         _prefix = 'shelf_sm'
-        _revision = '2017-04-12'
+        _revision = '2017-07-22'
 
         def __init__(self):
             super(Oper.Interface, self).__init__()
@@ -2096,8 +2038,7 @@ class Oper(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['ifname']
-            self._child_container_classes = OrderedDict([("interface-data", ("interface_data", Oper.Interface.InterfaceData))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("interface-data", ("interface_data", Oper.Interface.InterfaceData))])
             self._leafs = OrderedDict([
                 ('ifname', YLeaf(YType.str, 'ifname')),
             ])
@@ -2106,7 +2047,6 @@ class Oper(Entity):
             self.interface_data = Oper.Interface.InterfaceData()
             self.interface_data.parent = self
             self._children_name_map["interface_data"] = "interface-data"
-            self._children_yang_names.add("interface-data")
             self._segment_path = lambda: "interface" + "[ifname='" + str(self.ifname) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/%s" % self._segment_path()
 
@@ -2266,7 +2206,7 @@ class Oper(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-04-12'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(Oper.Interface.InterfaceData, self).__init__()
@@ -2276,8 +2216,7 @@ class Oper(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mac', YLeaf(YType.str, 'mac')),
                     ('ipv4', YLeaf(YType.str, 'ipv4')),
@@ -2342,7 +2281,7 @@ class Oper(Entity):
         """
 
         _prefix = 'shelf_sm'
-        _revision = '2017-04-12'
+        _revision = '2017-07-22'
 
         def __init__(self):
             super(Oper.ReloadVm, self).__init__()
@@ -2352,8 +2291,7 @@ class Oper(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("location", ("location", Oper.ReloadVm.Location))])
+            self._child_classes = OrderedDict([("location", ("location", Oper.ReloadVm.Location))])
             self._leafs = OrderedDict()
 
             self.location = YList(self)
@@ -2378,7 +2316,7 @@ class Oper(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-04-12'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(Oper.ReloadVm.Location, self).__init__()
@@ -2388,8 +2326,7 @@ class Oper(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['location']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('location', YLeaf(YType.str, 'location')),
                 ])
@@ -2415,7 +2352,7 @@ class Oper(Entity):
         """
 
         _prefix = 'shelf_sm'
-        _revision = '2017-04-12'
+        _revision = '2017-07-22'
 
         def __init__(self):
             super(Oper.Macpool, self).__init__()
@@ -2425,16 +2362,17 @@ class Oper(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("brief", ("brief", Oper.Macpool.Brief))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("brief", ("brief", Oper.Macpool.Brief))])
             self._leafs = OrderedDict()
 
             self.brief = Oper.Macpool.Brief()
             self.brief.parent = self
             self._children_name_map["brief"] = "brief"
-            self._children_yang_names.add("brief")
             self._segment_path = lambda: "macpool"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Oper.Macpool, [], name, value)
 
 
         class Brief(Entity):
@@ -2451,7 +2389,7 @@ class Oper(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-04-12'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(Oper.Macpool.Brief, self).__init__()
@@ -2461,8 +2399,7 @@ class Oper(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("rack", ("rack", Oper.Macpool.Brief.Rack))])
+                self._child_classes = OrderedDict([("rack", ("rack", Oper.Macpool.Brief.Rack))])
                 self._leafs = OrderedDict()
 
                 self.rack = YList(self)
@@ -2492,7 +2429,7 @@ class Oper(Entity):
                 """
 
                 _prefix = 'shelf_sm'
-                _revision = '2017-04-12'
+                _revision = '2017-07-22'
 
                 def __init__(self):
                     super(Oper.Macpool.Brief.Rack, self).__init__()
@@ -2502,8 +2439,7 @@ class Oper(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['serial_number']
-                    self._child_container_classes = OrderedDict([("brief-data", ("brief_data", Oper.Macpool.Brief.Rack.BriefData))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("brief-data", ("brief_data", Oper.Macpool.Brief.Rack.BriefData))])
                     self._leafs = OrderedDict([
                         ('serial_number', YLeaf(YType.str, 'serial_number')),
                     ])
@@ -2512,7 +2448,6 @@ class Oper(Entity):
                     self.brief_data = Oper.Macpool.Brief.Rack.BriefData()
                     self.brief_data.parent = self
                     self._children_name_map["brief_data"] = "brief-data"
-                    self._children_yang_names.add("brief-data")
                     self._segment_path = lambda: "rack" + "[serial_number='" + str(self.serial_number) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/macpool/brief/%s" % self._segment_path()
 
@@ -2560,7 +2495,7 @@ class Oper(Entity):
                     """
 
                     _prefix = 'shelf_sm'
-                    _revision = '2017-04-12'
+                    _revision = '2017-07-22'
 
                     def __init__(self):
                         super(Oper.Macpool.Brief.Rack.BriefData, self).__init__()
@@ -2570,8 +2505,7 @@ class Oper(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('racknum', YLeaf(YType.str, 'racknum')),
                             ('mac_base', YLeaf(YType.str, 'mac_base')),
@@ -2622,7 +2556,7 @@ class Config(Entity):
     """
 
     _prefix = 'shelf_sm'
-    _revision = '2017-04-12'
+    _revision = '2017-07-22'
 
     def __init__(self):
         super(Config, self).__init__()
@@ -2633,30 +2567,28 @@ class Config(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("chassis", ("chassis", Config.Chassis)), ("interface", ("interface", Config.Interface)), ("domain", ("domain", Config.Domain)), ("virtual-macaddr-range", ("virtual_macaddr_range", Config.VirtualMacaddrRange))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("chassis", ("chassis", Config.Chassis)), ("interface", ("interface", Config.Interface)), ("domain", ("domain", Config.Domain)), ("virtual-macaddr-range", ("virtual_macaddr_range", Config.VirtualMacaddrRange))])
         self._leafs = OrderedDict()
 
         self.chassis = Config.Chassis()
         self.chassis.parent = self
         self._children_name_map["chassis"] = "chassis"
-        self._children_yang_names.add("chassis")
 
         self.interface = Config.Interface()
         self.interface.parent = self
         self._children_name_map["interface"] = "interface"
-        self._children_yang_names.add("interface")
 
         self.domain = Config.Domain()
         self.domain.parent = self
         self._children_name_map["domain"] = "domain"
-        self._children_yang_names.add("domain")
 
         self.virtual_macaddr_range = Config.VirtualMacaddrRange()
         self.virtual_macaddr_range.parent = self
         self._children_name_map["virtual_macaddr_range"] = "virtual-macaddr-range"
-        self._children_yang_names.add("virtual-macaddr-range")
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-sm:config"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Config, [], name, value)
 
 
     class Chassis(Entity):
@@ -2673,7 +2605,7 @@ class Config(Entity):
         """
 
         _prefix = 'shelf_sm'
-        _revision = '2017-04-12'
+        _revision = '2017-07-22'
 
         def __init__(self):
             super(Config.Chassis, self).__init__()
@@ -2683,8 +2615,7 @@ class Config(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("serial", ("serial", Config.Chassis.Serial))])
+            self._child_classes = OrderedDict([("serial", ("serial", Config.Chassis.Serial))])
             self._leafs = OrderedDict()
 
             self.serial = YList(self)
@@ -2711,7 +2642,7 @@ class Config(Entity):
             	
             	**type**\: str
             
-            	**pattern:** [fF][0\-7]\|[0\-9]\|[1][0\-5]\|[2][4][0\-7]
+            	**pattern:** [bB][0\-9]\|[fF][0\-7]\|[0\-9]\|[1][0\-5]\|[2][4][0\-7]
             
             	**mandatory**\: True
             
@@ -2720,7 +2651,7 @@ class Config(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-04-12'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(Config.Chassis.Serial, self).__init__()
@@ -2730,8 +2661,7 @@ class Config(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['serial']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('serial', YLeaf(YType.str, 'serial')),
                     ('rack', YLeaf(YType.str, 'rack')),
@@ -2759,7 +2689,7 @@ class Config(Entity):
         """
 
         _prefix = 'shelf_sm'
-        _revision = '2017-04-12'
+        _revision = '2017-07-22'
 
         def __init__(self):
             super(Config.Interface, self).__init__()
@@ -2769,16 +2699,17 @@ class Config(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("MgmtEth", ("mgmteth", Config.Interface.MgmtEth))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("MgmtEth", ("mgmteth", Config.Interface.MgmtEth))])
             self._leafs = OrderedDict()
 
             self.mgmteth = Config.Interface.MgmtEth()
             self.mgmteth.parent = self
             self._children_name_map["mgmteth"] = "MgmtEth"
-            self._children_yang_names.add("MgmtEth")
             self._segment_path = lambda: "interface"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:config/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Config.Interface, [], name, value)
 
 
         class MgmtEth(Entity):
@@ -2795,7 +2726,7 @@ class Config(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-04-12'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(Config.Interface.MgmtEth, self).__init__()
@@ -2805,8 +2736,7 @@ class Config(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("locport", ("locport", Config.Interface.MgmtEth.Locport))])
+                self._child_classes = OrderedDict([("locport", ("locport", Config.Interface.MgmtEth.Locport))])
                 self._leafs = OrderedDict()
 
                 self.locport = YList(self)
@@ -2826,14 +2756,14 @@ class Config(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** [fF][0\-7]\|[0\-9]\|[1][0\-5]
+                	**pattern:** [fF][0\-7]\|[0\-9]\|[1][0\-5]\|[bB][0\-9]
                 
                 .. attribute:: slot  (key)
                 
                 	
                 	**type**\: str
                 
-                	**pattern:** [Rr][Pp][0\-1]\|[Rr][Ss][Pp][0\-1]\|[Ss][Cc][0\-1]
+                	**pattern:** [Rr][Pp][0\-1]\|[Rr][Ss][Pp][0\-1]\|[Ss][Cc][0\-1]\|[cC][bB][0\-9]
                 
                 .. attribute:: intf  (key)
                 
@@ -2883,7 +2813,7 @@ class Config(Entity):
                 """
 
                 _prefix = 'shelf_sm'
-                _revision = '2017-04-12'
+                _revision = '2017-07-22'
 
                 def __init__(self):
                     super(Config.Interface.MgmtEth.Locport, self).__init__()
@@ -2893,8 +2823,7 @@ class Config(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['rack','slot','intf','port']
-                    self._child_container_classes = OrderedDict([("ipv4", ("ipv4", Config.Interface.MgmtEth.Locport.Ipv4)), ("arp", ("arp", Config.Interface.MgmtEth.Locport.Arp))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("ipv4", ("ipv4", Config.Interface.MgmtEth.Locport.Ipv4)), ("arp", ("arp", Config.Interface.MgmtEth.Locport.Arp))])
                     self._leafs = OrderedDict([
                         ('rack', YLeaf(YType.str, 'rack')),
                         ('slot', YLeaf(YType.str, 'slot')),
@@ -2915,12 +2844,10 @@ class Config(Entity):
                     self.ipv4 = Config.Interface.MgmtEth.Locport.Ipv4()
                     self.ipv4.parent = self
                     self._children_name_map["ipv4"] = "ipv4"
-                    self._children_yang_names.add("ipv4")
 
                     self.arp = Config.Interface.MgmtEth.Locport.Arp()
                     self.arp.parent = self
                     self._children_name_map["arp"] = "arp"
-                    self._children_yang_names.add("arp")
                     self._segment_path = lambda: "locport" + "[rack='" + str(self.rack) + "']" + "[slot='" + str(self.slot) + "']" + "[intf='" + str(self.intf) + "']" + "[port='" + str(self.port) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:config/interface/MgmtEth/%s" % self._segment_path()
 
@@ -2944,7 +2871,7 @@ class Config(Entity):
                     """
 
                     _prefix = 'shelf_sm'
-                    _revision = '2017-04-12'
+                    _revision = '2017-07-22'
 
                     def __init__(self):
                         super(Config.Interface.MgmtEth.Locport.Ipv4, self).__init__()
@@ -2954,8 +2881,7 @@ class Config(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('address', YLeaf(YType.str, 'address')),
                         ])
@@ -2980,7 +2906,7 @@ class Config(Entity):
                     """
 
                     _prefix = 'shelf_sm'
-                    _revision = '2017-04-12'
+                    _revision = '2017-07-22'
 
                     def __init__(self):
                         super(Config.Interface.MgmtEth.Locport.Arp, self).__init__()
@@ -2990,8 +2916,7 @@ class Config(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("ip", ("ip", Config.Interface.MgmtEth.Locport.Arp.Ip))])
+                        self._child_classes = OrderedDict([("ip", ("ip", Config.Interface.MgmtEth.Locport.Arp.Ip))])
                         self._leafs = OrderedDict()
 
                         self.ip = YList(self)
@@ -3028,7 +2953,7 @@ class Config(Entity):
                         """
 
                         _prefix = 'shelf_sm'
-                        _revision = '2017-04-12'
+                        _revision = '2017-07-22'
 
                         def __init__(self):
                             super(Config.Interface.MgmtEth.Locport.Arp.Ip, self).__init__()
@@ -3038,8 +2963,7 @@ class Config(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['ip']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('ip', YLeaf(YType.str, 'ip')),
                                 ('mac', YLeaf(YType.str, 'mac')),
@@ -3071,7 +2995,7 @@ class Config(Entity):
         """
 
         _prefix = 'shelf_sm'
-        _revision = '2017-04-12'
+        _revision = '2017-07-22'
 
         def __init__(self):
             super(Config.Domain, self).__init__()
@@ -3081,8 +3005,7 @@ class Config(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("name", ("name", Config.Domain.Name)), ("name-server", ("name_server", Config.Domain.NameServer))])
+            self._child_classes = OrderedDict([("name", ("name", Config.Domain.Name)), ("name-server", ("name_server", Config.Domain.NameServer))])
             self._leafs = OrderedDict()
 
             self.name = YList(self)
@@ -3108,7 +3031,7 @@ class Config(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-04-12'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(Config.Domain.Name, self).__init__()
@@ -3118,8 +3041,7 @@ class Config(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                 ])
@@ -3147,7 +3069,7 @@ class Config(Entity):
             """
 
             _prefix = 'shelf_sm'
-            _revision = '2017-04-12'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(Config.Domain.NameServer, self).__init__()
@@ -3157,8 +3079,7 @@ class Config(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name_server']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('name_server', YLeaf(YType.str, 'name-server')),
                 ])
@@ -3193,7 +3114,7 @@ class Config(Entity):
         """
 
         _prefix = 'shelf_sm'
-        _revision = '2017-04-12'
+        _revision = '2017-07-22'
 
         def __init__(self):
             super(Config.VirtualMacaddrRange, self).__init__()
@@ -3203,8 +3124,7 @@ class Config(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('base', YLeaf(YType.str, 'base')),
                 ('count', YLeaf(YType.uint32, 'count')),
@@ -3230,7 +3150,7 @@ class Actions(Entity):
     """
 
     _prefix = 'shelf_sm'
-    _revision = '2017-04-12'
+    _revision = '2017-07-22'
 
     def __init__(self):
         super(Actions, self).__init__()
@@ -3241,8 +3161,7 @@ class Actions(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-sm:actions"
 

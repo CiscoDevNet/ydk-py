@@ -44,7 +44,7 @@ class Tpa(Entity):
     """
 
     _prefix = 'kim-tpa-cfg'
-    _revision = '2015-11-09'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(Tpa, self).__init__()
@@ -55,25 +55,24 @@ class Tpa(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("vrf-names", ("vrf_names", Tpa.VrfNames)), ("logging", ("logging", Tpa.Logging)), ("statistics", ("statistics", Tpa.Statistics))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("vrf-names", ("vrf_names", Tpa.VrfNames)), ("logging", ("logging", Tpa.Logging)), ("statistics", ("statistics", Tpa.Statistics))])
         self._leafs = OrderedDict()
 
         self.vrf_names = Tpa.VrfNames()
         self.vrf_names.parent = self
         self._children_name_map["vrf_names"] = "vrf-names"
-        self._children_yang_names.add("vrf-names")
 
         self.logging = Tpa.Logging()
         self.logging.parent = self
         self._children_name_map["logging"] = "logging"
-        self._children_yang_names.add("logging")
 
         self.statistics = Tpa.Statistics()
         self.statistics.parent = self
         self._children_name_map["statistics"] = "statistics"
-        self._children_yang_names.add("statistics")
         self._segment_path = lambda: "Cisco-IOS-XR-kim-tpa-cfg:tpa"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Tpa, [], name, value)
 
 
     class VrfNames(Entity):
@@ -90,7 +89,7 @@ class Tpa(Entity):
         """
 
         _prefix = 'kim-tpa-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Tpa.VrfNames, self).__init__()
@@ -100,8 +99,7 @@ class Tpa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vrf-name", ("vrf_name", Tpa.VrfNames.VrfName))])
+            self._child_classes = OrderedDict([("vrf-name", ("vrf_name", Tpa.VrfNames.VrfName))])
             self._leafs = OrderedDict()
 
             self.vrf_name = YList(self)
@@ -133,12 +131,17 @@ class Tpa(Entity):
             	Address family
             	**type**\:  :py:class:`AddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily>`
             
+            .. attribute:: disable
+            
+            	Disable routes and interfaces
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
             
 
             """
 
             _prefix = 'kim-tpa-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Tpa.VrfNames.VrfName, self).__init__()
@@ -148,27 +151,26 @@ class Tpa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['vrf_name']
-                self._child_container_classes = OrderedDict([("east-west-names", ("east_west_names", Tpa.VrfNames.VrfName.EastWestNames)), ("address-family", ("address_family", Tpa.VrfNames.VrfName.AddressFamily))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("east-west-names", ("east_west_names", Tpa.VrfNames.VrfName.EastWestNames)), ("address-family", ("address_family", Tpa.VrfNames.VrfName.AddressFamily))])
                 self._leafs = OrderedDict([
                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('disable', YLeaf(YType.empty, 'disable')),
                 ])
                 self.vrf_name = None
+                self.disable = None
 
                 self.east_west_names = Tpa.VrfNames.VrfName.EastWestNames()
                 self.east_west_names.parent = self
                 self._children_name_map["east_west_names"] = "east-west-names"
-                self._children_yang_names.add("east-west-names")
 
                 self.address_family = Tpa.VrfNames.VrfName.AddressFamily()
                 self.address_family.parent = self
                 self._children_name_map["address_family"] = "address-family"
-                self._children_yang_names.add("address-family")
                 self._segment_path = lambda: "vrf-name" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-kim-tpa-cfg:tpa/vrf-names/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Tpa.VrfNames.VrfName, ['vrf_name'], name, value)
+                self._perform_setattr(Tpa.VrfNames.VrfName, ['vrf_name', 'disable'], name, value)
 
 
             class EastWestNames(Entity):
@@ -185,7 +187,7 @@ class Tpa(Entity):
                 """
 
                 _prefix = 'kim-tpa-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Tpa.VrfNames.VrfName.EastWestNames, self).__init__()
@@ -195,8 +197,7 @@ class Tpa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("east-west-name", ("east_west_name", Tpa.VrfNames.VrfName.EastWestNames.EastWestName))])
+                    self._child_classes = OrderedDict([("east-west-name", ("east_west_name", Tpa.VrfNames.VrfName.EastWestNames.EastWestName))])
                     self._leafs = OrderedDict()
 
                     self.east_west_name = YList(self)
@@ -232,7 +233,7 @@ class Tpa(Entity):
                     """
 
                     _prefix = 'kim-tpa-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Tpa.VrfNames.VrfName.EastWestNames.EastWestName, self).__init__()
@@ -242,8 +243,7 @@ class Tpa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['east_west_name']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('east_west_name', YLeaf(YType.str, 'east-west-name')),
                             ('vrf', YLeaf(YType.str, 'vrf')),
@@ -277,7 +277,7 @@ class Tpa(Entity):
                 """
 
                 _prefix = 'kim-tpa-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Tpa.VrfNames.VrfName.AddressFamily, self).__init__()
@@ -287,20 +287,20 @@ class Tpa(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("ipv6", ("ipv6", Tpa.VrfNames.VrfName.AddressFamily.Ipv6)), ("ipv4", ("ipv4", Tpa.VrfNames.VrfName.AddressFamily.Ipv4))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("ipv6", ("ipv6", Tpa.VrfNames.VrfName.AddressFamily.Ipv6)), ("ipv4", ("ipv4", Tpa.VrfNames.VrfName.AddressFamily.Ipv4))])
                     self._leafs = OrderedDict()
 
                     self.ipv6 = Tpa.VrfNames.VrfName.AddressFamily.Ipv6()
                     self.ipv6.parent = self
                     self._children_name_map["ipv6"] = "ipv6"
-                    self._children_yang_names.add("ipv6")
 
                     self.ipv4 = Tpa.VrfNames.VrfName.AddressFamily.Ipv4()
                     self.ipv4.parent = self
                     self._children_name_map["ipv4"] = "ipv4"
-                    self._children_yang_names.add("ipv4")
                     self._segment_path = lambda: "address-family"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily, [], name, value)
 
 
                 class Ipv6(Entity):
@@ -312,19 +312,22 @@ class Tpa(Entity):
                     	Default interface used for routing
                     	**type**\: str
                     
+                    .. attribute:: interface_names
+                    
+                    	Interface used for source address for egress interface
+                    	**type**\:  :py:class:`InterfaceNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames>`
+                    
                     .. attribute:: update_source
                     
-                    	Interface name for source address
-                    	**type**\: str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	Interface used for Source Address
+                    	**type**\:  :py:class:`UpdateSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv6.UpdateSource>`
                     
                     
 
                     """
 
                     _prefix = 'kim-tpa-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6, self).__init__()
@@ -334,18 +337,148 @@ class Tpa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("interface-names", ("interface_names", Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames)), ("update-source", ("update_source", Tpa.VrfNames.VrfName.AddressFamily.Ipv6.UpdateSource))])
                         self._leafs = OrderedDict([
                             ('default_route', YLeaf(YType.str, 'default-route')),
-                            ('update_source', YLeaf(YType.str, 'update-source')),
                         ])
                         self.default_route = None
-                        self.update_source = None
+
+                        self.interface_names = Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames()
+                        self.interface_names.parent = self
+                        self._children_name_map["interface_names"] = "interface-names"
+
+                        self.update_source = Tpa.VrfNames.VrfName.AddressFamily.Ipv6.UpdateSource()
+                        self.update_source.parent = self
+                        self._children_name_map["update_source"] = "update-source"
                         self._segment_path = lambda: "ipv6"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6, ['default_route', 'update_source'], name, value)
+                        self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6, ['default_route'], name, value)
+
+
+                    class InterfaceNames(Entity):
+                        """
+                        Interface used for source address for egress
+                        interface
+                        
+                        .. attribute:: interface_name
+                        
+                        	Egress interface name
+                        	**type**\: list of  		 :py:class:`InterfaceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames.InterfaceName>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'kim-tpa-cfg'
+                        _revision = '2017-09-07'
+
+                        def __init__(self):
+                            super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames, self).__init__()
+
+                            self.yang_name = "interface-names"
+                            self.yang_parent_name = "ipv6"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("interface-name", ("interface_name", Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames.InterfaceName))])
+                            self._leafs = OrderedDict()
+
+                            self.interface_name = YList(self)
+                            self._segment_path = lambda: "interface-names"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames, [], name, value)
+
+
+                        class InterfaceName(Entity):
+                            """
+                            Egress interface name
+                            
+                            .. attribute:: interface_name  (key)
+                            
+                            	Interface
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: egress_interface_source
+                            
+                            	Interface name for source address
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            
+                            
+
+                            """
+
+                            _prefix = 'kim-tpa-cfg'
+                            _revision = '2017-09-07'
+
+                            def __init__(self):
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames.InterfaceName, self).__init__()
+
+                                self.yang_name = "interface-name"
+                                self.yang_parent_name = "interface-names"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['interface_name']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('egress_interface_source', YLeaf(YType.str, 'egress-interface-source')),
+                                ])
+                                self.interface_name = None
+                                self.egress_interface_source = None
+                                self._segment_path = lambda: "interface-name" + "[interface-name='" + str(self.interface_name) + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames.InterfaceName, ['interface_name', 'egress_interface_source'], name, value)
+
+
+                    class UpdateSource(Entity):
+                        """
+                        Interface used for Source Address
+                        
+                        .. attribute:: interface_name
+                        
+                        	Interface name for source address
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        
+                        .. attribute:: active_management
+                        
+                        	Use the management port on the Active RP
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'kim-tpa-cfg'
+                        _revision = '2017-09-07'
+
+                        def __init__(self):
+                            super(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.UpdateSource, self).__init__()
+
+                            self.yang_name = "update-source"
+                            self.yang_parent_name = "ipv6"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('active_management', YLeaf(YType.empty, 'active-management')),
+                            ])
+                            self.interface_name = None
+                            self.active_management = None
+                            self._segment_path = lambda: "update-source"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.UpdateSource, ['interface_name', 'active_management'], name, value)
 
 
                 class Ipv4(Entity):
@@ -357,19 +490,22 @@ class Tpa(Entity):
                     	Default interface used for routing
                     	**type**\: str
                     
+                    .. attribute:: interface_names
+                    
+                    	Interface used for source address for egress interface
+                    	**type**\:  :py:class:`InterfaceNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames>`
+                    
                     .. attribute:: update_source
                     
-                    	Interface name for source address
-                    	**type**\: str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	Interface used for Source Address
+                    	**type**\:  :py:class:`UpdateSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv4.UpdateSource>`
                     
                     
 
                     """
 
                     _prefix = 'kim-tpa-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4, self).__init__()
@@ -379,18 +515,148 @@ class Tpa(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("interface-names", ("interface_names", Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames)), ("update-source", ("update_source", Tpa.VrfNames.VrfName.AddressFamily.Ipv4.UpdateSource))])
                         self._leafs = OrderedDict([
                             ('default_route', YLeaf(YType.str, 'default-route')),
-                            ('update_source', YLeaf(YType.str, 'update-source')),
                         ])
                         self.default_route = None
-                        self.update_source = None
+
+                        self.interface_names = Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames()
+                        self.interface_names.parent = self
+                        self._children_name_map["interface_names"] = "interface-names"
+
+                        self.update_source = Tpa.VrfNames.VrfName.AddressFamily.Ipv4.UpdateSource()
+                        self.update_source.parent = self
+                        self._children_name_map["update_source"] = "update-source"
                         self._segment_path = lambda: "ipv4"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4, ['default_route', 'update_source'], name, value)
+                        self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4, ['default_route'], name, value)
+
+
+                    class InterfaceNames(Entity):
+                        """
+                        Interface used for source address for egress
+                        interface
+                        
+                        .. attribute:: interface_name
+                        
+                        	Egress interface name
+                        	**type**\: list of  		 :py:class:`InterfaceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_kim_tpa_cfg.Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames.InterfaceName>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'kim-tpa-cfg'
+                        _revision = '2017-09-07'
+
+                        def __init__(self):
+                            super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames, self).__init__()
+
+                            self.yang_name = "interface-names"
+                            self.yang_parent_name = "ipv4"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("interface-name", ("interface_name", Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames.InterfaceName))])
+                            self._leafs = OrderedDict()
+
+                            self.interface_name = YList(self)
+                            self._segment_path = lambda: "interface-names"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames, [], name, value)
+
+
+                        class InterfaceName(Entity):
+                            """
+                            Egress interface name
+                            
+                            .. attribute:: interface_name  (key)
+                            
+                            	Interface
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: egress_interface_source
+                            
+                            	Interface name for source address
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            
+                            
+
+                            """
+
+                            _prefix = 'kim-tpa-cfg'
+                            _revision = '2017-09-07'
+
+                            def __init__(self):
+                                super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames.InterfaceName, self).__init__()
+
+                                self.yang_name = "interface-name"
+                                self.yang_parent_name = "interface-names"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['interface_name']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('egress_interface_source', YLeaf(YType.str, 'egress-interface-source')),
+                                ])
+                                self.interface_name = None
+                                self.egress_interface_source = None
+                                self._segment_path = lambda: "interface-name" + "[interface-name='" + str(self.interface_name) + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames.InterfaceName, ['interface_name', 'egress_interface_source'], name, value)
+
+
+                    class UpdateSource(Entity):
+                        """
+                        Interface used for Source Address
+                        
+                        .. attribute:: interface_name
+                        
+                        	Interface name for source address
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        
+                        .. attribute:: active_management
+                        
+                        	Use the management port on the Active RP
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'kim-tpa-cfg'
+                        _revision = '2017-09-07'
+
+                        def __init__(self):
+                            super(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.UpdateSource, self).__init__()
+
+                            self.yang_name = "update-source"
+                            self.yang_parent_name = "ipv4"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('active_management', YLeaf(YType.empty, 'active-management')),
+                            ])
+                            self.interface_name = None
+                            self.active_management = None
+                            self._segment_path = lambda: "update-source"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.UpdateSource, ['interface_name', 'active_management'], name, value)
 
 
     class Logging(Entity):
@@ -407,7 +673,7 @@ class Tpa(Entity):
         """
 
         _prefix = 'kim-tpa-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Tpa.Logging, self).__init__()
@@ -417,16 +683,17 @@ class Tpa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("kim", ("kim", Tpa.Logging.Kim))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("kim", ("kim", Tpa.Logging.Kim))])
             self._leafs = OrderedDict()
 
             self.kim = Tpa.Logging.Kim()
             self.kim.parent = self
             self._children_name_map["kim"] = "kim"
-            self._children_yang_names.add("kim")
             self._segment_path = lambda: "logging"
             self._absolute_path = lambda: "Cisco-IOS-XR-kim-tpa-cfg:tpa/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Tpa.Logging, [], name, value)
 
 
         class Kim(Entity):
@@ -438,14 +705,14 @@ class Tpa(Entity):
             	How many log rotation files to keep
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: file_size_max_kb
             
             	Size in Kilobytes of the log file
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             	**units**\: kilobyte
             
@@ -454,7 +721,7 @@ class Tpa(Entity):
             """
 
             _prefix = 'kim-tpa-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Tpa.Logging.Kim, self).__init__()
@@ -464,11 +731,10 @@ class Tpa(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('rotation_max', YLeaf(YType.int32, 'rotation-max')),
-                    ('file_size_max_kb', YLeaf(YType.int32, 'file-size-max-kb')),
+                    ('rotation_max', YLeaf(YType.uint32, 'rotation-max')),
+                    ('file_size_max_kb', YLeaf(YType.uint32, 'file-size-max-kb')),
                 ])
                 self.rotation_max = None
                 self.file_size_max_kb = None
@@ -488,21 +754,21 @@ class Tpa(Entity):
         	How many interface events to record
         	**type**\: int
         
-        	**range:** \-2147483648..2147483647
+        	**range:** 0..4294967295
         
         .. attribute:: max_lpts_events
         
         	How many LPTS events to record
         	**type**\: int
         
-        	**range:** \-2147483648..2147483647
+        	**range:** 0..4294967295
         
         .. attribute:: statistics_update_frequency
         
         	Statistics update frequency into Linux
         	**type**\: int
         
-        	**range:** \-2147483648..2147483647
+        	**range:** 0..4294967295
         
         	**units**\: second
         
@@ -511,7 +777,7 @@ class Tpa(Entity):
         """
 
         _prefix = 'kim-tpa-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Tpa.Statistics, self).__init__()
@@ -521,12 +787,11 @@ class Tpa(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('max_intf_events', YLeaf(YType.int32, 'max-intf-events')),
-                ('max_lpts_events', YLeaf(YType.int32, 'max-lpts-events')),
-                ('statistics_update_frequency', YLeaf(YType.int32, 'statistics-update-frequency')),
+                ('max_intf_events', YLeaf(YType.uint32, 'max-intf-events')),
+                ('max_lpts_events', YLeaf(YType.uint32, 'max-lpts-events')),
+                ('statistics_update_frequency', YLeaf(YType.uint32, 'statistics-update-frequency')),
             ])
             self.max_intf_events = None
             self.max_lpts_events = None

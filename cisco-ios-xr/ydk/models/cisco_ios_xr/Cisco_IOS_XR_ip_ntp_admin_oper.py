@@ -260,7 +260,7 @@ class Ntp(Entity):
     """
 
     _prefix = 'ip-ntp-admin-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(Ntp, self).__init__()
@@ -271,15 +271,16 @@ class Ntp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("racks", ("racks", Ntp.Racks))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("racks", ("racks", Ntp.Racks))])
         self._leafs = OrderedDict()
 
         self.racks = Ntp.Racks()
         self.racks.parent = self
         self._children_name_map["racks"] = "racks"
-        self._children_yang_names.add("racks")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-ntp-admin-oper:ntp"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Ntp, [], name, value)
 
 
     class Racks(Entity):
@@ -296,7 +297,7 @@ class Ntp(Entity):
         """
 
         _prefix = 'ip-ntp-admin-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Ntp.Racks, self).__init__()
@@ -306,8 +307,7 @@ class Ntp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("rack", ("rack", Ntp.Racks.Rack))])
+            self._child_classes = OrderedDict([("rack", ("rack", Ntp.Racks.Rack))])
             self._leafs = OrderedDict()
 
             self.rack = YList(self)
@@ -327,7 +327,7 @@ class Ntp(Entity):
             	The rack number
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: slots
             
@@ -339,7 +339,7 @@ class Ntp(Entity):
             """
 
             _prefix = 'ip-ntp-admin-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Ntp.Racks.Rack, self).__init__()
@@ -349,17 +349,15 @@ class Ntp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['number']
-                self._child_container_classes = OrderedDict([("slots", ("slots", Ntp.Racks.Rack.Slots))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("slots", ("slots", Ntp.Racks.Rack.Slots))])
                 self._leafs = OrderedDict([
-                    ('number', YLeaf(YType.int32, 'number')),
+                    ('number', YLeaf(YType.uint32, 'number')),
                 ])
                 self.number = None
 
                 self.slots = Ntp.Racks.Rack.Slots()
                 self.slots.parent = self
                 self._children_name_map["slots"] = "slots"
-                self._children_yang_names.add("slots")
                 self._segment_path = lambda: "rack" + "[number='" + str(self.number) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-admin-oper:ntp/racks/%s" % self._segment_path()
 
@@ -381,7 +379,7 @@ class Ntp(Entity):
                 """
 
                 _prefix = 'ip-ntp-admin-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Ntp.Racks.Rack.Slots, self).__init__()
@@ -391,8 +389,7 @@ class Ntp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("slot", ("slot", Ntp.Racks.Rack.Slots.Slot))])
+                    self._child_classes = OrderedDict([("slot", ("slot", Ntp.Racks.Rack.Slots.Slot))])
                     self._leafs = OrderedDict()
 
                     self.slot = YList(self)
@@ -411,7 +408,7 @@ class Ntp(Entity):
                     	The slot number
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     .. attribute:: instances
                     
@@ -423,7 +420,7 @@ class Ntp(Entity):
                     """
 
                     _prefix = 'ip-ntp-admin-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Ntp.Racks.Rack.Slots.Slot, self).__init__()
@@ -433,17 +430,15 @@ class Ntp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['number']
-                        self._child_container_classes = OrderedDict([("instances", ("instances", Ntp.Racks.Rack.Slots.Slot.Instances))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("instances", ("instances", Ntp.Racks.Rack.Slots.Slot.Instances))])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.int32, 'number')),
+                            ('number', YLeaf(YType.uint32, 'number')),
                         ])
                         self.number = None
 
                         self.instances = Ntp.Racks.Rack.Slots.Slot.Instances()
                         self.instances.parent = self
                         self._children_name_map["instances"] = "instances"
-                        self._children_yang_names.add("instances")
                         self._segment_path = lambda: "slot" + "[number='" + str(self.number) + "']"
 
                     def __setattr__(self, name, value):
@@ -464,7 +459,7 @@ class Ntp(Entity):
                         """
 
                         _prefix = 'ip-ntp-admin-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Ntp.Racks.Rack.Slots.Slot.Instances, self).__init__()
@@ -474,8 +469,7 @@ class Ntp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("instance", ("instance", Ntp.Racks.Rack.Slots.Slot.Instances.Instance))])
+                            self._child_classes = OrderedDict([("instance", ("instance", Ntp.Racks.Rack.Slots.Slot.Instances.Instance))])
                             self._leafs = OrderedDict()
 
                             self.instance = YList(self)
@@ -495,7 +489,7 @@ class Ntp(Entity):
                             	The instance number
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: status
                             
@@ -517,7 +511,7 @@ class Ntp(Entity):
                             """
 
                             _prefix = 'ip-ntp-admin-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance, self).__init__()
@@ -527,27 +521,23 @@ class Ntp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['number']
-                                self._child_container_classes = OrderedDict([("status", ("status", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status)), ("associations", ("associations", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations)), ("associations-detail", ("associations_detail", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("status", ("status", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status)), ("associations", ("associations", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations)), ("associations-detail", ("associations_detail", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail))])
                                 self._leafs = OrderedDict([
-                                    ('number', YLeaf(YType.int32, 'number')),
+                                    ('number', YLeaf(YType.uint32, 'number')),
                                 ])
                                 self.number = None
 
                                 self.status = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status()
                                 self.status.parent = self
                                 self._children_name_map["status"] = "status"
-                                self._children_yang_names.add("status")
 
                                 self.associations = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations()
                                 self.associations.parent = self
                                 self._children_name_map["associations"] = "associations"
-                                self._children_yang_names.add("associations")
 
                                 self.associations_detail = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail()
                                 self.associations_detail.parent = self
                                 self._children_name_map["associations_detail"] = "associations-detail"
-                                self._children_yang_names.add("associations-detail")
                                 self._segment_path = lambda: "instance" + "[number='" + str(self.number) + "']"
 
                             def __setattr__(self, name, value):
@@ -657,7 +647,7 @@ class Ntp(Entity):
                                 """
 
                                 _prefix = 'ip-ntp-admin-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status, self).__init__()
@@ -667,8 +657,7 @@ class Ntp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("sys-ref-time", ("sys_ref_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime)), ("sys-drift", ("sys_drift", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("sys-ref-time", ("sys_ref_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime)), ("sys-drift", ("sys_drift", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift))])
                                     self._leafs = OrderedDict([
                                         ('is_ntp_enabled', YLeaf(YType.boolean, 'is-ntp-enabled')),
                                         ('sys_dispersion', YLeaf(YType.str, 'sys-dispersion')),
@@ -703,16 +692,14 @@ class Ntp(Entity):
                                     self.sys_ref_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime()
                                     self.sys_ref_time.parent = self
                                     self._children_name_map["sys_ref_time"] = "sys-ref-time"
-                                    self._children_yang_names.add("sys-ref-time")
 
                                     self.sys_drift = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift()
                                     self.sys_drift.parent = self
                                     self._children_name_map["sys_drift"] = "sys-drift"
-                                    self._children_yang_names.add("sys-drift")
                                     self._segment_path = lambda: "status"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status, ['is_ntp_enabled', 'sys_dispersion', 'sys_offset', 'clock_period', 'sys_leap', 'sys_precision', 'sys_stratum', 'sys_ref_id', 'sys_root_delay', 'sys_root_dispersion', 'loop_filter_state', 'poll_interval', 'is_updated', 'last_update'], name, value)
+                                    self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status, [u'is_ntp_enabled', u'sys_dispersion', u'sys_offset', u'clock_period', u'sys_leap', u'sys_precision', u'sys_stratum', u'sys_ref_id', u'sys_root_delay', u'sys_root_dispersion', u'loop_filter_state', u'poll_interval', u'is_updated', u'last_update'], name, value)
 
 
                                 class SysRefTime(Entity):
@@ -734,7 +721,7 @@ class Ntp(Entity):
                                     """
 
                                     _prefix = 'ip-ntp-admin-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime, self).__init__()
@@ -744,20 +731,20 @@ class Ntp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("sec", ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec)), ("frac-secs", ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("sec", ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec)), ("frac-secs", ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs))])
                                         self._leafs = OrderedDict()
 
                                         self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec()
                                         self.sec.parent = self
                                         self._children_name_map["sec"] = "sec"
-                                        self._children_yang_names.add("sec")
 
                                         self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs()
                                         self.frac_secs.parent = self
                                         self._children_name_map["frac_secs"] = "frac-secs"
-                                        self._children_yang_names.add("frac-secs")
                                         self._segment_path = lambda: "sys-ref-time"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime, [], name, value)
 
 
                                     class Sec(Entity):
@@ -776,7 +763,7 @@ class Ntp(Entity):
                                         """
 
                                         _prefix = 'ip-ntp-admin-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec, self).__init__()
@@ -786,8 +773,7 @@ class Ntp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('int', YLeaf(YType.uint32, 'int')),
                                             ])
@@ -795,7 +781,7 @@ class Ntp(Entity):
                                             self._segment_path = lambda: "sec"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec, ['int'], name, value)
+                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec, [u'int'], name, value)
 
 
                                     class FracSecs(Entity):
@@ -814,7 +800,7 @@ class Ntp(Entity):
                                         """
 
                                         _prefix = 'ip-ntp-admin-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs, self).__init__()
@@ -824,8 +810,7 @@ class Ntp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('frac', YLeaf(YType.uint32, 'frac')),
                                             ])
@@ -833,7 +818,7 @@ class Ntp(Entity):
                                             self._segment_path = lambda: "frac-secs"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs, ['frac'], name, value)
+                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs, [u'frac'], name, value)
 
 
                                 class SysDrift(Entity):
@@ -855,7 +840,7 @@ class Ntp(Entity):
                                     """
 
                                     _prefix = 'ip-ntp-admin-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift, self).__init__()
@@ -865,20 +850,20 @@ class Ntp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("sec", ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec)), ("frac-secs", ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("sec", ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec)), ("frac-secs", ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs))])
                                         self._leafs = OrderedDict()
 
                                         self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec()
                                         self.sec.parent = self
                                         self._children_name_map["sec"] = "sec"
-                                        self._children_yang_names.add("sec")
 
                                         self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs()
                                         self.frac_secs.parent = self
                                         self._children_name_map["frac_secs"] = "frac-secs"
-                                        self._children_yang_names.add("frac-secs")
                                         self._segment_path = lambda: "sys-drift"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift, [], name, value)
 
 
                                     class Sec(Entity):
@@ -897,7 +882,7 @@ class Ntp(Entity):
                                         """
 
                                         _prefix = 'ip-ntp-admin-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec, self).__init__()
@@ -907,8 +892,7 @@ class Ntp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('int', YLeaf(YType.uint32, 'int')),
                                             ])
@@ -916,7 +900,7 @@ class Ntp(Entity):
                                             self._segment_path = lambda: "sec"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec, ['int'], name, value)
+                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec, [u'int'], name, value)
 
 
                                     class FracSecs(Entity):
@@ -935,7 +919,7 @@ class Ntp(Entity):
                                         """
 
                                         _prefix = 'ip-ntp-admin-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs, self).__init__()
@@ -945,8 +929,7 @@ class Ntp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('frac', YLeaf(YType.uint32, 'frac')),
                                             ])
@@ -954,7 +937,7 @@ class Ntp(Entity):
                                             self._segment_path = lambda: "frac-secs"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs, ['frac'], name, value)
+                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs, [u'frac'], name, value)
 
 
                             class Associations(Entity):
@@ -981,7 +964,7 @@ class Ntp(Entity):
                                 """
 
                                 _prefix = 'ip-ntp-admin-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations, self).__init__()
@@ -991,8 +974,7 @@ class Ntp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("peer-summary-info", ("peer_summary_info", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo))])
+                                    self._child_classes = OrderedDict([("peer-summary-info", ("peer_summary_info", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo))])
                                     self._leafs = OrderedDict([
                                         ('is_ntp_enabled', YLeaf(YType.boolean, 'is-ntp-enabled')),
                                         ('sys_leap', YLeaf(YType.enumeration, 'sys-leap')),
@@ -1004,7 +986,7 @@ class Ntp(Entity):
                                     self._segment_path = lambda: "associations"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations, ['is_ntp_enabled', 'sys_leap'], name, value)
+                                    self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations, [u'is_ntp_enabled', u'sys_leap'], name, value)
 
 
                                 class PeerSummaryInfo(Entity):
@@ -1028,7 +1010,7 @@ class Ntp(Entity):
                                     """
 
                                     _prefix = 'ip-ntp-admin-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo, self).__init__()
@@ -1038,8 +1020,7 @@ class Ntp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peer-info-common", ("peer_info_common", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo.PeerInfoCommon))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("peer-info-common", ("peer_info_common", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo.PeerInfoCommon))])
                                         self._leafs = OrderedDict([
                                             ('time_since', YLeaf(YType.int32, 'time-since')),
                                         ])
@@ -1048,11 +1029,10 @@ class Ntp(Entity):
                                         self.peer_info_common = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo.PeerInfoCommon()
                                         self.peer_info_common.parent = self
                                         self._children_name_map["peer_info_common"] = "peer-info-common"
-                                        self._children_yang_names.add("peer-info-common")
                                         self._segment_path = lambda: "peer-summary-info"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo, ['time_since'], name, value)
+                                        self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo, [u'time_since'], name, value)
 
 
                                     class PeerInfoCommon(Entity):
@@ -1132,7 +1112,7 @@ class Ntp(Entity):
                                         """
 
                                         _prefix = 'ip-ntp-admin-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo.PeerInfoCommon, self).__init__()
@@ -1142,8 +1122,7 @@ class Ntp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('host_mode', YLeaf(YType.enumeration, 'host-mode')),
                                                 ('is_configured', YLeaf(YType.boolean, 'is-configured')),
@@ -1173,7 +1152,7 @@ class Ntp(Entity):
                                             self._segment_path = lambda: "peer-info-common"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo.PeerInfoCommon, ['host_mode', 'is_configured', 'address', 'reference_id', 'host_poll', 'reachability', 'stratum', 'status', 'delay', 'offset', 'dispersion', 'is_sys_peer'], name, value)
+                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo.PeerInfoCommon, [u'host_mode', u'is_configured', u'address', u'reference_id', u'host_poll', u'reachability', u'stratum', u'status', u'delay', u'offset', u'dispersion', u'is_sys_peer'], name, value)
 
 
                             class AssociationsDetail(Entity):
@@ -1200,7 +1179,7 @@ class Ntp(Entity):
                                 """
 
                                 _prefix = 'ip-ntp-admin-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail, self).__init__()
@@ -1210,8 +1189,7 @@ class Ntp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("peer-detail-info", ("peer_detail_info", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo))])
+                                    self._child_classes = OrderedDict([("peer-detail-info", ("peer_detail_info", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo))])
                                     self._leafs = OrderedDict([
                                         ('is_ntp_enabled', YLeaf(YType.boolean, 'is-ntp-enabled')),
                                         ('sys_leap', YLeaf(YType.enumeration, 'sys-leap')),
@@ -1223,7 +1201,7 @@ class Ntp(Entity):
                                     self._segment_path = lambda: "associations-detail"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail, ['is_ntp_enabled', 'sys_leap'], name, value)
+                                    self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail, [u'is_ntp_enabled', u'sys_leap'], name, value)
 
 
                                 class PeerDetailInfo(Entity):
@@ -1328,7 +1306,7 @@ class Ntp(Entity):
                                     """
 
                                     _prefix = 'ip-ntp-admin-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-09-07'
 
                                     def __init__(self):
                                         super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo, self).__init__()
@@ -1338,8 +1316,7 @@ class Ntp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("peer-info-common", ("peer_info_common", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon)), ("ref-time", ("ref_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime)), ("originate-time", ("originate_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime)), ("receive-time", ("receive_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime)), ("transmit-time", ("transmit_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime))])
-                                        self._child_list_classes = OrderedDict([("filter-detail", ("filter_detail", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail))])
+                                        self._child_classes = OrderedDict([("peer-info-common", ("peer_info_common", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon)), ("ref-time", ("ref_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime)), ("originate-time", ("originate_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime)), ("receive-time", ("receive_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime)), ("transmit-time", ("transmit_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime)), ("filter-detail", ("filter_detail", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail))])
                                         self._leafs = OrderedDict([
                                             ('leap', YLeaf(YType.enumeration, 'leap')),
                                             ('peer_mode', YLeaf(YType.enumeration, 'peer-mode')),
@@ -1368,33 +1345,28 @@ class Ntp(Entity):
                                         self.peer_info_common = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon()
                                         self.peer_info_common.parent = self
                                         self._children_name_map["peer_info_common"] = "peer-info-common"
-                                        self._children_yang_names.add("peer-info-common")
 
                                         self.ref_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime()
                                         self.ref_time.parent = self
                                         self._children_name_map["ref_time"] = "ref-time"
-                                        self._children_yang_names.add("ref-time")
 
                                         self.originate_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime()
                                         self.originate_time.parent = self
                                         self._children_name_map["originate_time"] = "originate-time"
-                                        self._children_yang_names.add("originate-time")
 
                                         self.receive_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime()
                                         self.receive_time.parent = self
                                         self._children_name_map["receive_time"] = "receive-time"
-                                        self._children_yang_names.add("receive-time")
 
                                         self.transmit_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime()
                                         self.transmit_time.parent = self
                                         self._children_name_map["transmit_time"] = "transmit-time"
-                                        self._children_yang_names.add("transmit-time")
 
                                         self.filter_detail = YList(self)
                                         self._segment_path = lambda: "peer-detail-info"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo, ['leap', 'peer_mode', 'poll_interval', 'is_ref_clock', 'is_authenticated', 'root_delay', 'root_dispersion', 'synch_distance', 'precision', 'version', 'filter_index'], name, value)
+                                        self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo, [u'leap', u'peer_mode', u'poll_interval', u'is_ref_clock', u'is_authenticated', u'root_delay', u'root_dispersion', u'synch_distance', u'precision', u'version', u'filter_index'], name, value)
 
 
                                     class PeerInfoCommon(Entity):
@@ -1474,7 +1446,7 @@ class Ntp(Entity):
                                         """
 
                                         _prefix = 'ip-ntp-admin-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon, self).__init__()
@@ -1484,8 +1456,7 @@ class Ntp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('host_mode', YLeaf(YType.enumeration, 'host-mode')),
                                                 ('is_configured', YLeaf(YType.boolean, 'is-configured')),
@@ -1515,7 +1486,7 @@ class Ntp(Entity):
                                             self._segment_path = lambda: "peer-info-common"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon, ['host_mode', 'is_configured', 'address', 'reference_id', 'host_poll', 'reachability', 'stratum', 'status', 'delay', 'offset', 'dispersion', 'is_sys_peer'], name, value)
+                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon, [u'host_mode', u'is_configured', u'address', u'reference_id', u'host_poll', u'reachability', u'stratum', u'status', u'delay', u'offset', u'dispersion', u'is_sys_peer'], name, value)
 
 
                                     class RefTime(Entity):
@@ -1537,7 +1508,7 @@ class Ntp(Entity):
                                         """
 
                                         _prefix = 'ip-ntp-admin-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime, self).__init__()
@@ -1547,20 +1518,20 @@ class Ntp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("sec", ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec)), ("frac-secs", ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("sec", ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec)), ("frac-secs", ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs))])
                                             self._leafs = OrderedDict()
 
                                             self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec()
                                             self.sec.parent = self
                                             self._children_name_map["sec"] = "sec"
-                                            self._children_yang_names.add("sec")
 
                                             self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs()
                                             self.frac_secs.parent = self
                                             self._children_name_map["frac_secs"] = "frac-secs"
-                                            self._children_yang_names.add("frac-secs")
                                             self._segment_path = lambda: "ref-time"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime, [], name, value)
 
 
                                         class Sec(Entity):
@@ -1579,7 +1550,7 @@ class Ntp(Entity):
                                             """
 
                                             _prefix = 'ip-ntp-admin-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec, self).__init__()
@@ -1589,8 +1560,7 @@ class Ntp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('int', YLeaf(YType.uint32, 'int')),
                                                 ])
@@ -1598,7 +1568,7 @@ class Ntp(Entity):
                                                 self._segment_path = lambda: "sec"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec, ['int'], name, value)
+                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec, [u'int'], name, value)
 
 
                                         class FracSecs(Entity):
@@ -1617,7 +1587,7 @@ class Ntp(Entity):
                                             """
 
                                             _prefix = 'ip-ntp-admin-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs, self).__init__()
@@ -1627,8 +1597,7 @@ class Ntp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('frac', YLeaf(YType.uint32, 'frac')),
                                                 ])
@@ -1636,7 +1605,7 @@ class Ntp(Entity):
                                                 self._segment_path = lambda: "frac-secs"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs, ['frac'], name, value)
+                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs, [u'frac'], name, value)
 
 
                                     class OriginateTime(Entity):
@@ -1658,7 +1627,7 @@ class Ntp(Entity):
                                         """
 
                                         _prefix = 'ip-ntp-admin-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime, self).__init__()
@@ -1668,20 +1637,20 @@ class Ntp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("sec", ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec)), ("frac-secs", ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("sec", ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec)), ("frac-secs", ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs))])
                                             self._leafs = OrderedDict()
 
                                             self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec()
                                             self.sec.parent = self
                                             self._children_name_map["sec"] = "sec"
-                                            self._children_yang_names.add("sec")
 
                                             self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs()
                                             self.frac_secs.parent = self
                                             self._children_name_map["frac_secs"] = "frac-secs"
-                                            self._children_yang_names.add("frac-secs")
                                             self._segment_path = lambda: "originate-time"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime, [], name, value)
 
 
                                         class Sec(Entity):
@@ -1700,7 +1669,7 @@ class Ntp(Entity):
                                             """
 
                                             _prefix = 'ip-ntp-admin-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec, self).__init__()
@@ -1710,8 +1679,7 @@ class Ntp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('int', YLeaf(YType.uint32, 'int')),
                                                 ])
@@ -1719,7 +1687,7 @@ class Ntp(Entity):
                                                 self._segment_path = lambda: "sec"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec, ['int'], name, value)
+                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec, [u'int'], name, value)
 
 
                                         class FracSecs(Entity):
@@ -1738,7 +1706,7 @@ class Ntp(Entity):
                                             """
 
                                             _prefix = 'ip-ntp-admin-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs, self).__init__()
@@ -1748,8 +1716,7 @@ class Ntp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('frac', YLeaf(YType.uint32, 'frac')),
                                                 ])
@@ -1757,7 +1724,7 @@ class Ntp(Entity):
                                                 self._segment_path = lambda: "frac-secs"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs, ['frac'], name, value)
+                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs, [u'frac'], name, value)
 
 
                                     class ReceiveTime(Entity):
@@ -1779,7 +1746,7 @@ class Ntp(Entity):
                                         """
 
                                         _prefix = 'ip-ntp-admin-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime, self).__init__()
@@ -1789,20 +1756,20 @@ class Ntp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("sec", ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec)), ("frac-secs", ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("sec", ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec)), ("frac-secs", ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs))])
                                             self._leafs = OrderedDict()
 
                                             self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec()
                                             self.sec.parent = self
                                             self._children_name_map["sec"] = "sec"
-                                            self._children_yang_names.add("sec")
 
                                             self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs()
                                             self.frac_secs.parent = self
                                             self._children_name_map["frac_secs"] = "frac-secs"
-                                            self._children_yang_names.add("frac-secs")
                                             self._segment_path = lambda: "receive-time"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime, [], name, value)
 
 
                                         class Sec(Entity):
@@ -1821,7 +1788,7 @@ class Ntp(Entity):
                                             """
 
                                             _prefix = 'ip-ntp-admin-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec, self).__init__()
@@ -1831,8 +1798,7 @@ class Ntp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('int', YLeaf(YType.uint32, 'int')),
                                                 ])
@@ -1840,7 +1806,7 @@ class Ntp(Entity):
                                                 self._segment_path = lambda: "sec"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec, ['int'], name, value)
+                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec, [u'int'], name, value)
 
 
                                         class FracSecs(Entity):
@@ -1859,7 +1825,7 @@ class Ntp(Entity):
                                             """
 
                                             _prefix = 'ip-ntp-admin-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs, self).__init__()
@@ -1869,8 +1835,7 @@ class Ntp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('frac', YLeaf(YType.uint32, 'frac')),
                                                 ])
@@ -1878,7 +1843,7 @@ class Ntp(Entity):
                                                 self._segment_path = lambda: "frac-secs"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs, ['frac'], name, value)
+                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs, [u'frac'], name, value)
 
 
                                     class TransmitTime(Entity):
@@ -1900,7 +1865,7 @@ class Ntp(Entity):
                                         """
 
                                         _prefix = 'ip-ntp-admin-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime, self).__init__()
@@ -1910,20 +1875,20 @@ class Ntp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("sec", ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec)), ("frac-secs", ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("sec", ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec)), ("frac-secs", ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs))])
                                             self._leafs = OrderedDict()
 
                                             self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec()
                                             self.sec.parent = self
                                             self._children_name_map["sec"] = "sec"
-                                            self._children_yang_names.add("sec")
 
                                             self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs()
                                             self.frac_secs.parent = self
                                             self._children_name_map["frac_secs"] = "frac-secs"
-                                            self._children_yang_names.add("frac-secs")
                                             self._segment_path = lambda: "transmit-time"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime, [], name, value)
 
 
                                         class Sec(Entity):
@@ -1942,7 +1907,7 @@ class Ntp(Entity):
                                             """
 
                                             _prefix = 'ip-ntp-admin-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec, self).__init__()
@@ -1952,8 +1917,7 @@ class Ntp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('int', YLeaf(YType.uint32, 'int')),
                                                 ])
@@ -1961,7 +1925,7 @@ class Ntp(Entity):
                                                 self._segment_path = lambda: "sec"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec, ['int'], name, value)
+                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec, [u'int'], name, value)
 
 
                                         class FracSecs(Entity):
@@ -1980,7 +1944,7 @@ class Ntp(Entity):
                                             """
 
                                             _prefix = 'ip-ntp-admin-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-09-07'
 
                                             def __init__(self):
                                                 super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs, self).__init__()
@@ -1990,8 +1954,7 @@ class Ntp(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('frac', YLeaf(YType.uint32, 'frac')),
                                                 ])
@@ -1999,7 +1962,7 @@ class Ntp(Entity):
                                                 self._segment_path = lambda: "frac-secs"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs, ['frac'], name, value)
+                                                self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs, [u'frac'], name, value)
 
 
                                     class FilterDetail(Entity):
@@ -2026,7 +1989,7 @@ class Ntp(Entity):
                                         """
 
                                         _prefix = 'ip-ntp-admin-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-09-07'
 
                                         def __init__(self):
                                             super(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail, self).__init__()
@@ -2036,8 +1999,7 @@ class Ntp(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('filter_delay', YLeaf(YType.str, 'filter-delay')),
                                                 ('filter_offset', YLeaf(YType.str, 'filter-offset')),
@@ -2049,7 +2011,7 @@ class Ntp(Entity):
                                             self._segment_path = lambda: "filter-detail"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail, ['filter_delay', 'filter_offset', 'filter_disp'], name, value)
+                                            self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail, [u'filter_delay', u'filter_offset', u'filter_disp'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ntp()

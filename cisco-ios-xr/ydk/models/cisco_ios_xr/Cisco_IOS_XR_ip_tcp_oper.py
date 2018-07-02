@@ -1398,15 +1398,16 @@ class TcpConnection(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", TcpConnection.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", TcpConnection.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = TcpConnection.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-tcp-oper:tcp-connection"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(TcpConnection, [], name, value)
 
 
     class Nodes(Entity):
@@ -1434,8 +1435,7 @@ class TcpConnection(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", TcpConnection.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", TcpConnection.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -1492,8 +1492,7 @@ class TcpConnection(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['id']
-                self._child_container_classes = OrderedDict([("statistics", ("statistics", TcpConnection.Nodes.Node.Statistics)), ("extended-information", ("extended_information", TcpConnection.Nodes.Node.ExtendedInformation)), ("detail-informations", ("detail_informations", TcpConnection.Nodes.Node.DetailInformations)), ("brief-informations", ("brief_informations", TcpConnection.Nodes.Node.BriefInformations))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("statistics", ("statistics", TcpConnection.Nodes.Node.Statistics)), ("extended-information", ("extended_information", TcpConnection.Nodes.Node.ExtendedInformation)), ("detail-informations", ("detail_informations", TcpConnection.Nodes.Node.DetailInformations)), ("brief-informations", ("brief_informations", TcpConnection.Nodes.Node.BriefInformations))])
                 self._leafs = OrderedDict([
                     ('id', YLeaf(YType.str, 'id')),
                 ])
@@ -1502,22 +1501,18 @@ class TcpConnection(Entity):
                 self.statistics = TcpConnection.Nodes.Node.Statistics()
                 self.statistics.parent = self
                 self._children_name_map["statistics"] = "statistics"
-                self._children_yang_names.add("statistics")
 
                 self.extended_information = TcpConnection.Nodes.Node.ExtendedInformation()
                 self.extended_information.parent = self
                 self._children_name_map["extended_information"] = "extended-information"
-                self._children_yang_names.add("extended-information")
 
                 self.detail_informations = TcpConnection.Nodes.Node.DetailInformations()
                 self.detail_informations.parent = self
                 self._children_name_map["detail_informations"] = "detail-informations"
-                self._children_yang_names.add("detail-informations")
 
                 self.brief_informations = TcpConnection.Nodes.Node.BriefInformations()
                 self.brief_informations.parent = self
                 self._children_name_map["brief_informations"] = "brief-informations"
-                self._children_yang_names.add("brief-informations")
                 self._segment_path = lambda: "node" + "[id='" + str(self.id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-tcp-oper:tcp-connection/nodes/%s" % self._segment_path()
 
@@ -1559,25 +1554,24 @@ class TcpConnection(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("clients", ("clients", TcpConnection.Nodes.Node.Statistics.Clients)), ("pcbs", ("pcbs", TcpConnection.Nodes.Node.Statistics.Pcbs)), ("summary", ("summary", TcpConnection.Nodes.Node.Statistics.Summary))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("clients", ("clients", TcpConnection.Nodes.Node.Statistics.Clients)), ("pcbs", ("pcbs", TcpConnection.Nodes.Node.Statistics.Pcbs)), ("summary", ("summary", TcpConnection.Nodes.Node.Statistics.Summary))])
                     self._leafs = OrderedDict()
 
                     self.clients = TcpConnection.Nodes.Node.Statistics.Clients()
                     self.clients.parent = self
                     self._children_name_map["clients"] = "clients"
-                    self._children_yang_names.add("clients")
 
                     self.pcbs = TcpConnection.Nodes.Node.Statistics.Pcbs()
                     self.pcbs.parent = self
                     self._children_name_map["pcbs"] = "pcbs"
-                    self._children_yang_names.add("pcbs")
 
                     self.summary = TcpConnection.Nodes.Node.Statistics.Summary()
                     self.summary.parent = self
                     self._children_name_map["summary"] = "summary"
-                    self._children_yang_names.add("summary")
                     self._segment_path = lambda: "statistics"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics, [], name, value)
 
 
                 class Clients(Entity):
@@ -1604,8 +1598,7 @@ class TcpConnection(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("client", ("client", TcpConnection.Nodes.Node.Statistics.Clients.Client))])
+                        self._child_classes = OrderedDict([("client", ("client", TcpConnection.Nodes.Node.Statistics.Clients.Client))])
                         self._leafs = OrderedDict()
 
                         self.client = YList(self)
@@ -1683,8 +1676,7 @@ class TcpConnection(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['client_id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('client_id', YLeaf(YType.uint32, 'client-id')),
                                 ('client_jid', YLeaf(YType.int32, 'client-jid')),
@@ -1732,8 +1724,7 @@ class TcpConnection(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("pcb", ("pcb", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb))])
+                        self._child_classes = OrderedDict([("pcb", ("pcb", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb))])
                         self._leafs = OrderedDict()
 
                         self.pcb = YList(self)
@@ -1894,8 +1885,7 @@ class TcpConnection(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['id']
-                            self._child_container_classes = OrderedDict([("read-io-counts", ("read_io_counts", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.ReadIoCounts)), ("write-io-counts", ("write_io_counts", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.WriteIoCounts)), ("async-session-stats", ("async_session_stats", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("read-io-counts", ("read_io_counts", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.ReadIoCounts)), ("write-io-counts", ("write_io_counts", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.WriteIoCounts)), ("async-session-stats", ("async_session_stats", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats))])
                             self._leafs = OrderedDict([
                                 ('id', YLeaf(YType.str, 'id')),
                                 ('pcb', YLeaf(YType.uint64, 'pcb')),
@@ -1936,21 +1926,18 @@ class TcpConnection(Entity):
                             self.read_io_counts = TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.ReadIoCounts()
                             self.read_io_counts.parent = self
                             self._children_name_map["read_io_counts"] = "read-io-counts"
-                            self._children_yang_names.add("read-io-counts")
 
                             self.write_io_counts = TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.WriteIoCounts()
                             self.write_io_counts.parent = self
                             self._children_name_map["write_io_counts"] = "write-io-counts"
-                            self._children_yang_names.add("write-io-counts")
 
                             self.async_session_stats = TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats()
                             self.async_session_stats.parent = self
                             self._children_name_map["async_session_stats"] = "async-session-stats"
-                            self._children_yang_names.add("async-session-stats")
                             self._segment_path = lambda: "pcb" + "[id='" + str(self.id) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb, ['id', 'pcb', 'vrf_id', 'packets_sent', 'xipc_pulse_received', 'segment_instruction_received', 'send_packets_queued', 'send_packets_queued_net_io', 'send_queue_failed', 'send_queue_net_io_failed', 'packets_received', 'receive_queue_failed', 'received_packets_queued', 'send_window_shrink_ignored', 'is_paw_socket', 'read_io_time', 'write_io_time'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb, ['id', u'pcb', u'vrf_id', u'packets_sent', u'xipc_pulse_received', u'segment_instruction_received', u'send_packets_queued', u'send_packets_queued_net_io', u'send_queue_failed', u'send_queue_net_io_failed', u'packets_received', u'receive_queue_failed', u'received_packets_queued', u'send_window_shrink_ignored', u'is_paw_socket', u'read_io_time', u'write_io_time'], name, value)
 
 
                         class ReadIoCounts(Entity):
@@ -2000,8 +1987,7 @@ class TcpConnection(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('io_count', YLeaf(YType.uint32, 'io-count')),
                                     ('arm_count', YLeaf(YType.uint32, 'arm-count')),
@@ -2015,7 +2001,7 @@ class TcpConnection(Entity):
                                 self._segment_path = lambda: "read-io-counts"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.ReadIoCounts, ['io_count', 'arm_count', 'unarm_count', 'autoarm_count'], name, value)
+                                self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.ReadIoCounts, [u'io_count', u'arm_count', u'unarm_count', u'autoarm_count'], name, value)
 
 
                         class WriteIoCounts(Entity):
@@ -2065,8 +2051,7 @@ class TcpConnection(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('io_count', YLeaf(YType.uint32, 'io-count')),
                                     ('arm_count', YLeaf(YType.uint32, 'arm-count')),
@@ -2080,7 +2065,7 @@ class TcpConnection(Entity):
                                 self._segment_path = lambda: "write-io-counts"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.WriteIoCounts, ['io_count', 'arm_count', 'unarm_count', 'autoarm_count'], name, value)
+                                self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.WriteIoCounts, [u'io_count', u'arm_count', u'unarm_count', u'autoarm_count'], name, value)
 
 
                         class AsyncSessionStats(Entity):
@@ -2157,8 +2142,7 @@ class TcpConnection(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("data-write-success-num", ("data_write_success_num", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteSuccessNum)), ("data-read-success-num", ("data_read_success_num", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadSuccessNum)), ("data-write-error-num", ("data_write_error_num", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteErrorNum)), ("data-read-error-num", ("data_read_error_num", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadErrorNum)), ("control-write-success-num", ("control_write_success_num", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteSuccessNum)), ("control-read-success-num", ("control_read_success_num", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadSuccessNum)), ("control-write-error-num", ("control_write_error_num", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteErrorNum)), ("control-read-error-num", ("control_read_error_num", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadErrorNum)), ("data-write-byte", ("data_write_byte", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteByte)), ("data-read-byte", ("data_read_byte", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadByte))])
+                                self._child_classes = OrderedDict([("data-write-success-num", ("data_write_success_num", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteSuccessNum)), ("data-read-success-num", ("data_read_success_num", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadSuccessNum)), ("data-write-error-num", ("data_write_error_num", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteErrorNum)), ("data-read-error-num", ("data_read_error_num", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadErrorNum)), ("control-write-success-num", ("control_write_success_num", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteSuccessNum)), ("control-read-success-num", ("control_read_success_num", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadSuccessNum)), ("control-write-error-num", ("control_write_error_num", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteErrorNum)), ("control-read-error-num", ("control_read_error_num", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadErrorNum)), ("data-write-byte", ("data_write_byte", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteByte)), ("data-read-byte", ("data_read_byte", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadByte))])
                                 self._leafs = OrderedDict([
                                     ('async_session', YLeaf(YType.boolean, 'async-session')),
                                 ])
@@ -2177,7 +2161,7 @@ class TcpConnection(Entity):
                                 self._segment_path = lambda: "async-session-stats"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats, ['async_session'], name, value)
+                                self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats, [u'async_session'], name, value)
 
 
                             class DataWriteSuccessNum(Entity):
@@ -2206,8 +2190,7 @@ class TcpConnection(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('entry', YLeaf(YType.uint32, 'entry')),
                                     ])
@@ -2215,7 +2198,7 @@ class TcpConnection(Entity):
                                     self._segment_path = lambda: "data-write-success-num"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteSuccessNum, ['entry'], name, value)
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteSuccessNum, [u'entry'], name, value)
 
 
                             class DataReadSuccessNum(Entity):
@@ -2244,8 +2227,7 @@ class TcpConnection(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('entry', YLeaf(YType.uint32, 'entry')),
                                     ])
@@ -2253,7 +2235,7 @@ class TcpConnection(Entity):
                                     self._segment_path = lambda: "data-read-success-num"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadSuccessNum, ['entry'], name, value)
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadSuccessNum, [u'entry'], name, value)
 
 
                             class DataWriteErrorNum(Entity):
@@ -2282,8 +2264,7 @@ class TcpConnection(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('entry', YLeaf(YType.uint32, 'entry')),
                                     ])
@@ -2291,7 +2272,7 @@ class TcpConnection(Entity):
                                     self._segment_path = lambda: "data-write-error-num"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteErrorNum, ['entry'], name, value)
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteErrorNum, [u'entry'], name, value)
 
 
                             class DataReadErrorNum(Entity):
@@ -2320,8 +2301,7 @@ class TcpConnection(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('entry', YLeaf(YType.uint32, 'entry')),
                                     ])
@@ -2329,7 +2309,7 @@ class TcpConnection(Entity):
                                     self._segment_path = lambda: "data-read-error-num"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadErrorNum, ['entry'], name, value)
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadErrorNum, [u'entry'], name, value)
 
 
                             class ControlWriteSuccessNum(Entity):
@@ -2358,8 +2338,7 @@ class TcpConnection(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('entry', YLeaf(YType.uint32, 'entry')),
                                     ])
@@ -2367,7 +2346,7 @@ class TcpConnection(Entity):
                                     self._segment_path = lambda: "control-write-success-num"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteSuccessNum, ['entry'], name, value)
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteSuccessNum, [u'entry'], name, value)
 
 
                             class ControlReadSuccessNum(Entity):
@@ -2396,8 +2375,7 @@ class TcpConnection(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('entry', YLeaf(YType.uint32, 'entry')),
                                     ])
@@ -2405,7 +2383,7 @@ class TcpConnection(Entity):
                                     self._segment_path = lambda: "control-read-success-num"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadSuccessNum, ['entry'], name, value)
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadSuccessNum, [u'entry'], name, value)
 
 
                             class ControlWriteErrorNum(Entity):
@@ -2434,8 +2412,7 @@ class TcpConnection(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('entry', YLeaf(YType.uint32, 'entry')),
                                     ])
@@ -2443,7 +2420,7 @@ class TcpConnection(Entity):
                                     self._segment_path = lambda: "control-write-error-num"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteErrorNum, ['entry'], name, value)
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteErrorNum, [u'entry'], name, value)
 
 
                             class ControlReadErrorNum(Entity):
@@ -2472,8 +2449,7 @@ class TcpConnection(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('entry', YLeaf(YType.uint32, 'entry')),
                                     ])
@@ -2481,7 +2457,7 @@ class TcpConnection(Entity):
                                     self._segment_path = lambda: "control-read-error-num"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadErrorNum, ['entry'], name, value)
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadErrorNum, [u'entry'], name, value)
 
 
                             class DataWriteByte(Entity):
@@ -2512,8 +2488,7 @@ class TcpConnection(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('entry', YLeaf(YType.uint64, 'entry')),
                                     ])
@@ -2521,7 +2496,7 @@ class TcpConnection(Entity):
                                     self._segment_path = lambda: "data-write-byte"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteByte, ['entry'], name, value)
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteByte, [u'entry'], name, value)
 
 
                             class DataReadByte(Entity):
@@ -2552,8 +2527,7 @@ class TcpConnection(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('entry', YLeaf(YType.uint64, 'entry')),
                                     ])
@@ -2561,7 +2535,7 @@ class TcpConnection(Entity):
                                     self._segment_path = lambda: "data-read-byte"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadByte, ['entry'], name, value)
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadByte, [u'entry'], name, value)
 
 
                 class Summary(Entity):
@@ -3225,8 +3199,7 @@ class TcpConnection(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("iqs-total-ingpacket", ("iqs_total_ingpacket", TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalIngpacket)), ("iqs-total-egpacket", ("iqs_total_egpacket", TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalEgpacket))])
+                        self._child_classes = OrderedDict([("iqs-total-ingpacket", ("iqs_total_ingpacket", TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalIngpacket)), ("iqs-total-egpacket", ("iqs_total_egpacket", TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalEgpacket))])
                         self._leafs = OrderedDict([
                             ('syn_cache_count', YLeaf(YType.uint32, 'syn-cache-count')),
                             ('num_open_sockets', YLeaf(YType.uint32, 'num-open-sockets')),
@@ -3411,7 +3384,7 @@ class TcpConnection(Entity):
                         self._segment_path = lambda: "summary"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Summary, ['syn_cache_count', 'num_open_sockets', 'total_pakets_sent', 'send_packets_dropped', 'send_auth_packets_dropped', 'data_pakets_sent', 'data_bytes_sent', 'packets_retransmitted', 'bytes_retransmitted', 'ack_only_packets_sent', 'delay_ack_packets_sent', 'urgent_only_packets_sent', 'window_probe_packets_sent', 'window_update_packets_sent', 'control_packets_sent', 'rst_packets_sent', 'total_packets_received', 'received_packets_dropped', 'synacl_match_pkts_dropped', 'received_packets_dropped_stale_c_hdr', 'received_auth_packets_dropped', 'ack_packets_received', 'ackbytes_received', 'duplicated_ack_packets_received', 'ack_packets_for_unsent_received', 'data_packets_received_in_sequence', 'data_bytes_received_in_sequence', 'duplicate_packets_received', 'duplicate_bytes_received', 'partial_duplicate_ack_received', 'partial_duplicate_bytes_received', 'out_of_order_packets_received', 'out_of_order_bytes_received', 'after_window_packets_received', 'after_window_bytes_received', 'window_probe_packets_received', 'window_update_packets_received', 'packets_received_after_close_packet', 'bad_checksum_packets_received', 'too_short_packets_received', 'malformed_packets_received', 'no_port_packets_received', 'connections_requested', 'connections_accepted', 'connections_established', 'connections_forcibly_closed', 'connections_closed', 'connections_dropped', 'embryonic_connection_dropped', 'connections_failed', 'established_connections_reset', 'retransmit_timeouts', 'retransmit_dropped', 'keep_alive_timeouts', 'keep_alive_dropped', 'keep_alive_probes', 'paws_dropped', 'persist_dropped', 'try_lock_dropped', 'connection_rate_limited', 'syn_cache_added', 'syn_cache_completed', 'syn_cache_timed_out', 'syn_cache_overflow', 'syn_cache_reset', 'syn_cache_unreach', 'syn_cache_bucket_oflow', 'syn_cache_aborted', 'syn_cache_duplicate_sy_ns', 'syn_cache_dropped', 'pulse_errors', 'socket_layer_packets', 'reassembly_packets', 'recovered_packets', 'packet_failures', 'mss_up', 'mss_down', 'truncated_write_iov', 'no_throttle', 'low_water_mark_throttle', 'high_water_mark_throttle', 'stalled_timer_tickle_count', 'stalled_timer_tickle_time', 'iq_sock_writes', 'iq_sock_retries', 'iq_sock_aborts', 'iq_ingress_drops', 'total_i_qs'], name, value)
+                        self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Summary, [u'syn_cache_count', u'num_open_sockets', u'total_pakets_sent', u'send_packets_dropped', u'send_auth_packets_dropped', u'data_pakets_sent', u'data_bytes_sent', u'packets_retransmitted', u'bytes_retransmitted', u'ack_only_packets_sent', u'delay_ack_packets_sent', u'urgent_only_packets_sent', u'window_probe_packets_sent', u'window_update_packets_sent', u'control_packets_sent', u'rst_packets_sent', u'total_packets_received', u'received_packets_dropped', u'synacl_match_pkts_dropped', u'received_packets_dropped_stale_c_hdr', u'received_auth_packets_dropped', u'ack_packets_received', u'ackbytes_received', u'duplicated_ack_packets_received', u'ack_packets_for_unsent_received', u'data_packets_received_in_sequence', u'data_bytes_received_in_sequence', u'duplicate_packets_received', u'duplicate_bytes_received', u'partial_duplicate_ack_received', u'partial_duplicate_bytes_received', u'out_of_order_packets_received', u'out_of_order_bytes_received', u'after_window_packets_received', u'after_window_bytes_received', u'window_probe_packets_received', u'window_update_packets_received', u'packets_received_after_close_packet', u'bad_checksum_packets_received', u'too_short_packets_received', u'malformed_packets_received', u'no_port_packets_received', u'connections_requested', u'connections_accepted', u'connections_established', u'connections_forcibly_closed', u'connections_closed', u'connections_dropped', u'embryonic_connection_dropped', u'connections_failed', u'established_connections_reset', u'retransmit_timeouts', u'retransmit_dropped', u'keep_alive_timeouts', u'keep_alive_dropped', u'keep_alive_probes', u'paws_dropped', u'persist_dropped', u'try_lock_dropped', u'connection_rate_limited', u'syn_cache_added', u'syn_cache_completed', u'syn_cache_timed_out', u'syn_cache_overflow', u'syn_cache_reset', u'syn_cache_unreach', u'syn_cache_bucket_oflow', u'syn_cache_aborted', u'syn_cache_duplicate_sy_ns', u'syn_cache_dropped', u'pulse_errors', u'socket_layer_packets', u'reassembly_packets', u'recovered_packets', u'packet_failures', u'mss_up', u'mss_down', u'truncated_write_iov', u'no_throttle', u'low_water_mark_throttle', u'high_water_mark_throttle', u'stalled_timer_tickle_count', u'stalled_timer_tickle_time', u'iq_sock_writes', u'iq_sock_retries', u'iq_sock_aborts', u'iq_ingress_drops', u'total_i_qs'], name, value)
 
 
                     class IqsTotalIngpacket(Entity):
@@ -3440,8 +3413,7 @@ class TcpConnection(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('entry', YLeaf(YType.uint32, 'entry')),
                             ])
@@ -3449,7 +3421,7 @@ class TcpConnection(Entity):
                             self._segment_path = lambda: "iqs-total-ingpacket"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalIngpacket, ['entry'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalIngpacket, [u'entry'], name, value)
 
 
                     class IqsTotalEgpacket(Entity):
@@ -3478,8 +3450,7 @@ class TcpConnection(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('entry', YLeaf(YType.uint32, 'entry')),
                             ])
@@ -3487,7 +3458,7 @@ class TcpConnection(Entity):
                             self._segment_path = lambda: "iqs-total-egpacket"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalEgpacket, ['entry'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalEgpacket, [u'entry'], name, value)
 
 
             class ExtendedInformation(Entity):
@@ -3514,15 +3485,16 @@ class TcpConnection(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("display-types", ("display_types", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("display-types", ("display_types", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes))])
                     self._leafs = OrderedDict()
 
                     self.display_types = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes()
                     self.display_types.parent = self
                     self._children_name_map["display_types"] = "display-types"
-                    self._children_yang_names.add("display-types")
                     self._segment_path = lambda: "extended-information"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation, [], name, value)
 
 
                 class DisplayTypes(Entity):
@@ -3549,8 +3521,7 @@ class TcpConnection(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("display-type", ("display_type", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType))])
+                        self._child_classes = OrderedDict([("display-type", ("display_type", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType))])
                         self._leafs = OrderedDict()
 
                         self.display_type = YList(self)
@@ -3589,8 +3560,7 @@ class TcpConnection(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['disp_type']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("connection-id", ("connection_id", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId))])
+                            self._child_classes = OrderedDict([("connection-id", ("connection_id", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId))])
                             self._leafs = OrderedDict([
                                 ('disp_type', YLeaf(YType.enumeration, 'disp-type')),
                             ])
@@ -3665,8 +3635,7 @@ class TcpConnection(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['pcb_id']
-                                self._child_container_classes = OrderedDict([("local-address", ("local_address", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.LocalAddress)), ("foreign-address", ("foreign_address", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.ForeignAddress)), ("common", ("common", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("local-address", ("local_address", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.LocalAddress)), ("foreign-address", ("foreign_address", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.ForeignAddress)), ("common", ("common", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common))])
                                 self._leafs = OrderedDict([
                                     ('pcb_id', YLeaf(YType.str, 'pcb-id')),
                                     ('l4_protocol', YLeaf(YType.uint32, 'l4-protocol')),
@@ -3681,21 +3650,18 @@ class TcpConnection(Entity):
                                 self.local_address = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.LocalAddress()
                                 self.local_address.parent = self
                                 self._children_name_map["local_address"] = "local-address"
-                                self._children_yang_names.add("local-address")
 
                                 self.foreign_address = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.ForeignAddress()
                                 self.foreign_address.parent = self
                                 self._children_name_map["foreign_address"] = "foreign-address"
-                                self._children_yang_names.add("foreign-address")
 
                                 self.common = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common()
                                 self.common.parent = self
                                 self._children_name_map["common"] = "common"
-                                self._children_yang_names.add("common")
                                 self._segment_path = lambda: "connection-id" + "[pcb-id='" + str(self.pcb_id) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId, ['pcb_id', 'l4_protocol', 'local_port', 'foreign_port'], name, value)
+                                self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId, ['pcb_id', u'l4_protocol', u'local_port', u'foreign_port'], name, value)
 
 
                             class LocalAddress(Entity):
@@ -3736,8 +3702,7 @@ class TcpConnection(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                         ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -3749,7 +3714,7 @@ class TcpConnection(Entity):
                                     self._segment_path = lambda: "local-address"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                                    self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.LocalAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
 
 
                             class ForeignAddress(Entity):
@@ -3790,8 +3755,7 @@ class TcpConnection(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                         ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -3803,7 +3767,7 @@ class TcpConnection(Entity):
                                     self._segment_path = lambda: "foreign-address"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.ForeignAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                                    self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.ForeignAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
 
 
                             class Common(Entity):
@@ -3835,8 +3799,7 @@ class TcpConnection(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("lpts-pcb", ("lpts_pcb", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("lpts-pcb", ("lpts_pcb", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb))])
                                     self._leafs = OrderedDict([
                                         ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                     ])
@@ -3845,11 +3808,10 @@ class TcpConnection(Entity):
                                     self.lpts_pcb = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb()
                                     self.lpts_pcb.parent = self
                                     self._children_name_map["lpts_pcb"] = "lpts-pcb"
-                                    self._children_yang_names.add("lpts-pcb")
                                     self._segment_path = lambda: "common"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common, ['af_name'], name, value)
+                                    self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common, [u'af_name'], name, value)
 
 
                                 class LptsPcb(Entity):
@@ -3905,8 +3867,7 @@ class TcpConnection(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("options", ("options", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Options)), ("lpts-flags", ("lpts_flags", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.LptsFlags)), ("accept-mask", ("accept_mask", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.AcceptMask))])
-                                        self._child_list_classes = OrderedDict([("filter", ("filter", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter))])
+                                        self._child_classes = OrderedDict([("options", ("options", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Options)), ("lpts-flags", ("lpts_flags", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.LptsFlags)), ("accept-mask", ("accept_mask", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.AcceptMask)), ("filter", ("filter", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter))])
                                         self._leafs = OrderedDict([
                                             ('ttl', YLeaf(YType.uint8, 'ttl')),
                                             ('flow_types_info', YLeaf(YType.uint32, 'flow-types-info')),
@@ -3917,23 +3878,20 @@ class TcpConnection(Entity):
                                         self.options = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Options()
                                         self.options.parent = self
                                         self._children_name_map["options"] = "options"
-                                        self._children_yang_names.add("options")
 
                                         self.lpts_flags = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.LptsFlags()
                                         self.lpts_flags.parent = self
                                         self._children_name_map["lpts_flags"] = "lpts-flags"
-                                        self._children_yang_names.add("lpts-flags")
 
                                         self.accept_mask = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.AcceptMask()
                                         self.accept_mask.parent = self
                                         self._children_name_map["accept_mask"] = "accept-mask"
-                                        self._children_yang_names.add("accept-mask")
 
                                         self.filter = YList(self)
                                         self._segment_path = lambda: "lpts-pcb"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb, ['ttl', 'flow_types_info'], name, value)
+                                        self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb, [u'ttl', u'flow_types_info'], name, value)
 
 
                                     class Options(Entity):
@@ -3965,8 +3923,7 @@ class TcpConnection(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('is_receive_filter', YLeaf(YType.boolean, 'is-receive-filter')),
                                                 ('is_ip_sla', YLeaf(YType.boolean, 'is-ip-sla')),
@@ -3976,7 +3933,7 @@ class TcpConnection(Entity):
                                             self._segment_path = lambda: "options"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Options, ['is_receive_filter', 'is_ip_sla'], name, value)
+                                            self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Options, [u'is_receive_filter', u'is_ip_sla'], name, value)
 
 
                                     class LptsFlags(Entity):
@@ -4013,8 +3970,7 @@ class TcpConnection(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('is_pcb_bound', YLeaf(YType.boolean, 'is-pcb-bound')),
                                                 ('is_local_address_ignore', YLeaf(YType.boolean, 'is-local-address-ignore')),
@@ -4026,7 +3982,7 @@ class TcpConnection(Entity):
                                             self._segment_path = lambda: "lpts-flags"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.LptsFlags, ['is_pcb_bound', 'is_local_address_ignore', 'is_ignore_vrf_filter'], name, value)
+                                            self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.LptsFlags, [u'is_pcb_bound', u'is_local_address_ignore', u'is_ignore_vrf_filter'], name, value)
 
 
                                     class AcceptMask(Entity):
@@ -4078,8 +4034,7 @@ class TcpConnection(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('is_interface', YLeaf(YType.boolean, 'is-interface')),
                                                 ('is_packet_type', YLeaf(YType.boolean, 'is-packet-type')),
@@ -4097,7 +4052,7 @@ class TcpConnection(Entity):
                                             self._segment_path = lambda: "accept-mask"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.AcceptMask, ['is_interface', 'is_packet_type', 'is_remote_address', 'is_remote_port', 'is_local_address', 'is_local_port'], name, value)
+                                            self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.AcceptMask, [u'is_interface', u'is_packet_type', u'is_remote_address', u'is_remote_port', u'is_local_address', u'is_local_port'], name, value)
 
 
                                     class Filter(Entity):
@@ -4190,8 +4145,7 @@ class TcpConnection(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("packet-type", ("packet_type", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.PacketType)), ("remote-address", ("remote_address", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.RemoteAddress)), ("local-address", ("local_address", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.LocalAddress))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("packet-type", ("packet_type", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.PacketType)), ("remote-address", ("remote_address", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.RemoteAddress)), ("local-address", ("local_address", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.LocalAddress))])
                                             self._leafs = OrderedDict([
                                                 ('interface_name', YLeaf(YType.str, 'interface-name')),
                                                 ('remote_length', YLeaf(YType.uint16, 'remote-length')),
@@ -4214,21 +4168,18 @@ class TcpConnection(Entity):
                                             self.packet_type = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.PacketType()
                                             self.packet_type.parent = self
                                             self._children_name_map["packet_type"] = "packet-type"
-                                            self._children_yang_names.add("packet-type")
 
                                             self.remote_address = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.RemoteAddress()
                                             self.remote_address.parent = self
                                             self._children_name_map["remote_address"] = "remote-address"
-                                            self._children_yang_names.add("remote-address")
 
                                             self.local_address = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.LocalAddress()
                                             self.local_address.parent = self
                                             self._children_name_map["local_address"] = "local-address"
-                                            self._children_yang_names.add("local-address")
                                             self._segment_path = lambda: "filter"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter, ['interface_name', 'remote_length', 'local_length', 'receive_remote_port', 'receive_local_port', 'priority', 'ttl', 'flow_types_info'], name, value)
+                                            self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter, [u'interface_name', u'remote_length', u'local_length', u'receive_remote_port', u'receive_local_port', u'priority', u'ttl', u'flow_types_info'], name, value)
 
 
                                         class PacketType(Entity):
@@ -4277,8 +4228,7 @@ class TcpConnection(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('type', YLeaf(YType.enumeration, 'type')),
                                                     ('icmp_message_type', YLeaf(YType.enumeration, 'icmp-message-type')),
@@ -4294,7 +4244,7 @@ class TcpConnection(Entity):
                                                 self._segment_path = lambda: "packet-type"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.PacketType, ['type', 'icmp_message_type', 'icm_pv6_message_type', 'igmp_message_type', 'message_id'], name, value)
+                                                self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.PacketType, [u'type', u'icmp_message_type', u'icm_pv6_message_type', u'igmp_message_type', u'message_id'], name, value)
 
 
                                         class RemoteAddress(Entity):
@@ -4335,8 +4285,7 @@ class TcpConnection(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -4348,7 +4297,7 @@ class TcpConnection(Entity):
                                                 self._segment_path = lambda: "remote-address"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.RemoteAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                                                self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.RemoteAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
 
 
                                         class LocalAddress(Entity):
@@ -4389,8 +4338,7 @@ class TcpConnection(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                                     ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -4402,7 +4350,7 @@ class TcpConnection(Entity):
                                                 self._segment_path = lambda: "local-address"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                                                self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.LocalAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
 
 
             class DetailInformations(Entity):
@@ -4430,8 +4378,7 @@ class TcpConnection(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("detail-information", ("detail_information", TcpConnection.Nodes.Node.DetailInformations.DetailInformation))])
+                    self._child_classes = OrderedDict([("detail-information", ("detail_information", TcpConnection.Nodes.Node.DetailInformations.DetailInformation))])
                     self._leafs = OrderedDict()
 
                     self.detail_information = YList(self)
@@ -5078,8 +5025,7 @@ class TcpConnection(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['pcb_id']
-                        self._child_container_classes = OrderedDict([("local-address", ("local_address", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.LocalAddress)), ("foreign-address", ("foreign_address", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ForeignAddress)), ("socket-option-flags", ("socket_option_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketOptionFlags)), ("socket-state-flags", ("socket_state_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketStateFlags)), ("feature-flags", ("feature_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FeatureFlags)), ("state-flags", ("state_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.StateFlags)), ("request-flags", ("request_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.RequestFlags)), ("receive-buf-state-flags", ("receive_buf_state_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ReceiveBufStateFlags)), ("send-buf-state-flags", ("send_buf_state_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags))])
-                        self._child_list_classes = OrderedDict([("fib-pd-ctx", ("fib_pd_ctx", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibPdCtx)), ("fib-label-output", ("fib_label_output", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibLabelOutput)), ("timer", ("timer", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.Timer)), ("sack-blk", ("sack_blk", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SackBlk)), ("send-sack-hole", ("send_sack_hole", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendSackHole))])
+                        self._child_classes = OrderedDict([("local-address", ("local_address", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.LocalAddress)), ("foreign-address", ("foreign_address", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ForeignAddress)), ("socket-option-flags", ("socket_option_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketOptionFlags)), ("socket-state-flags", ("socket_state_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketStateFlags)), ("feature-flags", ("feature_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FeatureFlags)), ("state-flags", ("state_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.StateFlags)), ("request-flags", ("request_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.RequestFlags)), ("receive-buf-state-flags", ("receive_buf_state_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ReceiveBufStateFlags)), ("send-buf-state-flags", ("send_buf_state_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags)), ("fib-pd-ctx", ("fib_pd_ctx", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibPdCtx)), ("fib-label-output", ("fib_label_output", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibLabelOutput)), ("timer", ("timer", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.Timer)), ("sack-blk", ("sack_blk", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SackBlk)), ("send-sack-hole", ("send_sack_hole", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendSackHole))])
                         self._leafs = OrderedDict([
                             ('pcb_id', YLeaf(YType.str, 'pcb-id')),
                             ('address_family', YLeaf(YType.enumeration, 'address-family')),
@@ -5238,47 +5184,38 @@ class TcpConnection(Entity):
                         self.local_address = TcpConnection.Nodes.Node.DetailInformations.DetailInformation.LocalAddress()
                         self.local_address.parent = self
                         self._children_name_map["local_address"] = "local-address"
-                        self._children_yang_names.add("local-address")
 
                         self.foreign_address = TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ForeignAddress()
                         self.foreign_address.parent = self
                         self._children_name_map["foreign_address"] = "foreign-address"
-                        self._children_yang_names.add("foreign-address")
 
                         self.socket_option_flags = TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketOptionFlags()
                         self.socket_option_flags.parent = self
                         self._children_name_map["socket_option_flags"] = "socket-option-flags"
-                        self._children_yang_names.add("socket-option-flags")
 
                         self.socket_state_flags = TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketStateFlags()
                         self.socket_state_flags.parent = self
                         self._children_name_map["socket_state_flags"] = "socket-state-flags"
-                        self._children_yang_names.add("socket-state-flags")
 
                         self.feature_flags = TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FeatureFlags()
                         self.feature_flags.parent = self
                         self._children_name_map["feature_flags"] = "feature-flags"
-                        self._children_yang_names.add("feature-flags")
 
                         self.state_flags = TcpConnection.Nodes.Node.DetailInformations.DetailInformation.StateFlags()
                         self.state_flags.parent = self
                         self._children_name_map["state_flags"] = "state-flags"
-                        self._children_yang_names.add("state-flags")
 
                         self.request_flags = TcpConnection.Nodes.Node.DetailInformations.DetailInformation.RequestFlags()
                         self.request_flags.parent = self
                         self._children_name_map["request_flags"] = "request-flags"
-                        self._children_yang_names.add("request-flags")
 
                         self.receive_buf_state_flags = TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ReceiveBufStateFlags()
                         self.receive_buf_state_flags.parent = self
                         self._children_name_map["receive_buf_state_flags"] = "receive-buf-state-flags"
-                        self._children_yang_names.add("receive-buf-state-flags")
 
                         self.send_buf_state_flags = TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags()
                         self.send_buf_state_flags.parent = self
                         self._children_name_map["send_buf_state_flags"] = "send-buf-state-flags"
-                        self._children_yang_names.add("send-buf-state-flags")
 
                         self.fib_pd_ctx = YList(self)
                         self.fib_label_output = YList(self)
@@ -5288,7 +5225,7 @@ class TcpConnection(Entity):
                         self._segment_path = lambda: "detail-information" + "[pcb-id='" + str(self.pcb_id) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation, ['pcb_id', 'address_family', 'pcb', 'so', 'tcpcb', 'vrf_id', 'connection_state', 'established_time', 'local_pid', 'local_port', 'foreign_port', 'packet_priority', 'packet_tos', 'packet_ttl', 'hash_index', 'current_receive_queue_size', 'max_receive_queue_size', 'current_send_queue_size', 'max_send_queue_size', 'current_receive_queue_packet_size', 'max_receive_queue_packet_size', 'save_queue_size', 'send_initial_sequence_num', 'send_unack_sequence_num', 'send_next_sequence_num', 'send_max_sequence_num', 'send_window_size', 'send_congestion_window_size', 'receive_initial_sequence_num', 'receive_next_sequence_num', 'receive_adv_window_size', 'receive_window_size', 'mss', 'peer_mss', 'srtt', 'rtto', 'krtt', 'srtv', 'min_rtt', 'max_rtt', 'retries', 'ack_hold_time', 'giveup_time', 'keep_alive_time', 'syn_wait_time', 'rxsy_naclname', 'soft_error', 'sock_error', 'is_retrans_forever', 'min_mss', 'max_mss', 'connect_retries', 'connect_retry_interval', 'receive_window_scale', 'send_window_scale', 'request_receive_window_scale', 'rqst_send_wnd_scale', 'time_stamp_recent', 'time_stamp_recent_age', 'last_ack_sent', 'sendbuf_lowwat', 'recvbuf_lowwat', 'sendbuf_hiwat', 'recvbuf_hiwat', 'sendbuf_notify_thresh', 'recvbuf_datasize', 'queue_length', 'queue_zero_length', 'queue_limit', 'socket_error', 'auto_rearm', 'send_pdu_count', 'output_ifhandle', 'fib_pd_ctx_size', 'num_labels', 'local_app_instance'], name, value)
+                        self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation, ['pcb_id', u'address_family', u'pcb', u'so', u'tcpcb', u'vrf_id', u'connection_state', u'established_time', u'local_pid', u'local_port', u'foreign_port', u'packet_priority', u'packet_tos', u'packet_ttl', u'hash_index', u'current_receive_queue_size', u'max_receive_queue_size', u'current_send_queue_size', u'max_send_queue_size', u'current_receive_queue_packet_size', u'max_receive_queue_packet_size', u'save_queue_size', u'send_initial_sequence_num', u'send_unack_sequence_num', u'send_next_sequence_num', u'send_max_sequence_num', u'send_window_size', u'send_congestion_window_size', u'receive_initial_sequence_num', u'receive_next_sequence_num', u'receive_adv_window_size', u'receive_window_size', u'mss', u'peer_mss', u'srtt', u'rtto', u'krtt', u'srtv', u'min_rtt', u'max_rtt', u'retries', u'ack_hold_time', u'giveup_time', u'keep_alive_time', u'syn_wait_time', u'rxsy_naclname', u'soft_error', u'sock_error', u'is_retrans_forever', u'min_mss', u'max_mss', u'connect_retries', u'connect_retry_interval', u'receive_window_scale', u'send_window_scale', u'request_receive_window_scale', u'rqst_send_wnd_scale', u'time_stamp_recent', u'time_stamp_recent_age', u'last_ack_sent', u'sendbuf_lowwat', u'recvbuf_lowwat', u'sendbuf_hiwat', u'recvbuf_hiwat', u'sendbuf_notify_thresh', u'recvbuf_datasize', u'queue_length', u'queue_zero_length', u'queue_limit', u'socket_error', u'auto_rearm', u'send_pdu_count', u'output_ifhandle', u'fib_pd_ctx_size', u'num_labels', u'local_app_instance'], name, value)
 
 
                     class LocalAddress(Entity):
@@ -5329,8 +5266,7 @@ class TcpConnection(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                 ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -5342,7 +5278,7 @@ class TcpConnection(Entity):
                             self._segment_path = lambda: "local-address"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.LocalAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
 
 
                     class ForeignAddress(Entity):
@@ -5383,8 +5319,7 @@ class TcpConnection(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                 ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -5396,7 +5331,7 @@ class TcpConnection(Entity):
                             self._segment_path = lambda: "foreign-address"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ForeignAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ForeignAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
 
 
                     class SocketOptionFlags(Entity):
@@ -5473,8 +5408,7 @@ class TcpConnection(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('debug', YLeaf(YType.boolean, 'debug')),
                                 ('accept_connection', YLeaf(YType.boolean, 'accept-connection')),
@@ -5502,7 +5436,7 @@ class TcpConnection(Entity):
                             self._segment_path = lambda: "socket-option-flags"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketOptionFlags, ['debug', 'accept_connection', 'reuse_address', 'keep_alive', 'dont_route', 'broadcast', 'use_loopback', 'linger', 'out_of_band_inline', 'reuse_port', 'nonblocking_io'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketOptionFlags, [u'debug', u'accept_connection', u'reuse_address', u'keep_alive', u'dont_route', u'broadcast', u'use_loopback', u'linger', u'out_of_band_inline', u'reuse_port', u'nonblocking_io'], name, value)
 
 
                     class SocketStateFlags(Entity):
@@ -5599,8 +5533,7 @@ class TcpConnection(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('no_file_descriptor_reference', YLeaf(YType.boolean, 'no-file-descriptor-reference')),
                                 ('is_connected', YLeaf(YType.boolean, 'is-connected')),
@@ -5636,7 +5569,7 @@ class TcpConnection(Entity):
                             self._segment_path = lambda: "socket-state-flags"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketStateFlags, ['no_file_descriptor_reference', 'is_connected', 'is_connecting', 'is_disconnecting', 'cant_send_more', 'cant_receive_more', 'received_at_mark', 'privileged', 'block_close', 'async_io_notify', 'is_confirming', 'is_solock', 'is_detached', 'block_receive', 'block_send'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketStateFlags, [u'no_file_descriptor_reference', u'is_connected', u'is_connecting', u'is_disconnecting', u'cant_send_more', u'cant_receive_more', u'received_at_mark', u'privileged', u'block_close', u'async_io_notify', u'is_confirming', u'is_solock', u'is_detached', u'block_receive', u'block_send'], name, value)
 
 
                     class FeatureFlags(Entity):
@@ -5703,8 +5636,7 @@ class TcpConnection(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('selective_ack', YLeaf(YType.boolean, 'selective-ack')),
                                 ('md5', YLeaf(YType.boolean, 'md5')),
@@ -5728,7 +5660,7 @@ class TcpConnection(Entity):
                             self._segment_path = lambda: "feature-flags"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FeatureFlags, ['selective_ack', 'md5', 'timestamps', 'window_scaling', 'nagle', 'giveup_timer', 'connection_keep_alive_timer', 'path_mtu_discovery', 'mss_cisco'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FeatureFlags, [u'selective_ack', u'md5', u'timestamps', u'window_scaling', u'nagle', u'giveup_timer', u'connection_keep_alive_timer', u'path_mtu_discovery', u'mss_cisco'], name, value)
 
 
                     class StateFlags(Entity):
@@ -5790,8 +5722,7 @@ class TcpConnection(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('nagle_wait', YLeaf(YType.boolean, 'nagle-wait')),
                                 ('ack_needed', YLeaf(YType.boolean, 'ack-needed')),
@@ -5813,7 +5744,7 @@ class TcpConnection(Entity):
                             self._segment_path = lambda: "state-flags"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.StateFlags, ['nagle_wait', 'ack_needed', 'fin_sent', 'probing', 'need_push', 'pushed', 'in_syn_cache', 'path_mtu_ager'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.StateFlags, [u'nagle_wait', u'ack_needed', u'fin_sent', u'probing', u'need_push', u'pushed', u'in_syn_cache', u'path_mtu_ager'], name, value)
 
 
                     class RequestFlags(Entity):
@@ -5880,8 +5811,7 @@ class TcpConnection(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('selective_ack', YLeaf(YType.boolean, 'selective-ack')),
                                 ('md5', YLeaf(YType.boolean, 'md5')),
@@ -5905,7 +5835,7 @@ class TcpConnection(Entity):
                             self._segment_path = lambda: "request-flags"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.RequestFlags, ['selective_ack', 'md5', 'timestamps', 'window_scaling', 'nagle', 'giveup_timer', 'connection_keep_alive_timer', 'path_mtu_discovery', 'mss_cisco'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.RequestFlags, [u'selective_ack', u'md5', u'timestamps', u'window_scaling', u'nagle', u'giveup_timer', u'connection_keep_alive_timer', u'path_mtu_discovery', u'mss_cisco'], name, value)
 
 
                     class ReceiveBufStateFlags(Entity):
@@ -5987,8 +5917,7 @@ class TcpConnection(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('locked', YLeaf(YType.boolean, 'locked')),
                                 ('waiting_for_lock', YLeaf(YType.boolean, 'waiting-for-lock')),
@@ -6018,7 +5947,7 @@ class TcpConnection(Entity):
                             self._segment_path = lambda: "receive-buf-state-flags"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ReceiveBufStateFlags, ['locked', 'waiting_for_lock', 'waiting_for_data', 'input_select', 'async_io', 'not_interruptible', 'io_timer_set', 'delayed_wakeup', 'wakeup', 'connect_wakeup', 'output_select', 'out_of_band_select'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ReceiveBufStateFlags, [u'locked', u'waiting_for_lock', u'waiting_for_data', u'input_select', u'async_io', u'not_interruptible', u'io_timer_set', u'delayed_wakeup', u'wakeup', u'connect_wakeup', u'output_select', u'out_of_band_select'], name, value)
 
 
                     class SendBufStateFlags(Entity):
@@ -6100,8 +6029,7 @@ class TcpConnection(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('locked', YLeaf(YType.boolean, 'locked')),
                                 ('waiting_for_lock', YLeaf(YType.boolean, 'waiting-for-lock')),
@@ -6131,7 +6059,7 @@ class TcpConnection(Entity):
                             self._segment_path = lambda: "send-buf-state-flags"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags, ['locked', 'waiting_for_lock', 'waiting_for_data', 'input_select', 'async_io', 'not_interruptible', 'io_timer_set', 'delayed_wakeup', 'wakeup', 'connect_wakeup', 'output_select', 'out_of_band_select'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags, [u'locked', u'waiting_for_lock', u'waiting_for_data', u'input_select', u'async_io', u'not_interruptible', u'io_timer_set', u'delayed_wakeup', u'wakeup', u'connect_wakeup', u'output_select', u'out_of_band_select'], name, value)
 
 
                     class FibPdCtx(Entity):
@@ -6160,8 +6088,7 @@ class TcpConnection(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('entry', YLeaf(YType.uint32, 'entry')),
                             ])
@@ -6169,7 +6096,7 @@ class TcpConnection(Entity):
                             self._segment_path = lambda: "fib-pd-ctx"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibPdCtx, ['entry'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibPdCtx, [u'entry'], name, value)
 
 
                     class FibLabelOutput(Entity):
@@ -6198,8 +6125,7 @@ class TcpConnection(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('entry', YLeaf(YType.uint32, 'entry')),
                             ])
@@ -6207,7 +6133,7 @@ class TcpConnection(Entity):
                             self._segment_path = lambda: "fib-label-output"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibLabelOutput, ['entry'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibLabelOutput, [u'entry'], name, value)
 
 
                     class Timer(Entity):
@@ -6255,8 +6181,7 @@ class TcpConnection(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('timer_type', YLeaf(YType.enumeration, 'timer-type')),
                                 ('timer_activations', YLeaf(YType.uint32, 'timer-activations')),
@@ -6270,7 +6195,7 @@ class TcpConnection(Entity):
                             self._segment_path = lambda: "timer"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.Timer, ['timer_type', 'timer_activations', 'timer_expirations', 'timer_next_activation'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.Timer, [u'timer_type', u'timer_activations', u'timer_expirations', u'timer_next_activation'], name, value)
 
 
                     class SackBlk(Entity):
@@ -6306,8 +6231,7 @@ class TcpConnection(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('start', YLeaf(YType.uint32, 'start')),
                                 ('end', YLeaf(YType.uint32, 'end')),
@@ -6317,7 +6241,7 @@ class TcpConnection(Entity):
                             self._segment_path = lambda: "sack-blk"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SackBlk, ['start', 'end'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SackBlk, [u'start', u'end'], name, value)
 
 
                     class SendSackHole(Entity):
@@ -6367,8 +6291,7 @@ class TcpConnection(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('start', YLeaf(YType.uint32, 'start')),
                                 ('end', YLeaf(YType.uint32, 'end')),
@@ -6382,7 +6305,7 @@ class TcpConnection(Entity):
                             self._segment_path = lambda: "send-sack-hole"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendSackHole, ['start', 'end', 'duplicated_ack', 'retransmitted'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendSackHole, [u'start', u'end', u'duplicated_ack', u'retransmitted'], name, value)
 
 
             class BriefInformations(Entity):
@@ -6411,8 +6334,7 @@ class TcpConnection(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("brief-information", ("brief_information", TcpConnection.Nodes.Node.BriefInformations.BriefInformation))])
+                    self._child_classes = OrderedDict([("brief-information", ("brief_information", TcpConnection.Nodes.Node.BriefInformations.BriefInformation))])
                     self._leafs = OrderedDict()
 
                     self.brief_information = YList(self)
@@ -6521,8 +6443,7 @@ class TcpConnection(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['pcb_id']
-                        self._child_container_classes = OrderedDict([("local-address", ("local_address", TcpConnection.Nodes.Node.BriefInformations.BriefInformation.LocalAddress)), ("foreign-address", ("foreign_address", TcpConnection.Nodes.Node.BriefInformations.BriefInformation.ForeignAddress))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("local-address", ("local_address", TcpConnection.Nodes.Node.BriefInformations.BriefInformation.LocalAddress)), ("foreign-address", ("foreign_address", TcpConnection.Nodes.Node.BriefInformations.BriefInformation.ForeignAddress))])
                         self._leafs = OrderedDict([
                             ('pcb_id', YLeaf(YType.str, 'pcb-id')),
                             ('af_name', YLeaf(YType.enumeration, 'af-name')),
@@ -6549,16 +6470,14 @@ class TcpConnection(Entity):
                         self.local_address = TcpConnection.Nodes.Node.BriefInformations.BriefInformation.LocalAddress()
                         self.local_address.parent = self
                         self._children_name_map["local_address"] = "local-address"
-                        self._children_yang_names.add("local-address")
 
                         self.foreign_address = TcpConnection.Nodes.Node.BriefInformations.BriefInformation.ForeignAddress()
                         self.foreign_address.parent = self
                         self._children_name_map["foreign_address"] = "foreign-address"
-                        self._children_yang_names.add("foreign-address")
                         self._segment_path = lambda: "brief-information" + "[pcb-id='" + str(self.pcb_id) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TcpConnection.Nodes.Node.BriefInformations.BriefInformation, ['pcb_id', 'af_name', 'pcb', 'connection_state', 'local_pid', 'local_port', 'foreign_port', 'current_receive_queue_size', 'current_send_queue_size', 'vrf_id'], name, value)
+                        self._perform_setattr(TcpConnection.Nodes.Node.BriefInformations.BriefInformation, ['pcb_id', u'af_name', u'pcb', u'connection_state', u'local_pid', u'local_port', u'foreign_port', u'current_receive_queue_size', u'current_send_queue_size', u'vrf_id'], name, value)
 
 
                     class LocalAddress(Entity):
@@ -6599,8 +6518,7 @@ class TcpConnection(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                 ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -6612,7 +6530,7 @@ class TcpConnection(Entity):
                             self._segment_path = lambda: "local-address"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.BriefInformations.BriefInformation.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.BriefInformations.BriefInformation.LocalAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
 
 
                     class ForeignAddress(Entity):
@@ -6653,8 +6571,7 @@ class TcpConnection(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('af_name', YLeaf(YType.enumeration, 'af-name')),
                                 ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
@@ -6666,7 +6583,7 @@ class TcpConnection(Entity):
                             self._segment_path = lambda: "foreign-address"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpConnection.Nodes.Node.BriefInformations.BriefInformation.ForeignAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                            self._perform_setattr(TcpConnection.Nodes.Node.BriefInformations.BriefInformation.ForeignAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
 
     def clone_ptr(self):
         self._top_entity = TcpConnection()
@@ -6697,15 +6614,16 @@ class Tcp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", Tcp.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", Tcp.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = Tcp.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-tcp-oper:tcp"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Tcp, [], name, value)
 
 
     class Nodes(Entity):
@@ -6732,8 +6650,7 @@ class Tcp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", Tcp.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", Tcp.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -6775,8 +6692,7 @@ class Tcp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("statistics", ("statistics", Tcp.Nodes.Node.Statistics))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("statistics", ("statistics", Tcp.Nodes.Node.Statistics))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -6785,7 +6701,6 @@ class Tcp(Entity):
                 self.statistics = Tcp.Nodes.Node.Statistics()
                 self.statistics.parent = self
                 self._children_name_map["statistics"] = "statistics"
-                self._children_yang_names.add("statistics")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-tcp-oper:tcp/nodes/%s" % self._segment_path()
 
@@ -6822,20 +6737,20 @@ class Tcp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("ipv4-traffic", ("ipv4_traffic", Tcp.Nodes.Node.Statistics.Ipv4Traffic)), ("ipv6-traffic", ("ipv6_traffic", Tcp.Nodes.Node.Statistics.Ipv6Traffic))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("ipv4-traffic", ("ipv4_traffic", Tcp.Nodes.Node.Statistics.Ipv4Traffic)), ("ipv6-traffic", ("ipv6_traffic", Tcp.Nodes.Node.Statistics.Ipv6Traffic))])
                     self._leafs = OrderedDict()
 
                     self.ipv4_traffic = Tcp.Nodes.Node.Statistics.Ipv4Traffic()
                     self.ipv4_traffic.parent = self
                     self._children_name_map["ipv4_traffic"] = "ipv4-traffic"
-                    self._children_yang_names.add("ipv4-traffic")
 
                     self.ipv6_traffic = Tcp.Nodes.Node.Statistics.Ipv6Traffic()
                     self.ipv6_traffic.parent = self
                     self._children_name_map["ipv6_traffic"] = "ipv6-traffic"
-                    self._children_yang_names.add("ipv6-traffic")
                     self._segment_path = lambda: "statistics"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Tcp.Nodes.Node.Statistics, [], name, value)
 
 
                 class Ipv4Traffic(Entity):
@@ -6892,8 +6807,7 @@ class Tcp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('tcp_input_packets', YLeaf(YType.uint32, 'tcp-input-packets')),
                             ('tcp_checksum_error_packets', YLeaf(YType.uint32, 'tcp-checksum-error-packets')),
@@ -6909,7 +6823,7 @@ class Tcp(Entity):
                         self._segment_path = lambda: "ipv4-traffic"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Tcp.Nodes.Node.Statistics.Ipv4Traffic, ['tcp_input_packets', 'tcp_checksum_error_packets', 'tcp_dropped_packets', 'tcp_output_packets', 'tcp_retransmitted_packets'], name, value)
+                        self._perform_setattr(Tcp.Nodes.Node.Statistics.Ipv4Traffic, [u'tcp_input_packets', u'tcp_checksum_error_packets', u'tcp_dropped_packets', u'tcp_output_packets', u'tcp_retransmitted_packets'], name, value)
 
 
                 class Ipv6Traffic(Entity):
@@ -6966,8 +6880,7 @@ class Tcp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('tcp_input_packets', YLeaf(YType.uint32, 'tcp-input-packets')),
                             ('tcp_checksum_error_packets', YLeaf(YType.uint32, 'tcp-checksum-error-packets')),
@@ -6983,7 +6896,7 @@ class Tcp(Entity):
                         self._segment_path = lambda: "ipv6-traffic"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Tcp.Nodes.Node.Statistics.Ipv6Traffic, ['tcp_input_packets', 'tcp_checksum_error_packets', 'tcp_dropped_packets', 'tcp_output_packets', 'tcp_retransmitted_packets'], name, value)
+                        self._perform_setattr(Tcp.Nodes.Node.Statistics.Ipv6Traffic, [u'tcp_input_packets', u'tcp_checksum_error_packets', u'tcp_dropped_packets', u'tcp_output_packets', u'tcp_retransmitted_packets'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Tcp()
@@ -7014,15 +6927,16 @@ class TcpNsr(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", TcpNsr.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", TcpNsr.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = TcpNsr.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-tcp-oper:tcp-nsr"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(TcpNsr, [], name, value)
 
 
     class Nodes(Entity):
@@ -7050,8 +6964,7 @@ class TcpNsr(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", TcpNsr.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", TcpNsr.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -7108,8 +7021,7 @@ class TcpNsr(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['id']
-                self._child_container_classes = OrderedDict([("session", ("session", TcpNsr.Nodes.Node.Session)), ("client", ("client", TcpNsr.Nodes.Node.Client)), ("session-set", ("session_set", TcpNsr.Nodes.Node.SessionSet)), ("statistics", ("statistics", TcpNsr.Nodes.Node.Statistics))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("session", ("session", TcpNsr.Nodes.Node.Session)), ("client", ("client", TcpNsr.Nodes.Node.Client)), ("session-set", ("session_set", TcpNsr.Nodes.Node.SessionSet)), ("statistics", ("statistics", TcpNsr.Nodes.Node.Statistics))])
                 self._leafs = OrderedDict([
                     ('id', YLeaf(YType.str, 'id')),
                 ])
@@ -7118,22 +7030,18 @@ class TcpNsr(Entity):
                 self.session = TcpNsr.Nodes.Node.Session()
                 self.session.parent = self
                 self._children_name_map["session"] = "session"
-                self._children_yang_names.add("session")
 
                 self.client = TcpNsr.Nodes.Node.Client()
                 self.client.parent = self
                 self._children_name_map["client"] = "client"
-                self._children_yang_names.add("client")
 
                 self.session_set = TcpNsr.Nodes.Node.SessionSet()
                 self.session_set.parent = self
                 self._children_name_map["session_set"] = "session-set"
-                self._children_yang_names.add("session-set")
 
                 self.statistics = TcpNsr.Nodes.Node.Statistics()
                 self.statistics.parent = self
                 self._children_name_map["statistics"] = "statistics"
-                self._children_yang_names.add("statistics")
                 self._segment_path = lambda: "node" + "[id='" + str(self.id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-tcp-oper:tcp-nsr/nodes/%s" % self._segment_path()
 
@@ -7170,20 +7078,20 @@ class TcpNsr(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("brief-sessions", ("brief_sessions", TcpNsr.Nodes.Node.Session.BriefSessions)), ("detail-sessions", ("detail_sessions", TcpNsr.Nodes.Node.Session.DetailSessions))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("brief-sessions", ("brief_sessions", TcpNsr.Nodes.Node.Session.BriefSessions)), ("detail-sessions", ("detail_sessions", TcpNsr.Nodes.Node.Session.DetailSessions))])
                     self._leafs = OrderedDict()
 
                     self.brief_sessions = TcpNsr.Nodes.Node.Session.BriefSessions()
                     self.brief_sessions.parent = self
                     self._children_name_map["brief_sessions"] = "brief-sessions"
-                    self._children_yang_names.add("brief-sessions")
 
                     self.detail_sessions = TcpNsr.Nodes.Node.Session.DetailSessions()
                     self.detail_sessions.parent = self
                     self._children_name_map["detail_sessions"] = "detail-sessions"
-                    self._children_yang_names.add("detail-sessions")
                     self._segment_path = lambda: "session"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(TcpNsr.Nodes.Node.Session, [], name, value)
 
 
                 class BriefSessions(Entity):
@@ -7210,8 +7118,7 @@ class TcpNsr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("brief-session", ("brief_session", TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession))])
+                        self._child_classes = OrderedDict([("brief-session", ("brief_session", TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession))])
                         self._leafs = OrderedDict()
 
                         self.brief_session = YList(self)
@@ -7317,8 +7224,7 @@ class TcpNsr(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("local-address", ("local_address", TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.LocalAddress)), ("foreign-address", ("foreign_address", TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.ForeignAddress))])
+                            self._child_classes = OrderedDict([("local-address", ("local_address", TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.LocalAddress)), ("foreign-address", ("foreign_address", TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.ForeignAddress))])
                             self._leafs = OrderedDict([
                                 ('id', YLeaf(YType.str, 'id')),
                                 ('address_family', YLeaf(YType.enumeration, 'address-family')),
@@ -7349,7 +7255,7 @@ class TcpNsr(Entity):
                             self._segment_path = lambda: "brief-session" + "[id='" + str(self.id) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession, ['id', 'address_family', 'pcb', 'sscb', 'local_port', 'foreign_port', 'vrf_id', 'is_admin_configured_up', 'is_us_operational_up', 'is_ds_operational_up', 'is_only_receive_path_replication'], name, value)
+                            self._perform_setattr(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession, ['id', u'address_family', u'pcb', u'sscb', u'local_port', u'foreign_port', u'vrf_id', u'is_admin_configured_up', u'is_us_operational_up', u'is_ds_operational_up', u'is_only_receive_path_replication'], name, value)
 
 
                         class LocalAddress(Entity):
@@ -7378,8 +7284,7 @@ class TcpNsr(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('entry', YLeaf(YType.str, 'entry')),
                                 ])
@@ -7387,7 +7292,7 @@ class TcpNsr(Entity):
                                 self._segment_path = lambda: "local-address"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.LocalAddress, ['entry'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.LocalAddress, [u'entry'], name, value)
 
 
                         class ForeignAddress(Entity):
@@ -7416,8 +7321,7 @@ class TcpNsr(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('entry', YLeaf(YType.str, 'entry')),
                                 ])
@@ -7425,7 +7329,7 @@ class TcpNsr(Entity):
                                 self._segment_path = lambda: "foreign-address"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.ForeignAddress, ['entry'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.ForeignAddress, [u'entry'], name, value)
 
 
                 class DetailSessions(Entity):
@@ -7452,8 +7356,7 @@ class TcpNsr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("detail-session", ("detail_session", TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession))])
+                        self._child_classes = OrderedDict([("detail-session", ("detail_session", TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession))])
                         self._leafs = OrderedDict()
 
                         self.detail_session = YList(self)
@@ -7799,8 +7702,7 @@ class TcpNsr(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['id']
-                            self._child_container_classes = OrderedDict([("set-information", ("set_information", TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation))])
-                            self._child_list_classes = OrderedDict([("local-address", ("local_address", TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.LocalAddress)), ("foreign-address", ("foreign_address", TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.ForeignAddress)), ("packet-hold-queue", ("packet_hold_queue", TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.PacketHoldQueue)), ("internal-ack-hold-queue", ("internal_ack_hold_queue", TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.InternalAckHoldQueue))])
+                            self._child_classes = OrderedDict([("set-information", ("set_information", TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation)), ("local-address", ("local_address", TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.LocalAddress)), ("foreign-address", ("foreign_address", TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.ForeignAddress)), ("packet-hold-queue", ("packet_hold_queue", TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.PacketHoldQueue)), ("internal-ack-hold-queue", ("internal_ack_hold_queue", TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.InternalAckHoldQueue))])
                             self._leafs = OrderedDict([
                                 ('id', YLeaf(YType.str, 'id')),
                                 ('address_family', YLeaf(YType.enumeration, 'address-family')),
@@ -7895,7 +7797,6 @@ class TcpNsr(Entity):
                             self.set_information = TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation()
                             self.set_information.parent = self
                             self._children_name_map["set_information"] = "set-information"
-                            self._children_yang_names.add("set-information")
 
                             self.local_address = YList(self)
                             self.foreign_address = YList(self)
@@ -7904,7 +7805,7 @@ class TcpNsr(Entity):
                             self._segment_path = lambda: "detail-session" + "[id='" + str(self.id) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession, ['id', 'address_family', 'pcb', 'sscb', 'local_port', 'foreign_port', 'vrf_id', 'is_admin_configured_up', 'is_us_operational_up', 'is_ds_operational_up', 'is_only_receive_path_replication', 'cookie', 'is_session_replicated', 'is_session_synced', 'fist_standby_sequence_number', 'fssn_offset', 'nsr_down_reason', 'nsr_down_time', 'sequence_number_of_init_sync', 'is_init_sync_in_progress', 'is_init_sync_second_phase', 'init_sync_error', 'is_init_sync_error_local', 'init_sync_start_time', 'init_sync_end_time', 'init_sync_flags', 'sequence_number_of_init_sync_up_stream', 'peer_endp_hdl_up_stream', 'init_sync_start_time_up_stream', 'init_sync_end_time_up_stream', 'fist_standby_sequence_number_up_stream', 'nsr_down_reason_up_stream', 'nsr_down_time_up_stream', 'sequence_number_of_init_sync_down_stream', 'peer_endp_hdl_down_stream', 'init_sync_start_time_down_stream', 'init_sync_end_time_down_stream', 'fist_standby_sequence_number_down_stream', 'nsr_down_reason_down_stream', 'nsr_down_time_down_stream', 'max_number_of_held_packet', 'max_number_of_held_packet_reach_time', 'max_number_of_held_internal_ack', 'max_number_of_held_internal_ack_reach_time'], name, value)
+                            self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession, ['id', u'address_family', u'pcb', u'sscb', u'local_port', u'foreign_port', u'vrf_id', u'is_admin_configured_up', u'is_us_operational_up', u'is_ds_operational_up', u'is_only_receive_path_replication', u'cookie', u'is_session_replicated', u'is_session_synced', u'fist_standby_sequence_number', u'fssn_offset', u'nsr_down_reason', u'nsr_down_time', u'sequence_number_of_init_sync', u'is_init_sync_in_progress', u'is_init_sync_second_phase', u'init_sync_error', u'is_init_sync_error_local', u'init_sync_start_time', u'init_sync_end_time', u'init_sync_flags', u'sequence_number_of_init_sync_up_stream', u'peer_endp_hdl_up_stream', u'init_sync_start_time_up_stream', u'init_sync_end_time_up_stream', u'fist_standby_sequence_number_up_stream', u'nsr_down_reason_up_stream', u'nsr_down_time_up_stream', u'sequence_number_of_init_sync_down_stream', u'peer_endp_hdl_down_stream', u'init_sync_start_time_down_stream', u'init_sync_end_time_down_stream', u'fist_standby_sequence_number_down_stream', u'nsr_down_reason_down_stream', u'nsr_down_time_down_stream', u'max_number_of_held_packet', u'max_number_of_held_packet_reach_time', u'max_number_of_held_internal_ack', u'max_number_of_held_internal_ack_reach_time'], name, value)
 
 
                         class SetInformation(Entity):
@@ -8044,8 +7945,7 @@ class TcpNsr(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('sscb', YLeaf(YType.uint64, 'sscb')),
                                     ('pid', YLeaf(YType.uint32, 'pid')),
@@ -8087,7 +7987,7 @@ class TcpNsr(Entity):
                                 self._segment_path = lambda: "set-information"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation, ['sscb', 'pid', 'client_name', 'client_instance', 'set_id', 'sso_role', 'mode', 'address_family', 'well_known_port', 'local_node', 'local_instance', 'protect_node', 'protect_instance', 'number_of_sessions', 'number_of_synced_sessions_up_stream', 'number_of_synced_sessions_down_stream', 'is_init_sync_in_progress', 'is_sscb_init_sync_ready'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation, [u'sscb', u'pid', u'client_name', u'client_instance', u'set_id', u'sso_role', u'mode', u'address_family', u'well_known_port', u'local_node', u'local_instance', u'protect_node', u'protect_instance', u'number_of_sessions', u'number_of_synced_sessions_up_stream', u'number_of_synced_sessions_down_stream', u'is_init_sync_in_progress', u'is_sscb_init_sync_ready'], name, value)
 
 
                         class LocalAddress(Entity):
@@ -8116,8 +8016,7 @@ class TcpNsr(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('entry', YLeaf(YType.str, 'entry')),
                                 ])
@@ -8125,7 +8024,7 @@ class TcpNsr(Entity):
                                 self._segment_path = lambda: "local-address"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.LocalAddress, ['entry'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.LocalAddress, [u'entry'], name, value)
 
 
                         class ForeignAddress(Entity):
@@ -8154,8 +8053,7 @@ class TcpNsr(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('entry', YLeaf(YType.str, 'entry')),
                                 ])
@@ -8163,7 +8061,7 @@ class TcpNsr(Entity):
                                 self._segment_path = lambda: "foreign-address"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.ForeignAddress, ['entry'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.ForeignAddress, [u'entry'], name, value)
 
 
                         class PacketHoldQueue(Entity):
@@ -8207,8 +8105,7 @@ class TcpNsr(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
                                     ('data_length', YLeaf(YType.uint32, 'data-length')),
@@ -8220,7 +8117,7 @@ class TcpNsr(Entity):
                                 self._segment_path = lambda: "packet-hold-queue"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.PacketHoldQueue, ['sequence_number', 'data_length', 'acknoledgement_number'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.PacketHoldQueue, [u'sequence_number', u'data_length', u'acknoledgement_number'], name, value)
 
 
                         class InternalAckHoldQueue(Entity):
@@ -8264,8 +8161,7 @@ class TcpNsr(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
                                     ('data_length', YLeaf(YType.uint32, 'data-length')),
@@ -8277,7 +8173,7 @@ class TcpNsr(Entity):
                                 self._segment_path = lambda: "internal-ack-hold-queue"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.InternalAckHoldQueue, ['sequence_number', 'data_length', 'acknoledgement_number'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.InternalAckHoldQueue, [u'sequence_number', u'data_length', u'acknoledgement_number'], name, value)
 
 
             class Client(Entity):
@@ -8309,20 +8205,20 @@ class TcpNsr(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("detail-clients", ("detail_clients", TcpNsr.Nodes.Node.Client.DetailClients)), ("brief-clients", ("brief_clients", TcpNsr.Nodes.Node.Client.BriefClients))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("detail-clients", ("detail_clients", TcpNsr.Nodes.Node.Client.DetailClients)), ("brief-clients", ("brief_clients", TcpNsr.Nodes.Node.Client.BriefClients))])
                     self._leafs = OrderedDict()
 
                     self.detail_clients = TcpNsr.Nodes.Node.Client.DetailClients()
                     self.detail_clients.parent = self
                     self._children_name_map["detail_clients"] = "detail-clients"
-                    self._children_yang_names.add("detail-clients")
 
                     self.brief_clients = TcpNsr.Nodes.Node.Client.BriefClients()
                     self.brief_clients.parent = self
                     self._children_name_map["brief_clients"] = "brief-clients"
-                    self._children_yang_names.add("brief-clients")
                     self._segment_path = lambda: "client"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(TcpNsr.Nodes.Node.Client, [], name, value)
 
 
                 class DetailClients(Entity):
@@ -8349,8 +8245,7 @@ class TcpNsr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("detail-client", ("detail_client", TcpNsr.Nodes.Node.Client.DetailClients.DetailClient))])
+                        self._child_classes = OrderedDict([("detail-client", ("detail_client", TcpNsr.Nodes.Node.Client.DetailClients.DetailClient))])
                         self._leafs = OrderedDict()
 
                         self.detail_client = YList(self)
@@ -8454,8 +8349,7 @@ class TcpNsr(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('id', YLeaf(YType.str, 'id')),
                                 ('ccb', YLeaf(YType.uint64, 'ccb')),
@@ -8483,7 +8377,7 @@ class TcpNsr(Entity):
                             self._segment_path = lambda: "detail-client" + "[id='" + str(self.id) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpNsr.Nodes.Node.Client.DetailClients.DetailClient, ['id', 'ccb', 'pid', 'process_name', 'job_id', 'instance', 'numberof_sets', 'number_of_sessions', 'number_of_up_sessions', 'connected_at', 'is_notification_registered'], name, value)
+                            self._perform_setattr(TcpNsr.Nodes.Node.Client.DetailClients.DetailClient, ['id', u'ccb', u'pid', u'process_name', u'job_id', u'instance', u'numberof_sets', u'number_of_sessions', u'number_of_up_sessions', u'connected_at', u'is_notification_registered'], name, value)
 
 
                 class BriefClients(Entity):
@@ -8510,8 +8404,7 @@ class TcpNsr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("brief-client", ("brief_client", TcpNsr.Nodes.Node.Client.BriefClients.BriefClient))])
+                        self._child_classes = OrderedDict([("brief-client", ("brief_client", TcpNsr.Nodes.Node.Client.BriefClients.BriefClient))])
                         self._leafs = OrderedDict()
 
                         self.brief_client = YList(self)
@@ -8601,8 +8494,7 @@ class TcpNsr(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('id', YLeaf(YType.str, 'id')),
                                 ('ccb', YLeaf(YType.uint64, 'ccb')),
@@ -8626,7 +8518,7 @@ class TcpNsr(Entity):
                             self._segment_path = lambda: "brief-client" + "[id='" + str(self.id) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpNsr.Nodes.Node.Client.BriefClients.BriefClient, ['id', 'ccb', 'pid', 'process_name', 'job_id', 'instance', 'numberof_sets', 'number_of_sessions', 'number_of_up_sessions'], name, value)
+                            self._perform_setattr(TcpNsr.Nodes.Node.Client.BriefClients.BriefClient, ['id', u'ccb', u'pid', u'process_name', u'job_id', u'instance', u'numberof_sets', u'number_of_sessions', u'number_of_up_sessions'], name, value)
 
 
             class SessionSet(Entity):
@@ -8658,20 +8550,20 @@ class TcpNsr(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("detail-sets", ("detail_sets", TcpNsr.Nodes.Node.SessionSet.DetailSets)), ("brief-sets", ("brief_sets", TcpNsr.Nodes.Node.SessionSet.BriefSets))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("detail-sets", ("detail_sets", TcpNsr.Nodes.Node.SessionSet.DetailSets)), ("brief-sets", ("brief_sets", TcpNsr.Nodes.Node.SessionSet.BriefSets))])
                     self._leafs = OrderedDict()
 
                     self.detail_sets = TcpNsr.Nodes.Node.SessionSet.DetailSets()
                     self.detail_sets.parent = self
                     self._children_name_map["detail_sets"] = "detail-sets"
-                    self._children_yang_names.add("detail-sets")
 
                     self.brief_sets = TcpNsr.Nodes.Node.SessionSet.BriefSets()
                     self.brief_sets.parent = self
                     self._children_name_map["brief_sets"] = "brief-sets"
-                    self._children_yang_names.add("brief-sets")
                     self._segment_path = lambda: "session-set"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(TcpNsr.Nodes.Node.SessionSet, [], name, value)
 
 
                 class DetailSets(Entity):
@@ -8698,8 +8590,7 @@ class TcpNsr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("detail-set", ("detail_set", TcpNsr.Nodes.Node.SessionSet.DetailSets.DetailSet))])
+                        self._child_classes = OrderedDict([("detail-set", ("detail_set", TcpNsr.Nodes.Node.SessionSet.DetailSets.DetailSet))])
                         self._leafs = OrderedDict()
 
                         self.detail_set = YList(self)
@@ -8967,8 +8858,7 @@ class TcpNsr(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('id', YLeaf(YType.str, 'id')),
                                 ('sscb', YLeaf(YType.uint64, 'sscb')),
@@ -9042,7 +8932,7 @@ class TcpNsr(Entity):
                             self._segment_path = lambda: "detail-set" + "[id='" + str(self.id) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpNsr.Nodes.Node.SessionSet.DetailSets.DetailSet, ['id', 'sscb', 'pid', 'set_id', 'sso_role', 'mode', 'address_family', 'well_known_port', 'local_node', 'local_instance', 'protect_node', 'protect_instance', 'number_of_sessions', 'number_of_synced_sessions_up_stream', 'number_of_synced_sessions_down_stream', 'is_init_sync_in_progress', 'is_init_sync_second_phase', 'sequence_number_of_init_sync', 'init_sync_timer', 'total_number_of_init_sync_sessions', 'number_of_init_synced_sessions', 'number_of_sessions_init_sync_failed', 'init_sync_error', 'is_init_sync_error_local', 'init_sync_start_time', 'init_sync_end_time', 'is_sscb_init_sync_ready', 'init_sync_ready_start_time', 'init_sync_ready_end_time', 'nsr_reset_time', 'is_audit_in_progress', 'audit_seq_number', 'audit_start_time', 'audit_end_time'], name, value)
+                            self._perform_setattr(TcpNsr.Nodes.Node.SessionSet.DetailSets.DetailSet, ['id', u'sscb', u'pid', u'set_id', u'sso_role', u'mode', u'address_family', u'well_known_port', u'local_node', u'local_instance', u'protect_node', u'protect_instance', u'number_of_sessions', u'number_of_synced_sessions_up_stream', u'number_of_synced_sessions_down_stream', u'is_init_sync_in_progress', u'is_init_sync_second_phase', u'sequence_number_of_init_sync', u'init_sync_timer', u'total_number_of_init_sync_sessions', u'number_of_init_synced_sessions', u'number_of_sessions_init_sync_failed', u'init_sync_error', u'is_init_sync_error_local', u'init_sync_start_time', u'init_sync_end_time', u'is_sscb_init_sync_ready', u'init_sync_ready_start_time', u'init_sync_ready_end_time', u'nsr_reset_time', u'is_audit_in_progress', u'audit_seq_number', u'audit_start_time', u'audit_end_time'], name, value)
 
 
                 class BriefSets(Entity):
@@ -9069,8 +8959,7 @@ class TcpNsr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("brief-set", ("brief_set", TcpNsr.Nodes.Node.SessionSet.BriefSets.BriefSet))])
+                        self._child_classes = OrderedDict([("brief-set", ("brief_set", TcpNsr.Nodes.Node.SessionSet.BriefSets.BriefSet))])
                         self._leafs = OrderedDict()
 
                         self.brief_set = YList(self)
@@ -9224,8 +9113,7 @@ class TcpNsr(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('id', YLeaf(YType.str, 'id')),
                                 ('sscb', YLeaf(YType.uint64, 'sscb')),
@@ -9269,7 +9157,7 @@ class TcpNsr(Entity):
                             self._segment_path = lambda: "brief-set" + "[id='" + str(self.id) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpNsr.Nodes.Node.SessionSet.BriefSets.BriefSet, ['id', 'sscb', 'pid', 'client_name', 'client_instance', 'set_id', 'sso_role', 'mode', 'address_family', 'well_known_port', 'local_node', 'local_instance', 'protect_node', 'protect_instance', 'number_of_sessions', 'number_of_synced_sessions_up_stream', 'number_of_synced_sessions_down_stream', 'is_init_sync_in_progress', 'is_sscb_init_sync_ready'], name, value)
+                            self._perform_setattr(TcpNsr.Nodes.Node.SessionSet.BriefSets.BriefSet, ['id', u'sscb', u'pid', u'client_name', u'client_instance', u'set_id', u'sso_role', u'mode', u'address_family', u'well_known_port', u'local_node', u'local_instance', u'protect_node', u'protect_instance', u'number_of_sessions', u'number_of_synced_sessions_up_stream', u'number_of_synced_sessions_down_stream', u'is_init_sync_in_progress', u'is_sscb_init_sync_ready'], name, value)
 
 
             class Statistics(Entity):
@@ -9311,30 +9199,28 @@ class TcpNsr(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("summary", ("summary", TcpNsr.Nodes.Node.Statistics.Summary)), ("statistic-clients", ("statistic_clients", TcpNsr.Nodes.Node.Statistics.StatisticClients)), ("statistic-sets", ("statistic_sets", TcpNsr.Nodes.Node.Statistics.StatisticSets)), ("statistic-sessions", ("statistic_sessions", TcpNsr.Nodes.Node.Statistics.StatisticSessions))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("summary", ("summary", TcpNsr.Nodes.Node.Statistics.Summary)), ("statistic-clients", ("statistic_clients", TcpNsr.Nodes.Node.Statistics.StatisticClients)), ("statistic-sets", ("statistic_sets", TcpNsr.Nodes.Node.Statistics.StatisticSets)), ("statistic-sessions", ("statistic_sessions", TcpNsr.Nodes.Node.Statistics.StatisticSessions))])
                     self._leafs = OrderedDict()
 
                     self.summary = TcpNsr.Nodes.Node.Statistics.Summary()
                     self.summary.parent = self
                     self._children_name_map["summary"] = "summary"
-                    self._children_yang_names.add("summary")
 
                     self.statistic_clients = TcpNsr.Nodes.Node.Statistics.StatisticClients()
                     self.statistic_clients.parent = self
                     self._children_name_map["statistic_clients"] = "statistic-clients"
-                    self._children_yang_names.add("statistic-clients")
 
                     self.statistic_sets = TcpNsr.Nodes.Node.Statistics.StatisticSets()
                     self.statistic_sets.parent = self
                     self._children_name_map["statistic_sets"] = "statistic-sets"
-                    self._children_yang_names.add("statistic-sets")
 
                     self.statistic_sessions = TcpNsr.Nodes.Node.Statistics.StatisticSessions()
                     self.statistic_sessions.parent = self
                     self._children_name_map["statistic_sessions"] = "statistic-sessions"
-                    self._children_yang_names.add("statistic-sessions")
                     self._segment_path = lambda: "statistics"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(TcpNsr.Nodes.Node.Statistics, [], name, value)
 
 
                 class Summary(Entity):
@@ -9604,8 +9490,7 @@ class TcpNsr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("snd-counters", ("snd_counters", TcpNsr.Nodes.Node.Statistics.Summary.SndCounters)), ("audit-counters", ("audit_counters", TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters))])
-                        self._child_list_classes = OrderedDict([("notification-statistic", ("notification_statistic", TcpNsr.Nodes.Node.Statistics.Summary.NotificationStatistic))])
+                        self._child_classes = OrderedDict([("snd-counters", ("snd_counters", TcpNsr.Nodes.Node.Statistics.Summary.SndCounters)), ("audit-counters", ("audit_counters", TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters)), ("notification-statistic", ("notification_statistic", TcpNsr.Nodes.Node.Statistics.Summary.NotificationStatistic))])
                         self._leafs = OrderedDict([
                             ('last_cleared_time', YLeaf(YType.uint32, 'last-cleared-time')),
                             ('number_of_connected_clients', YLeaf(YType.uint32, 'number-of-connected-clients')),
@@ -9678,18 +9563,16 @@ class TcpNsr(Entity):
                         self.snd_counters = TcpNsr.Nodes.Node.Statistics.Summary.SndCounters()
                         self.snd_counters.parent = self
                         self._children_name_map["snd_counters"] = "snd-counters"
-                        self._children_yang_names.add("snd-counters")
 
                         self.audit_counters = TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters()
                         self.audit_counters.parent = self
                         self._children_name_map["audit_counters"] = "audit-counters"
-                        self._children_yang_names.add("audit-counters")
 
                         self.notification_statistic = YList(self)
                         self._segment_path = lambda: "summary"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary, ['last_cleared_time', 'number_of_connected_clients', 'number_of_disconnected_clients', 'number_of_current_clients', 'number_of_created_session_sets', 'number_of_destroyed_session_sets', 'number_of_current_session_sets', 'number_of_added_sessions', 'number_of_deleted_sessions', 'number_of_current_sessions', 'number_of_partner_node', 'number_of_attempted_init_sync', 'number_of_succeeded_init_sync', 'number_of_failed_init_sync', 'number_of_held_packets', 'number_of_held_but_dropped_packets', 'number_of_held_internal_acks', 'number_of_held_but_dropped_internal_acks', 'number_of_sent_internal_acks', 'number_of_received_internal_acks', 'number_of_qad_receive_messages_drops', 'number_of_qad_receive_messages_unknowns', 'number_of_qad_receive_messages_accepts', 'number_of_qad_stale_receive_messages_drops', 'number_of_qad_transfer_message_sent', 'number_of_qad_transfer_message_drops', 'number_of_internal_ack_drops_no_pcb', 'number_of_internal_ack_drops_no_scbdp', 'internal_ack_drops_not_replicated', 'internal_ack_drops_initsync_first_phase', 'internal_ack_drops_stale', 'internal_ack_drops_immediate_match', 'held_packet_drops'], name, value)
+                        self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary, [u'last_cleared_time', u'number_of_connected_clients', u'number_of_disconnected_clients', u'number_of_current_clients', u'number_of_created_session_sets', u'number_of_destroyed_session_sets', u'number_of_current_session_sets', u'number_of_added_sessions', u'number_of_deleted_sessions', u'number_of_current_sessions', u'number_of_partner_node', u'number_of_attempted_init_sync', u'number_of_succeeded_init_sync', u'number_of_failed_init_sync', u'number_of_held_packets', u'number_of_held_but_dropped_packets', u'number_of_held_internal_acks', u'number_of_held_but_dropped_internal_acks', u'number_of_sent_internal_acks', u'number_of_received_internal_acks', u'number_of_qad_receive_messages_drops', u'number_of_qad_receive_messages_unknowns', u'number_of_qad_receive_messages_accepts', u'number_of_qad_stale_receive_messages_drops', u'number_of_qad_transfer_message_sent', u'number_of_qad_transfer_message_drops', u'number_of_internal_ack_drops_no_pcb', u'number_of_internal_ack_drops_no_scbdp', u'internal_ack_drops_not_replicated', u'internal_ack_drops_initsync_first_phase', u'internal_ack_drops_stale', u'internal_ack_drops_immediate_match', u'held_packet_drops'], name, value)
 
 
                     class SndCounters(Entity):
@@ -9721,20 +9604,20 @@ class TcpNsr(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("common", ("common", TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.Common)), ("aggr-only", ("aggr_only", TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.AggrOnly))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("common", ("common", TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.Common)), ("aggr-only", ("aggr_only", TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.AggrOnly))])
                             self._leafs = OrderedDict()
 
                             self.common = TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.Common()
                             self.common.parent = self
                             self._children_name_map["common"] = "common"
-                            self._children_yang_names.add("common")
 
                             self.aggr_only = TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.AggrOnly()
                             self.aggr_only.parent = self
                             self._children_name_map["aggr_only"] = "aggr-only"
-                            self._children_yang_names.add("aggr-only")
                             self._segment_path = lambda: "snd-counters"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.SndCounters, [], name, value)
 
 
                         class Common(Entity):
@@ -9931,8 +9814,7 @@ class TcpNsr(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('data_xfer_send', YLeaf(YType.uint32, 'data-xfer-send')),
                                     ('data_xfer_send_total', YLeaf(YType.uint64, 'data-xfer-send-total')),
@@ -9988,7 +9870,7 @@ class TcpNsr(Entity):
                                 self._segment_path = lambda: "common"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.Common, ['data_xfer_send', 'data_xfer_send_total', 'data_xfer_send_drop', 'data_xfer_send_iov_alloc', 'data_xfer_rcv', 'data_xfer_rcv_success', 'data_xfer_rcv_fail_buffer_trim', 'data_xfer_rcv_fail_snd_una_out_of_sync', 'seg_instr_send', 'seg_instr_send_units', 'seg_instr_send_drop', 'seg_instr_rcv', 'seg_instr_rcv_success', 'seg_instr_rcv_fail_buffer_trim', 'seg_instr_rcv_fail_tcp_process', 'nack_send', 'nack_send_drop', 'nack_rcv', 'nack_rcv_success', 'nack_rcv_fail_data_send', 'cleanup_send', 'cleanup_send_drop', 'cleanup_rcv', 'cleanup_rcv_success', 'cleanup_rcv_fail_buffer_trim'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.Common, [u'data_xfer_send', u'data_xfer_send_total', u'data_xfer_send_drop', u'data_xfer_send_iov_alloc', u'data_xfer_rcv', u'data_xfer_rcv_success', u'data_xfer_rcv_fail_buffer_trim', u'data_xfer_rcv_fail_snd_una_out_of_sync', u'seg_instr_send', u'seg_instr_send_units', u'seg_instr_send_drop', u'seg_instr_rcv', u'seg_instr_rcv_success', u'seg_instr_rcv_fail_buffer_trim', u'seg_instr_rcv_fail_tcp_process', u'nack_send', u'nack_send_drop', u'nack_rcv', u'nack_rcv_success', u'nack_rcv_fail_data_send', u'cleanup_send', u'cleanup_send_drop', u'cleanup_rcv', u'cleanup_rcv_success', u'cleanup_rcv_fail_buffer_trim'], name, value)
 
 
                         class AggrOnly(Entity):
@@ -10066,8 +9948,7 @@ class TcpNsr(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('data_xfer_rcv_drop_no_pcb', YLeaf(YType.uint32, 'data-xfer-rcv-drop-no-pcb')),
                                     ('data_xfer_rcv_drop_no_scb_dp', YLeaf(YType.uint32, 'data-xfer-rcv-drop-no-scb-dp')),
@@ -10089,7 +9970,7 @@ class TcpNsr(Entity):
                                 self._segment_path = lambda: "aggr-only"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.AggrOnly, ['data_xfer_rcv_drop_no_pcb', 'data_xfer_rcv_drop_no_scb_dp', 'seg_instr_rcv_drop_no_pcb', 'seg_instr_rcv_drop_no_scb_dp', 'nack_rcv_drop_no_pcb', 'nack_rcv_drop_no_scb_dp', 'cleanup_rcv_drop_no_pcb', 'cleanup_rcv_drop_no_scb_dp'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.AggrOnly, [u'data_xfer_rcv_drop_no_pcb', u'data_xfer_rcv_drop_no_scb_dp', u'seg_instr_rcv_drop_no_pcb', u'seg_instr_rcv_drop_no_scb_dp', u'nack_rcv_drop_no_pcb', u'nack_rcv_drop_no_scb_dp', u'cleanup_rcv_drop_no_pcb', u'cleanup_rcv_drop_no_scb_dp'], name, value)
 
 
                     class AuditCounters(Entity):
@@ -10121,20 +10002,20 @@ class TcpNsr(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("common", ("common", TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.Common)), ("aggr-only", ("aggr_only", TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.AggrOnly))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("common", ("common", TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.Common)), ("aggr-only", ("aggr_only", TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.AggrOnly))])
                             self._leafs = OrderedDict()
 
                             self.common = TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.Common()
                             self.common.parent = self
                             self._children_name_map["common"] = "common"
-                            self._children_yang_names.add("common")
 
                             self.aggr_only = TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.AggrOnly()
                             self.aggr_only.parent = self
                             self._children_name_map["aggr_only"] = "aggr-only"
-                            self._children_yang_names.add("aggr-only")
                             self._segment_path = lambda: "audit-counters"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters, [], name, value)
 
 
                         class Common(Entity):
@@ -10331,8 +10212,7 @@ class TcpNsr(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('mark_session_set_send', YLeaf(YType.uint32, 'mark-session-set-send')),
                                     ('mark_session_set_send_drop', YLeaf(YType.uint32, 'mark-session-set-send-drop')),
@@ -10388,7 +10268,7 @@ class TcpNsr(Entity):
                                 self._segment_path = lambda: "common"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.Common, ['mark_session_set_send', 'mark_session_set_send_drop', 'mark_session_set_rcv', 'mark_session_set_rcv_drop', 'session_send', 'session_send_drop', 'session_rcv', 'session_rcv_drop', 'sweep_session_set_send', 'sweep_session_set_send_drop', 'sweep_session_set_rcv', 'sweep_session_set_rcv_drop', 'session_set_response_send', 'session_set_response_send_drop', 'session_set_response_rcv', 'session_set_response_rcv_drop', 'mark_session_set_ack_send', 'mark_session_set_ack_send_drop', 'mark_session_set_ack_rcv', 'mark_session_set_ack_rcv_drop', 'mark_session_set_nack_send', 'mark_session_set_nack_send_drop', 'mark_session_set_nack_rcv', 'mark_session_set_nack_rcv_drop', 'abort'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.Common, [u'mark_session_set_send', u'mark_session_set_send_drop', u'mark_session_set_rcv', u'mark_session_set_rcv_drop', u'session_send', u'session_send_drop', u'session_rcv', u'session_rcv_drop', u'sweep_session_set_send', u'sweep_session_set_send_drop', u'sweep_session_set_rcv', u'sweep_session_set_rcv_drop', u'session_set_response_send', u'session_set_response_send_drop', u'session_set_response_rcv', u'session_set_response_rcv_drop', u'mark_session_set_ack_send', u'mark_session_set_ack_send_drop', u'mark_session_set_ack_rcv', u'mark_session_set_ack_rcv_drop', u'mark_session_set_nack_send', u'mark_session_set_nack_send_drop', u'mark_session_set_nack_rcv', u'mark_session_set_nack_rcv_drop', u'abort'], name, value)
 
 
                         class AggrOnly(Entity):
@@ -10452,8 +10332,7 @@ class TcpNsr(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('mark_session_set_rcv_drop_aggr', YLeaf(YType.uint32, 'mark-session-set-rcv-drop-aggr')),
                                     ('session_rcv_drop_aggr', YLeaf(YType.uint32, 'session-rcv-drop-aggr')),
@@ -10471,7 +10350,7 @@ class TcpNsr(Entity):
                                 self._segment_path = lambda: "aggr-only"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.AggrOnly, ['mark_session_set_rcv_drop_aggr', 'session_rcv_drop_aggr', 'sweep_session_set_rcv_drop_aggr', 'session_set_response_rcv_drop_aggr', 'mark_session_set_ack_rcv_drop_aggr', 'mark_session_set_nack_rcv_drop_aggr'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.AggrOnly, [u'mark_session_set_rcv_drop_aggr', u'session_rcv_drop_aggr', u'sweep_session_set_rcv_drop_aggr', u'session_set_response_rcv_drop_aggr', u'mark_session_set_ack_rcv_drop_aggr', u'mark_session_set_nack_rcv_drop_aggr'], name, value)
 
 
                     class NotificationStatistic(Entity):
@@ -10521,8 +10400,7 @@ class TcpNsr(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('queued_count', YLeaf(YType.uint32, 'queued-count')),
                                 ('failed_count', YLeaf(YType.uint32, 'failed-count')),
@@ -10536,7 +10414,7 @@ class TcpNsr(Entity):
                             self._segment_path = lambda: "notification-statistic"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.NotificationStatistic, ['queued_count', 'failed_count', 'delivered_count', 'dropped_count'], name, value)
+                            self._perform_setattr(TcpNsr.Nodes.Node.Statistics.Summary.NotificationStatistic, [u'queued_count', u'failed_count', u'delivered_count', u'dropped_count'], name, value)
 
 
                 class StatisticClients(Entity):
@@ -10564,8 +10442,7 @@ class TcpNsr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("statistic-client", ("statistic_client", TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient))])
+                        self._child_classes = OrderedDict([("statistic-client", ("statistic_client", TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient))])
                         self._leafs = OrderedDict()
 
                         self.statistic_client = YList(self)
@@ -10671,8 +10548,7 @@ class TcpNsr(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("notification-statistic", ("notification_statistic", TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient.NotificationStatistic))])
+                            self._child_classes = OrderedDict([("notification-statistic", ("notification_statistic", TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient.NotificationStatistic))])
                             self._leafs = OrderedDict([
                                 ('id', YLeaf(YType.str, 'id')),
                                 ('ccb', YLeaf(YType.uint64, 'ccb')),
@@ -10700,7 +10576,7 @@ class TcpNsr(Entity):
                             self._segment_path = lambda: "statistic-client" + "[id='" + str(self.id) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient, ['id', 'ccb', 'pid', 'process_name', 'job_id', 'instance', 'connected_at', 'number_of_created_sscb', 'number_of_deleted_sscb', 'last_cleared_time'], name, value)
+                            self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient, ['id', u'ccb', u'pid', u'process_name', u'job_id', u'instance', u'connected_at', u'number_of_created_sscb', u'number_of_deleted_sscb', u'last_cleared_time'], name, value)
 
 
                         class NotificationStatistic(Entity):
@@ -10750,8 +10626,7 @@ class TcpNsr(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('queued_count', YLeaf(YType.uint32, 'queued-count')),
                                     ('failed_count', YLeaf(YType.uint32, 'failed-count')),
@@ -10765,7 +10640,7 @@ class TcpNsr(Entity):
                                 self._segment_path = lambda: "notification-statistic"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient.NotificationStatistic, ['queued_count', 'failed_count', 'delivered_count', 'dropped_count'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient.NotificationStatistic, [u'queued_count', u'failed_count', u'delivered_count', u'dropped_count'], name, value)
 
 
                 class StatisticSets(Entity):
@@ -10793,8 +10668,7 @@ class TcpNsr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("statistic-set", ("statistic_set", TcpNsr.Nodes.Node.Statistics.StatisticSets.StatisticSet))])
+                        self._child_classes = OrderedDict([("statistic-set", ("statistic_set", TcpNsr.Nodes.Node.Statistics.StatisticSets.StatisticSet))])
                         self._leafs = OrderedDict()
 
                         self.statistic_set = YList(self)
@@ -10889,8 +10763,7 @@ class TcpNsr(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['id']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('id', YLeaf(YType.str, 'id')),
                                 ('sscb', YLeaf(YType.uint64, 'sscb')),
@@ -10914,7 +10787,7 @@ class TcpNsr(Entity):
                             self._segment_path = lambda: "statistic-set" + "[id='" + str(self.id) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticSets.StatisticSet, ['id', 'sscb', 'set_id', 'number_of_attempted_init_sync', 'number_of_succeeded_init_sync', 'number_of_failed_init_sync', 'number_of_failover', 'number_of_nsr_resets', 'last_cleared_time'], name, value)
+                            self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticSets.StatisticSet, ['id', u'sscb', u'set_id', u'number_of_attempted_init_sync', u'number_of_succeeded_init_sync', u'number_of_failed_init_sync', u'number_of_failover', u'number_of_nsr_resets', u'last_cleared_time'], name, value)
 
 
                 class StatisticSessions(Entity):
@@ -10942,8 +10815,7 @@ class TcpNsr(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("statistic-session", ("statistic_session", TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession))])
+                        self._child_classes = OrderedDict([("statistic-session", ("statistic_session", TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession))])
                         self._leafs = OrderedDict()
 
                         self.statistic_session = YList(self)
@@ -11057,8 +10929,7 @@ class TcpNsr(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['id']
-                            self._child_container_classes = OrderedDict([("snd-counters", ("snd_counters", TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession.SndCounters))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("snd-counters", ("snd_counters", TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession.SndCounters))])
                             self._leafs = OrderedDict([
                                 ('id', YLeaf(YType.str, 'id')),
                                 ('pcb', YLeaf(YType.uint64, 'pcb')),
@@ -11087,11 +10958,10 @@ class TcpNsr(Entity):
                             self.snd_counters = TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession.SndCounters()
                             self.snd_counters.parent = self
                             self._children_name_map["snd_counters"] = "snd-counters"
-                            self._children_yang_names.add("snd-counters")
                             self._segment_path = lambda: "statistic-session" + "[id='" + str(self.id) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession, ['id', 'pcb', 'number_of_times_nsr_up', 'number_of_timers_nsr_down', 'number_of_times_nsr_disabled', 'number_of_times_nsr_fail_over', 'internal_ack_drops_not_replicated', 'internal_ack_drops_initsync_first_phase', 'internal_ack_drops_stale', 'internal_ack_drops_immediate_match', 'last_cleared_time'], name, value)
+                            self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession, ['id', u'pcb', u'number_of_times_nsr_up', u'number_of_timers_nsr_down', u'number_of_times_nsr_disabled', u'number_of_times_nsr_fail_over', u'internal_ack_drops_not_replicated', u'internal_ack_drops_initsync_first_phase', u'internal_ack_drops_stale', u'internal_ack_drops_immediate_match', u'last_cleared_time'], name, value)
 
 
                         class SndCounters(Entity):
@@ -11288,8 +11158,7 @@ class TcpNsr(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('data_xfer_send', YLeaf(YType.uint32, 'data-xfer-send')),
                                     ('data_xfer_send_total', YLeaf(YType.uint64, 'data-xfer-send-total')),
@@ -11345,7 +11214,7 @@ class TcpNsr(Entity):
                                 self._segment_path = lambda: "snd-counters"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession.SndCounters, ['data_xfer_send', 'data_xfer_send_total', 'data_xfer_send_drop', 'data_xfer_send_iov_alloc', 'data_xfer_rcv', 'data_xfer_rcv_success', 'data_xfer_rcv_fail_buffer_trim', 'data_xfer_rcv_fail_snd_una_out_of_sync', 'seg_instr_send', 'seg_instr_send_units', 'seg_instr_send_drop', 'seg_instr_rcv', 'seg_instr_rcv_success', 'seg_instr_rcv_fail_buffer_trim', 'seg_instr_rcv_fail_tcp_process', 'nack_send', 'nack_send_drop', 'nack_rcv', 'nack_rcv_success', 'nack_rcv_fail_data_send', 'cleanup_send', 'cleanup_send_drop', 'cleanup_rcv', 'cleanup_rcv_success', 'cleanup_rcv_fail_buffer_trim'], name, value)
+                                self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession.SndCounters, [u'data_xfer_send', u'data_xfer_send_total', u'data_xfer_send_drop', u'data_xfer_send_iov_alloc', u'data_xfer_rcv', u'data_xfer_rcv_success', u'data_xfer_rcv_fail_buffer_trim', u'data_xfer_rcv_fail_snd_una_out_of_sync', u'seg_instr_send', u'seg_instr_send_units', u'seg_instr_send_drop', u'seg_instr_rcv', u'seg_instr_rcv_success', u'seg_instr_rcv_fail_buffer_trim', u'seg_instr_rcv_fail_tcp_process', u'nack_send', u'nack_send_drop', u'nack_rcv', u'nack_rcv_success', u'nack_rcv_fail_data_send', u'cleanup_send', u'cleanup_send_drop', u'cleanup_rcv', u'cleanup_rcv_success', u'cleanup_rcv_fail_buffer_trim'], name, value)
 
     def clone_ptr(self):
         self._top_entity = TcpNsr()

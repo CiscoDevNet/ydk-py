@@ -52,27 +52,27 @@ class MPLSL3VPNSTDMIB(Entity):
     .. attribute:: mplsl3vpnscalars
     
     	
-    	**type**\:  :py:class:`Mplsl3Vpnscalars <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.Mplsl3Vpnscalars>`
+    	**type**\:  :py:class:`MplsL3VpnScalars <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnScalars>`
     
     .. attribute:: mplsl3vpnifconftable
     
     	This table specifies per\-interface MPLS capability and associated information
-    	**type**\:  :py:class:`Mplsl3Vpnifconftable <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.Mplsl3Vpnifconftable>`
+    	**type**\:  :py:class:`MplsL3VpnIfConfTable <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnIfConfTable>`
     
     .. attribute:: mplsl3vpnvrftable
     
     	This table specifies per\-interface MPLS L3VPN VRF Table capability and associated information. Entries in this table define VRF routing instances associated with MPLS/VPN interfaces.  Note that multiple interfaces can belong to the same VRF instance.  The collection of all VRF instances comprises an actual VPN
-    	**type**\:  :py:class:`Mplsl3Vpnvrftable <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.Mplsl3Vpnvrftable>`
+    	**type**\:  :py:class:`MplsL3VpnVrfTable <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnVrfTable>`
     
     .. attribute:: mplsl3vpnvrfrttable
     
     	This table specifies per\-VRF route target association. Each entry identifies a connectivity policy supported as part of a VPN
-    	**type**\:  :py:class:`Mplsl3Vpnvrfrttable <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrttable>`
+    	**type**\:  :py:class:`MplsL3VpnVrfRTTable <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnVrfRTTable>`
     
     .. attribute:: mplsl3vpnvrfrtetable
     
     	This table specifies per\-interface MPLS L3VPN VRF Table routing information.  Entries in this table define VRF routing entries associated with the specified MPLS/VPN interfaces.  Note  that this table contains both BGP and Interior Gateway Protocol IGP routes, as both may appear in the same VRF
-    	**type**\:  :py:class:`Mplsl3Vpnvrfrtetable <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrtetable>`
+    	**type**\:  :py:class:`MplsL3VpnVrfRteTable <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnVrfRteTable>`
     
     
 
@@ -90,38 +90,35 @@ class MPLSL3VPNSTDMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("mplsL3VpnScalars", ("mplsl3vpnscalars", MPLSL3VPNSTDMIB.Mplsl3Vpnscalars)), ("mplsL3VpnIfConfTable", ("mplsl3vpnifconftable", MPLSL3VPNSTDMIB.Mplsl3Vpnifconftable)), ("mplsL3VpnVrfTable", ("mplsl3vpnvrftable", MPLSL3VPNSTDMIB.Mplsl3Vpnvrftable)), ("mplsL3VpnVrfRTTable", ("mplsl3vpnvrfrttable", MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrttable)), ("mplsL3VpnVrfRteTable", ("mplsl3vpnvrfrtetable", MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrtetable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("mplsL3VpnScalars", ("mplsl3vpnscalars", MPLSL3VPNSTDMIB.MplsL3VpnScalars)), ("mplsL3VpnIfConfTable", ("mplsl3vpnifconftable", MPLSL3VPNSTDMIB.MplsL3VpnIfConfTable)), ("mplsL3VpnVrfTable", ("mplsl3vpnvrftable", MPLSL3VPNSTDMIB.MplsL3VpnVrfTable)), ("mplsL3VpnVrfRTTable", ("mplsl3vpnvrfrttable", MPLSL3VPNSTDMIB.MplsL3VpnVrfRTTable)), ("mplsL3VpnVrfRteTable", ("mplsl3vpnvrfrtetable", MPLSL3VPNSTDMIB.MplsL3VpnVrfRteTable))])
         self._leafs = OrderedDict()
 
-        self.mplsl3vpnscalars = MPLSL3VPNSTDMIB.Mplsl3Vpnscalars()
+        self.mplsl3vpnscalars = MPLSL3VPNSTDMIB.MplsL3VpnScalars()
         self.mplsl3vpnscalars.parent = self
         self._children_name_map["mplsl3vpnscalars"] = "mplsL3VpnScalars"
-        self._children_yang_names.add("mplsL3VpnScalars")
 
-        self.mplsl3vpnifconftable = MPLSL3VPNSTDMIB.Mplsl3Vpnifconftable()
+        self.mplsl3vpnifconftable = MPLSL3VPNSTDMIB.MplsL3VpnIfConfTable()
         self.mplsl3vpnifconftable.parent = self
         self._children_name_map["mplsl3vpnifconftable"] = "mplsL3VpnIfConfTable"
-        self._children_yang_names.add("mplsL3VpnIfConfTable")
 
-        self.mplsl3vpnvrftable = MPLSL3VPNSTDMIB.Mplsl3Vpnvrftable()
+        self.mplsl3vpnvrftable = MPLSL3VPNSTDMIB.MplsL3VpnVrfTable()
         self.mplsl3vpnvrftable.parent = self
         self._children_name_map["mplsl3vpnvrftable"] = "mplsL3VpnVrfTable"
-        self._children_yang_names.add("mplsL3VpnVrfTable")
 
-        self.mplsl3vpnvrfrttable = MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrttable()
+        self.mplsl3vpnvrfrttable = MPLSL3VPNSTDMIB.MplsL3VpnVrfRTTable()
         self.mplsl3vpnvrfrttable.parent = self
         self._children_name_map["mplsl3vpnvrfrttable"] = "mplsL3VpnVrfRTTable"
-        self._children_yang_names.add("mplsL3VpnVrfRTTable")
 
-        self.mplsl3vpnvrfrtetable = MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrtetable()
+        self.mplsl3vpnvrfrtetable = MPLSL3VPNSTDMIB.MplsL3VpnVrfRteTable()
         self.mplsl3vpnvrfrtetable.parent = self
         self._children_name_map["mplsl3vpnvrfrtetable"] = "mplsL3VpnVrfRteTable"
-        self._children_yang_names.add("mplsL3VpnVrfRteTable")
         self._segment_path = lambda: "MPLS-L3VPN-STD-MIB:MPLS-L3VPN-STD-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(MPLSL3VPNSTDMIB, [], name, value)
 
-    class Mplsl3Vpnscalars(Entity):
+
+    class MplsL3VpnScalars(Entity):
         """
         
         
@@ -182,15 +179,14 @@ class MPLSL3VPNSTDMIB(Entity):
         _revision = '2006-01-23'
 
         def __init__(self):
-            super(MPLSL3VPNSTDMIB.Mplsl3Vpnscalars, self).__init__()
+            super(MPLSL3VPNSTDMIB.MplsL3VpnScalars, self).__init__()
 
             self.yang_name = "mplsL3VpnScalars"
             self.yang_parent_name = "MPLS-L3VPN-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('mplsl3vpnconfiguredvrfs', YLeaf(YType.uint32, 'mplsL3VpnConfiguredVrfs')),
                 ('mplsl3vpnactivevrfs', YLeaf(YType.uint32, 'mplsL3VpnActiveVrfs')),
@@ -211,10 +207,10 @@ class MPLSL3VPNSTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-L3VPN-STD-MIB:MPLS-L3VPN-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSL3VPNSTDMIB.Mplsl3Vpnscalars, ['mplsl3vpnconfiguredvrfs', 'mplsl3vpnactivevrfs', 'mplsl3vpnconnectedinterfaces', 'mplsl3vpnnotificationenable', 'mplsl3vpnvrfconfmaxpossrts', 'mplsl3vpnvrfconfrtemxthrshtime', 'mplsl3vpnilllblrcvthrsh'], name, value)
+            self._perform_setattr(MPLSL3VPNSTDMIB.MplsL3VpnScalars, ['mplsl3vpnconfiguredvrfs', 'mplsl3vpnactivevrfs', 'mplsl3vpnconnectedinterfaces', 'mplsl3vpnnotificationenable', 'mplsl3vpnvrfconfmaxpossrts', 'mplsl3vpnvrfconfrtemxthrshtime', 'mplsl3vpnilllblrcvthrsh'], name, value)
 
 
-    class Mplsl3Vpnifconftable(Entity):
+    class MplsL3VpnIfConfTable(Entity):
         """
         This table specifies per\-interface MPLS capability
         and associated information.
@@ -222,7 +218,7 @@ class MPLSL3VPNSTDMIB(Entity):
         .. attribute:: mplsl3vpnifconfentry
         
         	An entry in this table is created by an LSR for every interface capable of supporting MPLS L3VPN. Each entry in this table is meant to correspond to an entry in the Interfaces Table
-        	**type**\: list of  		 :py:class:`Mplsl3Vpnifconfentry <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.Mplsl3Vpnifconftable.Mplsl3Vpnifconfentry>`
+        	**type**\: list of  		 :py:class:`MplsL3VpnIfConfEntry <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnIfConfTable.MplsL3VpnIfConfEntry>`
         
         
 
@@ -232,15 +228,14 @@ class MPLSL3VPNSTDMIB(Entity):
         _revision = '2006-01-23'
 
         def __init__(self):
-            super(MPLSL3VPNSTDMIB.Mplsl3Vpnifconftable, self).__init__()
+            super(MPLSL3VPNSTDMIB.MplsL3VpnIfConfTable, self).__init__()
 
             self.yang_name = "mplsL3VpnIfConfTable"
             self.yang_parent_name = "MPLS-L3VPN-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsL3VpnIfConfEntry", ("mplsl3vpnifconfentry", MPLSL3VPNSTDMIB.Mplsl3Vpnifconftable.Mplsl3Vpnifconfentry))])
+            self._child_classes = OrderedDict([("mplsL3VpnIfConfEntry", ("mplsl3vpnifconfentry", MPLSL3VPNSTDMIB.MplsL3VpnIfConfTable.MplsL3VpnIfConfEntry))])
             self._leafs = OrderedDict()
 
             self.mplsl3vpnifconfentry = YList(self)
@@ -248,10 +243,10 @@ class MPLSL3VPNSTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-L3VPN-STD-MIB:MPLS-L3VPN-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSL3VPNSTDMIB.Mplsl3Vpnifconftable, [], name, value)
+            self._perform_setattr(MPLSL3VPNSTDMIB.MplsL3VpnIfConfTable, [], name, value)
 
 
-        class Mplsl3Vpnifconfentry(Entity):
+        class MplsL3VpnIfConfEntry(Entity):
             """
             An entry in this table is created by an LSR for
             every interface capable of supporting MPLS L3VPN.
@@ -265,7 +260,7 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**length:** 0..31
             
-            	**refers to**\:  :py:class:`mplsl3vpnvrfname <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.Mplsl3Vpnvrftable.Mplsl3Vpnvrfentry>`
+            	**refers to**\:  :py:class:`mplsl3vpnvrfname <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnVrfTable.MplsL3VpnVrfEntry>`
             
             .. attribute:: mplsl3vpnifconfindex  (key)
             
@@ -277,12 +272,12 @@ class MPLSL3VPNSTDMIB(Entity):
             .. attribute:: mplsl3vpnifvpnclassification
             
             	Denotes whether this link participates in a carrier's carrier, enterprise, or inter\-provider scenario
-            	**type**\:  :py:class:`Mplsl3Vpnifvpnclassification <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.Mplsl3Vpnifconftable.Mplsl3Vpnifconfentry.Mplsl3Vpnifvpnclassification>`
+            	**type**\:  :py:class:`MplsL3VpnIfVpnClassification <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnIfConfTable.MplsL3VpnIfConfEntry.MplsL3VpnIfVpnClassification>`
             
             .. attribute:: mplsl3vpnifvpnroutedistprotocol
             
             	Denotes the route distribution protocol across the PE\-CE link.  Note that more than one routing protocol may be enabled at the same time; thus, this object is specified as a bitmask.  For example, static(5) and ospf(2) are a typical configuration
-            	**type**\:  :py:class:`Mplsl3Vpnifvpnroutedistprotocol <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.Mplsl3Vpnifconftable.Mplsl3Vpnifconfentry.Mplsl3Vpnifvpnroutedistprotocol>`
+            	**type**\:  :py:class:`MplsL3VpnIfVpnRouteDistProtocol <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnIfConfTable.MplsL3VpnIfConfEntry.MplsL3VpnIfVpnRouteDistProtocol>`
             
             .. attribute:: mplsl3vpnifconfstoragetype
             
@@ -302,15 +297,14 @@ class MPLSL3VPNSTDMIB(Entity):
             _revision = '2006-01-23'
 
             def __init__(self):
-                super(MPLSL3VPNSTDMIB.Mplsl3Vpnifconftable.Mplsl3Vpnifconfentry, self).__init__()
+                super(MPLSL3VPNSTDMIB.MplsL3VpnIfConfTable.MplsL3VpnIfConfEntry, self).__init__()
 
                 self.yang_name = "mplsL3VpnIfConfEntry"
                 self.yang_parent_name = "mplsL3VpnIfConfTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplsl3vpnvrfname','mplsl3vpnifconfindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplsl3vpnvrfname', YLeaf(YType.str, 'mplsL3VpnVrfName')),
                     ('mplsl3vpnifconfindex', YLeaf(YType.int32, 'mplsL3VpnIfConfIndex')),
@@ -329,11 +323,11 @@ class MPLSL3VPNSTDMIB(Entity):
                 self._absolute_path = lambda: "MPLS-L3VPN-STD-MIB:MPLS-L3VPN-STD-MIB/mplsL3VpnIfConfTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSL3VPNSTDMIB.Mplsl3Vpnifconftable.Mplsl3Vpnifconfentry, ['mplsl3vpnvrfname', 'mplsl3vpnifconfindex', 'mplsl3vpnifvpnclassification', 'mplsl3vpnifvpnroutedistprotocol', 'mplsl3vpnifconfstoragetype', 'mplsl3vpnifconfrowstatus'], name, value)
+                self._perform_setattr(MPLSL3VPNSTDMIB.MplsL3VpnIfConfTable.MplsL3VpnIfConfEntry, ['mplsl3vpnvrfname', 'mplsl3vpnifconfindex', 'mplsl3vpnifvpnclassification', 'mplsl3vpnifvpnroutedistprotocol', 'mplsl3vpnifconfstoragetype', 'mplsl3vpnifconfrowstatus'], name, value)
 
-            class Mplsl3Vpnifvpnclassification(Enum):
+            class MplsL3VpnIfVpnClassification(Enum):
                 """
-                Mplsl3Vpnifvpnclassification (Enum Class)
+                MplsL3VpnIfVpnClassification (Enum Class)
 
                 Denotes whether this link participates in a
 
@@ -357,7 +351,7 @@ class MPLSL3VPNSTDMIB(Entity):
 
 
 
-    class Mplsl3Vpnvrftable(Entity):
+    class MplsL3VpnVrfTable(Entity):
         """
         This table specifies per\-interface MPLS L3VPN
         VRF Table capability and associated information.
@@ -370,7 +364,7 @@ class MPLSL3VPNSTDMIB(Entity):
         .. attribute:: mplsl3vpnvrfentry
         
         	An entry in this table is created by an LSR for every VRF capable of supporting MPLS L3VPN.  The indexing provides an ordering of VRFs per\-VPN interface
-        	**type**\: list of  		 :py:class:`Mplsl3Vpnvrfentry <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.Mplsl3Vpnvrftable.Mplsl3Vpnvrfentry>`
+        	**type**\: list of  		 :py:class:`MplsL3VpnVrfEntry <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnVrfTable.MplsL3VpnVrfEntry>`
         
         
 
@@ -380,15 +374,14 @@ class MPLSL3VPNSTDMIB(Entity):
         _revision = '2006-01-23'
 
         def __init__(self):
-            super(MPLSL3VPNSTDMIB.Mplsl3Vpnvrftable, self).__init__()
+            super(MPLSL3VPNSTDMIB.MplsL3VpnVrfTable, self).__init__()
 
             self.yang_name = "mplsL3VpnVrfTable"
             self.yang_parent_name = "MPLS-L3VPN-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsL3VpnVrfEntry", ("mplsl3vpnvrfentry", MPLSL3VPNSTDMIB.Mplsl3Vpnvrftable.Mplsl3Vpnvrfentry))])
+            self._child_classes = OrderedDict([("mplsL3VpnVrfEntry", ("mplsl3vpnvrfentry", MPLSL3VPNSTDMIB.MplsL3VpnVrfTable.MplsL3VpnVrfEntry))])
             self._leafs = OrderedDict()
 
             self.mplsl3vpnvrfentry = YList(self)
@@ -396,10 +389,10 @@ class MPLSL3VPNSTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-L3VPN-STD-MIB:MPLS-L3VPN-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSL3VPNSTDMIB.Mplsl3Vpnvrftable, [], name, value)
+            self._perform_setattr(MPLSL3VPNSTDMIB.MplsL3VpnVrfTable, [], name, value)
 
 
-        class Mplsl3Vpnvrfentry(Entity):
+        class MplsL3VpnVrfEntry(Entity):
             """
             An entry in this table is created by an LSR for
             every VRF capable of supporting MPLS L3VPN.  The
@@ -442,7 +435,7 @@ class MPLSL3VPNSTDMIB(Entity):
             .. attribute:: mplsl3vpnvrfoperstatus
             
             	Denotes whether or not a VRF is operational.  A VRF is up(1) when there is at least one interface associated with the VRF whose ifOperStatus is up(1).  A VRF is down(2) when\: a. There does not exist at least one interface whose    ifOperStatus is up(1). b. There are no interfaces associated with the VRF
-            	**type**\:  :py:class:`Mplsl3Vpnvrfoperstatus <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.Mplsl3Vpnvrftable.Mplsl3Vpnvrfentry.Mplsl3Vpnvrfoperstatus>`
+            	**type**\:  :py:class:`MplsL3VpnVrfOperStatus <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnVrfTable.MplsL3VpnVrfEntry.MplsL3VpnVrfOperStatus>`
             
             .. attribute:: mplsl3vpnvrfactiveinterfaces
             
@@ -494,7 +487,7 @@ class MPLSL3VPNSTDMIB(Entity):
             .. attribute:: mplsl3vpnvrfconfadminstatus
             
             	Indicates the desired operational status of this VRF
-            	**type**\:  :py:class:`Mplsl3Vpnvrfconfadminstatus <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.Mplsl3Vpnvrftable.Mplsl3Vpnvrfentry.Mplsl3Vpnvrfconfadminstatus>`
+            	**type**\:  :py:class:`MplsL3VpnVrfConfAdminStatus <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnVrfTable.MplsL3VpnVrfEntry.MplsL3VpnVrfConfAdminStatus>`
             
             .. attribute:: mplsl3vpnvrfconfstoragetype
             
@@ -558,15 +551,14 @@ class MPLSL3VPNSTDMIB(Entity):
             _revision = '2006-01-23'
 
             def __init__(self):
-                super(MPLSL3VPNSTDMIB.Mplsl3Vpnvrftable.Mplsl3Vpnvrfentry, self).__init__()
+                super(MPLSL3VPNSTDMIB.MplsL3VpnVrfTable.MplsL3VpnVrfEntry, self).__init__()
 
                 self.yang_name = "mplsL3VpnVrfEntry"
                 self.yang_parent_name = "mplsL3VpnVrfTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplsl3vpnvrfname']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplsl3vpnvrfname', YLeaf(YType.str, 'mplsL3VpnVrfName')),
                     ('mplsl3vpnvrfvpnid', YLeaf(YType.str, 'mplsL3VpnVrfVpnId')),
@@ -617,11 +609,11 @@ class MPLSL3VPNSTDMIB(Entity):
                 self._absolute_path = lambda: "MPLS-L3VPN-STD-MIB:MPLS-L3VPN-STD-MIB/mplsL3VpnVrfTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSL3VPNSTDMIB.Mplsl3Vpnvrftable.Mplsl3Vpnvrfentry, ['mplsl3vpnvrfname', 'mplsl3vpnvrfvpnid', 'mplsl3vpnvrfdescription', 'mplsl3vpnvrfrd', 'mplsl3vpnvrfcreationtime', 'mplsl3vpnvrfoperstatus', 'mplsl3vpnvrfactiveinterfaces', 'mplsl3vpnvrfassociatedinterfaces', 'mplsl3vpnvrfconfmidrtethresh', 'mplsl3vpnvrfconfhighrtethresh', 'mplsl3vpnvrfconfmaxroutes', 'mplsl3vpnvrfconflastchanged', 'mplsl3vpnvrfconfrowstatus', 'mplsl3vpnvrfconfadminstatus', 'mplsl3vpnvrfconfstoragetype', 'mplsl3vpnvrfsecillegallblvltns', 'mplsl3vpnvrfsecdiscontinuitytime', 'mplsl3vpnvrfperfroutesadded', 'mplsl3vpnvrfperfroutesdeleted', 'mplsl3vpnvrfperfcurrnumroutes', 'mplsl3vpnvrfperfroutesdropped', 'mplsl3vpnvrfperfdisctime'], name, value)
+                self._perform_setattr(MPLSL3VPNSTDMIB.MplsL3VpnVrfTable.MplsL3VpnVrfEntry, ['mplsl3vpnvrfname', 'mplsl3vpnvrfvpnid', 'mplsl3vpnvrfdescription', 'mplsl3vpnvrfrd', 'mplsl3vpnvrfcreationtime', 'mplsl3vpnvrfoperstatus', 'mplsl3vpnvrfactiveinterfaces', 'mplsl3vpnvrfassociatedinterfaces', 'mplsl3vpnvrfconfmidrtethresh', 'mplsl3vpnvrfconfhighrtethresh', 'mplsl3vpnvrfconfmaxroutes', 'mplsl3vpnvrfconflastchanged', 'mplsl3vpnvrfconfrowstatus', 'mplsl3vpnvrfconfadminstatus', 'mplsl3vpnvrfconfstoragetype', 'mplsl3vpnvrfsecillegallblvltns', 'mplsl3vpnvrfsecdiscontinuitytime', 'mplsl3vpnvrfperfroutesadded', 'mplsl3vpnvrfperfroutesdeleted', 'mplsl3vpnvrfperfcurrnumroutes', 'mplsl3vpnvrfperfroutesdropped', 'mplsl3vpnvrfperfdisctime'], name, value)
 
-            class Mplsl3Vpnvrfconfadminstatus(Enum):
+            class MplsL3VpnVrfConfAdminStatus(Enum):
                 """
-                Mplsl3Vpnvrfconfadminstatus (Enum Class)
+                MplsL3VpnVrfConfAdminStatus (Enum Class)
 
                 Indicates the desired operational status of this
 
@@ -642,9 +634,9 @@ class MPLSL3VPNSTDMIB(Entity):
                 testing = Enum.YLeaf(3, "testing")
 
 
-            class Mplsl3Vpnvrfoperstatus(Enum):
+            class MplsL3VpnVrfOperStatus(Enum):
                 """
-                Mplsl3Vpnvrfoperstatus (Enum Class)
+                MplsL3VpnVrfOperStatus (Enum Class)
 
                 Denotes whether or not a VRF is operational.  A VRF is
 
@@ -672,7 +664,7 @@ class MPLSL3VPNSTDMIB(Entity):
 
 
 
-    class Mplsl3Vpnvrfrttable(Entity):
+    class MplsL3VpnVrfRTTable(Entity):
         """
         This table specifies per\-VRF route target association.
         Each entry identifies a connectivity policy supported
@@ -681,7 +673,7 @@ class MPLSL3VPNSTDMIB(Entity):
         .. attribute:: mplsl3vpnvrfrtentry
         
         	An entry in this table is created by an LSR for each route target configured for a VRF supporting a MPLS L3VPN instance.  The indexing provides an ordering per\-VRF instance.  See [RFC4364] for a complete definition of a route target
-        	**type**\: list of  		 :py:class:`Mplsl3Vpnvrfrtentry <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrttable.Mplsl3Vpnvrfrtentry>`
+        	**type**\: list of  		 :py:class:`MplsL3VpnVrfRTEntry <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnVrfRTTable.MplsL3VpnVrfRTEntry>`
         
         
 
@@ -691,15 +683,14 @@ class MPLSL3VPNSTDMIB(Entity):
         _revision = '2006-01-23'
 
         def __init__(self):
-            super(MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrttable, self).__init__()
+            super(MPLSL3VPNSTDMIB.MplsL3VpnVrfRTTable, self).__init__()
 
             self.yang_name = "mplsL3VpnVrfRTTable"
             self.yang_parent_name = "MPLS-L3VPN-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsL3VpnVrfRTEntry", ("mplsl3vpnvrfrtentry", MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrttable.Mplsl3Vpnvrfrtentry))])
+            self._child_classes = OrderedDict([("mplsL3VpnVrfRTEntry", ("mplsl3vpnvrfrtentry", MPLSL3VPNSTDMIB.MplsL3VpnVrfRTTable.MplsL3VpnVrfRTEntry))])
             self._leafs = OrderedDict()
 
             self.mplsl3vpnvrfrtentry = YList(self)
@@ -707,10 +698,10 @@ class MPLSL3VPNSTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-L3VPN-STD-MIB:MPLS-L3VPN-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrttable, [], name, value)
+            self._perform_setattr(MPLSL3VPNSTDMIB.MplsL3VpnVrfRTTable, [], name, value)
 
 
-        class Mplsl3Vpnvrfrtentry(Entity):
+        class MplsL3VpnVrfRTEntry(Entity):
             """
             An entry in this table is created by an LSR for
             each route target configured for a VRF supporting
@@ -725,7 +716,7 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**length:** 0..31
             
-            	**refers to**\:  :py:class:`mplsl3vpnvrfname <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.Mplsl3Vpnvrftable.Mplsl3Vpnvrfentry>`
+            	**refers to**\:  :py:class:`mplsl3vpnvrfname <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnVrfTable.MplsL3VpnVrfEntry>`
             
             .. attribute:: mplsl3vpnvrfrtindex  (key)
             
@@ -769,15 +760,14 @@ class MPLSL3VPNSTDMIB(Entity):
             _revision = '2006-01-23'
 
             def __init__(self):
-                super(MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrttable.Mplsl3Vpnvrfrtentry, self).__init__()
+                super(MPLSL3VPNSTDMIB.MplsL3VpnVrfRTTable.MplsL3VpnVrfRTEntry, self).__init__()
 
                 self.yang_name = "mplsL3VpnVrfRTEntry"
                 self.yang_parent_name = "mplsL3VpnVrfRTTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplsl3vpnvrfname','mplsl3vpnvrfrtindex','mplsl3vpnvrfrttype']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplsl3vpnvrfname', YLeaf(YType.str, 'mplsL3VpnVrfName')),
                     ('mplsl3vpnvrfrtindex', YLeaf(YType.uint32, 'mplsL3VpnVrfRTIndex')),
@@ -798,10 +788,10 @@ class MPLSL3VPNSTDMIB(Entity):
                 self._absolute_path = lambda: "MPLS-L3VPN-STD-MIB:MPLS-L3VPN-STD-MIB/mplsL3VpnVrfRTTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrttable.Mplsl3Vpnvrfrtentry, ['mplsl3vpnvrfname', 'mplsl3vpnvrfrtindex', 'mplsl3vpnvrfrttype', 'mplsl3vpnvrfrt', 'mplsl3vpnvrfrtdescr', 'mplsl3vpnvrfrtrowstatus', 'mplsl3vpnvrfrtstoragetype'], name, value)
+                self._perform_setattr(MPLSL3VPNSTDMIB.MplsL3VpnVrfRTTable.MplsL3VpnVrfRTEntry, ['mplsl3vpnvrfname', 'mplsl3vpnvrfrtindex', 'mplsl3vpnvrfrttype', 'mplsl3vpnvrfrt', 'mplsl3vpnvrfrtdescr', 'mplsl3vpnvrfrtrowstatus', 'mplsl3vpnvrfrtstoragetype'], name, value)
 
 
-    class Mplsl3Vpnvrfrtetable(Entity):
+    class MplsL3VpnVrfRteTable(Entity):
         """
         This table specifies per\-interface MPLS L3VPN VRF Table
         routing information.  Entries in this table define VRF routing
@@ -813,7 +803,7 @@ class MPLSL3VPNSTDMIB(Entity):
         .. attribute:: mplsl3vpnvrfrteentry
         
         	An entry in this table is created by an LSR for every route present configured (either dynamically or statically) within the context of a specific VRF capable of supporting MPLS/BGP VPN.  The indexing provides an ordering of VRFs per\-VPN interface.  Implementers need to be aware that there are quite a few index objects that together can exceed the size allowed for an Object Identifier (OID).  So implementers must make sure that OIDs of column instances in this table will have no more than 128 sub\-identifiers, otherwise they cannot be accessed using SNMPv1, SNMPv2c, or SNMPv3
-        	**type**\: list of  		 :py:class:`Mplsl3Vpnvrfrteentry <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrtetable.Mplsl3Vpnvrfrteentry>`
+        	**type**\: list of  		 :py:class:`MplsL3VpnVrfRteEntry <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnVrfRteTable.MplsL3VpnVrfRteEntry>`
         
         
 
@@ -823,15 +813,14 @@ class MPLSL3VPNSTDMIB(Entity):
         _revision = '2006-01-23'
 
         def __init__(self):
-            super(MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrtetable, self).__init__()
+            super(MPLSL3VPNSTDMIB.MplsL3VpnVrfRteTable, self).__init__()
 
             self.yang_name = "mplsL3VpnVrfRteTable"
             self.yang_parent_name = "MPLS-L3VPN-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("mplsL3VpnVrfRteEntry", ("mplsl3vpnvrfrteentry", MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrtetable.Mplsl3Vpnvrfrteentry))])
+            self._child_classes = OrderedDict([("mplsL3VpnVrfRteEntry", ("mplsl3vpnvrfrteentry", MPLSL3VPNSTDMIB.MplsL3VpnVrfRteTable.MplsL3VpnVrfRteEntry))])
             self._leafs = OrderedDict()
 
             self.mplsl3vpnvrfrteentry = YList(self)
@@ -839,10 +828,10 @@ class MPLSL3VPNSTDMIB(Entity):
             self._absolute_path = lambda: "MPLS-L3VPN-STD-MIB:MPLS-L3VPN-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrtetable, [], name, value)
+            self._perform_setattr(MPLSL3VPNSTDMIB.MplsL3VpnVrfRteTable, [], name, value)
 
 
-        class Mplsl3Vpnvrfrteentry(Entity):
+        class MplsL3VpnVrfRteEntry(Entity):
             """
             An entry in this table is created by an LSR for every route
             present configured (either dynamically or statically) within
@@ -864,7 +853,7 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**length:** 0..31
             
-            	**refers to**\:  :py:class:`mplsl3vpnvrfname <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.Mplsl3Vpnvrftable.Mplsl3Vpnvrfentry>`
+            	**refers to**\:  :py:class:`mplsl3vpnvrfname <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnVrfTable.MplsL3VpnVrfEntry>`
             
             .. attribute:: mplsl3vpnvrfrteinetcidrdesttype  (key)
             
@@ -914,7 +903,7 @@ class MPLSL3VPNSTDMIB(Entity):
             .. attribute:: mplsl3vpnvrfrteinetcidrtype
             
             	The type of route.  Note that local(3) refers to a route for which the next hop is the final destination; remote(4) refers to a route for which the next hop is not the final destination.  Routes that do not result in traffic forwarding or rejection should not be displayed even if the implementation keeps them stored internally.  reject(2) refers to a route that, if matched, discards the message as unreachable and returns a notification (e.g., ICMP error) to the message sender.  This is used in some protocols as a means of correctly aggregating routes.  blackhole(5) refers to a route that, if matched, discards the message silently
-            	**type**\:  :py:class:`Mplsl3Vpnvrfrteinetcidrtype <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrtetable.Mplsl3Vpnvrfrteentry.Mplsl3Vpnvrfrteinetcidrtype>`
+            	**type**\:  :py:class:`MplsL3VpnVrfRteInetCidrType <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnVrfRteTable.MplsL3VpnVrfRteEntry.MplsL3VpnVrfRteInetCidrType>`
             
             .. attribute:: mplsl3vpnvrfrteinetcidrproto
             
@@ -990,15 +979,14 @@ class MPLSL3VPNSTDMIB(Entity):
             _revision = '2006-01-23'
 
             def __init__(self):
-                super(MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrtetable.Mplsl3Vpnvrfrteentry, self).__init__()
+                super(MPLSL3VPNSTDMIB.MplsL3VpnVrfRteTable.MplsL3VpnVrfRteEntry, self).__init__()
 
                 self.yang_name = "mplsL3VpnVrfRteEntry"
                 self.yang_parent_name = "mplsL3VpnVrfRteTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['mplsl3vpnvrfname','mplsl3vpnvrfrteinetcidrdesttype','mplsl3vpnvrfrteinetcidrdest','mplsl3vpnvrfrteinetcidrpfxlen','mplsl3vpnvrfrteinetcidrpolicy','mplsl3vpnvrfrteinetcidrnhoptype','mplsl3vpnvrfrteinetcidrnexthop']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('mplsl3vpnvrfname', YLeaf(YType.str, 'mplsL3VpnVrfName')),
                     ('mplsl3vpnvrfrteinetcidrdesttype', YLeaf(YType.enumeration, 'mplsL3VpnVrfRteInetCidrDestType')),
@@ -1043,11 +1031,11 @@ class MPLSL3VPNSTDMIB(Entity):
                 self._absolute_path = lambda: "MPLS-L3VPN-STD-MIB:MPLS-L3VPN-STD-MIB/mplsL3VpnVrfRteTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrtetable.Mplsl3Vpnvrfrteentry, ['mplsl3vpnvrfname', 'mplsl3vpnvrfrteinetcidrdesttype', 'mplsl3vpnvrfrteinetcidrdest', 'mplsl3vpnvrfrteinetcidrpfxlen', 'mplsl3vpnvrfrteinetcidrpolicy', 'mplsl3vpnvrfrteinetcidrnhoptype', 'mplsl3vpnvrfrteinetcidrnexthop', 'mplsl3vpnvrfrteinetcidrifindex', 'mplsl3vpnvrfrteinetcidrtype', 'mplsl3vpnvrfrteinetcidrproto', 'mplsl3vpnvrfrteinetcidrage', 'mplsl3vpnvrfrteinetcidrnexthopas', 'mplsl3vpnvrfrteinetcidrmetric1', 'mplsl3vpnvrfrteinetcidrmetric2', 'mplsl3vpnvrfrteinetcidrmetric3', 'mplsl3vpnvrfrteinetcidrmetric4', 'mplsl3vpnvrfrteinetcidrmetric5', 'mplsl3vpnvrfrtexcpointer', 'mplsl3vpnvrfrteinetcidrstatus'], name, value)
+                self._perform_setattr(MPLSL3VPNSTDMIB.MplsL3VpnVrfRteTable.MplsL3VpnVrfRteEntry, ['mplsl3vpnvrfname', 'mplsl3vpnvrfrteinetcidrdesttype', 'mplsl3vpnvrfrteinetcidrdest', 'mplsl3vpnvrfrteinetcidrpfxlen', 'mplsl3vpnvrfrteinetcidrpolicy', 'mplsl3vpnvrfrteinetcidrnhoptype', 'mplsl3vpnvrfrteinetcidrnexthop', 'mplsl3vpnvrfrteinetcidrifindex', 'mplsl3vpnvrfrteinetcidrtype', 'mplsl3vpnvrfrteinetcidrproto', 'mplsl3vpnvrfrteinetcidrage', 'mplsl3vpnvrfrteinetcidrnexthopas', 'mplsl3vpnvrfrteinetcidrmetric1', 'mplsl3vpnvrfrteinetcidrmetric2', 'mplsl3vpnvrfrteinetcidrmetric3', 'mplsl3vpnvrfrteinetcidrmetric4', 'mplsl3vpnvrfrteinetcidrmetric5', 'mplsl3vpnvrfrtexcpointer', 'mplsl3vpnvrfrteinetcidrstatus'], name, value)
 
-            class Mplsl3Vpnvrfrteinetcidrtype(Enum):
+            class MplsL3VpnVrfRteInetCidrType(Enum):
                 """
-                Mplsl3Vpnvrfrteinetcidrtype (Enum Class)
+                MplsL3VpnVrfRteInetCidrType (Enum Class)
 
                 The type of route.  Note that local(3) refers to a
 

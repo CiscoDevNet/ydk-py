@@ -54,7 +54,7 @@ class RoutingPolicy(Entity):
     """
 
     _prefix = 'policy-repository-cfg'
-    _revision = '2017-05-01'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(RoutingPolicy, self).__init__()
@@ -65,8 +65,7 @@ class RoutingPolicy(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("route-policies", ("route_policies", RoutingPolicy.RoutePolicies)), ("sets", ("sets", RoutingPolicy.Sets)), ("limits", ("limits", RoutingPolicy.Limits))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("route-policies", ("route_policies", RoutingPolicy.RoutePolicies)), ("sets", ("sets", RoutingPolicy.Sets)), ("limits", ("limits", RoutingPolicy.Limits))])
         self._leafs = OrderedDict([
             ('set_exit_as_abort', YLeaf(YType.empty, 'set-exit-as-abort')),
             ('editor', YLeaf(YType.str, 'editor')),
@@ -77,17 +76,14 @@ class RoutingPolicy(Entity):
         self.route_policies = RoutingPolicy.RoutePolicies()
         self.route_policies.parent = self
         self._children_name_map["route_policies"] = "route-policies"
-        self._children_yang_names.add("route-policies")
 
         self.sets = RoutingPolicy.Sets()
         self.sets.parent = self
         self._children_name_map["sets"] = "sets"
-        self._children_yang_names.add("sets")
 
         self.limits = RoutingPolicy.Limits()
         self.limits.parent = self
         self._children_name_map["limits"] = "limits"
-        self._children_yang_names.add("limits")
         self._segment_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy"
 
     def __setattr__(self, name, value):
@@ -108,7 +104,7 @@ class RoutingPolicy(Entity):
         """
 
         _prefix = 'policy-repository-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(RoutingPolicy.RoutePolicies, self).__init__()
@@ -118,8 +114,7 @@ class RoutingPolicy(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("route-policy", ("route_policy", RoutingPolicy.RoutePolicies.RoutePolicy))])
+            self._child_classes = OrderedDict([("route-policy", ("route_policy", RoutingPolicy.RoutePolicies.RoutePolicy))])
             self._leafs = OrderedDict()
 
             self.route_policy = YList(self)
@@ -153,7 +148,7 @@ class RoutingPolicy(Entity):
             """
 
             _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(RoutingPolicy.RoutePolicies.RoutePolicy, self).__init__()
@@ -163,8 +158,7 @@ class RoutingPolicy(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['route_policy_name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
                     ('rpl_route_policy', YLeaf(YType.str, 'rpl-route-policy')),
@@ -272,7 +266,7 @@ class RoutingPolicy(Entity):
         """
 
         _prefix = 'policy-repository-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(RoutingPolicy.Sets, self).__init__()
@@ -282,96 +276,81 @@ class RoutingPolicy(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("prefix-sets", ("prefix_sets", RoutingPolicy.Sets.PrefixSets)), ("large-community-sets", ("large_community_sets", RoutingPolicy.Sets.LargeCommunitySets)), ("mac-sets", ("mac_sets", RoutingPolicy.Sets.MacSets)), ("extended-community-opaque-sets", ("extended_community_opaque_sets", RoutingPolicy.Sets.ExtendedCommunityOpaqueSets)), ("ospf-area-sets", ("ospf_area_sets", RoutingPolicy.Sets.OspfAreaSets)), ("extended-community-cost-sets", ("extended_community_cost_sets", RoutingPolicy.Sets.ExtendedCommunityCostSets)), ("extended-community-soo-sets", ("extended_community_soo_sets", RoutingPolicy.Sets.ExtendedCommunitySooSets)), ("esi-sets", ("esi_sets", RoutingPolicy.Sets.EsiSets)), ("extended-community-seg-nh-sets", ("extended_community_seg_nh_sets", RoutingPolicy.Sets.ExtendedCommunitySegNhSets)), ("rd-sets", ("rd_sets", RoutingPolicy.Sets.RdSets)), ("policy-global-set-table", ("policy_global_set_table", RoutingPolicy.Sets.PolicyGlobalSetTable)), ("extended-community-bandwidth-sets", ("extended_community_bandwidth_sets", RoutingPolicy.Sets.ExtendedCommunityBandwidthSets)), ("community-sets", ("community_sets", RoutingPolicy.Sets.CommunitySets)), ("as-path-sets", ("as_path_sets", RoutingPolicy.Sets.AsPathSets)), ("tag-sets", ("tag_sets", RoutingPolicy.Sets.TagSets)), ("etag-sets", ("etag_sets", RoutingPolicy.Sets.EtagSets)), ("extended-community-rt-sets", ("extended_community_rt_sets", RoutingPolicy.Sets.ExtendedCommunityRtSets))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("prefix-sets", ("prefix_sets", RoutingPolicy.Sets.PrefixSets)), ("large-community-sets", ("large_community_sets", RoutingPolicy.Sets.LargeCommunitySets)), ("mac-sets", ("mac_sets", RoutingPolicy.Sets.MacSets)), ("extended-community-opaque-sets", ("extended_community_opaque_sets", RoutingPolicy.Sets.ExtendedCommunityOpaqueSets)), ("ospf-area-sets", ("ospf_area_sets", RoutingPolicy.Sets.OspfAreaSets)), ("extended-community-cost-sets", ("extended_community_cost_sets", RoutingPolicy.Sets.ExtendedCommunityCostSets)), ("extended-community-soo-sets", ("extended_community_soo_sets", RoutingPolicy.Sets.ExtendedCommunitySooSets)), ("esi-sets", ("esi_sets", RoutingPolicy.Sets.EsiSets)), ("extended-community-seg-nh-sets", ("extended_community_seg_nh_sets", RoutingPolicy.Sets.ExtendedCommunitySegNhSets)), ("rd-sets", ("rd_sets", RoutingPolicy.Sets.RdSets)), ("policy-global-set-table", ("policy_global_set_table", RoutingPolicy.Sets.PolicyGlobalSetTable)), ("extended-community-bandwidth-sets", ("extended_community_bandwidth_sets", RoutingPolicy.Sets.ExtendedCommunityBandwidthSets)), ("community-sets", ("community_sets", RoutingPolicy.Sets.CommunitySets)), ("as-path-sets", ("as_path_sets", RoutingPolicy.Sets.AsPathSets)), ("tag-sets", ("tag_sets", RoutingPolicy.Sets.TagSets)), ("etag-sets", ("etag_sets", RoutingPolicy.Sets.EtagSets)), ("extended-community-rt-sets", ("extended_community_rt_sets", RoutingPolicy.Sets.ExtendedCommunityRtSets))])
             self._leafs = OrderedDict()
 
             self.prefix_sets = RoutingPolicy.Sets.PrefixSets()
             self.prefix_sets.parent = self
             self._children_name_map["prefix_sets"] = "prefix-sets"
-            self._children_yang_names.add("prefix-sets")
 
             self.large_community_sets = RoutingPolicy.Sets.LargeCommunitySets()
             self.large_community_sets.parent = self
             self._children_name_map["large_community_sets"] = "large-community-sets"
-            self._children_yang_names.add("large-community-sets")
 
             self.mac_sets = RoutingPolicy.Sets.MacSets()
             self.mac_sets.parent = self
             self._children_name_map["mac_sets"] = "mac-sets"
-            self._children_yang_names.add("mac-sets")
 
             self.extended_community_opaque_sets = RoutingPolicy.Sets.ExtendedCommunityOpaqueSets()
             self.extended_community_opaque_sets.parent = self
             self._children_name_map["extended_community_opaque_sets"] = "extended-community-opaque-sets"
-            self._children_yang_names.add("extended-community-opaque-sets")
 
             self.ospf_area_sets = RoutingPolicy.Sets.OspfAreaSets()
             self.ospf_area_sets.parent = self
             self._children_name_map["ospf_area_sets"] = "ospf-area-sets"
-            self._children_yang_names.add("ospf-area-sets")
 
             self.extended_community_cost_sets = RoutingPolicy.Sets.ExtendedCommunityCostSets()
             self.extended_community_cost_sets.parent = self
             self._children_name_map["extended_community_cost_sets"] = "extended-community-cost-sets"
-            self._children_yang_names.add("extended-community-cost-sets")
 
             self.extended_community_soo_sets = RoutingPolicy.Sets.ExtendedCommunitySooSets()
             self.extended_community_soo_sets.parent = self
             self._children_name_map["extended_community_soo_sets"] = "extended-community-soo-sets"
-            self._children_yang_names.add("extended-community-soo-sets")
 
             self.esi_sets = RoutingPolicy.Sets.EsiSets()
             self.esi_sets.parent = self
             self._children_name_map["esi_sets"] = "esi-sets"
-            self._children_yang_names.add("esi-sets")
 
             self.extended_community_seg_nh_sets = RoutingPolicy.Sets.ExtendedCommunitySegNhSets()
             self.extended_community_seg_nh_sets.parent = self
             self._children_name_map["extended_community_seg_nh_sets"] = "extended-community-seg-nh-sets"
-            self._children_yang_names.add("extended-community-seg-nh-sets")
 
             self.rd_sets = RoutingPolicy.Sets.RdSets()
             self.rd_sets.parent = self
             self._children_name_map["rd_sets"] = "rd-sets"
-            self._children_yang_names.add("rd-sets")
 
             self.policy_global_set_table = RoutingPolicy.Sets.PolicyGlobalSetTable()
             self.policy_global_set_table.parent = self
             self._children_name_map["policy_global_set_table"] = "policy-global-set-table"
-            self._children_yang_names.add("policy-global-set-table")
 
             self.extended_community_bandwidth_sets = RoutingPolicy.Sets.ExtendedCommunityBandwidthSets()
             self.extended_community_bandwidth_sets.parent = self
             self._children_name_map["extended_community_bandwidth_sets"] = "extended-community-bandwidth-sets"
-            self._children_yang_names.add("extended-community-bandwidth-sets")
 
             self.community_sets = RoutingPolicy.Sets.CommunitySets()
             self.community_sets.parent = self
             self._children_name_map["community_sets"] = "community-sets"
-            self._children_yang_names.add("community-sets")
 
             self.as_path_sets = RoutingPolicy.Sets.AsPathSets()
             self.as_path_sets.parent = self
             self._children_name_map["as_path_sets"] = "as-path-sets"
-            self._children_yang_names.add("as-path-sets")
 
             self.tag_sets = RoutingPolicy.Sets.TagSets()
             self.tag_sets.parent = self
             self._children_name_map["tag_sets"] = "tag-sets"
-            self._children_yang_names.add("tag-sets")
 
             self.etag_sets = RoutingPolicy.Sets.EtagSets()
             self.etag_sets.parent = self
             self._children_name_map["etag_sets"] = "etag-sets"
-            self._children_yang_names.add("etag-sets")
 
             self.extended_community_rt_sets = RoutingPolicy.Sets.ExtendedCommunityRtSets()
             self.extended_community_rt_sets.parent = self
             self._children_name_map["extended_community_rt_sets"] = "extended-community-rt-sets"
-            self._children_yang_names.add("extended-community-rt-sets")
             self._segment_path = lambda: "sets"
             self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(RoutingPolicy.Sets, [], name, value)
 
 
         class PrefixSets(Entity):
@@ -388,7 +367,7 @@ class RoutingPolicy(Entity):
             """
 
             _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(RoutingPolicy.Sets.PrefixSets, self).__init__()
@@ -398,8 +377,7 @@ class RoutingPolicy(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("prefix-set", ("prefix_set", RoutingPolicy.Sets.PrefixSets.PrefixSet))])
+                self._child_classes = OrderedDict([("prefix-set", ("prefix_set", RoutingPolicy.Sets.PrefixSets.PrefixSet))])
                 self._leafs = OrderedDict()
 
                 self.prefix_set = YList(self)
@@ -433,7 +411,7 @@ class RoutingPolicy(Entity):
                 """
 
                 _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(RoutingPolicy.Sets.PrefixSets.PrefixSet, self).__init__()
@@ -443,8 +421,7 @@ class RoutingPolicy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['set_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('set_name', YLeaf(YType.str, 'set-name')),
                         ('rpl_prefix_set', YLeaf(YType.str, 'rpl-prefix-set')),
@@ -472,7 +449,7 @@ class RoutingPolicy(Entity):
             """
 
             _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(RoutingPolicy.Sets.LargeCommunitySets, self).__init__()
@@ -482,8 +459,7 @@ class RoutingPolicy(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("large-community-set", ("large_community_set", RoutingPolicy.Sets.LargeCommunitySets.LargeCommunitySet))])
+                self._child_classes = OrderedDict([("large-community-set", ("large_community_set", RoutingPolicy.Sets.LargeCommunitySets.LargeCommunitySet))])
                 self._leafs = OrderedDict()
 
                 self.large_community_set = YList(self)
@@ -517,7 +493,7 @@ class RoutingPolicy(Entity):
                 """
 
                 _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(RoutingPolicy.Sets.LargeCommunitySets.LargeCommunitySet, self).__init__()
@@ -527,8 +503,7 @@ class RoutingPolicy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['set_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('set_name', YLeaf(YType.str, 'set-name')),
                         ('large_community_set_as_text', YLeaf(YType.str, 'large-community-set-as-text')),
@@ -556,7 +531,7 @@ class RoutingPolicy(Entity):
             """
 
             _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(RoutingPolicy.Sets.MacSets, self).__init__()
@@ -566,8 +541,7 @@ class RoutingPolicy(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("mac-set", ("mac_set", RoutingPolicy.Sets.MacSets.MacSet))])
+                self._child_classes = OrderedDict([("mac-set", ("mac_set", RoutingPolicy.Sets.MacSets.MacSet))])
                 self._leafs = OrderedDict()
 
                 self.mac_set = YList(self)
@@ -601,7 +575,7 @@ class RoutingPolicy(Entity):
                 """
 
                 _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(RoutingPolicy.Sets.MacSets.MacSet, self).__init__()
@@ -611,8 +585,7 @@ class RoutingPolicy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['set_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('set_name', YLeaf(YType.str, 'set-name')),
                         ('mac_set_as_text', YLeaf(YType.str, 'mac-set-as-text')),
@@ -640,7 +613,7 @@ class RoutingPolicy(Entity):
             """
 
             _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(RoutingPolicy.Sets.ExtendedCommunityOpaqueSets, self).__init__()
@@ -650,8 +623,7 @@ class RoutingPolicy(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("extended-community-opaque-set", ("extended_community_opaque_set", RoutingPolicy.Sets.ExtendedCommunityOpaqueSets.ExtendedCommunityOpaqueSet))])
+                self._child_classes = OrderedDict([("extended-community-opaque-set", ("extended_community_opaque_set", RoutingPolicy.Sets.ExtendedCommunityOpaqueSets.ExtendedCommunityOpaqueSet))])
                 self._leafs = OrderedDict()
 
                 self.extended_community_opaque_set = YList(self)
@@ -685,7 +657,7 @@ class RoutingPolicy(Entity):
                 """
 
                 _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(RoutingPolicy.Sets.ExtendedCommunityOpaqueSets.ExtendedCommunityOpaqueSet, self).__init__()
@@ -695,8 +667,7 @@ class RoutingPolicy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['set_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('set_name', YLeaf(YType.str, 'set-name')),
                         ('rpl_extended_community_opaque_set', YLeaf(YType.str, 'rpl-extended-community-opaque-set')),
@@ -724,7 +695,7 @@ class RoutingPolicy(Entity):
             """
 
             _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(RoutingPolicy.Sets.OspfAreaSets, self).__init__()
@@ -734,8 +705,7 @@ class RoutingPolicy(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("ospf-area-set", ("ospf_area_set", RoutingPolicy.Sets.OspfAreaSets.OspfAreaSet))])
+                self._child_classes = OrderedDict([("ospf-area-set", ("ospf_area_set", RoutingPolicy.Sets.OspfAreaSets.OspfAreaSet))])
                 self._leafs = OrderedDict()
 
                 self.ospf_area_set = YList(self)
@@ -784,7 +754,7 @@ class RoutingPolicy(Entity):
                 """
 
                 _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(RoutingPolicy.Sets.OspfAreaSets.OspfAreaSet, self).__init__()
@@ -794,8 +764,7 @@ class RoutingPolicy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['set_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('set_name', YLeaf(YType.str, 'set-name')),
                         ('rplospf_area_set', YLeaf(YType.str, 'rplospf-area-set')),
@@ -823,7 +792,7 @@ class RoutingPolicy(Entity):
             """
 
             _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(RoutingPolicy.Sets.ExtendedCommunityCostSets, self).__init__()
@@ -833,8 +802,7 @@ class RoutingPolicy(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("extended-community-cost-set", ("extended_community_cost_set", RoutingPolicy.Sets.ExtendedCommunityCostSets.ExtendedCommunityCostSet))])
+                self._child_classes = OrderedDict([("extended-community-cost-set", ("extended_community_cost_set", RoutingPolicy.Sets.ExtendedCommunityCostSets.ExtendedCommunityCostSet))])
                 self._leafs = OrderedDict()
 
                 self.extended_community_cost_set = YList(self)
@@ -868,7 +836,7 @@ class RoutingPolicy(Entity):
                 """
 
                 _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(RoutingPolicy.Sets.ExtendedCommunityCostSets.ExtendedCommunityCostSet, self).__init__()
@@ -878,8 +846,7 @@ class RoutingPolicy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['set_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('set_name', YLeaf(YType.str, 'set-name')),
                         ('rpl_extended_community_cost_set', YLeaf(YType.str, 'rpl-extended-community-cost-set')),
@@ -907,7 +874,7 @@ class RoutingPolicy(Entity):
             """
 
             _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(RoutingPolicy.Sets.ExtendedCommunitySooSets, self).__init__()
@@ -917,8 +884,7 @@ class RoutingPolicy(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("extended-community-soo-set", ("extended_community_soo_set", RoutingPolicy.Sets.ExtendedCommunitySooSets.ExtendedCommunitySooSet))])
+                self._child_classes = OrderedDict([("extended-community-soo-set", ("extended_community_soo_set", RoutingPolicy.Sets.ExtendedCommunitySooSets.ExtendedCommunitySooSet))])
                 self._leafs = OrderedDict()
 
                 self.extended_community_soo_set = YList(self)
@@ -952,7 +918,7 @@ class RoutingPolicy(Entity):
                 """
 
                 _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(RoutingPolicy.Sets.ExtendedCommunitySooSets.ExtendedCommunitySooSet, self).__init__()
@@ -962,8 +928,7 @@ class RoutingPolicy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['set_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('set_name', YLeaf(YType.str, 'set-name')),
                         ('rpl_extended_community_soo_set', YLeaf(YType.str, 'rpl-extended-community-soo-set')),
@@ -991,7 +956,7 @@ class RoutingPolicy(Entity):
             """
 
             _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(RoutingPolicy.Sets.EsiSets, self).__init__()
@@ -1001,8 +966,7 @@ class RoutingPolicy(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("esi-set", ("esi_set", RoutingPolicy.Sets.EsiSets.EsiSet))])
+                self._child_classes = OrderedDict([("esi-set", ("esi_set", RoutingPolicy.Sets.EsiSets.EsiSet))])
                 self._leafs = OrderedDict()
 
                 self.esi_set = YList(self)
@@ -1036,7 +1000,7 @@ class RoutingPolicy(Entity):
                 """
 
                 _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(RoutingPolicy.Sets.EsiSets.EsiSet, self).__init__()
@@ -1046,8 +1010,7 @@ class RoutingPolicy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['set_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('set_name', YLeaf(YType.str, 'set-name')),
                         ('esi_set_as_text', YLeaf(YType.str, 'esi-set-as-text')),
@@ -1075,7 +1038,7 @@ class RoutingPolicy(Entity):
             """
 
             _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(RoutingPolicy.Sets.ExtendedCommunitySegNhSets, self).__init__()
@@ -1085,8 +1048,7 @@ class RoutingPolicy(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("extended-community-seg-nh-set", ("extended_community_seg_nh_set", RoutingPolicy.Sets.ExtendedCommunitySegNhSets.ExtendedCommunitySegNhSet))])
+                self._child_classes = OrderedDict([("extended-community-seg-nh-set", ("extended_community_seg_nh_set", RoutingPolicy.Sets.ExtendedCommunitySegNhSets.ExtendedCommunitySegNhSet))])
                 self._leafs = OrderedDict()
 
                 self.extended_community_seg_nh_set = YList(self)
@@ -1120,7 +1082,7 @@ class RoutingPolicy(Entity):
                 """
 
                 _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(RoutingPolicy.Sets.ExtendedCommunitySegNhSets.ExtendedCommunitySegNhSet, self).__init__()
@@ -1130,8 +1092,7 @@ class RoutingPolicy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['set_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('set_name', YLeaf(YType.str, 'set-name')),
                         ('rpl_extended_community_seg_nh_set', YLeaf(YType.str, 'rpl-extended-community-seg-nh-set')),
@@ -1159,7 +1120,7 @@ class RoutingPolicy(Entity):
             """
 
             _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(RoutingPolicy.Sets.RdSets, self).__init__()
@@ -1169,8 +1130,7 @@ class RoutingPolicy(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("rd-set", ("rd_set", RoutingPolicy.Sets.RdSets.RdSet))])
+                self._child_classes = OrderedDict([("rd-set", ("rd_set", RoutingPolicy.Sets.RdSets.RdSet))])
                 self._leafs = OrderedDict()
 
                 self.rd_set = YList(self)
@@ -1204,7 +1164,7 @@ class RoutingPolicy(Entity):
                 """
 
                 _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(RoutingPolicy.Sets.RdSets.RdSet, self).__init__()
@@ -1214,8 +1174,7 @@ class RoutingPolicy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['set_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('set_name', YLeaf(YType.str, 'set-name')),
                         ('rplrd_set', YLeaf(YType.str, 'rplrd-set')),
@@ -1243,7 +1202,7 @@ class RoutingPolicy(Entity):
             """
 
             _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(RoutingPolicy.Sets.PolicyGlobalSetTable, self).__init__()
@@ -1253,8 +1212,7 @@ class RoutingPolicy(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('policy_global_set', YLeaf(YType.str, 'policy-global-set')),
                 ])
@@ -1280,7 +1238,7 @@ class RoutingPolicy(Entity):
             """
 
             _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(RoutingPolicy.Sets.ExtendedCommunityBandwidthSets, self).__init__()
@@ -1290,8 +1248,7 @@ class RoutingPolicy(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("extended-community-bandwidth-set", ("extended_community_bandwidth_set", RoutingPolicy.Sets.ExtendedCommunityBandwidthSets.ExtendedCommunityBandwidthSet))])
+                self._child_classes = OrderedDict([("extended-community-bandwidth-set", ("extended_community_bandwidth_set", RoutingPolicy.Sets.ExtendedCommunityBandwidthSets.ExtendedCommunityBandwidthSet))])
                 self._leafs = OrderedDict()
 
                 self.extended_community_bandwidth_set = YList(self)
@@ -1325,7 +1282,7 @@ class RoutingPolicy(Entity):
                 """
 
                 _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(RoutingPolicy.Sets.ExtendedCommunityBandwidthSets.ExtendedCommunityBandwidthSet, self).__init__()
@@ -1335,8 +1292,7 @@ class RoutingPolicy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['set_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('set_name', YLeaf(YType.str, 'set-name')),
                         ('rpl_extended_community_bandwidth_set', YLeaf(YType.str, 'rpl-extended-community-bandwidth-set')),
@@ -1364,7 +1320,7 @@ class RoutingPolicy(Entity):
             """
 
             _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(RoutingPolicy.Sets.CommunitySets, self).__init__()
@@ -1374,8 +1330,7 @@ class RoutingPolicy(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("community-set", ("community_set", RoutingPolicy.Sets.CommunitySets.CommunitySet))])
+                self._child_classes = OrderedDict([("community-set", ("community_set", RoutingPolicy.Sets.CommunitySets.CommunitySet))])
                 self._leafs = OrderedDict()
 
                 self.community_set = YList(self)
@@ -1409,7 +1364,7 @@ class RoutingPolicy(Entity):
                 """
 
                 _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(RoutingPolicy.Sets.CommunitySets.CommunitySet, self).__init__()
@@ -1419,8 +1374,7 @@ class RoutingPolicy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['set_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('set_name', YLeaf(YType.str, 'set-name')),
                         ('rpl_community_set', YLeaf(YType.str, 'rpl-community-set')),
@@ -1448,7 +1402,7 @@ class RoutingPolicy(Entity):
             """
 
             _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(RoutingPolicy.Sets.AsPathSets, self).__init__()
@@ -1458,8 +1412,7 @@ class RoutingPolicy(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("as-path-set", ("as_path_set", RoutingPolicy.Sets.AsPathSets.AsPathSet))])
+                self._child_classes = OrderedDict([("as-path-set", ("as_path_set", RoutingPolicy.Sets.AsPathSets.AsPathSet))])
                 self._leafs = OrderedDict()
 
                 self.as_path_set = YList(self)
@@ -1493,7 +1446,7 @@ class RoutingPolicy(Entity):
                 """
 
                 _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(RoutingPolicy.Sets.AsPathSets.AsPathSet, self).__init__()
@@ -1503,8 +1456,7 @@ class RoutingPolicy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['set_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('set_name', YLeaf(YType.str, 'set-name')),
                         ('rplas_path_set', YLeaf(YType.str, 'rplas-path-set')),
@@ -1532,7 +1484,7 @@ class RoutingPolicy(Entity):
             """
 
             _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(RoutingPolicy.Sets.TagSets, self).__init__()
@@ -1542,8 +1494,7 @@ class RoutingPolicy(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("tag-set", ("tag_set", RoutingPolicy.Sets.TagSets.TagSet))])
+                self._child_classes = OrderedDict([("tag-set", ("tag_set", RoutingPolicy.Sets.TagSets.TagSet))])
                 self._leafs = OrderedDict()
 
                 self.tag_set = YList(self)
@@ -1577,7 +1528,7 @@ class RoutingPolicy(Entity):
                 """
 
                 _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(RoutingPolicy.Sets.TagSets.TagSet, self).__init__()
@@ -1587,8 +1538,7 @@ class RoutingPolicy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['set_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('set_name', YLeaf(YType.str, 'set-name')),
                         ('rpl_tag_set', YLeaf(YType.str, 'rpl-tag-set')),
@@ -1616,7 +1566,7 @@ class RoutingPolicy(Entity):
             """
 
             _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(RoutingPolicy.Sets.EtagSets, self).__init__()
@@ -1626,8 +1576,7 @@ class RoutingPolicy(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("etag-set", ("etag_set", RoutingPolicy.Sets.EtagSets.EtagSet))])
+                self._child_classes = OrderedDict([("etag-set", ("etag_set", RoutingPolicy.Sets.EtagSets.EtagSet))])
                 self._leafs = OrderedDict()
 
                 self.etag_set = YList(self)
@@ -1661,7 +1610,7 @@ class RoutingPolicy(Entity):
                 """
 
                 _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(RoutingPolicy.Sets.EtagSets.EtagSet, self).__init__()
@@ -1671,8 +1620,7 @@ class RoutingPolicy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['set_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('set_name', YLeaf(YType.str, 'set-name')),
                         ('etag_set_as_text', YLeaf(YType.str, 'etag-set-as-text')),
@@ -1700,7 +1648,7 @@ class RoutingPolicy(Entity):
             """
 
             _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(RoutingPolicy.Sets.ExtendedCommunityRtSets, self).__init__()
@@ -1710,8 +1658,7 @@ class RoutingPolicy(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("extended-community-rt-set", ("extended_community_rt_set", RoutingPolicy.Sets.ExtendedCommunityRtSets.ExtendedCommunityRtSet))])
+                self._child_classes = OrderedDict([("extended-community-rt-set", ("extended_community_rt_set", RoutingPolicy.Sets.ExtendedCommunityRtSets.ExtendedCommunityRtSet))])
                 self._leafs = OrderedDict()
 
                 self.extended_community_rt_set = YList(self)
@@ -1745,7 +1692,7 @@ class RoutingPolicy(Entity):
                 """
 
                 _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(RoutingPolicy.Sets.ExtendedCommunityRtSets.ExtendedCommunityRtSet, self).__init__()
@@ -1755,8 +1702,7 @@ class RoutingPolicy(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['set_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('set_name', YLeaf(YType.str, 'set-name')),
                         ('rpl_extended_community_rt_set', YLeaf(YType.str, 'rpl-extended-community-rt-set')),
@@ -1779,7 +1725,7 @@ class RoutingPolicy(Entity):
         	Maximum number of lines of policy configuration that may be configured in total
         	**type**\: int
         
-        	**range:** \-2147483648..2147483647
+        	**range:** 0..4294967295
         
         	**default value**\: 131072
         
@@ -1788,7 +1734,7 @@ class RoutingPolicy(Entity):
         	Maximum number of policies that may be configured
         	**type**\: int
         
-        	**range:** \-2147483648..2147483647
+        	**range:** 0..4294967295
         
         	**default value**\: 5000
         
@@ -1797,7 +1743,7 @@ class RoutingPolicy(Entity):
         """
 
         _prefix = 'policy-repository-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(RoutingPolicy.Limits, self).__init__()
@@ -1807,11 +1753,10 @@ class RoutingPolicy(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('maximum_lines_of_policy', YLeaf(YType.int32, 'maximum-lines-of-policy')),
-                ('maximum_number_of_policies', YLeaf(YType.int32, 'maximum-number-of-policies')),
+                ('maximum_lines_of_policy', YLeaf(YType.uint32, 'maximum-lines-of-policy')),
+                ('maximum_number_of_policies', YLeaf(YType.uint32, 'maximum-number-of-policies')),
             ])
             self.maximum_lines_of_policy = None
             self.maximum_number_of_policies = None

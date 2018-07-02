@@ -21,17 +21,17 @@ class CISCOIETFPWENETMIB(Entity):
     .. attribute:: cpwvcenettable
     
     	This table contains the index to the Ethernet tables   associated with this ETH VC, the VLAN configuration and   VLAN mode
-    	**type**\:  :py:class:`Cpwvcenettable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB.CISCOIETFPWENETMIB.Cpwvcenettable>`
+    	**type**\:  :py:class:`CpwVcEnetTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB.CISCOIETFPWENETMIB.CpwVcEnetTable>`
     
     .. attribute:: cpwvcenetmplsprimappingtable
     
     	This table may be used for MPLS PSNs if there is a need   to hold multiple VC, each with different COS, for the same  user service (port + PW VLAN). Such a need may arise if the  MPLS network is capable of L\-LSP or E\-LSP without multiple  COS capabilities.  Each row is indexed by the cpwVcIndex   and indicate the PRI bits on the packet recieved from the   user port (or VPLS virtual port) that are  classified to this VC. Note that the EXP bit value of the VC  is configured in the CISCO\-IETF\-PW\-MPLS\-MIB
-    	**type**\:  :py:class:`Cpwvcenetmplsprimappingtable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB.CISCOIETFPWENETMIB.Cpwvcenetmplsprimappingtable>`
+    	**type**\:  :py:class:`CpwVcEnetMplsPriMappingTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB.CISCOIETFPWENETMIB.CpwVcEnetMplsPriMappingTable>`
     
     .. attribute:: cpwvcenetstatstable
     
     	This table contains statistical counters specific for   Ethernet PW
-    	**type**\:  :py:class:`Cpwvcenetstatstable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB.CISCOIETFPWENETMIB.Cpwvcenetstatstable>`
+    	**type**\:  :py:class:`CpwVcEnetStatsTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB.CISCOIETFPWENETMIB.CpwVcEnetStatsTable>`
     
     
 
@@ -49,28 +49,27 @@ class CISCOIETFPWENETMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cpwVcEnetTable", ("cpwvcenettable", CISCOIETFPWENETMIB.Cpwvcenettable)), ("cpwVcEnetMplsPriMappingTable", ("cpwvcenetmplsprimappingtable", CISCOIETFPWENETMIB.Cpwvcenetmplsprimappingtable)), ("cpwVcEnetStatsTable", ("cpwvcenetstatstable", CISCOIETFPWENETMIB.Cpwvcenetstatstable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cpwVcEnetTable", ("cpwvcenettable", CISCOIETFPWENETMIB.CpwVcEnetTable)), ("cpwVcEnetMplsPriMappingTable", ("cpwvcenetmplsprimappingtable", CISCOIETFPWENETMIB.CpwVcEnetMplsPriMappingTable)), ("cpwVcEnetStatsTable", ("cpwvcenetstatstable", CISCOIETFPWENETMIB.CpwVcEnetStatsTable))])
         self._leafs = OrderedDict()
 
-        self.cpwvcenettable = CISCOIETFPWENETMIB.Cpwvcenettable()
+        self.cpwvcenettable = CISCOIETFPWENETMIB.CpwVcEnetTable()
         self.cpwvcenettable.parent = self
         self._children_name_map["cpwvcenettable"] = "cpwVcEnetTable"
-        self._children_yang_names.add("cpwVcEnetTable")
 
-        self.cpwvcenetmplsprimappingtable = CISCOIETFPWENETMIB.Cpwvcenetmplsprimappingtable()
+        self.cpwvcenetmplsprimappingtable = CISCOIETFPWENETMIB.CpwVcEnetMplsPriMappingTable()
         self.cpwvcenetmplsprimappingtable.parent = self
         self._children_name_map["cpwvcenetmplsprimappingtable"] = "cpwVcEnetMplsPriMappingTable"
-        self._children_yang_names.add("cpwVcEnetMplsPriMappingTable")
 
-        self.cpwvcenetstatstable = CISCOIETFPWENETMIB.Cpwvcenetstatstable()
+        self.cpwvcenetstatstable = CISCOIETFPWENETMIB.CpwVcEnetStatsTable()
         self.cpwvcenetstatstable.parent = self
         self._children_name_map["cpwvcenetstatstable"] = "cpwVcEnetStatsTable"
-        self._children_yang_names.add("cpwVcEnetStatsTable")
         self._segment_path = lambda: "CISCO-IETF-PW-ENET-MIB:CISCO-IETF-PW-ENET-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOIETFPWENETMIB, [], name, value)
 
-    class Cpwvcenettable(Entity):
+
+    class CpwVcEnetTable(Entity):
         """
         This table contains the index to the Ethernet tables  
         associated with this ETH VC, the VLAN configuration and  
@@ -79,7 +78,7 @@ class CISCOIETFPWENETMIB(Entity):
         .. attribute:: cpwvcenetentry
         
         	This table is indexed by the same index that was created   for the associated entry in the PW VC Table in the  CISCO\-IETF\-PW\-MIB.  The CpwVcIndex and the cpwVcEnetPwVlan  are used as indexes to allow multiple VLANs to exist on  the same PW.   An entry is created in this table by the agent for every   entry in the cpwVc table with a VcType of 'ethernetVLAN',  'ethernet' or 'ethernetVPLS'. Additional rows may be   created by the operator or the agent if multiple entries  are required for the same VC.   This table provides Ethernet port mapping and VLAN   configuration for each Ethernet VC
-        	**type**\: list of  		 :py:class:`Cpwvcenetentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB.CISCOIETFPWENETMIB.Cpwvcenettable.Cpwvcenetentry>`
+        	**type**\: list of  		 :py:class:`CpwVcEnetEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB.CISCOIETFPWENETMIB.CpwVcEnetTable.CpwVcEnetEntry>`
         
         
 
@@ -89,15 +88,14 @@ class CISCOIETFPWENETMIB(Entity):
         _revision = '2002-09-22'
 
         def __init__(self):
-            super(CISCOIETFPWENETMIB.Cpwvcenettable, self).__init__()
+            super(CISCOIETFPWENETMIB.CpwVcEnetTable, self).__init__()
 
             self.yang_name = "cpwVcEnetTable"
             self.yang_parent_name = "CISCO-IETF-PW-ENET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpwVcEnetEntry", ("cpwvcenetentry", CISCOIETFPWENETMIB.Cpwvcenettable.Cpwvcenetentry))])
+            self._child_classes = OrderedDict([("cpwVcEnetEntry", ("cpwvcenetentry", CISCOIETFPWENETMIB.CpwVcEnetTable.CpwVcEnetEntry))])
             self._leafs = OrderedDict()
 
             self.cpwvcenetentry = YList(self)
@@ -105,10 +103,10 @@ class CISCOIETFPWENETMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-PW-ENET-MIB:CISCO-IETF-PW-ENET-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWENETMIB.Cpwvcenettable, [], name, value)
+            self._perform_setattr(CISCOIETFPWENETMIB.CpwVcEnetTable, [], name, value)
 
 
-        class Cpwvcenetentry(Entity):
+        class CpwVcEnetEntry(Entity):
             """
             This table is indexed by the same index that was created  
             for the associated entry in the PW VC Table in the 
@@ -132,7 +130,7 @@ class CISCOIETFPWENETMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
+            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
             
             .. attribute:: cpwvcenetpwvlan  (key)
             
@@ -144,7 +142,7 @@ class CISCOIETFPWENETMIB(Entity):
             .. attribute:: cpwvcenetvlanmode
             
             	Indicate the mode of VLAN handling between the port   associated to the VC and the VC encapsulation itself.   \- 'other' indicate operation that is not defined by    this MIB.   \- 'portBased' indicates that the forwarder will forward    packets between the port and the PW independent of their    structure.   \- 'noChange' indicates that the VC contains the original     user VLAN, as specified in cpwVcEnetPortVlan.   \- 'changeVlan' indicates that the VLAN field on the VC     may be different than the VLAN field on the user's     port.   \- 'removeVlan' indicates that the encapsulation on the     VC does not include the original VLAN field. Note     that PRI bits transparency is lost in this case.   \- 'addVlan' indicate that a VLAN field will be added    on the PSN bound direction. cpwVcEnetPwVlan indicate    the value that will be added.    \- 'removeVlan', 'addVlan' and 'changeVlan' implementation    is not required. 
-            	**type**\:  :py:class:`Cpwvcenetvlanmode <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB.CISCOIETFPWENETMIB.Cpwvcenettable.Cpwvcenetentry.Cpwvcenetvlanmode>`
+            	**type**\:  :py:class:`CpwVcEnetVlanMode <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB.CISCOIETFPWENETMIB.CpwVcEnetTable.CpwVcEnetEntry.CpwVcEnetVlanMode>`
             
             .. attribute:: cpwvcenetportvlan
             
@@ -185,15 +183,14 @@ class CISCOIETFPWENETMIB(Entity):
             _revision = '2002-09-22'
 
             def __init__(self):
-                super(CISCOIETFPWENETMIB.Cpwvcenettable.Cpwvcenetentry, self).__init__()
+                super(CISCOIETFPWENETMIB.CpwVcEnetTable.CpwVcEnetEntry, self).__init__()
 
                 self.yang_name = "cpwVcEnetEntry"
                 self.yang_parent_name = "cpwVcEnetTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpwvcindex','cpwvcenetpwvlan']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
                     ('cpwvcenetpwvlan', YLeaf(YType.int32, 'cpwVcEnetPwVlan')),
@@ -216,11 +213,11 @@ class CISCOIETFPWENETMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-PW-ENET-MIB:CISCO-IETF-PW-ENET-MIB/cpwVcEnetTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWENETMIB.Cpwvcenettable.Cpwvcenetentry, ['cpwvcindex', 'cpwvcenetpwvlan', 'cpwvcenetvlanmode', 'cpwvcenetportvlan', 'cpwvcenetvcifindex', 'cpwvcenetportifindex', 'cpwvcenetrowstatus', 'cpwvcenetstoragetype'], name, value)
+                self._perform_setattr(CISCOIETFPWENETMIB.CpwVcEnetTable.CpwVcEnetEntry, ['cpwvcindex', 'cpwvcenetpwvlan', 'cpwvcenetvlanmode', 'cpwvcenetportvlan', 'cpwvcenetvcifindex', 'cpwvcenetportifindex', 'cpwvcenetrowstatus', 'cpwvcenetstoragetype'], name, value)
 
-            class Cpwvcenetvlanmode(Enum):
+            class CpwVcEnetVlanMode(Enum):
                 """
-                Cpwvcenetvlanmode (Enum Class)
+                CpwVcEnetVlanMode (Enum Class)
 
                 Indicate the mode of VLAN handling between the port  
 
@@ -290,7 +287,7 @@ class CISCOIETFPWENETMIB(Entity):
 
 
 
-    class Cpwvcenetmplsprimappingtable(Entity):
+    class CpwVcEnetMplsPriMappingTable(Entity):
         """
         This table may be used for MPLS PSNs if there is a need  
         to hold multiple VC, each with different COS, for the same 
@@ -305,7 +302,7 @@ class CISCOIETFPWENETMIB(Entity):
         .. attribute:: cpwvcenetmplsprimappingtableentry
         
         	Each entry is created if special classification based on   the PRI bits is required for this VC
-        	**type**\: list of  		 :py:class:`Cpwvcenetmplsprimappingtableentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB.CISCOIETFPWENETMIB.Cpwvcenetmplsprimappingtable.Cpwvcenetmplsprimappingtableentry>`
+        	**type**\: list of  		 :py:class:`CpwVcEnetMplsPriMappingTableEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB.CISCOIETFPWENETMIB.CpwVcEnetMplsPriMappingTable.CpwVcEnetMplsPriMappingTableEntry>`
         
         
 
@@ -315,15 +312,14 @@ class CISCOIETFPWENETMIB(Entity):
         _revision = '2002-09-22'
 
         def __init__(self):
-            super(CISCOIETFPWENETMIB.Cpwvcenetmplsprimappingtable, self).__init__()
+            super(CISCOIETFPWENETMIB.CpwVcEnetMplsPriMappingTable, self).__init__()
 
             self.yang_name = "cpwVcEnetMplsPriMappingTable"
             self.yang_parent_name = "CISCO-IETF-PW-ENET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpwVcEnetMplsPriMappingTableEntry", ("cpwvcenetmplsprimappingtableentry", CISCOIETFPWENETMIB.Cpwvcenetmplsprimappingtable.Cpwvcenetmplsprimappingtableentry))])
+            self._child_classes = OrderedDict([("cpwVcEnetMplsPriMappingTableEntry", ("cpwvcenetmplsprimappingtableentry", CISCOIETFPWENETMIB.CpwVcEnetMplsPriMappingTable.CpwVcEnetMplsPriMappingTableEntry))])
             self._leafs = OrderedDict()
 
             self.cpwvcenetmplsprimappingtableentry = YList(self)
@@ -331,10 +327,10 @@ class CISCOIETFPWENETMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-PW-ENET-MIB:CISCO-IETF-PW-ENET-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWENETMIB.Cpwvcenetmplsprimappingtable, [], name, value)
+            self._perform_setattr(CISCOIETFPWENETMIB.CpwVcEnetMplsPriMappingTable, [], name, value)
 
 
-        class Cpwvcenetmplsprimappingtableentry(Entity):
+        class CpwVcEnetMplsPriMappingTableEntry(Entity):
             """
             Each entry is created if special classification based on  
             the PRI bits is required for this VC.
@@ -346,12 +342,12 @@ class CISCOIETFPWENETMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
+            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
             
             .. attribute:: cpwvcenetmplsprimapping
             
             	This object defines the groups of user PRI mapped into  this VC. Each bit set indicates that this user priority   is assigned to this VC.   The value 'untagged' is used to indicate that untagged   frames are also associated to this VC.   This object allow the use of different PSN COS based on   user marking of PRI bits in MPLS PSN with L\-LSP or   E\-LSP without multiple COS support. In all other cases,   the default value MUST be used.   It is REQUIRED that there is no overlap on this object   between rows serving the same service (port+ PW VLAN).   In case of missing BIT configuration between rows to   the same service, incoming packets with PRI marking not   configured should be handled by the VC with the lowest   COS. 
-            	**type**\:  :py:class:`Cpwvcenetmplsprimapping <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB.CISCOIETFPWENETMIB.Cpwvcenetmplsprimappingtable.Cpwvcenetmplsprimappingtableentry.Cpwvcenetmplsprimapping>`
+            	**type**\:  :py:class:`CpwVcEnetMplsPriMapping <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB.CISCOIETFPWENETMIB.CpwVcEnetMplsPriMappingTable.CpwVcEnetMplsPriMappingTableEntry.CpwVcEnetMplsPriMapping>`
             
             .. attribute:: cpwvcenetmplsprimappingrowstatus
             
@@ -371,15 +367,14 @@ class CISCOIETFPWENETMIB(Entity):
             _revision = '2002-09-22'
 
             def __init__(self):
-                super(CISCOIETFPWENETMIB.Cpwvcenetmplsprimappingtable.Cpwvcenetmplsprimappingtableentry, self).__init__()
+                super(CISCOIETFPWENETMIB.CpwVcEnetMplsPriMappingTable.CpwVcEnetMplsPriMappingTableEntry, self).__init__()
 
                 self.yang_name = "cpwVcEnetMplsPriMappingTableEntry"
                 self.yang_parent_name = "cpwVcEnetMplsPriMappingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpwvcindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
                     ('cpwvcenetmplsprimapping', YLeaf(YType.bits, 'cpwVcEnetMplsPriMapping')),
@@ -394,10 +389,10 @@ class CISCOIETFPWENETMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-PW-ENET-MIB:CISCO-IETF-PW-ENET-MIB/cpwVcEnetMplsPriMappingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWENETMIB.Cpwvcenetmplsprimappingtable.Cpwvcenetmplsprimappingtableentry, ['cpwvcindex', 'cpwvcenetmplsprimapping', 'cpwvcenetmplsprimappingrowstatus', 'cpwvcenetmplsprimappingstoragetype'], name, value)
+                self._perform_setattr(CISCOIETFPWENETMIB.CpwVcEnetMplsPriMappingTable.CpwVcEnetMplsPriMappingTableEntry, ['cpwvcindex', 'cpwvcenetmplsprimapping', 'cpwvcenetmplsprimappingrowstatus', 'cpwvcenetmplsprimappingstoragetype'], name, value)
 
 
-    class Cpwvcenetstatstable(Entity):
+    class CpwVcEnetStatsTable(Entity):
         """
         This table contains statistical counters specific for  
         Ethernet PW.
@@ -405,7 +400,7 @@ class CISCOIETFPWENETMIB(Entity):
         .. attribute:: cpwvcenetstatsentry
         
         	Each entry represents the statistics gathered for the   VC carrying the Ethernet packets since this VC was   first created in the cpwVcEnetTable
-        	**type**\: list of  		 :py:class:`Cpwvcenetstatsentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB.CISCOIETFPWENETMIB.Cpwvcenetstatstable.Cpwvcenetstatsentry>`
+        	**type**\: list of  		 :py:class:`CpwVcEnetStatsEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB.CISCOIETFPWENETMIB.CpwVcEnetStatsTable.CpwVcEnetStatsEntry>`
         
         
 
@@ -415,15 +410,14 @@ class CISCOIETFPWENETMIB(Entity):
         _revision = '2002-09-22'
 
         def __init__(self):
-            super(CISCOIETFPWENETMIB.Cpwvcenetstatstable, self).__init__()
+            super(CISCOIETFPWENETMIB.CpwVcEnetStatsTable, self).__init__()
 
             self.yang_name = "cpwVcEnetStatsTable"
             self.yang_parent_name = "CISCO-IETF-PW-ENET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpwVcEnetStatsEntry", ("cpwvcenetstatsentry", CISCOIETFPWENETMIB.Cpwvcenetstatstable.Cpwvcenetstatsentry))])
+            self._child_classes = OrderedDict([("cpwVcEnetStatsEntry", ("cpwvcenetstatsentry", CISCOIETFPWENETMIB.CpwVcEnetStatsTable.CpwVcEnetStatsEntry))])
             self._leafs = OrderedDict()
 
             self.cpwvcenetstatsentry = YList(self)
@@ -431,10 +425,10 @@ class CISCOIETFPWENETMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-PW-ENET-MIB:CISCO-IETF-PW-ENET-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWENETMIB.Cpwvcenetstatstable, [], name, value)
+            self._perform_setattr(CISCOIETFPWENETMIB.CpwVcEnetStatsTable, [], name, value)
 
 
-        class Cpwvcenetstatsentry(Entity):
+        class CpwVcEnetStatsEntry(Entity):
             """
             Each entry represents the statistics gathered for the  
             VC carrying the Ethernet packets since this VC was  
@@ -447,7 +441,7 @@ class CISCOIETFPWENETMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
+            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
             
             .. attribute:: cpwvcenetstatsillegalvlan
             
@@ -471,15 +465,14 @@ class CISCOIETFPWENETMIB(Entity):
             _revision = '2002-09-22'
 
             def __init__(self):
-                super(CISCOIETFPWENETMIB.Cpwvcenetstatstable.Cpwvcenetstatsentry, self).__init__()
+                super(CISCOIETFPWENETMIB.CpwVcEnetStatsTable.CpwVcEnetStatsEntry, self).__init__()
 
                 self.yang_name = "cpwVcEnetStatsEntry"
                 self.yang_parent_name = "cpwVcEnetStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpwvcindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
                     ('cpwvcenetstatsillegalvlan', YLeaf(YType.uint64, 'cpwVcEnetStatsIllegalVlan')),
@@ -492,7 +485,7 @@ class CISCOIETFPWENETMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-PW-ENET-MIB:CISCO-IETF-PW-ENET-MIB/cpwVcEnetStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWENETMIB.Cpwvcenetstatstable.Cpwvcenetstatsentry, ['cpwvcindex', 'cpwvcenetstatsillegalvlan', 'cpwvcenetstatsillegallength'], name, value)
+                self._perform_setattr(CISCOIETFPWENETMIB.CpwVcEnetStatsTable.CpwVcEnetStatsEntry, ['cpwvcindex', 'cpwvcenetstatsillegalvlan', 'cpwvcenetstatsillegallength'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOIETFPWENETMIB()

@@ -45,15 +45,16 @@ class Nsr(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("process-failure", ("process_failure", Nsr.ProcessFailure))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("process-failure", ("process_failure", Nsr.ProcessFailure))])
         self._leafs = OrderedDict()
 
         self.process_failure = Nsr.ProcessFailure()
         self.process_failure.parent = self
         self._children_name_map["process_failure"] = "process-failure"
-        self._children_yang_names.add("process-failure")
         self._segment_path = lambda: "Cisco-IOS-XR-infra-nsr-cfg:nsr"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Nsr, [], name, value)
 
 
     class ProcessFailure(Entity):
@@ -81,8 +82,7 @@ class Nsr(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('switchover', YLeaf(YType.empty, 'switchover')),
             ])

@@ -41,52 +41,52 @@ class TOKENRINGRMONMIB(Entity):
     .. attribute:: tokenringmlstatstable
     
     	A list of Mac\-Layer Token Ring statistics      entries
-    	**type**\:  :py:class:`Tokenringmlstatstable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.Tokenringmlstatstable>`
+    	**type**\:  :py:class:`TokenRingMLStatsTable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.TokenRingMLStatsTable>`
     
     .. attribute:: tokenringpstatstable
     
     	A list of promiscuous Token Ring statistics entries
-    	**type**\:  :py:class:`Tokenringpstatstable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.Tokenringpstatstable>`
+    	**type**\:  :py:class:`TokenRingPStatsTable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.TokenRingPStatsTable>`
     
     .. attribute:: tokenringmlhistorytable
     
     	A list of Mac\-Layer Token Ring statistics      entries
-    	**type**\:  :py:class:`Tokenringmlhistorytable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.Tokenringmlhistorytable>`
+    	**type**\:  :py:class:`TokenRingMLHistoryTable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.TokenRingMLHistoryTable>`
     
     .. attribute:: tokenringphistorytable
     
     	A list of promiscuous Token Ring statistics entries
-    	**type**\:  :py:class:`Tokenringphistorytable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.Tokenringphistorytable>`
+    	**type**\:  :py:class:`TokenRingPHistoryTable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.TokenRingPHistoryTable>`
     
     .. attribute:: ringstationcontroltable
     
     	A list of ringStation table control entries
-    	**type**\:  :py:class:`Ringstationcontroltable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.Ringstationcontroltable>`
+    	**type**\:  :py:class:`RingStationControlTable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationControlTable>`
     
     .. attribute:: ringstationtable
     
     	A list of ring station entries.  An entry will exist for each station that is now or has      previously been detected as physically present on this ring
-    	**type**\:  :py:class:`Ringstationtable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.Ringstationtable>`
+    	**type**\:  :py:class:`RingStationTable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationTable>`
     
     .. attribute:: ringstationordertable
     
     	A list of ring station entries for stations in the ring poll, ordered by their ring\-order
-    	**type**\:  :py:class:`Ringstationordertable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.Ringstationordertable>`
+    	**type**\:  :py:class:`RingStationOrderTable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationOrderTable>`
     
     .. attribute:: ringstationconfigcontroltable
     
     	A list of ring station configuration control entries
-    	**type**\:  :py:class:`Ringstationconfigcontroltable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.Ringstationconfigcontroltable>`
+    	**type**\:  :py:class:`RingStationConfigControlTable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationConfigControlTable>`
     
     .. attribute:: ringstationconfigtable
     
     	A list of configuration entries for stations on a ring monitored by this probe
-    	**type**\:  :py:class:`Ringstationconfigtable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.Ringstationconfigtable>`
+    	**type**\:  :py:class:`RingStationConfigTable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationConfigTable>`
     
     .. attribute:: sourceroutingstatstable
     
     	A list of source routing statistics entries
-    	**type**\:  :py:class:`Sourceroutingstatstable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.Sourceroutingstatstable>`
+    	**type**\:  :py:class:`SourceRoutingStatsTable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.SourceRoutingStatsTable>`
     
     
 
@@ -103,63 +103,55 @@ class TOKENRINGRMONMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("tokenRingMLStatsTable", ("tokenringmlstatstable", TOKENRINGRMONMIB.Tokenringmlstatstable)), ("tokenRingPStatsTable", ("tokenringpstatstable", TOKENRINGRMONMIB.Tokenringpstatstable)), ("tokenRingMLHistoryTable", ("tokenringmlhistorytable", TOKENRINGRMONMIB.Tokenringmlhistorytable)), ("tokenRingPHistoryTable", ("tokenringphistorytable", TOKENRINGRMONMIB.Tokenringphistorytable)), ("ringStationControlTable", ("ringstationcontroltable", TOKENRINGRMONMIB.Ringstationcontroltable)), ("ringStationTable", ("ringstationtable", TOKENRINGRMONMIB.Ringstationtable)), ("ringStationOrderTable", ("ringstationordertable", TOKENRINGRMONMIB.Ringstationordertable)), ("ringStationConfigControlTable", ("ringstationconfigcontroltable", TOKENRINGRMONMIB.Ringstationconfigcontroltable)), ("ringStationConfigTable", ("ringstationconfigtable", TOKENRINGRMONMIB.Ringstationconfigtable)), ("sourceRoutingStatsTable", ("sourceroutingstatstable", TOKENRINGRMONMIB.Sourceroutingstatstable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("tokenRingMLStatsTable", ("tokenringmlstatstable", TOKENRINGRMONMIB.TokenRingMLStatsTable)), ("tokenRingPStatsTable", ("tokenringpstatstable", TOKENRINGRMONMIB.TokenRingPStatsTable)), ("tokenRingMLHistoryTable", ("tokenringmlhistorytable", TOKENRINGRMONMIB.TokenRingMLHistoryTable)), ("tokenRingPHistoryTable", ("tokenringphistorytable", TOKENRINGRMONMIB.TokenRingPHistoryTable)), ("ringStationControlTable", ("ringstationcontroltable", TOKENRINGRMONMIB.RingStationControlTable)), ("ringStationTable", ("ringstationtable", TOKENRINGRMONMIB.RingStationTable)), ("ringStationOrderTable", ("ringstationordertable", TOKENRINGRMONMIB.RingStationOrderTable)), ("ringStationConfigControlTable", ("ringstationconfigcontroltable", TOKENRINGRMONMIB.RingStationConfigControlTable)), ("ringStationConfigTable", ("ringstationconfigtable", TOKENRINGRMONMIB.RingStationConfigTable)), ("sourceRoutingStatsTable", ("sourceroutingstatstable", TOKENRINGRMONMIB.SourceRoutingStatsTable))])
         self._leafs = OrderedDict()
 
-        self.tokenringmlstatstable = TOKENRINGRMONMIB.Tokenringmlstatstable()
+        self.tokenringmlstatstable = TOKENRINGRMONMIB.TokenRingMLStatsTable()
         self.tokenringmlstatstable.parent = self
         self._children_name_map["tokenringmlstatstable"] = "tokenRingMLStatsTable"
-        self._children_yang_names.add("tokenRingMLStatsTable")
 
-        self.tokenringpstatstable = TOKENRINGRMONMIB.Tokenringpstatstable()
+        self.tokenringpstatstable = TOKENRINGRMONMIB.TokenRingPStatsTable()
         self.tokenringpstatstable.parent = self
         self._children_name_map["tokenringpstatstable"] = "tokenRingPStatsTable"
-        self._children_yang_names.add("tokenRingPStatsTable")
 
-        self.tokenringmlhistorytable = TOKENRINGRMONMIB.Tokenringmlhistorytable()
+        self.tokenringmlhistorytable = TOKENRINGRMONMIB.TokenRingMLHistoryTable()
         self.tokenringmlhistorytable.parent = self
         self._children_name_map["tokenringmlhistorytable"] = "tokenRingMLHistoryTable"
-        self._children_yang_names.add("tokenRingMLHistoryTable")
 
-        self.tokenringphistorytable = TOKENRINGRMONMIB.Tokenringphistorytable()
+        self.tokenringphistorytable = TOKENRINGRMONMIB.TokenRingPHistoryTable()
         self.tokenringphistorytable.parent = self
         self._children_name_map["tokenringphistorytable"] = "tokenRingPHistoryTable"
-        self._children_yang_names.add("tokenRingPHistoryTable")
 
-        self.ringstationcontroltable = TOKENRINGRMONMIB.Ringstationcontroltable()
+        self.ringstationcontroltable = TOKENRINGRMONMIB.RingStationControlTable()
         self.ringstationcontroltable.parent = self
         self._children_name_map["ringstationcontroltable"] = "ringStationControlTable"
-        self._children_yang_names.add("ringStationControlTable")
 
-        self.ringstationtable = TOKENRINGRMONMIB.Ringstationtable()
+        self.ringstationtable = TOKENRINGRMONMIB.RingStationTable()
         self.ringstationtable.parent = self
         self._children_name_map["ringstationtable"] = "ringStationTable"
-        self._children_yang_names.add("ringStationTable")
 
-        self.ringstationordertable = TOKENRINGRMONMIB.Ringstationordertable()
+        self.ringstationordertable = TOKENRINGRMONMIB.RingStationOrderTable()
         self.ringstationordertable.parent = self
         self._children_name_map["ringstationordertable"] = "ringStationOrderTable"
-        self._children_yang_names.add("ringStationOrderTable")
 
-        self.ringstationconfigcontroltable = TOKENRINGRMONMIB.Ringstationconfigcontroltable()
+        self.ringstationconfigcontroltable = TOKENRINGRMONMIB.RingStationConfigControlTable()
         self.ringstationconfigcontroltable.parent = self
         self._children_name_map["ringstationconfigcontroltable"] = "ringStationConfigControlTable"
-        self._children_yang_names.add("ringStationConfigControlTable")
 
-        self.ringstationconfigtable = TOKENRINGRMONMIB.Ringstationconfigtable()
+        self.ringstationconfigtable = TOKENRINGRMONMIB.RingStationConfigTable()
         self.ringstationconfigtable.parent = self
         self._children_name_map["ringstationconfigtable"] = "ringStationConfigTable"
-        self._children_yang_names.add("ringStationConfigTable")
 
-        self.sourceroutingstatstable = TOKENRINGRMONMIB.Sourceroutingstatstable()
+        self.sourceroutingstatstable = TOKENRINGRMONMIB.SourceRoutingStatsTable()
         self.sourceroutingstatstable.parent = self
         self._children_name_map["sourceroutingstatstable"] = "sourceRoutingStatsTable"
-        self._children_yang_names.add("sourceRoutingStatsTable")
         self._segment_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(TOKENRINGRMONMIB, [], name, value)
 
-    class Tokenringmlstatstable(Entity):
+
+    class TokenRingMLStatsTable(Entity):
         """
         A list of Mac\-Layer Token Ring statistics
         
@@ -172,7 +164,7 @@ class TOKENRINGRMONMIB(Entity):
         .. attribute:: tokenringmlstatsentry
         
         	A collection of Mac\-Layer statistics kept for a particular Token Ring interface
-        	**type**\: list of  		 :py:class:`Tokenringmlstatsentry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.Tokenringmlstatstable.Tokenringmlstatsentry>`
+        	**type**\: list of  		 :py:class:`TokenRingMLStatsEntry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.TokenRingMLStatsTable.TokenRingMLStatsEntry>`
         
         
 
@@ -181,15 +173,14 @@ class TOKENRINGRMONMIB(Entity):
         _prefix = 'TOKEN-RING-RMON-MIB'
 
         def __init__(self):
-            super(TOKENRINGRMONMIB.Tokenringmlstatstable, self).__init__()
+            super(TOKENRINGRMONMIB.TokenRingMLStatsTable, self).__init__()
 
             self.yang_name = "tokenRingMLStatsTable"
             self.yang_parent_name = "TOKEN-RING-RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("tokenRingMLStatsEntry", ("tokenringmlstatsentry", TOKENRINGRMONMIB.Tokenringmlstatstable.Tokenringmlstatsentry))])
+            self._child_classes = OrderedDict([("tokenRingMLStatsEntry", ("tokenringmlstatsentry", TOKENRINGRMONMIB.TokenRingMLStatsTable.TokenRingMLStatsEntry))])
             self._leafs = OrderedDict()
 
             self.tokenringmlstatsentry = YList(self)
@@ -197,10 +188,10 @@ class TOKENRINGRMONMIB(Entity):
             self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(TOKENRINGRMONMIB.Tokenringmlstatstable, [], name, value)
+            self._perform_setattr(TOKENRINGRMONMIB.TokenRingMLStatsTable, [], name, value)
 
 
-        class Tokenringmlstatsentry(Entity):
+        class TokenRingMLStatsEntry(Entity):
             """
             A collection of Mac\-Layer statistics kept for a
             particular Token Ring interface.
@@ -411,15 +402,14 @@ class TOKENRINGRMONMIB(Entity):
             _prefix = 'TOKEN-RING-RMON-MIB'
 
             def __init__(self):
-                super(TOKENRINGRMONMIB.Tokenringmlstatstable.Tokenringmlstatsentry, self).__init__()
+                super(TOKENRINGRMONMIB.TokenRingMLStatsTable.TokenRingMLStatsEntry, self).__init__()
 
                 self.yang_name = "tokenRingMLStatsEntry"
                 self.yang_parent_name = "tokenRingMLStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['tokenringmlstatsindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('tokenringmlstatsindex', YLeaf(YType.int32, 'tokenRingMLStatsIndex')),
                     ('tokenringmlstatsdatasource', YLeaf(YType.str, 'tokenRingMLStatsDataSource')),
@@ -484,10 +474,10 @@ class TOKENRINGRMONMIB(Entity):
                 self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/tokenRingMLStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGRMONMIB.Tokenringmlstatstable.Tokenringmlstatsentry, ['tokenringmlstatsindex', 'tokenringmlstatsdatasource', 'tokenringmlstatsdropevents', 'tokenringmlstatsmacoctets', 'tokenringmlstatsmacpkts', 'tokenringmlstatsringpurgeevents', 'tokenringmlstatsringpurgepkts', 'tokenringmlstatsbeaconevents', 'tokenringmlstatsbeacontime', 'tokenringmlstatsbeaconpkts', 'tokenringmlstatsclaimtokenevents', 'tokenringmlstatsclaimtokenpkts', 'tokenringmlstatsnaunchanges', 'tokenringmlstatslineerrors', 'tokenringmlstatsinternalerrors', 'tokenringmlstatsbursterrors', 'tokenringmlstatsacerrors', 'tokenringmlstatsaborterrors', 'tokenringmlstatslostframeerrors', 'tokenringmlstatscongestionerrors', 'tokenringmlstatsframecopiederrors', 'tokenringmlstatsfrequencyerrors', 'tokenringmlstatstokenerrors', 'tokenringmlstatssofterrorreports', 'tokenringmlstatsringpollevents', 'tokenringmlstatsowner', 'tokenringmlstatsstatus', 'tokenringmlstatsdroppedframes', 'tokenringmlstatscreatetime'], name, value)
+                self._perform_setattr(TOKENRINGRMONMIB.TokenRingMLStatsTable.TokenRingMLStatsEntry, [u'tokenringmlstatsindex', u'tokenringmlstatsdatasource', u'tokenringmlstatsdropevents', u'tokenringmlstatsmacoctets', u'tokenringmlstatsmacpkts', u'tokenringmlstatsringpurgeevents', u'tokenringmlstatsringpurgepkts', u'tokenringmlstatsbeaconevents', u'tokenringmlstatsbeacontime', u'tokenringmlstatsbeaconpkts', u'tokenringmlstatsclaimtokenevents', u'tokenringmlstatsclaimtokenpkts', u'tokenringmlstatsnaunchanges', u'tokenringmlstatslineerrors', u'tokenringmlstatsinternalerrors', u'tokenringmlstatsbursterrors', u'tokenringmlstatsacerrors', u'tokenringmlstatsaborterrors', u'tokenringmlstatslostframeerrors', u'tokenringmlstatscongestionerrors', u'tokenringmlstatsframecopiederrors', u'tokenringmlstatsfrequencyerrors', u'tokenringmlstatstokenerrors', u'tokenringmlstatssofterrorreports', u'tokenringmlstatsringpollevents', u'tokenringmlstatsowner', u'tokenringmlstatsstatus', u'tokenringmlstatsdroppedframes', u'tokenringmlstatscreatetime'], name, value)
 
 
-    class Tokenringpstatstable(Entity):
+    class TokenRingPStatsTable(Entity):
         """
         A list of promiscuous Token Ring statistics
         entries.
@@ -495,7 +485,7 @@ class TOKENRINGRMONMIB(Entity):
         .. attribute:: tokenringpstatsentry
         
         	A collection of promiscuous statistics kept for non\-MAC packets on a particular Token Ring interface
-        	**type**\: list of  		 :py:class:`Tokenringpstatsentry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.Tokenringpstatstable.Tokenringpstatsentry>`
+        	**type**\: list of  		 :py:class:`TokenRingPStatsEntry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.TokenRingPStatsTable.TokenRingPStatsEntry>`
         
         
 
@@ -504,15 +494,14 @@ class TOKENRINGRMONMIB(Entity):
         _prefix = 'TOKEN-RING-RMON-MIB'
 
         def __init__(self):
-            super(TOKENRINGRMONMIB.Tokenringpstatstable, self).__init__()
+            super(TOKENRINGRMONMIB.TokenRingPStatsTable, self).__init__()
 
             self.yang_name = "tokenRingPStatsTable"
             self.yang_parent_name = "TOKEN-RING-RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("tokenRingPStatsEntry", ("tokenringpstatsentry", TOKENRINGRMONMIB.Tokenringpstatstable.Tokenringpstatsentry))])
+            self._child_classes = OrderedDict([("tokenRingPStatsEntry", ("tokenringpstatsentry", TOKENRINGRMONMIB.TokenRingPStatsTable.TokenRingPStatsEntry))])
             self._leafs = OrderedDict()
 
             self.tokenringpstatsentry = YList(self)
@@ -520,10 +509,10 @@ class TOKENRINGRMONMIB(Entity):
             self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(TOKENRINGRMONMIB.Tokenringpstatstable, [], name, value)
+            self._perform_setattr(TOKENRINGRMONMIB.TokenRingPStatsTable, [], name, value)
 
 
-        class Tokenringpstatsentry(Entity):
+        class TokenRingPStatsEntry(Entity):
             """
             A collection of promiscuous statistics kept for
             non\-MAC packets on a particular Token Ring
@@ -679,15 +668,14 @@ class TOKENRINGRMONMIB(Entity):
             _prefix = 'TOKEN-RING-RMON-MIB'
 
             def __init__(self):
-                super(TOKENRINGRMONMIB.Tokenringpstatstable.Tokenringpstatsentry, self).__init__()
+                super(TOKENRINGRMONMIB.TokenRingPStatsTable.TokenRingPStatsEntry, self).__init__()
 
                 self.yang_name = "tokenRingPStatsEntry"
                 self.yang_parent_name = "tokenRingPStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['tokenringpstatsindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('tokenringpstatsindex', YLeaf(YType.int32, 'tokenRingPStatsIndex')),
                     ('tokenringpstatsdatasource', YLeaf(YType.str, 'tokenRingPStatsDataSource')),
@@ -736,10 +724,10 @@ class TOKENRINGRMONMIB(Entity):
                 self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/tokenRingPStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGRMONMIB.Tokenringpstatstable.Tokenringpstatsentry, ['tokenringpstatsindex', 'tokenringpstatsdatasource', 'tokenringpstatsdropevents', 'tokenringpstatsdataoctets', 'tokenringpstatsdatapkts', 'tokenringpstatsdatabroadcastpkts', 'tokenringpstatsdatamulticastpkts', 'tokenringpstatsdatapkts18to63octets', 'tokenringpstatsdatapkts64to127octets', 'tokenringpstatsdatapkts128to255octets', 'tokenringpstatsdatapkts256to511octets', 'tokenringpstatsdatapkts512to1023octets', 'tokenringpstatsdatapkts1024to2047octets', 'tokenringpstatsdatapkts2048to4095octets', 'tokenringpstatsdatapkts4096to8191octets', 'tokenringpstatsdatapkts8192to18000octets', 'tokenringpstatsdatapktsgreaterthan18000octets', 'tokenringpstatsowner', 'tokenringpstatsstatus', 'tokenringpstatsdroppedframes', 'tokenringpstatscreatetime'], name, value)
+                self._perform_setattr(TOKENRINGRMONMIB.TokenRingPStatsTable.TokenRingPStatsEntry, [u'tokenringpstatsindex', u'tokenringpstatsdatasource', u'tokenringpstatsdropevents', u'tokenringpstatsdataoctets', u'tokenringpstatsdatapkts', u'tokenringpstatsdatabroadcastpkts', u'tokenringpstatsdatamulticastpkts', u'tokenringpstatsdatapkts18to63octets', u'tokenringpstatsdatapkts64to127octets', u'tokenringpstatsdatapkts128to255octets', u'tokenringpstatsdatapkts256to511octets', u'tokenringpstatsdatapkts512to1023octets', u'tokenringpstatsdatapkts1024to2047octets', u'tokenringpstatsdatapkts2048to4095octets', u'tokenringpstatsdatapkts4096to8191octets', u'tokenringpstatsdatapkts8192to18000octets', u'tokenringpstatsdatapktsgreaterthan18000octets', u'tokenringpstatsowner', u'tokenringpstatsstatus', u'tokenringpstatsdroppedframes', u'tokenringpstatscreatetime'], name, value)
 
 
-    class Tokenringmlhistorytable(Entity):
+    class TokenRingMLHistoryTable(Entity):
         """
         A list of Mac\-Layer Token Ring statistics
         
@@ -752,7 +740,7 @@ class TOKENRINGRMONMIB(Entity):
         .. attribute:: tokenringmlhistoryentry
         
         	A collection of Mac\-Layer statistics kept for a particular Token Ring interface
-        	**type**\: list of  		 :py:class:`Tokenringmlhistoryentry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.Tokenringmlhistorytable.Tokenringmlhistoryentry>`
+        	**type**\: list of  		 :py:class:`TokenRingMLHistoryEntry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.TokenRingMLHistoryTable.TokenRingMLHistoryEntry>`
         
         
 
@@ -761,15 +749,14 @@ class TOKENRINGRMONMIB(Entity):
         _prefix = 'TOKEN-RING-RMON-MIB'
 
         def __init__(self):
-            super(TOKENRINGRMONMIB.Tokenringmlhistorytable, self).__init__()
+            super(TOKENRINGRMONMIB.TokenRingMLHistoryTable, self).__init__()
 
             self.yang_name = "tokenRingMLHistoryTable"
             self.yang_parent_name = "TOKEN-RING-RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("tokenRingMLHistoryEntry", ("tokenringmlhistoryentry", TOKENRINGRMONMIB.Tokenringmlhistorytable.Tokenringmlhistoryentry))])
+            self._child_classes = OrderedDict([("tokenRingMLHistoryEntry", ("tokenringmlhistoryentry", TOKENRINGRMONMIB.TokenRingMLHistoryTable.TokenRingMLHistoryEntry))])
             self._leafs = OrderedDict()
 
             self.tokenringmlhistoryentry = YList(self)
@@ -777,10 +764,10 @@ class TOKENRINGRMONMIB(Entity):
             self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(TOKENRINGRMONMIB.Tokenringmlhistorytable, [], name, value)
+            self._perform_setattr(TOKENRINGRMONMIB.TokenRingMLHistoryTable, [], name, value)
 
 
-        class Tokenringmlhistoryentry(Entity):
+        class TokenRingMLHistoryEntry(Entity):
             """
             A collection of Mac\-Layer statistics kept for a
             particular Token Ring interface.
@@ -981,15 +968,14 @@ class TOKENRINGRMONMIB(Entity):
             _prefix = 'TOKEN-RING-RMON-MIB'
 
             def __init__(self):
-                super(TOKENRINGRMONMIB.Tokenringmlhistorytable.Tokenringmlhistoryentry, self).__init__()
+                super(TOKENRINGRMONMIB.TokenRingMLHistoryTable.TokenRingMLHistoryEntry, self).__init__()
 
                 self.yang_name = "tokenRingMLHistoryEntry"
                 self.yang_parent_name = "tokenRingMLHistoryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['tokenringmlhistoryindex','tokenringmlhistorysampleindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('tokenringmlhistoryindex', YLeaf(YType.int32, 'tokenRingMLHistoryIndex')),
                     ('tokenringmlhistorysampleindex', YLeaf(YType.int32, 'tokenRingMLHistorySampleIndex')),
@@ -1050,10 +1036,10 @@ class TOKENRINGRMONMIB(Entity):
                 self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/tokenRingMLHistoryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGRMONMIB.Tokenringmlhistorytable.Tokenringmlhistoryentry, ['tokenringmlhistoryindex', 'tokenringmlhistorysampleindex', 'tokenringmlhistoryintervalstart', 'tokenringmlhistorydropevents', 'tokenringmlhistorymacoctets', 'tokenringmlhistorymacpkts', 'tokenringmlhistoryringpurgeevents', 'tokenringmlhistoryringpurgepkts', 'tokenringmlhistorybeaconevents', 'tokenringmlhistorybeacontime', 'tokenringmlhistorybeaconpkts', 'tokenringmlhistoryclaimtokenevents', 'tokenringmlhistoryclaimtokenpkts', 'tokenringmlhistorynaunchanges', 'tokenringmlhistorylineerrors', 'tokenringmlhistoryinternalerrors', 'tokenringmlhistorybursterrors', 'tokenringmlhistoryacerrors', 'tokenringmlhistoryaborterrors', 'tokenringmlhistorylostframeerrors', 'tokenringmlhistorycongestionerrors', 'tokenringmlhistoryframecopiederrors', 'tokenringmlhistoryfrequencyerrors', 'tokenringmlhistorytokenerrors', 'tokenringmlhistorysofterrorreports', 'tokenringmlhistoryringpollevents', 'tokenringmlhistoryactivestations'], name, value)
+                self._perform_setattr(TOKENRINGRMONMIB.TokenRingMLHistoryTable.TokenRingMLHistoryEntry, [u'tokenringmlhistoryindex', u'tokenringmlhistorysampleindex', u'tokenringmlhistoryintervalstart', u'tokenringmlhistorydropevents', u'tokenringmlhistorymacoctets', u'tokenringmlhistorymacpkts', u'tokenringmlhistoryringpurgeevents', u'tokenringmlhistoryringpurgepkts', u'tokenringmlhistorybeaconevents', u'tokenringmlhistorybeacontime', u'tokenringmlhistorybeaconpkts', u'tokenringmlhistoryclaimtokenevents', u'tokenringmlhistoryclaimtokenpkts', u'tokenringmlhistorynaunchanges', u'tokenringmlhistorylineerrors', u'tokenringmlhistoryinternalerrors', u'tokenringmlhistorybursterrors', u'tokenringmlhistoryacerrors', u'tokenringmlhistoryaborterrors', u'tokenringmlhistorylostframeerrors', u'tokenringmlhistorycongestionerrors', u'tokenringmlhistoryframecopiederrors', u'tokenringmlhistoryfrequencyerrors', u'tokenringmlhistorytokenerrors', u'tokenringmlhistorysofterrorreports', u'tokenringmlhistoryringpollevents', u'tokenringmlhistoryactivestations'], name, value)
 
 
-    class Tokenringphistorytable(Entity):
+    class TokenRingPHistoryTable(Entity):
         """
         A list of promiscuous Token Ring statistics
         entries.
@@ -1061,7 +1047,7 @@ class TOKENRINGRMONMIB(Entity):
         .. attribute:: tokenringphistoryentry
         
         	A collection of promiscuous statistics kept for a particular Token Ring interface
-        	**type**\: list of  		 :py:class:`Tokenringphistoryentry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.Tokenringphistorytable.Tokenringphistoryentry>`
+        	**type**\: list of  		 :py:class:`TokenRingPHistoryEntry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.TokenRingPHistoryTable.TokenRingPHistoryEntry>`
         
         
 
@@ -1070,15 +1056,14 @@ class TOKENRINGRMONMIB(Entity):
         _prefix = 'TOKEN-RING-RMON-MIB'
 
         def __init__(self):
-            super(TOKENRINGRMONMIB.Tokenringphistorytable, self).__init__()
+            super(TOKENRINGRMONMIB.TokenRingPHistoryTable, self).__init__()
 
             self.yang_name = "tokenRingPHistoryTable"
             self.yang_parent_name = "TOKEN-RING-RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("tokenRingPHistoryEntry", ("tokenringphistoryentry", TOKENRINGRMONMIB.Tokenringphistorytable.Tokenringphistoryentry))])
+            self._child_classes = OrderedDict([("tokenRingPHistoryEntry", ("tokenringphistoryentry", TOKENRINGRMONMIB.TokenRingPHistoryTable.TokenRingPHistoryEntry))])
             self._leafs = OrderedDict()
 
             self.tokenringphistoryentry = YList(self)
@@ -1086,10 +1071,10 @@ class TOKENRINGRMONMIB(Entity):
             self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(TOKENRINGRMONMIB.Tokenringphistorytable, [], name, value)
+            self._perform_setattr(TOKENRINGRMONMIB.TokenRingPHistoryTable, [], name, value)
 
 
-        class Tokenringphistoryentry(Entity):
+        class TokenRingPHistoryEntry(Entity):
             """
             A collection of promiscuous statistics kept for a
             particular Token Ring interface.
@@ -1227,15 +1212,14 @@ class TOKENRINGRMONMIB(Entity):
             _prefix = 'TOKEN-RING-RMON-MIB'
 
             def __init__(self):
-                super(TOKENRINGRMONMIB.Tokenringphistorytable.Tokenringphistoryentry, self).__init__()
+                super(TOKENRINGRMONMIB.TokenRingPHistoryTable.TokenRingPHistoryEntry, self).__init__()
 
                 self.yang_name = "tokenRingPHistoryEntry"
                 self.yang_parent_name = "tokenRingPHistoryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['tokenringphistoryindex','tokenringphistorysampleindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('tokenringphistoryindex', YLeaf(YType.int32, 'tokenRingPHistoryIndex')),
                     ('tokenringphistorysampleindex', YLeaf(YType.int32, 'tokenRingPHistorySampleIndex')),
@@ -1278,17 +1262,17 @@ class TOKENRINGRMONMIB(Entity):
                 self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/tokenRingPHistoryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGRMONMIB.Tokenringphistorytable.Tokenringphistoryentry, ['tokenringphistoryindex', 'tokenringphistorysampleindex', 'tokenringphistoryintervalstart', 'tokenringphistorydropevents', 'tokenringphistorydataoctets', 'tokenringphistorydatapkts', 'tokenringphistorydatabroadcastpkts', 'tokenringphistorydatamulticastpkts', 'tokenringphistorydatapkts18to63octets', 'tokenringphistorydatapkts64to127octets', 'tokenringphistorydatapkts128to255octets', 'tokenringphistorydatapkts256to511octets', 'tokenringphistorydatapkts512to1023octets', 'tokenringphistorydatapkts1024to2047octets', 'tokenringphistorydatapkts2048to4095octets', 'tokenringphistorydatapkts4096to8191octets', 'tokenringphistorydatapkts8192to18000octets', 'tokenringphistorydatapktsgreaterthan18000octets'], name, value)
+                self._perform_setattr(TOKENRINGRMONMIB.TokenRingPHistoryTable.TokenRingPHistoryEntry, [u'tokenringphistoryindex', u'tokenringphistorysampleindex', u'tokenringphistoryintervalstart', u'tokenringphistorydropevents', u'tokenringphistorydataoctets', u'tokenringphistorydatapkts', u'tokenringphistorydatabroadcastpkts', u'tokenringphistorydatamulticastpkts', u'tokenringphistorydatapkts18to63octets', u'tokenringphistorydatapkts64to127octets', u'tokenringphistorydatapkts128to255octets', u'tokenringphistorydatapkts256to511octets', u'tokenringphistorydatapkts512to1023octets', u'tokenringphistorydatapkts1024to2047octets', u'tokenringphistorydatapkts2048to4095octets', u'tokenringphistorydatapkts4096to8191octets', u'tokenringphistorydatapkts8192to18000octets', u'tokenringphistorydatapktsgreaterthan18000octets'], name, value)
 
 
-    class Ringstationcontroltable(Entity):
+    class RingStationControlTable(Entity):
         """
         A list of ringStation table control entries.
         
         .. attribute:: ringstationcontrolentry
         
         	A list of parameters that set up the discovery of stations on a particular interface and the collection of statistics about these stations
-        	**type**\: list of  		 :py:class:`Ringstationcontrolentry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.Ringstationcontroltable.Ringstationcontrolentry>`
+        	**type**\: list of  		 :py:class:`RingStationControlEntry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationControlTable.RingStationControlEntry>`
         
         
 
@@ -1297,15 +1281,14 @@ class TOKENRINGRMONMIB(Entity):
         _prefix = 'TOKEN-RING-RMON-MIB'
 
         def __init__(self):
-            super(TOKENRINGRMONMIB.Ringstationcontroltable, self).__init__()
+            super(TOKENRINGRMONMIB.RingStationControlTable, self).__init__()
 
             self.yang_name = "ringStationControlTable"
             self.yang_parent_name = "TOKEN-RING-RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ringStationControlEntry", ("ringstationcontrolentry", TOKENRINGRMONMIB.Ringstationcontroltable.Ringstationcontrolentry))])
+            self._child_classes = OrderedDict([("ringStationControlEntry", ("ringstationcontrolentry", TOKENRINGRMONMIB.RingStationControlTable.RingStationControlEntry))])
             self._leafs = OrderedDict()
 
             self.ringstationcontrolentry = YList(self)
@@ -1313,10 +1296,10 @@ class TOKENRINGRMONMIB(Entity):
             self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(TOKENRINGRMONMIB.Ringstationcontroltable, [], name, value)
+            self._perform_setattr(TOKENRINGRMONMIB.RingStationControlTable, [], name, value)
 
 
-        class Ringstationcontrolentry(Entity):
+        class RingStationControlEntry(Entity):
             """
             A list of parameters that set up the discovery of
             stations on a particular interface and the
@@ -1346,7 +1329,7 @@ class TOKENRINGRMONMIB(Entity):
             .. attribute:: ringstationcontrolringstate
             
             	The current status of this ring
-            	**type**\:  :py:class:`Ringstationcontrolringstate <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.Ringstationcontroltable.Ringstationcontrolentry.Ringstationcontrolringstate>`
+            	**type**\:  :py:class:`RingStationControlRingState <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationControlTable.RingStationControlEntry.RingStationControlRingState>`
             
             .. attribute:: ringstationcontrolbeaconsender
             
@@ -1407,15 +1390,14 @@ class TOKENRINGRMONMIB(Entity):
             _prefix = 'TOKEN-RING-RMON-MIB'
 
             def __init__(self):
-                super(TOKENRINGRMONMIB.Ringstationcontroltable.Ringstationcontrolentry, self).__init__()
+                super(TOKENRINGRMONMIB.RingStationControlTable.RingStationControlEntry, self).__init__()
 
                 self.yang_name = "ringStationControlEntry"
                 self.yang_parent_name = "ringStationControlTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ringstationcontrolifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ringstationcontrolifindex', YLeaf(YType.int32, 'ringStationControlIfIndex')),
                     ('ringstationcontroltablesize', YLeaf(YType.int32, 'ringStationControlTableSize')),
@@ -1446,11 +1428,11 @@ class TOKENRINGRMONMIB(Entity):
                 self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/ringStationControlTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGRMONMIB.Ringstationcontroltable.Ringstationcontrolentry, ['ringstationcontrolifindex', 'ringstationcontroltablesize', 'ringstationcontrolactivestations', 'ringstationcontrolringstate', 'ringstationcontrolbeaconsender', 'ringstationcontrolbeaconnaun', 'ringstationcontrolactivemonitor', 'ringstationcontrolorderchanges', 'ringstationcontrolowner', 'ringstationcontrolstatus', 'ringstationcontroldroppedframes', 'ringstationcontrolcreatetime'], name, value)
+                self._perform_setattr(TOKENRINGRMONMIB.RingStationControlTable.RingStationControlEntry, [u'ringstationcontrolifindex', u'ringstationcontroltablesize', u'ringstationcontrolactivestations', u'ringstationcontrolringstate', u'ringstationcontrolbeaconsender', u'ringstationcontrolbeaconnaun', u'ringstationcontrolactivemonitor', u'ringstationcontrolorderchanges', u'ringstationcontrolowner', u'ringstationcontrolstatus', u'ringstationcontroldroppedframes', u'ringstationcontrolcreatetime'], name, value)
 
-            class Ringstationcontrolringstate(Enum):
+            class RingStationControlRingState(Enum):
                 """
-                Ringstationcontrolringstate (Enum Class)
+                RingStationControlRingState (Enum Class)
 
                 The current status of this ring.
 
@@ -1486,7 +1468,7 @@ class TOKENRINGRMONMIB(Entity):
 
 
 
-    class Ringstationtable(Entity):
+    class RingStationTable(Entity):
         """
         A list of ring station entries.  An entry will
         exist for each station that is now or has
@@ -1501,7 +1483,7 @@ class TOKENRINGRMONMIB(Entity):
         .. attribute:: ringstationentry
         
         	A collection of statistics for a particular station that has been discovered on a ring monitored by this device
-        	**type**\: list of  		 :py:class:`Ringstationentry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.Ringstationtable.Ringstationentry>`
+        	**type**\: list of  		 :py:class:`RingStationEntry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationTable.RingStationEntry>`
         
         
 
@@ -1510,15 +1492,14 @@ class TOKENRINGRMONMIB(Entity):
         _prefix = 'TOKEN-RING-RMON-MIB'
 
         def __init__(self):
-            super(TOKENRINGRMONMIB.Ringstationtable, self).__init__()
+            super(TOKENRINGRMONMIB.RingStationTable, self).__init__()
 
             self.yang_name = "ringStationTable"
             self.yang_parent_name = "TOKEN-RING-RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ringStationEntry", ("ringstationentry", TOKENRINGRMONMIB.Ringstationtable.Ringstationentry))])
+            self._child_classes = OrderedDict([("ringStationEntry", ("ringstationentry", TOKENRINGRMONMIB.RingStationTable.RingStationEntry))])
             self._leafs = OrderedDict()
 
             self.ringstationentry = YList(self)
@@ -1526,10 +1507,10 @@ class TOKENRINGRMONMIB(Entity):
             self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(TOKENRINGRMONMIB.Ringstationtable, [], name, value)
+            self._perform_setattr(TOKENRINGRMONMIB.RingStationTable, [], name, value)
 
 
-        class Ringstationentry(Entity):
+        class RingStationEntry(Entity):
             """
             A collection of statistics for a particular
             station that has been discovered on a ring
@@ -1559,7 +1540,7 @@ class TOKENRINGRMONMIB(Entity):
             .. attribute:: ringstationstationstatus
             
             	The status of this station on the ring
-            	**type**\:  :py:class:`Ringstationstationstatus <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.Ringstationtable.Ringstationentry.Ringstationstationstatus>`
+            	**type**\:  :py:class:`RingStationStationStatus <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationTable.RingStationEntry.RingStationStationStatus>`
             
             .. attribute:: ringstationlastentertime
             
@@ -1694,15 +1675,14 @@ class TOKENRINGRMONMIB(Entity):
             _prefix = 'TOKEN-RING-RMON-MIB'
 
             def __init__(self):
-                super(TOKENRINGRMONMIB.Ringstationtable.Ringstationentry, self).__init__()
+                super(TOKENRINGRMONMIB.RingStationTable.RingStationEntry, self).__init__()
 
                 self.yang_name = "ringStationEntry"
                 self.yang_parent_name = "ringStationTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ringstationifindex','ringstationmacaddress']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ringstationifindex', YLeaf(YType.int32, 'ringStationIfIndex')),
                     ('ringstationmacaddress', YLeaf(YType.str, 'ringStationMacAddress')),
@@ -1753,11 +1733,11 @@ class TOKENRINGRMONMIB(Entity):
                 self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/ringStationTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGRMONMIB.Ringstationtable.Ringstationentry, ['ringstationifindex', 'ringstationmacaddress', 'ringstationlastnaun', 'ringstationstationstatus', 'ringstationlastentertime', 'ringstationlastexittime', 'ringstationduplicateaddresses', 'ringstationinlineerrors', 'ringstationoutlineerrors', 'ringstationinternalerrors', 'ringstationinbursterrors', 'ringstationoutbursterrors', 'ringstationacerrors', 'ringstationaborterrors', 'ringstationlostframeerrors', 'ringstationcongestionerrors', 'ringstationframecopiederrors', 'ringstationfrequencyerrors', 'ringstationtokenerrors', 'ringstationinbeaconerrors', 'ringstationoutbeaconerrors', 'ringstationinsertions'], name, value)
+                self._perform_setattr(TOKENRINGRMONMIB.RingStationTable.RingStationEntry, [u'ringstationifindex', u'ringstationmacaddress', u'ringstationlastnaun', u'ringstationstationstatus', u'ringstationlastentertime', u'ringstationlastexittime', u'ringstationduplicateaddresses', u'ringstationinlineerrors', u'ringstationoutlineerrors', u'ringstationinternalerrors', u'ringstationinbursterrors', u'ringstationoutbursterrors', u'ringstationacerrors', u'ringstationaborterrors', u'ringstationlostframeerrors', u'ringstationcongestionerrors', u'ringstationframecopiederrors', u'ringstationfrequencyerrors', u'ringstationtokenerrors', u'ringstationinbeaconerrors', u'ringstationoutbeaconerrors', u'ringstationinsertions'], name, value)
 
-            class Ringstationstationstatus(Enum):
+            class RingStationStationStatus(Enum):
                 """
-                Ringstationstationstatus (Enum Class)
+                RingStationStationStatus (Enum Class)
 
                 The status of this station on the ring.
 
@@ -1777,7 +1757,7 @@ class TOKENRINGRMONMIB(Entity):
 
 
 
-    class Ringstationordertable(Entity):
+    class RingStationOrderTable(Entity):
         """
         A list of ring station entries for stations in
         the ring poll, ordered by their ring\-order.
@@ -1785,7 +1765,7 @@ class TOKENRINGRMONMIB(Entity):
         .. attribute:: ringstationorderentry
         
         	A collection of statistics for a particular      station that is active on a ring monitored by this device.  This table will contain information for every interface that has a ringStationControlStatus equal to valid
-        	**type**\: list of  		 :py:class:`Ringstationorderentry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.Ringstationordertable.Ringstationorderentry>`
+        	**type**\: list of  		 :py:class:`RingStationOrderEntry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationOrderTable.RingStationOrderEntry>`
         
         
 
@@ -1794,15 +1774,14 @@ class TOKENRINGRMONMIB(Entity):
         _prefix = 'TOKEN-RING-RMON-MIB'
 
         def __init__(self):
-            super(TOKENRINGRMONMIB.Ringstationordertable, self).__init__()
+            super(TOKENRINGRMONMIB.RingStationOrderTable, self).__init__()
 
             self.yang_name = "ringStationOrderTable"
             self.yang_parent_name = "TOKEN-RING-RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ringStationOrderEntry", ("ringstationorderentry", TOKENRINGRMONMIB.Ringstationordertable.Ringstationorderentry))])
+            self._child_classes = OrderedDict([("ringStationOrderEntry", ("ringstationorderentry", TOKENRINGRMONMIB.RingStationOrderTable.RingStationOrderEntry))])
             self._leafs = OrderedDict()
 
             self.ringstationorderentry = YList(self)
@@ -1810,10 +1789,10 @@ class TOKENRINGRMONMIB(Entity):
             self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(TOKENRINGRMONMIB.Ringstationordertable, [], name, value)
+            self._perform_setattr(TOKENRINGRMONMIB.RingStationOrderTable, [], name, value)
 
 
-        class Ringstationorderentry(Entity):
+        class RingStationOrderEntry(Entity):
             """
             A collection of statistics for a particular
             
@@ -1854,15 +1833,14 @@ class TOKENRINGRMONMIB(Entity):
             _prefix = 'TOKEN-RING-RMON-MIB'
 
             def __init__(self):
-                super(TOKENRINGRMONMIB.Ringstationordertable.Ringstationorderentry, self).__init__()
+                super(TOKENRINGRMONMIB.RingStationOrderTable.RingStationOrderEntry, self).__init__()
 
                 self.yang_name = "ringStationOrderEntry"
                 self.yang_parent_name = "ringStationOrderTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ringstationorderifindex','ringstationorderorderindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ringstationorderifindex', YLeaf(YType.int32, 'ringStationOrderIfIndex')),
                     ('ringstationorderorderindex', YLeaf(YType.int32, 'ringStationOrderOrderIndex')),
@@ -1875,10 +1853,10 @@ class TOKENRINGRMONMIB(Entity):
                 self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/ringStationOrderTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGRMONMIB.Ringstationordertable.Ringstationorderentry, ['ringstationorderifindex', 'ringstationorderorderindex', 'ringstationordermacaddress'], name, value)
+                self._perform_setattr(TOKENRINGRMONMIB.RingStationOrderTable.RingStationOrderEntry, [u'ringstationorderifindex', u'ringstationorderorderindex', u'ringstationordermacaddress'], name, value)
 
 
-    class Ringstationconfigcontroltable(Entity):
+    class RingStationConfigControlTable(Entity):
         """
         A list of ring station configuration control
         entries.
@@ -1886,7 +1864,7 @@ class TOKENRINGRMONMIB(Entity):
         .. attribute:: ringstationconfigcontrolentry
         
         	This entry controls active management of stations by the probe.  One entry exists in this table for each active station in the ringStationTable
-        	**type**\: list of  		 :py:class:`Ringstationconfigcontrolentry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.Ringstationconfigcontroltable.Ringstationconfigcontrolentry>`
+        	**type**\: list of  		 :py:class:`RingStationConfigControlEntry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationConfigControlTable.RingStationConfigControlEntry>`
         
         
 
@@ -1895,15 +1873,14 @@ class TOKENRINGRMONMIB(Entity):
         _prefix = 'TOKEN-RING-RMON-MIB'
 
         def __init__(self):
-            super(TOKENRINGRMONMIB.Ringstationconfigcontroltable, self).__init__()
+            super(TOKENRINGRMONMIB.RingStationConfigControlTable, self).__init__()
 
             self.yang_name = "ringStationConfigControlTable"
             self.yang_parent_name = "TOKEN-RING-RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ringStationConfigControlEntry", ("ringstationconfigcontrolentry", TOKENRINGRMONMIB.Ringstationconfigcontroltable.Ringstationconfigcontrolentry))])
+            self._child_classes = OrderedDict([("ringStationConfigControlEntry", ("ringstationconfigcontrolentry", TOKENRINGRMONMIB.RingStationConfigControlTable.RingStationConfigControlEntry))])
             self._leafs = OrderedDict()
 
             self.ringstationconfigcontrolentry = YList(self)
@@ -1911,10 +1888,10 @@ class TOKENRINGRMONMIB(Entity):
             self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(TOKENRINGRMONMIB.Ringstationconfigcontroltable, [], name, value)
+            self._perform_setattr(TOKENRINGRMONMIB.RingStationConfigControlTable, [], name, value)
 
 
-        class Ringstationconfigcontrolentry(Entity):
+        class RingStationConfigControlEntry(Entity):
             """
             This entry controls active management of stations
             by the probe.  One entry exists in this table for
@@ -1937,12 +1914,12 @@ class TOKENRINGRMONMIB(Entity):
             .. attribute:: ringstationconfigcontrolremove
             
             	Setting this object to `removing(2)' causes a Remove Station MAC frame to be sent.  The agent will set this object to `stable(1)' after processing the request
-            	**type**\:  :py:class:`Ringstationconfigcontrolremove <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.Ringstationconfigcontroltable.Ringstationconfigcontrolentry.Ringstationconfigcontrolremove>`
+            	**type**\:  :py:class:`RingStationConfigControlRemove <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationConfigControlTable.RingStationConfigControlEntry.RingStationConfigControlRemove>`
             
             .. attribute:: ringstationconfigcontrolupdatestats
             
             	Setting this object to `updating(2)' causes the configuration information associate with this entry to be updated.  The agent will set this object to `stable(1)' after processing the request
-            	**type**\:  :py:class:`Ringstationconfigcontrolupdatestats <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.Ringstationconfigcontroltable.Ringstationconfigcontrolentry.Ringstationconfigcontrolupdatestats>`
+            	**type**\:  :py:class:`RingStationConfigControlUpdateStats <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationConfigControlTable.RingStationConfigControlEntry.RingStationConfigControlUpdateStats>`
             
             
 
@@ -1951,15 +1928,14 @@ class TOKENRINGRMONMIB(Entity):
             _prefix = 'TOKEN-RING-RMON-MIB'
 
             def __init__(self):
-                super(TOKENRINGRMONMIB.Ringstationconfigcontroltable.Ringstationconfigcontrolentry, self).__init__()
+                super(TOKENRINGRMONMIB.RingStationConfigControlTable.RingStationConfigControlEntry, self).__init__()
 
                 self.yang_name = "ringStationConfigControlEntry"
                 self.yang_parent_name = "ringStationConfigControlTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ringstationconfigcontrolifindex','ringstationconfigcontrolmacaddress']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ringstationconfigcontrolifindex', YLeaf(YType.int32, 'ringStationConfigControlIfIndex')),
                     ('ringstationconfigcontrolmacaddress', YLeaf(YType.str, 'ringStationConfigControlMacAddress')),
@@ -1974,11 +1950,11 @@ class TOKENRINGRMONMIB(Entity):
                 self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/ringStationConfigControlTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGRMONMIB.Ringstationconfigcontroltable.Ringstationconfigcontrolentry, ['ringstationconfigcontrolifindex', 'ringstationconfigcontrolmacaddress', 'ringstationconfigcontrolremove', 'ringstationconfigcontrolupdatestats'], name, value)
+                self._perform_setattr(TOKENRINGRMONMIB.RingStationConfigControlTable.RingStationConfigControlEntry, [u'ringstationconfigcontrolifindex', u'ringstationconfigcontrolmacaddress', u'ringstationconfigcontrolremove', u'ringstationconfigcontrolupdatestats'], name, value)
 
-            class Ringstationconfigcontrolremove(Enum):
+            class RingStationConfigControlRemove(Enum):
                 """
-                Ringstationconfigcontrolremove (Enum Class)
+                RingStationConfigControlRemove (Enum Class)
 
                 Setting this object to `removing(2)' causes a
 
@@ -1999,9 +1975,9 @@ class TOKENRINGRMONMIB(Entity):
                 removing = Enum.YLeaf(2, "removing")
 
 
-            class Ringstationconfigcontrolupdatestats(Enum):
+            class RingStationConfigControlUpdateStats(Enum):
                 """
-                Ringstationconfigcontrolupdatestats (Enum Class)
+                RingStationConfigControlUpdateStats (Enum Class)
 
                 Setting this object to `updating(2)' causes the
 
@@ -2025,7 +2001,7 @@ class TOKENRINGRMONMIB(Entity):
 
 
 
-    class Ringstationconfigtable(Entity):
+    class RingStationConfigTable(Entity):
         """
         A list of configuration entries for stations on a
         ring monitored by this probe.
@@ -2033,7 +2009,7 @@ class TOKENRINGRMONMIB(Entity):
         .. attribute:: ringstationconfigentry
         
         	A collection of statistics for a particular station that has been discovered on a ring monitored by this probe
-        	**type**\: list of  		 :py:class:`Ringstationconfigentry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.Ringstationconfigtable.Ringstationconfigentry>`
+        	**type**\: list of  		 :py:class:`RingStationConfigEntry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationConfigTable.RingStationConfigEntry>`
         
         
 
@@ -2042,15 +2018,14 @@ class TOKENRINGRMONMIB(Entity):
         _prefix = 'TOKEN-RING-RMON-MIB'
 
         def __init__(self):
-            super(TOKENRINGRMONMIB.Ringstationconfigtable, self).__init__()
+            super(TOKENRINGRMONMIB.RingStationConfigTable, self).__init__()
 
             self.yang_name = "ringStationConfigTable"
             self.yang_parent_name = "TOKEN-RING-RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ringStationConfigEntry", ("ringstationconfigentry", TOKENRINGRMONMIB.Ringstationconfigtable.Ringstationconfigentry))])
+            self._child_classes = OrderedDict([("ringStationConfigEntry", ("ringstationconfigentry", TOKENRINGRMONMIB.RingStationConfigTable.RingStationConfigEntry))])
             self._leafs = OrderedDict()
 
             self.ringstationconfigentry = YList(self)
@@ -2058,10 +2033,10 @@ class TOKENRINGRMONMIB(Entity):
             self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(TOKENRINGRMONMIB.Ringstationconfigtable, [], name, value)
+            self._perform_setattr(TOKENRINGRMONMIB.RingStationConfigTable, [], name, value)
 
 
-        class Ringstationconfigentry(Entity):
+        class RingStationConfigEntry(Entity):
             """
             A collection of statistics for a particular
             station that has been discovered on a ring
@@ -2123,15 +2098,14 @@ class TOKENRINGRMONMIB(Entity):
             _prefix = 'TOKEN-RING-RMON-MIB'
 
             def __init__(self):
-                super(TOKENRINGRMONMIB.Ringstationconfigtable.Ringstationconfigentry, self).__init__()
+                super(TOKENRINGRMONMIB.RingStationConfigTable.RingStationConfigEntry, self).__init__()
 
                 self.yang_name = "ringStationConfigEntry"
                 self.yang_parent_name = "ringStationConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ringstationconfigifindex','ringstationconfigmacaddress']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ringstationconfigifindex', YLeaf(YType.int32, 'ringStationConfigIfIndex')),
                     ('ringstationconfigmacaddress', YLeaf(YType.str, 'ringStationConfigMacAddress')),
@@ -2152,17 +2126,17 @@ class TOKENRINGRMONMIB(Entity):
                 self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/ringStationConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGRMONMIB.Ringstationconfigtable.Ringstationconfigentry, ['ringstationconfigifindex', 'ringstationconfigmacaddress', 'ringstationconfigupdatetime', 'ringstationconfiglocation', 'ringstationconfigmicrocode', 'ringstationconfiggroupaddress', 'ringstationconfigfunctionaladdress'], name, value)
+                self._perform_setattr(TOKENRINGRMONMIB.RingStationConfigTable.RingStationConfigEntry, [u'ringstationconfigifindex', u'ringstationconfigmacaddress', u'ringstationconfigupdatetime', u'ringstationconfiglocation', u'ringstationconfigmicrocode', u'ringstationconfiggroupaddress', u'ringstationconfigfunctionaladdress'], name, value)
 
 
-    class Sourceroutingstatstable(Entity):
+    class SourceRoutingStatsTable(Entity):
         """
         A list of source routing statistics entries.
         
         .. attribute:: sourceroutingstatsentry
         
         	A collection of source routing statistics kept for a particular Token Ring interface
-        	**type**\: list of  		 :py:class:`Sourceroutingstatsentry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.Sourceroutingstatstable.Sourceroutingstatsentry>`
+        	**type**\: list of  		 :py:class:`SourceRoutingStatsEntry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.SourceRoutingStatsTable.SourceRoutingStatsEntry>`
         
         
 
@@ -2171,15 +2145,14 @@ class TOKENRINGRMONMIB(Entity):
         _prefix = 'TOKEN-RING-RMON-MIB'
 
         def __init__(self):
-            super(TOKENRINGRMONMIB.Sourceroutingstatstable, self).__init__()
+            super(TOKENRINGRMONMIB.SourceRoutingStatsTable, self).__init__()
 
             self.yang_name = "sourceRoutingStatsTable"
             self.yang_parent_name = "TOKEN-RING-RMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("sourceRoutingStatsEntry", ("sourceroutingstatsentry", TOKENRINGRMONMIB.Sourceroutingstatstable.Sourceroutingstatsentry))])
+            self._child_classes = OrderedDict([("sourceRoutingStatsEntry", ("sourceroutingstatsentry", TOKENRINGRMONMIB.SourceRoutingStatsTable.SourceRoutingStatsEntry))])
             self._leafs = OrderedDict()
 
             self.sourceroutingstatsentry = YList(self)
@@ -2187,10 +2160,10 @@ class TOKENRINGRMONMIB(Entity):
             self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(TOKENRINGRMONMIB.Sourceroutingstatstable, [], name, value)
+            self._perform_setattr(TOKENRINGRMONMIB.SourceRoutingStatsTable, [], name, value)
 
 
-        class Sourceroutingstatsentry(Entity):
+        class SourceRoutingStatsEntry(Entity):
             """
             A collection of source routing statistics kept
             for a particular Token Ring interface.
@@ -2380,15 +2353,14 @@ class TOKENRINGRMONMIB(Entity):
             _prefix = 'TOKEN-RING-RMON-MIB'
 
             def __init__(self):
-                super(TOKENRINGRMONMIB.Sourceroutingstatstable.Sourceroutingstatsentry, self).__init__()
+                super(TOKENRINGRMONMIB.SourceRoutingStatsTable.SourceRoutingStatsEntry, self).__init__()
 
                 self.yang_name = "sourceRoutingStatsEntry"
                 self.yang_parent_name = "sourceRoutingStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['sourceroutingstatsifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('sourceroutingstatsifindex', YLeaf(YType.int32, 'sourceRoutingStatsIfIndex')),
                     ('sourceroutingstatsringnumber', YLeaf(YType.int32, 'sourceRoutingStatsRingNumber')),
@@ -2447,7 +2419,7 @@ class TOKENRINGRMONMIB(Entity):
                 self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/sourceRoutingStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGRMONMIB.Sourceroutingstatstable.Sourceroutingstatsentry, ['sourceroutingstatsifindex', 'sourceroutingstatsringnumber', 'sourceroutingstatsinframes', 'sourceroutingstatsoutframes', 'sourceroutingstatsthroughframes', 'sourceroutingstatsallroutesbroadcastframes', 'sourceroutingstatssingleroutebroadcastframes', 'sourceroutingstatsinoctets', 'sourceroutingstatsoutoctets', 'sourceroutingstatsthroughoctets', 'sourceroutingstatsallroutesbroadcastoctets', 'sourceroutingstatssingleroutesbroadcastoctets', 'sourceroutingstatslocalllcframes', 'sourceroutingstats1hopframes', 'sourceroutingstats2hopsframes', 'sourceroutingstats3hopsframes', 'sourceroutingstats4hopsframes', 'sourceroutingstats5hopsframes', 'sourceroutingstats6hopsframes', 'sourceroutingstats7hopsframes', 'sourceroutingstats8hopsframes', 'sourceroutingstatsmorethan8hopsframes', 'sourceroutingstatsowner', 'sourceroutingstatsstatus', 'sourceroutingstatsdroppedframes', 'sourceroutingstatscreatetime'], name, value)
+                self._perform_setattr(TOKENRINGRMONMIB.SourceRoutingStatsTable.SourceRoutingStatsEntry, [u'sourceroutingstatsifindex', u'sourceroutingstatsringnumber', u'sourceroutingstatsinframes', u'sourceroutingstatsoutframes', u'sourceroutingstatsthroughframes', u'sourceroutingstatsallroutesbroadcastframes', u'sourceroutingstatssingleroutebroadcastframes', u'sourceroutingstatsinoctets', u'sourceroutingstatsoutoctets', u'sourceroutingstatsthroughoctets', u'sourceroutingstatsallroutesbroadcastoctets', u'sourceroutingstatssingleroutesbroadcastoctets', u'sourceroutingstatslocalllcframes', u'sourceroutingstats1hopframes', u'sourceroutingstats2hopsframes', u'sourceroutingstats3hopsframes', u'sourceroutingstats4hopsframes', u'sourceroutingstats5hopsframes', u'sourceroutingstats6hopsframes', u'sourceroutingstats7hopsframes', u'sourceroutingstats8hopsframes', u'sourceroutingstatsmorethan8hopsframes', u'sourceroutingstatsowner', u'sourceroutingstatsstatus', u'sourceroutingstatsdroppedframes', u'sourceroutingstatscreatetime'], name, value)
 
     def clone_ptr(self):
         self._top_entity = TOKENRINGRMONMIB()

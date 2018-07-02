@@ -20,22 +20,22 @@ class FRAMERELAYDTEMIB(Entity):
     .. attribute:: framerelaytrapcontrol
     
     	
-    	**type**\:  :py:class:`Framerelaytrapcontrol <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.Framerelaytrapcontrol>`
+    	**type**\:  :py:class:`FrameRelayTrapControl <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrameRelayTrapControl>`
     
     .. attribute:: frdlcmitable
     
     	The Parameters for the Data Link Connection Management Interface for the frame relay service on this interface
-    	**type**\:  :py:class:`Frdlcmitable <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.Frdlcmitable>`
+    	**type**\:  :py:class:`FrDlcmiTable <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrDlcmiTable>`
     
     .. attribute:: frcircuittable
     
     	A table containing information about specific Data Link Connections (DLC) or virtual circuits
-    	**type**\:  :py:class:`Frcircuittable <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.Frcircuittable>`
+    	**type**\:  :py:class:`FrCircuitTable <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrCircuitTable>`
     
     .. attribute:: frerrtable
     
     	A table containing information about Errors on the Frame Relay interface.  Discontinuities in the counters contained in this table are the same as apply to the ifEntry associated with the Interface
-    	**type**\:  :py:class:`Frerrtable <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.Frerrtable>`
+    	**type**\:  :py:class:`FrErrTable <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrErrTable>`
     
     
 
@@ -53,40 +53,38 @@ class FRAMERELAYDTEMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("frameRelayTrapControl", ("framerelaytrapcontrol", FRAMERELAYDTEMIB.Framerelaytrapcontrol)), ("frDlcmiTable", ("frdlcmitable", FRAMERELAYDTEMIB.Frdlcmitable)), ("frCircuitTable", ("frcircuittable", FRAMERELAYDTEMIB.Frcircuittable)), ("frErrTable", ("frerrtable", FRAMERELAYDTEMIB.Frerrtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("frameRelayTrapControl", ("framerelaytrapcontrol", FRAMERELAYDTEMIB.FrameRelayTrapControl)), ("frDlcmiTable", ("frdlcmitable", FRAMERELAYDTEMIB.FrDlcmiTable)), ("frCircuitTable", ("frcircuittable", FRAMERELAYDTEMIB.FrCircuitTable)), ("frErrTable", ("frerrtable", FRAMERELAYDTEMIB.FrErrTable))])
         self._leafs = OrderedDict()
 
-        self.framerelaytrapcontrol = FRAMERELAYDTEMIB.Framerelaytrapcontrol()
+        self.framerelaytrapcontrol = FRAMERELAYDTEMIB.FrameRelayTrapControl()
         self.framerelaytrapcontrol.parent = self
         self._children_name_map["framerelaytrapcontrol"] = "frameRelayTrapControl"
-        self._children_yang_names.add("frameRelayTrapControl")
 
-        self.frdlcmitable = FRAMERELAYDTEMIB.Frdlcmitable()
+        self.frdlcmitable = FRAMERELAYDTEMIB.FrDlcmiTable()
         self.frdlcmitable.parent = self
         self._children_name_map["frdlcmitable"] = "frDlcmiTable"
-        self._children_yang_names.add("frDlcmiTable")
 
-        self.frcircuittable = FRAMERELAYDTEMIB.Frcircuittable()
+        self.frcircuittable = FRAMERELAYDTEMIB.FrCircuitTable()
         self.frcircuittable.parent = self
         self._children_name_map["frcircuittable"] = "frCircuitTable"
-        self._children_yang_names.add("frCircuitTable")
 
-        self.frerrtable = FRAMERELAYDTEMIB.Frerrtable()
+        self.frerrtable = FRAMERELAYDTEMIB.FrErrTable()
         self.frerrtable.parent = self
         self._children_name_map["frerrtable"] = "frErrTable"
-        self._children_yang_names.add("frErrTable")
         self._segment_path = lambda: "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(FRAMERELAYDTEMIB, [], name, value)
 
-    class Framerelaytrapcontrol(Entity):
+
+    class FrameRelayTrapControl(Entity):
         """
         
         
         .. attribute:: frtrapstate
         
         	This variable indicates whether the system produces the frDLCIStatusChange trap
-        	**type**\:  :py:class:`Frtrapstate <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.Framerelaytrapcontrol.Frtrapstate>`
+        	**type**\:  :py:class:`FrTrapState <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrameRelayTrapControl.FrTrapState>`
         
         .. attribute:: frtrapmaxrate
         
@@ -103,15 +101,14 @@ class FRAMERELAYDTEMIB(Entity):
         _revision = '1997-05-01'
 
         def __init__(self):
-            super(FRAMERELAYDTEMIB.Framerelaytrapcontrol, self).__init__()
+            super(FRAMERELAYDTEMIB.FrameRelayTrapControl, self).__init__()
 
             self.yang_name = "frameRelayTrapControl"
             self.yang_parent_name = "FRAME-RELAY-DTE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('frtrapstate', YLeaf(YType.enumeration, 'frTrapState')),
                 ('frtrapmaxrate', YLeaf(YType.int32, 'frTrapMaxRate')),
@@ -122,11 +119,11 @@ class FRAMERELAYDTEMIB(Entity):
             self._absolute_path = lambda: "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(FRAMERELAYDTEMIB.Framerelaytrapcontrol, ['frtrapstate', 'frtrapmaxrate'], name, value)
+            self._perform_setattr(FRAMERELAYDTEMIB.FrameRelayTrapControl, ['frtrapstate', 'frtrapmaxrate'], name, value)
 
-        class Frtrapstate(Enum):
+        class FrTrapState(Enum):
             """
-            Frtrapstate (Enum Class)
+            FrTrapState (Enum Class)
 
             This variable indicates whether the system produces
 
@@ -144,7 +141,7 @@ class FRAMERELAYDTEMIB(Entity):
 
 
 
-    class Frdlcmitable(Entity):
+    class FrDlcmiTable(Entity):
         """
         The Parameters for the Data Link Connection Management
         Interface for the frame relay service on this
@@ -153,7 +150,7 @@ class FRAMERELAYDTEMIB(Entity):
         .. attribute:: frdlcmientry
         
         	The Parameters for a particular Data Link Connection Management Interface
-        	**type**\: list of  		 :py:class:`Frdlcmientry <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.Frdlcmitable.Frdlcmientry>`
+        	**type**\: list of  		 :py:class:`FrDlcmiEntry <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrDlcmiTable.FrDlcmiEntry>`
         
         
 
@@ -163,15 +160,14 @@ class FRAMERELAYDTEMIB(Entity):
         _revision = '1997-05-01'
 
         def __init__(self):
-            super(FRAMERELAYDTEMIB.Frdlcmitable, self).__init__()
+            super(FRAMERELAYDTEMIB.FrDlcmiTable, self).__init__()
 
             self.yang_name = "frDlcmiTable"
             self.yang_parent_name = "FRAME-RELAY-DTE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("frDlcmiEntry", ("frdlcmientry", FRAMERELAYDTEMIB.Frdlcmitable.Frdlcmientry))])
+            self._child_classes = OrderedDict([("frDlcmiEntry", ("frdlcmientry", FRAMERELAYDTEMIB.FrDlcmiTable.FrDlcmiEntry))])
             self._leafs = OrderedDict()
 
             self.frdlcmientry = YList(self)
@@ -179,10 +175,10 @@ class FRAMERELAYDTEMIB(Entity):
             self._absolute_path = lambda: "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(FRAMERELAYDTEMIB.Frdlcmitable, [], name, value)
+            self._perform_setattr(FRAMERELAYDTEMIB.FrDlcmiTable, [], name, value)
 
 
-        class Frdlcmientry(Entity):
+        class FrDlcmiEntry(Entity):
             """
             The Parameters for a particular Data Link Connection
             Management Interface.
@@ -197,17 +193,17 @@ class FRAMERELAYDTEMIB(Entity):
             .. attribute:: frdlcmistate
             
             	This variable states which Data Link Connection Management scheme is active (and by implication, what DLCI it uses) on the Frame Relay interface
-            	**type**\:  :py:class:`Frdlcmistate <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.Frdlcmitable.Frdlcmientry.Frdlcmistate>`
+            	**type**\:  :py:class:`FrDlcmiState <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrDlcmiTable.FrDlcmiEntry.FrDlcmiState>`
             
             .. attribute:: frdlcmiaddress
             
             	This variable states which address format is in use on the Frame Relay interface
-            	**type**\:  :py:class:`Frdlcmiaddress <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.Frdlcmitable.Frdlcmientry.Frdlcmiaddress>`
+            	**type**\:  :py:class:`FrDlcmiAddress <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrDlcmiTable.FrDlcmiEntry.FrDlcmiAddress>`
             
             .. attribute:: frdlcmiaddresslen
             
             	This variable states the address length in octets.  In the case of Q922 format, the length indicates the entire length of the address including the control portion
-            	**type**\:  :py:class:`Frdlcmiaddresslen <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.Frdlcmitable.Frdlcmientry.Frdlcmiaddresslen>`
+            	**type**\:  :py:class:`FrDlcmiAddressLen <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrDlcmiTable.FrDlcmiEntry.FrDlcmiAddressLen>`
             
             .. attribute:: frdlcmipollinginterval
             
@@ -249,12 +245,12 @@ class FRAMERELAYDTEMIB(Entity):
             .. attribute:: frdlcmimulticast
             
             	This indicates whether the Frame Relay interface is using a multicast service
-            	**type**\:  :py:class:`Frdlcmimulticast <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.Frdlcmitable.Frdlcmientry.Frdlcmimulticast>`
+            	**type**\:  :py:class:`FrDlcmiMulticast <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrDlcmiTable.FrDlcmiEntry.FrDlcmiMulticast>`
             
             .. attribute:: frdlcmistatus
             
             	This indicates the status of the Frame Relay interface as determined by the performance of the dlcmi.  If no dlcmi is running, the Frame Relay interface will stay in the running state indefinitely
-            	**type**\:  :py:class:`Frdlcmistatus <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.Frdlcmitable.Frdlcmientry.Frdlcmistatus>`
+            	**type**\:  :py:class:`FrDlcmiStatus <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrDlcmiTable.FrDlcmiEntry.FrDlcmiStatus>`
             
             .. attribute:: frdlcmirowstatus
             
@@ -269,15 +265,14 @@ class FRAMERELAYDTEMIB(Entity):
             _revision = '1997-05-01'
 
             def __init__(self):
-                super(FRAMERELAYDTEMIB.Frdlcmitable.Frdlcmientry, self).__init__()
+                super(FRAMERELAYDTEMIB.FrDlcmiTable.FrDlcmiEntry, self).__init__()
 
                 self.yang_name = "frDlcmiEntry"
                 self.yang_parent_name = "frDlcmiTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['frdlcmiifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('frdlcmiifindex', YLeaf(YType.int32, 'frDlcmiIfIndex')),
                     ('frdlcmistate', YLeaf(YType.enumeration, 'frDlcmiState')),
@@ -308,11 +303,11 @@ class FRAMERELAYDTEMIB(Entity):
                 self._absolute_path = lambda: "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB/frDlcmiTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(FRAMERELAYDTEMIB.Frdlcmitable.Frdlcmientry, ['frdlcmiifindex', 'frdlcmistate', 'frdlcmiaddress', 'frdlcmiaddresslen', 'frdlcmipollinginterval', 'frdlcmifullenquiryinterval', 'frdlcmierrorthreshold', 'frdlcmimonitoredevents', 'frdlcmimaxsupportedvcs', 'frdlcmimulticast', 'frdlcmistatus', 'frdlcmirowstatus'], name, value)
+                self._perform_setattr(FRAMERELAYDTEMIB.FrDlcmiTable.FrDlcmiEntry, ['frdlcmiifindex', 'frdlcmistate', 'frdlcmiaddress', 'frdlcmiaddresslen', 'frdlcmipollinginterval', 'frdlcmifullenquiryinterval', 'frdlcmierrorthreshold', 'frdlcmimonitoredevents', 'frdlcmimaxsupportedvcs', 'frdlcmimulticast', 'frdlcmistatus', 'frdlcmirowstatus'], name, value)
 
-            class Frdlcmiaddress(Enum):
+            class FrDlcmiAddress(Enum):
                 """
-                Frdlcmiaddress (Enum Class)
+                FrDlcmiAddress (Enum Class)
 
                 This variable states which address format is in use on
 
@@ -337,9 +332,9 @@ class FRAMERELAYDTEMIB(Entity):
                 q922 = Enum.YLeaf(4, "q922")
 
 
-            class Frdlcmiaddresslen(Enum):
+            class FrDlcmiAddressLen(Enum):
                 """
-                Frdlcmiaddresslen (Enum Class)
+                FrDlcmiAddressLen (Enum Class)
 
                 This variable states the address length in octets.  In
 
@@ -364,9 +359,9 @@ class FRAMERELAYDTEMIB(Entity):
                 fourOctets = Enum.YLeaf(4, "fourOctets")
 
 
-            class Frdlcmimulticast(Enum):
+            class FrDlcmiMulticast(Enum):
                 """
-                Frdlcmimulticast (Enum Class)
+                FrDlcmiMulticast (Enum Class)
 
                 This indicates whether the Frame Relay interface is
 
@@ -383,9 +378,9 @@ class FRAMERELAYDTEMIB(Entity):
                 broadcast = Enum.YLeaf(2, "broadcast")
 
 
-            class Frdlcmistate(Enum):
+            class FrDlcmiState(Enum):
                 """
-                Frdlcmistate (Enum Class)
+                FrDlcmiState (Enum Class)
 
                 This variable states which Data Link Connection
 
@@ -420,9 +415,9 @@ class FRAMERELAYDTEMIB(Entity):
                 ansiT1617D1994 = Enum.YLeaf(6, "ansiT1617D1994")
 
 
-            class Frdlcmistatus(Enum):
+            class FrDlcmiStatus(Enum):
                 """
-                Frdlcmistatus (Enum Class)
+                FrDlcmiStatus (Enum Class)
 
                 This indicates the status of the Frame Relay interface
 
@@ -448,7 +443,7 @@ class FRAMERELAYDTEMIB(Entity):
 
 
 
-    class Frcircuittable(Entity):
+    class FrCircuitTable(Entity):
         """
         A table containing information about specific Data
         Link Connections (DLC) or virtual circuits.
@@ -456,7 +451,7 @@ class FRAMERELAYDTEMIB(Entity):
         .. attribute:: frcircuitentry
         
         	The information regarding a single Data Link Connection.  Discontinuities in the counters contained in this table are indicated by the value in frCircuitCreationTime
-        	**type**\: list of  		 :py:class:`Frcircuitentry <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.Frcircuittable.Frcircuitentry>`
+        	**type**\: list of  		 :py:class:`FrCircuitEntry <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrCircuitTable.FrCircuitEntry>`
         
         
 
@@ -466,15 +461,14 @@ class FRAMERELAYDTEMIB(Entity):
         _revision = '1997-05-01'
 
         def __init__(self):
-            super(FRAMERELAYDTEMIB.Frcircuittable, self).__init__()
+            super(FRAMERELAYDTEMIB.FrCircuitTable, self).__init__()
 
             self.yang_name = "frCircuitTable"
             self.yang_parent_name = "FRAME-RELAY-DTE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("frCircuitEntry", ("frcircuitentry", FRAMERELAYDTEMIB.Frcircuittable.Frcircuitentry))])
+            self._child_classes = OrderedDict([("frCircuitEntry", ("frcircuitentry", FRAMERELAYDTEMIB.FrCircuitTable.FrCircuitEntry))])
             self._leafs = OrderedDict()
 
             self.frcircuitentry = YList(self)
@@ -482,10 +476,10 @@ class FRAMERELAYDTEMIB(Entity):
             self._absolute_path = lambda: "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(FRAMERELAYDTEMIB.Frcircuittable, [], name, value)
+            self._perform_setattr(FRAMERELAYDTEMIB.FrCircuitTable, [], name, value)
 
 
-        class Frcircuitentry(Entity):
+        class FrCircuitEntry(Entity):
             """
             The information regarding a single Data Link
             Connection.  Discontinuities in the counters contained
@@ -509,7 +503,7 @@ class FRAMERELAYDTEMIB(Entity):
             .. attribute:: frcircuitstate
             
             	Indicates whether the particular virtual circuit is operational.  In the absence of a Data Link Connection Management Interface, virtual circuit entries (rows) may be created by setting virtual circuit state to 'active', or deleted by changing Circuit state to 'invalid'.  Whether or not the row actually disappears is left to the implementation, so this object may actually read as 'invalid' for some arbitrary length of time.  It is also legal to set the state of a virtual circuit to 'inactive' to temporarily disable a given circuit.  The use of 'invalid' is deprecated in this SNMP Version 2 MIB, in favor of frCircuitRowStatus
-            	**type**\:  :py:class:`Frcircuitstate <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.Frcircuittable.Frcircuitentry.Frcircuitstate>`
+            	**type**\:  :py:class:`FrCircuitState <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrCircuitTable.FrCircuitEntry.FrCircuitState>`
             
             .. attribute:: frcircuitreceivedfecns
             
@@ -591,12 +585,12 @@ class FRAMERELAYDTEMIB(Entity):
             .. attribute:: frcircuitmulticast
             
             	This indicates whether this VC is used as a unicast VC (i.e. not multicast) or the type of multicast service subscribed to
-            	**type**\:  :py:class:`Frcircuitmulticast <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.Frcircuittable.Frcircuitentry.Frcircuitmulticast>`
+            	**type**\:  :py:class:`FrCircuitMulticast <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrCircuitTable.FrCircuitEntry.FrCircuitMulticast>`
             
             .. attribute:: frcircuittype
             
             	Indication of whether the VC was manually created (static), or dynamically created (dynamic) via the data link control management interface
-            	**type**\:  :py:class:`Frcircuittype <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.Frcircuittable.Frcircuitentry.Frcircuittype>`
+            	**type**\:  :py:class:`FrCircuitType <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrCircuitTable.FrCircuitEntry.FrCircuitType>`
             
             .. attribute:: frcircuitdiscards
             
@@ -639,15 +633,14 @@ class FRAMERELAYDTEMIB(Entity):
             _revision = '1997-05-01'
 
             def __init__(self):
-                super(FRAMERELAYDTEMIB.Frcircuittable.Frcircuitentry, self).__init__()
+                super(FRAMERELAYDTEMIB.FrCircuitTable.FrCircuitEntry, self).__init__()
 
                 self.yang_name = "frCircuitEntry"
                 self.yang_parent_name = "frCircuitTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['frcircuitifindex','frcircuitdlci']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('frcircuitifindex', YLeaf(YType.int32, 'frCircuitIfIndex')),
                     ('frcircuitdlci', YLeaf(YType.int32, 'frCircuitDlci')),
@@ -696,11 +689,11 @@ class FRAMERELAYDTEMIB(Entity):
                 self._absolute_path = lambda: "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB/frCircuitTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(FRAMERELAYDTEMIB.Frcircuittable.Frcircuitentry, ['frcircuitifindex', 'frcircuitdlci', 'frcircuitstate', 'frcircuitreceivedfecns', 'frcircuitreceivedbecns', 'frcircuitsentframes', 'frcircuitsentoctets', 'frcircuitreceivedframes', 'frcircuitreceivedoctets', 'frcircuitcreationtime', 'frcircuitlasttimechange', 'frcircuitcommittedburst', 'frcircuitexcessburst', 'frcircuitthroughput', 'frcircuitmulticast', 'frcircuittype', 'frcircuitdiscards', 'frcircuitreceiveddes', 'frcircuitsentdes', 'frcircuitlogicalifindex', 'frcircuitrowstatus'], name, value)
+                self._perform_setattr(FRAMERELAYDTEMIB.FrCircuitTable.FrCircuitEntry, ['frcircuitifindex', 'frcircuitdlci', 'frcircuitstate', 'frcircuitreceivedfecns', 'frcircuitreceivedbecns', 'frcircuitsentframes', 'frcircuitsentoctets', 'frcircuitreceivedframes', 'frcircuitreceivedoctets', 'frcircuitcreationtime', 'frcircuitlasttimechange', 'frcircuitcommittedburst', 'frcircuitexcessburst', 'frcircuitthroughput', 'frcircuitmulticast', 'frcircuittype', 'frcircuitdiscards', 'frcircuitreceiveddes', 'frcircuitsentdes', 'frcircuitlogicalifindex', 'frcircuitrowstatus'], name, value)
 
-            class Frcircuitmulticast(Enum):
+            class FrCircuitMulticast(Enum):
                 """
-                Frcircuitmulticast (Enum Class)
+                FrCircuitMulticast (Enum Class)
 
                 This indicates whether this VC is used as a unicast VC
 
@@ -727,9 +720,9 @@ class FRAMERELAYDTEMIB(Entity):
                 nWay = Enum.YLeaf(4, "nWay")
 
 
-            class Frcircuitstate(Enum):
+            class FrCircuitState(Enum):
                 """
-                Frcircuitstate (Enum Class)
+                FrCircuitState (Enum Class)
 
                 Indicates whether the particular virtual circuit is
 
@@ -772,9 +765,9 @@ class FRAMERELAYDTEMIB(Entity):
                 inactive = Enum.YLeaf(3, "inactive")
 
 
-            class Frcircuittype(Enum):
+            class FrCircuitType(Enum):
                 """
-                Frcircuittype (Enum Class)
+                FrCircuitType (Enum Class)
 
                 Indication of whether the VC was manually created
 
@@ -794,7 +787,7 @@ class FRAMERELAYDTEMIB(Entity):
 
 
 
-    class Frerrtable(Entity):
+    class FrErrTable(Entity):
         """
         A table containing information about Errors on the
         Frame Relay interface.  Discontinuities in the counters
@@ -804,7 +797,7 @@ class FRAMERELAYDTEMIB(Entity):
         .. attribute:: frerrentry
         
         	The error information for a single frame relay interface
-        	**type**\: list of  		 :py:class:`Frerrentry <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.Frerrtable.Frerrentry>`
+        	**type**\: list of  		 :py:class:`FrErrEntry <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrErrTable.FrErrEntry>`
         
         
 
@@ -814,15 +807,14 @@ class FRAMERELAYDTEMIB(Entity):
         _revision = '1997-05-01'
 
         def __init__(self):
-            super(FRAMERELAYDTEMIB.Frerrtable, self).__init__()
+            super(FRAMERELAYDTEMIB.FrErrTable, self).__init__()
 
             self.yang_name = "frErrTable"
             self.yang_parent_name = "FRAME-RELAY-DTE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("frErrEntry", ("frerrentry", FRAMERELAYDTEMIB.Frerrtable.Frerrentry))])
+            self._child_classes = OrderedDict([("frErrEntry", ("frerrentry", FRAMERELAYDTEMIB.FrErrTable.FrErrEntry))])
             self._leafs = OrderedDict()
 
             self.frerrentry = YList(self)
@@ -830,10 +822,10 @@ class FRAMERELAYDTEMIB(Entity):
             self._absolute_path = lambda: "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(FRAMERELAYDTEMIB.Frerrtable, [], name, value)
+            self._perform_setattr(FRAMERELAYDTEMIB.FrErrTable, [], name, value)
 
 
-        class Frerrentry(Entity):
+        class FrErrEntry(Entity):
             """
             The error information for a single frame relay
             interface.
@@ -848,7 +840,7 @@ class FRAMERELAYDTEMIB(Entity):
             .. attribute:: frerrtype
             
             	The type of error that was last seen  on  this interface\:  receiveShort\: frame was not long enough to allow         demultiplexing \- the address field was incomplete,         or for virtual circuits using Multiprotocol over         Frame Relay, the protocol identifier was missing         or incomplete.  receiveLong\: frame exceeded maximum length configured for this              interface.  illegalAddress\: address field did not match configured format.  unknownAddress\: frame received on a virtual circuit which was not                 active or administratively disabled.  dlcmiProtoErr\: unspecified error occurred when attempting to                interpret link maintenance frame.  dlcmiUnknownIE\: link maintenance frame contained an Information                 Element type which is not valid for the                 configured link maintenance protocol.  dlcmiSequenceErr\: link maintenance frame contained a sequence                   number other than the expected value.  dlcmiUnknownRpt\: link maintenance frame contained a Report Type                  Information Element whose value was not valid                  for the configured link maintenance protocol.  noErrorSinceReset\: no errors have been detected since the last                    cold start or warm start
-            	**type**\:  :py:class:`Frerrtype <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.Frerrtable.Frerrentry.Frerrtype>`
+            	**type**\:  :py:class:`FrErrType <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrErrTable.FrErrEntry.FrErrType>`
             
             .. attribute:: frerrdata
             
@@ -886,15 +878,14 @@ class FRAMERELAYDTEMIB(Entity):
             _revision = '1997-05-01'
 
             def __init__(self):
-                super(FRAMERELAYDTEMIB.Frerrtable.Frerrentry, self).__init__()
+                super(FRAMERELAYDTEMIB.FrErrTable.FrErrEntry, self).__init__()
 
                 self.yang_name = "frErrEntry"
                 self.yang_parent_name = "frErrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['frerrifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('frerrifindex', YLeaf(YType.int32, 'frErrIfIndex')),
                     ('frerrtype', YLeaf(YType.enumeration, 'frErrType')),
@@ -913,11 +904,11 @@ class FRAMERELAYDTEMIB(Entity):
                 self._absolute_path = lambda: "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB/frErrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(FRAMERELAYDTEMIB.Frerrtable.Frerrentry, ['frerrifindex', 'frerrtype', 'frerrdata', 'frerrtime', 'frerrfaults', 'frerrfaulttime'], name, value)
+                self._perform_setattr(FRAMERELAYDTEMIB.FrErrTable.FrErrEntry, ['frerrifindex', 'frerrtype', 'frerrdata', 'frerrtime', 'frerrfaults', 'frerrfaulttime'], name, value)
 
-            class Frerrtype(Enum):
+            class FrErrType(Enum):
                 """
-                Frerrtype (Enum Class)
+                FrErrType (Enum Class)
 
                 The type of error that was last seen  on  this interface\:
 

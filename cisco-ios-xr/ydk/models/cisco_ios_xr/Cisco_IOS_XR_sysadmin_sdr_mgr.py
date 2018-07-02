@@ -1,17 +1,11 @@
 """ Cisco_IOS_XR_sysadmin_sdr_mgr 
 
-This module contains definitions
-for the Calvados model objects.
-
 This module contains a collection of YANG
 definitions for Cisco IOS\-XR SysAdmin configuration.
 
 This module defines the SDR\-SM support config for SDR
 
 Copyright(c) 2011\-2017 by Cisco Systems, Inc.
-All rights reserved.
-
-Copyright (c) 2012\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -33,11 +27,15 @@ class CardType(Enum):
 
     .. data:: LC = 1
 
+    .. data:: CC = 2
+
     """
 
     RP = Enum.YLeaf(0, "RP")
 
     LC = Enum.YLeaf(1, "LC")
+
+    CC = Enum.YLeaf(2, "CC")
 
 
 class VmReloadReason(Enum):
@@ -108,7 +106,7 @@ class SdrConfig(Entity):
     """
 
     _prefix = 'calvados_sdr'
-    _revision = '2017-06-20'
+    _revision = '2017-07-22'
 
     def __init__(self):
         super(SdrConfig, self).__init__()
@@ -119,8 +117,7 @@ class SdrConfig(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("sdr", ("sdr", SdrConfig.Sdr))])
+        self._child_classes = OrderedDict([("sdr", ("sdr", SdrConfig.Sdr))])
         self._leafs = OrderedDict()
 
         self.sdr = YList(self)
@@ -208,7 +205,7 @@ class SdrConfig(Entity):
         """
 
         _prefix = 'calvados_sdr'
-        _revision = '2017-06-20'
+        _revision = '2017-07-22'
 
         def __init__(self):
             super(SdrConfig.Sdr, self).__init__()
@@ -218,8 +215,7 @@ class SdrConfig(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['name']
-            self._child_container_classes = OrderedDict([("resources", ("resources", SdrConfig.Sdr.Resources)), ("Action", ("action", SdrConfig.Sdr.Action)), ("detail", ("detail", SdrConfig.Sdr.Detail)), ("reboot-history", ("reboot_history", SdrConfig.Sdr.RebootHistory)), ("nodes", ("nodes", SdrConfig.Sdr.Nodes)), ("pairing2", ("pairing2", SdrConfig.Sdr.Pairing2))])
-            self._child_list_classes = OrderedDict([("location", ("location", SdrConfig.Sdr.Location)), ("pairing", ("pairing", SdrConfig.Sdr.Pairing))])
+            self._child_classes = OrderedDict([("resources", ("resources", SdrConfig.Sdr.Resources)), ("location", ("location", SdrConfig.Sdr.Location)), ("Action", ("action", SdrConfig.Sdr.Action)), ("detail", ("detail", SdrConfig.Sdr.Detail)), ("reboot-history", ("reboot_history", SdrConfig.Sdr.RebootHistory)), ("nodes", ("nodes", SdrConfig.Sdr.Nodes)), ("pairing2", ("pairing2", SdrConfig.Sdr.Pairing2)), ("pairing", ("pairing", SdrConfig.Sdr.Pairing))])
             self._leafs = OrderedDict([
                 ('name', YLeaf(YType.str, 'name')),
                 ('initial_image', YLeaf(YType.str, 'initial-image')),
@@ -236,32 +232,26 @@ class SdrConfig(Entity):
             self.resources = SdrConfig.Sdr.Resources()
             self.resources.parent = self
             self._children_name_map["resources"] = "resources"
-            self._children_yang_names.add("resources")
 
             self.action = SdrConfig.Sdr.Action()
             self.action.parent = self
             self._children_name_map["action"] = "Action"
-            self._children_yang_names.add("Action")
 
             self.detail = SdrConfig.Sdr.Detail()
             self.detail.parent = self
             self._children_name_map["detail"] = "detail"
-            self._children_yang_names.add("detail")
 
             self.reboot_history = SdrConfig.Sdr.RebootHistory()
             self.reboot_history.parent = self
             self._children_name_map["reboot_history"] = "reboot-history"
-            self._children_yang_names.add("reboot-history")
 
             self.nodes = SdrConfig.Sdr.Nodes()
             self.nodes.parent = self
             self._children_name_map["nodes"] = "nodes"
-            self._children_yang_names.add("nodes")
 
             self.pairing2 = SdrConfig.Sdr.Pairing2()
             self.pairing2.parent = self
             self._children_name_map["pairing2"] = "pairing2"
-            self._children_yang_names.add("pairing2")
 
             self.location = YList(self)
             self.pairing = YList(self)
@@ -337,7 +327,7 @@ class SdrConfig(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2017-06-20'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(SdrConfig.Sdr.Resources, self).__init__()
@@ -347,8 +337,7 @@ class SdrConfig(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("card-type", ("card_type", SdrConfig.Sdr.Resources.CardType))])
+                self._child_classes = OrderedDict([("card-type", ("card_type", SdrConfig.Sdr.Resources.CardType))])
                 self._leafs = OrderedDict([
                     ('fgid', YLeaf(YType.uint32, 'fgid')),
                     ('mgmt_ext_vlan', YLeaf(YType.uint32, 'mgmt_ext_vlan')),
@@ -393,7 +382,7 @@ class SdrConfig(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2017-06-20'
+                _revision = '2017-07-22'
 
                 def __init__(self):
                     super(SdrConfig.Sdr.Resources.CardType, self).__init__()
@@ -403,8 +392,7 @@ class SdrConfig(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['type']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('type', YLeaf(YType.enumeration, 'type')),
                         ('vm_memory', YLeaf(YType.uint32, 'vm-memory')),
@@ -428,14 +416,14 @@ class SdrConfig(Entity):
             	Enter location or all
             	**type**\: str
             
-            	**pattern:** ((0?[0\-9]\|1[1\-5])/(([rR][pP]\|[lL][cC])?\\d{1,2}))(/[cC][pP][uU]0)?\|all
+            	**pattern:** ((0?[0\-9]\|1[1\-5]\|[bB]\\d)/(([rR][pP]\|[lL][cC]\|[cC][bB])?\\d{1,2}))(/[cC][pP][uU]0)?\|all
             
             
 
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2017-06-20'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(SdrConfig.Sdr.Location, self).__init__()
@@ -445,8 +433,7 @@ class SdrConfig(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['node_location']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('node_location', YLeaf(YType.str, 'node-location')),
                 ])
@@ -471,7 +458,7 @@ class SdrConfig(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2017-06-20'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(SdrConfig.Sdr.Action, self).__init__()
@@ -481,8 +468,7 @@ class SdrConfig(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", SdrConfig.Sdr.Action.Location))])
+                self._child_classes = OrderedDict([("location", ("location", SdrConfig.Sdr.Action.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -501,14 +487,14 @@ class SdrConfig(Entity):
                 	Enter location or all
                 	**type**\: str
                 
-                	**pattern:** ((0?[0\-9]\|1[1\-5])/(([rR]([sS]){0,1}[pP])?\\d{1,2})/[V][M](0?[0\-9]\|1[1\-5]))?\|all
+                	**pattern:** ((0?[0\-9]\|1[1\-5]\|[bB]\\d)/((([rR]([sS]){0,1}[pP])\|[cC][bB])?\\d{1,2})/[V][M](0?[0\-9]\|1[1\-5]))?\|all
                 
                 
 
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2017-06-20'
+                _revision = '2017-07-22'
 
                 def __init__(self):
                     super(SdrConfig.Sdr.Action.Location, self).__init__()
@@ -518,8 +504,7 @@ class SdrConfig(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['node_location']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('node_location', YLeaf(YType.str, 'node-location')),
                     ])
@@ -544,7 +529,7 @@ class SdrConfig(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2017-06-20'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(SdrConfig.Sdr.Detail, self).__init__()
@@ -554,8 +539,7 @@ class SdrConfig(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", SdrConfig.Sdr.Detail.Location))])
+                self._child_classes = OrderedDict([("location", ("location", SdrConfig.Sdr.Detail.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -574,7 +558,7 @@ class SdrConfig(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((0?[0\-9]\|1[1\-5])/(([rR]([sS]){0,1}[pP])?\\d{1,2})/[V][M](0?[0\-9]\|1[1\-5]))?
+                	**pattern:** ((0?[0\-9]\|1[1\-5]\|[bB]\\d)/((([rR]([sS]){0,1}[pP])\|[cC][bB])?\\d{1,2})/[V][M](0?[0\-9]\|1[1\-5]))?
                 
                 .. attribute:: sdr_id
                 
@@ -701,7 +685,7 @@ class SdrConfig(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2017-06-20'
+                _revision = '2017-07-22'
 
                 def __init__(self):
                     super(SdrConfig.Sdr.Detail.Location, self).__init__()
@@ -711,8 +695,7 @@ class SdrConfig(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['node_location']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("reboot_hist1", ("reboot_hist1", SdrConfig.Sdr.Detail.Location.RebootHist1))])
+                    self._child_classes = OrderedDict([("reboot_hist1", ("reboot_hist1", SdrConfig.Sdr.Detail.Location.RebootHist1))])
                     self._leafs = OrderedDict([
                         ('node_location', YLeaf(YType.str, 'node-location')),
                         ('sdr_id', YLeaf(YType.uint32, 'sdr-id')),
@@ -789,7 +772,7 @@ class SdrConfig(Entity):
                     """
 
                     _prefix = 'calvados_sdr'
-                    _revision = '2017-06-20'
+                    _revision = '2017-07-22'
 
                     def __init__(self):
                         super(SdrConfig.Sdr.Detail.Location.RebootHist1, self).__init__()
@@ -799,8 +782,7 @@ class SdrConfig(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['count']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('count', YLeaf(YType.uint32, 'count')),
                             ('time', YLeaf(YType.str, 'Time')),
@@ -834,7 +816,7 @@ class SdrConfig(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2017-06-20'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(SdrConfig.Sdr.RebootHistory, self).__init__()
@@ -844,20 +826,20 @@ class SdrConfig(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("reverse", ("reverse", SdrConfig.Sdr.RebootHistory.Reverse)), ("default-disp", ("default_disp", SdrConfig.Sdr.RebootHistory.DefaultDisp))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("reverse", ("reverse", SdrConfig.Sdr.RebootHistory.Reverse)), ("default-disp", ("default_disp", SdrConfig.Sdr.RebootHistory.DefaultDisp))])
                 self._leafs = OrderedDict()
 
                 self.reverse = SdrConfig.Sdr.RebootHistory.Reverse()
                 self.reverse.parent = self
                 self._children_name_map["reverse"] = "reverse"
-                self._children_yang_names.add("reverse")
 
                 self.default_disp = SdrConfig.Sdr.RebootHistory.DefaultDisp()
                 self.default_disp.parent = self
                 self._children_name_map["default_disp"] = "default-disp"
-                self._children_yang_names.add("default-disp")
                 self._segment_path = lambda: "reboot-history"
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(SdrConfig.Sdr.RebootHistory, [], name, value)
 
 
             class Reverse(Entity):
@@ -874,7 +856,7 @@ class SdrConfig(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2017-06-20'
+                _revision = '2017-07-22'
 
                 def __init__(self):
                     super(SdrConfig.Sdr.RebootHistory.Reverse, self).__init__()
@@ -884,8 +866,7 @@ class SdrConfig(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("location", ("location", SdrConfig.Sdr.RebootHistory.Reverse.Location))])
+                    self._child_classes = OrderedDict([("location", ("location", SdrConfig.Sdr.RebootHistory.Reverse.Location))])
                     self._leafs = OrderedDict()
 
                     self.location = YList(self)
@@ -904,7 +885,7 @@ class SdrConfig(Entity):
                     	
                     	**type**\: str
                     
-                    	**pattern:** ((0?[0\-9]\|1[1\-5])/(([rR]([sS]){0,1}[pP])?\\d{1,2})/[V][M](0?[0\-9]\|1[1\-5]))?
+                    	**pattern:** ((0?[0\-9]\|1[1\-5]\|[bB]\\d)/((([rR]([sS]){0,1}[pP])\|[cC][bB])?\\d{1,2})/[V][M](0?[0\-9]\|1[1\-5]))?
                     
                     .. attribute:: reboot_count
                     
@@ -930,7 +911,7 @@ class SdrConfig(Entity):
                     """
 
                     _prefix = 'calvados_sdr'
-                    _revision = '2017-06-20'
+                    _revision = '2017-07-22'
 
                     def __init__(self):
                         super(SdrConfig.Sdr.RebootHistory.Reverse.Location, self).__init__()
@@ -940,8 +921,7 @@ class SdrConfig(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['node_location']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("reboot_hist2", ("reboot_hist2", SdrConfig.Sdr.RebootHistory.Reverse.Location.RebootHist2))])
+                        self._child_classes = OrderedDict([("reboot_hist2", ("reboot_hist2", SdrConfig.Sdr.RebootHistory.Reverse.Location.RebootHist2))])
                         self._leafs = OrderedDict([
                             ('node_location', YLeaf(YType.str, 'node-location')),
                             ('reboot_count', YLeaf(YType.uint32, 'reboot_count')),
@@ -984,7 +964,7 @@ class SdrConfig(Entity):
                         """
 
                         _prefix = 'calvados_sdr'
-                        _revision = '2017-06-20'
+                        _revision = '2017-07-22'
 
                         def __init__(self):
                             super(SdrConfig.Sdr.RebootHistory.Reverse.Location.RebootHist2, self).__init__()
@@ -994,8 +974,7 @@ class SdrConfig(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['count']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('count', YLeaf(YType.uint32, 'count')),
                                 ('time', YLeaf(YType.str, 'Time')),
@@ -1024,7 +1003,7 @@ class SdrConfig(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2017-06-20'
+                _revision = '2017-07-22'
 
                 def __init__(self):
                     super(SdrConfig.Sdr.RebootHistory.DefaultDisp, self).__init__()
@@ -1034,8 +1013,7 @@ class SdrConfig(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("location", ("location", SdrConfig.Sdr.RebootHistory.DefaultDisp.Location))])
+                    self._child_classes = OrderedDict([("location", ("location", SdrConfig.Sdr.RebootHistory.DefaultDisp.Location))])
                     self._leafs = OrderedDict()
 
                     self.location = YList(self)
@@ -1054,7 +1032,7 @@ class SdrConfig(Entity):
                     	
                     	**type**\: str
                     
-                    	**pattern:** ((0?[0\-9]\|1[1\-5])/(([rR]([sS]){0,1}[pP])?\\d{1,2})/[V][M](0?[0\-9]\|1[1\-5]))?
+                    	**pattern:** ((0?[0\-9]\|1[1\-5]\|[bB]\\d)/((([rR]([sS]){0,1}[pP])\|[cC][bB])?\\d{1,2})/[V][M](0?[0\-9]\|1[1\-5]))?
                     
                     .. attribute:: reboot_count
                     
@@ -1080,7 +1058,7 @@ class SdrConfig(Entity):
                     """
 
                     _prefix = 'calvados_sdr'
-                    _revision = '2017-06-20'
+                    _revision = '2017-07-22'
 
                     def __init__(self):
                         super(SdrConfig.Sdr.RebootHistory.DefaultDisp.Location, self).__init__()
@@ -1090,8 +1068,7 @@ class SdrConfig(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['node_location']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("reboot_hist2", ("reboot_hist2", SdrConfig.Sdr.RebootHistory.DefaultDisp.Location.RebootHist2))])
+                        self._child_classes = OrderedDict([("reboot_hist2", ("reboot_hist2", SdrConfig.Sdr.RebootHistory.DefaultDisp.Location.RebootHist2))])
                         self._leafs = OrderedDict([
                             ('node_location', YLeaf(YType.str, 'node-location')),
                             ('reboot_count', YLeaf(YType.uint32, 'reboot_count')),
@@ -1134,7 +1111,7 @@ class SdrConfig(Entity):
                         """
 
                         _prefix = 'calvados_sdr'
-                        _revision = '2017-06-20'
+                        _revision = '2017-07-22'
 
                         def __init__(self):
                             super(SdrConfig.Sdr.RebootHistory.DefaultDisp.Location.RebootHist2, self).__init__()
@@ -1144,8 +1121,7 @@ class SdrConfig(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['count']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('count', YLeaf(YType.uint32, 'count')),
                                 ('time', YLeaf(YType.str, 'Time')),
@@ -1174,7 +1150,7 @@ class SdrConfig(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2017-06-20'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(SdrConfig.Sdr.Nodes, self).__init__()
@@ -1184,8 +1160,7 @@ class SdrConfig(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", SdrConfig.Sdr.Nodes.Location))])
+                self._child_classes = OrderedDict([("location", ("location", SdrConfig.Sdr.Nodes.Location))])
                 self._leafs = OrderedDict()
 
                 self.location = YList(self)
@@ -1204,7 +1179,7 @@ class SdrConfig(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((0?[0\-9]\|1[1\-5])/(([rR]([sS]){0,1}[pP])?\\d{1,2})/[V][M](0?[0\-9]\|1[1\-5]))?
+                	**pattern:** ((0?[0\-9]\|1[1\-5]\|[bB]\\d)/((([rR]([sS]){0,1}[pP])\|[cC][bB])?\\d{1,2})/[V][M](0?[0\-9]\|1[1\-5]))?
                 
                 .. attribute:: sdr_id
                 
@@ -1265,7 +1240,7 @@ class SdrConfig(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2017-06-20'
+                _revision = '2017-07-22'
 
                 def __init__(self):
                     super(SdrConfig.Sdr.Nodes.Location, self).__init__()
@@ -1275,8 +1250,7 @@ class SdrConfig(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['node_location']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('node_location', YLeaf(YType.str, 'node-location')),
                         ('sdr_id', YLeaf(YType.uint32, 'sdr-id')),
@@ -1327,7 +1301,7 @@ class SdrConfig(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2017-06-20'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(SdrConfig.Sdr.Pairing2, self).__init__()
@@ -1337,8 +1311,7 @@ class SdrConfig(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("sdrlead", ("sdrlead", SdrConfig.Sdr.Pairing2.Sdrlead))])
-                self._child_list_classes = OrderedDict([("pairing", ("pairing", SdrConfig.Sdr.Pairing2.Pairing))])
+                self._child_classes = OrderedDict([("sdrlead", ("sdrlead", SdrConfig.Sdr.Pairing2.Sdrlead)), ("pairing", ("pairing", SdrConfig.Sdr.Pairing2.Pairing))])
                 self._leafs = OrderedDict([
                     ('pairing_mode', YLeaf(YType.str, 'pairing-mode')),
                 ])
@@ -1347,7 +1320,6 @@ class SdrConfig(Entity):
                 self.sdrlead = SdrConfig.Sdr.Pairing2.Sdrlead()
                 self.sdrlead.parent = self
                 self._children_name_map["sdrlead"] = "sdrlead"
-                self._children_yang_names.add("sdrlead")
 
                 self.pairing = YList(self)
                 self._segment_path = lambda: "pairing2"
@@ -1375,7 +1347,7 @@ class SdrConfig(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2017-06-20'
+                _revision = '2017-07-22'
 
                 def __init__(self):
                     super(SdrConfig.Sdr.Pairing2.Sdrlead, self).__init__()
@@ -1385,8 +1357,7 @@ class SdrConfig(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('rp1', YLeaf(YType.str, 'rp1')),
                         ('rp2', YLeaf(YType.str, 'rp2')),
@@ -1423,7 +1394,7 @@ class SdrConfig(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2017-06-20'
+                _revision = '2017-07-22'
 
                 def __init__(self):
                     super(SdrConfig.Sdr.Pairing2.Pairing, self).__init__()
@@ -1433,8 +1404,7 @@ class SdrConfig(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                         ('rp1', YLeaf(YType.str, 'rp1')),
@@ -1465,7 +1435,7 @@ class SdrConfig(Entity):
             	Enter RP Node location
             	**type**\: str
             
-            	**pattern:** ((0?[0\-9]\|1[1\-5])/([rR][pP]\\d{1,2}))(/[cC][pP][uU]0)?
+            	**pattern:** ((0?[0\-9]\|1[1\-5]\|[bB]\\d)/(([rR][pP]\|[cC][bB])\\d{1,2}))(/[cC][pP][uU]0)?
             
             	**mandatory**\: True
             
@@ -1474,7 +1444,7 @@ class SdrConfig(Entity):
             	Enter RP Node location
             	**type**\: str
             
-            	**pattern:** ((0?[0\-9]\|1[1\-5])/([rR][pP]\\d{1,2}))(/[cC][pP][uU]0)?
+            	**pattern:** ((0?[0\-9]\|1[1\-5]\|[bB]\\d)/(([rR][pP]\|[cC][bB])\\d{1,2}))(/[cC][pP][uU]0)?
             
             	**mandatory**\: True
             
@@ -1483,7 +1453,7 @@ class SdrConfig(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2017-06-20'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(SdrConfig.Sdr.Pairing, self).__init__()
@@ -1493,8 +1463,7 @@ class SdrConfig(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['name']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('name', YLeaf(YType.str, 'name')),
                     ('rp1', YLeaf(YType.str, 'rp1')),
@@ -1526,7 +1495,7 @@ class SdrManager(Entity):
     """
 
     _prefix = 'calvados_sdr'
-    _revision = '2017-06-20'
+    _revision = '2017-07-22'
 
     def __init__(self):
         super(SdrManager, self).__init__()
@@ -1537,15 +1506,16 @@ class SdrManager(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("sdr_mgr", ("sdr_mgr", SdrManager.SdrMgr))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("sdr_mgr", ("sdr_mgr", SdrManager.SdrMgr))])
         self._leafs = OrderedDict()
 
         self.sdr_mgr = SdrManager.SdrMgr()
         self.sdr_mgr.parent = self
         self._children_name_map["sdr_mgr"] = "sdr_mgr"
-        self._children_yang_names.add("sdr_mgr")
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-manager"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(SdrManager, [], name, value)
 
 
     class SdrMgr(Entity):
@@ -1562,7 +1532,7 @@ class SdrManager(Entity):
         """
 
         _prefix = 'calvados_sdr'
-        _revision = '2017-06-20'
+        _revision = '2017-07-22'
 
         def __init__(self):
             super(SdrManager.SdrMgr, self).__init__()
@@ -1572,8 +1542,7 @@ class SdrManager(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("trace", ("trace", SdrManager.SdrMgr.Trace))])
+            self._child_classes = OrderedDict([("trace", ("trace", SdrManager.SdrMgr.Trace))])
             self._leafs = OrderedDict()
 
             self.trace = YList(self)
@@ -1603,7 +1572,7 @@ class SdrManager(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2017-06-20'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(SdrManager.SdrMgr.Trace, self).__init__()
@@ -1613,8 +1582,7 @@ class SdrManager(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['buffer']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("location", ("location", SdrManager.SdrMgr.Trace.Location))])
+                self._child_classes = OrderedDict([("location", ("location", SdrManager.SdrMgr.Trace.Location))])
                 self._leafs = OrderedDict([
                     ('buffer', YLeaf(YType.str, 'buffer')),
                 ])
@@ -1625,7 +1593,7 @@ class SdrManager(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-manager/sdr_mgr/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SdrManager.SdrMgr.Trace, ['buffer'], name, value)
+                self._perform_setattr(SdrManager.SdrMgr.Trace, [u'buffer'], name, value)
 
 
             class Location(Entity):
@@ -1647,7 +1615,7 @@ class SdrManager(Entity):
                 """
 
                 _prefix = 'calvados_sdr'
-                _revision = '2017-06-20'
+                _revision = '2017-07-22'
 
                 def __init__(self):
                     super(SdrManager.SdrMgr.Trace.Location, self).__init__()
@@ -1657,8 +1625,7 @@ class SdrManager(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['location_name']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("all-options", ("all_options", SdrManager.SdrMgr.Trace.Location.AllOptions))])
+                    self._child_classes = OrderedDict([("all-options", ("all_options", SdrManager.SdrMgr.Trace.Location.AllOptions))])
                     self._leafs = OrderedDict([
                         ('location_name', YLeaf(YType.str, 'location_name')),
                     ])
@@ -1668,7 +1635,7 @@ class SdrManager(Entity):
                     self._segment_path = lambda: "location" + "[location_name='" + str(self.location_name) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SdrManager.SdrMgr.Trace.Location, ['location_name'], name, value)
+                    self._perform_setattr(SdrManager.SdrMgr.Trace.Location, [u'location_name'], name, value)
 
 
                 class AllOptions(Entity):
@@ -1690,7 +1657,7 @@ class SdrManager(Entity):
                     """
 
                     _prefix = 'calvados_sdr'
-                    _revision = '2017-06-20'
+                    _revision = '2017-07-22'
 
                     def __init__(self):
                         super(SdrManager.SdrMgr.Trace.Location.AllOptions, self).__init__()
@@ -1700,8 +1667,7 @@ class SdrManager(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['option']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("trace-blocks", ("trace_blocks", SdrManager.SdrMgr.Trace.Location.AllOptions.TraceBlocks))])
+                        self._child_classes = OrderedDict([("trace-blocks", ("trace_blocks", SdrManager.SdrMgr.Trace.Location.AllOptions.TraceBlocks))])
                         self._leafs = OrderedDict([
                             ('option', YLeaf(YType.str, 'option')),
                         ])
@@ -1711,7 +1677,7 @@ class SdrManager(Entity):
                         self._segment_path = lambda: "all-options" + "[option='" + str(self.option) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SdrManager.SdrMgr.Trace.Location.AllOptions, ['option'], name, value)
+                        self._perform_setattr(SdrManager.SdrMgr.Trace.Location.AllOptions, [u'option'], name, value)
 
 
                     class TraceBlocks(Entity):
@@ -1728,7 +1694,7 @@ class SdrManager(Entity):
                         """
 
                         _prefix = 'calvados_sdr'
-                        _revision = '2017-06-20'
+                        _revision = '2017-07-22'
 
                         def __init__(self):
                             super(SdrManager.SdrMgr.Trace.Location.AllOptions.TraceBlocks, self).__init__()
@@ -1738,8 +1704,7 @@ class SdrManager(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('data', YLeaf(YType.str, 'data')),
                             ])
@@ -1747,7 +1712,7 @@ class SdrManager(Entity):
                             self._segment_path = lambda: "trace-blocks"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SdrManager.SdrMgr.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
+                            self._perform_setattr(SdrManager.SdrMgr.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SdrManager()
@@ -1767,7 +1732,7 @@ class PrivateSdr(Entity):
     """
 
     _prefix = 'calvados_sdr'
-    _revision = '2017-06-20'
+    _revision = '2017-07-22'
 
     def __init__(self):
         super(PrivateSdr, self).__init__()
@@ -1778,8 +1743,7 @@ class PrivateSdr(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("sdr-name", ("sdr_name", PrivateSdr.SdrName))])
+        self._child_classes = OrderedDict([("sdr-name", ("sdr_name", PrivateSdr.SdrName))])
         self._leafs = OrderedDict()
 
         self.sdr_name = YList(self)
@@ -1829,7 +1793,7 @@ class PrivateSdr(Entity):
         """
 
         _prefix = 'calvados_sdr'
-        _revision = '2017-06-20'
+        _revision = '2017-07-22'
 
         def __init__(self):
             super(PrivateSdr.SdrName, self).__init__()
@@ -1839,8 +1803,7 @@ class PrivateSdr(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['name']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("pairing", ("pairing", PrivateSdr.SdrName.Pairing))])
+            self._child_classes = OrderedDict([("pairing", ("pairing", PrivateSdr.SdrName.Pairing))])
             self._leafs = OrderedDict([
                 ('name', YLeaf(YType.str, 'name')),
                 ('id', YLeaf(YType.uint32, 'id')),
@@ -1909,7 +1872,7 @@ class PrivateSdr(Entity):
             """
 
             _prefix = 'calvados_sdr'
-            _revision = '2017-06-20'
+            _revision = '2017-07-22'
 
             def __init__(self):
                 super(PrivateSdr.SdrName.Pairing, self).__init__()
@@ -1919,8 +1882,7 @@ class PrivateSdr(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['num']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('num', YLeaf(YType.uint32, 'num')),
                     ('second_exist', YLeaf(YType.boolean, 'second_exist')),

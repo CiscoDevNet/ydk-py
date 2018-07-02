@@ -38,41 +38,6 @@ from ydk.errors import YModelError as _YModelError
 from ydk.errors import YInvalidArgumentError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
-class YList(list):
-    """ Represents a list with support for hanging a parent
-
-        All YANG based entity classes that have lists in them use YList
-        to represent the list.
-
-        The "list" statement is used to define an interior data node in the
-        schema tree.  A list node may exist in multiple instances in the data
-        tree.  Each such instance is known as a list entry.  The "list"
-        statement takes one argument, which is an identifier, followed by a
-        block of substatements that holds detailed list information.
-
-        A list entry is uniquely identified by the values of the list's keys,
-        if defined.
-    """
-    def __init__(self, parent):
-        super(YList, self).__init__()
-        self.parent = parent
-
-    def __setattr__(self, name, value):
-        if name == 'yfilter' and isinstance(value, _YFilter):
-            for e in self:
-                e.yfilter = value
-        else:
-            super(YList, self).__setattr__(name, value)
-
-    def append(self, item):
-        item.parent = self.parent
-        super(YList, self).append(item)
-
-    def extend(self, items):
-       for item in items:
-           self.append(item)
-
-
 class YLeafList(_YLeafList):
     """ Wrapper class for YLeafList, add __repr__ and get list slice
     functionalities.
@@ -115,20 +80,20 @@ class YLeafList(_YLeafList):
         rep = [i for i in self.getYLeafs()]
         return "%s('%s', %r)" % (self.__class__.__name__, self.leaf_name, rep)
 
-
 class Entity(_Entity):
     """ Entity wrapper class overrides some of the ydk::Entity methods.
     """
     def __init__(self):
         super(Entity, self).__init__()
+        self.logger = logging.getLogger("ydk.types.EntityCollection")
         self._local_refs = {}
         self._children_name_map = OrderedDict()
         self._children_yang_names = set()
-        self._child_container_classes = OrderedDict()
-        self._child_list_classes = OrderedDict()
+        self._child_classes = OrderedDict()
         self._leafs = OrderedDict()
         self._segment_path = lambda : ''
         self._absolute_path = lambda : ''
+        self.logger = logging.getLogger("ydk.types.Entity")
 
     def __eq__(self, other):
         if not isinstance(other, Entity):
@@ -167,12 +132,15 @@ class Entity(_Entity):
 
     def get_order_of_children(self):
         order = []
-        for name in self.__dict__:
+        for yang_name in self._child_classes:
+            name = self._child_classes[yang_name][0]
             value = self.__dict__[name]
             if isinstance(value, YList):
                 for v in value:
                     if isinstance(v, Entity):
                         order.append(v.get_segment_path())
+            elif isinstance(value, Entity):
+                order.append(name)
         return order
 
     def get_child_by_name(self, child_yang_name, segment_path):
@@ -181,20 +149,17 @@ class Entity(_Entity):
             return child
 
         found = False
-        is_container = True
-        if child_yang_name in self._child_container_classes:
+        self.logger.debug("Looking for '%s'" % (child_yang_name))
+        if child_yang_name in self._child_classes:
             found = True
-        elif child_yang_name in self._child_list_classes:
-            found = True
-            is_container = False
+        else:
+            self.logger.debug("Could not find child '%s' in '%s'" % (child_yang_name, self._child_classes))
         if found:
-            if is_container:
-                attr, clazz = self._child_container_classes[child_yang_name]
-            else:
-                attr, clazz = self._child_list_classes[child_yang_name]
+            attr, clazz = self._child_classes[child_yang_name]
+            is_list = isinstance(getattr(self, attr), YList)
             child = clazz()
             child.parent = self
-            if is_container:
+            if not is_list:
                 self._children_name_map[attr] = child_yang_name
                 setattr(self, attr, child)
             else:
@@ -207,20 +172,24 @@ class Entity(_Entity):
         return None
 
     def has_data(self):
-        for name, leaf in self._leafs.items():
-            value = self.__dict__[name]
+        if hasattr(self, 'is_presence_container') and self.is_presence_container:
+            return True
+
+        for name, value in vars(self).items():
             if isinstance(value, _YFilter):
                 return True
-            if isinstance(leaf, _YLeaf):
-                if value is not None:
-                    if not isinstance(value, Bits) or len(value.get_bitmap()) > 0:
-                        return True
-            elif isinstance(leaf, _YLeafList) and len(value) > 0:
+            if name in self._leafs:
+                leaf = self._leafs[name]
+                if isinstance(leaf, _YLeaf):
+                    if value is not None:
+                        if not isinstance(value, Bits) or len(value.get_bitmap()) > 0:
+                            return True
+                elif isinstance(leaf, _YLeafList) and len(value) > 0:
+                    return True
+            if isinstance(value, Entity) and value.has_data():
                 return True
-            elif isinstance(leaf, Entity) and leaf.has_data():
-                return True
-            elif isinstance(leaf, YList):
-                for l in leaf:
+            elif isinstance(value, YList):
+                for l in value:
                     if l.has_data():
                         return True
         return False
@@ -272,10 +241,7 @@ class Entity(_Entity):
             if name == leaf.name:
                 return True
 
-        if name in self._child_list_classes:
-            return True
-
-        if name in self._child_container_classes:
+        if name in self._child_classes:
             return True
 
         return False
@@ -287,6 +253,7 @@ class Entity(_Entity):
             leaf = self._leafs[name]
 
             if isinstance(value, _YFilter):
+                self.logger.debug('YFilter assigned to "%s", "%s"' % (name, value))
                 leaf.yfilter = value
                 if isinstance(leaf, _YLeaf):
                     leaf_name_data.append(leaf.get_name_leafdata())
@@ -307,10 +274,28 @@ class Entity(_Entity):
                 for item in value:
                     l.append(item)
                 leaf_name_data.extend(l.get_name_leafdata())
+        self.logger.debug('Get name leaf data for "%s". Count: %s'%(self.yang_name, len(leaf_name_data)))
+        for l in leaf_name_data:
+            self.logger.debug('Leaf data name: "%s", value: "%s", yfilter: "%s", is_set: "%s"' % (
+            l[0], l[1].value, l[1].yfilter, l[1].is_set))
         return leaf_name_data
 
     def get_segment_path(self):
-        return self._segment_path()
+        path = self._segment_path()
+        if ("[" in path) and hasattr(self, 'ylist_key_names') and len(self.ylist_key_names) > 0:
+            path = path.split('[')[0]
+            for attr_name in self.ylist_key_names:
+                leaf = self._leafs[attr_name]
+                if leaf is not None:
+                    attr_str = format(self.__dict__[attr_name])
+                    if "'" in attr_str:
+                        path += '[{}="{}"]'.format(leaf.name, attr_str)
+                    else:
+                        path += "[{}='{}']".format(leaf.name, attr_str)
+                else:
+                    # should never get here
+                    return self._segment_path()
+        return path
 
     def path(self):
         return self.get_segment_path()
@@ -335,6 +320,7 @@ class Entity(_Entity):
                 value = value.name
             if name in leaf_names and name in self.__dict__:
                 # bits ..?
+                prev_value = self.__dict__[name]
                 self.__dict__[name] = value
 
                 leaf = self._leafs[name]
@@ -344,13 +330,22 @@ class Entity(_Entity):
                     elif isinstance(leaf, _YLeafList):
                         for item in value:
                             leaf.append(item)
+                else:
+                    self.logger.debug('Setting "%s" to "%s"' % (value, name))
+                    leaf.yfilter = value
+                    if prev_value is not None:
+                        self.logger.debug('Storing previous value "%s" to "%s"' % (prev_value, name))
+                        if isinstance(leaf, _YLeaf):
+                            leaf.set(prev_value)
+                        elif isinstance(leaf, _YLeafList):
+                            for item in prev_value:
+                                leaf.append(item)
 
             else:
-                if hasattr(value, "parent") and name != "parent":
-                    if hasattr(value, "is_presence_container") and value.is_presence_container:
-                        value.parent = self
-                    elif value.parent is None and value.yang_name in self._children_yang_names:
-                        value.parent = self
+                if isinstance(value, Entity):
+                    if hasattr(value, "parent") and name != "parent":
+                        if not value.is_top_level_class:
+                            value.parent = self
                 super(Entity, self).__setattr__(name, value)
 
     def __str__(self):
@@ -361,16 +356,16 @@ def _name_matches_yang_name(name, yang_name):
     return name == yang_name or yang_name.endswith(':'+name)
 
 
-class EntityCollection():
+class EntityCollection(object):
     """ EntityCollection is a wrapper class around ordered dictionary collection of type OrderedDict.
     It is created specifically to collect Entity class instances,
     Each Entity instance has unique segment path value, which is used as a key in the dictionary.
     """
     def __init__(self, *entities):
-        self.logger = logging.getLogger("ydk.types.EntityCollection")
         self._entity_map = OrderedDict()
         for entity in entities:
             self.append(entity)
+        self.logger = logging.getLogger("ydk.types.EntityCollection")
 
     def __eq__(self, other):
         if not isinstance(other, EntityCollection):
@@ -383,6 +378,9 @@ class EntityCollection():
     def __len__(self):
         return self._entity_map.__len__()
 
+    def _key(self, entity):
+        return entity.path();
+
     def append(self, entities):
         """
         Adds new elements to the end of the dictionary. Allowed entries:
@@ -392,11 +390,13 @@ class EntityCollection():
         if entities is None:
             self._log_error_and_raise_exception("Cannot add None object to the EntityCollection", YInvalidArgumentError)
         elif isinstance(entities, Entity):
-            self._entity_map[entities.path()] = entities
+            key = self._key(entities)
+            self._entity_map[key] = entities
         elif isinstance(entities, list):
             for entity in entities:
                 if isinstance(entity, Entity):
-                    self._entity_map[entity.path()] = entity
+                    key = self._key(entity)
+                    self._entity_map[key] = entity
                 else:
                     msg = "Argument %s is not supported by EntityCollection class; data ignored"%type(entity)
                     self._log_error_and_raise_exception(msg, YInvalidArgumentError)
@@ -436,32 +436,27 @@ class EntityCollection():
          - type of str (segment path of entity)
          - instance of Entity class
         """
+        entity = None
         if isinstance(item, int):
-            if item < len(self):
-                return self.entities()[item]
-            else:
-                return None
+            if 0 <= item < len(self):
+                entity = self.entities()[item]
         elif isinstance(item, str):
             if item in self.keys():
-                return self._entity_map[item]
-            else:
-                return None
+                entity = self._entity_map[item]
         elif isinstance(item, Entity):
-            key = item.path()
+            key = self._key(item)
             if key in self.keys():
-                return self._entity_map[key]
-            else:
-                return None
+                entity = self._entity_map[key]
         else:
             msg = "Argument %s is not supported by EntityCollection class; data ignored"%type(item)
             self._log_error_and_raise_exception(msg, YInvalidArgumentError)
-            return None
+        return entity
 
     def clear(self):
         """Deletes all the members of collection"""
         self._entity_map.clear()
 
-    def pop(self, item):
+    def pop(self, item=None):
         """
         Deletes collection item.
         Parameter 'item' could be:
@@ -470,26 +465,24 @@ class EntityCollection():
          - instance of Entity class
         Returns entity of deleted instance or None if item is not found.
         """
-        if isinstance(item, int):
+        entity = None
+        if len(self) == 0:
+            pass
+        elif item is None:
+            key, entity = self._entity_map.popitem()
+        elif isinstance(item, int):
             entity = self.__getitem__(item)
             if entity is not None:
-                key = entity.get_segment_path()
-                return self._entity_map.pop(key)
-            else:
-                return None
+                key = self._key(entity)
+                entity = self._entity_map.pop(key)
         elif isinstance(item, str):
             if item in self.keys():
-                return self._entity_map.pop(item)
-            else:
-                return None
+                entity = self._entity_map.pop(item)
         elif isinstance(item, Entity):
-            key = item.path()
+            key = self._key(item)
             if key in self.keys():
-                return self._entity_map.pop(key)
-            else:
-                return None
-        else:
-            return None
+                entity = self._entity_map.pop(key)
+        return entity
 
     def __delitem__(self, item):
         return self.pop(item)
@@ -508,3 +501,101 @@ class Filter(EntityCollection):
 
 class Config(EntityCollection):
     pass
+
+class YList(EntityCollection):
+    """ Represents a list with support for hanging a parent
+
+        All YANG based entity classes that have lists in them use YList
+        to represent the list.
+
+        The "list" statement is used to define an interior data node in the
+        schema tree.  A list node may exist in multiple instances in the data
+        tree.  Each such instance is known as a list entry.  The "list"
+        statement takes one argument, which is an identifier, followed by a
+        block of sub-statements that holds detailed list information.
+
+        A list entry is uniquely identified by the values of the list's keys, if defined.
+        The keys then could be used to get entities from the YList.
+    """
+    def __init__(self, parent):
+        super(YList, self).__init__()
+        self.parent = parent
+        self.counter = 1000000
+        self._cache_dict = OrderedDict()
+
+    def __setattr__(self, name, value):
+        if name == 'yfilter' and isinstance(value, _YFilter):
+            for e in self:
+                e.yfilter = value
+        super(YList, self).__setattr__(name, value)
+
+    def _key(self, entity):
+        key_list = []
+        if hasattr(entity, 'ylist_key_names'):
+            for key in entity.ylist_key_names:
+                if hasattr(entity, key):
+                    attr = entity.__dict__[key]
+                    if attr is None:
+                        key_list = []
+                        break
+                    key_list.append(attr)
+        if len(key_list) == 0:
+            key = format(self.counter)
+            self.counter += 1
+        elif len(key_list) == 1:
+            key = key_list[0]
+            if not isinstance(key, str):
+                key = format(key)
+        else:
+            key = tuple(key_list)
+        return key
+
+    def _flush_cache(self):
+        for _ in range(len(self._cache_dict)):
+            _, entity = self._cache_dict.popitem(False)
+            self._entity_map[self._key(entity)] = entity
+
+    def append(self, entities):
+        entities.parent = self.parent
+        if entities is None:
+            self._log_error_and_raise_exception("Cannot add None object to the YList", YInvalidArgumentError)
+        elif isinstance(entities, Entity):
+            key = self._key(entities)
+            self._cache_dict[key] = entities
+        else:
+            msg = "Argument %s is not supported by YList class; data ignored"%type(entities)
+            self._log_error_and_raise_exception(msg, YInvalidArgumentError)
+
+    def extend(self, entity_list):
+        for entity in entity_list:
+            self.append(entity)
+
+    def clear(self):
+        """Deletes all the members of collection"""
+        self._entity_map.clear()
+        self._cache_dict.clear()
+
+    def keys(self):
+        self._flush_cache()
+        return super(YList, self).keys()
+
+    def entities(self):
+        self._flush_cache()
+        return super(YList, self).entities()
+
+    def pop(self, item=None):
+        self._flush_cache()
+        return super(YList, self).pop(item)
+
+    def __getitem__(self, item):
+        entity = None
+        if isinstance(item, int) and 0 <= item < len(self):
+            entity = self.entities()[item]
+        elif self.has_key(item):
+            entity = self._entity_map[item]
+        elif not isinstance(item, str):
+            entity = self._entity_map[format(item)]
+        return entity
+
+    def __len__(self):
+        return self._entity_map.__len__() + self._cache_dict.__len__()

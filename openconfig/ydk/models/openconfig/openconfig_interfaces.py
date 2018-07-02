@@ -51,8 +51,7 @@ class Interfaces(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("interface", ("interface", Interfaces.Interface))])
+        self._child_classes = OrderedDict([("interface", ("interface", Interfaces.Interface))])
         self._leafs = OrderedDict()
 
         self.interface = YList(self)
@@ -128,8 +127,7 @@ class Interfaces(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['name']
-            self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.Config)), ("state", ("state", Interfaces.Interface.State)), ("hold-time", ("hold_time", Interfaces.Interface.HoldTime)), ("subinterfaces", ("subinterfaces", Interfaces.Interface.Subinterfaces)), ("openconfig-if-ethernet:ethernet", ("ethernet", Interfaces.Interface.Ethernet)), ("openconfig-if-aggregate:aggregation", ("aggregation", Interfaces.Interface.Aggregation)), ("openconfig-vlan:routed-vlan", ("routed_vlan", Interfaces.Interface.RoutedVlan)), ("openconfig-transport-line-common:sonet", ("sonet", Interfaces.Interface.Sonet))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.Config)), ("state", ("state", Interfaces.Interface.State)), ("hold-time", ("hold_time", Interfaces.Interface.HoldTime)), ("subinterfaces", ("subinterfaces", Interfaces.Interface.Subinterfaces)), ("openconfig-if-ethernet:ethernet", ("ethernet", Interfaces.Interface.Ethernet)), ("openconfig-if-aggregate:aggregation", ("aggregation", Interfaces.Interface.Aggregation)), ("openconfig-vlan:routed-vlan", ("routed_vlan", Interfaces.Interface.RoutedVlan)), ("openconfig-transport-line-common:sonet", ("sonet", Interfaces.Interface.Sonet))])
             self._leafs = OrderedDict([
                 ('name', YLeaf(YType.str, 'name')),
             ])
@@ -138,47 +136,39 @@ class Interfaces(Entity):
             self.config = Interfaces.Interface.Config()
             self.config.parent = self
             self._children_name_map["config"] = "config"
-            self._children_yang_names.add("config")
 
             self.state = Interfaces.Interface.State()
             self.state.parent = self
             self._children_name_map["state"] = "state"
-            self._children_yang_names.add("state")
 
             self.hold_time = Interfaces.Interface.HoldTime()
             self.hold_time.parent = self
             self._children_name_map["hold_time"] = "hold-time"
-            self._children_yang_names.add("hold-time")
 
             self.subinterfaces = Interfaces.Interface.Subinterfaces()
             self.subinterfaces.parent = self
             self._children_name_map["subinterfaces"] = "subinterfaces"
-            self._children_yang_names.add("subinterfaces")
 
             self.ethernet = Interfaces.Interface.Ethernet()
             self.ethernet.parent = self
             self._children_name_map["ethernet"] = "openconfig-if-ethernet:ethernet"
-            self._children_yang_names.add("openconfig-if-ethernet:ethernet")
 
             self.aggregation = Interfaces.Interface.Aggregation()
             self.aggregation.parent = self
             self._children_name_map["aggregation"] = "openconfig-if-aggregate:aggregation"
-            self._children_yang_names.add("openconfig-if-aggregate:aggregation")
 
             self.routed_vlan = Interfaces.Interface.RoutedVlan()
             self.routed_vlan.parent = self
             self._children_name_map["routed_vlan"] = "openconfig-vlan:routed-vlan"
-            self._children_yang_names.add("openconfig-vlan:routed-vlan")
 
             self.sonet = Interfaces.Interface.Sonet()
             self.sonet.parent = self
             self._children_name_map["sonet"] = "openconfig-transport-line-common:sonet"
-            self._children_yang_names.add("openconfig-transport-line-common:sonet")
             self._segment_path = lambda: "interface" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "openconfig-interfaces:interfaces/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Interfaces.Interface, ['name'], name, value)
+            self._perform_setattr(Interfaces.Interface, [u'name'], name, value)
 
 
         class Config(Entity):
@@ -232,8 +222,7 @@ class Interfaces(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('type', YLeaf(YType.identityref, 'type')),
                     ('mtu', YLeaf(YType.uint16, 'mtu')),
@@ -249,7 +238,7 @@ class Interfaces(Entity):
                 self._segment_path = lambda: "config"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.Interface.Config, ['type', 'mtu', 'name', 'description', 'enabled'], name, value)
+                self._perform_setattr(Interfaces.Interface.Config, [u'type', u'mtu', u'name', u'description', u'enabled'], name, value)
 
 
         class State(Entity):
@@ -342,8 +331,7 @@ class Interfaces(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("counters", ("counters", Interfaces.Interface.State.Counters))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("counters", ("counters", Interfaces.Interface.State.Counters))])
                 self._leafs = OrderedDict([
                     ('type', YLeaf(YType.identityref, 'type')),
                     ('mtu', YLeaf(YType.uint16, 'mtu')),
@@ -370,11 +358,10 @@ class Interfaces(Entity):
                 self.counters = Interfaces.Interface.State.Counters()
                 self.counters.parent = self
                 self._children_name_map["counters"] = "counters"
-                self._children_yang_names.add("counters")
                 self._segment_path = lambda: "state"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.Interface.State, ['type', 'mtu', 'name', 'description', 'enabled', 'ifindex', 'admin_status', 'oper_status', 'last_change', 'hardware_port'], name, value)
+                self._perform_setattr(Interfaces.Interface.State, [u'type', u'mtu', u'name', u'description', u'enabled', u'ifindex', u'admin_status', u'oper_status', u'last_change', u'hardware_port'], name, value)
 
             class AdminStatus(Enum):
                 """
@@ -586,8 +573,7 @@ class Interfaces(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('in_octets', YLeaf(YType.uint64, 'in-octets')),
                         ('in_unicast_pkts', YLeaf(YType.uint64, 'in-unicast-pkts')),
@@ -621,7 +607,7 @@ class Interfaces(Entity):
                     self._segment_path = lambda: "counters"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.State.Counters, ['in_octets', 'in_unicast_pkts', 'in_broadcast_pkts', 'in_multicast_pkts', 'in_discards', 'in_errors', 'in_unknown_protos', 'out_octets', 'out_unicast_pkts', 'out_broadcast_pkts', 'out_multicast_pkts', 'out_discards', 'out_errors', 'last_clear'], name, value)
+                    self._perform_setattr(Interfaces.Interface.State.Counters, [u'in_octets', u'in_unicast_pkts', u'in_broadcast_pkts', u'in_multicast_pkts', u'in_discards', u'in_errors', u'in_unknown_protos', u'out_octets', u'out_unicast_pkts', u'out_broadcast_pkts', u'out_multicast_pkts', u'out_discards', u'out_errors', u'last_clear'], name, value)
 
 
         class HoldTime(Entity):
@@ -654,20 +640,20 @@ class Interfaces(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.HoldTime.Config)), ("state", ("state", Interfaces.Interface.HoldTime.State))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.HoldTime.Config)), ("state", ("state", Interfaces.Interface.HoldTime.State))])
                 self._leafs = OrderedDict()
 
                 self.config = Interfaces.Interface.HoldTime.Config()
                 self.config.parent = self
                 self._children_name_map["config"] = "config"
-                self._children_yang_names.add("config")
 
                 self.state = Interfaces.Interface.HoldTime.State()
                 self.state.parent = self
                 self._children_name_map["state"] = "state"
-                self._children_yang_names.add("state")
                 self._segment_path = lambda: "hold-time"
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Interfaces.Interface.HoldTime, [], name, value)
 
 
             class Config(Entity):
@@ -711,8 +697,7 @@ class Interfaces(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('up', YLeaf(YType.uint32, 'up')),
                         ('down', YLeaf(YType.uint32, 'down')),
@@ -722,7 +707,7 @@ class Interfaces(Entity):
                     self._segment_path = lambda: "config"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.HoldTime.Config, ['up', 'down'], name, value)
+                    self._perform_setattr(Interfaces.Interface.HoldTime.Config, [u'up', u'down'], name, value)
 
 
             class State(Entity):
@@ -766,8 +751,7 @@ class Interfaces(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('up', YLeaf(YType.uint32, 'up')),
                         ('down', YLeaf(YType.uint32, 'down')),
@@ -777,7 +761,7 @@ class Interfaces(Entity):
                     self._segment_path = lambda: "state"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.HoldTime.State, ['up', 'down'], name, value)
+                    self._perform_setattr(Interfaces.Interface.HoldTime.State, [u'up', u'down'], name, value)
 
 
         class Subinterfaces(Entity):
@@ -805,8 +789,7 @@ class Interfaces(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("subinterface", ("subinterface", Interfaces.Interface.Subinterfaces.Subinterface))])
+                self._child_classes = OrderedDict([("subinterface", ("subinterface", Interfaces.Interface.Subinterfaces.Subinterface))])
                 self._leafs = OrderedDict()
 
                 self.subinterface = YList(self)
@@ -870,8 +853,7 @@ class Interfaces(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['index']
-                    self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.State)), ("openconfig-vlan:vlan", ("vlan", Interfaces.Interface.Subinterfaces.Subinterface.Vlan)), ("openconfig-if-ip:ipv4", ("ipv4", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4)), ("openconfig-if-ip:ipv6", ("ipv6", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.State)), ("openconfig-vlan:vlan", ("vlan", Interfaces.Interface.Subinterfaces.Subinterface.Vlan)), ("openconfig-if-ip:ipv4", ("ipv4", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4)), ("openconfig-if-ip:ipv6", ("ipv6", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6))])
                     self._leafs = OrderedDict([
                         ('index', YLeaf(YType.str, 'index')),
                     ])
@@ -880,31 +862,26 @@ class Interfaces(Entity):
                     self.config = Interfaces.Interface.Subinterfaces.Subinterface.Config()
                     self.config.parent = self
                     self._children_name_map["config"] = "config"
-                    self._children_yang_names.add("config")
 
                     self.state = Interfaces.Interface.Subinterfaces.Subinterface.State()
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
-                    self._children_yang_names.add("state")
 
                     self.vlan = Interfaces.Interface.Subinterfaces.Subinterface.Vlan()
                     self.vlan.parent = self
                     self._children_name_map["vlan"] = "openconfig-vlan:vlan"
-                    self._children_yang_names.add("openconfig-vlan:vlan")
 
                     self.ipv4 = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4()
                     self.ipv4.parent = self
                     self._children_name_map["ipv4"] = "openconfig-if-ip:ipv4"
-                    self._children_yang_names.add("openconfig-if-ip:ipv4")
 
                     self.ipv6 = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6()
                     self.ipv6.parent = self
                     self._children_name_map["ipv6"] = "openconfig-if-ip:ipv6"
-                    self._children_yang_names.add("openconfig-if-ip:ipv6")
                     self._segment_path = lambda: "subinterface" + "[index='" + str(self.index) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface, ['index'], name, value)
+                    self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface, [u'index'], name, value)
 
 
                 class Config(Entity):
@@ -952,8 +929,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('index', YLeaf(YType.uint32, 'index')),
                             ('name', YLeaf(YType.str, 'name')),
@@ -967,7 +943,7 @@ class Interfaces(Entity):
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Config, ['index', 'name', 'description', 'enabled'], name, value)
+                        self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Config, [u'index', u'name', u'description', u'enabled'], name, value)
 
 
                 class State(Entity):
@@ -1048,8 +1024,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("counters", ("counters", Interfaces.Interface.Subinterfaces.Subinterface.State.Counters))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("counters", ("counters", Interfaces.Interface.Subinterfaces.Subinterface.State.Counters))])
                         self._leafs = OrderedDict([
                             ('index', YLeaf(YType.uint32, 'index')),
                             ('name', YLeaf(YType.str, 'name')),
@@ -1072,11 +1047,10 @@ class Interfaces(Entity):
                         self.counters = Interfaces.Interface.Subinterfaces.Subinterface.State.Counters()
                         self.counters.parent = self
                         self._children_name_map["counters"] = "counters"
-                        self._children_yang_names.add("counters")
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.State, ['index', 'name', 'description', 'enabled', 'ifindex', 'admin_status', 'oper_status', 'last_change'], name, value)
+                        self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.State, [u'index', u'name', u'description', u'enabled', u'ifindex', u'admin_status', u'oper_status', u'last_change'], name, value)
 
                     class AdminStatus(Enum):
                         """
@@ -1288,8 +1262,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('in_octets', YLeaf(YType.uint64, 'in-octets')),
                                 ('in_unicast_pkts', YLeaf(YType.uint64, 'in-unicast-pkts')),
@@ -1323,7 +1296,7 @@ class Interfaces(Entity):
                             self._segment_path = lambda: "counters"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.State.Counters, ['in_octets', 'in_unicast_pkts', 'in_broadcast_pkts', 'in_multicast_pkts', 'in_discards', 'in_errors', 'in_unknown_protos', 'out_octets', 'out_unicast_pkts', 'out_broadcast_pkts', 'out_multicast_pkts', 'out_discards', 'out_errors', 'last_clear'], name, value)
+                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.State.Counters, [u'in_octets', u'in_unicast_pkts', u'in_broadcast_pkts', u'in_multicast_pkts', u'in_discards', u'in_errors', u'in_unknown_protos', u'out_octets', u'out_unicast_pkts', u'out_broadcast_pkts', u'out_multicast_pkts', u'out_discards', u'out_errors', u'last_clear'], name, value)
 
 
                 class Vlan(Entity):
@@ -1356,20 +1329,20 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Vlan.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Vlan.State))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Vlan.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Vlan.State))])
                         self._leafs = OrderedDict()
 
                         self.config = Interfaces.Interface.Subinterfaces.Subinterface.Vlan.Config()
                         self.config.parent = self
                         self._children_name_map["config"] = "config"
-                        self._children_yang_names.add("config")
 
                         self.state = Interfaces.Interface.Subinterfaces.Subinterface.Vlan.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
-                        self._children_yang_names.add("state")
                         self._segment_path = lambda: "openconfig-vlan:vlan"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Vlan, [], name, value)
 
 
                     class Config(Entity):
@@ -1404,8 +1377,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('vlan_id', YLeaf(YType.str, 'vlan-id')),
                             ])
@@ -1413,7 +1385,7 @@ class Interfaces(Entity):
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Vlan.Config, ['vlan_id'], name, value)
+                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Vlan.Config, [u'vlan_id'], name, value)
 
 
                     class State(Entity):
@@ -1448,8 +1420,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('vlan_id', YLeaf(YType.str, 'vlan-id')),
                             ])
@@ -1457,7 +1428,7 @@ class Interfaces(Entity):
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Vlan.State, ['vlan_id'], name, value)
+                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Vlan.State, [u'vlan_id'], name, value)
 
 
                 class Ipv4(Entity):
@@ -1504,35 +1475,32 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("addresses", ("addresses", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses)), ("neighbors", ("neighbors", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors)), ("unnumbered", ("unnumbered", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered)), ("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.State))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("addresses", ("addresses", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses)), ("neighbors", ("neighbors", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors)), ("unnumbered", ("unnumbered", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered)), ("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.State))])
                         self._leafs = OrderedDict()
 
                         self.addresses = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses()
                         self.addresses.parent = self
                         self._children_name_map["addresses"] = "addresses"
-                        self._children_yang_names.add("addresses")
 
                         self.neighbors = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors()
                         self.neighbors.parent = self
                         self._children_name_map["neighbors"] = "neighbors"
-                        self._children_yang_names.add("neighbors")
 
                         self.unnumbered = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered()
                         self.unnumbered.parent = self
                         self._children_name_map["unnumbered"] = "unnumbered"
-                        self._children_yang_names.add("unnumbered")
 
                         self.config = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Config()
                         self.config.parent = self
                         self._children_name_map["config"] = "config"
-                        self._children_yang_names.add("config")
 
                         self.state = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
-                        self._children_yang_names.add("state")
                         self._segment_path = lambda: "openconfig-if-ip:ipv4"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4, [], name, value)
 
 
                     class Addresses(Entity):
@@ -1559,8 +1527,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("address", ("address", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address))])
+                            self._child_classes = OrderedDict([("address", ("address", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address))])
                             self._leafs = OrderedDict()
 
                             self.address = YList(self)
@@ -1613,8 +1580,7 @@ class Interfaces(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['ip']
-                                self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.State)), ("vrrp", ("vrrp", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.State)), ("vrrp", ("vrrp", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp))])
                                 self._leafs = OrderedDict([
                                     ('ip', YLeaf(YType.str, 'ip')),
                                 ])
@@ -1623,17 +1589,14 @@ class Interfaces(Entity):
                                 self.config = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Config()
                                 self.config.parent = self
                                 self._children_name_map["config"] = "config"
-                                self._children_yang_names.add("config")
 
                                 self.state = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.State()
                                 self.state.parent = self
                                 self._children_name_map["state"] = "state"
-                                self._children_yang_names.add("state")
 
                                 self.vrrp = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp()
                                 self.vrrp.parent = self
                                 self._children_name_map["vrrp"] = "vrrp"
-                                self._children_yang_names.add("vrrp")
                                 self._segment_path = lambda: "address" + "[ip='" + str(self.ip) + "']"
 
                             def __setattr__(self, name, value):
@@ -1674,8 +1637,7 @@ class Interfaces(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('ip', YLeaf(YType.str, 'ip')),
                                         ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
@@ -1727,8 +1689,7 @@ class Interfaces(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('ip', YLeaf(YType.str, 'ip')),
                                         ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
@@ -1768,8 +1729,7 @@ class Interfaces(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("vrrp-group", ("vrrp_group", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup))])
+                                    self._child_classes = OrderedDict([("vrrp-group", ("vrrp_group", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup))])
                                     self._leafs = OrderedDict()
 
                                     self.vrrp_group = YList(self)
@@ -1822,8 +1782,7 @@ class Interfaces(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['virtual_router_id']
-                                        self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.State)), ("interface-tracking", ("interface_tracking", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.State)), ("interface-tracking", ("interface_tracking", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking))])
                                         self._leafs = OrderedDict([
                                             ('virtual_router_id', YLeaf(YType.str, 'virtual-router-id')),
                                         ])
@@ -1832,17 +1791,14 @@ class Interfaces(Entity):
                                         self.config = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.Config()
                                         self.config.parent = self
                                         self._children_name_map["config"] = "config"
-                                        self._children_yang_names.add("config")
 
                                         self.state = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.State()
                                         self.state.parent = self
                                         self._children_name_map["state"] = "state"
-                                        self._children_yang_names.add("state")
 
                                         self.interface_tracking = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking()
                                         self.interface_tracking.parent = self
                                         self._children_name_map["interface_tracking"] = "interface-tracking"
-                                        self._children_yang_names.add("interface-tracking")
                                         self._segment_path = lambda: "vrrp-group" + "[virtual-router-id='" + str(self.virtual_router_id) + "']"
 
                                     def __setattr__(self, name, value):
@@ -1931,8 +1887,7 @@ class Interfaces(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('virtual_router_id', YLeaf(YType.uint8, 'virtual-router-id')),
                                                 ('virtual_address', YLeafList(YType.str, 'virtual-address')),
@@ -2044,8 +1999,7 @@ class Interfaces(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('virtual_router_id', YLeaf(YType.uint8, 'virtual-router-id')),
                                                 ('virtual_address', YLeafList(YType.str, 'virtual-address')),
@@ -2099,20 +2053,20 @@ class Interfaces(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State))])
                                             self._leafs = OrderedDict()
 
                                             self.config = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.Config()
                                             self.config.parent = self
                                             self._children_name_map["config"] = "config"
-                                            self._children_yang_names.add("config")
 
                                             self.state = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State()
                                             self.state.parent = self
                                             self._children_name_map["state"] = "state"
-                                            self._children_yang_names.add("state")
                                             self._segment_path = lambda: "interface-tracking"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking, [], name, value)
 
 
                                         class Config(Entity):
@@ -2150,8 +2104,7 @@ class Interfaces(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('track_interface', YLeaf(YType.str, 'track-interface')),
                                                     ('priority_decrement', YLeaf(YType.uint8, 'priority-decrement')),
@@ -2199,8 +2152,7 @@ class Interfaces(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('track_interface', YLeaf(YType.str, 'track-interface')),
                                                     ('priority_decrement', YLeaf(YType.uint8, 'priority-decrement')),
@@ -2237,8 +2189,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors.Neighbor))])
+                            self._child_classes = OrderedDict([("neighbor", ("neighbor", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors.Neighbor))])
                             self._leafs = OrderedDict()
 
                             self.neighbor = YList(self)
@@ -2290,8 +2241,7 @@ class Interfaces(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['ip']
-                                self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors.Neighbor.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors.Neighbor.State))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors.Neighbor.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors.Neighbor.State))])
                                 self._leafs = OrderedDict([
                                     ('ip', YLeaf(YType.str, 'ip')),
                                 ])
@@ -2300,12 +2250,10 @@ class Interfaces(Entity):
                                 self.config = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors.Neighbor.Config()
                                 self.config.parent = self
                                 self._children_name_map["config"] = "config"
-                                self._children_yang_names.add("config")
 
                                 self.state = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors.Neighbor.State()
                                 self.state.parent = self
                                 self._children_name_map["state"] = "state"
-                                self._children_yang_names.add("state")
                                 self._segment_path = lambda: "neighbor" + "[ip='" + str(self.ip) + "']"
 
                             def __setattr__(self, name, value):
@@ -2348,8 +2296,7 @@ class Interfaces(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('ip', YLeaf(YType.str, 'ip')),
                                         ('link_layer_address', YLeaf(YType.str, 'link-layer-address')),
@@ -2403,8 +2350,7 @@ class Interfaces(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('ip', YLeaf(YType.str, 'ip')),
                                         ('link_layer_address', YLeaf(YType.str, 'link-layer-address')),
@@ -2455,25 +2401,24 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.State)), ("interface-ref", ("interface_ref", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.State)), ("interface-ref", ("interface_ref", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef))])
                             self._leafs = OrderedDict()
 
                             self.config = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
-                            self._children_yang_names.add("config")
 
                             self.state = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
-                            self._children_yang_names.add("state")
 
                             self.interface_ref = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef()
                             self.interface_ref.parent = self
                             self._children_name_map["interface_ref"] = "interface-ref"
-                            self._children_yang_names.add("interface-ref")
                             self._segment_path = lambda: "unnumbered"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered, [], name, value)
 
 
                         class Config(Entity):
@@ -2502,8 +2447,7 @@ class Interfaces(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('enabled', YLeaf(YType.boolean, 'enabled')),
                                 ])
@@ -2511,7 +2455,7 @@ class Interfaces(Entity):
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.Config, ['enabled'], name, value)
+                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.Config, [u'enabled'], name, value)
 
 
                         class State(Entity):
@@ -2540,8 +2484,7 @@ class Interfaces(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('enabled', YLeaf(YType.boolean, 'enabled')),
                                 ])
@@ -2549,7 +2492,7 @@ class Interfaces(Entity):
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.State, ['enabled'], name, value)
+                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.State, [u'enabled'], name, value)
 
 
                         class InterfaceRef(Entity):
@@ -2581,20 +2524,20 @@ class Interfaces(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef.State))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef.State))])
                                 self._leafs = OrderedDict()
 
                                 self.config = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef.Config()
                                 self.config.parent = self
                                 self._children_name_map["config"] = "config"
-                                self._children_yang_names.add("config")
 
                                 self.state = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef.State()
                                 self.state.parent = self
                                 self._children_name_map["state"] = "state"
-                                self._children_yang_names.add("state")
                                 self._segment_path = lambda: "interface-ref"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef, [], name, value)
 
 
                             class Config(Entity):
@@ -2632,8 +2575,7 @@ class Interfaces(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('interface', YLeaf(YType.str, 'interface')),
                                         ('subinterface', YLeaf(YType.str, 'subinterface')),
@@ -2643,7 +2585,7 @@ class Interfaces(Entity):
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef.Config, ['interface', 'subinterface'], name, value)
+                                    self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
 
 
                             class State(Entity):
@@ -2681,8 +2623,7 @@ class Interfaces(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('interface', YLeaf(YType.str, 'interface')),
                                         ('subinterface', YLeaf(YType.str, 'subinterface')),
@@ -2692,7 +2633,7 @@ class Interfaces(Entity):
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef.State, ['interface', 'subinterface'], name, value)
+                                    self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
 
 
                     class Config(Entity):
@@ -2730,8 +2671,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('enabled', YLeaf(YType.boolean, 'enabled')),
                                 ('mtu', YLeaf(YType.uint16, 'mtu')),
@@ -2779,8 +2719,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('enabled', YLeaf(YType.boolean, 'enabled')),
                                 ('mtu', YLeaf(YType.uint16, 'mtu')),
@@ -2822,11 +2761,6 @@ class Interfaces(Entity):
                     	Top\-level operational state data for the IPv6 interface
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State>`
                     
-                    .. attribute:: autoconf
-                    
-                    	Top\-level container for IPv6 autoconf
-                    	**type**\:  :py:class:`Autoconf <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf>`
-                    
                     
 
                     """
@@ -2842,40 +2776,32 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("addresses", ("addresses", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses)), ("neighbors", ("neighbors", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors)), ("unnumbered", ("unnumbered", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered)), ("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State)), ("openconfig-if-ip-ext:autoconf", ("autoconf", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("addresses", ("addresses", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses)), ("neighbors", ("neighbors", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors)), ("unnumbered", ("unnumbered", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered)), ("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State))])
                         self._leafs = OrderedDict()
 
                         self.addresses = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses()
                         self.addresses.parent = self
                         self._children_name_map["addresses"] = "addresses"
-                        self._children_yang_names.add("addresses")
 
                         self.neighbors = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors()
                         self.neighbors.parent = self
                         self._children_name_map["neighbors"] = "neighbors"
-                        self._children_yang_names.add("neighbors")
 
                         self.unnumbered = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered()
                         self.unnumbered.parent = self
                         self._children_name_map["unnumbered"] = "unnumbered"
-                        self._children_yang_names.add("unnumbered")
 
                         self.config = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Config()
                         self.config.parent = self
                         self._children_name_map["config"] = "config"
-                        self._children_yang_names.add("config")
 
                         self.state = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
-                        self._children_yang_names.add("state")
-
-                        self.autoconf = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf()
-                        self.autoconf.parent = self
-                        self._children_name_map["autoconf"] = "openconfig-if-ip-ext:autoconf"
-                        self._children_yang_names.add("openconfig-if-ip-ext:autoconf")
                         self._segment_path = lambda: "openconfig-if-ip:ipv6"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6, [], name, value)
 
 
                     class Addresses(Entity):
@@ -2902,8 +2828,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("address", ("address", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address))])
+                            self._child_classes = OrderedDict([("address", ("address", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address))])
                             self._leafs = OrderedDict()
 
                             self.address = YList(self)
@@ -2956,8 +2881,7 @@ class Interfaces(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['ip']
-                                self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.State)), ("vrrp", ("vrrp", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.State)), ("vrrp", ("vrrp", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp))])
                                 self._leafs = OrderedDict([
                                     ('ip', YLeaf(YType.str, 'ip')),
                                 ])
@@ -2966,17 +2890,14 @@ class Interfaces(Entity):
                                 self.config = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Config()
                                 self.config.parent = self
                                 self._children_name_map["config"] = "config"
-                                self._children_yang_names.add("config")
 
                                 self.state = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.State()
                                 self.state.parent = self
                                 self._children_name_map["state"] = "state"
-                                self._children_yang_names.add("state")
 
                                 self.vrrp = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp()
                                 self.vrrp.parent = self
                                 self._children_name_map["vrrp"] = "vrrp"
-                                self._children_yang_names.add("vrrp")
                                 self._segment_path = lambda: "address" + "[ip='" + str(self.ip) + "']"
 
                             def __setattr__(self, name, value):
@@ -3019,8 +2940,7 @@ class Interfaces(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('ip', YLeaf(YType.str, 'ip')),
                                         ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
@@ -3079,8 +2999,7 @@ class Interfaces(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('ip', YLeaf(YType.str, 'ip')),
                                         ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
@@ -3211,8 +3130,7 @@ class Interfaces(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([("vrrp-group", ("vrrp_group", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup))])
+                                    self._child_classes = OrderedDict([("vrrp-group", ("vrrp_group", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup))])
                                     self._leafs = OrderedDict()
 
                                     self.vrrp_group = YList(self)
@@ -3265,8 +3183,7 @@ class Interfaces(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = ['virtual_router_id']
-                                        self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.State)), ("interface-tracking", ("interface_tracking", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.State)), ("interface-tracking", ("interface_tracking", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking))])
                                         self._leafs = OrderedDict([
                                             ('virtual_router_id', YLeaf(YType.str, 'virtual-router-id')),
                                         ])
@@ -3275,17 +3192,14 @@ class Interfaces(Entity):
                                         self.config = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.Config()
                                         self.config.parent = self
                                         self._children_name_map["config"] = "config"
-                                        self._children_yang_names.add("config")
 
                                         self.state = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.State()
                                         self.state.parent = self
                                         self._children_name_map["state"] = "state"
-                                        self._children_yang_names.add("state")
 
                                         self.interface_tracking = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking()
                                         self.interface_tracking.parent = self
                                         self._children_name_map["interface_tracking"] = "interface-tracking"
-                                        self._children_yang_names.add("interface-tracking")
                                         self._segment_path = lambda: "vrrp-group" + "[virtual-router-id='" + str(self.virtual_router_id) + "']"
 
                                     def __setattr__(self, name, value):
@@ -3387,8 +3301,7 @@ class Interfaces(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('virtual_router_id', YLeaf(YType.uint8, 'virtual-router-id')),
                                                 ('virtual_address', YLeafList(YType.str, 'virtual-address')),
@@ -3515,8 +3428,7 @@ class Interfaces(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('virtual_router_id', YLeaf(YType.uint8, 'virtual-router-id')),
                                                 ('virtual_address', YLeafList(YType.str, 'virtual-address')),
@@ -3572,20 +3484,20 @@ class Interfaces(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State))])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State))])
                                             self._leafs = OrderedDict()
 
                                             self.config = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.Config()
                                             self.config.parent = self
                                             self._children_name_map["config"] = "config"
-                                            self._children_yang_names.add("config")
 
                                             self.state = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State()
                                             self.state.parent = self
                                             self._children_name_map["state"] = "state"
-                                            self._children_yang_names.add("state")
                                             self._segment_path = lambda: "interface-tracking"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking, [], name, value)
 
 
                                         class Config(Entity):
@@ -3623,8 +3535,7 @@ class Interfaces(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('track_interface', YLeaf(YType.str, 'track-interface')),
                                                     ('priority_decrement', YLeaf(YType.uint8, 'priority-decrement')),
@@ -3672,8 +3583,7 @@ class Interfaces(Entity):
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
                                                 self.ylist_key_names = []
-                                                self._child_container_classes = OrderedDict([])
-                                                self._child_list_classes = OrderedDict([])
+                                                self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
                                                     ('track_interface', YLeaf(YType.str, 'track-interface')),
                                                     ('priority_decrement', YLeaf(YType.uint8, 'priority-decrement')),
@@ -3710,8 +3620,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors.Neighbor))])
+                            self._child_classes = OrderedDict([("neighbor", ("neighbor", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors.Neighbor))])
                             self._leafs = OrderedDict()
 
                             self.neighbor = YList(self)
@@ -3759,8 +3668,7 @@ class Interfaces(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['ip']
-                                self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors.Neighbor.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors.Neighbor.State))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors.Neighbor.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors.Neighbor.State))])
                                 self._leafs = OrderedDict([
                                     ('ip', YLeaf(YType.str, 'ip')),
                                 ])
@@ -3769,12 +3677,10 @@ class Interfaces(Entity):
                                 self.config = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors.Neighbor.Config()
                                 self.config.parent = self
                                 self._children_name_map["config"] = "config"
-                                self._children_yang_names.add("config")
 
                                 self.state = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors.Neighbor.State()
                                 self.state.parent = self
                                 self._children_name_map["state"] = "state"
-                                self._children_yang_names.add("state")
                                 self._segment_path = lambda: "neighbor" + "[ip='" + str(self.ip) + "']"
 
                             def __setattr__(self, name, value):
@@ -3817,8 +3723,7 @@ class Interfaces(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('ip', YLeaf(YType.str, 'ip')),
                                         ('link_layer_address', YLeaf(YType.str, 'link-layer-address')),
@@ -3882,8 +3787,7 @@ class Interfaces(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('ip', YLeaf(YType.str, 'ip')),
                                         ('link_layer_address', YLeaf(YType.str, 'link-layer-address')),
@@ -4005,25 +3909,24 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.State)), ("interface-ref", ("interface_ref", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.State)), ("interface-ref", ("interface_ref", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef))])
                             self._leafs = OrderedDict()
 
                             self.config = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
-                            self._children_yang_names.add("config")
 
                             self.state = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
-                            self._children_yang_names.add("state")
 
                             self.interface_ref = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef()
                             self.interface_ref.parent = self
                             self._children_name_map["interface_ref"] = "interface-ref"
-                            self._children_yang_names.add("interface-ref")
                             self._segment_path = lambda: "unnumbered"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered, [], name, value)
 
 
                         class Config(Entity):
@@ -4052,8 +3955,7 @@ class Interfaces(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('enabled', YLeaf(YType.boolean, 'enabled')),
                                 ])
@@ -4061,7 +3963,7 @@ class Interfaces(Entity):
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.Config, ['enabled'], name, value)
+                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.Config, [u'enabled'], name, value)
 
 
                         class State(Entity):
@@ -4090,8 +3992,7 @@ class Interfaces(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('enabled', YLeaf(YType.boolean, 'enabled')),
                                 ])
@@ -4099,7 +4000,7 @@ class Interfaces(Entity):
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.State, ['enabled'], name, value)
+                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.State, [u'enabled'], name, value)
 
 
                         class InterfaceRef(Entity):
@@ -4131,20 +4032,20 @@ class Interfaces(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef.State))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef.State))])
                                 self._leafs = OrderedDict()
 
                                 self.config = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef.Config()
                                 self.config.parent = self
                                 self._children_name_map["config"] = "config"
-                                self._children_yang_names.add("config")
 
                                 self.state = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef.State()
                                 self.state.parent = self
                                 self._children_name_map["state"] = "state"
-                                self._children_yang_names.add("state")
                                 self._segment_path = lambda: "interface-ref"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef, [], name, value)
 
 
                             class Config(Entity):
@@ -4182,8 +4083,7 @@ class Interfaces(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('interface', YLeaf(YType.str, 'interface')),
                                         ('subinterface', YLeaf(YType.str, 'subinterface')),
@@ -4193,7 +4093,7 @@ class Interfaces(Entity):
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef.Config, ['interface', 'subinterface'], name, value)
+                                    self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
 
 
                             class State(Entity):
@@ -4231,8 +4131,7 @@ class Interfaces(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('interface', YLeaf(YType.str, 'interface')),
                                         ('subinterface', YLeaf(YType.str, 'subinterface')),
@@ -4242,7 +4141,7 @@ class Interfaces(Entity):
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef.State, ['interface', 'subinterface'], name, value)
+                                    self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
 
 
                     class Config(Entity):
@@ -4289,8 +4188,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('enabled', YLeaf(YType.boolean, 'enabled')),
                                 ('mtu', YLeaf(YType.uint32, 'mtu')),
@@ -4349,8 +4247,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('enabled', YLeaf(YType.boolean, 'enabled')),
                                 ('mtu', YLeaf(YType.uint32, 'mtu')),
@@ -4363,200 +4260,6 @@ class Interfaces(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State, ['enabled', 'mtu', 'dup_addr_detect_transmits'], name, value)
-
-
-                    class Autoconf(Entity):
-                        """
-                        Top\-level container for IPv6 autoconf
-                        
-                        .. attribute:: config
-                        
-                        	[adapted from IETF IP model RFC 7277]  Parameters to control the autoconfiguration of IPv6 addresses, as described in RFC 4862
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.Config>`
-                        
-                        .. attribute:: state
-                        
-                        	Operational state data 
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.State>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'oc-ip-ext'
-                        _revision = '2016-12-22'
-
-                        def __init__(self):
-                            super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf, self).__init__()
-
-                            self.yang_name = "autoconf"
-                            self.yang_parent_name = "ipv6"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.State))])
-                            self._child_list_classes = OrderedDict([])
-                            self._leafs = OrderedDict()
-
-                            self.config = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.Config()
-                            self.config.parent = self
-                            self._children_name_map["config"] = "config"
-                            self._children_yang_names.add("config")
-
-                            self.state = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.State()
-                            self.state.parent = self
-                            self._children_name_map["state"] = "state"
-                            self._children_yang_names.add("state")
-                            self._segment_path = lambda: "openconfig-if-ip-ext:autoconf"
-
-
-                        class Config(Entity):
-                            """
-                            [adapted from IETF IP model RFC 7277]
-                            
-                            Parameters to control the autoconfiguration of IPv6
-                            addresses, as described in RFC 4862.
-                            
-                            .. attribute:: create_global_addresses
-                            
-                            	[adapted from IETF IP model RFC 7277]  If enabled, the host creates global addresses as described in RFC 4862
-                            	**type**\: bool
-                            
-                            	**default value**\: true
-                            
-                            .. attribute:: create_temporary_addresses
-                            
-                            	[adapted from IETF IP model RFC 7277]  If enabled, the host creates temporary addresses as described in RFC 4941
-                            	**type**\: bool
-                            
-                            	**default value**\: false
-                            
-                            .. attribute:: temporary_valid_lifetime
-                            
-                            	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is valid
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**units**\: seconds
-                            
-                            	**default value**\: 604800
-                            
-                            .. attribute:: temporary_preferred_lifetime
-                            
-                            	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is preferred
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**units**\: seconds
-                            
-                            	**default value**\: 86400
-                            
-                            
-
-                            """
-
-                            _prefix = 'oc-ip-ext'
-                            _revision = '2016-12-22'
-
-                            def __init__(self):
-                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.Config, self).__init__()
-
-                                self.yang_name = "config"
-                                self.yang_parent_name = "autoconf"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('create_global_addresses', YLeaf(YType.boolean, 'create-global-addresses')),
-                                    ('create_temporary_addresses', YLeaf(YType.boolean, 'create-temporary-addresses')),
-                                    ('temporary_valid_lifetime', YLeaf(YType.uint32, 'temporary-valid-lifetime')),
-                                    ('temporary_preferred_lifetime', YLeaf(YType.uint32, 'temporary-preferred-lifetime')),
-                                ])
-                                self.create_global_addresses = None
-                                self.create_temporary_addresses = None
-                                self.temporary_valid_lifetime = None
-                                self.temporary_preferred_lifetime = None
-                                self._segment_path = lambda: "config"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.Config, ['create_global_addresses', 'create_temporary_addresses', 'temporary_valid_lifetime', 'temporary_preferred_lifetime'], name, value)
-
-
-                        class State(Entity):
-                            """
-                            Operational state data 
-                            
-                            .. attribute:: create_global_addresses
-                            
-                            	[adapted from IETF IP model RFC 7277]  If enabled, the host creates global addresses as described in RFC 4862
-                            	**type**\: bool
-                            
-                            	**default value**\: true
-                            
-                            .. attribute:: create_temporary_addresses
-                            
-                            	[adapted from IETF IP model RFC 7277]  If enabled, the host creates temporary addresses as described in RFC 4941
-                            	**type**\: bool
-                            
-                            	**default value**\: false
-                            
-                            .. attribute:: temporary_valid_lifetime
-                            
-                            	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is valid
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**units**\: seconds
-                            
-                            	**default value**\: 604800
-                            
-                            .. attribute:: temporary_preferred_lifetime
-                            
-                            	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is preferred
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**units**\: seconds
-                            
-                            	**default value**\: 86400
-                            
-                            
-
-                            """
-
-                            _prefix = 'oc-ip-ext'
-                            _revision = '2016-12-22'
-
-                            def __init__(self):
-                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.State, self).__init__()
-
-                                self.yang_name = "state"
-                                self.yang_parent_name = "autoconf"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('create_global_addresses', YLeaf(YType.boolean, 'create-global-addresses')),
-                                    ('create_temporary_addresses', YLeaf(YType.boolean, 'create-temporary-addresses')),
-                                    ('temporary_valid_lifetime', YLeaf(YType.uint32, 'temporary-valid-lifetime')),
-                                    ('temporary_preferred_lifetime', YLeaf(YType.uint32, 'temporary-preferred-lifetime')),
-                                ])
-                                self.create_global_addresses = None
-                                self.create_temporary_addresses = None
-                                self.temporary_valid_lifetime = None
-                                self.temporary_preferred_lifetime = None
-                                self._segment_path = lambda: "state"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.State, ['create_global_addresses', 'create_temporary_addresses', 'temporary_valid_lifetime', 'temporary_preferred_lifetime'], name, value)
 
 
         class Ethernet(Entity):
@@ -4594,25 +4297,24 @@ class Interfaces(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.Ethernet.Config)), ("state", ("state", Interfaces.Interface.Ethernet.State)), ("openconfig-vlan:switched-vlan", ("switched_vlan", Interfaces.Interface.Ethernet.SwitchedVlan))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.Ethernet.Config)), ("state", ("state", Interfaces.Interface.Ethernet.State)), ("openconfig-vlan:switched-vlan", ("switched_vlan", Interfaces.Interface.Ethernet.SwitchedVlan))])
                 self._leafs = OrderedDict()
 
                 self.config = Interfaces.Interface.Ethernet.Config()
                 self.config.parent = self
                 self._children_name_map["config"] = "config"
-                self._children_yang_names.add("config")
 
                 self.state = Interfaces.Interface.Ethernet.State()
                 self.state.parent = self
                 self._children_name_map["state"] = "state"
-                self._children_yang_names.add("state")
 
                 self.switched_vlan = Interfaces.Interface.Ethernet.SwitchedVlan()
                 self.switched_vlan.parent = self
                 self._children_name_map["switched_vlan"] = "openconfig-vlan:switched-vlan"
-                self._children_yang_names.add("openconfig-vlan:switched-vlan")
                 self._segment_path = lambda: "openconfig-if-ethernet:ethernet"
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Interfaces.Interface.Ethernet, [], name, value)
 
 
             class Config(Entity):
@@ -4672,8 +4374,7 @@ class Interfaces(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('mac_address', YLeaf(YType.str, 'mac-address')),
                         ('auto_negotiate', YLeaf(YType.boolean, 'auto-negotiate')),
@@ -4691,7 +4392,7 @@ class Interfaces(Entity):
                     self._segment_path = lambda: "config"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.Ethernet.Config, ['mac_address', 'auto_negotiate', 'duplex_mode', 'port_speed', 'enable_flow_control', 'aggregate_id'], name, value)
+                    self._perform_setattr(Interfaces.Interface.Ethernet.Config, [u'mac_address', u'auto_negotiate', u'duplex_mode', u'port_speed', u'enable_flow_control', u'aggregate_id'], name, value)
 
                 class DuplexMode(Enum):
                     """
@@ -4801,8 +4502,7 @@ class Interfaces(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("counters", ("counters", Interfaces.Interface.Ethernet.State.Counters))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("counters", ("counters", Interfaces.Interface.Ethernet.State.Counters))])
                     self._leafs = OrderedDict([
                         ('mac_address', YLeaf(YType.str, 'mac-address')),
                         ('auto_negotiate', YLeaf(YType.boolean, 'auto-negotiate')),
@@ -4825,11 +4525,10 @@ class Interfaces(Entity):
                     self.counters = Interfaces.Interface.Ethernet.State.Counters()
                     self.counters.parent = self
                     self._children_name_map["counters"] = "counters"
-                    self._children_yang_names.add("counters")
                     self._segment_path = lambda: "state"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.Ethernet.State, ['mac_address', 'auto_negotiate', 'duplex_mode', 'port_speed', 'enable_flow_control', 'hw_mac_address', 'effective_speed', 'aggregate_id'], name, value)
+                    self._perform_setattr(Interfaces.Interface.Ethernet.State, [u'mac_address', u'auto_negotiate', u'duplex_mode', u'port_speed', u'enable_flow_control', u'hw_mac_address', u'effective_speed', u'aggregate_id'], name, value)
 
                 class DuplexMode(Enum):
                     """
@@ -4950,8 +4649,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('in_mac_control_frames', YLeaf(YType.uint64, 'in-mac-control-frames')),
                             ('in_mac_pause_frames', YLeaf(YType.uint64, 'in-mac-pause-frames')),
@@ -4977,7 +4675,7 @@ class Interfaces(Entity):
                         self._segment_path = lambda: "counters"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.Interface.Ethernet.State.Counters, ['in_mac_control_frames', 'in_mac_pause_frames', 'in_oversize_frames', 'in_jabber_frames', 'in_fragment_frames', 'in_8021q_frames', 'in_crc_errors', 'out_mac_control_frames', 'out_mac_pause_frames', 'out_8021q_frames'], name, value)
+                        self._perform_setattr(Interfaces.Interface.Ethernet.State.Counters, [u'in_mac_control_frames', u'in_mac_pause_frames', u'in_oversize_frames', u'in_jabber_frames', u'in_fragment_frames', u'in_8021q_frames', u'in_crc_errors', u'out_mac_control_frames', u'out_mac_pause_frames', u'out_8021q_frames'], name, value)
 
 
             class SwitchedVlan(Entity):
@@ -5011,20 +4709,20 @@ class Interfaces(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.Ethernet.SwitchedVlan.Config)), ("state", ("state", Interfaces.Interface.Ethernet.SwitchedVlan.State))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.Ethernet.SwitchedVlan.Config)), ("state", ("state", Interfaces.Interface.Ethernet.SwitchedVlan.State))])
                     self._leafs = OrderedDict()
 
                     self.config = Interfaces.Interface.Ethernet.SwitchedVlan.Config()
                     self.config.parent = self
                     self._children_name_map["config"] = "config"
-                    self._children_yang_names.add("config")
 
                     self.state = Interfaces.Interface.Ethernet.SwitchedVlan.State()
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
-                    self._children_yang_names.add("state")
                     self._segment_path = lambda: "openconfig-vlan:switched-vlan"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Interfaces.Interface.Ethernet.SwitchedVlan, [], name, value)
 
 
                 class Config(Entity):
@@ -5102,8 +4800,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_mode', YLeaf(YType.enumeration, 'interface-mode')),
                             ('native_vlan', YLeaf(YType.str, 'native-vlan')),
@@ -5117,7 +4814,7 @@ class Interfaces(Entity):
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.Interface.Ethernet.SwitchedVlan.Config, ['interface_mode', 'native_vlan', 'access_vlan', 'trunk_vlans'], name, value)
+                        self._perform_setattr(Interfaces.Interface.Ethernet.SwitchedVlan.Config, [u'interface_mode', u'native_vlan', u'access_vlan', u'trunk_vlans'], name, value)
 
 
                 class State(Entity):
@@ -5195,8 +4892,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_mode', YLeaf(YType.enumeration, 'interface-mode')),
                             ('native_vlan', YLeaf(YType.str, 'native-vlan')),
@@ -5210,7 +4906,7 @@ class Interfaces(Entity):
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.Interface.Ethernet.SwitchedVlan.State, ['interface_mode', 'native_vlan', 'access_vlan', 'trunk_vlans'], name, value)
+                        self._perform_setattr(Interfaces.Interface.Ethernet.SwitchedVlan.State, [u'interface_mode', u'native_vlan', u'access_vlan', u'trunk_vlans'], name, value)
 
 
         class Aggregation(Entity):
@@ -5248,25 +4944,24 @@ class Interfaces(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.Aggregation.Config)), ("state", ("state", Interfaces.Interface.Aggregation.State)), ("openconfig-vlan:switched-vlan", ("switched_vlan", Interfaces.Interface.Aggregation.SwitchedVlan))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.Aggregation.Config)), ("state", ("state", Interfaces.Interface.Aggregation.State)), ("openconfig-vlan:switched-vlan", ("switched_vlan", Interfaces.Interface.Aggregation.SwitchedVlan))])
                 self._leafs = OrderedDict()
 
                 self.config = Interfaces.Interface.Aggregation.Config()
                 self.config.parent = self
                 self._children_name_map["config"] = "config"
-                self._children_yang_names.add("config")
 
                 self.state = Interfaces.Interface.Aggregation.State()
                 self.state.parent = self
                 self._children_name_map["state"] = "state"
-                self._children_yang_names.add("state")
 
                 self.switched_vlan = Interfaces.Interface.Aggregation.SwitchedVlan()
                 self.switched_vlan.parent = self
                 self._children_name_map["switched_vlan"] = "openconfig-vlan:switched-vlan"
-                self._children_yang_names.add("openconfig-vlan:switched-vlan")
                 self._segment_path = lambda: "openconfig-if-aggregate:aggregation"
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Interfaces.Interface.Aggregation, [], name, value)
 
 
             class Config(Entity):
@@ -5301,8 +4996,7 @@ class Interfaces(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('lag_type', YLeaf(YType.enumeration, 'lag-type')),
                         ('min_links', YLeaf(YType.uint16, 'min-links')),
@@ -5312,7 +5006,7 @@ class Interfaces(Entity):
                     self._segment_path = lambda: "config"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.Aggregation.Config, ['lag_type', 'min_links'], name, value)
+                    self._perform_setattr(Interfaces.Interface.Aggregation.Config, [u'lag_type', u'min_links'], name, value)
 
 
             class State(Entity):
@@ -5363,8 +5057,7 @@ class Interfaces(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('lag_type', YLeaf(YType.enumeration, 'lag-type')),
                         ('min_links', YLeaf(YType.uint16, 'min-links')),
@@ -5378,7 +5071,7 @@ class Interfaces(Entity):
                     self._segment_path = lambda: "state"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.Aggregation.State, ['lag_type', 'min_links', 'lag_speed', 'member'], name, value)
+                    self._perform_setattr(Interfaces.Interface.Aggregation.State, [u'lag_type', u'min_links', u'lag_speed', u'member'], name, value)
 
 
             class SwitchedVlan(Entity):
@@ -5412,20 +5105,20 @@ class Interfaces(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.Aggregation.SwitchedVlan.Config)), ("state", ("state", Interfaces.Interface.Aggregation.SwitchedVlan.State))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.Aggregation.SwitchedVlan.Config)), ("state", ("state", Interfaces.Interface.Aggregation.SwitchedVlan.State))])
                     self._leafs = OrderedDict()
 
                     self.config = Interfaces.Interface.Aggregation.SwitchedVlan.Config()
                     self.config.parent = self
                     self._children_name_map["config"] = "config"
-                    self._children_yang_names.add("config")
 
                     self.state = Interfaces.Interface.Aggregation.SwitchedVlan.State()
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
-                    self._children_yang_names.add("state")
                     self._segment_path = lambda: "openconfig-vlan:switched-vlan"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Interfaces.Interface.Aggregation.SwitchedVlan, [], name, value)
 
 
                 class Config(Entity):
@@ -5503,8 +5196,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_mode', YLeaf(YType.enumeration, 'interface-mode')),
                             ('native_vlan', YLeaf(YType.str, 'native-vlan')),
@@ -5518,7 +5210,7 @@ class Interfaces(Entity):
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.Interface.Aggregation.SwitchedVlan.Config, ['interface_mode', 'native_vlan', 'access_vlan', 'trunk_vlans'], name, value)
+                        self._perform_setattr(Interfaces.Interface.Aggregation.SwitchedVlan.Config, [u'interface_mode', u'native_vlan', u'access_vlan', u'trunk_vlans'], name, value)
 
 
                 class State(Entity):
@@ -5596,8 +5288,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface_mode', YLeaf(YType.enumeration, 'interface-mode')),
                             ('native_vlan', YLeaf(YType.str, 'native-vlan')),
@@ -5611,7 +5302,7 @@ class Interfaces(Entity):
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.Interface.Aggregation.SwitchedVlan.State, ['interface_mode', 'native_vlan', 'access_vlan', 'trunk_vlans'], name, value)
+                        self._perform_setattr(Interfaces.Interface.Aggregation.SwitchedVlan.State, [u'interface_mode', u'native_vlan', u'access_vlan', u'trunk_vlans'], name, value)
 
 
         class RoutedVlan(Entity):
@@ -5656,30 +5347,28 @@ class Interfaces(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.State)), ("openconfig-if-ip:ipv4", ("ipv4", Interfaces.Interface.RoutedVlan.Ipv4)), ("openconfig-if-ip:ipv6", ("ipv6", Interfaces.Interface.RoutedVlan.Ipv6))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.State)), ("openconfig-if-ip:ipv4", ("ipv4", Interfaces.Interface.RoutedVlan.Ipv4)), ("openconfig-if-ip:ipv6", ("ipv6", Interfaces.Interface.RoutedVlan.Ipv6))])
                 self._leafs = OrderedDict()
 
                 self.config = Interfaces.Interface.RoutedVlan.Config()
                 self.config.parent = self
                 self._children_name_map["config"] = "config"
-                self._children_yang_names.add("config")
 
                 self.state = Interfaces.Interface.RoutedVlan.State()
                 self.state.parent = self
                 self._children_name_map["state"] = "state"
-                self._children_yang_names.add("state")
 
                 self.ipv4 = Interfaces.Interface.RoutedVlan.Ipv4()
                 self.ipv4.parent = self
                 self._children_name_map["ipv4"] = "openconfig-if-ip:ipv4"
-                self._children_yang_names.add("openconfig-if-ip:ipv4")
 
                 self.ipv6 = Interfaces.Interface.RoutedVlan.Ipv6()
                 self.ipv6.parent = self
                 self._children_name_map["ipv6"] = "openconfig-if-ip:ipv6"
-                self._children_yang_names.add("openconfig-if-ip:ipv6")
                 self._segment_path = lambda: "openconfig-vlan:routed-vlan"
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Interfaces.Interface.RoutedVlan, [], name, value)
 
 
             class Config(Entity):
@@ -5712,8 +5401,7 @@ class Interfaces(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('vlan', YLeaf(YType.str, 'vlan')),
                     ])
@@ -5721,7 +5409,7 @@ class Interfaces(Entity):
                     self._segment_path = lambda: "config"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.RoutedVlan.Config, ['vlan'], name, value)
+                    self._perform_setattr(Interfaces.Interface.RoutedVlan.Config, [u'vlan'], name, value)
 
 
             class State(Entity):
@@ -5754,8 +5442,7 @@ class Interfaces(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('vlan', YLeaf(YType.str, 'vlan')),
                     ])
@@ -5763,7 +5450,7 @@ class Interfaces(Entity):
                     self._segment_path = lambda: "state"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.RoutedVlan.State, ['vlan'], name, value)
+                    self._perform_setattr(Interfaces.Interface.RoutedVlan.State, [u'vlan'], name, value)
 
 
             class Ipv4(Entity):
@@ -5810,35 +5497,32 @@ class Interfaces(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("addresses", ("addresses", Interfaces.Interface.RoutedVlan.Ipv4.Addresses)), ("neighbors", ("neighbors", Interfaces.Interface.RoutedVlan.Ipv4.Neighbors)), ("unnumbered", ("unnumbered", Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered)), ("config", ("config", Interfaces.Interface.RoutedVlan.Ipv4.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv4.State))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("addresses", ("addresses", Interfaces.Interface.RoutedVlan.Ipv4.Addresses)), ("neighbors", ("neighbors", Interfaces.Interface.RoutedVlan.Ipv4.Neighbors)), ("unnumbered", ("unnumbered", Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered)), ("config", ("config", Interfaces.Interface.RoutedVlan.Ipv4.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv4.State))])
                     self._leafs = OrderedDict()
 
                     self.addresses = Interfaces.Interface.RoutedVlan.Ipv4.Addresses()
                     self.addresses.parent = self
                     self._children_name_map["addresses"] = "addresses"
-                    self._children_yang_names.add("addresses")
 
                     self.neighbors = Interfaces.Interface.RoutedVlan.Ipv4.Neighbors()
                     self.neighbors.parent = self
                     self._children_name_map["neighbors"] = "neighbors"
-                    self._children_yang_names.add("neighbors")
 
                     self.unnumbered = Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered()
                     self.unnumbered.parent = self
                     self._children_name_map["unnumbered"] = "unnumbered"
-                    self._children_yang_names.add("unnumbered")
 
                     self.config = Interfaces.Interface.RoutedVlan.Ipv4.Config()
                     self.config.parent = self
                     self._children_name_map["config"] = "config"
-                    self._children_yang_names.add("config")
 
                     self.state = Interfaces.Interface.RoutedVlan.Ipv4.State()
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
-                    self._children_yang_names.add("state")
                     self._segment_path = lambda: "openconfig-if-ip:ipv4"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4, [], name, value)
 
 
                 class Addresses(Entity):
@@ -5865,8 +5549,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("address", ("address", Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address))])
+                        self._child_classes = OrderedDict([("address", ("address", Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address))])
                         self._leafs = OrderedDict()
 
                         self.address = YList(self)
@@ -5919,8 +5602,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['ip']
-                            self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.State)), ("vrrp", ("vrrp", Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.State)), ("vrrp", ("vrrp", Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp))])
                             self._leafs = OrderedDict([
                                 ('ip', YLeaf(YType.str, 'ip')),
                             ])
@@ -5929,17 +5611,14 @@ class Interfaces(Entity):
                             self.config = Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
-                            self._children_yang_names.add("config")
 
                             self.state = Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
-                            self._children_yang_names.add("state")
 
                             self.vrrp = Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp()
                             self.vrrp.parent = self
                             self._children_name_map["vrrp"] = "vrrp"
-                            self._children_yang_names.add("vrrp")
                             self._segment_path = lambda: "address" + "[ip='" + str(self.ip) + "']"
 
                         def __setattr__(self, name, value):
@@ -5980,8 +5659,7 @@ class Interfaces(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('ip', YLeaf(YType.str, 'ip')),
                                     ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
@@ -6033,8 +5711,7 @@ class Interfaces(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('ip', YLeaf(YType.str, 'ip')),
                                     ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
@@ -6074,8 +5751,7 @@ class Interfaces(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("vrrp-group", ("vrrp_group", Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup))])
+                                self._child_classes = OrderedDict([("vrrp-group", ("vrrp_group", Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup))])
                                 self._leafs = OrderedDict()
 
                                 self.vrrp_group = YList(self)
@@ -6128,8 +5804,7 @@ class Interfaces(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['virtual_router_id']
-                                    self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.State)), ("interface-tracking", ("interface_tracking", Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.State)), ("interface-tracking", ("interface_tracking", Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking))])
                                     self._leafs = OrderedDict([
                                         ('virtual_router_id', YLeaf(YType.str, 'virtual-router-id')),
                                     ])
@@ -6138,17 +5813,14 @@ class Interfaces(Entity):
                                     self.config = Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.Config()
                                     self.config.parent = self
                                     self._children_name_map["config"] = "config"
-                                    self._children_yang_names.add("config")
 
                                     self.state = Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.State()
                                     self.state.parent = self
                                     self._children_name_map["state"] = "state"
-                                    self._children_yang_names.add("state")
 
                                     self.interface_tracking = Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking()
                                     self.interface_tracking.parent = self
                                     self._children_name_map["interface_tracking"] = "interface-tracking"
-                                    self._children_yang_names.add("interface-tracking")
                                     self._segment_path = lambda: "vrrp-group" + "[virtual-router-id='" + str(self.virtual_router_id) + "']"
 
                                 def __setattr__(self, name, value):
@@ -6237,8 +5909,7 @@ class Interfaces(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('virtual_router_id', YLeaf(YType.uint8, 'virtual-router-id')),
                                             ('virtual_address', YLeafList(YType.str, 'virtual-address')),
@@ -6350,8 +6021,7 @@ class Interfaces(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('virtual_router_id', YLeaf(YType.uint8, 'virtual-router-id')),
                                             ('virtual_address', YLeafList(YType.str, 'virtual-address')),
@@ -6405,20 +6075,20 @@ class Interfaces(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State))])
                                         self._leafs = OrderedDict()
 
                                         self.config = Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.Config()
                                         self.config.parent = self
                                         self._children_name_map["config"] = "config"
-                                        self._children_yang_names.add("config")
 
                                         self.state = Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State()
                                         self.state.parent = self
                                         self._children_name_map["state"] = "state"
-                                        self._children_yang_names.add("state")
                                         self._segment_path = lambda: "interface-tracking"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking, [], name, value)
 
 
                                     class Config(Entity):
@@ -6456,8 +6126,7 @@ class Interfaces(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('track_interface', YLeaf(YType.str, 'track-interface')),
                                                 ('priority_decrement', YLeaf(YType.uint8, 'priority-decrement')),
@@ -6505,8 +6174,7 @@ class Interfaces(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('track_interface', YLeaf(YType.str, 'track-interface')),
                                                 ('priority_decrement', YLeaf(YType.uint8, 'priority-decrement')),
@@ -6543,8 +6211,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Interfaces.Interface.RoutedVlan.Ipv4.Neighbors.Neighbor))])
+                        self._child_classes = OrderedDict([("neighbor", ("neighbor", Interfaces.Interface.RoutedVlan.Ipv4.Neighbors.Neighbor))])
                         self._leafs = OrderedDict()
 
                         self.neighbor = YList(self)
@@ -6596,8 +6263,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['ip']
-                            self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv4.Neighbors.Neighbor.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv4.Neighbors.Neighbor.State))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv4.Neighbors.Neighbor.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv4.Neighbors.Neighbor.State))])
                             self._leafs = OrderedDict([
                                 ('ip', YLeaf(YType.str, 'ip')),
                             ])
@@ -6606,12 +6272,10 @@ class Interfaces(Entity):
                             self.config = Interfaces.Interface.RoutedVlan.Ipv4.Neighbors.Neighbor.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
-                            self._children_yang_names.add("config")
 
                             self.state = Interfaces.Interface.RoutedVlan.Ipv4.Neighbors.Neighbor.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
-                            self._children_yang_names.add("state")
                             self._segment_path = lambda: "neighbor" + "[ip='" + str(self.ip) + "']"
 
                         def __setattr__(self, name, value):
@@ -6654,8 +6318,7 @@ class Interfaces(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('ip', YLeaf(YType.str, 'ip')),
                                     ('link_layer_address', YLeaf(YType.str, 'link-layer-address')),
@@ -6709,8 +6372,7 @@ class Interfaces(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('ip', YLeaf(YType.str, 'ip')),
                                     ('link_layer_address', YLeaf(YType.str, 'link-layer-address')),
@@ -6761,25 +6423,24 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.State)), ("interface-ref", ("interface_ref", Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.State)), ("interface-ref", ("interface_ref", Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef))])
                         self._leafs = OrderedDict()
 
                         self.config = Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.Config()
                         self.config.parent = self
                         self._children_name_map["config"] = "config"
-                        self._children_yang_names.add("config")
 
                         self.state = Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
-                        self._children_yang_names.add("state")
 
                         self.interface_ref = Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef()
                         self.interface_ref.parent = self
                         self._children_name_map["interface_ref"] = "interface-ref"
-                        self._children_yang_names.add("interface-ref")
                         self._segment_path = lambda: "unnumbered"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered, [], name, value)
 
 
                     class Config(Entity):
@@ -6808,8 +6469,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('enabled', YLeaf(YType.boolean, 'enabled')),
                             ])
@@ -6817,7 +6477,7 @@ class Interfaces(Entity):
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.Config, ['enabled'], name, value)
+                            self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.Config, [u'enabled'], name, value)
 
 
                     class State(Entity):
@@ -6846,8 +6506,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('enabled', YLeaf(YType.boolean, 'enabled')),
                             ])
@@ -6855,7 +6514,7 @@ class Interfaces(Entity):
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.State, ['enabled'], name, value)
+                            self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.State, [u'enabled'], name, value)
 
 
                     class InterfaceRef(Entity):
@@ -6887,20 +6546,20 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef.State))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef.State))])
                             self._leafs = OrderedDict()
 
                             self.config = Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
-                            self._children_yang_names.add("config")
 
                             self.state = Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
-                            self._children_yang_names.add("state")
                             self._segment_path = lambda: "interface-ref"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef, [], name, value)
 
 
                         class Config(Entity):
@@ -6938,8 +6597,7 @@ class Interfaces(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('interface', YLeaf(YType.str, 'interface')),
                                     ('subinterface', YLeaf(YType.str, 'subinterface')),
@@ -6949,7 +6607,7 @@ class Interfaces(Entity):
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef.Config, ['interface', 'subinterface'], name, value)
+                                self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
 
 
                         class State(Entity):
@@ -6987,8 +6645,7 @@ class Interfaces(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('interface', YLeaf(YType.str, 'interface')),
                                     ('subinterface', YLeaf(YType.str, 'subinterface')),
@@ -6998,7 +6655,7 @@ class Interfaces(Entity):
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef.State, ['interface', 'subinterface'], name, value)
+                                self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
 
 
                 class Config(Entity):
@@ -7036,8 +6693,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('enabled', YLeaf(YType.boolean, 'enabled')),
                             ('mtu', YLeaf(YType.uint16, 'mtu')),
@@ -7085,8 +6741,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('enabled', YLeaf(YType.boolean, 'enabled')),
                             ('mtu', YLeaf(YType.uint16, 'mtu')),
@@ -7143,35 +6798,32 @@ class Interfaces(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("addresses", ("addresses", Interfaces.Interface.RoutedVlan.Ipv6.Addresses)), ("neighbors", ("neighbors", Interfaces.Interface.RoutedVlan.Ipv6.Neighbors)), ("unnumbered", ("unnumbered", Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered)), ("config", ("config", Interfaces.Interface.RoutedVlan.Ipv6.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv6.State))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("addresses", ("addresses", Interfaces.Interface.RoutedVlan.Ipv6.Addresses)), ("neighbors", ("neighbors", Interfaces.Interface.RoutedVlan.Ipv6.Neighbors)), ("unnumbered", ("unnumbered", Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered)), ("config", ("config", Interfaces.Interface.RoutedVlan.Ipv6.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv6.State))])
                     self._leafs = OrderedDict()
 
                     self.addresses = Interfaces.Interface.RoutedVlan.Ipv6.Addresses()
                     self.addresses.parent = self
                     self._children_name_map["addresses"] = "addresses"
-                    self._children_yang_names.add("addresses")
 
                     self.neighbors = Interfaces.Interface.RoutedVlan.Ipv6.Neighbors()
                     self.neighbors.parent = self
                     self._children_name_map["neighbors"] = "neighbors"
-                    self._children_yang_names.add("neighbors")
 
                     self.unnumbered = Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered()
                     self.unnumbered.parent = self
                     self._children_name_map["unnumbered"] = "unnumbered"
-                    self._children_yang_names.add("unnumbered")
 
                     self.config = Interfaces.Interface.RoutedVlan.Ipv6.Config()
                     self.config.parent = self
                     self._children_name_map["config"] = "config"
-                    self._children_yang_names.add("config")
 
                     self.state = Interfaces.Interface.RoutedVlan.Ipv6.State()
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
-                    self._children_yang_names.add("state")
                     self._segment_path = lambda: "openconfig-if-ip:ipv6"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6, [], name, value)
 
 
                 class Addresses(Entity):
@@ -7198,8 +6850,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("address", ("address", Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address))])
+                        self._child_classes = OrderedDict([("address", ("address", Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address))])
                         self._leafs = OrderedDict()
 
                         self.address = YList(self)
@@ -7252,8 +6903,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['ip']
-                            self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.State)), ("vrrp", ("vrrp", Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.State)), ("vrrp", ("vrrp", Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp))])
                             self._leafs = OrderedDict([
                                 ('ip', YLeaf(YType.str, 'ip')),
                             ])
@@ -7262,17 +6912,14 @@ class Interfaces(Entity):
                             self.config = Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
-                            self._children_yang_names.add("config")
 
                             self.state = Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
-                            self._children_yang_names.add("state")
 
                             self.vrrp = Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp()
                             self.vrrp.parent = self
                             self._children_name_map["vrrp"] = "vrrp"
-                            self._children_yang_names.add("vrrp")
                             self._segment_path = lambda: "address" + "[ip='" + str(self.ip) + "']"
 
                         def __setattr__(self, name, value):
@@ -7315,8 +6962,7 @@ class Interfaces(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('ip', YLeaf(YType.str, 'ip')),
                                     ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
@@ -7375,8 +7021,7 @@ class Interfaces(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('ip', YLeaf(YType.str, 'ip')),
                                     ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
@@ -7507,8 +7152,7 @@ class Interfaces(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("vrrp-group", ("vrrp_group", Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup))])
+                                self._child_classes = OrderedDict([("vrrp-group", ("vrrp_group", Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup))])
                                 self._leafs = OrderedDict()
 
                                 self.vrrp_group = YList(self)
@@ -7561,8 +7205,7 @@ class Interfaces(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['virtual_router_id']
-                                    self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.State)), ("interface-tracking", ("interface_tracking", Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.State)), ("interface-tracking", ("interface_tracking", Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking))])
                                     self._leafs = OrderedDict([
                                         ('virtual_router_id', YLeaf(YType.str, 'virtual-router-id')),
                                     ])
@@ -7571,17 +7214,14 @@ class Interfaces(Entity):
                                     self.config = Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.Config()
                                     self.config.parent = self
                                     self._children_name_map["config"] = "config"
-                                    self._children_yang_names.add("config")
 
                                     self.state = Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.State()
                                     self.state.parent = self
                                     self._children_name_map["state"] = "state"
-                                    self._children_yang_names.add("state")
 
                                     self.interface_tracking = Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking()
                                     self.interface_tracking.parent = self
                                     self._children_name_map["interface_tracking"] = "interface-tracking"
-                                    self._children_yang_names.add("interface-tracking")
                                     self._segment_path = lambda: "vrrp-group" + "[virtual-router-id='" + str(self.virtual_router_id) + "']"
 
                                 def __setattr__(self, name, value):
@@ -7683,8 +7323,7 @@ class Interfaces(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('virtual_router_id', YLeaf(YType.uint8, 'virtual-router-id')),
                                             ('virtual_address', YLeafList(YType.str, 'virtual-address')),
@@ -7811,8 +7450,7 @@ class Interfaces(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('virtual_router_id', YLeaf(YType.uint8, 'virtual-router-id')),
                                             ('virtual_address', YLeafList(YType.str, 'virtual-address')),
@@ -7868,20 +7506,20 @@ class Interfaces(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State))])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State))])
                                         self._leafs = OrderedDict()
 
                                         self.config = Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.Config()
                                         self.config.parent = self
                                         self._children_name_map["config"] = "config"
-                                        self._children_yang_names.add("config")
 
                                         self.state = Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State()
                                         self.state.parent = self
                                         self._children_name_map["state"] = "state"
-                                        self._children_yang_names.add("state")
                                         self._segment_path = lambda: "interface-tracking"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking, [], name, value)
 
 
                                     class Config(Entity):
@@ -7919,8 +7557,7 @@ class Interfaces(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('track_interface', YLeaf(YType.str, 'track-interface')),
                                                 ('priority_decrement', YLeaf(YType.uint8, 'priority-decrement')),
@@ -7968,8 +7605,7 @@ class Interfaces(Entity):
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
                                             self.ylist_key_names = []
-                                            self._child_container_classes = OrderedDict([])
-                                            self._child_list_classes = OrderedDict([])
+                                            self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
                                                 ('track_interface', YLeaf(YType.str, 'track-interface')),
                                                 ('priority_decrement', YLeaf(YType.uint8, 'priority-decrement')),
@@ -8006,8 +7642,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Interfaces.Interface.RoutedVlan.Ipv6.Neighbors.Neighbor))])
+                        self._child_classes = OrderedDict([("neighbor", ("neighbor", Interfaces.Interface.RoutedVlan.Ipv6.Neighbors.Neighbor))])
                         self._leafs = OrderedDict()
 
                         self.neighbor = YList(self)
@@ -8055,8 +7690,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['ip']
-                            self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv6.Neighbors.Neighbor.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv6.Neighbors.Neighbor.State))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv6.Neighbors.Neighbor.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv6.Neighbors.Neighbor.State))])
                             self._leafs = OrderedDict([
                                 ('ip', YLeaf(YType.str, 'ip')),
                             ])
@@ -8065,12 +7699,10 @@ class Interfaces(Entity):
                             self.config = Interfaces.Interface.RoutedVlan.Ipv6.Neighbors.Neighbor.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
-                            self._children_yang_names.add("config")
 
                             self.state = Interfaces.Interface.RoutedVlan.Ipv6.Neighbors.Neighbor.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
-                            self._children_yang_names.add("state")
                             self._segment_path = lambda: "neighbor" + "[ip='" + str(self.ip) + "']"
 
                         def __setattr__(self, name, value):
@@ -8113,8 +7745,7 @@ class Interfaces(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('ip', YLeaf(YType.str, 'ip')),
                                     ('link_layer_address', YLeaf(YType.str, 'link-layer-address')),
@@ -8178,8 +7809,7 @@ class Interfaces(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('ip', YLeaf(YType.str, 'ip')),
                                     ('link_layer_address', YLeaf(YType.str, 'link-layer-address')),
@@ -8301,25 +7931,24 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.State)), ("interface-ref", ("interface_ref", Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.State)), ("interface-ref", ("interface_ref", Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef))])
                         self._leafs = OrderedDict()
 
                         self.config = Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.Config()
                         self.config.parent = self
                         self._children_name_map["config"] = "config"
-                        self._children_yang_names.add("config")
 
                         self.state = Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
-                        self._children_yang_names.add("state")
 
                         self.interface_ref = Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef()
                         self.interface_ref.parent = self
                         self._children_name_map["interface_ref"] = "interface-ref"
-                        self._children_yang_names.add("interface-ref")
                         self._segment_path = lambda: "unnumbered"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered, [], name, value)
 
 
                     class Config(Entity):
@@ -8348,8 +7977,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('enabled', YLeaf(YType.boolean, 'enabled')),
                             ])
@@ -8357,7 +7985,7 @@ class Interfaces(Entity):
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.Config, ['enabled'], name, value)
+                            self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.Config, [u'enabled'], name, value)
 
 
                     class State(Entity):
@@ -8386,8 +8014,7 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('enabled', YLeaf(YType.boolean, 'enabled')),
                             ])
@@ -8395,7 +8022,7 @@ class Interfaces(Entity):
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.State, ['enabled'], name, value)
+                            self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.State, [u'enabled'], name, value)
 
 
                     class InterfaceRef(Entity):
@@ -8427,20 +8054,20 @@ class Interfaces(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef.State))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef.State))])
                             self._leafs = OrderedDict()
 
                             self.config = Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
-                            self._children_yang_names.add("config")
 
                             self.state = Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
-                            self._children_yang_names.add("state")
                             self._segment_path = lambda: "interface-ref"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef, [], name, value)
 
 
                         class Config(Entity):
@@ -8478,8 +8105,7 @@ class Interfaces(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('interface', YLeaf(YType.str, 'interface')),
                                     ('subinterface', YLeaf(YType.str, 'subinterface')),
@@ -8489,7 +8115,7 @@ class Interfaces(Entity):
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef.Config, ['interface', 'subinterface'], name, value)
+                                self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
 
 
                         class State(Entity):
@@ -8527,8 +8153,7 @@ class Interfaces(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('interface', YLeaf(YType.str, 'interface')),
                                     ('subinterface', YLeaf(YType.str, 'subinterface')),
@@ -8538,7 +8163,7 @@ class Interfaces(Entity):
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef.State, ['interface', 'subinterface'], name, value)
+                                self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
 
 
                 class Config(Entity):
@@ -8585,8 +8210,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('enabled', YLeaf(YType.boolean, 'enabled')),
                             ('mtu', YLeaf(YType.uint32, 'mtu')),
@@ -8645,8 +8269,7 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('enabled', YLeaf(YType.boolean, 'enabled')),
                             ('mtu', YLeaf(YType.uint32, 'mtu')),
@@ -8680,8 +8303,7 @@ class Interfaces(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict()
                 self._segment_path = lambda: "openconfig-transport-line-common:sonet"
 

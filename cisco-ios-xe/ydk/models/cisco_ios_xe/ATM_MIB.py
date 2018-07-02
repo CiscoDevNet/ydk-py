@@ -22,52 +22,52 @@ class ATMMIB(Entity):
     .. attribute:: atmmibobjects
     
     	
-    	**type**\:  :py:class:`Atmmibobjects <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmmibobjects>`
+    	**type**\:  :py:class:`AtmMIBObjects <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmMIBObjects>`
     
     .. attribute:: atminterfaceconftable
     
     	This table contains ATM local interface configuration parameters, one entry per ATM interface port
-    	**type**\:  :py:class:`Atminterfaceconftable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atminterfaceconftable>`
+    	**type**\:  :py:class:`AtmInterfaceConfTable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmInterfaceConfTable>`
     
     .. attribute:: atminterfaceds3plcptable
     
     	This table contains ATM interface DS3 PLCP parameters and state variables, one entry per ATM interface port
-    	**type**\:  :py:class:`Atminterfaceds3Plcptable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atminterfaceds3Plcptable>`
+    	**type**\:  :py:class:`AtmInterfaceDs3PlcpTable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmInterfaceDs3PlcpTable>`
     
     .. attribute:: atminterfacetctable
     
     	This table contains ATM interface TC Sublayer parameters and state variables, one entry per ATM interface port
-    	**type**\:  :py:class:`Atminterfacetctable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atminterfacetctable>`
+    	**type**\:  :py:class:`AtmInterfaceTCTable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmInterfaceTCTable>`
     
     .. attribute:: atmtrafficdescrparamtable
     
     	This table contains information on ATM traffic descriptor type and the associated parameters
-    	**type**\:  :py:class:`Atmtrafficdescrparamtable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmtrafficdescrparamtable>`
+    	**type**\:  :py:class:`AtmTrafficDescrParamTable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmTrafficDescrParamTable>`
     
     .. attribute:: atmvpltable
     
     	The Virtual Path Link (VPL) table.  A bi\-directional VPL is modeled as one entry in this table. This table can be used for PVCs, SVCs and Soft PVCs. Entries are not present in this table for the VPIs used by entries in the atmVclTable
-    	**type**\:  :py:class:`Atmvpltable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvpltable>`
+    	**type**\:  :py:class:`AtmVplTable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVplTable>`
     
     .. attribute:: atmvcltable
     
     	The Virtual Channel Link (VCL) table.  A bi\-directional VCL is modeled as one entry in this table. This table can be used for PVCs, SVCs and Soft PVCs
-    	**type**\:  :py:class:`Atmvcltable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvcltable>`
+    	**type**\:  :py:class:`AtmVclTable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable>`
     
     .. attribute:: atmvpcrossconnecttable
     
     	The ATM VP Cross Connect table for PVCs. An entry in this table models two cross\-connected VPLs. Each VPL must have its atmConnKind set to pvc(1)
-    	**type**\:  :py:class:`Atmvpcrossconnecttable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvpcrossconnecttable>`
+    	**type**\:  :py:class:`AtmVpCrossConnectTable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVpCrossConnectTable>`
     
     .. attribute:: atmvccrossconnecttable
     
     	The ATM VC Cross Connect table for PVCs. An entry in this table models two cross\-connected VCLs. Each VCL must have its atmConnKind set to pvc(1)
-    	**type**\:  :py:class:`Atmvccrossconnecttable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvccrossconnecttable>`
+    	**type**\:  :py:class:`AtmVcCrossConnectTable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVcCrossConnectTable>`
     
     .. attribute:: aal5vcctable
     
     	This table contains AAL5 VCC performance parameters
-    	**type**\:  :py:class:`Aal5Vcctable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Aal5Vcctable>`
+    	**type**\:  :py:class:`Aal5VccTable <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Aal5VccTable>`
     
     
 
@@ -85,63 +85,55 @@ class ATMMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("atmMIBObjects", ("atmmibobjects", ATMMIB.Atmmibobjects)), ("atmInterfaceConfTable", ("atminterfaceconftable", ATMMIB.Atminterfaceconftable)), ("atmInterfaceDs3PlcpTable", ("atminterfaceds3plcptable", ATMMIB.Atminterfaceds3Plcptable)), ("atmInterfaceTCTable", ("atminterfacetctable", ATMMIB.Atminterfacetctable)), ("atmTrafficDescrParamTable", ("atmtrafficdescrparamtable", ATMMIB.Atmtrafficdescrparamtable)), ("atmVplTable", ("atmvpltable", ATMMIB.Atmvpltable)), ("atmVclTable", ("atmvcltable", ATMMIB.Atmvcltable)), ("atmVpCrossConnectTable", ("atmvpcrossconnecttable", ATMMIB.Atmvpcrossconnecttable)), ("atmVcCrossConnectTable", ("atmvccrossconnecttable", ATMMIB.Atmvccrossconnecttable)), ("aal5VccTable", ("aal5vcctable", ATMMIB.Aal5Vcctable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("atmMIBObjects", ("atmmibobjects", ATMMIB.AtmMIBObjects)), ("atmInterfaceConfTable", ("atminterfaceconftable", ATMMIB.AtmInterfaceConfTable)), ("atmInterfaceDs3PlcpTable", ("atminterfaceds3plcptable", ATMMIB.AtmInterfaceDs3PlcpTable)), ("atmInterfaceTCTable", ("atminterfacetctable", ATMMIB.AtmInterfaceTCTable)), ("atmTrafficDescrParamTable", ("atmtrafficdescrparamtable", ATMMIB.AtmTrafficDescrParamTable)), ("atmVplTable", ("atmvpltable", ATMMIB.AtmVplTable)), ("atmVclTable", ("atmvcltable", ATMMIB.AtmVclTable)), ("atmVpCrossConnectTable", ("atmvpcrossconnecttable", ATMMIB.AtmVpCrossConnectTable)), ("atmVcCrossConnectTable", ("atmvccrossconnecttable", ATMMIB.AtmVcCrossConnectTable)), ("aal5VccTable", ("aal5vcctable", ATMMIB.Aal5VccTable))])
         self._leafs = OrderedDict()
 
-        self.atmmibobjects = ATMMIB.Atmmibobjects()
+        self.atmmibobjects = ATMMIB.AtmMIBObjects()
         self.atmmibobjects.parent = self
         self._children_name_map["atmmibobjects"] = "atmMIBObjects"
-        self._children_yang_names.add("atmMIBObjects")
 
-        self.atminterfaceconftable = ATMMIB.Atminterfaceconftable()
+        self.atminterfaceconftable = ATMMIB.AtmInterfaceConfTable()
         self.atminterfaceconftable.parent = self
         self._children_name_map["atminterfaceconftable"] = "atmInterfaceConfTable"
-        self._children_yang_names.add("atmInterfaceConfTable")
 
-        self.atminterfaceds3plcptable = ATMMIB.Atminterfaceds3Plcptable()
+        self.atminterfaceds3plcptable = ATMMIB.AtmInterfaceDs3PlcpTable()
         self.atminterfaceds3plcptable.parent = self
         self._children_name_map["atminterfaceds3plcptable"] = "atmInterfaceDs3PlcpTable"
-        self._children_yang_names.add("atmInterfaceDs3PlcpTable")
 
-        self.atminterfacetctable = ATMMIB.Atminterfacetctable()
+        self.atminterfacetctable = ATMMIB.AtmInterfaceTCTable()
         self.atminterfacetctable.parent = self
         self._children_name_map["atminterfacetctable"] = "atmInterfaceTCTable"
-        self._children_yang_names.add("atmInterfaceTCTable")
 
-        self.atmtrafficdescrparamtable = ATMMIB.Atmtrafficdescrparamtable()
+        self.atmtrafficdescrparamtable = ATMMIB.AtmTrafficDescrParamTable()
         self.atmtrafficdescrparamtable.parent = self
         self._children_name_map["atmtrafficdescrparamtable"] = "atmTrafficDescrParamTable"
-        self._children_yang_names.add("atmTrafficDescrParamTable")
 
-        self.atmvpltable = ATMMIB.Atmvpltable()
+        self.atmvpltable = ATMMIB.AtmVplTable()
         self.atmvpltable.parent = self
         self._children_name_map["atmvpltable"] = "atmVplTable"
-        self._children_yang_names.add("atmVplTable")
 
-        self.atmvcltable = ATMMIB.Atmvcltable()
+        self.atmvcltable = ATMMIB.AtmVclTable()
         self.atmvcltable.parent = self
         self._children_name_map["atmvcltable"] = "atmVclTable"
-        self._children_yang_names.add("atmVclTable")
 
-        self.atmvpcrossconnecttable = ATMMIB.Atmvpcrossconnecttable()
+        self.atmvpcrossconnecttable = ATMMIB.AtmVpCrossConnectTable()
         self.atmvpcrossconnecttable.parent = self
         self._children_name_map["atmvpcrossconnecttable"] = "atmVpCrossConnectTable"
-        self._children_yang_names.add("atmVpCrossConnectTable")
 
-        self.atmvccrossconnecttable = ATMMIB.Atmvccrossconnecttable()
+        self.atmvccrossconnecttable = ATMMIB.AtmVcCrossConnectTable()
         self.atmvccrossconnecttable.parent = self
         self._children_name_map["atmvccrossconnecttable"] = "atmVcCrossConnectTable"
-        self._children_yang_names.add("atmVcCrossConnectTable")
 
-        self.aal5vcctable = ATMMIB.Aal5Vcctable()
+        self.aal5vcctable = ATMMIB.Aal5VccTable()
         self.aal5vcctable.parent = self
         self._children_name_map["aal5vcctable"] = "aal5VccTable"
-        self._children_yang_names.add("aal5VccTable")
         self._segment_path = lambda: "ATM-MIB:ATM-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(ATMMIB, [], name, value)
 
-    class Atmmibobjects(Entity):
+
+    class AtmMIBObjects(Entity):
         """
         
         
@@ -174,15 +166,14 @@ class ATMMIB(Entity):
         _revision = '1998-10-19'
 
         def __init__(self):
-            super(ATMMIB.Atmmibobjects, self).__init__()
+            super(ATMMIB.AtmMIBObjects, self).__init__()
 
             self.yang_name = "atmMIBObjects"
             self.yang_parent_name = "ATM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('atmvpcrossconnectindexnext', YLeaf(YType.int32, 'atmVpCrossConnectIndexNext')),
                 ('atmvccrossconnectindexnext', YLeaf(YType.int32, 'atmVcCrossConnectIndexNext')),
@@ -195,10 +186,10 @@ class ATMMIB(Entity):
             self._absolute_path = lambda: "ATM-MIB:ATM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ATMMIB.Atmmibobjects, ['atmvpcrossconnectindexnext', 'atmvccrossconnectindexnext', 'atmtrafficdescrparamindexnext'], name, value)
+            self._perform_setattr(ATMMIB.AtmMIBObjects, [u'atmvpcrossconnectindexnext', u'atmvccrossconnectindexnext', u'atmtrafficdescrparamindexnext'], name, value)
 
 
-    class Atminterfaceconftable(Entity):
+    class AtmInterfaceConfTable(Entity):
         """
         This table contains ATM local interface
         configuration parameters, one entry per ATM
@@ -207,7 +198,7 @@ class ATMMIB(Entity):
         .. attribute:: atminterfaceconfentry
         
         	This list contains ATM interface configuration parameters and state variables and is indexed by ifIndex values of ATM interfaces
-        	**type**\: list of  		 :py:class:`Atminterfaceconfentry <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atminterfaceconftable.Atminterfaceconfentry>`
+        	**type**\: list of  		 :py:class:`AtmInterfaceConfEntry <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmInterfaceConfTable.AtmInterfaceConfEntry>`
         
         
 
@@ -217,15 +208,14 @@ class ATMMIB(Entity):
         _revision = '1998-10-19'
 
         def __init__(self):
-            super(ATMMIB.Atminterfaceconftable, self).__init__()
+            super(ATMMIB.AtmInterfaceConfTable, self).__init__()
 
             self.yang_name = "atmInterfaceConfTable"
             self.yang_parent_name = "ATM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("atmInterfaceConfEntry", ("atminterfaceconfentry", ATMMIB.Atminterfaceconftable.Atminterfaceconfentry))])
+            self._child_classes = OrderedDict([("atmInterfaceConfEntry", ("atminterfaceconfentry", ATMMIB.AtmInterfaceConfTable.AtmInterfaceConfEntry))])
             self._leafs = OrderedDict()
 
             self.atminterfaceconfentry = YList(self)
@@ -233,10 +223,10 @@ class ATMMIB(Entity):
             self._absolute_path = lambda: "ATM-MIB:ATM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ATMMIB.Atminterfaceconftable, [], name, value)
+            self._perform_setattr(ATMMIB.AtmInterfaceConfTable, [], name, value)
 
 
-        class Atminterfaceconfentry(Entity):
+        class AtmInterfaceConfEntry(Entity):
             """
             This list contains ATM interface configuration
             parameters and state variables and is indexed
@@ -249,7 +239,7 @@ class ATMMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: atminterfacemaxvpcs
             
@@ -310,7 +300,7 @@ class ATMMIB(Entity):
             .. attribute:: atminterfaceaddresstype
             
             	The type of primary ATM address configured for use at this ATM interface
-            	**type**\:  :py:class:`Atminterfaceaddresstype <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atminterfaceconftable.Atminterfaceconfentry.Atminterfaceaddresstype>`
+            	**type**\:  :py:class:`AtmInterfaceAddressType <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmInterfaceConfTable.AtmInterfaceConfEntry.AtmInterfaceAddressType>`
             
             	**status**\: deprecated
             
@@ -575,15 +565,14 @@ class ATMMIB(Entity):
             _revision = '1998-10-19'
 
             def __init__(self):
-                super(ATMMIB.Atminterfaceconftable.Atminterfaceconfentry, self).__init__()
+                super(ATMMIB.AtmInterfaceConfTable.AtmInterfaceConfEntry, self).__init__()
 
                 self.yang_name = "atmInterfaceConfEntry"
                 self.yang_parent_name = "atmInterfaceConfTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('atminterfacemaxvpcs', YLeaf(YType.int32, 'atmInterfaceMaxVpcs')),
@@ -684,11 +673,11 @@ class ATMMIB(Entity):
                 self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmInterfaceConfTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.Atminterfaceconftable.Atminterfaceconfentry, ['ifindex', 'atminterfacemaxvpcs', 'atminterfacemaxvccs', 'atminterfaceconfvpcs', 'atminterfaceconfvccs', 'atminterfacemaxactivevpibits', 'atminterfacemaxactivevcibits', 'atminterfaceilmivpi', 'atminterfaceilmivci', 'atminterfaceaddresstype', 'atminterfaceadminaddress', 'atminterfacemyneighboripaddress', 'atminterfacemyneighborifname', 'atminterfacecurrentmaxvpibits', 'atminterfacecurrentmaxvcibits', 'atminterfacesubscraddress', 'atmintfpvcfailures', 'atmintfcurrentlyfailingpvcls', 'atmintfpvcfailurestrapenable', 'atmintfpvcnotificationinterval', 'atmpreviouslyfailedpvclinterval', 'catmintfcurrentlydowntouppvcls', 'catmintfoamfailedpvcls', 'catmintfcurrentoamfailingpvcls', 'catmintfsegccoamfailedpvcls', 'catmintfcursegccoamfailingpvcls', 'catmintfendccoamfailedpvcls', 'catmintfcurendccoamfailingpvcls', 'catmintfaisrdioamfailedpvcls', 'catmintfcuraisrdioamfailingpvcls', 'catmintfanyoamfailedpvcls', 'catmintfcuranyoamfailingpvcls', 'catmintftypeofoamfailure', 'catmintfoamrcovedpvcls', 'catmintfcurrentoamrcovingpvcls', 'catmintfsegccoamrcovedpvcls', 'catmintfcursegccoamrcovingpvcls', 'catmintfendccoamrcovedpvcls', 'catmintfcurendccoamrcovingpvcls', 'catmintfaisrdioamrcovedpvcls', 'catmintfcuraisrdioamrcovingpvcls', 'catmintfanyoamrcovedpvcls', 'catmintfcuranyoamrcovingpvcls', 'catmintftypeofoamrecover', 'atmintfcurrentlydowntouppvcls', 'atmintfoamfailedpvcls', 'atmintfcurrentlyoamfailingpvcls'], name, value)
+                self._perform_setattr(ATMMIB.AtmInterfaceConfTable.AtmInterfaceConfEntry, [u'ifindex', u'atminterfacemaxvpcs', u'atminterfacemaxvccs', u'atminterfaceconfvpcs', u'atminterfaceconfvccs', u'atminterfacemaxactivevpibits', u'atminterfacemaxactivevcibits', u'atminterfaceilmivpi', u'atminterfaceilmivci', u'atminterfaceaddresstype', u'atminterfaceadminaddress', u'atminterfacemyneighboripaddress', u'atminterfacemyneighborifname', u'atminterfacecurrentmaxvpibits', u'atminterfacecurrentmaxvcibits', u'atminterfacesubscraddress', u'atmintfpvcfailures', u'atmintfcurrentlyfailingpvcls', u'atmintfpvcfailurestrapenable', u'atmintfpvcnotificationinterval', u'atmpreviouslyfailedpvclinterval', 'catmintfcurrentlydowntouppvcls', 'catmintfoamfailedpvcls', 'catmintfcurrentoamfailingpvcls', 'catmintfsegccoamfailedpvcls', 'catmintfcursegccoamfailingpvcls', 'catmintfendccoamfailedpvcls', 'catmintfcurendccoamfailingpvcls', 'catmintfaisrdioamfailedpvcls', 'catmintfcuraisrdioamfailingpvcls', 'catmintfanyoamfailedpvcls', 'catmintfcuranyoamfailingpvcls', 'catmintftypeofoamfailure', 'catmintfoamrcovedpvcls', 'catmintfcurrentoamrcovingpvcls', 'catmintfsegccoamrcovedpvcls', 'catmintfcursegccoamrcovingpvcls', 'catmintfendccoamrcovedpvcls', 'catmintfcurendccoamrcovingpvcls', 'catmintfaisrdioamrcovedpvcls', 'catmintfcuraisrdioamrcovingpvcls', 'catmintfanyoamrcovedpvcls', 'catmintfcuranyoamrcovingpvcls', 'catmintftypeofoamrecover', 'atmintfcurrentlydowntouppvcls', 'atmintfoamfailedpvcls', 'atmintfcurrentlyoamfailingpvcls'], name, value)
 
-            class Atminterfaceaddresstype(Enum):
+            class AtmInterfaceAddressType(Enum):
                 """
-                Atminterfaceaddresstype (Enum Class)
+                AtmInterfaceAddressType (Enum Class)
 
                 The type of primary ATM address configured
 
@@ -714,7 +703,7 @@ class ATMMIB(Entity):
 
 
 
-    class Atminterfaceds3Plcptable(Entity):
+    class AtmInterfaceDs3PlcpTable(Entity):
         """
         This table contains ATM interface DS3 PLCP
         parameters and state variables, one entry per
@@ -723,7 +712,7 @@ class ATMMIB(Entity):
         .. attribute:: atminterfaceds3plcpentry
         
         	This list contains DS3 PLCP parameters and state variables at the ATM interface and is indexed by the ifIndex value of the ATM interface
-        	**type**\: list of  		 :py:class:`Atminterfaceds3Plcpentry <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atminterfaceds3Plcptable.Atminterfaceds3Plcpentry>`
+        	**type**\: list of  		 :py:class:`AtmInterfaceDs3PlcpEntry <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmInterfaceDs3PlcpTable.AtmInterfaceDs3PlcpEntry>`
         
         
 
@@ -733,15 +722,14 @@ class ATMMIB(Entity):
         _revision = '1998-10-19'
 
         def __init__(self):
-            super(ATMMIB.Atminterfaceds3Plcptable, self).__init__()
+            super(ATMMIB.AtmInterfaceDs3PlcpTable, self).__init__()
 
             self.yang_name = "atmInterfaceDs3PlcpTable"
             self.yang_parent_name = "ATM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("atmInterfaceDs3PlcpEntry", ("atminterfaceds3plcpentry", ATMMIB.Atminterfaceds3Plcptable.Atminterfaceds3Plcpentry))])
+            self._child_classes = OrderedDict([("atmInterfaceDs3PlcpEntry", ("atminterfaceds3plcpentry", ATMMIB.AtmInterfaceDs3PlcpTable.AtmInterfaceDs3PlcpEntry))])
             self._leafs = OrderedDict()
 
             self.atminterfaceds3plcpentry = YList(self)
@@ -749,10 +737,10 @@ class ATMMIB(Entity):
             self._absolute_path = lambda: "ATM-MIB:ATM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ATMMIB.Atminterfaceds3Plcptable, [], name, value)
+            self._perform_setattr(ATMMIB.AtmInterfaceDs3PlcpTable, [], name, value)
 
 
-        class Atminterfaceds3Plcpentry(Entity):
+        class AtmInterfaceDs3PlcpEntry(Entity):
             """
             This list contains DS3 PLCP parameters and
             state variables at the ATM interface and is
@@ -765,7 +753,7 @@ class ATMMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: atminterfaceds3plcpsefss
             
@@ -777,7 +765,7 @@ class ATMMIB(Entity):
             .. attribute:: atminterfaceds3plcpalarmstate
             
             	This variable indicates if there is an alarm present for the DS3 PLCP.  The value receivedFarEndAlarm means that the DS3 PLCP has received an incoming Yellow Signal, the value incomingLOF means that the DS3 PLCP has declared a loss of frame (LOF) failure condition, and the value noAlarm means that there are no alarms present. Transition from the failure to the no alarm state occurs when no defects (e.g., LOF) are received for more than 10 seconds
-            	**type**\:  :py:class:`Atminterfaceds3Plcpalarmstate <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atminterfaceds3Plcptable.Atminterfaceds3Plcpentry.Atminterfaceds3Plcpalarmstate>`
+            	**type**\:  :py:class:`AtmInterfaceDs3PlcpAlarmState <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmInterfaceDs3PlcpTable.AtmInterfaceDs3PlcpEntry.AtmInterfaceDs3PlcpAlarmState>`
             
             .. attribute:: atminterfaceds3plcpuass
             
@@ -794,15 +782,14 @@ class ATMMIB(Entity):
             _revision = '1998-10-19'
 
             def __init__(self):
-                super(ATMMIB.Atminterfaceds3Plcptable.Atminterfaceds3Plcpentry, self).__init__()
+                super(ATMMIB.AtmInterfaceDs3PlcpTable.AtmInterfaceDs3PlcpEntry, self).__init__()
 
                 self.yang_name = "atmInterfaceDs3PlcpEntry"
                 self.yang_parent_name = "atmInterfaceDs3PlcpTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('atminterfaceds3plcpsefss', YLeaf(YType.uint32, 'atmInterfaceDs3PlcpSEFSs')),
@@ -817,11 +804,11 @@ class ATMMIB(Entity):
                 self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmInterfaceDs3PlcpTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.Atminterfaceds3Plcptable.Atminterfaceds3Plcpentry, ['ifindex', 'atminterfaceds3plcpsefss', 'atminterfaceds3plcpalarmstate', 'atminterfaceds3plcpuass'], name, value)
+                self._perform_setattr(ATMMIB.AtmInterfaceDs3PlcpTable.AtmInterfaceDs3PlcpEntry, [u'ifindex', u'atminterfaceds3plcpsefss', u'atminterfaceds3plcpalarmstate', u'atminterfaceds3plcpuass'], name, value)
 
-            class Atminterfaceds3Plcpalarmstate(Enum):
+            class AtmInterfaceDs3PlcpAlarmState(Enum):
                 """
-                Atminterfaceds3Plcpalarmstate (Enum Class)
+                AtmInterfaceDs3PlcpAlarmState (Enum Class)
 
                 This variable indicates if there is an
 
@@ -861,7 +848,7 @@ class ATMMIB(Entity):
 
 
 
-    class Atminterfacetctable(Entity):
+    class AtmInterfaceTCTable(Entity):
         """
         This table contains ATM interface TC
         Sublayer parameters and state variables,
@@ -870,7 +857,7 @@ class ATMMIB(Entity):
         .. attribute:: atminterfacetcentry
         
         	This list contains TC Sublayer parameters and state variables at the ATM interface and is indexed by the ifIndex value of the ATM interface
-        	**type**\: list of  		 :py:class:`Atminterfacetcentry <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atminterfacetctable.Atminterfacetcentry>`
+        	**type**\: list of  		 :py:class:`AtmInterfaceTCEntry <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmInterfaceTCTable.AtmInterfaceTCEntry>`
         
         
 
@@ -880,15 +867,14 @@ class ATMMIB(Entity):
         _revision = '1998-10-19'
 
         def __init__(self):
-            super(ATMMIB.Atminterfacetctable, self).__init__()
+            super(ATMMIB.AtmInterfaceTCTable, self).__init__()
 
             self.yang_name = "atmInterfaceTCTable"
             self.yang_parent_name = "ATM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("atmInterfaceTCEntry", ("atminterfacetcentry", ATMMIB.Atminterfacetctable.Atminterfacetcentry))])
+            self._child_classes = OrderedDict([("atmInterfaceTCEntry", ("atminterfacetcentry", ATMMIB.AtmInterfaceTCTable.AtmInterfaceTCEntry))])
             self._leafs = OrderedDict()
 
             self.atminterfacetcentry = YList(self)
@@ -896,10 +882,10 @@ class ATMMIB(Entity):
             self._absolute_path = lambda: "ATM-MIB:ATM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ATMMIB.Atminterfacetctable, [], name, value)
+            self._perform_setattr(ATMMIB.AtmInterfaceTCTable, [], name, value)
 
 
-        class Atminterfacetcentry(Entity):
+        class AtmInterfaceTCEntry(Entity):
             """
             This list contains TC Sublayer parameters
             and state variables at the ATM interface and is
@@ -912,7 +898,7 @@ class ATMMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: atminterfaceocdevents
             
@@ -924,7 +910,7 @@ class ATMMIB(Entity):
             .. attribute:: atminterfacetcalarmstate
             
             	This variable indicates if there is an alarm present for the TC Sublayer.  The value lcdFailure(2) indicates that the TC Sublayer is currently in the Loss of Cell Delineation (LCD) defect maintenance state.  The value noAlarm(1) indicates that the TC Sublayer is currently not in the LCD defect maintenance state
-            	**type**\:  :py:class:`Atminterfacetcalarmstate <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atminterfacetctable.Atminterfacetcentry.Atminterfacetcalarmstate>`
+            	**type**\:  :py:class:`AtmInterfaceTCAlarmState <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmInterfaceTCTable.AtmInterfaceTCEntry.AtmInterfaceTCAlarmState>`
             
             
 
@@ -934,15 +920,14 @@ class ATMMIB(Entity):
             _revision = '1998-10-19'
 
             def __init__(self):
-                super(ATMMIB.Atminterfacetctable.Atminterfacetcentry, self).__init__()
+                super(ATMMIB.AtmInterfaceTCTable.AtmInterfaceTCEntry, self).__init__()
 
                 self.yang_name = "atmInterfaceTCEntry"
                 self.yang_parent_name = "atmInterfaceTCTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('atminterfaceocdevents', YLeaf(YType.uint32, 'atmInterfaceOCDEvents')),
@@ -955,11 +940,11 @@ class ATMMIB(Entity):
                 self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmInterfaceTCTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.Atminterfacetctable.Atminterfacetcentry, ['ifindex', 'atminterfaceocdevents', 'atminterfacetcalarmstate'], name, value)
+                self._perform_setattr(ATMMIB.AtmInterfaceTCTable.AtmInterfaceTCEntry, [u'ifindex', u'atminterfaceocdevents', u'atminterfacetcalarmstate'], name, value)
 
-            class Atminterfacetcalarmstate(Enum):
+            class AtmInterfaceTCAlarmState(Enum):
                 """
-                Atminterfacetcalarmstate (Enum Class)
+                AtmInterfaceTCAlarmState (Enum Class)
 
                 This variable indicates if there is an
 
@@ -989,7 +974,7 @@ class ATMMIB(Entity):
 
 
 
-    class Atmtrafficdescrparamtable(Entity):
+    class AtmTrafficDescrParamTable(Entity):
         """
         This table contains information on ATM traffic
         descriptor type and the associated parameters.
@@ -997,7 +982,7 @@ class ATMMIB(Entity):
         .. attribute:: atmtrafficdescrparamentry
         
         	This list contains ATM traffic descriptor type and the associated parameters
-        	**type**\: list of  		 :py:class:`Atmtrafficdescrparamentry <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmtrafficdescrparamtable.Atmtrafficdescrparamentry>`
+        	**type**\: list of  		 :py:class:`AtmTrafficDescrParamEntry <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmTrafficDescrParamTable.AtmTrafficDescrParamEntry>`
         
         
 
@@ -1007,15 +992,14 @@ class ATMMIB(Entity):
         _revision = '1998-10-19'
 
         def __init__(self):
-            super(ATMMIB.Atmtrafficdescrparamtable, self).__init__()
+            super(ATMMIB.AtmTrafficDescrParamTable, self).__init__()
 
             self.yang_name = "atmTrafficDescrParamTable"
             self.yang_parent_name = "ATM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("atmTrafficDescrParamEntry", ("atmtrafficdescrparamentry", ATMMIB.Atmtrafficdescrparamtable.Atmtrafficdescrparamentry))])
+            self._child_classes = OrderedDict([("atmTrafficDescrParamEntry", ("atmtrafficdescrparamentry", ATMMIB.AtmTrafficDescrParamTable.AtmTrafficDescrParamEntry))])
             self._leafs = OrderedDict()
 
             self.atmtrafficdescrparamentry = YList(self)
@@ -1023,10 +1007,10 @@ class ATMMIB(Entity):
             self._absolute_path = lambda: "ATM-MIB:ATM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ATMMIB.Atmtrafficdescrparamtable, [], name, value)
+            self._perform_setattr(ATMMIB.AtmTrafficDescrParamTable, [], name, value)
 
 
-        class Atmtrafficdescrparamentry(Entity):
+        class AtmTrafficDescrParamEntry(Entity):
             """
             This list contains ATM traffic descriptor
             type and the associated parameters.
@@ -1112,15 +1096,14 @@ class ATMMIB(Entity):
             _revision = '1998-10-19'
 
             def __init__(self):
-                super(ATMMIB.Atmtrafficdescrparamtable.Atmtrafficdescrparamentry, self).__init__()
+                super(ATMMIB.AtmTrafficDescrParamTable.AtmTrafficDescrParamEntry, self).__init__()
 
                 self.yang_name = "atmTrafficDescrParamEntry"
                 self.yang_parent_name = "atmTrafficDescrParamTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['atmtrafficdescrparamindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('atmtrafficdescrparamindex', YLeaf(YType.int32, 'atmTrafficDescrParamIndex')),
                     ('atmtrafficdescrtype', YLeaf(YType.str, 'atmTrafficDescrType')),
@@ -1149,10 +1132,10 @@ class ATMMIB(Entity):
                 self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmTrafficDescrParamTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.Atmtrafficdescrparamtable.Atmtrafficdescrparamentry, ['atmtrafficdescrparamindex', 'atmtrafficdescrtype', 'atmtrafficdescrparam1', 'atmtrafficdescrparam2', 'atmtrafficdescrparam3', 'atmtrafficdescrparam4', 'atmtrafficdescrparam5', 'atmtrafficqosclass', 'atmtrafficdescrrowstatus', 'atmservicecategory', 'atmtrafficframediscard'], name, value)
+                self._perform_setattr(ATMMIB.AtmTrafficDescrParamTable.AtmTrafficDescrParamEntry, [u'atmtrafficdescrparamindex', u'atmtrafficdescrtype', u'atmtrafficdescrparam1', u'atmtrafficdescrparam2', u'atmtrafficdescrparam3', u'atmtrafficdescrparam4', u'atmtrafficdescrparam5', u'atmtrafficqosclass', u'atmtrafficdescrrowstatus', u'atmservicecategory', u'atmtrafficframediscard'], name, value)
 
 
-    class Atmvpltable(Entity):
+    class AtmVplTable(Entity):
         """
         The Virtual Path Link (VPL) table.  A
         bi\-directional VPL is modeled as one entry
@@ -1164,7 +1147,7 @@ class ATMMIB(Entity):
         .. attribute:: atmvplentry
         
         	An entry in the VPL table.  This entry is used to model a bi\-directional VPL. To create a VPL at an ATM interface, either of the following procedures are used\:  Negotiated VPL establishment  (1) The management application creates   a VPL entry in the atmVplTable   by setting atmVplRowStatus to createAndWait(5).   This may fail for the following reasons\:   \- The selected VPI value is unavailable,   \- The selected VPI value is in use.   Otherwise, the agent creates a row and   reserves the VPI value on that port.  (2) The manager selects an existing row(s) in the   atmTrafficDescrParamTable,   thereby, selecting a set of self\-consistent   ATM traffic parameters and the service category   for receive and transmit directions of the VPL.  (2a) If no suitable row(s) in the   atmTrafficDescrParamTable exists,   the manager must create a new row(s)   in that table.  (2b) The manager characterizes the VPL's traffic   parameters through setting the   atmVplReceiveTrafficDescrIndex and the   atmVplTransmitTrafficDescrIndex values   in the VPL table, which point to the rows   containing desired ATM traffic parameter values   in the atmTrafficDescrParamTable.  The agent   will check the availability of resources and   may refuse the request.   If the transmit and receive service categories   are inconsistent, the agent should refuse the   request.  (3) The manager activates the VPL by setting the   the atmVplRowStatus to active(1).   If this set is successful, the agent has   reserved the resources to satisfy the requested   traffic parameter values and the service category   for that VPL.  (4) If the VPL terminates a VPC in the ATM host   or switch, the manager turns on the   atmVplAdminStatus to up(1) to turn the VPL   traffic flow on.  Otherwise, the   atmVpCrossConnectTable  must be used   to cross\-connect the VPL to another VPL(s)   in an ATM switch or network.  One\-Shot VPL Establishment  A VPL may also be established in one step by a set\-request with all necessary VPL parameter values and atmVplRowStatus set to createAndGo(4).  In contrast to the negotiated VPL establishment which allows for detailed error checking (i.e., set errors are explicitly linked to particular resource acquisition failures), the one\-shot VPL establishment performs the setup on one operation but does not have the advantage of step\-wise error checking.  VPL Retirement  A VPL is released by setting atmVplRowStatus to destroy(6), and the agent may release all associated resources
-        	**type**\: list of  		 :py:class:`Atmvplentry <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvpltable.Atmvplentry>`
+        	**type**\: list of  		 :py:class:`AtmVplEntry <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVplTable.AtmVplEntry>`
         
         
 
@@ -1174,15 +1157,14 @@ class ATMMIB(Entity):
         _revision = '1998-10-19'
 
         def __init__(self):
-            super(ATMMIB.Atmvpltable, self).__init__()
+            super(ATMMIB.AtmVplTable, self).__init__()
 
             self.yang_name = "atmVplTable"
             self.yang_parent_name = "ATM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("atmVplEntry", ("atmvplentry", ATMMIB.Atmvpltable.Atmvplentry))])
+            self._child_classes = OrderedDict([("atmVplEntry", ("atmvplentry", ATMMIB.AtmVplTable.AtmVplEntry))])
             self._leafs = OrderedDict()
 
             self.atmvplentry = YList(self)
@@ -1190,10 +1172,10 @@ class ATMMIB(Entity):
             self._absolute_path = lambda: "ATM-MIB:ATM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ATMMIB.Atmvpltable, [], name, value)
+            self._perform_setattr(ATMMIB.AtmVplTable, [], name, value)
 
 
-        class Atmvplentry(Entity):
+        class AtmVplEntry(Entity):
             """
             An entry in the VPL table.  This entry is
             used to model a bi\-directional VPL.
@@ -1278,7 +1260,7 @@ class ATMMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: atmvplvpi  (key)
             
@@ -1348,15 +1330,14 @@ class ATMMIB(Entity):
             _revision = '1998-10-19'
 
             def __init__(self):
-                super(ATMMIB.Atmvpltable.Atmvplentry, self).__init__()
+                super(ATMMIB.AtmVplTable.AtmVplEntry, self).__init__()
 
                 self.yang_name = "atmVplEntry"
                 self.yang_parent_name = "atmVplTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex','atmvplvpi']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('atmvplvpi', YLeaf(YType.int32, 'atmVplVpi')),
@@ -1385,10 +1366,10 @@ class ATMMIB(Entity):
                 self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmVplTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.Atmvpltable.Atmvplentry, ['ifindex', 'atmvplvpi', 'atmvpladminstatus', 'atmvploperstatus', 'atmvpllastchange', 'atmvplreceivetrafficdescrindex', 'atmvpltransmittrafficdescrindex', 'atmvplcrossconnectidentifier', 'atmvplrowstatus', 'atmvplcasttype', 'atmvplconnkind'], name, value)
+                self._perform_setattr(ATMMIB.AtmVplTable.AtmVplEntry, [u'ifindex', u'atmvplvpi', u'atmvpladminstatus', u'atmvploperstatus', u'atmvpllastchange', u'atmvplreceivetrafficdescrindex', u'atmvpltransmittrafficdescrindex', u'atmvplcrossconnectidentifier', u'atmvplrowstatus', u'atmvplcasttype', u'atmvplconnkind'], name, value)
 
 
-    class Atmvcltable(Entity):
+    class AtmVclTable(Entity):
         """
         The Virtual Channel Link (VCL) table.  A
         bi\-directional VCL is modeled as one entry
@@ -1398,7 +1379,7 @@ class ATMMIB(Entity):
         .. attribute:: atmvclentry
         
         	An entry in the VCL table. This entry is used to model a bi\-directional VCL. To create a VCL at an ATM interface, either of the following procedures are used\:  Negotiated VCL establishment  (1) The management application creates   a VCL entry in the atmVclTable   by setting atmVclRowStatus to createAndWait(5).   This may fail for the following reasons\:   \- The selected VPI/VCI values are unavailable,   \- The selected VPI/VCI values are in use.   Otherwise, the agent creates a row and   reserves the VPI/VCI values on that port.  (2) The manager selects an existing row(s) in the   atmTrafficDescrParamTable,   thereby, selecting a set of self\-consistent   ATM traffic parameters and the service category   for receive and transmit directions of the VCL.   (2a) If no suitable row(s) in the   atmTrafficDescrParamTable exists,   the manager must create a new row(s)   in that table.  (2b) The manager characterizes the VCL's traffic   parameters through setting the   atmVclReceiveTrafficDescrIndex and the   atmVclTransmitTrafficDescrIndex values   in the VCL table, which point to the rows   containing desired ATM traffic parameter values   in the atmTrafficDescrParamTable.  The agent   will check the availability of resources and   may refuse the request.   If the transmit and receive service categories   are inconsistent, the agent should refuse the   request.  (3) The manager activates the VCL by setting the   the atmVclRowStatus to active(1) (for   requirements on this activation see the   description of atmVclRowStatus).   If this set is successful, the agent has   reserved the resources to satisfy the requested   traffic parameter values and the service category   for that VCL. (4) If the VCL terminates a VCC in the ATM host   or switch, the manager turns on the   atmVclAdminStatus to up(1) to turn the VCL   traffic flow on.  Otherwise, the   atmVcCrossConnectTable  must be used   to cross\-connect the VCL to another VCL(s)   in an ATM switch or network.  One\-Shot VCL Establishment  A VCL may also be established in one step by a set\-request with all necessary VCL parameter values and atmVclRowStatus set to createAndGo(4).  In contrast to the negotiated VCL establishment which allows for detailed error checking (i.e., set errors are explicitly linked to particular resource acquisition failures), the one\-shot VCL establishment performs the setup on one operation but does not have the advantage of step\-wise error checking.  VCL Retirement  A VCL is released by setting atmVclRowStatus to destroy(6), and the agent may release all associated resources
-        	**type**\: list of  		 :py:class:`Atmvclentry <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvcltable.Atmvclentry>`
+        	**type**\: list of  		 :py:class:`AtmVclEntry <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry>`
         
         
 
@@ -1408,15 +1389,14 @@ class ATMMIB(Entity):
         _revision = '1998-10-19'
 
         def __init__(self):
-            super(ATMMIB.Atmvcltable, self).__init__()
+            super(ATMMIB.AtmVclTable, self).__init__()
 
             self.yang_name = "atmVclTable"
             self.yang_parent_name = "ATM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("atmVclEntry", ("atmvclentry", ATMMIB.Atmvcltable.Atmvclentry))])
+            self._child_classes = OrderedDict([("atmVclEntry", ("atmvclentry", ATMMIB.AtmVclTable.AtmVclEntry))])
             self._leafs = OrderedDict()
 
             self.atmvclentry = YList(self)
@@ -1424,10 +1404,10 @@ class ATMMIB(Entity):
             self._absolute_path = lambda: "ATM-MIB:ATM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ATMMIB.Atmvcltable, [], name, value)
+            self._perform_setattr(ATMMIB.AtmVclTable, [], name, value)
 
 
-        class Atmvclentry(Entity):
+        class AtmVclEntry(Entity):
             """
             An entry in the VCL table. This entry is
             used to model a bi\-directional VCL.
@@ -1514,7 +1494,7 @@ class ATMMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: atmvclvpi  (key)
             
@@ -1564,7 +1544,7 @@ class ATMMIB(Entity):
             .. attribute:: atmvccaaltype
             
             	An instance of this object only exists when the local VCL end\-point is also the VCC end\-point, and AAL is in use. The type of AAL used on this VCC. The AAL type includes AAL1, AAL2, AAL3/4, and AAL5. The other(4) may be user\-defined AAL type.  The unknown type indicates that the AAL type cannot be determined
-            	**type**\:  :py:class:`Atmvccaaltype <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvcltable.Atmvclentry.Atmvccaaltype>`
+            	**type**\:  :py:class:`AtmVccAalType <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry.AtmVccAalType>`
             
             .. attribute:: atmvccaal5cpcstransmitsdusize
             
@@ -1583,7 +1563,7 @@ class ATMMIB(Entity):
             .. attribute:: atmvccaal5encapstype
             
             	An instance of this object only exists when the local VCL end\-point is also the VCC end\-point, and AAL5 is in use. The type of data encapsulation used over the AAL5 SSCS layer. The definitions reference RFC 1483 Multiprotocol Encapsulation over ATM AAL5 and to the ATM Forum LAN Emulation specification
-            	**type**\:  :py:class:`Atmvccaal5Encapstype <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvcltable.Atmvclentry.Atmvccaal5Encapstype>`
+            	**type**\:  :py:class:`AtmVccAal5EncapsType <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry.AtmVccAal5EncapsType>`
             
             .. attribute:: atmvclcrossconnectidentifier
             
@@ -1693,12 +1673,12 @@ class ATMMIB(Entity):
             .. attribute:: catmxvcloamloopbkstatus
             
             	Indicates OAM loopback status of the VC. disabled(1)  \-\-   No OAMs on this VC. sent(2)      \-\-   OAM sent, waiting for echo. received(3)  \-\-   OAM received from target. failed(4)    \-\-   Last OAM did not return
-            	**type**\:  :py:class:`Catmxvcloamloopbkstatus <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvcltable.Atmvclentry.Catmxvcloamloopbkstatus>`
+            	**type**\:  :py:class:`CatmxVclOamLoopBkStatus <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry.CatmxVclOamLoopBkStatus>`
             
             .. attribute:: catmxvcloamvcstate
             
             	Indicates the state of VC OAM. downRetry(1)   \-\-  Loopback failed. Retry sending                     loopbacks with retry frequency.                     VC is up. verified(2)    \-\-  Loopback is successful. notVerified(3) \-\-  Not verified by loopback,                     AIS/RDI conditions are cleared. upRetry(4)     \-\-  Retry successive loopbacks.                     VC is down. aisRDI(5)      \-\-  Received AIS/RDI. Loopback are                     not sent in this state. aisOut(6)      \-\-  Sending AIS. Loopback and reply are                     not sent in this state. notManaged(7)  \-\-  VC is not managed by OAM
-            	**type**\:  :py:class:`Catmxvcloamvcstate <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvcltable.Atmvclentry.Catmxvcloamvcstate>`
+            	**type**\:  :py:class:`CatmxVclOamVcState <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry.CatmxVclOamVcState>`
             
             .. attribute:: catmxvcloamendccstatus
             
@@ -1791,15 +1771,14 @@ class ATMMIB(Entity):
             _revision = '1998-10-19'
 
             def __init__(self):
-                super(ATMMIB.Atmvcltable.Atmvclentry, self).__init__()
+                super(ATMMIB.AtmVclTable.AtmVclEntry, self).__init__()
 
                 self.yang_name = "atmVclEntry"
                 self.yang_parent_name = "atmVclTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex','atmvclvpi','atmvclvci']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('atmvclvpi', YLeaf(YType.int32, 'atmVclVpi')),
@@ -1886,11 +1865,11 @@ class ATMMIB(Entity):
                 self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmVclTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.Atmvcltable.Atmvclentry, ['ifindex', 'atmvclvpi', 'atmvclvci', 'atmvcladminstatus', 'atmvcloperstatus', 'atmvcllastchange', 'atmvclreceivetrafficdescrindex', 'atmvcltransmittrafficdescrindex', 'atmvccaaltype', 'atmvccaal5cpcstransmitsdusize', 'atmvccaal5cpcsreceivesdusize', 'atmvccaal5encapstype', 'atmvclcrossconnectidentifier', 'atmvclrowstatus', 'atmvclcasttype', 'atmvclconnkind', 'catmxvcloamloopbackfreq', 'catmxvcloamretryfreq', 'catmxvcloamupretrycount', 'catmxvcloamdownretrycount', 'catmxvcloamendccactcount', 'catmxvcloamendccdeactcount', 'catmxvcloamendccretryfreq', 'catmxvcloamsegccactcount', 'catmxvcloamsegccdeactcount', 'catmxvcloamsegccretryfreq', 'catmxvcloammanage', 'catmxvcloamloopbkstatus', 'catmxvcloamvcstate', 'catmxvcloamendccstatus', 'catmxvcloamsegccstatus', 'catmxvcloamendccvcstate', 'catmxvcloamsegccvcstate', 'catmxvcloamcellsreceived', 'catmxvcloamcellssent', 'catmxvcloamcellsdropped', 'catmxvcloaminf5ais', 'catmxvcloamoutf5ais', 'catmxvcloaminf5rdi', 'catmxvcloamoutf5rdi'], name, value)
+                self._perform_setattr(ATMMIB.AtmVclTable.AtmVclEntry, [u'ifindex', u'atmvclvpi', u'atmvclvci', u'atmvcladminstatus', u'atmvcloperstatus', u'atmvcllastchange', u'atmvclreceivetrafficdescrindex', u'atmvcltransmittrafficdescrindex', u'atmvccaaltype', u'atmvccaal5cpcstransmitsdusize', u'atmvccaal5cpcsreceivesdusize', u'atmvccaal5encapstype', u'atmvclcrossconnectidentifier', u'atmvclrowstatus', u'atmvclcasttype', u'atmvclconnkind', 'catmxvcloamloopbackfreq', 'catmxvcloamretryfreq', 'catmxvcloamupretrycount', 'catmxvcloamdownretrycount', 'catmxvcloamendccactcount', 'catmxvcloamendccdeactcount', 'catmxvcloamendccretryfreq', 'catmxvcloamsegccactcount', 'catmxvcloamsegccdeactcount', 'catmxvcloamsegccretryfreq', 'catmxvcloammanage', 'catmxvcloamloopbkstatus', 'catmxvcloamvcstate', 'catmxvcloamendccstatus', 'catmxvcloamsegccstatus', 'catmxvcloamendccvcstate', 'catmxvcloamsegccvcstate', 'catmxvcloamcellsreceived', 'catmxvcloamcellssent', 'catmxvcloamcellsdropped', 'catmxvcloaminf5ais', 'catmxvcloamoutf5ais', 'catmxvcloaminf5rdi', 'catmxvcloamoutf5rdi'], name, value)
 
-            class Atmvccaal5Encapstype(Enum):
+            class AtmVccAal5EncapsType(Enum):
                 """
-                Atmvccaal5Encapstype (Enum Class)
+                AtmVccAal5EncapsType (Enum Class)
 
                 An instance of this object only exists when the
 
@@ -1951,9 +1930,9 @@ class ATMMIB(Entity):
                 unknown = Enum.YLeaf(10, "unknown")
 
 
-            class Atmvccaaltype(Enum):
+            class AtmVccAalType(Enum):
                 """
-                Atmvccaaltype (Enum Class)
+                AtmVccAalType (Enum Class)
 
                 An instance of this object only exists when the
 
@@ -1998,9 +1977,9 @@ class ATMMIB(Entity):
                 aal2 = Enum.YLeaf(6, "aal2")
 
 
-            class Catmxvcloamloopbkstatus(Enum):
+            class CatmxVclOamLoopBkStatus(Enum):
                 """
-                Catmxvcloamloopbkstatus (Enum Class)
+                CatmxVclOamLoopBkStatus (Enum Class)
 
                 Indicates OAM loopback status of the VC.
 
@@ -2031,9 +2010,9 @@ class ATMMIB(Entity):
                 failed = Enum.YLeaf(4, "failed")
 
 
-            class Catmxvcloamvcstate(Enum):
+            class CatmxVclOamVcState(Enum):
                 """
-                Catmxvcloamvcstate (Enum Class)
+                CatmxVclOamVcState (Enum Class)
 
                 Indicates the state of VC OAM.
 
@@ -2095,7 +2074,7 @@ class ATMMIB(Entity):
 
 
 
-    class Atmvpcrossconnecttable(Entity):
+    class AtmVpCrossConnectTable(Entity):
         """
         The ATM VP Cross Connect table for PVCs.
         An entry in this table models two
@@ -2106,7 +2085,7 @@ class ATMMIB(Entity):
         .. attribute:: atmvpcrossconnectentry
         
         	An entry in the ATM VP Cross Connect table. This entry is used to model a bi\-directional ATM VP cross\-connect which cross\-connects two VPLs.  Step\-wise Procedures to set up a VP Cross\-connect  Once the entries in the atmVplTable are created, the following procedures are used to cross\-connect the VPLs together.  (1) The manager obtains a unique    atmVpCrossConnectIndex by reading the    atmVpCrossConnectIndexNext object.  (2) Next, the manager creates a set of one    or more rows in the ATM VP Cross Connect    Table, one for each cross\-connection between    two VPLs.  Each row is indexed by the ATM    interface port numbers and VPI values of the    two ends of that cross\-connection.    This set of rows specifies the topology of the    VPC cross\-connect and is identified by a single    value of atmVpCrossConnectIndex.  Negotiated VP Cross\-Connect Establishment  (2a) The manager creates a row in this table by    setting atmVpCrossConnectRowStatus to    createAndWait(5).  The agent checks the    requested topology and the mutual sanity of    the ATM traffic parameters and    service categories, i.e., the row creation    fails if\:    \- the requested topology is incompatible with      associated values of atmVplCastType,    \- the requested topology is not supported      by the agent,    \- the traffic/service category parameter values      associated with the requested row are      incompatible with those of already existing      rows for this VP cross\-connect.    [For example, for setting up    a point\-to\-point VP cross\-connect, the    ATM traffic parameters in the receive direction    of a VPL at the low end of the cross\-connect    must equal to the traffic parameters in the    transmit direction of the other VPL at the    high end of the cross\-connect,    otherwise, the row creation fails.]    The agent also checks for internal errors    in building the cross\-connect.     The atmVpCrossConnectIndex values in the    corresponding atmVplTable rows are filled    in by the agent at this point.  (2b) The manager promotes the row in the    atmVpCrossConnectTable by setting    atmVpCrossConnectRowStatus to active(1).  If    this set is successful, the agent has reserved    the resources specified by the ATM traffic    parameter and Service category values    for each direction of the VP cross\-connect    in an ATM switch or network.  (3) The manager sets the    atmVpCrossConnectAdminStatus to up(1) in all    rows of this VP cross\-connect to turn the    traffic flow on.   One\-Shot VP Cross\-Connect Establishment  A VP cross\-connect may also be established in one step by a set\-request with all necessary parameter values and atmVpCrossConnectRowStatus set to createAndGo(4).  In contrast to the negotiated VP cross\-connect establishment which allows for detailed error checking (i.e., set errors are explicitly linked to particular resource acquisition failures), the one\-shot VP cross\-connect establishment performs the setup on one operation but does not have the advantage of step\-wise error checking.  VP Cross\-Connect Retirement  A VP cross\-connect identified by a particular value of atmVpCrossConnectIndex is released by\:  (1) Setting atmVpCrossConnectRowStatus of all    rows identified by this value of    atmVpCrossConnectIndex to destroy(6).    The agent may release all    associated resources, and the    atmVpCrossConnectIndex values in the    corresponding atmVplTable row are removed.    Note that a situation when only a subset of    the associated rows are deleted corresponds    to a VP topology change.  (2) After deletion of the appropriate    atmVpCrossConnectEntries, the manager may    set atmVplRowStatus to destroy(6) the    associated VPLs.  The agent releases    the resources and removes the associated    rows in the atmVplTable.  VP Cross\-connect Reconfiguration  At the discretion of the agent, a VP cross\-connect may be reconfigured by adding and/or deleting leafs to/from the VP topology as per the VP cross\-connect establishment/retirement procedures. Reconfiguration of traffic/service category parameter values requires release of the VP cross\-connect before those parameter values may by changed for individual VPLs
-        	**type**\: list of  		 :py:class:`Atmvpcrossconnectentry <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvpcrossconnecttable.Atmvpcrossconnectentry>`
+        	**type**\: list of  		 :py:class:`AtmVpCrossConnectEntry <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVpCrossConnectTable.AtmVpCrossConnectEntry>`
         
         
 
@@ -2116,15 +2095,14 @@ class ATMMIB(Entity):
         _revision = '1998-10-19'
 
         def __init__(self):
-            super(ATMMIB.Atmvpcrossconnecttable, self).__init__()
+            super(ATMMIB.AtmVpCrossConnectTable, self).__init__()
 
             self.yang_name = "atmVpCrossConnectTable"
             self.yang_parent_name = "ATM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("atmVpCrossConnectEntry", ("atmvpcrossconnectentry", ATMMIB.Atmvpcrossconnecttable.Atmvpcrossconnectentry))])
+            self._child_classes = OrderedDict([("atmVpCrossConnectEntry", ("atmvpcrossconnectentry", ATMMIB.AtmVpCrossConnectTable.AtmVpCrossConnectEntry))])
             self._leafs = OrderedDict()
 
             self.atmvpcrossconnectentry = YList(self)
@@ -2132,10 +2110,10 @@ class ATMMIB(Entity):
             self._absolute_path = lambda: "ATM-MIB:ATM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ATMMIB.Atmvpcrossconnecttable, [], name, value)
+            self._perform_setattr(ATMMIB.AtmVpCrossConnectTable, [], name, value)
 
 
-        class Atmvpcrossconnectentry(Entity):
+        class AtmVpCrossConnectEntry(Entity):
             """
             An entry in the ATM VP Cross Connect table.
             This entry is used to model a bi\-directional
@@ -2336,15 +2314,14 @@ class ATMMIB(Entity):
             _revision = '1998-10-19'
 
             def __init__(self):
-                super(ATMMIB.Atmvpcrossconnecttable.Atmvpcrossconnectentry, self).__init__()
+                super(ATMMIB.AtmVpCrossConnectTable.AtmVpCrossConnectEntry, self).__init__()
 
                 self.yang_name = "atmVpCrossConnectEntry"
                 self.yang_parent_name = "atmVpCrossConnectTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['atmvpcrossconnectindex','atmvpcrossconnectlowifindex','atmvpcrossconnectlowvpi','atmvpcrossconnecthighifindex','atmvpcrossconnecthighvpi']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('atmvpcrossconnectindex', YLeaf(YType.int32, 'atmVpCrossConnectIndex')),
                     ('atmvpcrossconnectlowifindex', YLeaf(YType.int32, 'atmVpCrossConnectLowIfIndex')),
@@ -2373,10 +2350,10 @@ class ATMMIB(Entity):
                 self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmVpCrossConnectTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.Atmvpcrossconnecttable.Atmvpcrossconnectentry, ['atmvpcrossconnectindex', 'atmvpcrossconnectlowifindex', 'atmvpcrossconnectlowvpi', 'atmvpcrossconnecthighifindex', 'atmvpcrossconnecthighvpi', 'atmvpcrossconnectadminstatus', 'atmvpcrossconnectl2hoperstatus', 'atmvpcrossconnecth2loperstatus', 'atmvpcrossconnectl2hlastchange', 'atmvpcrossconnecth2llastchange', 'atmvpcrossconnectrowstatus'], name, value)
+                self._perform_setattr(ATMMIB.AtmVpCrossConnectTable.AtmVpCrossConnectEntry, [u'atmvpcrossconnectindex', u'atmvpcrossconnectlowifindex', u'atmvpcrossconnectlowvpi', u'atmvpcrossconnecthighifindex', u'atmvpcrossconnecthighvpi', u'atmvpcrossconnectadminstatus', u'atmvpcrossconnectl2hoperstatus', u'atmvpcrossconnecth2loperstatus', u'atmvpcrossconnectl2hlastchange', u'atmvpcrossconnecth2llastchange', u'atmvpcrossconnectrowstatus'], name, value)
 
 
-    class Atmvccrossconnecttable(Entity):
+    class AtmVcCrossConnectTable(Entity):
         """
         The ATM VC Cross Connect table for PVCs.
         An entry in this table models two
@@ -2387,7 +2364,7 @@ class ATMMIB(Entity):
         .. attribute:: atmvccrossconnectentry
         
         	An entry in the ATM VC Cross Connect table. This entry is used to model a bi\-directional ATM VC cross\-connect cross\-connecting two end points.  Step\-wise Procedures to set up a VC Cross\-connect  Once the entries in the atmVclTable are created, the following procedures are used to cross\-connect the VCLs together to form a VCC segment.  (1) The manager obtains a unique    atmVcCrossConnectIndex by reading the    atmVcCrossConnectIndexNext object.  (2) Next, the manager creates a set of one    or more rows in the ATM VC Cross Connect    Table, one for each cross\-connection between    two VCLs.  Each row is indexed by the ATM    interface port numbers and VPI/VCI values of    the two ends of that cross\-connection.    This set of rows specifies the topology of the    VCC cross\-connect and is identified by a single    value of atmVcCrossConnectIndex.  Negotiated VC Cross\-Connect Establishment  (2a) The manager creates a row in this table by    setting atmVcCrossConnectRowStatus to    createAndWait(5).  The agent checks the    requested topology and the mutual sanity of    the ATM traffic parameters and    service categories, i.e., the row creation    fails if\:    \- the requested topology is incompatible with      associated values of atmVclCastType,    \- the requested topology is not supported      by the agent,    \- the traffic/service category parameter values      associated with the requested row are      incompatible with those of already existing      rows for this VC cross\-connect.    [For example, for setting up    a point\-to\-point VC cross\-connect, the    ATM traffic parameters in the receive direction    of a VCL at the low end of the cross\-connect    must equal to the traffic parameters in the    transmit direction of the other VCL at the    high end of the cross\-connect,    otherwise, the row creation fails.]    The agent also checks for internal errors    in building the cross\-connect.     The atmVcCrossConnectIndex values in the    corresponding atmVclTable rows are filled    in by the agent at this point.  (2b) The manager promotes the row in the    atmVcCrossConnectTable by setting    atmVcCrossConnectRowStatus to active(1).  If    this set is successful, the agent has reserved    the resources specified by the ATM traffic    parameter and Service category values    for each direction of the VC cross\-connect    in an ATM switch or network.  (3) The manager sets the    atmVcCrossConnectAdminStatus to up(1)    in all rows of this VC cross\-connect to    turn the traffic flow on.   One\-Shot VC Cross\-Connect Establishment  A VC cross\-connect may also be established in one step by a set\-request with all necessary parameter values and atmVcCrossConnectRowStatus set to createAndGo(4).  In contrast to the negotiated VC cross\-connect establishment which allows for detailed error checking i.e., set errors are explicitly linked to particular resource acquisition failures), the one\-shot VC cross\-connect establishment performs the setup on one operation but does not have the advantage of step\-wise error checking.  VC Cross\-Connect Retirement  A VC cross\-connect identified by a particular value of atmVcCrossConnectIndex is released by\:  (1) Setting atmVcCrossConnectRowStatus of all rows    identified by this value of    atmVcCrossConnectIndex to destroy(6).    The agent may release all    associated resources, and the    atmVcCrossConnectIndex values in the    corresponding atmVclTable row are removed.    Note that a situation when only a subset of    the associated rows are deleted corresponds    to a VC topology change.  (2) After deletion of the appropriate    atmVcCrossConnectEntries, the manager may    set atmVclRowStatus to destroy(6) the    associated VCLs.  The agent releases    the resources and removes the associated    rows in the atmVclTable.  VC Cross\-Connect Reconfiguration  At the discretion of the agent, a VC cross\-connect may be reconfigured by adding and/or deleting leafs to/from the VC topology as per the VC cross\-connect establishment/retirement procedures. Reconfiguration of traffic/service category parameter values requires release of the VC cross\-connect before those parameter values may by changed for individual VCLs
-        	**type**\: list of  		 :py:class:`Atmvccrossconnectentry <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvccrossconnecttable.Atmvccrossconnectentry>`
+        	**type**\: list of  		 :py:class:`AtmVcCrossConnectEntry <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVcCrossConnectTable.AtmVcCrossConnectEntry>`
         
         
 
@@ -2397,15 +2374,14 @@ class ATMMIB(Entity):
         _revision = '1998-10-19'
 
         def __init__(self):
-            super(ATMMIB.Atmvccrossconnecttable, self).__init__()
+            super(ATMMIB.AtmVcCrossConnectTable, self).__init__()
 
             self.yang_name = "atmVcCrossConnectTable"
             self.yang_parent_name = "ATM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("atmVcCrossConnectEntry", ("atmvccrossconnectentry", ATMMIB.Atmvccrossconnecttable.Atmvccrossconnectentry))])
+            self._child_classes = OrderedDict([("atmVcCrossConnectEntry", ("atmvccrossconnectentry", ATMMIB.AtmVcCrossConnectTable.AtmVcCrossConnectEntry))])
             self._leafs = OrderedDict()
 
             self.atmvccrossconnectentry = YList(self)
@@ -2413,10 +2389,10 @@ class ATMMIB(Entity):
             self._absolute_path = lambda: "ATM-MIB:ATM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ATMMIB.Atmvccrossconnecttable, [], name, value)
+            self._perform_setattr(ATMMIB.AtmVcCrossConnectTable, [], name, value)
 
 
-        class Atmvccrossconnectentry(Entity):
+        class AtmVcCrossConnectEntry(Entity):
             """
             An entry in the ATM VC Cross Connect table.
             This entry is used to model a bi\-directional ATM
@@ -2632,15 +2608,14 @@ class ATMMIB(Entity):
             _revision = '1998-10-19'
 
             def __init__(self):
-                super(ATMMIB.Atmvccrossconnecttable.Atmvccrossconnectentry, self).__init__()
+                super(ATMMIB.AtmVcCrossConnectTable.AtmVcCrossConnectEntry, self).__init__()
 
                 self.yang_name = "atmVcCrossConnectEntry"
                 self.yang_parent_name = "atmVcCrossConnectTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['atmvccrossconnectindex','atmvccrossconnectlowifindex','atmvccrossconnectlowvpi','atmvccrossconnectlowvci','atmvccrossconnecthighifindex','atmvccrossconnecthighvpi','atmvccrossconnecthighvci']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('atmvccrossconnectindex', YLeaf(YType.int32, 'atmVcCrossConnectIndex')),
                     ('atmvccrossconnectlowifindex', YLeaf(YType.int32, 'atmVcCrossConnectLowIfIndex')),
@@ -2673,10 +2648,10 @@ class ATMMIB(Entity):
                 self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmVcCrossConnectTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.Atmvccrossconnecttable.Atmvccrossconnectentry, ['atmvccrossconnectindex', 'atmvccrossconnectlowifindex', 'atmvccrossconnectlowvpi', 'atmvccrossconnectlowvci', 'atmvccrossconnecthighifindex', 'atmvccrossconnecthighvpi', 'atmvccrossconnecthighvci', 'atmvccrossconnectadminstatus', 'atmvccrossconnectl2hoperstatus', 'atmvccrossconnecth2loperstatus', 'atmvccrossconnectl2hlastchange', 'atmvccrossconnecth2llastchange', 'atmvccrossconnectrowstatus'], name, value)
+                self._perform_setattr(ATMMIB.AtmVcCrossConnectTable.AtmVcCrossConnectEntry, [u'atmvccrossconnectindex', u'atmvccrossconnectlowifindex', u'atmvccrossconnectlowvpi', u'atmvccrossconnectlowvci', u'atmvccrossconnecthighifindex', u'atmvccrossconnecthighvpi', u'atmvccrossconnecthighvci', u'atmvccrossconnectadminstatus', u'atmvccrossconnectl2hoperstatus', u'atmvccrossconnecth2loperstatus', u'atmvccrossconnectl2hlastchange', u'atmvccrossconnecth2llastchange', u'atmvccrossconnectrowstatus'], name, value)
 
 
-    class Aal5Vcctable(Entity):
+    class Aal5VccTable(Entity):
         """
         This table contains AAL5 VCC performance
         parameters.
@@ -2684,7 +2659,7 @@ class ATMMIB(Entity):
         .. attribute:: aal5vccentry
         
         	This list contains the AAL5 VCC performance parameters and is indexed by ifIndex values of AAL5 interfaces and the associated VPI/VCI values
-        	**type**\: list of  		 :py:class:`Aal5Vccentry <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Aal5Vcctable.Aal5Vccentry>`
+        	**type**\: list of  		 :py:class:`Aal5VccEntry <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Aal5VccTable.Aal5VccEntry>`
         
         
 
@@ -2694,15 +2669,14 @@ class ATMMIB(Entity):
         _revision = '1998-10-19'
 
         def __init__(self):
-            super(ATMMIB.Aal5Vcctable, self).__init__()
+            super(ATMMIB.Aal5VccTable, self).__init__()
 
             self.yang_name = "aal5VccTable"
             self.yang_parent_name = "ATM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("aal5VccEntry", ("aal5vccentry", ATMMIB.Aal5Vcctable.Aal5Vccentry))])
+            self._child_classes = OrderedDict([("aal5VccEntry", ("aal5vccentry", ATMMIB.Aal5VccTable.Aal5VccEntry))])
             self._leafs = OrderedDict()
 
             self.aal5vccentry = YList(self)
@@ -2710,10 +2684,10 @@ class ATMMIB(Entity):
             self._absolute_path = lambda: "ATM-MIB:ATM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ATMMIB.Aal5Vcctable, [], name, value)
+            self._perform_setattr(ATMMIB.Aal5VccTable, [], name, value)
 
 
-        class Aal5Vccentry(Entity):
+        class Aal5VccEntry(Entity):
             """
             This list contains the AAL5 VCC
             performance parameters and is indexed
@@ -2727,7 +2701,7 @@ class ATMMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: aal5vccvpi  (key)
             
@@ -2760,6 +2734,30 @@ class ATMMIB(Entity):
             .. attribute:: aal5vccoversizedsdus
             
             	The number of AAL5 CPCS PDUs discarded on this AAL5 VCC at the interface associated with an AAL5 entity because the AAL5 SDUs were too large
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: caal5vccextcompenabled
+            
+            	Boolean, if compression enabled for VCC
+            	**type**\: bool
+            
+            .. attribute:: caal5vccextvoice
+            
+            	Boolean, TRUE if VCC is used to carry voice
+            	**type**\: bool
+            
+            .. attribute:: caal5vccextinf5oamcells
+            
+            	Number of OAM F5 end to end loopback cells  received through the VCC
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: caal5vccextoutf5oamcells
+            
+            	Number of OAM F5 end to end loopback cells sent  through the VCC
             	**type**\: int
             
             	**range:** 0..4294967295
@@ -2864,30 +2862,6 @@ class ATMMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
-            .. attribute:: caal5vccextcompenabled
-            
-            	Boolean, if compression enabled for VCC
-            	**type**\: bool
-            
-            .. attribute:: caal5vccextvoice
-            
-            	Boolean, TRUE if VCC is used to carry voice
-            	**type**\: bool
-            
-            .. attribute:: caal5vccextinf5oamcells
-            
-            	Number of OAM F5 end to end loopback cells  received through the VCC
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: caal5vccextoutf5oamcells
-            
-            	Number of OAM F5 end to end loopback cells sent  through the VCC
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
             
 
             """
@@ -2896,15 +2870,14 @@ class ATMMIB(Entity):
             _revision = '1998-10-19'
 
             def __init__(self):
-                super(ATMMIB.Aal5Vcctable.Aal5Vccentry, self).__init__()
+                super(ATMMIB.Aal5VccTable.Aal5VccEntry, self).__init__()
 
                 self.yang_name = "aal5VccEntry"
                 self.yang_parent_name = "aal5VccTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex','aal5vccvpi','aal5vccvci']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('aal5vccvpi', YLeaf(YType.int32, 'aal5VccVpi')),
@@ -2912,6 +2885,10 @@ class ATMMIB(Entity):
                     ('aal5vcccrcerrors', YLeaf(YType.uint32, 'aal5VccCrcErrors')),
                     ('aal5vccsartimeouts', YLeaf(YType.uint32, 'aal5VccSarTimeOuts')),
                     ('aal5vccoversizedsdus', YLeaf(YType.uint32, 'aal5VccOverSizedSDUs')),
+                    ('caal5vccextcompenabled', YLeaf(YType.boolean, 'CISCO-ATM-EXT-MIB:cAal5VccExtCompEnabled')),
+                    ('caal5vccextvoice', YLeaf(YType.boolean, 'CISCO-ATM-EXT-MIB:cAal5VccExtVoice')),
+                    ('caal5vccextinf5oamcells', YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:cAal5VccExtInF5OamCells')),
+                    ('caal5vccextoutf5oamcells', YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:cAal5VccExtOutF5OamCells')),
                     ('caal5vccinpkts', YLeaf(YType.uint32, 'CISCO-AAL5-MIB:cAal5VccInPkts')),
                     ('caal5vccoutpkts', YLeaf(YType.uint32, 'CISCO-AAL5-MIB:cAal5VccOutPkts')),
                     ('caal5vccinoctets', YLeaf(YType.uint32, 'CISCO-AAL5-MIB:cAal5VccInOctets')),
@@ -2924,10 +2901,6 @@ class ATMMIB(Entity):
                     ('caal5vcchcoutpkts', YLeaf(YType.uint64, 'CISCO-AAL5-MIB:cAal5VccHCOutPkts')),
                     ('caal5vcchcinoctets', YLeaf(YType.uint64, 'CISCO-AAL5-MIB:cAal5VccHCInOctets')),
                     ('caal5vcchcoutoctets', YLeaf(YType.uint64, 'CISCO-AAL5-MIB:cAal5VccHCOutOctets')),
-                    ('caal5vccextcompenabled', YLeaf(YType.boolean, 'CISCO-ATM-EXT-MIB:cAal5VccExtCompEnabled')),
-                    ('caal5vccextvoice', YLeaf(YType.boolean, 'CISCO-ATM-EXT-MIB:cAal5VccExtVoice')),
-                    ('caal5vccextinf5oamcells', YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:cAal5VccExtInF5OamCells')),
-                    ('caal5vccextoutf5oamcells', YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:cAal5VccExtOutF5OamCells')),
                 ])
                 self.ifindex = None
                 self.aal5vccvpi = None
@@ -2935,6 +2908,10 @@ class ATMMIB(Entity):
                 self.aal5vcccrcerrors = None
                 self.aal5vccsartimeouts = None
                 self.aal5vccoversizedsdus = None
+                self.caal5vccextcompenabled = None
+                self.caal5vccextvoice = None
+                self.caal5vccextinf5oamcells = None
+                self.caal5vccextoutf5oamcells = None
                 self.caal5vccinpkts = None
                 self.caal5vccoutpkts = None
                 self.caal5vccinoctets = None
@@ -2947,15 +2924,11 @@ class ATMMIB(Entity):
                 self.caal5vcchcoutpkts = None
                 self.caal5vcchcinoctets = None
                 self.caal5vcchcoutoctets = None
-                self.caal5vccextcompenabled = None
-                self.caal5vccextvoice = None
-                self.caal5vccextinf5oamcells = None
-                self.caal5vccextoutf5oamcells = None
                 self._segment_path = lambda: "aal5VccEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[aal5VccVpi='" + str(self.aal5vccvpi) + "']" + "[aal5VccVci='" + str(self.aal5vccvci) + "']"
                 self._absolute_path = lambda: "ATM-MIB:ATM-MIB/aal5VccTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.Aal5Vcctable.Aal5Vccentry, ['ifindex', 'aal5vccvpi', 'aal5vccvci', 'aal5vcccrcerrors', 'aal5vccsartimeouts', 'aal5vccoversizedsdus', 'caal5vccinpkts', 'caal5vccoutpkts', 'caal5vccinoctets', 'caal5vccoutoctets', 'caal5vccindroppedpkts', 'caal5vccoutdroppedpkts', 'caal5vccindroppedoctets', 'caal5vccoutdroppedoctets', 'caal5vcchcinpkts', 'caal5vcchcoutpkts', 'caal5vcchcinoctets', 'caal5vcchcoutoctets', 'caal5vccextcompenabled', 'caal5vccextvoice', 'caal5vccextinf5oamcells', 'caal5vccextoutf5oamcells'], name, value)
+                self._perform_setattr(ATMMIB.Aal5VccTable.Aal5VccEntry, [u'ifindex', u'aal5vccvpi', u'aal5vccvci', u'aal5vcccrcerrors', u'aal5vccsartimeouts', u'aal5vccoversizedsdus', 'caal5vccextcompenabled', 'caal5vccextvoice', 'caal5vccextinf5oamcells', 'caal5vccextoutf5oamcells', 'caal5vccinpkts', 'caal5vccoutpkts', 'caal5vccinoctets', 'caal5vccoutoctets', 'caal5vccindroppedpkts', 'caal5vccoutdroppedpkts', 'caal5vccindroppedoctets', 'caal5vccoutdroppedoctets', 'caal5vcchcinpkts', 'caal5vcchcoutpkts', 'caal5vcchcinoctets', 'caal5vcchcoutoctets'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ATMMIB()

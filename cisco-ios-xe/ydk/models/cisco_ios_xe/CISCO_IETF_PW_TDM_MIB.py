@@ -27,32 +27,32 @@ class CISCOIETFPWTDMMIB(Entity):
     .. attribute:: cpwctdmobjects
     
     	
-    	**type**\:  :py:class:`Cpwctdmobjects <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmobjects>`
+    	**type**\:  :py:class:`CpwCTDMObjects <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMObjects>`
     
     .. attribute:: cpwctdmtable
     
     	This table contains basic information including ifIndex, and pointers to entries in the relevant TDM config tables for this TDM PW
-    	**type**\:  :py:class:`Cpwctdmtable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmtable>`
+    	**type**\:  :py:class:`CpwCTDMTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMTable>`
     
     .. attribute:: cpwctdmcfgtable
     
     	This table contains a set of parameters that may be referenced by one or more TDM PWs in cpwCTDMTable
-    	**type**\:  :py:class:`Cpwctdmcfgtable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmcfgtable>`
+    	**type**\:  :py:class:`CpwCTDMCfgTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMCfgTable>`
     
     .. attribute:: cpwctdmperfcurrenttable
     
     	This table provides TDM PW performance information. This includes current 15 minute interval counts.   The table includes counters that work together to integrate errors and the lack of errors on the TDM PW. An error is caused by a missing packet. Missing packet can be a result of, packet loss in the network, (uncorrectable) packet out of sequence, packet length error, jitter buffer overflow, and jitter buffer underflow. The result is declaring whether or not the TDM PW is in Loss of Packet (LOPS) state
-    	**type**\:  :py:class:`Cpwctdmperfcurrenttable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmperfcurrenttable>`
+    	**type**\:  :py:class:`CpwCTDMPerfCurrentTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMPerfCurrentTable>`
     
     .. attribute:: cpwctdmperfintervaltable
     
     	This table provides performance information per TDM PW similar to the cpwCTDMPerfCurrentTable above. However, these counts represent historical 15 minute intervals. Typically, this table will have a maximum of 96 entries for a 24 hour period, but is not limited to this
-    	**type**\:  :py:class:`Cpwctdmperfintervaltable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmperfintervaltable>`
+    	**type**\:  :py:class:`CpwCTDMPerfIntervalTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMPerfIntervalTable>`
     
     .. attribute:: cpwctdmperf1dayintervaltable
     
     	This table provides performance information per TDM PW similar to the cpwCTDMPerfIntervalTable above. However, these counters represent historical 1 day intervals up to one full month. The table consists of real time data, as such it is not persistence across re\-boot
-    	**type**\:  :py:class:`Cpwctdmperf1Dayintervaltable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable>`
+    	**type**\:  :py:class:`CpwCTDMPerf1DayIntervalTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMPerf1DayIntervalTable>`
     
     
 
@@ -70,43 +70,39 @@ class CISCOIETFPWTDMMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cpwCTDMObjects", ("cpwctdmobjects", CISCOIETFPWTDMMIB.Cpwctdmobjects)), ("cpwCTDMTable", ("cpwctdmtable", CISCOIETFPWTDMMIB.Cpwctdmtable)), ("cpwCTDMCfgTable", ("cpwctdmcfgtable", CISCOIETFPWTDMMIB.Cpwctdmcfgtable)), ("cpwCTDMPerfCurrentTable", ("cpwctdmperfcurrenttable", CISCOIETFPWTDMMIB.Cpwctdmperfcurrenttable)), ("cpwCTDMPerfIntervalTable", ("cpwctdmperfintervaltable", CISCOIETFPWTDMMIB.Cpwctdmperfintervaltable)), ("cpwCTDMPerf1DayIntervalTable", ("cpwctdmperf1dayintervaltable", CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cpwCTDMObjects", ("cpwctdmobjects", CISCOIETFPWTDMMIB.CpwCTDMObjects)), ("cpwCTDMTable", ("cpwctdmtable", CISCOIETFPWTDMMIB.CpwCTDMTable)), ("cpwCTDMCfgTable", ("cpwctdmcfgtable", CISCOIETFPWTDMMIB.CpwCTDMCfgTable)), ("cpwCTDMPerfCurrentTable", ("cpwctdmperfcurrenttable", CISCOIETFPWTDMMIB.CpwCTDMPerfCurrentTable)), ("cpwCTDMPerfIntervalTable", ("cpwctdmperfintervaltable", CISCOIETFPWTDMMIB.CpwCTDMPerfIntervalTable)), ("cpwCTDMPerf1DayIntervalTable", ("cpwctdmperf1dayintervaltable", CISCOIETFPWTDMMIB.CpwCTDMPerf1DayIntervalTable))])
         self._leafs = OrderedDict()
 
-        self.cpwctdmobjects = CISCOIETFPWTDMMIB.Cpwctdmobjects()
+        self.cpwctdmobjects = CISCOIETFPWTDMMIB.CpwCTDMObjects()
         self.cpwctdmobjects.parent = self
         self._children_name_map["cpwctdmobjects"] = "cpwCTDMObjects"
-        self._children_yang_names.add("cpwCTDMObjects")
 
-        self.cpwctdmtable = CISCOIETFPWTDMMIB.Cpwctdmtable()
+        self.cpwctdmtable = CISCOIETFPWTDMMIB.CpwCTDMTable()
         self.cpwctdmtable.parent = self
         self._children_name_map["cpwctdmtable"] = "cpwCTDMTable"
-        self._children_yang_names.add("cpwCTDMTable")
 
-        self.cpwctdmcfgtable = CISCOIETFPWTDMMIB.Cpwctdmcfgtable()
+        self.cpwctdmcfgtable = CISCOIETFPWTDMMIB.CpwCTDMCfgTable()
         self.cpwctdmcfgtable.parent = self
         self._children_name_map["cpwctdmcfgtable"] = "cpwCTDMCfgTable"
-        self._children_yang_names.add("cpwCTDMCfgTable")
 
-        self.cpwctdmperfcurrenttable = CISCOIETFPWTDMMIB.Cpwctdmperfcurrenttable()
+        self.cpwctdmperfcurrenttable = CISCOIETFPWTDMMIB.CpwCTDMPerfCurrentTable()
         self.cpwctdmperfcurrenttable.parent = self
         self._children_name_map["cpwctdmperfcurrenttable"] = "cpwCTDMPerfCurrentTable"
-        self._children_yang_names.add("cpwCTDMPerfCurrentTable")
 
-        self.cpwctdmperfintervaltable = CISCOIETFPWTDMMIB.Cpwctdmperfintervaltable()
+        self.cpwctdmperfintervaltable = CISCOIETFPWTDMMIB.CpwCTDMPerfIntervalTable()
         self.cpwctdmperfintervaltable.parent = self
         self._children_name_map["cpwctdmperfintervaltable"] = "cpwCTDMPerfIntervalTable"
-        self._children_yang_names.add("cpwCTDMPerfIntervalTable")
 
-        self.cpwctdmperf1dayintervaltable = CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable()
+        self.cpwctdmperf1dayintervaltable = CISCOIETFPWTDMMIB.CpwCTDMPerf1DayIntervalTable()
         self.cpwctdmperf1dayintervaltable.parent = self
         self._children_name_map["cpwctdmperf1dayintervaltable"] = "cpwCTDMPerf1DayIntervalTable"
-        self._children_yang_names.add("cpwCTDMPerf1DayIntervalTable")
         self._segment_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOIETFPWTDMMIB, [], name, value)
 
-    class Cpwctdmobjects(Entity):
+
+    class CpwCTDMObjects(Entity):
         """
         
         
@@ -125,15 +121,14 @@ class CISCOIETFPWTDMMIB(Entity):
         _revision = '2006-07-21'
 
         def __init__(self):
-            super(CISCOIETFPWTDMMIB.Cpwctdmobjects, self).__init__()
+            super(CISCOIETFPWTDMMIB.CpwCTDMObjects, self).__init__()
 
             self.yang_name = "cpwCTDMObjects"
             self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('cpwctdmcfgindexnext', YLeaf(YType.uint32, 'cpwCTDMCfgIndexNext')),
             ])
@@ -142,10 +137,10 @@ class CISCOIETFPWTDMMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmobjects, ['cpwctdmcfgindexnext'], name, value)
+            self._perform_setattr(CISCOIETFPWTDMMIB.CpwCTDMObjects, ['cpwctdmcfgindexnext'], name, value)
 
 
-    class Cpwctdmtable(Entity):
+    class CpwCTDMTable(Entity):
         """
         This table contains basic information including ifIndex,
         and pointers to entries in the relevant TDM config
@@ -154,7 +149,7 @@ class CISCOIETFPWTDMMIB(Entity):
         .. attribute:: cpwctdmentry
         
         	This table is indexed by the same index that was created for the associated entry in the VC Table (in the CISCO\-IETF\-PW\-MIB).    \- The CpwVcIndex.  An entry is created in this table by the agent for every entry in the cpwVcTable with a cpwVcType equal to one of the following\: e1Satop(12), t1Satop(13), e3Satop(14), t3Satop(15), basicCesPsn(16), basicTdmIp(17),  tdmCasCesPsn(18), tdmCasTdmIp(19)
-        	**type**\: list of  		 :py:class:`Cpwctdmentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmtable.Cpwctdmentry>`
+        	**type**\: list of  		 :py:class:`CpwCTDMEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMTable.CpwCTDMEntry>`
         
         
 
@@ -164,15 +159,14 @@ class CISCOIETFPWTDMMIB(Entity):
         _revision = '2006-07-21'
 
         def __init__(self):
-            super(CISCOIETFPWTDMMIB.Cpwctdmtable, self).__init__()
+            super(CISCOIETFPWTDMMIB.CpwCTDMTable, self).__init__()
 
             self.yang_name = "cpwCTDMTable"
             self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpwCTDMEntry", ("cpwctdmentry", CISCOIETFPWTDMMIB.Cpwctdmtable.Cpwctdmentry))])
+            self._child_classes = OrderedDict([("cpwCTDMEntry", ("cpwctdmentry", CISCOIETFPWTDMMIB.CpwCTDMTable.CpwCTDMEntry))])
             self._leafs = OrderedDict()
 
             self.cpwctdmentry = YList(self)
@@ -180,10 +174,10 @@ class CISCOIETFPWTDMMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmtable, [], name, value)
+            self._perform_setattr(CISCOIETFPWTDMMIB.CpwCTDMTable, [], name, value)
 
 
-        class Cpwctdmentry(Entity):
+        class CpwCTDMEntry(Entity):
             """
             This table is indexed by the same index that was
             created for the associated entry in the VC Table
@@ -205,7 +199,7 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
+            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
             
             .. attribute:: cpwctdmrate
             
@@ -238,7 +232,7 @@ class CISCOIETFPWTDMMIB(Entity):
             .. attribute:: cpwctdmconfigerror
             
             	Any of the bits are set if the local configuration is not compatible with the peer configuration as available from the various parameters options.  \-tdmTypeIncompatible bit is set if the local configuration is not carrying the same TDM type as the peer configuration.  \-peerRtpIncompatible bit is set if the local configuration is configured to send RTP packets for this PW, and the remote is not capable of accepting RTP packets.  \-peerPayloadSizeIncompatible bit is set if the local configuration is not carrying the same Payload Size as the peer configuration
-            	**type**\:  :py:class:`Cpwctdmconfigerror <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmtable.Cpwctdmentry.Cpwctdmconfigerror>`
+            	**type**\:  :py:class:`CpwCTDMConfigError <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMTable.CpwCTDMEntry.CpwCTDMConfigError>`
             
             .. attribute:: cpwctdmtimeelapsed
             
@@ -270,12 +264,12 @@ class CISCOIETFPWTDMMIB(Entity):
             .. attribute:: cpwctdmcurrentindications
             
             	The following defects should be detected and reported upon request\:  \-Stray packets MAY be detected by the PSN and multiplexing layers. Stray packets MUST be discarded by the CE\-bound IWF and their detection MUST NOT affect mechanisms for detection of packet loss.  \-Malformed packets are detected by mismatch between the expected packet size (taking the value of the L bit into account) and the actual packet size inferred from the PSN and multiplexing layers. Malformed in\-order packets MUST be discarded by the CE\-bound IWF and replacement data generated as for lost packets.  \-Excessive packet loss rate is detected by computing the average packet loss rate over the value of cpwCTDMAvePktLossTimeWindow and comparing it with a preconfigured threshold [SATOP].  \-Buffer overrun is detected in the normal operation state when the CE bound IWF's jitter buffer cannot accommodate newly arrived packets.  \-Remote packet loss is indicated by reception of packets  with their R bit set.  \-Packet misorder is detected by looking at the Sequence number provided by the control word.  \-TDM Fault, if L bit in the control word is set, it indicates that TDM data carried in the payload is invalid due an attachment circuit fault.  When the L bit is set the payload MAY be omitted in order to conserve bandwidth.  Note\: the algorithm used to capture these indications is implementation specific
-            	**type**\:  :py:class:`Cpwctdmcurrentindications <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmtable.Cpwctdmentry.Cpwctdmcurrentindications>`
+            	**type**\:  :py:class:`CpwCTDMCurrentIndications <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMTable.CpwCTDMEntry.CpwCTDMCurrentIndications>`
             
             .. attribute:: cpwctdmlatchedindications
             
             	The state of TDM indicators when the TDM PW last declared an error second (either as ES, SES or a second with errors inside a UAS) condition. At this time, only LOPS can create a failure. Since indicators other than LOPS are useful, all are latched here. For bit definitions, see cpwCTDMCurrentIndications above.  Note\: the algorithm used to latch these indications when entering a defect state is implementation specific
-            	**type**\:  :py:class:`Cpwctdmlatchedindications <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmtable.Cpwctdmentry.Cpwctdmlatchedindications>`
+            	**type**\:  :py:class:`CpwCTDMLatchedIndications <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMTable.CpwCTDMEntry.CpwCTDMLatchedIndications>`
             
             .. attribute:: cpwctdmlastestimestamp
             
@@ -292,15 +286,14 @@ class CISCOIETFPWTDMMIB(Entity):
             _revision = '2006-07-21'
 
             def __init__(self):
-                super(CISCOIETFPWTDMMIB.Cpwctdmtable.Cpwctdmentry, self).__init__()
+                super(CISCOIETFPWTDMMIB.CpwCTDMTable.CpwCTDMEntry, self).__init__()
 
                 self.yang_name = "cpwCTDMEntry"
                 self.yang_parent_name = "cpwCTDMTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpwvcindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
                     ('cpwctdmrate', YLeaf(YType.int32, 'cpwCTDMRate')),
@@ -331,10 +324,10 @@ class CISCOIETFPWTDMMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmtable.Cpwctdmentry, ['cpwvcindex', 'cpwctdmrate', 'cpwctdmifindex', 'cpwcgentdmcfgindex', 'cpwcreltdmcfgindex', 'cpwctdmconfigerror', 'cpwctdmtimeelapsed', 'cpwctdmvalidintervals', 'cpwctdmvaliddayintervals', 'cpwctdmcurrentindications', 'cpwctdmlatchedindications', 'cpwctdmlastestimestamp'], name, value)
+                self._perform_setattr(CISCOIETFPWTDMMIB.CpwCTDMTable.CpwCTDMEntry, ['cpwvcindex', 'cpwctdmrate', 'cpwctdmifindex', 'cpwcgentdmcfgindex', 'cpwcreltdmcfgindex', 'cpwctdmconfigerror', 'cpwctdmtimeelapsed', 'cpwctdmvalidintervals', 'cpwctdmvaliddayintervals', 'cpwctdmcurrentindications', 'cpwctdmlatchedindications', 'cpwctdmlastestimestamp'], name, value)
 
 
-    class Cpwctdmcfgtable(Entity):
+    class CpwCTDMCfgTable(Entity):
         """
         This table contains a set of parameters that may be
         referenced by one or more TDM PWs in cpwCTDMTable.
@@ -342,7 +335,7 @@ class CISCOIETFPWTDMMIB(Entity):
         .. attribute:: cpwctdmcfgentry
         
         	These parameters define the characteristics of a TDM PW. They are grouped here to ease NMS burden. Once an entry is created here it may be re\-used by many PWs
-        	**type**\: list of  		 :py:class:`Cpwctdmcfgentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmcfgtable.Cpwctdmcfgentry>`
+        	**type**\: list of  		 :py:class:`CpwCTDMCfgEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMCfgTable.CpwCTDMCfgEntry>`
         
         
 
@@ -352,15 +345,14 @@ class CISCOIETFPWTDMMIB(Entity):
         _revision = '2006-07-21'
 
         def __init__(self):
-            super(CISCOIETFPWTDMMIB.Cpwctdmcfgtable, self).__init__()
+            super(CISCOIETFPWTDMMIB.CpwCTDMCfgTable, self).__init__()
 
             self.yang_name = "cpwCTDMCfgTable"
             self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpwCTDMCfgEntry", ("cpwctdmcfgentry", CISCOIETFPWTDMMIB.Cpwctdmcfgtable.Cpwctdmcfgentry))])
+            self._child_classes = OrderedDict([("cpwCTDMCfgEntry", ("cpwctdmcfgentry", CISCOIETFPWTDMMIB.CpwCTDMCfgTable.CpwCTDMCfgEntry))])
             self._leafs = OrderedDict()
 
             self.cpwctdmcfgentry = YList(self)
@@ -368,10 +360,10 @@ class CISCOIETFPWTDMMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmcfgtable, [], name, value)
+            self._perform_setattr(CISCOIETFPWTDMMIB.CpwCTDMCfgTable, [], name, value)
 
 
-        class Cpwctdmcfgentry(Entity):
+        class CpwCTDMCfgEntry(Entity):
             """
             These parameters define the characteristics of a
             TDM PW. They are grouped here to ease NMS burden.
@@ -388,7 +380,7 @@ class CISCOIETFPWTDMMIB(Entity):
             .. attribute:: cpwctdmcfgconferr
             
             	This object indicates the various configuration errors, illegal settings within the cpwCTDMCfg table. The errors can be due to several reasons, like Payload size mismatch or Jitter Buffer depth value mistmatch.   payloadSize \- This bit is set if there is Payload size               mismatch between the local and peer               configurations.  jtrBfrDepth \- This bit is set if there is Jitter Buffer               depth value mistmatch. other       \- This bit is set if the error is not due to               payloadSize and jtrBfrDepth mismatch
-            	**type**\:  :py:class:`Cpwctdmcfgconferr <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmcfgtable.Cpwctdmcfgentry.Cpwctdmcfgconferr>`
+            	**type**\:  :py:class:`CpwCTDMCfgConfErr <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMCfgTable.CpwCTDMCfgEntry.CpwCTDMCfgConfErr>`
             
             .. attribute:: cpwctdmcfgpayloadsize
             
@@ -421,7 +413,7 @@ class CISCOIETFPWTDMMIB(Entity):
             .. attribute:: cpwctdmcfgpayloadsuppression
             
             	This object indicates whether the Payload suppression is eanbled or disabled. Payload MAY be omitted in order to conserve bandwidth.  enable  \- Payload suppression is allowed. disable \- No Payload suppresion under any condition
-            	**type**\:  :py:class:`Cpwctdmcfgpayloadsuppression <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmcfgtable.Cpwctdmcfgentry.Cpwctdmcfgpayloadsuppression>`
+            	**type**\:  :py:class:`CpwCTDMCfgPayloadSuppression <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMCfgTable.CpwCTDMCfgEntry.CpwCTDMCfgPayloadSuppression>`
             
             .. attribute:: cpwctdmcfgconsecpktsinsynch
             
@@ -453,7 +445,7 @@ class CISCOIETFPWTDMMIB(Entity):
             .. attribute:: cpwctdmcfgpktreplacepolicy
             
             	This parameter determines the value to be played when CE bound packets have over/underflow the jitter buffer, or are missing for any reason. This AIS (Alarm Indication Signal) pattern is sent (played) on the TDM line.  ais                    \- AIS (Alarm Indication Signal)                          pattern is sent (played) on                          the TDM line.  implementationSpecific \- Implementation specific pattern is                          sent on the TDM line
-            	**type**\:  :py:class:`Cpwctdmcfgpktreplacepolicy <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmcfgtable.Cpwctdmcfgentry.Cpwctdmcfgpktreplacepolicy>`
+            	**type**\:  :py:class:`CpwCTDMCfgPktReplacePolicy <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMCfgTable.CpwCTDMCfgEntry.CpwCTDMCfgPktReplacePolicy>`
             
             .. attribute:: cpwctdmcfgavepktlosstimewindow
             
@@ -501,7 +493,7 @@ class CISCOIETFPWTDMMIB(Entity):
             .. attribute:: cpwctdmcfgtimestampmode
             
             	Timestamp generation MAY be used in one of the following modes\: 1. Absolute mode\: the PSN\-bound IWF sets timestamps  using the clock recovered from the incoming TDM attachment  circuit. As a consequence, the timestamps are closely  correlated with the sequence numbers. All TDM   implementations that support usage of the RTP header MUST  support this mode. 2. Differential mode\: Both IWFs have access to a common  high\-quality timing source, and this source is used for  timestamp generation. Support of this mode is OPTIONAL
-            	**type**\:  :py:class:`Cpwctdmcfgtimestampmode <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmcfgtable.Cpwctdmcfgentry.Cpwctdmcfgtimestampmode>`
+            	**type**\:  :py:class:`CpwCTDMCfgTimestampMode <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMCfgTable.CpwCTDMCfgEntry.CpwCTDMCfgTimestampMode>`
             
             .. attribute:: cpwctdmcfgstoragetype
             
@@ -521,15 +513,14 @@ class CISCOIETFPWTDMMIB(Entity):
             _revision = '2006-07-21'
 
             def __init__(self):
-                super(CISCOIETFPWTDMMIB.Cpwctdmcfgtable.Cpwctdmcfgentry, self).__init__()
+                super(CISCOIETFPWTDMMIB.CpwCTDMCfgTable.CpwCTDMCfgEntry, self).__init__()
 
                 self.yang_name = "cpwCTDMCfgEntry"
                 self.yang_parent_name = "cpwCTDMCfgTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpwctdmcfgindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpwctdmcfgindex', YLeaf(YType.uint32, 'cpwCTDMCfgIndex')),
                     ('cpwctdmcfgconferr', YLeaf(YType.bits, 'cpwCTDMCfgConfErr')),
@@ -574,11 +565,11 @@ class CISCOIETFPWTDMMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMCfgTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmcfgtable.Cpwctdmcfgentry, ['cpwctdmcfgindex', 'cpwctdmcfgconferr', 'cpwctdmcfgpayloadsize', 'cpwctdmcfgpktreorder', 'cpwctdmcfgrtphdrused', 'cpwctdmcfgjtrbfrdepth', 'cpwctdmcfgpayloadsuppression', 'cpwctdmcfgconsecpktsinsynch', 'cpwctdmcfgconsecmisspktsoutsynch', 'cpwctdmcfgsetup2synchtimeout', 'cpwctdmcfgpktreplacepolicy', 'cpwctdmcfgavepktlosstimewindow', 'cpwctdmcfgexcessivepktlossthreshold', 'cpwctdmcfgalarmthreshold', 'cpwctdmcfgclearalarmthreshold', 'cpwctdmcfgmissingpktstoses', 'cpwctdmcfgtimestampmode', 'cpwctdmcfgstoragetype', 'cpwctdmcfgrowstatus'], name, value)
+                self._perform_setattr(CISCOIETFPWTDMMIB.CpwCTDMCfgTable.CpwCTDMCfgEntry, ['cpwctdmcfgindex', 'cpwctdmcfgconferr', 'cpwctdmcfgpayloadsize', 'cpwctdmcfgpktreorder', 'cpwctdmcfgrtphdrused', 'cpwctdmcfgjtrbfrdepth', 'cpwctdmcfgpayloadsuppression', 'cpwctdmcfgconsecpktsinsynch', 'cpwctdmcfgconsecmisspktsoutsynch', 'cpwctdmcfgsetup2synchtimeout', 'cpwctdmcfgpktreplacepolicy', 'cpwctdmcfgavepktlosstimewindow', 'cpwctdmcfgexcessivepktlossthreshold', 'cpwctdmcfgalarmthreshold', 'cpwctdmcfgclearalarmthreshold', 'cpwctdmcfgmissingpktstoses', 'cpwctdmcfgtimestampmode', 'cpwctdmcfgstoragetype', 'cpwctdmcfgrowstatus'], name, value)
 
-            class Cpwctdmcfgpayloadsuppression(Enum):
+            class CpwCTDMCfgPayloadSuppression(Enum):
                 """
-                Cpwctdmcfgpayloadsuppression (Enum Class)
+                CpwCTDMCfgPayloadSuppression (Enum Class)
 
                 This object indicates whether the Payload suppression
 
@@ -601,9 +592,9 @@ class CISCOIETFPWTDMMIB(Entity):
                 disable = Enum.YLeaf(2, "disable")
 
 
-            class Cpwctdmcfgpktreplacepolicy(Enum):
+            class CpwCTDMCfgPktReplacePolicy(Enum):
                 """
-                Cpwctdmcfgpktreplacepolicy (Enum Class)
+                CpwCTDMCfgPktReplacePolicy (Enum Class)
 
                 This parameter determines the value to be played when CE
 
@@ -634,9 +625,9 @@ class CISCOIETFPWTDMMIB(Entity):
                 implementationSpecific = Enum.YLeaf(2, "implementationSpecific")
 
 
-            class Cpwctdmcfgtimestampmode(Enum):
+            class CpwCTDMCfgTimestampMode(Enum):
                 """
-                Cpwctdmcfgtimestampmode (Enum Class)
+                CpwCTDMCfgTimestampMode (Enum Class)
 
                 Timestamp generation MAY be used in one of the following
 
@@ -676,7 +667,7 @@ class CISCOIETFPWTDMMIB(Entity):
 
 
 
-    class Cpwctdmperfcurrenttable(Entity):
+    class CpwCTDMPerfCurrentTable(Entity):
         """
         This table provides TDM PW performance information.
         This includes current 15 minute interval counts. 
@@ -693,7 +684,7 @@ class CISCOIETFPWTDMMIB(Entity):
         .. attribute:: cpwctdmperfcurrententry
         
         	An entry in this table is created by the agent for every cpwCTDMTable entry. After 15 minutes, the contents of this table entry are copied to a new entry in the cpwCTDMPerfInterval table and the counts in this entry are reset to zero
-        	**type**\: list of  		 :py:class:`Cpwctdmperfcurrententry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmperfcurrenttable.Cpwctdmperfcurrententry>`
+        	**type**\: list of  		 :py:class:`CpwCTDMPerfCurrentEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMPerfCurrentTable.CpwCTDMPerfCurrentEntry>`
         
         
 
@@ -703,15 +694,14 @@ class CISCOIETFPWTDMMIB(Entity):
         _revision = '2006-07-21'
 
         def __init__(self):
-            super(CISCOIETFPWTDMMIB.Cpwctdmperfcurrenttable, self).__init__()
+            super(CISCOIETFPWTDMMIB.CpwCTDMPerfCurrentTable, self).__init__()
 
             self.yang_name = "cpwCTDMPerfCurrentTable"
             self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpwCTDMPerfCurrentEntry", ("cpwctdmperfcurrententry", CISCOIETFPWTDMMIB.Cpwctdmperfcurrenttable.Cpwctdmperfcurrententry))])
+            self._child_classes = OrderedDict([("cpwCTDMPerfCurrentEntry", ("cpwctdmperfcurrententry", CISCOIETFPWTDMMIB.CpwCTDMPerfCurrentTable.CpwCTDMPerfCurrentEntry))])
             self._leafs = OrderedDict()
 
             self.cpwctdmperfcurrententry = YList(self)
@@ -719,10 +709,10 @@ class CISCOIETFPWTDMMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmperfcurrenttable, [], name, value)
+            self._perform_setattr(CISCOIETFPWTDMMIB.CpwCTDMPerfCurrentTable, [], name, value)
 
 
-        class Cpwctdmperfcurrententry(Entity):
+        class CpwCTDMPerfCurrentEntry(Entity):
             """
             An entry in this table is created by the agent for every
             cpwCTDMTable entry. After 15 minutes, the contents of this
@@ -737,7 +727,7 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
+            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
             
             .. attribute:: cpwctdmperfcurrentmissingpkts
             
@@ -824,15 +814,14 @@ class CISCOIETFPWTDMMIB(Entity):
             _revision = '2006-07-21'
 
             def __init__(self):
-                super(CISCOIETFPWTDMMIB.Cpwctdmperfcurrenttable.Cpwctdmperfcurrententry, self).__init__()
+                super(CISCOIETFPWTDMMIB.CpwCTDMPerfCurrentTable.CpwCTDMPerfCurrentEntry, self).__init__()
 
                 self.yang_name = "cpwCTDMPerfCurrentEntry"
                 self.yang_parent_name = "cpwCTDMPerfCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpwvcindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
                     ('cpwctdmperfcurrentmissingpkts', YLeaf(YType.uint32, 'cpwCTDMPerfCurrentMissingPkts')),
@@ -859,10 +848,10 @@ class CISCOIETFPWTDMMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMPerfCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmperfcurrenttable.Cpwctdmperfcurrententry, ['cpwvcindex', 'cpwctdmperfcurrentmissingpkts', 'cpwctdmperfcurrentpktsreorder', 'cpwctdmperfcurrentjtrbfrunderruns', 'cpwctdmperfcurrentmisorderdropped', 'cpwctdmperfcurrentmalformedpkt', 'cpwctdmperfcurrentess', 'cpwctdmperfcurrentsess', 'cpwctdmperfcurrentuass', 'cpwctdmperfcurrentfc'], name, value)
+                self._perform_setattr(CISCOIETFPWTDMMIB.CpwCTDMPerfCurrentTable.CpwCTDMPerfCurrentEntry, ['cpwvcindex', 'cpwctdmperfcurrentmissingpkts', 'cpwctdmperfcurrentpktsreorder', 'cpwctdmperfcurrentjtrbfrunderruns', 'cpwctdmperfcurrentmisorderdropped', 'cpwctdmperfcurrentmalformedpkt', 'cpwctdmperfcurrentess', 'cpwctdmperfcurrentsess', 'cpwctdmperfcurrentuass', 'cpwctdmperfcurrentfc'], name, value)
 
 
-    class Cpwctdmperfintervaltable(Entity):
+    class CpwCTDMPerfIntervalTable(Entity):
         """
         This table provides performance information per TDM PW
         similar to the cpwCTDMPerfCurrentTable above. However,
@@ -873,7 +862,7 @@ class CISCOIETFPWTDMMIB(Entity):
         .. attribute:: cpwctdmperfintervalentry
         
         	An entry in this table is created by the agent for every cpwCTDMPerfCurrentEntry that is 15 minutes old. The contents of the Current entry are copied to the new entry here. The Current entry, then resets its counts to zero for the next current 15 minute interval
-        	**type**\: list of  		 :py:class:`Cpwctdmperfintervalentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmperfintervaltable.Cpwctdmperfintervalentry>`
+        	**type**\: list of  		 :py:class:`CpwCTDMPerfIntervalEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMPerfIntervalTable.CpwCTDMPerfIntervalEntry>`
         
         
 
@@ -883,15 +872,14 @@ class CISCOIETFPWTDMMIB(Entity):
         _revision = '2006-07-21'
 
         def __init__(self):
-            super(CISCOIETFPWTDMMIB.Cpwctdmperfintervaltable, self).__init__()
+            super(CISCOIETFPWTDMMIB.CpwCTDMPerfIntervalTable, self).__init__()
 
             self.yang_name = "cpwCTDMPerfIntervalTable"
             self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpwCTDMPerfIntervalEntry", ("cpwctdmperfintervalentry", CISCOIETFPWTDMMIB.Cpwctdmperfintervaltable.Cpwctdmperfintervalentry))])
+            self._child_classes = OrderedDict([("cpwCTDMPerfIntervalEntry", ("cpwctdmperfintervalentry", CISCOIETFPWTDMMIB.CpwCTDMPerfIntervalTable.CpwCTDMPerfIntervalEntry))])
             self._leafs = OrderedDict()
 
             self.cpwctdmperfintervalentry = YList(self)
@@ -899,10 +887,10 @@ class CISCOIETFPWTDMMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmperfintervaltable, [], name, value)
+            self._perform_setattr(CISCOIETFPWTDMMIB.CpwCTDMPerfIntervalTable, [], name, value)
 
 
-        class Cpwctdmperfintervalentry(Entity):
+        class CpwCTDMPerfIntervalEntry(Entity):
             """
             An entry in this table is created by the agent for
             every cpwCTDMPerfCurrentEntry that is 15 minutes old.
@@ -917,7 +905,7 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
+            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
             
             .. attribute:: cpwctdmperfintervalnumber  (key)
             
@@ -1023,15 +1011,14 @@ class CISCOIETFPWTDMMIB(Entity):
             _revision = '2006-07-21'
 
             def __init__(self):
-                super(CISCOIETFPWTDMMIB.Cpwctdmperfintervaltable.Cpwctdmperfintervalentry, self).__init__()
+                super(CISCOIETFPWTDMMIB.CpwCTDMPerfIntervalTable.CpwCTDMPerfIntervalEntry, self).__init__()
 
                 self.yang_name = "cpwCTDMPerfIntervalEntry"
                 self.yang_parent_name = "cpwCTDMPerfIntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpwvcindex','cpwctdmperfintervalnumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
                     ('cpwctdmperfintervalnumber', YLeaf(YType.uint32, 'cpwCTDMPerfIntervalNumber')),
@@ -1064,10 +1051,10 @@ class CISCOIETFPWTDMMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMPerfIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmperfintervaltable.Cpwctdmperfintervalentry, ['cpwvcindex', 'cpwctdmperfintervalnumber', 'cpwctdmperfintervalvaliddata', 'cpwctdmperfintervalduration', 'cpwctdmperfintervalmissingpkts', 'cpwctdmperfintervalpktsreorder', 'cpwctdmperfintervaljtrbfrunderruns', 'cpwctdmperfintervalmisorderdropped', 'cpwctdmperfintervalmalformedpkt', 'cpwctdmperfintervaless', 'cpwctdmperfintervalsess', 'cpwctdmperfintervaluass', 'cpwctdmperfintervalfc'], name, value)
+                self._perform_setattr(CISCOIETFPWTDMMIB.CpwCTDMPerfIntervalTable.CpwCTDMPerfIntervalEntry, ['cpwvcindex', 'cpwctdmperfintervalnumber', 'cpwctdmperfintervalvaliddata', 'cpwctdmperfintervalduration', 'cpwctdmperfintervalmissingpkts', 'cpwctdmperfintervalpktsreorder', 'cpwctdmperfintervaljtrbfrunderruns', 'cpwctdmperfintervalmisorderdropped', 'cpwctdmperfintervalmalformedpkt', 'cpwctdmperfintervaless', 'cpwctdmperfintervalsess', 'cpwctdmperfintervaluass', 'cpwctdmperfintervalfc'], name, value)
 
 
-    class Cpwctdmperf1Dayintervaltable(Entity):
+    class CpwCTDMPerf1DayIntervalTable(Entity):
         """
         This table provides performance information per TDM PW
         similar to the cpwCTDMPerfIntervalTable above. However,
@@ -1078,7 +1065,7 @@ class CISCOIETFPWTDMMIB(Entity):
         .. attribute:: cpwctdmperf1dayintervalentry
         
         	An entry is created in this table by the agent for every entry in the cpwCTDMTable table
-        	**type**\: list of  		 :py:class:`Cpwctdmperf1Dayintervalentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable.Cpwctdmperf1Dayintervalentry>`
+        	**type**\: list of  		 :py:class:`CpwCTDMPerf1DayIntervalEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMPerf1DayIntervalTable.CpwCTDMPerf1DayIntervalEntry>`
         
         
 
@@ -1088,15 +1075,14 @@ class CISCOIETFPWTDMMIB(Entity):
         _revision = '2006-07-21'
 
         def __init__(self):
-            super(CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable, self).__init__()
+            super(CISCOIETFPWTDMMIB.CpwCTDMPerf1DayIntervalTable, self).__init__()
 
             self.yang_name = "cpwCTDMPerf1DayIntervalTable"
             self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cpwCTDMPerf1DayIntervalEntry", ("cpwctdmperf1dayintervalentry", CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable.Cpwctdmperf1Dayintervalentry))])
+            self._child_classes = OrderedDict([("cpwCTDMPerf1DayIntervalEntry", ("cpwctdmperf1dayintervalentry", CISCOIETFPWTDMMIB.CpwCTDMPerf1DayIntervalTable.CpwCTDMPerf1DayIntervalEntry))])
             self._leafs = OrderedDict()
 
             self.cpwctdmperf1dayintervalentry = YList(self)
@@ -1104,10 +1090,10 @@ class CISCOIETFPWTDMMIB(Entity):
             self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable, [], name, value)
+            self._perform_setattr(CISCOIETFPWTDMMIB.CpwCTDMPerf1DayIntervalTable, [], name, value)
 
 
-        class Cpwctdmperf1Dayintervalentry(Entity):
+        class CpwCTDMPerf1DayIntervalEntry(Entity):
             """
             An entry is created in this table by the agent
             for every entry in the cpwCTDMTable table.
@@ -1119,7 +1105,7 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
-            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
+            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
             
             .. attribute:: cpwctdmperf1dayintervalnumber  (key)
             
@@ -1227,15 +1213,14 @@ class CISCOIETFPWTDMMIB(Entity):
             _revision = '2006-07-21'
 
             def __init__(self):
-                super(CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable.Cpwctdmperf1Dayintervalentry, self).__init__()
+                super(CISCOIETFPWTDMMIB.CpwCTDMPerf1DayIntervalTable.CpwCTDMPerf1DayIntervalEntry, self).__init__()
 
                 self.yang_name = "cpwCTDMPerf1DayIntervalEntry"
                 self.yang_parent_name = "cpwCTDMPerf1DayIntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['cpwvcindex','cpwctdmperf1dayintervalnumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
                     ('cpwctdmperf1dayintervalnumber', YLeaf(YType.uint32, 'cpwCTDMPerf1DayIntervalNumber')),
@@ -1268,7 +1253,7 @@ class CISCOIETFPWTDMMIB(Entity):
                 self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMPerf1DayIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable.Cpwctdmperf1Dayintervalentry, ['cpwvcindex', 'cpwctdmperf1dayintervalnumber', 'cpwctdmperf1dayintervalvaliddata', 'cpwctdmperf1dayintervalduration', 'cpwctdmperf1dayintervalmissingpkts', 'cpwctdmperf1dayintervalpktsreorder', 'cpwctdmperf1dayintervaljtrbfrunderruns', 'cpwctdmperf1dayintervalmisorderdropped', 'cpwctdmperf1dayintervalmalformedpkt', 'cpwctdmperf1dayintervaless', 'cpwctdmperf1dayintervalsess', 'cpwctdmperf1dayintervaluass', 'cpwctdmperf1dayintervalfc'], name, value)
+                self._perform_setattr(CISCOIETFPWTDMMIB.CpwCTDMPerf1DayIntervalTable.CpwCTDMPerf1DayIntervalEntry, ['cpwvcindex', 'cpwctdmperf1dayintervalnumber', 'cpwctdmperf1dayintervalvaliddata', 'cpwctdmperf1dayintervalduration', 'cpwctdmperf1dayintervalmissingpkts', 'cpwctdmperf1dayintervalpktsreorder', 'cpwctdmperf1dayintervaljtrbfrunderruns', 'cpwctdmperf1dayintervalmisorderdropped', 'cpwctdmperf1dayintervalmalformedpkt', 'cpwctdmperf1dayintervaless', 'cpwctdmperf1dayintervalsess', 'cpwctdmperf1dayintervaluass', 'cpwctdmperf1dayintervalfc'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOIETFPWTDMMIB()

@@ -34,7 +34,7 @@ class AddressPoolService(Entity):
     """
 
     _prefix = 'ip-daps-cfg'
-    _revision = '2015-11-09'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(AddressPoolService, self).__init__()
@@ -45,15 +45,16 @@ class AddressPoolService(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("vrfs", ("vrfs", AddressPoolService.Vrfs))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("vrfs", ("vrfs", AddressPoolService.Vrfs))])
         self._leafs = OrderedDict()
 
         self.vrfs = AddressPoolService.Vrfs()
         self.vrfs.parent = self
         self._children_name_map["vrfs"] = "vrfs"
-        self._children_yang_names.add("vrfs")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-daps-cfg:address-pool-service"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(AddressPoolService, [], name, value)
 
 
     class Vrfs(Entity):
@@ -70,7 +71,7 @@ class AddressPoolService(Entity):
         """
 
         _prefix = 'ip-daps-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(AddressPoolService.Vrfs, self).__init__()
@@ -80,8 +81,7 @@ class AddressPoolService(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vrf", ("vrf", AddressPoolService.Vrfs.Vrf))])
+            self._child_classes = OrderedDict([("vrf", ("vrf", AddressPoolService.Vrfs.Vrf))])
             self._leafs = OrderedDict()
 
             self.vrf = YList(self)
@@ -118,7 +118,7 @@ class AddressPoolService(Entity):
             """
 
             _prefix = 'ip-daps-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(AddressPoolService.Vrfs.Vrf, self).__init__()
@@ -128,8 +128,7 @@ class AddressPoolService(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['vrf_name']
-                self._child_container_classes = OrderedDict([("ipv6", ("ipv6", AddressPoolService.Vrfs.Vrf.Ipv6)), ("ipv4", ("ipv4", AddressPoolService.Vrfs.Vrf.Ipv4))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("ipv6", ("ipv6", AddressPoolService.Vrfs.Vrf.Ipv6)), ("ipv4", ("ipv4", AddressPoolService.Vrfs.Vrf.Ipv4))])
                 self._leafs = OrderedDict([
                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
                 ])
@@ -138,12 +137,10 @@ class AddressPoolService(Entity):
                 self.ipv6 = AddressPoolService.Vrfs.Vrf.Ipv6()
                 self.ipv6.parent = self
                 self._children_name_map["ipv6"] = "ipv6"
-                self._children_yang_names.add("ipv6")
 
                 self.ipv4 = AddressPoolService.Vrfs.Vrf.Ipv4()
                 self.ipv4.parent = self
                 self._children_name_map["ipv4"] = "ipv4"
-                self._children_yang_names.add("ipv4")
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-daps-cfg:address-pool-service/vrfs/%s" % self._segment_path()
 
@@ -165,7 +162,7 @@ class AddressPoolService(Entity):
                 """
 
                 _prefix = 'ip-daps-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(AddressPoolService.Vrfs.Vrf.Ipv6, self).__init__()
@@ -175,15 +172,16 @@ class AddressPoolService(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("pools", ("pools", AddressPoolService.Vrfs.Vrf.Ipv6.Pools))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("pools", ("pools", AddressPoolService.Vrfs.Vrf.Ipv6.Pools))])
                     self._leafs = OrderedDict()
 
                     self.pools = AddressPoolService.Vrfs.Vrf.Ipv6.Pools()
                     self.pools.parent = self
                     self._children_name_map["pools"] = "pools"
-                    self._children_yang_names.add("pools")
                     self._segment_path = lambda: "ipv6"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv6, [], name, value)
 
 
                 class Pools(Entity):
@@ -200,7 +198,7 @@ class AddressPoolService(Entity):
                     """
 
                     _prefix = 'ip-daps-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools, self).__init__()
@@ -210,8 +208,7 @@ class AddressPoolService(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("pool", ("pool", AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool))])
+                        self._child_classes = OrderedDict([("pool", ("pool", AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool))])
                         self._leafs = OrderedDict()
 
                         self.pool = YList(self)
@@ -269,7 +266,7 @@ class AddressPoolService(Entity):
                         """
 
                         _prefix = 'ip-daps-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool, self).__init__()
@@ -279,8 +276,7 @@ class AddressPoolService(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['ipv6_pool_name']
-                            self._child_container_classes = OrderedDict([("address-ranges", ("address_ranges", AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.AddressRanges)), ("excludes", ("excludes", AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Excludes)), ("utilization-mark", ("utilization_mark", AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.UtilizationMark)), ("prefix-ranges", ("prefix_ranges", AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.PrefixRanges)), ("networks", ("networks", AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Networks))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("address-ranges", ("address_ranges", AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.AddressRanges)), ("excludes", ("excludes", AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Excludes)), ("utilization-mark", ("utilization_mark", AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.UtilizationMark)), ("prefix-ranges", ("prefix_ranges", AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.PrefixRanges)), ("networks", ("networks", AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Networks))])
                             self._leafs = OrderedDict([
                                 ('ipv6_pool_name', YLeaf(YType.str, 'ipv6-pool-name')),
                                 ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
@@ -291,27 +287,22 @@ class AddressPoolService(Entity):
                             self.address_ranges = AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.AddressRanges()
                             self.address_ranges.parent = self
                             self._children_name_map["address_ranges"] = "address-ranges"
-                            self._children_yang_names.add("address-ranges")
 
                             self.excludes = AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Excludes()
                             self.excludes.parent = self
                             self._children_name_map["excludes"] = "excludes"
-                            self._children_yang_names.add("excludes")
 
                             self.utilization_mark = AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.UtilizationMark()
                             self.utilization_mark.parent = self
                             self._children_name_map["utilization_mark"] = "utilization-mark"
-                            self._children_yang_names.add("utilization-mark")
 
                             self.prefix_ranges = AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.PrefixRanges()
                             self.prefix_ranges.parent = self
                             self._children_name_map["prefix_ranges"] = "prefix-ranges"
-                            self._children_yang_names.add("prefix-ranges")
 
                             self.networks = AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Networks()
                             self.networks.parent = self
                             self._children_name_map["networks"] = "networks"
-                            self._children_yang_names.add("networks")
                             self._segment_path = lambda: "pool" + "[ipv6-pool-name='" + str(self.ipv6_pool_name) + "']"
 
                         def __setattr__(self, name, value):
@@ -332,7 +323,7 @@ class AddressPoolService(Entity):
                             """
 
                             _prefix = 'ip-daps-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.AddressRanges, self).__init__()
@@ -342,8 +333,7 @@ class AddressPoolService(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("address-range", ("address_range", AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.AddressRanges.AddressRange))])
+                                self._child_classes = OrderedDict([("address-range", ("address_range", AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.AddressRanges.AddressRange))])
                                 self._leafs = OrderedDict()
 
                                 self.address_range = YList(self)
@@ -375,7 +365,7 @@ class AddressPoolService(Entity):
                                 	Blocked flag
                                 	**type**\: int
                                 
-                                	**range:** \-2147483648..2147483647
+                                	**range:** 0..4294967295
                                 
                                 .. attribute:: end_address
                                 
@@ -397,7 +387,7 @@ class AddressPoolService(Entity):
                                 """
 
                                 _prefix = 'ip-daps-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.AddressRanges.AddressRange, self).__init__()
@@ -407,11 +397,10 @@ class AddressPoolService(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['start_address']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('start_address', YLeaf(YType.str, 'start-address')),
-                                        ('blocked', YLeaf(YType.int32, 'blocked')),
+                                        ('blocked', YLeaf(YType.uint32, 'blocked')),
                                         ('end_address', YLeaf(YType.str, 'end-address')),
                                     ])
                                     self.start_address = None
@@ -437,7 +426,7 @@ class AddressPoolService(Entity):
                             """
 
                             _prefix = 'ip-daps-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Excludes, self).__init__()
@@ -447,8 +436,7 @@ class AddressPoolService(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("exclude", ("exclude", AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Excludes.Exclude))])
+                                self._child_classes = OrderedDict([("exclude", ("exclude", AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Excludes.Exclude))])
                                 self._leafs = OrderedDict()
 
                                 self.exclude = YList(self)
@@ -495,7 +483,7 @@ class AddressPoolService(Entity):
                                 """
 
                                 _prefix = 'ip-daps-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Excludes.Exclude, self).__init__()
@@ -505,8 +493,7 @@ class AddressPoolService(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['start_address']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('start_address', YLeaf(YType.str, 'start-address')),
                                         ('end_address', YLeaf(YType.str, 'end-address')),
@@ -546,7 +533,7 @@ class AddressPoolService(Entity):
                             """
 
                             _prefix = 'ip-daps-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.UtilizationMark, self).__init__()
@@ -556,8 +543,7 @@ class AddressPoolService(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('high_mark', YLeaf(YType.uint32, 'high-mark')),
                                     ('low_mark', YLeaf(YType.uint32, 'low-mark')),
@@ -584,7 +570,7 @@ class AddressPoolService(Entity):
                             """
 
                             _prefix = 'ip-daps-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.PrefixRanges, self).__init__()
@@ -594,8 +580,7 @@ class AddressPoolService(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("prefix-range", ("prefix_range", AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.PrefixRanges.PrefixRange))])
+                                self._child_classes = OrderedDict([("prefix-range", ("prefix_range", AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.PrefixRanges.PrefixRange))])
                                 self._leafs = OrderedDict()
 
                                 self.prefix_range = YList(self)
@@ -627,7 +612,7 @@ class AddressPoolService(Entity):
                                 	Blocked flag
                                 	**type**\: int
                                 
-                                	**range:** \-2147483648..2147483647
+                                	**range:** 0..4294967295
                                 
                                 .. attribute:: end_prefix
                                 
@@ -649,7 +634,7 @@ class AddressPoolService(Entity):
                                 """
 
                                 _prefix = 'ip-daps-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.PrefixRanges.PrefixRange, self).__init__()
@@ -659,11 +644,10 @@ class AddressPoolService(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['start_prefix']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('start_prefix', YLeaf(YType.str, 'start-prefix')),
-                                        ('blocked', YLeaf(YType.int32, 'blocked')),
+                                        ('blocked', YLeaf(YType.uint32, 'blocked')),
                                         ('end_prefix', YLeaf(YType.str, 'end-prefix')),
                                     ])
                                     self.start_prefix = None
@@ -689,7 +673,7 @@ class AddressPoolService(Entity):
                             """
 
                             _prefix = 'ip-daps-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Networks, self).__init__()
@@ -699,8 +683,7 @@ class AddressPoolService(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("network", ("network", AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Networks.Network))])
+                                self._child_classes = OrderedDict([("network", ("network", AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Networks.Network))])
                                 self._leafs = OrderedDict()
 
                                 self.network = YList(self)
@@ -732,7 +715,7 @@ class AddressPoolService(Entity):
                                 	Blocked flag
                                 	**type**\: int
                                 
-                                	**range:** \-2147483648..2147483647
+                                	**range:** 0..4294967295
                                 
                                 .. attribute:: prefix_length
                                 
@@ -748,7 +731,7 @@ class AddressPoolService(Entity):
                                 """
 
                                 _prefix = 'ip-daps-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Networks.Network, self).__init__()
@@ -758,11 +741,10 @@ class AddressPoolService(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['prefix']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('prefix', YLeaf(YType.str, 'prefix')),
-                                        ('blocked', YLeaf(YType.int32, 'blocked')),
+                                        ('blocked', YLeaf(YType.uint32, 'blocked')),
                                         ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
                                     ])
                                     self.prefix = None
@@ -788,7 +770,7 @@ class AddressPoolService(Entity):
                 """
 
                 _prefix = 'ip-daps-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(AddressPoolService.Vrfs.Vrf.Ipv4, self).__init__()
@@ -798,15 +780,16 @@ class AddressPoolService(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("pools", ("pools", AddressPoolService.Vrfs.Vrf.Ipv4.Pools))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("pools", ("pools", AddressPoolService.Vrfs.Vrf.Ipv4.Pools))])
                     self._leafs = OrderedDict()
 
                     self.pools = AddressPoolService.Vrfs.Vrf.Ipv4.Pools()
                     self.pools.parent = self
                     self._children_name_map["pools"] = "pools"
-                    self._children_yang_names.add("pools")
                     self._segment_path = lambda: "ipv4"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv4, [], name, value)
 
 
                 class Pools(Entity):
@@ -823,7 +806,7 @@ class AddressPoolService(Entity):
                     """
 
                     _prefix = 'ip-daps-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools, self).__init__()
@@ -833,8 +816,7 @@ class AddressPoolService(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("pool", ("pool", AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool))])
+                        self._child_classes = OrderedDict([("pool", ("pool", AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool))])
                         self._leafs = OrderedDict()
 
                         self.pool = YList(self)
@@ -880,7 +862,7 @@ class AddressPoolService(Entity):
                         """
 
                         _prefix = 'ip-daps-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool, self).__init__()
@@ -890,8 +872,7 @@ class AddressPoolService(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['pool_name']
-                            self._child_container_classes = OrderedDict([("address-ranges", ("address_ranges", AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.AddressRanges)), ("excludes", ("excludes", AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Excludes)), ("utilization-mark", ("utilization_mark", AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.UtilizationMark)), ("networks", ("networks", AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Networks))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("address-ranges", ("address_ranges", AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.AddressRanges)), ("excludes", ("excludes", AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Excludes)), ("utilization-mark", ("utilization_mark", AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.UtilizationMark)), ("networks", ("networks", AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Networks))])
                             self._leafs = OrderedDict([
                                 ('pool_name', YLeaf(YType.str, 'pool-name')),
                             ])
@@ -900,22 +881,18 @@ class AddressPoolService(Entity):
                             self.address_ranges = AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.AddressRanges()
                             self.address_ranges.parent = self
                             self._children_name_map["address_ranges"] = "address-ranges"
-                            self._children_yang_names.add("address-ranges")
 
                             self.excludes = AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Excludes()
                             self.excludes.parent = self
                             self._children_name_map["excludes"] = "excludes"
-                            self._children_yang_names.add("excludes")
 
                             self.utilization_mark = AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.UtilizationMark()
                             self.utilization_mark.parent = self
                             self._children_name_map["utilization_mark"] = "utilization-mark"
-                            self._children_yang_names.add("utilization-mark")
 
                             self.networks = AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Networks()
                             self.networks.parent = self
                             self._children_name_map["networks"] = "networks"
-                            self._children_yang_names.add("networks")
                             self._segment_path = lambda: "pool" + "[pool-name='" + str(self.pool_name) + "']"
 
                         def __setattr__(self, name, value):
@@ -936,7 +913,7 @@ class AddressPoolService(Entity):
                             """
 
                             _prefix = 'ip-daps-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.AddressRanges, self).__init__()
@@ -946,8 +923,7 @@ class AddressPoolService(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("address-range", ("address_range", AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.AddressRanges.AddressRange))])
+                                self._child_classes = OrderedDict([("address-range", ("address_range", AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.AddressRanges.AddressRange))])
                                 self._leafs = OrderedDict()
 
                                 self.address_range = YList(self)
@@ -988,14 +964,14 @@ class AddressPoolService(Entity):
                                 	Blocked flag
                                 	**type**\: int
                                 
-                                	**range:** \-2147483648..2147483647
+                                	**range:** 0..4294967295
                                 
                                 
 
                                 """
 
                                 _prefix = 'ip-daps-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.AddressRanges.AddressRange, self).__init__()
@@ -1005,12 +981,11 @@ class AddressPoolService(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['start_address']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('start_address', YLeaf(YType.str, 'start-address')),
                                         ('end_address', YLeaf(YType.str, 'end-address')),
-                                        ('blocked', YLeaf(YType.int32, 'blocked')),
+                                        ('blocked', YLeaf(YType.uint32, 'blocked')),
                                     ])
                                     self.start_address = None
                                     self.end_address = None
@@ -1035,7 +1010,7 @@ class AddressPoolService(Entity):
                             """
 
                             _prefix = 'ip-daps-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Excludes, self).__init__()
@@ -1045,8 +1020,7 @@ class AddressPoolService(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("exclude", ("exclude", AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Excludes.Exclude))])
+                                self._child_classes = OrderedDict([("exclude", ("exclude", AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Excludes.Exclude))])
                                 self._leafs = OrderedDict()
 
                                 self.exclude = YList(self)
@@ -1087,7 +1061,7 @@ class AddressPoolService(Entity):
                                 """
 
                                 _prefix = 'ip-daps-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Excludes.Exclude, self).__init__()
@@ -1097,8 +1071,7 @@ class AddressPoolService(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['start_address']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('start_address', YLeaf(YType.str, 'start-address')),
                                         ('end_address', YLeaf(YType.str, 'end-address')),
@@ -1138,7 +1111,7 @@ class AddressPoolService(Entity):
                             """
 
                             _prefix = 'ip-daps-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.UtilizationMark, self).__init__()
@@ -1148,8 +1121,7 @@ class AddressPoolService(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('high', YLeaf(YType.uint32, 'high')),
                                     ('low', YLeaf(YType.uint32, 'low')),
@@ -1176,7 +1148,7 @@ class AddressPoolService(Entity):
                             """
 
                             _prefix = 'ip-daps-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Networks, self).__init__()
@@ -1186,8 +1158,7 @@ class AddressPoolService(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([("network", ("network", AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Networks.Network))])
+                                self._child_classes = OrderedDict([("network", ("network", AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Networks.Network))])
                                 self._leafs = OrderedDict()
 
                                 self.network = YList(self)
@@ -1219,14 +1190,14 @@ class AddressPoolService(Entity):
                                 	Blocked flag
                                 	**type**\: int
                                 
-                                	**range:** \-2147483648..2147483647
+                                	**range:** 0..4294967295
                                 
                                 .. attribute:: prefix_length
                                 
                                 	Subnet Length for IPv4 subnet
                                 	**type**\: int
                                 
-                                	**range:** \-2147483648..2147483647
+                                	**range:** 0..4294967295
                                 
                                 	**mandatory**\: True
                                 
@@ -1242,7 +1213,7 @@ class AddressPoolService(Entity):
                                 """
 
                                 _prefix = 'ip-daps-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Networks.Network, self).__init__()
@@ -1252,12 +1223,11 @@ class AddressPoolService(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = ['ipv4_prefix']
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
-                                        ('blocked', YLeaf(YType.int32, 'blocked')),
-                                        ('prefix_length', YLeaf(YType.int32, 'prefix-length')),
+                                        ('blocked', YLeaf(YType.uint32, 'blocked')),
+                                        ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
                                         ('default_router', YLeaf(YType.str, 'default-router')),
                                     ])
                                     self.ipv4_prefix = None

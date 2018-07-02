@@ -348,15 +348,16 @@ class Ppp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("nodes", ("nodes", Ppp.Nodes))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("nodes", ("nodes", Ppp.Nodes))])
         self._leafs = OrderedDict()
 
         self.nodes = Ppp.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-ppp-ma-oper:ppp"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Ppp, [], name, value)
 
 
     class Nodes(Entity):
@@ -383,8 +384,7 @@ class Ppp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", Ppp.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", Ppp.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -456,8 +456,7 @@ class Ppp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("statistics", ("statistics", Ppp.Nodes.Node.Statistics)), ("node-interfaces", ("node_interfaces", Ppp.Nodes.Node.NodeInterfaces)), ("sso-alerts", ("sso_alerts", Ppp.Nodes.Node.SsoAlerts)), ("node-interface-statistics", ("node_interface_statistics", Ppp.Nodes.Node.NodeInterfaceStatistics)), ("sso-summary", ("sso_summary", Ppp.Nodes.Node.SsoSummary)), ("sso-groups", ("sso_groups", Ppp.Nodes.Node.SsoGroups)), ("summary", ("summary", Ppp.Nodes.Node.Summary))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("statistics", ("statistics", Ppp.Nodes.Node.Statistics)), ("node-interfaces", ("node_interfaces", Ppp.Nodes.Node.NodeInterfaces)), ("sso-alerts", ("sso_alerts", Ppp.Nodes.Node.SsoAlerts)), ("node-interface-statistics", ("node_interface_statistics", Ppp.Nodes.Node.NodeInterfaceStatistics)), ("sso-summary", ("sso_summary", Ppp.Nodes.Node.SsoSummary)), ("sso-groups", ("sso_groups", Ppp.Nodes.Node.SsoGroups)), ("summary", ("summary", Ppp.Nodes.Node.Summary))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -466,37 +465,30 @@ class Ppp(Entity):
                 self.statistics = Ppp.Nodes.Node.Statistics()
                 self.statistics.parent = self
                 self._children_name_map["statistics"] = "statistics"
-                self._children_yang_names.add("statistics")
 
                 self.node_interfaces = Ppp.Nodes.Node.NodeInterfaces()
                 self.node_interfaces.parent = self
                 self._children_name_map["node_interfaces"] = "node-interfaces"
-                self._children_yang_names.add("node-interfaces")
 
                 self.sso_alerts = Ppp.Nodes.Node.SsoAlerts()
                 self.sso_alerts.parent = self
                 self._children_name_map["sso_alerts"] = "sso-alerts"
-                self._children_yang_names.add("sso-alerts")
 
                 self.node_interface_statistics = Ppp.Nodes.Node.NodeInterfaceStatistics()
                 self.node_interface_statistics.parent = self
                 self._children_name_map["node_interface_statistics"] = "node-interface-statistics"
-                self._children_yang_names.add("node-interface-statistics")
 
                 self.sso_summary = Ppp.Nodes.Node.SsoSummary()
                 self.sso_summary.parent = self
                 self._children_name_map["sso_summary"] = "sso-summary"
-                self._children_yang_names.add("sso-summary")
 
                 self.sso_groups = Ppp.Nodes.Node.SsoGroups()
                 self.sso_groups.parent = self
                 self._children_name_map["sso_groups"] = "sso-groups"
-                self._children_yang_names.add("sso-groups")
 
                 self.summary = Ppp.Nodes.Node.Summary()
                 self.summary.parent = self
                 self._children_name_map["summary"] = "summary"
-                self._children_yang_names.add("summary")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/%s" % self._segment_path()
 
@@ -538,19 +530,16 @@ class Ppp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("lcp-statistics", ("lcp_statistics", Ppp.Nodes.Node.Statistics.LcpStatistics)), ("authentication-statistics", ("authentication_statistics", Ppp.Nodes.Node.Statistics.AuthenticationStatistics))])
-                    self._child_list_classes = OrderedDict([("ncp-statistics-array", ("ncp_statistics_array", Ppp.Nodes.Node.Statistics.NcpStatisticsArray))])
+                    self._child_classes = OrderedDict([("lcp-statistics", ("lcp_statistics", Ppp.Nodes.Node.Statistics.LcpStatistics)), ("authentication-statistics", ("authentication_statistics", Ppp.Nodes.Node.Statistics.AuthenticationStatistics)), ("ncp-statistics-array", ("ncp_statistics_array", Ppp.Nodes.Node.Statistics.NcpStatisticsArray))])
                     self._leafs = OrderedDict()
 
                     self.lcp_statistics = Ppp.Nodes.Node.Statistics.LcpStatistics()
                     self.lcp_statistics.parent = self
                     self._children_name_map["lcp_statistics"] = "lcp-statistics"
-                    self._children_yang_names.add("lcp-statistics")
 
                     self.authentication_statistics = Ppp.Nodes.Node.Statistics.AuthenticationStatistics()
                     self.authentication_statistics.parent = self
                     self._children_name_map["authentication_statistics"] = "authentication-statistics"
-                    self._children_yang_names.add("authentication-statistics")
 
                     self.ncp_statistics_array = YList(self)
                     self._segment_path = lambda: "statistics"
@@ -746,8 +735,7 @@ class Ppp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('conf_req_sent', YLeaf(YType.uint64, 'conf-req-sent')),
                             ('conf_req_rcvd', YLeaf(YType.uint64, 'conf-req-rcvd')),
@@ -928,8 +916,7 @@ class Ppp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('pap_req_sent', YLeaf(YType.uint64, 'pap-req-sent')),
                             ('pap_req_rcvd', YLeaf(YType.uint64, 'pap-req-rcvd')),
@@ -1090,8 +1077,7 @@ class Ppp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('ncp_identifier', YLeaf(YType.enumeration, 'ncp-identifier')),
                             ('conf_req_sent', YLeaf(YType.uint64, 'conf-req-sent')),
@@ -1154,8 +1140,7 @@ class Ppp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("node-interface", ("node_interface", Ppp.Nodes.Node.NodeInterfaces.NodeInterface))])
+                    self._child_classes = OrderedDict([("node-interface", ("node_interface", Ppp.Nodes.Node.NodeInterfaces.NodeInterface))])
                     self._leafs = OrderedDict()
 
                     self.node_interface = YList(self)
@@ -1381,8 +1366,7 @@ class Ppp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface']
-                        self._child_container_classes = OrderedDict([("mp-info", ("mp_info", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo)), ("configured-timeout", ("configured_timeout", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.ConfiguredTimeout)), ("auth-info", ("auth_info", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.AuthInfo))])
-                        self._child_list_classes = OrderedDict([("ncp-info-array", ("ncp_info_array", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray))])
+                        self._child_classes = OrderedDict([("mp-info", ("mp_info", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo)), ("configured-timeout", ("configured_timeout", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.ConfiguredTimeout)), ("auth-info", ("auth_info", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.AuthInfo)), ("ncp-info-array", ("ncp_info_array", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray))])
                         self._leafs = OrderedDict([
                             ('interface', YLeaf(YType.str, 'interface')),
                             ('parent_state', YLeaf(YType.uint32, 'parent-state')),
@@ -1445,17 +1429,14 @@ class Ppp(Entity):
                         self.mp_info = Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo()
                         self.mp_info.parent = self
                         self._children_name_map["mp_info"] = "mp-info"
-                        self._children_yang_names.add("mp-info")
 
                         self.configured_timeout = Ppp.Nodes.Node.NodeInterfaces.NodeInterface.ConfiguredTimeout()
                         self.configured_timeout.parent = self
                         self._children_name_map["configured_timeout"] = "configured-timeout"
-                        self._children_yang_names.add("configured-timeout")
 
                         self.auth_info = Ppp.Nodes.Node.NodeInterfaces.NodeInterface.AuthInfo()
                         self.auth_info.parent = self
                         self._children_name_map["auth_info"] = "auth-info"
-                        self._children_yang_names.add("auth-info")
 
                         self.ncp_info_array = YList(self)
                         self._segment_path = lambda: "node-interface" + "[interface='" + str(self.interface) + "']"
@@ -1538,8 +1519,7 @@ class Ppp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("mp-member-info-array", ("mp_member_info_array", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo.MpMemberInfoArray))])
+                            self._child_classes = OrderedDict([("mp-member-info-array", ("mp_member_info_array", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo.MpMemberInfoArray))])
                             self._leafs = OrderedDict([
                                 ('is_mp_bundle', YLeaf(YType.boolean, 'is-mp-bundle')),
                                 ('mp_bundle_interface', YLeaf(YType.str, 'mp-bundle-interface')),
@@ -1597,8 +1577,7 @@ class Ppp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('interface', YLeaf(YType.str, 'interface')),
                                     ('state', YLeaf(YType.enumeration, 'state')),
@@ -1648,8 +1627,7 @@ class Ppp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('minutes', YLeaf(YType.uint32, 'minutes')),
                                 ('seconds', YLeaf(YType.uint8, 'seconds')),
@@ -1725,8 +1703,7 @@ class Ppp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_authenticated', YLeaf(YType.boolean, 'is-authenticated')),
                                 ('is_sso_authenticated', YLeaf(YType.boolean, 'is-sso-authenticated')),
@@ -1795,8 +1772,7 @@ class Ppp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("ncp-info", ("ncp_info", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("ncp-info", ("ncp_info", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo))])
                             self._leafs = OrderedDict([
                                 ('ncp_state', YLeaf(YType.enumeration, 'ncp-state')),
                                 ('ncpsso_state', YLeaf(YType.enumeration, 'ncpsso-state')),
@@ -1811,7 +1787,6 @@ class Ppp(Entity):
                             self.ncp_info = Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo()
                             self.ncp_info.parent = self
                             self._children_name_map["ncp_info"] = "ncp-info"
-                            self._children_yang_names.add("ncp-info")
                             self._segment_path = lambda: "ncp-info-array"
 
                         def __setattr__(self, name, value):
@@ -1835,7 +1810,7 @@ class Ppp(Entity):
                             .. attribute:: ipv6cp_info
                             
                             	Info for IPv6CP
-                            	**type**\:  :py:class:`Ipv6CpInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.Ipv6CpInfo>`
+                            	**type**\:  :py:class:`Ipv6cpInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.Ipv6cpInfo>`
                             
                             .. attribute:: type
                             
@@ -1857,8 +1832,7 @@ class Ppp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("ipcp-info", ("ipcp_info", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo)), ("ipcpiw-info", ("ipcpiw_info", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpiwInfo)), ("ipv6cp-info", ("ipv6cp_info", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.Ipv6CpInfo))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("ipcp-info", ("ipcp_info", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo)), ("ipcpiw-info", ("ipcpiw_info", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpiwInfo)), ("ipv6cp-info", ("ipv6cp_info", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.Ipv6cpInfo))])
                                 self._leafs = OrderedDict([
                                     ('type', YLeaf(YType.enumeration, 'type')),
                                 ])
@@ -1867,17 +1841,14 @@ class Ppp(Entity):
                                 self.ipcp_info = Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo()
                                 self.ipcp_info.parent = self
                                 self._children_name_map["ipcp_info"] = "ipcp-info"
-                                self._children_yang_names.add("ipcp-info")
 
                                 self.ipcpiw_info = Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpiwInfo()
                                 self.ipcpiw_info.parent = self
                                 self._children_name_map["ipcpiw_info"] = "ipcpiw-info"
-                                self._children_yang_names.add("ipcpiw-info")
 
-                                self.ipv6cp_info = Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.Ipv6CpInfo()
+                                self.ipv6cp_info = Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.Ipv6cpInfo()
                                 self.ipv6cp_info.parent = self
                                 self._children_name_map["ipv6cp_info"] = "ipv6cp-info"
-                                self._children_yang_names.add("ipv6cp-info")
                                 self._segment_path = lambda: "ncp-info"
 
                             def __setattr__(self, name, value):
@@ -1967,8 +1938,7 @@ class Ppp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("local-iphc-options", ("local_iphc_options", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.LocalIphcOptions)), ("peer-iphc-options", ("peer_iphc_options", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.PeerIphcOptions))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("local-iphc-options", ("local_iphc_options", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.LocalIphcOptions)), ("peer-iphc-options", ("peer_iphc_options", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.PeerIphcOptions))])
                                     self._leafs = OrderedDict([
                                         ('local_address', YLeaf(YType.str, 'local-address')),
                                         ('peer_address', YLeaf(YType.str, 'peer-address')),
@@ -1991,12 +1961,10 @@ class Ppp(Entity):
                                     self.local_iphc_options = Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.LocalIphcOptions()
                                     self.local_iphc_options.parent = self
                                     self._children_name_map["local_iphc_options"] = "local-iphc-options"
-                                    self._children_yang_names.add("local-iphc-options")
 
                                     self.peer_iphc_options = Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.PeerIphcOptions()
                                     self.peer_iphc_options.parent = self
                                     self._children_name_map["peer_iphc_options"] = "peer-iphc-options"
-                                    self._children_yang_names.add("peer-iphc-options")
                                     self._segment_path = lambda: "ipcp-info"
 
                                 def __setattr__(self, name, value):
@@ -2072,8 +2040,7 @@ class Ppp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('compression_type', YLeaf(YType.enumeration, 'compression-type')),
                                             ('tcp_space', YLeaf(YType.uint16, 'tcp-space')),
@@ -2167,8 +2134,7 @@ class Ppp(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('compression_type', YLeaf(YType.enumeration, 'compression-type')),
                                             ('tcp_space', YLeaf(YType.uint16, 'tcp-space')),
@@ -2226,8 +2192,7 @@ class Ppp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('local_address', YLeaf(YType.str, 'local-address')),
                                         ('peer_address', YLeaf(YType.str, 'peer-address')),
@@ -2240,7 +2205,7 @@ class Ppp(Entity):
                                     self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpiwInfo, ['local_address', 'peer_address'], name, value)
 
 
-                            class Ipv6CpInfo(Entity):
+                            class Ipv6cpInfo(Entity):
                                 """
                                 Info for IPv6CP
                                 
@@ -2266,15 +2231,14 @@ class Ppp(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.Ipv6CpInfo, self).__init__()
+                                    super(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.Ipv6cpInfo, self).__init__()
 
                                     self.yang_name = "ipv6cp-info"
                                     self.yang_parent_name = "ncp-info"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('local_address', YLeaf(YType.str, 'local-address')),
                                         ('peer_address', YLeaf(YType.str, 'peer-address')),
@@ -2284,7 +2248,7 @@ class Ppp(Entity):
                                     self._segment_path = lambda: "ipv6cp-info"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.Ipv6CpInfo, ['local_address', 'peer_address'], name, value)
+                                    self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.Ipv6cpInfo, ['local_address', 'peer_address'], name, value)
 
 
             class SsoAlerts(Entity):
@@ -2311,8 +2275,7 @@ class Ppp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("sso-alert", ("sso_alert", Ppp.Nodes.Node.SsoAlerts.SsoAlert))])
+                    self._child_classes = OrderedDict([("sso-alert", ("sso_alert", Ppp.Nodes.Node.SsoAlerts.SsoAlert))])
                     self._leafs = OrderedDict()
 
                     self.sso_alert = YList(self)
@@ -2368,8 +2331,7 @@ class Ppp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface']
-                        self._child_container_classes = OrderedDict([("lcp-error", ("lcp_error", Ppp.Nodes.Node.SsoAlerts.SsoAlert.LcpError)), ("of-us-auth-error", ("of_us_auth_error", Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfUsAuthError)), ("of-peer-auth-error", ("of_peer_auth_error", Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfPeerAuthError)), ("ipcp-error", ("ipcp_error", Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("lcp-error", ("lcp_error", Ppp.Nodes.Node.SsoAlerts.SsoAlert.LcpError)), ("of-us-auth-error", ("of_us_auth_error", Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfUsAuthError)), ("of-peer-auth-error", ("of_peer_auth_error", Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfPeerAuthError)), ("ipcp-error", ("ipcp_error", Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError))])
                         self._leafs = OrderedDict([
                             ('interface', YLeaf(YType.str, 'interface')),
                         ])
@@ -2378,22 +2340,18 @@ class Ppp(Entity):
                         self.lcp_error = Ppp.Nodes.Node.SsoAlerts.SsoAlert.LcpError()
                         self.lcp_error.parent = self
                         self._children_name_map["lcp_error"] = "lcp-error"
-                        self._children_yang_names.add("lcp-error")
 
                         self.of_us_auth_error = Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfUsAuthError()
                         self.of_us_auth_error.parent = self
                         self._children_name_map["of_us_auth_error"] = "of-us-auth-error"
-                        self._children_yang_names.add("of-us-auth-error")
 
                         self.of_peer_auth_error = Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfPeerAuthError()
                         self.of_peer_auth_error.parent = self
                         self._children_name_map["of_peer_auth_error"] = "of-peer-auth-error"
-                        self._children_yang_names.add("of-peer-auth-error")
 
                         self.ipcp_error = Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError()
                         self.ipcp_error.parent = self
                         self._children_name_map["ipcp_error"] = "ipcp-error"
-                        self._children_yang_names.add("ipcp-error")
                         self._segment_path = lambda: "sso-alert" + "[interface='" + str(self.interface) + "']"
 
                     def __setattr__(self, name, value):
@@ -2438,8 +2396,7 @@ class Ppp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_error', YLeaf(YType.boolean, 'is-error')),
                                 ('error', YLeaf(YType.uint32, 'error')),
@@ -2492,8 +2449,7 @@ class Ppp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_error', YLeaf(YType.boolean, 'is-error')),
                                 ('error', YLeaf(YType.uint32, 'error')),
@@ -2546,8 +2502,7 @@ class Ppp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_error', YLeaf(YType.boolean, 'is-error')),
                                 ('error', YLeaf(YType.uint32, 'error')),
@@ -2600,8 +2555,7 @@ class Ppp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('is_error', YLeaf(YType.boolean, 'is-error')),
                                 ('error', YLeaf(YType.uint32, 'error')),
@@ -2640,8 +2594,7 @@ class Ppp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("node-interface-statistic", ("node_interface_statistic", Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic))])
+                    self._child_classes = OrderedDict([("node-interface-statistic", ("node_interface_statistic", Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic))])
                     self._leafs = OrderedDict()
 
                     self.node_interface_statistic = YList(self)
@@ -2693,8 +2646,7 @@ class Ppp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_container_classes = OrderedDict([("lcp-statistics", ("lcp_statistics", Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics)), ("authentication-statistics", ("authentication_statistics", Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics))])
-                        self._child_list_classes = OrderedDict([("ncp-statistics-array", ("ncp_statistics_array", Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.NcpStatisticsArray))])
+                        self._child_classes = OrderedDict([("lcp-statistics", ("lcp_statistics", Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics)), ("authentication-statistics", ("authentication_statistics", Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics)), ("ncp-statistics-array", ("ncp_statistics_array", Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.NcpStatisticsArray))])
                         self._leafs = OrderedDict([
                             ('interface_name', YLeaf(YType.str, 'interface-name')),
                         ])
@@ -2703,12 +2655,10 @@ class Ppp(Entity):
                         self.lcp_statistics = Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics()
                         self.lcp_statistics.parent = self
                         self._children_name_map["lcp_statistics"] = "lcp-statistics"
-                        self._children_yang_names.add("lcp-statistics")
 
                         self.authentication_statistics = Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics()
                         self.authentication_statistics.parent = self
                         self._children_name_map["authentication_statistics"] = "authentication-statistics"
-                        self._children_yang_names.add("authentication-statistics")
 
                         self.ncp_statistics_array = YList(self)
                         self._segment_path = lambda: "node-interface-statistic" + "[interface-name='" + str(self.interface_name) + "']"
@@ -2848,8 +2798,7 @@ class Ppp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('conf_req_sent', YLeaf(YType.uint16, 'conf-req-sent')),
                                 ('conf_req_rcvd', YLeaf(YType.uint16, 'conf-req-rcvd')),
@@ -3014,8 +2963,7 @@ class Ppp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('pap_req_sent', YLeaf(YType.uint16, 'pap-req-sent')),
                                 ('pap_req_rcvd', YLeaf(YType.uint16, 'pap-req-rcvd')),
@@ -3134,8 +3082,7 @@ class Ppp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('ncp_identifier', YLeaf(YType.enumeration, 'ncp-identifier')),
                                 ('conf_req_sent', YLeaf(YType.uint16, 'conf-req-sent')),
@@ -3201,30 +3148,28 @@ class Ppp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("lcp-states", ("lcp_states", Ppp.Nodes.Node.SsoSummary.LcpStates)), ("of-us-auth-states", ("of_us_auth_states", Ppp.Nodes.Node.SsoSummary.OfUsAuthStates)), ("of-peer-auth-states", ("of_peer_auth_states", Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates)), ("ipcp-states", ("ipcp_states", Ppp.Nodes.Node.SsoSummary.IpcpStates))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("lcp-states", ("lcp_states", Ppp.Nodes.Node.SsoSummary.LcpStates)), ("of-us-auth-states", ("of_us_auth_states", Ppp.Nodes.Node.SsoSummary.OfUsAuthStates)), ("of-peer-auth-states", ("of_peer_auth_states", Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates)), ("ipcp-states", ("ipcp_states", Ppp.Nodes.Node.SsoSummary.IpcpStates))])
                     self._leafs = OrderedDict()
 
                     self.lcp_states = Ppp.Nodes.Node.SsoSummary.LcpStates()
                     self.lcp_states.parent = self
                     self._children_name_map["lcp_states"] = "lcp-states"
-                    self._children_yang_names.add("lcp-states")
 
                     self.of_us_auth_states = Ppp.Nodes.Node.SsoSummary.OfUsAuthStates()
                     self.of_us_auth_states.parent = self
                     self._children_name_map["of_us_auth_states"] = "of-us-auth-states"
-                    self._children_yang_names.add("of-us-auth-states")
 
                     self.of_peer_auth_states = Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates()
                     self.of_peer_auth_states.parent = self
                     self._children_name_map["of_peer_auth_states"] = "of-peer-auth-states"
-                    self._children_yang_names.add("of-peer-auth-states")
 
                     self.ipcp_states = Ppp.Nodes.Node.SsoSummary.IpcpStates()
                     self.ipcp_states.parent = self
                     self._children_name_map["ipcp_states"] = "ipcp-states"
-                    self._children_yang_names.add("ipcp-states")
                     self._segment_path = lambda: "sso-summary"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ppp.Nodes.Node.SsoSummary, [], name, value)
 
 
                 class LcpStates(Entity):
@@ -3260,8 +3205,7 @@ class Ppp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('total', YLeaf(YType.uint16, 'total')),
                             ('count', YLeafList(YType.uint16, 'count')),
@@ -3307,8 +3251,7 @@ class Ppp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('total', YLeaf(YType.uint16, 'total')),
                             ('count', YLeafList(YType.uint16, 'count')),
@@ -3354,8 +3297,7 @@ class Ppp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('total', YLeaf(YType.uint16, 'total')),
                             ('count', YLeafList(YType.uint16, 'count')),
@@ -3401,8 +3343,7 @@ class Ppp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('total', YLeaf(YType.uint16, 'total')),
                             ('count', YLeafList(YType.uint16, 'count')),
@@ -3439,8 +3380,7 @@ class Ppp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("sso-group", ("sso_group", Ppp.Nodes.Node.SsoGroups.SsoGroup))])
+                    self._child_classes = OrderedDict([("sso-group", ("sso_group", Ppp.Nodes.Node.SsoGroups.SsoGroup))])
                     self._leafs = OrderedDict()
 
                     self.sso_group = YList(self)
@@ -3481,8 +3421,7 @@ class Ppp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['group_id']
-                        self._child_container_classes = OrderedDict([("sso-states", ("sso_states", Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("sso-states", ("sso_states", Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates))])
                         self._leafs = OrderedDict([
                             ('group_id', YLeaf(YType.uint32, 'group-id')),
                         ])
@@ -3491,7 +3430,6 @@ class Ppp(Entity):
                         self.sso_states = Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates()
                         self.sso_states.parent = self
                         self._children_name_map["sso_states"] = "sso-states"
-                        self._children_yang_names.add("sso-states")
                         self._segment_path = lambda: "sso-group" + "[group-id='" + str(self.group_id) + "']"
 
                     def __setattr__(self, name, value):
@@ -3522,8 +3460,7 @@ class Ppp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([("sso-state", ("sso_state", Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState))])
+                            self._child_classes = OrderedDict([("sso-state", ("sso_state", Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState))])
                             self._leafs = OrderedDict()
 
                             self.sso_state = YList(self)
@@ -3594,8 +3531,7 @@ class Ppp(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['session_id']
-                                self._child_container_classes = OrderedDict([("lcp-state", ("lcp_state", Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.LcpState)), ("of-us-auth-state", ("of_us_auth_state", Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfUsAuthState)), ("of-peer-auth-state", ("of_peer_auth_state", Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfPeerAuthState)), ("ipcp-state", ("ipcp_state", Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("lcp-state", ("lcp_state", Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.LcpState)), ("of-us-auth-state", ("of_us_auth_state", Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfUsAuthState)), ("of-peer-auth-state", ("of_peer_auth_state", Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfPeerAuthState)), ("ipcp-state", ("ipcp_state", Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState))])
                                 self._leafs = OrderedDict([
                                     ('session_id', YLeaf(YType.uint32, 'session-id')),
                                     ('session_id_xr', YLeaf(YType.uint32, 'session-id-xr')),
@@ -3608,22 +3544,18 @@ class Ppp(Entity):
                                 self.lcp_state = Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.LcpState()
                                 self.lcp_state.parent = self
                                 self._children_name_map["lcp_state"] = "lcp-state"
-                                self._children_yang_names.add("lcp-state")
 
                                 self.of_us_auth_state = Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfUsAuthState()
                                 self.of_us_auth_state.parent = self
                                 self._children_name_map["of_us_auth_state"] = "of-us-auth-state"
-                                self._children_yang_names.add("of-us-auth-state")
 
                                 self.of_peer_auth_state = Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfPeerAuthState()
                                 self.of_peer_auth_state.parent = self
                                 self._children_name_map["of_peer_auth_state"] = "of-peer-auth-state"
-                                self._children_yang_names.add("of-peer-auth-state")
 
                                 self.ipcp_state = Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState()
                                 self.ipcp_state.parent = self
                                 self._children_name_map["ipcp_state"] = "ipcp-state"
-                                self._children_yang_names.add("ipcp-state")
                                 self._segment_path = lambda: "sso-state" + "[session-id='" + str(self.session_id) + "']"
 
                             def __setattr__(self, name, value):
@@ -3659,8 +3591,7 @@ class Ppp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('is_running', YLeaf(YType.boolean, 'is-running')),
                                         ('state', YLeaf(YType.enumeration, 'state')),
@@ -3702,8 +3633,7 @@ class Ppp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('is_running', YLeaf(YType.boolean, 'is-running')),
                                         ('state', YLeaf(YType.enumeration, 'state')),
@@ -3745,8 +3675,7 @@ class Ppp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('is_running', YLeaf(YType.boolean, 'is-running')),
                                         ('state', YLeaf(YType.enumeration, 'state')),
@@ -3788,8 +3717,7 @@ class Ppp(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('is_running', YLeaf(YType.boolean, 'is-running')),
                                         ('state', YLeaf(YType.enumeration, 'state')),
@@ -3836,25 +3764,24 @@ class Ppp(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("intfs", ("intfs", Ppp.Nodes.Node.Summary.Intfs)), ("fsm-states", ("fsm_states", Ppp.Nodes.Node.Summary.FsmStates)), ("lcp-auth-phases", ("lcp_auth_phases", Ppp.Nodes.Node.Summary.LcpAuthPhases))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("intfs", ("intfs", Ppp.Nodes.Node.Summary.Intfs)), ("fsm-states", ("fsm_states", Ppp.Nodes.Node.Summary.FsmStates)), ("lcp-auth-phases", ("lcp_auth_phases", Ppp.Nodes.Node.Summary.LcpAuthPhases))])
                     self._leafs = OrderedDict()
 
                     self.intfs = Ppp.Nodes.Node.Summary.Intfs()
                     self.intfs.parent = self
                     self._children_name_map["intfs"] = "intfs"
-                    self._children_yang_names.add("intfs")
 
                     self.fsm_states = Ppp.Nodes.Node.Summary.FsmStates()
                     self.fsm_states.parent = self
                     self._children_name_map["fsm_states"] = "fsm-states"
-                    self._children_yang_names.add("fsm-states")
 
                     self.lcp_auth_phases = Ppp.Nodes.Node.Summary.LcpAuthPhases()
                     self.lcp_auth_phases.parent = self
                     self._children_name_map["lcp_auth_phases"] = "lcp-auth-phases"
-                    self._children_yang_names.add("lcp-auth-phases")
                     self._segment_path = lambda: "summary"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ppp.Nodes.Node.Summary, [], name, value)
 
 
                 class Intfs(Entity):
@@ -3925,8 +3852,7 @@ class Ppp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('pos_count', YLeaf(YType.uint32, 'pos-count')),
                             ('serial_count', YLeaf(YType.uint32, 'serial-count')),
@@ -3978,14 +3904,12 @@ class Ppp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("lcpfsm-states", ("lcpfsm_states", Ppp.Nodes.Node.Summary.FsmStates.LcpfsmStates))])
-                        self._child_list_classes = OrderedDict([("ncpfsm-states-array", ("ncpfsm_states_array", Ppp.Nodes.Node.Summary.FsmStates.NcpfsmStatesArray))])
+                        self._child_classes = OrderedDict([("lcpfsm-states", ("lcpfsm_states", Ppp.Nodes.Node.Summary.FsmStates.LcpfsmStates)), ("ncpfsm-states-array", ("ncpfsm_states_array", Ppp.Nodes.Node.Summary.FsmStates.NcpfsmStatesArray))])
                         self._leafs = OrderedDict()
 
                         self.lcpfsm_states = Ppp.Nodes.Node.Summary.FsmStates.LcpfsmStates()
                         self.lcpfsm_states.parent = self
                         self._children_name_map["lcpfsm_states"] = "lcpfsm-states"
-                        self._children_yang_names.add("lcpfsm-states")
 
                         self.ncpfsm_states_array = YList(self)
                         self._segment_path = lambda: "fsm-states"
@@ -4027,8 +3951,7 @@ class Ppp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('total', YLeaf(YType.uint32, 'total')),
                                 ('count', YLeafList(YType.uint32, 'count')),
@@ -4079,8 +4002,7 @@ class Ppp(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('ncp_identifier', YLeaf(YType.enumeration, 'ncp-identifier')),
                                 ('total', YLeaf(YType.uint32, 'total')),
@@ -4156,8 +4078,7 @@ class Ppp(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('lcp_not_negotiated', YLeaf(YType.uint32, 'lcp-not-negotiated')),
                             ('authenticating', YLeaf(YType.uint32, 'authenticating')),

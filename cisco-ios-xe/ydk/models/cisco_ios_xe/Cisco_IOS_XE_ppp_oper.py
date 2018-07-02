@@ -120,17 +120,14 @@ class PppData(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("ppp-statistics", ("ppp_statistics", PppData.PppStatistics)), ("pppoe", ("pppoe", PppData.Pppoe))])
-        self._child_list_classes = OrderedDict([("ppp-interface", ("ppp_interface", PppData.PppInterface))])
+        self._child_classes = OrderedDict([("ppp-interface", ("ppp_interface", PppData.PppInterface)), ("ppp-statistics", ("ppp_statistics", PppData.PppStatistics)), ("pppoe", ("pppoe", PppData.Pppoe))])
         self._leafs = OrderedDict()
 
         self.ppp_statistics = None
         self._children_name_map["ppp_statistics"] = "ppp-statistics"
-        self._children_yang_names.add("ppp-statistics")
 
         self.pppoe = None
         self._children_name_map["pppoe"] = "pppoe"
-        self._children_yang_names.add("pppoe")
 
         self.ppp_interface = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-ppp-oper:ppp-data"
@@ -168,8 +165,7 @@ class PppData(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['phy_ifname']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ppp-va", ("ppp_va", PppData.PppInterface.PppVa))])
+            self._child_classes = OrderedDict([("ppp-va", ("ppp_va", PppData.PppInterface.PppVa))])
             self._leafs = OrderedDict([
                 ('phy_ifname', YLeaf(YType.str, 'phy-ifname')),
             ])
@@ -276,8 +272,7 @@ class PppData(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('va_ifname', YLeaf(YType.str, 'va-ifname')),
                     ('vrf_name', YLeaf(YType.str, 'vrf-name')),
@@ -344,8 +339,7 @@ class PppData(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('ppp_lcp_pkts', YLeaf(YType.uint32, 'ppp-lcp-pkts')),
@@ -400,8 +394,7 @@ class PppData(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("pppoe-statistics", ("pppoe_statistics", PppData.Pppoe.PppoeStatistics))])
-            self._child_list_classes = OrderedDict([("pppoe-session-list", ("pppoe_session_list", PppData.Pppoe.PppoeSessionList))])
+            self._child_classes = OrderedDict([("pppoe-session-list", ("pppoe_session_list", PppData.Pppoe.PppoeSessionList)), ("pppoe-statistics", ("pppoe_statistics", PppData.Pppoe.PppoeStatistics))])
             self.is_presence_container = True
             self._leafs = OrderedDict([
                 ('role', YLeaf(YType.enumeration, 'role')),
@@ -410,7 +403,6 @@ class PppData(Entity):
 
             self.pppoe_statistics = None
             self._children_name_map["pppoe_statistics"] = "pppoe-statistics"
-            self._children_yang_names.add("pppoe-statistics")
 
             self.pppoe_session_list = YList(self)
             self._segment_path = lambda: "pppoe"
@@ -449,8 +441,7 @@ class PppData(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifname']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("session", ("session", PppData.Pppoe.PppoeSessionList.Session))])
+                self._child_classes = OrderedDict([("session", ("session", PppData.Pppoe.PppoeSessionList.Session))])
                 self._leafs = OrderedDict([
                     ('ifname', YLeaf(YType.str, 'ifname')),
                 ])
@@ -561,8 +552,7 @@ class PppData(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('session_id', YLeaf(YType.uint16, 'session-id')),
                         ('lmac', YLeaf(YType.str, 'lmac')),
@@ -644,8 +634,7 @@ class PppData(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
                     ('pppoe_padi_pkts', YLeaf(YType.uint32, 'pppoe-padi-pkts')),

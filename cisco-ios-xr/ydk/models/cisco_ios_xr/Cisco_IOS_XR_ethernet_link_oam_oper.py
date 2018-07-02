@@ -375,40 +375,36 @@ class EtherLinkOam(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("discovery-info-interfaces", ("discovery_info_interfaces", EtherLinkOam.DiscoveryInfoInterfaces)), ("interface-state-interfaces", ("interface_state_interfaces", EtherLinkOam.InterfaceStateInterfaces)), ("running-config-interfaces", ("running_config_interfaces", EtherLinkOam.RunningConfigInterfaces)), ("nodes", ("nodes", EtherLinkOam.Nodes)), ("event-log-entry-interfaces", ("event_log_entry_interfaces", EtherLinkOam.EventLogEntryInterfaces)), ("stats-interfaces", ("stats_interfaces", EtherLinkOam.StatsInterfaces))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("discovery-info-interfaces", ("discovery_info_interfaces", EtherLinkOam.DiscoveryInfoInterfaces)), ("interface-state-interfaces", ("interface_state_interfaces", EtherLinkOam.InterfaceStateInterfaces)), ("running-config-interfaces", ("running_config_interfaces", EtherLinkOam.RunningConfigInterfaces)), ("nodes", ("nodes", EtherLinkOam.Nodes)), ("event-log-entry-interfaces", ("event_log_entry_interfaces", EtherLinkOam.EventLogEntryInterfaces)), ("stats-interfaces", ("stats_interfaces", EtherLinkOam.StatsInterfaces))])
         self._leafs = OrderedDict()
 
         self.discovery_info_interfaces = EtherLinkOam.DiscoveryInfoInterfaces()
         self.discovery_info_interfaces.parent = self
         self._children_name_map["discovery_info_interfaces"] = "discovery-info-interfaces"
-        self._children_yang_names.add("discovery-info-interfaces")
 
         self.interface_state_interfaces = EtherLinkOam.InterfaceStateInterfaces()
         self.interface_state_interfaces.parent = self
         self._children_name_map["interface_state_interfaces"] = "interface-state-interfaces"
-        self._children_yang_names.add("interface-state-interfaces")
 
         self.running_config_interfaces = EtherLinkOam.RunningConfigInterfaces()
         self.running_config_interfaces.parent = self
         self._children_name_map["running_config_interfaces"] = "running-config-interfaces"
-        self._children_yang_names.add("running-config-interfaces")
 
         self.nodes = EtherLinkOam.Nodes()
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
 
         self.event_log_entry_interfaces = EtherLinkOam.EventLogEntryInterfaces()
         self.event_log_entry_interfaces.parent = self
         self._children_name_map["event_log_entry_interfaces"] = "event-log-entry-interfaces"
-        self._children_yang_names.add("event-log-entry-interfaces")
 
         self.stats_interfaces = EtherLinkOam.StatsInterfaces()
         self.stats_interfaces.parent = self
         self._children_name_map["stats_interfaces"] = "stats-interfaces"
-        self._children_yang_names.add("stats-interfaces")
         self._segment_path = lambda: "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(EtherLinkOam, [], name, value)
 
 
     class DiscoveryInfoInterfaces(Entity):
@@ -436,8 +432,7 @@ class EtherLinkOam(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("discovery-info-interface", ("discovery_info_interface", EtherLinkOam.DiscoveryInfoInterfaces.DiscoveryInfoInterface))])
+            self._child_classes = OrderedDict([("discovery-info-interface", ("discovery_info_interface", EtherLinkOam.DiscoveryInfoInterfaces.DiscoveryInfoInterface))])
             self._leafs = OrderedDict()
 
             self.discovery_info_interface = YList(self)
@@ -746,8 +741,7 @@ class EtherLinkOam(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['member_interface']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('member_interface', YLeaf(YType.str, 'member-interface')),
                     ('name', YLeaf(YType.str, 'name')),
@@ -854,7 +848,7 @@ class EtherLinkOam(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/discovery-info-interfaces/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EtherLinkOam.DiscoveryInfoInterfaces.DiscoveryInfoInterface, ['member_interface', 'name', 'operational_status', 'loopback_mode', 'local_mode', 'miswired', 'local_mwd_key', 'local_function_unidirectional', 'local_function_loopback', 'local_function_event', 'local_functionvariable', 'local_revision', 'local_mtu', 'local_operational', 'local_evaluating', 'remote_mode', 'remote_unidirectional', 'remote_loopback', 'remote_event', 'remote_variable', 'remote_mtu', 'remote_mac_address', 'remote_vendor_oui', 'remote_revision', 'remote_vendor_info', 'remote_mwd_key', 'operational_status_valid', 'loopback_mode_valid', 'local_mode_valid', 'miswired_valid', 'local_mwd_key_valid', 'local_function_unidirectional_valid', 'local_function_loopback_valid', 'local_function_event_valid', 'local_functionvariable_valid', 'local_revisionvalid', 'local_mtu_valid', 'remote_mode_valid', 'remote_unidirectional_valid', 'remote_loopback_valid', 'remote_event_valid', 'remote_variable_valid', 'remote_mtu_valid', 'remote_mac_address_valid', 'remote_vendor_oui_valid', 'remote_revisionvalid', 'remote_vendor_info_valid', 'remote_mwd_key_valid', 'received_at_risk_notification_timestamp', 'received_at_risk_notification_time_remaining'], name, value)
+                self._perform_setattr(EtherLinkOam.DiscoveryInfoInterfaces.DiscoveryInfoInterface, ['member_interface', u'name', u'operational_status', u'loopback_mode', u'local_mode', u'miswired', u'local_mwd_key', u'local_function_unidirectional', u'local_function_loopback', u'local_function_event', u'local_functionvariable', u'local_revision', u'local_mtu', u'local_operational', u'local_evaluating', u'remote_mode', u'remote_unidirectional', u'remote_loopback', u'remote_event', u'remote_variable', u'remote_mtu', u'remote_mac_address', u'remote_vendor_oui', u'remote_revision', u'remote_vendor_info', u'remote_mwd_key', u'operational_status_valid', u'loopback_mode_valid', u'local_mode_valid', u'miswired_valid', u'local_mwd_key_valid', u'local_function_unidirectional_valid', u'local_function_loopback_valid', u'local_function_event_valid', u'local_functionvariable_valid', u'local_revisionvalid', u'local_mtu_valid', u'remote_mode_valid', u'remote_unidirectional_valid', u'remote_loopback_valid', u'remote_event_valid', u'remote_variable_valid', u'remote_mtu_valid', u'remote_mac_address_valid', u'remote_vendor_oui_valid', u'remote_revisionvalid', u'remote_vendor_info_valid', u'remote_mwd_key_valid', u'received_at_risk_notification_timestamp', u'received_at_risk_notification_time_remaining'], name, value)
 
 
     class InterfaceStateInterfaces(Entity):
@@ -882,8 +876,7 @@ class EtherLinkOam(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("interface-state-interface", ("interface_state_interface", EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface))])
+            self._child_classes = OrderedDict([("interface-state-interface", ("interface_state_interface", EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface))])
             self._leafs = OrderedDict()
 
             self.interface_state_interface = YList(self)
@@ -960,8 +953,7 @@ class EtherLinkOam(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['member_interface']
-                self._child_container_classes = OrderedDict([("errors", ("errors", EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.Errors)), ("efd-triggers", ("efd_triggers", EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.EfdTriggers))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("errors", ("errors", EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.Errors)), ("efd-triggers", ("efd_triggers", EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.EfdTriggers))])
                 self._leafs = OrderedDict([
                     ('member_interface', YLeaf(YType.str, 'member-interface')),
                     ('protocol_code', YLeaf(YType.enumeration, 'protocol-code')),
@@ -980,17 +972,15 @@ class EtherLinkOam(Entity):
                 self.errors = EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.Errors()
                 self.errors.parent = self
                 self._children_name_map["errors"] = "errors"
-                self._children_yang_names.add("errors")
 
                 self.efd_triggers = EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.EfdTriggers()
                 self.efd_triggers.parent = self
                 self._children_name_map["efd_triggers"] = "efd-triggers"
-                self._children_yang_names.add("efd-triggers")
                 self._segment_path = lambda: "interface-state-interface" + "[member-interface='" + str(self.member_interface) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/interface-state-interfaces/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface, ['member_interface', 'protocol_code', 'rx_fault', 'local_mwd_key', 'remote_mwd_key_present', 'remote_mwd_key'], name, value)
+                self._perform_setattr(EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface, ['member_interface', u'protocol_code', u'rx_fault', u'local_mwd_key', u'remote_mwd_key_present', u'remote_mwd_key'], name, value)
 
 
             class Errors(Entity):
@@ -1072,8 +1062,7 @@ class EtherLinkOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('pfi_reason', YLeaf(YType.str, 'pfi-reason')),
                         ('pfi_error_code', YLeaf(YType.uint32, 'pfi-error-code')),
@@ -1099,7 +1088,7 @@ class EtherLinkOam(Entity):
                     self._segment_path = lambda: "errors"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.Errors, ['pfi_reason', 'pfi_error_code', 'platform_reason', 'platform_error_code', 'spio_reason', 'spio_error_code', 'epi_reason', 'epi_error_code', 'caps_add_reason', 'caps_add_error_code'], name, value)
+                    self._perform_setattr(EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.Errors, [u'pfi_reason', u'pfi_error_code', u'platform_reason', u'platform_error_code', u'spio_reason', u'spio_error_code', u'epi_reason', u'epi_error_code', u'caps_add_reason', u'caps_add_error_code'], name, value)
 
 
             class EfdTriggers(Entity):
@@ -1146,8 +1135,7 @@ class EtherLinkOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('link_fault_received', YLeaf(YType.boolean, 'link-fault-received')),
                         ('discovery_timed_out', YLeaf(YType.boolean, 'discovery-timed-out')),
@@ -1163,7 +1151,7 @@ class EtherLinkOam(Entity):
                     self._segment_path = lambda: "efd-triggers"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.EfdTriggers, ['link_fault_received', 'discovery_timed_out', 'capabilities_conflict', 'wiring_conflict', 'session_down'], name, value)
+                    self._perform_setattr(EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.EfdTriggers, [u'link_fault_received', u'discovery_timed_out', u'capabilities_conflict', u'wiring_conflict', u'session_down'], name, value)
 
 
     class RunningConfigInterfaces(Entity):
@@ -1191,8 +1179,7 @@ class EtherLinkOam(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("running-config-interface", ("running_config_interface", EtherLinkOam.RunningConfigInterfaces.RunningConfigInterface))])
+            self._child_classes = OrderedDict([("running-config-interface", ("running_config_interface", EtherLinkOam.RunningConfigInterfaces.RunningConfigInterface))])
             self._leafs = OrderedDict()
 
             self.running_config_interface = YList(self)
@@ -1676,8 +1663,7 @@ class EtherLinkOam(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['member_interface']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('member_interface', YLeaf(YType.str, 'member-interface')),
                     ('fast_hello_interval_enabled', YLeaf(YType.boolean, 'fast-hello-interval-enabled')),
@@ -1842,7 +1828,7 @@ class EtherLinkOam(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/running-config-interfaces/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EtherLinkOam.RunningConfigInterfaces.RunningConfigInterface, ['member_interface', 'fast_hello_interval_enabled', 'link_monitor_enabled', 'remote_loopback_enabled', 'mib_retrieval_enabled', 'udlf_enabled', 'mode', 'connection_timeout', 'symbol_period_window', 'symbol_period_window_units', 'symbol_period_window_multiplier', 'symbol_period_threshold_low', 'symbol_period_threshold_high', 'symbol_period_threshold_units', 'symbol_period_threshold_low_multiplier', 'symbol_period_threshold_high_multiplier', 'frame_window', 'frame_threshold_low', 'frame_threshold_high', 'frame_threshold_low_multiplier', 'frame_threshold_high_multiplier', 'frame_period_window', 'frame_period_window_units', 'frame_period_window_multiplier', 'frame_period_threshold_low', 'frame_period_threshold_high', 'frame_period_threshold_units', 'frame_period_threshold_low_multiplier', 'frame_period_threshold_high_multiplier', 'frame_seconds_window', 'frame_seconds_threshold_low', 'frame_seconds_threshold_high', 'high_threshold_action', 'link_fault_action', 'dying_gasp_action', 'critical_event_action', 'discovery_timeout_action', 'capabilities_conflict_action', 'wiring_conflict_action', 'session_up_action', 'session_down_action', 'remote_loopback_action', 'require_remote_mode', 'require_remote_mib_retrieval', 'require_loopback', 'require_link_monitoring', 'fast_hello_interval_enabled_overridden', 'link_monitoring_enabled_overridden', 'remote_loopback_enabled_overridden', 'mib_retrieval_enabled_overridden', 'udlf_enabled_overridden', 'mode_overridden', 'connection_timeout_overridden', 'symbol_period_window_overridden', 'symbol_period_threshold_low_overridden', 'symbol_period_threshold_high_overridden', 'frame_window_overridden', 'frame_threshold_low_overridden', 'frame_threshold_high_overridden', 'frame_period_window_overridden', 'frame_period_threshold_low_overridden', 'frame_period_threshold_high_overridden', 'frame_seconds_window_overridden', 'frame_seconds_threshold_low_overridden', 'frame_seconds_threshold_high_overridden', 'high_threshold_action_overridden', 'link_fault_action_overridden', 'dying_gasp_action_overridden', 'critical_event_action_overridden', 'discovery_timeout_action_overridden', 'capabilities_conflict_action_overridden', 'wiring_conflict_action_overridden', 'session_down_action_overridden', 'session_up_action_overridden', 'remote_loopback_action_overridden', 'require_mode_overridden', 'require_mib_retrieval_overridden', 'require_loopback_overridden', 'require_link_monitoring_overridden'], name, value)
+                self._perform_setattr(EtherLinkOam.RunningConfigInterfaces.RunningConfigInterface, ['member_interface', u'fast_hello_interval_enabled', u'link_monitor_enabled', u'remote_loopback_enabled', u'mib_retrieval_enabled', u'udlf_enabled', u'mode', u'connection_timeout', u'symbol_period_window', u'symbol_period_window_units', u'symbol_period_window_multiplier', u'symbol_period_threshold_low', u'symbol_period_threshold_high', u'symbol_period_threshold_units', u'symbol_period_threshold_low_multiplier', u'symbol_period_threshold_high_multiplier', u'frame_window', u'frame_threshold_low', u'frame_threshold_high', u'frame_threshold_low_multiplier', u'frame_threshold_high_multiplier', u'frame_period_window', u'frame_period_window_units', u'frame_period_window_multiplier', u'frame_period_threshold_low', u'frame_period_threshold_high', u'frame_period_threshold_units', u'frame_period_threshold_low_multiplier', u'frame_period_threshold_high_multiplier', u'frame_seconds_window', u'frame_seconds_threshold_low', u'frame_seconds_threshold_high', u'high_threshold_action', u'link_fault_action', u'dying_gasp_action', u'critical_event_action', u'discovery_timeout_action', u'capabilities_conflict_action', u'wiring_conflict_action', u'session_up_action', u'session_down_action', u'remote_loopback_action', u'require_remote_mode', u'require_remote_mib_retrieval', u'require_loopback', u'require_link_monitoring', u'fast_hello_interval_enabled_overridden', u'link_monitoring_enabled_overridden', u'remote_loopback_enabled_overridden', u'mib_retrieval_enabled_overridden', u'udlf_enabled_overridden', u'mode_overridden', u'connection_timeout_overridden', u'symbol_period_window_overridden', u'symbol_period_threshold_low_overridden', u'symbol_period_threshold_high_overridden', u'frame_window_overridden', u'frame_threshold_low_overridden', u'frame_threshold_high_overridden', u'frame_period_window_overridden', u'frame_period_threshold_low_overridden', u'frame_period_threshold_high_overridden', u'frame_seconds_window_overridden', u'frame_seconds_threshold_low_overridden', u'frame_seconds_threshold_high_overridden', u'high_threshold_action_overridden', u'link_fault_action_overridden', u'dying_gasp_action_overridden', u'critical_event_action_overridden', u'discovery_timeout_action_overridden', u'capabilities_conflict_action_overridden', u'wiring_conflict_action_overridden', u'session_down_action_overridden', u'session_up_action_overridden', u'remote_loopback_action_overridden', u'require_mode_overridden', u'require_mib_retrieval_overridden', u'require_loopback_overridden', u'require_link_monitoring_overridden'], name, value)
 
 
     class Nodes(Entity):
@@ -1869,8 +1855,7 @@ class EtherLinkOam(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("node", ("node", EtherLinkOam.Nodes.Node))])
+            self._child_classes = OrderedDict([("node", ("node", EtherLinkOam.Nodes.Node))])
             self._leafs = OrderedDict()
 
             self.node = YList(self)
@@ -1912,8 +1897,7 @@ class EtherLinkOam(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_container_classes = OrderedDict([("summary", ("summary", EtherLinkOam.Nodes.Node.Summary))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("summary", ("summary", EtherLinkOam.Nodes.Node.Summary))])
                 self._leafs = OrderedDict([
                     ('node_name', YLeaf(YType.str, 'node-name')),
                 ])
@@ -1922,7 +1906,6 @@ class EtherLinkOam(Entity):
                 self.summary = EtherLinkOam.Nodes.Node.Summary()
                 self.summary.parent = self
                 self._children_name_map["summary"] = "summary"
-                self._children_yang_names.add("summary")
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/nodes/%s" % self._segment_path()
 
@@ -2104,8 +2087,7 @@ class EtherLinkOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('interfaces', YLeaf(YType.uint32, 'interfaces')),
                         ('port_down', YLeaf(YType.uint32, 'port-down')),
@@ -2155,7 +2137,7 @@ class EtherLinkOam(Entity):
                     self._segment_path = lambda: "summary"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(EtherLinkOam.Nodes.Node.Summary, ['interfaces', 'port_down', 'passive_wait', 'active_send', 'evaluating', 'local_accept', 'local_reject', 'remote_reject', 'operational', 'loopback_mode', 'miswired_connections', 'events', 'local_events', 'local_symbol_period', 'local_frame', 'local_frame_period', 'local_frame_seconds', 'remote_events', 'remote_symbol_period', 'remote_frame', 'remote_frame_period', 'remote_frame_seconds'], name, value)
+                    self._perform_setattr(EtherLinkOam.Nodes.Node.Summary, [u'interfaces', u'port_down', u'passive_wait', u'active_send', u'evaluating', u'local_accept', u'local_reject', u'remote_reject', u'operational', u'loopback_mode', u'miswired_connections', u'events', u'local_events', u'local_symbol_period', u'local_frame', u'local_frame_period', u'local_frame_seconds', u'remote_events', u'remote_symbol_period', u'remote_frame', u'remote_frame_period', u'remote_frame_seconds'], name, value)
 
 
     class EventLogEntryInterfaces(Entity):
@@ -2183,8 +2165,7 @@ class EtherLinkOam(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("event-log-entry-interface", ("event_log_entry_interface", EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface))])
+            self._child_classes = OrderedDict([("event-log-entry-interface", ("event_log_entry_interface", EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface))])
             self._leafs = OrderedDict()
 
             self.event_log_entry_interface = YList(self)
@@ -2227,8 +2208,7 @@ class EtherLinkOam(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['member_interface']
-                self._child_container_classes = OrderedDict([("event-log-entry-indexes", ("event_log_entry_indexes", EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("event-log-entry-indexes", ("event_log_entry_indexes", EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes))])
                 self._leafs = OrderedDict([
                     ('member_interface', YLeaf(YType.str, 'member-interface')),
                 ])
@@ -2237,7 +2217,6 @@ class EtherLinkOam(Entity):
                 self.event_log_entry_indexes = EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes()
                 self.event_log_entry_indexes.parent = self
                 self._children_name_map["event_log_entry_indexes"] = "event-log-entry-indexes"
-                self._children_yang_names.add("event-log-entry-indexes")
                 self._segment_path = lambda: "event-log-entry-interface" + "[member-interface='" + str(self.member_interface) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/event-log-entry-interfaces/%s" % self._segment_path()
 
@@ -2270,8 +2249,7 @@ class EtherLinkOam(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("event-log-entry-index", ("event_log_entry_index", EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes.EventLogEntryIndex))])
+                    self._child_classes = OrderedDict([("event-log-entry-index", ("event_log_entry_index", EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes.EventLogEntryIndex))])
                     self._leafs = OrderedDict()
 
                     self.event_log_entry_index = YList(self)
@@ -2435,8 +2413,7 @@ class EtherLinkOam(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['event_log_entry_index']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('event_log_entry_index', YLeaf(YType.str, 'event-log-entry-index')),
                             ('index', YLeaf(YType.uint32, 'index')),
@@ -2482,7 +2459,7 @@ class EtherLinkOam(Entity):
                         self._segment_path = lambda: "event-log-entry-index" + "[event-log-entry-index='" + str(self.event_log_entry_index) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes.EventLogEntryIndex, ['event_log_entry_index', 'index', 'handle', 'oui', 'timestamp', 'type', 'location', 'event_total', 'action_taken', 'window', 'threshold', 'local_high_threshold', 'value', 'running_total', 'window_config_units', 'window_units', 'threshold_config_units', 'threshold_units', 'local_high_threshold_config_units', 'value_config_units'], name, value)
+                        self._perform_setattr(EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes.EventLogEntryIndex, ['event_log_entry_index', u'index', u'handle', u'oui', u'timestamp', u'type', u'location', u'event_total', u'action_taken', u'window', u'threshold', u'local_high_threshold', u'value', u'running_total', u'window_config_units', u'window_units', u'threshold_config_units', u'threshold_units', u'local_high_threshold_config_units', u'value_config_units'], name, value)
 
 
     class StatsInterfaces(Entity):
@@ -2510,8 +2487,7 @@ class EtherLinkOam(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("stats-interface", ("stats_interface", EtherLinkOam.StatsInterfaces.StatsInterface))])
+            self._child_classes = OrderedDict([("stats-interface", ("stats_interface", EtherLinkOam.StatsInterfaces.StatsInterface))])
             self._leafs = OrderedDict()
 
             self.stats_interface = YList(self)
@@ -2730,8 +2706,7 @@ class EtherLinkOam(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['member_interface']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('member_interface', YLeaf(YType.str, 'member-interface')),
                     ('information_tx', YLeaf(YType.uint32, 'information-tx')),
@@ -2792,7 +2767,7 @@ class EtherLinkOam(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/stats-interfaces/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EtherLinkOam.StatsInterfaces.StatsInterface, ['member_interface', 'information_tx', 'information_rx', 'unique_event_notification_tx', 'unique_event_notification_rx', 'duplicate_event_notification_tx', 'duplicate_event_notification_rx', 'loopback_control_tx', 'loopback_control_rx', 'variable_request_tx', 'variable_request_rx', 'variable_response_tx', 'variable_response_rx', 'org_specific_tx', 'org_specific_rx', 'unsupported_codes_tx', 'unsupported_codes_rx', 'frames_lost_due_to_oam', 'fixed_frames_rx', 'local_error_symbol_period_records', 'local_error_frame_records', 'local_error_frame_period_records', 'local_error_frame_second_records', 'remote_error_symbol_period_records', 'remote_error_frame_records', 'remote_error_frame_period_records', 'remote_error_frame_second_records'], name, value)
+                self._perform_setattr(EtherLinkOam.StatsInterfaces.StatsInterface, ['member_interface', u'information_tx', u'information_rx', u'unique_event_notification_tx', u'unique_event_notification_rx', u'duplicate_event_notification_tx', u'duplicate_event_notification_rx', u'loopback_control_tx', u'loopback_control_rx', u'variable_request_tx', u'variable_request_rx', u'variable_response_tx', u'variable_response_rx', u'org_specific_tx', u'org_specific_rx', u'unsupported_codes_tx', u'unsupported_codes_rx', u'frames_lost_due_to_oam', u'fixed_frames_rx', u'local_error_symbol_period_records', u'local_error_frame_records', u'local_error_frame_period_records', u'local_error_frame_second_records', u'remote_error_symbol_period_records', u'remote_error_frame_records', u'remote_error_frame_period_records', u'remote_error_frame_second_records'], name, value)
 
     def clone_ptr(self):
         self._top_entity = EtherLinkOam()

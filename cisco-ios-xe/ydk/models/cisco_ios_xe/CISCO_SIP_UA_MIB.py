@@ -32,7 +32,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Ciscosipuamibnotificationprefix(Identity):
+class CiscoSipUaMIBNotificationPrefix(Identity):
     """
     Old style notification prefixing.  Being replaced by
     ciscoSipUaMIBNotifs.
@@ -45,10 +45,10 @@ class Ciscosipuamibnotificationprefix(Identity):
     _revision = '2004-02-19'
 
     def __init__(self):
-        super(Ciscosipuamibnotificationprefix, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SIP-UA-MIB", "CISCO-SIP-UA-MIB", "CISCO-SIP-UA-MIB:ciscoSipUaMIBNotificationPrefix")
+        super(CiscoSipUaMIBNotificationPrefix, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SIP-UA-MIB", "CISCO-SIP-UA-MIB", "CISCO-SIP-UA-MIB:ciscoSipUaMIBNotificationPrefix")
 
 
-class Ciscosipuamibnotifications(Identity):
+class CiscoSipUaMIBNotifications(Identity):
     """
     Old style notification prefixing.  Being replaced by
     ciscoSipUaMIBNotifs.
@@ -61,7 +61,7 @@ class Ciscosipuamibnotifications(Identity):
     _revision = '2004-02-19'
 
     def __init__(self):
-        super(Ciscosipuamibnotifications, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SIP-UA-MIB", "CISCO-SIP-UA-MIB", "CISCO-SIP-UA-MIB:ciscoSipUaMIBNotifications")
+        super(CiscoSipUaMIBNotifications, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SIP-UA-MIB", "CISCO-SIP-UA-MIB", "CISCO-SIP-UA-MIB:ciscoSipUaMIBNotifications")
 
 
 class CISCOSIPUAMIB(Entity):
@@ -71,112 +71,112 @@ class CISCOSIPUAMIB(Entity):
     .. attribute:: csipcfgbase
     
     	
-    	**type**\:  :py:class:`Csipcfgbase <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgbase>`
+    	**type**\:  :py:class:`CSipCfgBase <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgBase>`
     
     .. attribute:: csipcfgtimer
     
     	
-    	**type**\:  :py:class:`Csipcfgtimer <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgtimer>`
+    	**type**\:  :py:class:`CSipCfgTimer <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgTimer>`
     
     .. attribute:: csipcfgretry
     
     	
-    	**type**\:  :py:class:`Csipcfgretry <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgretry>`
+    	**type**\:  :py:class:`CSipCfgRetry <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgRetry>`
     
     .. attribute:: csipcfgpeer
     
     	
-    	**type**\:  :py:class:`Csipcfgpeer <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgpeer>`
+    	**type**\:  :py:class:`CSipCfgPeer <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgPeer>`
     
     .. attribute:: csipcfgaaa
     
     	
-    	**type**\:  :py:class:`Csipcfgaaa <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgaaa>`
+    	**type**\:  :py:class:`CSipCfgAaa <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgAaa>`
     
     .. attribute:: csipcfgvoiceservicevoip
     
     	
-    	**type**\:  :py:class:`Csipcfgvoiceservicevoip <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgvoiceservicevoip>`
+    	**type**\:  :py:class:`CSipCfgVoiceServiceVoip <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgVoiceServiceVoip>`
     
     .. attribute:: csipstatsinfo
     
     	
-    	**type**\:  :py:class:`Csipstatsinfo <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipstatsinfo>`
+    	**type**\:  :py:class:`CSipStatsInfo <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipStatsInfo>`
     
     .. attribute:: csipstatssuccess
     
     	
-    	**type**\:  :py:class:`Csipstatssuccess <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipstatssuccess>`
+    	**type**\:  :py:class:`CSipStatsSuccess <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipStatsSuccess>`
     
     .. attribute:: csipstatsredirect
     
     	
-    	**type**\:  :py:class:`Csipstatsredirect <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipstatsredirect>`
+    	**type**\:  :py:class:`CSipStatsRedirect <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipStatsRedirect>`
     
     .. attribute:: csipstatserrclient
     
     	
-    	**type**\:  :py:class:`Csipstatserrclient <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipstatserrclient>`
+    	**type**\:  :py:class:`CSipStatsErrClient <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipStatsErrClient>`
     
     .. attribute:: csipstatserrserver
     
     	
-    	**type**\:  :py:class:`Csipstatserrserver <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipstatserrserver>`
+    	**type**\:  :py:class:`CSipStatsErrServer <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipStatsErrServer>`
     
     .. attribute:: csipstatsglobalfail
     
     	
-    	**type**\:  :py:class:`Csipstatsglobalfail <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipstatsglobalfail>`
+    	**type**\:  :py:class:`CSipStatsGlobalFail <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipStatsGlobalFail>`
     
     .. attribute:: csipstatstraffic
     
     	
-    	**type**\:  :py:class:`Csipstatstraffic <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipstatstraffic>`
+    	**type**\:  :py:class:`CSipStatsTraffic <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipStatsTraffic>`
     
     .. attribute:: csipstatsretry
     
     	
-    	**type**\:  :py:class:`Csipstatsretry <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipstatsretry>`
+    	**type**\:  :py:class:`CSipStatsRetry <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipStatsRetry>`
     
     .. attribute:: csipstatsmisc
     
     	
-    	**type**\:  :py:class:`Csipstatsmisc <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipstatsmisc>`
+    	**type**\:  :py:class:`CSipStatsMisc <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipStatsMisc>`
     
     .. attribute:: csipstatsconnection
     
     	
-    	**type**\:  :py:class:`Csipstatsconnection <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipstatsconnection>`
+    	**type**\:  :py:class:`CSipStatsConnection <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipStatsConnection>`
     
     .. attribute:: csipcfgearlymediatable
     
     	This table contains configuration for Early Media Cut Through.  The configuration controls how the SIP user agent will process 1xx (Provisional) SIP response messages that contain  Session Definition Protocol (SDP) payloads
-    	**type**\:  :py:class:`Csipcfgearlymediatable <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgearlymediatable>`
+    	**type**\:  :py:class:`CSipCfgEarlyMediaTable <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgEarlyMediaTable>`
     
     .. attribute:: csipcfgbindsourceaddrtable
     
     	This table contains configuration for binding the scope of packets to the particular ethernet interface. The scope for the packets can be specified as either 'signalling' or 'media' packets. The ethernet interface shall be specified by the interface index. The table shall be indexed based on the scope
-    	**type**\:  :py:class:`Csipcfgbindsourceaddrtable <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgbindsourceaddrtable>`
+    	**type**\:  :py:class:`CSipCfgBindSourceAddrTable <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgBindSourceAddrTable>`
     
     .. attribute:: csipcfgpeertable
     
     	This table contains per dial\-peer SIP related  configuration.     The table is a sparse table of dial\-peer information. This means, it only reflects dial\-peers being used  for SIP.  A dial\-peer is being used for SIP if the  value of cvVoIPPeerCfgSessionProtocol  (CISCO\-VOICE\-DIAL\-CONTROL\-MIB) is 'sip'.  Dial\-peers are not created or destroyed via this table.  Only SIP related configuration can be  performed via this table once the dial\-peer exists in the system and is visible in this table
-    	**type**\:  :py:class:`Csipcfgpeertable <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgpeertable>`
+    	**type**\:  :py:class:`CSipCfgPeerTable <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgPeerTable>`
     
     .. attribute:: csipcfgstatuscausetable
     
     	This table contains SIP status code to PSTN cause code mapping configuration.  Inbound SIP response messages  that will result in outbound PSTN signalling messages will have the SIP status codes transposed into the PSTN cause codes as prescribed by the contents of this  table
-    	**type**\:  :py:class:`Csipcfgstatuscausetable <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgstatuscausetable>`
+    	**type**\:  :py:class:`CSipCfgStatusCauseTable <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgStatusCauseTable>`
     
     .. attribute:: csipcfgcausestatustable
     
     	This table contains PSTN cause code to SIP status code mapping configuration.   Inbound PSTN signalling messages that will result in outbound SIP response messages  will have the PSTN cause codes transposed into the SIP status codes as prescribed by the contents of this  table
-    	**type**\:  :py:class:`Csipcfgcausestatustable <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgcausestatustable>`
+    	**type**\:  :py:class:`CSipCfgCauseStatusTable <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgCauseStatusTable>`
     
     .. attribute:: csipstatssuccessoktable
     
     	This table contains statistics for sent and received 200 Ok response messages.  The  statistics are kept on per SIP method basis
-    	**type**\:  :py:class:`Csipstatssuccessoktable <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipstatssuccessoktable>`
+    	**type**\:  :py:class:`CSipStatsSuccessOkTable <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipStatsSuccessOkTable>`
     
     
 
@@ -194,123 +194,103 @@ class CISCOSIPUAMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cSipCfgBase", ("csipcfgbase", CISCOSIPUAMIB.Csipcfgbase)), ("cSipCfgTimer", ("csipcfgtimer", CISCOSIPUAMIB.Csipcfgtimer)), ("cSipCfgRetry", ("csipcfgretry", CISCOSIPUAMIB.Csipcfgretry)), ("cSipCfgPeer", ("csipcfgpeer", CISCOSIPUAMIB.Csipcfgpeer)), ("cSipCfgAaa", ("csipcfgaaa", CISCOSIPUAMIB.Csipcfgaaa)), ("cSipCfgVoiceServiceVoip", ("csipcfgvoiceservicevoip", CISCOSIPUAMIB.Csipcfgvoiceservicevoip)), ("cSipStatsInfo", ("csipstatsinfo", CISCOSIPUAMIB.Csipstatsinfo)), ("cSipStatsSuccess", ("csipstatssuccess", CISCOSIPUAMIB.Csipstatssuccess)), ("cSipStatsRedirect", ("csipstatsredirect", CISCOSIPUAMIB.Csipstatsredirect)), ("cSipStatsErrClient", ("csipstatserrclient", CISCOSIPUAMIB.Csipstatserrclient)), ("cSipStatsErrServer", ("csipstatserrserver", CISCOSIPUAMIB.Csipstatserrserver)), ("cSipStatsGlobalFail", ("csipstatsglobalfail", CISCOSIPUAMIB.Csipstatsglobalfail)), ("cSipStatsTraffic", ("csipstatstraffic", CISCOSIPUAMIB.Csipstatstraffic)), ("cSipStatsRetry", ("csipstatsretry", CISCOSIPUAMIB.Csipstatsretry)), ("cSipStatsMisc", ("csipstatsmisc", CISCOSIPUAMIB.Csipstatsmisc)), ("cSipStatsConnection", ("csipstatsconnection", CISCOSIPUAMIB.Csipstatsconnection)), ("cSipCfgEarlyMediaTable", ("csipcfgearlymediatable", CISCOSIPUAMIB.Csipcfgearlymediatable)), ("cSipCfgBindSourceAddrTable", ("csipcfgbindsourceaddrtable", CISCOSIPUAMIB.Csipcfgbindsourceaddrtable)), ("cSipCfgPeerTable", ("csipcfgpeertable", CISCOSIPUAMIB.Csipcfgpeertable)), ("cSipCfgStatusCauseTable", ("csipcfgstatuscausetable", CISCOSIPUAMIB.Csipcfgstatuscausetable)), ("cSipCfgCauseStatusTable", ("csipcfgcausestatustable", CISCOSIPUAMIB.Csipcfgcausestatustable)), ("cSipStatsSuccessOkTable", ("csipstatssuccessoktable", CISCOSIPUAMIB.Csipstatssuccessoktable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cSipCfgBase", ("csipcfgbase", CISCOSIPUAMIB.CSipCfgBase)), ("cSipCfgTimer", ("csipcfgtimer", CISCOSIPUAMIB.CSipCfgTimer)), ("cSipCfgRetry", ("csipcfgretry", CISCOSIPUAMIB.CSipCfgRetry)), ("cSipCfgPeer", ("csipcfgpeer", CISCOSIPUAMIB.CSipCfgPeer)), ("cSipCfgAaa", ("csipcfgaaa", CISCOSIPUAMIB.CSipCfgAaa)), ("cSipCfgVoiceServiceVoip", ("csipcfgvoiceservicevoip", CISCOSIPUAMIB.CSipCfgVoiceServiceVoip)), ("cSipStatsInfo", ("csipstatsinfo", CISCOSIPUAMIB.CSipStatsInfo)), ("cSipStatsSuccess", ("csipstatssuccess", CISCOSIPUAMIB.CSipStatsSuccess)), ("cSipStatsRedirect", ("csipstatsredirect", CISCOSIPUAMIB.CSipStatsRedirect)), ("cSipStatsErrClient", ("csipstatserrclient", CISCOSIPUAMIB.CSipStatsErrClient)), ("cSipStatsErrServer", ("csipstatserrserver", CISCOSIPUAMIB.CSipStatsErrServer)), ("cSipStatsGlobalFail", ("csipstatsglobalfail", CISCOSIPUAMIB.CSipStatsGlobalFail)), ("cSipStatsTraffic", ("csipstatstraffic", CISCOSIPUAMIB.CSipStatsTraffic)), ("cSipStatsRetry", ("csipstatsretry", CISCOSIPUAMIB.CSipStatsRetry)), ("cSipStatsMisc", ("csipstatsmisc", CISCOSIPUAMIB.CSipStatsMisc)), ("cSipStatsConnection", ("csipstatsconnection", CISCOSIPUAMIB.CSipStatsConnection)), ("cSipCfgEarlyMediaTable", ("csipcfgearlymediatable", CISCOSIPUAMIB.CSipCfgEarlyMediaTable)), ("cSipCfgBindSourceAddrTable", ("csipcfgbindsourceaddrtable", CISCOSIPUAMIB.CSipCfgBindSourceAddrTable)), ("cSipCfgPeerTable", ("csipcfgpeertable", CISCOSIPUAMIB.CSipCfgPeerTable)), ("cSipCfgStatusCauseTable", ("csipcfgstatuscausetable", CISCOSIPUAMIB.CSipCfgStatusCauseTable)), ("cSipCfgCauseStatusTable", ("csipcfgcausestatustable", CISCOSIPUAMIB.CSipCfgCauseStatusTable)), ("cSipStatsSuccessOkTable", ("csipstatssuccessoktable", CISCOSIPUAMIB.CSipStatsSuccessOkTable))])
         self._leafs = OrderedDict()
 
-        self.csipcfgbase = CISCOSIPUAMIB.Csipcfgbase()
+        self.csipcfgbase = CISCOSIPUAMIB.CSipCfgBase()
         self.csipcfgbase.parent = self
         self._children_name_map["csipcfgbase"] = "cSipCfgBase"
-        self._children_yang_names.add("cSipCfgBase")
 
-        self.csipcfgtimer = CISCOSIPUAMIB.Csipcfgtimer()
+        self.csipcfgtimer = CISCOSIPUAMIB.CSipCfgTimer()
         self.csipcfgtimer.parent = self
         self._children_name_map["csipcfgtimer"] = "cSipCfgTimer"
-        self._children_yang_names.add("cSipCfgTimer")
 
-        self.csipcfgretry = CISCOSIPUAMIB.Csipcfgretry()
+        self.csipcfgretry = CISCOSIPUAMIB.CSipCfgRetry()
         self.csipcfgretry.parent = self
         self._children_name_map["csipcfgretry"] = "cSipCfgRetry"
-        self._children_yang_names.add("cSipCfgRetry")
 
-        self.csipcfgpeer = CISCOSIPUAMIB.Csipcfgpeer()
+        self.csipcfgpeer = CISCOSIPUAMIB.CSipCfgPeer()
         self.csipcfgpeer.parent = self
         self._children_name_map["csipcfgpeer"] = "cSipCfgPeer"
-        self._children_yang_names.add("cSipCfgPeer")
 
-        self.csipcfgaaa = CISCOSIPUAMIB.Csipcfgaaa()
+        self.csipcfgaaa = CISCOSIPUAMIB.CSipCfgAaa()
         self.csipcfgaaa.parent = self
         self._children_name_map["csipcfgaaa"] = "cSipCfgAaa"
-        self._children_yang_names.add("cSipCfgAaa")
 
-        self.csipcfgvoiceservicevoip = CISCOSIPUAMIB.Csipcfgvoiceservicevoip()
+        self.csipcfgvoiceservicevoip = CISCOSIPUAMIB.CSipCfgVoiceServiceVoip()
         self.csipcfgvoiceservicevoip.parent = self
         self._children_name_map["csipcfgvoiceservicevoip"] = "cSipCfgVoiceServiceVoip"
-        self._children_yang_names.add("cSipCfgVoiceServiceVoip")
 
-        self.csipstatsinfo = CISCOSIPUAMIB.Csipstatsinfo()
+        self.csipstatsinfo = CISCOSIPUAMIB.CSipStatsInfo()
         self.csipstatsinfo.parent = self
         self._children_name_map["csipstatsinfo"] = "cSipStatsInfo"
-        self._children_yang_names.add("cSipStatsInfo")
 
-        self.csipstatssuccess = CISCOSIPUAMIB.Csipstatssuccess()
+        self.csipstatssuccess = CISCOSIPUAMIB.CSipStatsSuccess()
         self.csipstatssuccess.parent = self
         self._children_name_map["csipstatssuccess"] = "cSipStatsSuccess"
-        self._children_yang_names.add("cSipStatsSuccess")
 
-        self.csipstatsredirect = CISCOSIPUAMIB.Csipstatsredirect()
+        self.csipstatsredirect = CISCOSIPUAMIB.CSipStatsRedirect()
         self.csipstatsredirect.parent = self
         self._children_name_map["csipstatsredirect"] = "cSipStatsRedirect"
-        self._children_yang_names.add("cSipStatsRedirect")
 
-        self.csipstatserrclient = CISCOSIPUAMIB.Csipstatserrclient()
+        self.csipstatserrclient = CISCOSIPUAMIB.CSipStatsErrClient()
         self.csipstatserrclient.parent = self
         self._children_name_map["csipstatserrclient"] = "cSipStatsErrClient"
-        self._children_yang_names.add("cSipStatsErrClient")
 
-        self.csipstatserrserver = CISCOSIPUAMIB.Csipstatserrserver()
+        self.csipstatserrserver = CISCOSIPUAMIB.CSipStatsErrServer()
         self.csipstatserrserver.parent = self
         self._children_name_map["csipstatserrserver"] = "cSipStatsErrServer"
-        self._children_yang_names.add("cSipStatsErrServer")
 
-        self.csipstatsglobalfail = CISCOSIPUAMIB.Csipstatsglobalfail()
+        self.csipstatsglobalfail = CISCOSIPUAMIB.CSipStatsGlobalFail()
         self.csipstatsglobalfail.parent = self
         self._children_name_map["csipstatsglobalfail"] = "cSipStatsGlobalFail"
-        self._children_yang_names.add("cSipStatsGlobalFail")
 
-        self.csipstatstraffic = CISCOSIPUAMIB.Csipstatstraffic()
+        self.csipstatstraffic = CISCOSIPUAMIB.CSipStatsTraffic()
         self.csipstatstraffic.parent = self
         self._children_name_map["csipstatstraffic"] = "cSipStatsTraffic"
-        self._children_yang_names.add("cSipStatsTraffic")
 
-        self.csipstatsretry = CISCOSIPUAMIB.Csipstatsretry()
+        self.csipstatsretry = CISCOSIPUAMIB.CSipStatsRetry()
         self.csipstatsretry.parent = self
         self._children_name_map["csipstatsretry"] = "cSipStatsRetry"
-        self._children_yang_names.add("cSipStatsRetry")
 
-        self.csipstatsmisc = CISCOSIPUAMIB.Csipstatsmisc()
+        self.csipstatsmisc = CISCOSIPUAMIB.CSipStatsMisc()
         self.csipstatsmisc.parent = self
         self._children_name_map["csipstatsmisc"] = "cSipStatsMisc"
-        self._children_yang_names.add("cSipStatsMisc")
 
-        self.csipstatsconnection = CISCOSIPUAMIB.Csipstatsconnection()
+        self.csipstatsconnection = CISCOSIPUAMIB.CSipStatsConnection()
         self.csipstatsconnection.parent = self
         self._children_name_map["csipstatsconnection"] = "cSipStatsConnection"
-        self._children_yang_names.add("cSipStatsConnection")
 
-        self.csipcfgearlymediatable = CISCOSIPUAMIB.Csipcfgearlymediatable()
+        self.csipcfgearlymediatable = CISCOSIPUAMIB.CSipCfgEarlyMediaTable()
         self.csipcfgearlymediatable.parent = self
         self._children_name_map["csipcfgearlymediatable"] = "cSipCfgEarlyMediaTable"
-        self._children_yang_names.add("cSipCfgEarlyMediaTable")
 
-        self.csipcfgbindsourceaddrtable = CISCOSIPUAMIB.Csipcfgbindsourceaddrtable()
+        self.csipcfgbindsourceaddrtable = CISCOSIPUAMIB.CSipCfgBindSourceAddrTable()
         self.csipcfgbindsourceaddrtable.parent = self
         self._children_name_map["csipcfgbindsourceaddrtable"] = "cSipCfgBindSourceAddrTable"
-        self._children_yang_names.add("cSipCfgBindSourceAddrTable")
 
-        self.csipcfgpeertable = CISCOSIPUAMIB.Csipcfgpeertable()
+        self.csipcfgpeertable = CISCOSIPUAMIB.CSipCfgPeerTable()
         self.csipcfgpeertable.parent = self
         self._children_name_map["csipcfgpeertable"] = "cSipCfgPeerTable"
-        self._children_yang_names.add("cSipCfgPeerTable")
 
-        self.csipcfgstatuscausetable = CISCOSIPUAMIB.Csipcfgstatuscausetable()
+        self.csipcfgstatuscausetable = CISCOSIPUAMIB.CSipCfgStatusCauseTable()
         self.csipcfgstatuscausetable.parent = self
         self._children_name_map["csipcfgstatuscausetable"] = "cSipCfgStatusCauseTable"
-        self._children_yang_names.add("cSipCfgStatusCauseTable")
 
-        self.csipcfgcausestatustable = CISCOSIPUAMIB.Csipcfgcausestatustable()
+        self.csipcfgcausestatustable = CISCOSIPUAMIB.CSipCfgCauseStatusTable()
         self.csipcfgcausestatustable.parent = self
         self._children_name_map["csipcfgcausestatustable"] = "cSipCfgCauseStatusTable"
-        self._children_yang_names.add("cSipCfgCauseStatusTable")
 
-        self.csipstatssuccessoktable = CISCOSIPUAMIB.Csipstatssuccessoktable()
+        self.csipstatssuccessoktable = CISCOSIPUAMIB.CSipStatsSuccessOkTable()
         self.csipstatssuccessoktable.parent = self
         self._children_name_map["csipstatssuccessoktable"] = "cSipStatsSuccessOkTable"
-        self._children_yang_names.add("cSipStatsSuccessOkTable")
         self._segment_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOSIPUAMIB, [], name, value)
 
-    class Csipcfgbase(Entity):
+
+    class CSipCfgBase(Entity):
         """
         
         
@@ -322,7 +302,7 @@ class CISCOSIPUAMIB(Entity):
         .. attribute:: csipcfgtransport
         
         	This object specifies the transport protocol the SIP user  agent will use to receive SIP messages.  A value of 'disabled' indicates that the UA will not receive any SIP messages
-        	**type**\:  :py:class:`Csipcfgtransport <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgbase.Csipcfgtransport>`
+        	**type**\:  :py:class:`CSipCfgTransport <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgBase.CSipCfgTransport>`
         
         .. attribute:: csipcfguserlocationserveraddr
         
@@ -350,14 +330,14 @@ class CISCOSIPUAMIB(Entity):
         .. attribute:: csipcfgbindsrcaddrscope
         
         	This object specifies the scope of packets to which the source IP address of the interface  designated by cSipCfgBindSrcAddrInterface will be bound.  A value of 'all' means the IP address  will be bound to both SIP signalling and media packets. A value of 'control' means the IP address will only be bound to SIP signalling packets.   If cSipCfgBindSrcAddrInterface is set to 0, the value of this object has no meaning
-        	**type**\:  :py:class:`Csipcfgbindsrcaddrscope <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgbase.Csipcfgbindsrcaddrscope>`
+        	**type**\:  :py:class:`CSipCfgBindSrcAddrScope <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgBase.CSipCfgBindSrcAddrScope>`
         
         	**status**\: deprecated
         
         .. attribute:: csipcfgdnssrvquerystringformat
         
         	This object specifies the format of the prefix used  by the system for DNS SRV queries.  v1  \:  RFC 2052 format \- 'protocol.transport.' v2  \:  RFC 2782 format \- '\_protocol.\_transport.'  This object allows backward compatibility with systems only supporting RFC 2052 format
-        	**type**\:  :py:class:`Csipcfgdnssrvquerystringformat <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgbase.Csipcfgdnssrvquerystringformat>`
+        	**type**\:  :py:class:`CSipCfgDnsSrvQueryStringFormat <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgBase.CSipCfgDnsSrvQueryStringFormat>`
         
         .. attribute:: csipcfgredirectiondisabled
         
@@ -372,7 +352,7 @@ class CISCOSIPUAMIB(Entity):
         .. attribute:: csipcfgsymnatdirectionrole
         
         	This object specifies the value of the 'a=direction\:<role>' SDP attribute supported by  the user agent.  The direction attribute is used  to describe the role of the user agent (as an  endpoint for a connection\-oriented media stream)  in the connection setup procedure.  none    \:  No role is specified. passive \:  The user agent will advertise itself            as a 'passive' entity (inside the NAT)            in the SDP. active  \:  The user agent will advertise itself            as a 'active' entity (outside the NAT)            in the SDP
-        	**type**\:  :py:class:`Csipcfgsymnatdirectionrole <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgbase.Csipcfgsymnatdirectionrole>`
+        	**type**\:  :py:class:`CSipCfgSymNatDirectionRole <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgBase.CSipCfgSymNatDirectionRole>`
         
         .. attribute:: csipcfgsuspendresumeenabled
         
@@ -382,7 +362,7 @@ class CISCOSIPUAMIB(Entity):
         .. attribute:: csipcfgoffercallhold
         
         	This object specifies how the SIP gateway would initiate call hold requests.  directionAttr\: The user agent will use the direction                 attribute such as a=sendonly or a=inactive in                 the sdp to initiate call hold requests.                    connAddr\: The user agent will use 0.0.0.0 connection address            to specify Call Hold
-        	**type**\:  :py:class:`Csipcfgoffercallhold <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgbase.Csipcfgoffercallhold>`
+        	**type**\:  :py:class:`CSipCfgOfferCallHold <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgBase.CSipCfgOfferCallHold>`
         
         .. attribute:: csipcfgreasonheaderoveride
         
@@ -404,15 +384,14 @@ class CISCOSIPUAMIB(Entity):
         _revision = '2004-02-19'
 
         def __init__(self):
-            super(CISCOSIPUAMIB.Csipcfgbase, self).__init__()
+            super(CISCOSIPUAMIB.CSipCfgBase, self).__init__()
 
             self.yang_name = "cSipCfgBase"
             self.yang_parent_name = "CISCO-SIP-UA-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('csipcfgversion', YLeaf(YType.str, 'cSipCfgVersion')),
                 ('csipcfgtransport', YLeaf(YType.enumeration, 'cSipCfgTransport')),
@@ -447,11 +426,11 @@ class CISCOSIPUAMIB(Entity):
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSIPUAMIB.Csipcfgbase, ['csipcfgversion', 'csipcfgtransport', 'csipcfguserlocationserveraddr', 'csipcfgmaxforwards', 'csipcfgbindsrcaddrinterface', 'csipcfgbindsrcaddrscope', 'csipcfgdnssrvquerystringformat', 'csipcfgredirectiondisabled', 'csipcfgsymnatenabled', 'csipcfgsymnatdirectionrole', 'csipcfgsuspendresumeenabled', 'csipcfgoffercallhold', 'csipcfgreasonheaderoveride', 'csipcfgmaximumforwards'], name, value)
+            self._perform_setattr(CISCOSIPUAMIB.CSipCfgBase, ['csipcfgversion', 'csipcfgtransport', 'csipcfguserlocationserveraddr', 'csipcfgmaxforwards', 'csipcfgbindsrcaddrinterface', 'csipcfgbindsrcaddrscope', 'csipcfgdnssrvquerystringformat', 'csipcfgredirectiondisabled', 'csipcfgsymnatenabled', 'csipcfgsymnatdirectionrole', 'csipcfgsuspendresumeenabled', 'csipcfgoffercallhold', 'csipcfgreasonheaderoveride', 'csipcfgmaximumforwards'], name, value)
 
-        class Csipcfgbindsrcaddrscope(Enum):
+        class CSipCfgBindSrcAddrScope(Enum):
             """
-            Csipcfgbindsrcaddrscope (Enum Class)
+            CSipCfgBindSrcAddrScope (Enum Class)
 
             This object specifies the scope of packets to
 
@@ -486,9 +465,9 @@ class CISCOSIPUAMIB(Entity):
             control = Enum.YLeaf(2, "control")
 
 
-        class Csipcfgdnssrvquerystringformat(Enum):
+        class CSipCfgDnsSrvQueryStringFormat(Enum):
             """
-            Csipcfgdnssrvquerystringformat (Enum Class)
+            CSipCfgDnsSrvQueryStringFormat (Enum Class)
 
             This object specifies the format of the prefix used 
 
@@ -513,9 +492,9 @@ class CISCOSIPUAMIB(Entity):
             v2 = Enum.YLeaf(2, "v2")
 
 
-        class Csipcfgoffercallhold(Enum):
+        class CSipCfgOfferCallHold(Enum):
             """
-            Csipcfgoffercallhold (Enum Class)
+            CSipCfgOfferCallHold (Enum Class)
 
             This object specifies how the SIP gateway would initiate call
 
@@ -542,9 +521,9 @@ class CISCOSIPUAMIB(Entity):
             connAddr = Enum.YLeaf(2, "connAddr")
 
 
-        class Csipcfgsymnatdirectionrole(Enum):
+        class CSipCfgSymNatDirectionRole(Enum):
             """
-            Csipcfgsymnatdirectionrole (Enum Class)
+            CSipCfgSymNatDirectionRole (Enum Class)
 
             This object specifies the value of the
 
@@ -587,9 +566,9 @@ class CISCOSIPUAMIB(Entity):
             active = Enum.YLeaf(3, "active")
 
 
-        class Csipcfgtransport(Enum):
+        class CSipCfgTransport(Enum):
             """
-            Csipcfgtransport (Enum Class)
+            CSipCfgTransport (Enum Class)
 
             This object specifies the transport protocol the SIP user 
 
@@ -617,7 +596,7 @@ class CISCOSIPUAMIB(Entity):
 
 
 
-    class Csipcfgtimer(Entity):
+    class CSipCfgTimer(Entity):
         """
         
         
@@ -755,15 +734,14 @@ class CISCOSIPUAMIB(Entity):
         _revision = '2004-02-19'
 
         def __init__(self):
-            super(CISCOSIPUAMIB.Csipcfgtimer, self).__init__()
+            super(CISCOSIPUAMIB.CSipCfgTimer, self).__init__()
 
             self.yang_name = "cSipCfgTimer"
             self.yang_parent_name = "CISCO-SIP-UA-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('csipcfgtimertrying', YLeaf(YType.int32, 'cSipCfgTimerTrying')),
                 ('csipcfgtimerexpires', YLeaf(YType.int32, 'cSipCfgTimerExpires')),
@@ -798,10 +776,10 @@ class CISCOSIPUAMIB(Entity):
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSIPUAMIB.Csipcfgtimer, ['csipcfgtimertrying', 'csipcfgtimerexpires', 'csipcfgtimerconnect', 'csipcfgtimerdisconnect', 'csipcfgtimerprack', 'csipcfgtimercomet', 'csipcfgtimerreliablersp', 'csipcfgtimernotify', 'csipcfgtimerrefer', 'csipcfgtimersessiontimer', 'csipcfgtimerhold', 'csipcfgtimerinfo', 'csipcfgtimerconnectionaging', 'csipcfgtimerbufferinvite'], name, value)
+            self._perform_setattr(CISCOSIPUAMIB.CSipCfgTimer, ['csipcfgtimertrying', 'csipcfgtimerexpires', 'csipcfgtimerconnect', 'csipcfgtimerdisconnect', 'csipcfgtimerprack', 'csipcfgtimercomet', 'csipcfgtimerreliablersp', 'csipcfgtimernotify', 'csipcfgtimerrefer', 'csipcfgtimersessiontimer', 'csipcfgtimerhold', 'csipcfgtimerinfo', 'csipcfgtimerconnectionaging', 'csipcfgtimerbufferinvite'], name, value)
 
 
-    class Csipcfgretry(Entity):
+    class CSipCfgRetry(Entity):
         """
         
         
@@ -897,15 +875,14 @@ class CISCOSIPUAMIB(Entity):
         _revision = '2004-02-19'
 
         def __init__(self):
-            super(CISCOSIPUAMIB.Csipcfgretry, self).__init__()
+            super(CISCOSIPUAMIB.CSipCfgRetry, self).__init__()
 
             self.yang_name = "cSipCfgRetry"
             self.yang_parent_name = "CISCO-SIP-UA-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('csipcfgretryinvite', YLeaf(YType.int32, 'cSipCfgRetryInvite')),
                 ('csipcfgretrybye', YLeaf(YType.int32, 'cSipCfgRetryBye')),
@@ -936,17 +913,17 @@ class CISCOSIPUAMIB(Entity):
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSIPUAMIB.Csipcfgretry, ['csipcfgretryinvite', 'csipcfgretrybye', 'csipcfgretrycancel', 'csipcfgretryregister', 'csipcfgretryresponse', 'csipcfgretryprack', 'csipcfgretrycomet', 'csipcfgretryreliablersp', 'csipcfgretrynotify', 'csipcfgretryrefer', 'csipcfgretryinfo', 'csipcfgretrysubscribe'], name, value)
+            self._perform_setattr(CISCOSIPUAMIB.CSipCfgRetry, ['csipcfgretryinvite', 'csipcfgretrybye', 'csipcfgretrycancel', 'csipcfgretryregister', 'csipcfgretryresponse', 'csipcfgretryprack', 'csipcfgretrycomet', 'csipcfgretryreliablersp', 'csipcfgretrynotify', 'csipcfgretryrefer', 'csipcfgretryinfo', 'csipcfgretrysubscribe'], name, value)
 
 
-    class Csipcfgpeer(Entity):
+    class CSipCfgPeer(Entity):
         """
         
         
         .. attribute:: csipcfgoutsessiontransport
         
         	This object specifies the session transport  protocol that will be used for outbound SIP  messages.  This configuration is applicable to all dial\-peers in the system having  cSipCfgPeerOutSessionTransport set to 'system'
-        	**type**\:  :py:class:`Csipcfgoutsessiontransport <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgpeer.Csipcfgoutsessiontransport>`
+        	**type**\:  :py:class:`CSipCfgOutSessionTransport <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgPeer.CSipCfgOutSessionTransport>`
         
         .. attribute:: csipcfgreliable1xxrspstr
         
@@ -956,12 +933,12 @@ class CISCOSIPUAMIB(Entity):
         .. attribute:: csipcfgreliable1xxrsphdr
         
         	This object specifies behavior with respect to Supported or Require headers in SIP messages sent and received via this dial\-peer.  If the originating gateway is configured for 'require', the Require header is added to the outgoing INVITEs with the value of cSipCfgReliable1xxStr.  This requires the use of reliable provisional responses by the terminating gateway.  Sessions will be torn down if this use cannot be supported by that gateway.  If the originating gateway is configured for 'supported', the Supported header is added to the outgoing INVITEs with the value of cSipCfgReliable1xxStr.  This  requires that an attempt to use reliable provisional responses be made, but sessions can continue without them.  If the originating gateway is configured for 'disabled', the value of cSipCfgReliable1xxStr will NOT be added to either the Require or Supported headers of outgoing INVITEs
-        	**type**\:  :py:class:`Csipcfgreliable1Xxrsphdr <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgpeer.Csipcfgreliable1Xxrsphdr>`
+        	**type**\:  :py:class:`CSipCfgReliable1xxRspHdr <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgPeer.CSipCfgReliable1xxRspHdr>`
         
         .. attribute:: csipcfgurltype
         
         	This object specifies the URL type sent in outbound INVITES generated by this device
-        	**type**\:  :py:class:`Csipcfgurltype <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgpeer.Csipcfgurltype>`
+        	**type**\:  :py:class:`CSipCfgUrlType <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgPeer.CSipCfgUrlType>`
         
         
 
@@ -971,15 +948,14 @@ class CISCOSIPUAMIB(Entity):
         _revision = '2004-02-19'
 
         def __init__(self):
-            super(CISCOSIPUAMIB.Csipcfgpeer, self).__init__()
+            super(CISCOSIPUAMIB.CSipCfgPeer, self).__init__()
 
             self.yang_name = "cSipCfgPeer"
             self.yang_parent_name = "CISCO-SIP-UA-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('csipcfgoutsessiontransport', YLeaf(YType.enumeration, 'cSipCfgOutSessionTransport')),
                 ('csipcfgreliable1xxrspstr', YLeaf(YType.str, 'cSipCfgReliable1xxRspStr')),
@@ -994,11 +970,11 @@ class CISCOSIPUAMIB(Entity):
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSIPUAMIB.Csipcfgpeer, ['csipcfgoutsessiontransport', 'csipcfgreliable1xxrspstr', 'csipcfgreliable1xxrsphdr', 'csipcfgurltype'], name, value)
+            self._perform_setattr(CISCOSIPUAMIB.CSipCfgPeer, ['csipcfgoutsessiontransport', 'csipcfgreliable1xxrspstr', 'csipcfgreliable1xxrsphdr', 'csipcfgurltype'], name, value)
 
-        class Csipcfgoutsessiontransport(Enum):
+        class CSipCfgOutSessionTransport(Enum):
             """
-            Csipcfgoutsessiontransport (Enum Class)
+            CSipCfgOutSessionTransport (Enum Class)
 
             This object specifies the session transport 
 
@@ -1021,9 +997,9 @@ class CISCOSIPUAMIB(Entity):
             tcp = Enum.YLeaf(2, "tcp")
 
 
-        class Csipcfgreliable1Xxrsphdr(Enum):
+        class CSipCfgReliable1xxRspHdr(Enum):
             """
-            Csipcfgreliable1Xxrsphdr (Enum Class)
+            CSipCfgReliable1xxRspHdr (Enum Class)
 
             This object specifies behavior with respect to
 
@@ -1074,9 +1050,9 @@ class CISCOSIPUAMIB(Entity):
             disabled = Enum.YLeaf(3, "disabled")
 
 
-        class Csipcfgurltype(Enum):
+        class CSipCfgUrlType(Enum):
             """
-            Csipcfgurltype (Enum Class)
+            CSipCfgUrlType (Enum Class)
 
             This object specifies the URL type sent in outbound
 
@@ -1094,14 +1070,14 @@ class CISCOSIPUAMIB(Entity):
 
 
 
-    class Csipcfgaaa(Entity):
+    class CSipCfgAaa(Entity):
         """
         
         
         .. attribute:: csipcfgaaausername
         
         	This object specifies the source of the information used to populate the username attribute of AAA billing records
-        	**type**\:  :py:class:`Csipcfgaaausername <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgaaa.Csipcfgaaausername>`
+        	**type**\:  :py:class:`CSipCfgAaaUsername <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgAaa.CSipCfgAaaUsername>`
         
         
 
@@ -1111,15 +1087,14 @@ class CISCOSIPUAMIB(Entity):
         _revision = '2004-02-19'
 
         def __init__(self):
-            super(CISCOSIPUAMIB.Csipcfgaaa, self).__init__()
+            super(CISCOSIPUAMIB.CSipCfgAaa, self).__init__()
 
             self.yang_name = "cSipCfgAaa"
             self.yang_parent_name = "CISCO-SIP-UA-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('csipcfgaaausername', YLeaf(YType.enumeration, 'cSipCfgAaaUsername')),
             ])
@@ -1128,11 +1103,11 @@ class CISCOSIPUAMIB(Entity):
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSIPUAMIB.Csipcfgaaa, ['csipcfgaaausername'], name, value)
+            self._perform_setattr(CISCOSIPUAMIB.CSipCfgAaa, ['csipcfgaaausername'], name, value)
 
-        class Csipcfgaaausername(Enum):
+        class CSipCfgAaaUsername(Enum):
             """
-            Csipcfgaaausername (Enum Class)
+            CSipCfgAaaUsername (Enum Class)
 
             This object specifies the source of the information used to
 
@@ -1150,7 +1125,7 @@ class CISCOSIPUAMIB(Entity):
 
 
 
-    class Csipcfgvoiceservicevoip(Entity):
+    class CSipCfgVoiceServiceVoip(Entity):
         """
         
         
@@ -1186,15 +1161,14 @@ class CISCOSIPUAMIB(Entity):
         _revision = '2004-02-19'
 
         def __init__(self):
-            super(CISCOSIPUAMIB.Csipcfgvoiceservicevoip, self).__init__()
+            super(CISCOSIPUAMIB.CSipCfgVoiceServiceVoip, self).__init__()
 
             self.yang_name = "cSipCfgVoiceServiceVoip"
             self.yang_parent_name = "CISCO-SIP-UA-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('csipcfgheaderpassingenabled', YLeaf(YType.boolean, 'cSipCfgHeaderPassingEnabled')),
                 ('csipcfgmaxsubscriptionaccept', YLeaf(YType.uint32, 'cSipCfgMaxSubscriptionAccept')),
@@ -1209,10 +1183,10 @@ class CISCOSIPUAMIB(Entity):
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSIPUAMIB.Csipcfgvoiceservicevoip, ['csipcfgheaderpassingenabled', 'csipcfgmaxsubscriptionaccept', 'csipcfgmaxsubscriptionoriginate', 'csipcfgswitchtransportenabled'], name, value)
+            self._perform_setattr(CISCOSIPUAMIB.CSipCfgVoiceServiceVoip, ['csipcfgheaderpassingenabled', 'csipcfgmaxsubscriptionaccept', 'csipcfgmaxsubscriptionoriginate', 'csipcfgswitchtransportenabled'], name, value)
 
 
-    class Csipstatsinfo(Entity):
+    class CSipStatsInfo(Entity):
         """
         
         
@@ -1294,15 +1268,14 @@ class CISCOSIPUAMIB(Entity):
         _revision = '2004-02-19'
 
         def __init__(self):
-            super(CISCOSIPUAMIB.Csipstatsinfo, self).__init__()
+            super(CISCOSIPUAMIB.CSipStatsInfo, self).__init__()
 
             self.yang_name = "cSipStatsInfo"
             self.yang_parent_name = "CISCO-SIP-UA-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('csipstatsinfotryingins', YLeaf(YType.uint32, 'cSipStatsInfoTryingIns')),
                 ('csipstatsinfotryingouts', YLeaf(YType.uint32, 'cSipStatsInfoTryingOuts')),
@@ -1329,10 +1302,10 @@ class CISCOSIPUAMIB(Entity):
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSIPUAMIB.Csipstatsinfo, ['csipstatsinfotryingins', 'csipstatsinfotryingouts', 'csipstatsinforingingins', 'csipstatsinforingingouts', 'csipstatsinfoforwardedins', 'csipstatsinfoforwardedouts', 'csipstatsinfoqueuedins', 'csipstatsinfoqueuedouts', 'csipstatsinfosessionprogins', 'csipstatsinfosessionprogouts'], name, value)
+            self._perform_setattr(CISCOSIPUAMIB.CSipStatsInfo, ['csipstatsinfotryingins', 'csipstatsinfotryingouts', 'csipstatsinforingingins', 'csipstatsinforingingouts', 'csipstatsinfoforwardedins', 'csipstatsinfoforwardedouts', 'csipstatsinfoqueuedins', 'csipstatsinfoqueuedouts', 'csipstatsinfosessionprogins', 'csipstatsinfosessionprogouts'], name, value)
 
 
-    class Csipstatssuccess(Entity):
+    class CSipStatsSuccess(Entity):
         """
         
         
@@ -1376,15 +1349,14 @@ class CISCOSIPUAMIB(Entity):
         _revision = '2004-02-19'
 
         def __init__(self):
-            super(CISCOSIPUAMIB.Csipstatssuccess, self).__init__()
+            super(CISCOSIPUAMIB.CSipStatsSuccess, self).__init__()
 
             self.yang_name = "cSipStatsSuccess"
             self.yang_parent_name = "CISCO-SIP-UA-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('csipstatssuccessokins', YLeaf(YType.uint32, 'cSipStatsSuccessOkIns')),
                 ('csipstatssuccessokouts', YLeaf(YType.uint32, 'cSipStatsSuccessOkOuts')),
@@ -1399,10 +1371,10 @@ class CISCOSIPUAMIB(Entity):
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSIPUAMIB.Csipstatssuccess, ['csipstatssuccessokins', 'csipstatssuccessokouts', 'csipstatssuccessacceptedins', 'csipstatssuccessacceptedouts'], name, value)
+            self._perform_setattr(CISCOSIPUAMIB.CSipStatsSuccess, ['csipstatssuccessokins', 'csipstatssuccessokouts', 'csipstatssuccessacceptedins', 'csipstatssuccessacceptedouts'], name, value)
 
 
-    class Csipstatsredirect(Entity):
+    class CSipStatsRedirect(Entity):
         """
         
         
@@ -1474,15 +1446,14 @@ class CISCOSIPUAMIB(Entity):
         _revision = '2004-02-19'
 
         def __init__(self):
-            super(CISCOSIPUAMIB.Csipstatsredirect, self).__init__()
+            super(CISCOSIPUAMIB.CSipStatsRedirect, self).__init__()
 
             self.yang_name = "cSipStatsRedirect"
             self.yang_parent_name = "CISCO-SIP-UA-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('csipstatsredirmultiplechoices', YLeaf(YType.uint32, 'cSipStatsRedirMultipleChoices')),
                 ('csipstatsredirmovedperms', YLeaf(YType.uint32, 'cSipStatsRedirMovedPerms')),
@@ -1505,10 +1476,10 @@ class CISCOSIPUAMIB(Entity):
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSIPUAMIB.Csipstatsredirect, ['csipstatsredirmultiplechoices', 'csipstatsredirmovedperms', 'csipstatsredirmovedtemps', 'csipstatsredirseeothers', 'csipstatsrediruseproxys', 'csipstatsrediraltservices', 'csipstatsredirmovedtempsins', 'csipstatsredirmovedtempsouts'], name, value)
+            self._perform_setattr(CISCOSIPUAMIB.CSipStatsRedirect, ['csipstatsredirmultiplechoices', 'csipstatsredirmovedperms', 'csipstatsredirmovedtemps', 'csipstatsredirseeothers', 'csipstatsrediruseproxys', 'csipstatsrediraltservices', 'csipstatsredirmovedtempsins', 'csipstatsredirmovedtempsouts'], name, value)
 
 
-    class Csipstatserrclient(Entity):
+    class CSipStatsErrClient(Entity):
         """
         
         
@@ -1916,15 +1887,14 @@ class CISCOSIPUAMIB(Entity):
         _revision = '2004-02-19'
 
         def __init__(self):
-            super(CISCOSIPUAMIB.Csipstatserrclient, self).__init__()
+            super(CISCOSIPUAMIB.CSipStatsErrClient, self).__init__()
 
             self.yang_name = "cSipStatsErrClient"
             self.yang_parent_name = "CISCO-SIP-UA-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('csipstatsclientbadrequestins', YLeaf(YType.uint32, 'cSipStatsClientBadRequestIns')),
                 ('csipstatsclientbadrequestouts', YLeaf(YType.uint32, 'cSipStatsClientBadRequestOuts')),
@@ -2043,10 +2013,10 @@ class CISCOSIPUAMIB(Entity):
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSIPUAMIB.Csipstatserrclient, ['csipstatsclientbadrequestins', 'csipstatsclientbadrequestouts', 'csipstatsclientunauthorizedins', 'csipstatsclientunauthorizedouts', 'csipstatsclientpaymentreqdins', 'csipstatsclientpaymentreqdouts', 'csipstatsclientforbiddenins', 'csipstatsclientforbiddenouts', 'csipstatsclientnotfoundins', 'csipstatsclientnotfoundouts', 'csipstatsclientmethnotallowedins', 'csipstatsclientmethnotallowedouts', 'csipstatsclientnotacceptableins', 'csipstatsclientnotacceptableouts', 'csipstatsclientproxyauthreqdins', 'csipstatsclientproxyauthreqdouts', 'csipstatsclientreqtimeoutins', 'csipstatsclientreqtimeoutouts', 'csipstatsclientconflictins', 'csipstatsclientconflictouts', 'csipstatsclientgoneins', 'csipstatsclientgoneouts', 'csipstatsclientlengthrequiredins', 'csipstatsclientlengthrequiredouts', 'csipstatsclientreqenttoolargeins', 'csipstatsclientreqenttoolargeouts', 'csipstatsclientrequritoolargeins', 'csipstatsclientrequritoolargeouts', 'csipstatsclientnosupmediatypeins', 'csipstatsclientnosupmediatypeouts', 'csipstatsclientbadextensionins', 'csipstatsclientbadextensionouts', 'csipstatsclienttempnotavailins', 'csipstatsclienttempnotavailouts', 'csipstatsclientcalllegnoexistins', 'csipstatsclientcalllegnoexistouts', 'csipstatsclientloopdetectedins', 'csipstatsclientloopdetectedouts', 'csipstatsclienttoomanyhopsins', 'csipstatsclienttoomanyhopsouts', 'csipstatsclientaddrincompleteins', 'csipstatsclientaddrincompleteouts', 'csipstatsclientambiguousins', 'csipstatsclientambiguousouts', 'csipstatsclientbusyhereins', 'csipstatsclientbusyhereouts', 'csipstatsclientreqtermins', 'csipstatsclientreqtermouts', 'csipstatsclientnoaccepthereins', 'csipstatsclientnoaccepthereouts', 'csipstatsclientbadeventins', 'csipstatsclientbadeventouts', 'csipstatsclientsttoosmallins', 'csipstatsclientsttoosmallouts', 'csipstatsclientreqpendingins', 'csipstatsclientreqpendingouts'], name, value)
+            self._perform_setattr(CISCOSIPUAMIB.CSipStatsErrClient, ['csipstatsclientbadrequestins', 'csipstatsclientbadrequestouts', 'csipstatsclientunauthorizedins', 'csipstatsclientunauthorizedouts', 'csipstatsclientpaymentreqdins', 'csipstatsclientpaymentreqdouts', 'csipstatsclientforbiddenins', 'csipstatsclientforbiddenouts', 'csipstatsclientnotfoundins', 'csipstatsclientnotfoundouts', 'csipstatsclientmethnotallowedins', 'csipstatsclientmethnotallowedouts', 'csipstatsclientnotacceptableins', 'csipstatsclientnotacceptableouts', 'csipstatsclientproxyauthreqdins', 'csipstatsclientproxyauthreqdouts', 'csipstatsclientreqtimeoutins', 'csipstatsclientreqtimeoutouts', 'csipstatsclientconflictins', 'csipstatsclientconflictouts', 'csipstatsclientgoneins', 'csipstatsclientgoneouts', 'csipstatsclientlengthrequiredins', 'csipstatsclientlengthrequiredouts', 'csipstatsclientreqenttoolargeins', 'csipstatsclientreqenttoolargeouts', 'csipstatsclientrequritoolargeins', 'csipstatsclientrequritoolargeouts', 'csipstatsclientnosupmediatypeins', 'csipstatsclientnosupmediatypeouts', 'csipstatsclientbadextensionins', 'csipstatsclientbadextensionouts', 'csipstatsclienttempnotavailins', 'csipstatsclienttempnotavailouts', 'csipstatsclientcalllegnoexistins', 'csipstatsclientcalllegnoexistouts', 'csipstatsclientloopdetectedins', 'csipstatsclientloopdetectedouts', 'csipstatsclienttoomanyhopsins', 'csipstatsclienttoomanyhopsouts', 'csipstatsclientaddrincompleteins', 'csipstatsclientaddrincompleteouts', 'csipstatsclientambiguousins', 'csipstatsclientambiguousouts', 'csipstatsclientbusyhereins', 'csipstatsclientbusyhereouts', 'csipstatsclientreqtermins', 'csipstatsclientreqtermouts', 'csipstatsclientnoaccepthereins', 'csipstatsclientnoaccepthereouts', 'csipstatsclientbadeventins', 'csipstatsclientbadeventouts', 'csipstatsclientsttoosmallins', 'csipstatsclientsttoosmallouts', 'csipstatsclientreqpendingins', 'csipstatsclientreqpendingouts'], name, value)
 
 
-    class Csipstatserrserver(Entity):
+    class CSipStatsErrServer(Entity):
         """
         
         
@@ -2156,15 +2126,14 @@ class CISCOSIPUAMIB(Entity):
         _revision = '2004-02-19'
 
         def __init__(self):
-            super(CISCOSIPUAMIB.Csipstatserrserver, self).__init__()
+            super(CISCOSIPUAMIB.CSipStatsErrServer, self).__init__()
 
             self.yang_name = "cSipStatsErrServer"
             self.yang_parent_name = "CISCO-SIP-UA-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('csipstatsserverinterrorins', YLeaf(YType.uint32, 'cSipStatsServerIntErrorIns')),
                 ('csipstatsserverinterrorouts', YLeaf(YType.uint32, 'cSipStatsServerIntErrorOuts')),
@@ -2199,10 +2168,10 @@ class CISCOSIPUAMIB(Entity):
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSIPUAMIB.Csipstatserrserver, ['csipstatsserverinterrorins', 'csipstatsserverinterrorouts', 'csipstatsservernotimplementedins', 'csipstatsservernotimplementedouts', 'csipstatsserverbadgatewayins', 'csipstatsserverbadgatewayouts', 'csipstatsserverserviceunavailins', 'csipstatsserverserviceunavailouts', 'csipstatsservergatewaytimeoutins', 'csipstatsservergatewaytimeoutouts', 'csipstatsserverbadsipversionins', 'csipstatsserverbadsipversionouts', 'csipstatsserverprecondfailureins', 'csipstatsserverprecondfailureouts'], name, value)
+            self._perform_setattr(CISCOSIPUAMIB.CSipStatsErrServer, ['csipstatsserverinterrorins', 'csipstatsserverinterrorouts', 'csipstatsservernotimplementedins', 'csipstatsservernotimplementedouts', 'csipstatsserverbadgatewayins', 'csipstatsserverbadgatewayouts', 'csipstatsserverserviceunavailins', 'csipstatsserverserviceunavailouts', 'csipstatsservergatewaytimeoutins', 'csipstatsservergatewaytimeoutouts', 'csipstatsserverbadsipversionins', 'csipstatsserverbadsipversionouts', 'csipstatsserverprecondfailureins', 'csipstatsserverprecondfailureouts'], name, value)
 
 
-    class Csipstatsglobalfail(Entity):
+    class CSipStatsGlobalFail(Entity):
         """
         
         
@@ -2270,15 +2239,14 @@ class CISCOSIPUAMIB(Entity):
         _revision = '2004-02-19'
 
         def __init__(self):
-            super(CISCOSIPUAMIB.Csipstatsglobalfail, self).__init__()
+            super(CISCOSIPUAMIB.CSipStatsGlobalFail, self).__init__()
 
             self.yang_name = "cSipStatsGlobalFail"
             self.yang_parent_name = "CISCO-SIP-UA-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('csipstatsglobalbusyeverywhereins', YLeaf(YType.uint32, 'cSipStatsGlobalBusyEverywhereIns')),
                 ('csipstatsglobalbusyeverywhereouts', YLeaf(YType.uint32, 'cSipStatsGlobalBusyEverywhereOuts')),
@@ -2301,10 +2269,10 @@ class CISCOSIPUAMIB(Entity):
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSIPUAMIB.Csipstatsglobalfail, ['csipstatsglobalbusyeverywhereins', 'csipstatsglobalbusyeverywhereouts', 'csipstatsglobaldeclineins', 'csipstatsglobaldeclineouts', 'csipstatsglobalnotanywhereins', 'csipstatsglobalnotanywhereouts', 'csipstatsglobalnotacceptableins', 'csipstatsglobalnotacceptableouts'], name, value)
+            self._perform_setattr(CISCOSIPUAMIB.CSipStatsGlobalFail, ['csipstatsglobalbusyeverywhereins', 'csipstatsglobalbusyeverywhereouts', 'csipstatsglobaldeclineins', 'csipstatsglobaldeclineouts', 'csipstatsglobalnotanywhereins', 'csipstatsglobalnotanywhereouts', 'csipstatsglobalnotacceptableins', 'csipstatsglobalnotacceptableouts'], name, value)
 
 
-    class Csipstatstraffic(Entity):
+    class CSipStatsTraffic(Entity):
         """
         
         
@@ -2498,15 +2466,14 @@ class CISCOSIPUAMIB(Entity):
         _revision = '2004-02-19'
 
         def __init__(self):
-            super(CISCOSIPUAMIB.Csipstatstraffic, self).__init__()
+            super(CISCOSIPUAMIB.CSipStatsTraffic, self).__init__()
 
             self.yang_name = "cSipStatsTraffic"
             self.yang_parent_name = "CISCO-SIP-UA-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('csipstatstrafficinviteins', YLeaf(YType.uint32, 'cSipStatsTrafficInviteIns')),
                 ('csipstatstrafficinviteouts', YLeaf(YType.uint32, 'cSipStatsTrafficInviteOuts')),
@@ -2565,10 +2532,10 @@ class CISCOSIPUAMIB(Entity):
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSIPUAMIB.Csipstatstraffic, ['csipstatstrafficinviteins', 'csipstatstrafficinviteouts', 'csipstatstrafficackins', 'csipstatstrafficackouts', 'csipstatstrafficbyeins', 'csipstatstrafficbyeouts', 'csipstatstrafficcancelins', 'csipstatstrafficcancelouts', 'csipstatstrafficoptionsins', 'csipstatstrafficoptionsouts', 'csipstatstrafficregisterins', 'csipstatstrafficregisterouts', 'csipstatstrafficcometins', 'csipstatstrafficcometouts', 'csipstatstrafficprackins', 'csipstatstrafficprackouts', 'csipstatstrafficreferins', 'csipstatstrafficreferouts', 'csipstatstrafficnotifyins', 'csipstatstrafficnotifyouts', 'csipstatstrafficinfoins', 'csipstatstrafficinfoouts', 'csipstatstrafficsubscribeins', 'csipstatstrafficsubscribeouts', 'csipstatstrafficupdateins', 'csipstatstrafficupdateouts'], name, value)
+            self._perform_setattr(CISCOSIPUAMIB.CSipStatsTraffic, ['csipstatstrafficinviteins', 'csipstatstrafficinviteouts', 'csipstatstrafficackins', 'csipstatstrafficackouts', 'csipstatstrafficbyeins', 'csipstatstrafficbyeouts', 'csipstatstrafficcancelins', 'csipstatstrafficcancelouts', 'csipstatstrafficoptionsins', 'csipstatstrafficoptionsouts', 'csipstatstrafficregisterins', 'csipstatstrafficregisterouts', 'csipstatstrafficcometins', 'csipstatstrafficcometouts', 'csipstatstrafficprackins', 'csipstatstrafficprackouts', 'csipstatstrafficreferins', 'csipstatstrafficreferouts', 'csipstatstrafficnotifyins', 'csipstatstrafficnotifyouts', 'csipstatstrafficinfoins', 'csipstatstrafficinfoouts', 'csipstatstrafficsubscribeins', 'csipstatstrafficsubscribeouts', 'csipstatstrafficupdateins', 'csipstatstrafficupdateouts'], name, value)
 
 
-    class Csipstatsretry(Entity):
+    class CSipStatsRetry(Entity):
         """
         
         
@@ -2664,15 +2631,14 @@ class CISCOSIPUAMIB(Entity):
         _revision = '2004-02-19'
 
         def __init__(self):
-            super(CISCOSIPUAMIB.Csipstatsretry, self).__init__()
+            super(CISCOSIPUAMIB.CSipStatsRetry, self).__init__()
 
             self.yang_name = "cSipStatsRetry"
             self.yang_parent_name = "CISCO-SIP-UA-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('csipstatsretryinvites', YLeaf(YType.uint32, 'cSipStatsRetryInvites')),
                 ('csipstatsretrybyes', YLeaf(YType.uint32, 'cSipStatsRetryByes')),
@@ -2703,10 +2669,10 @@ class CISCOSIPUAMIB(Entity):
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSIPUAMIB.Csipstatsretry, ['csipstatsretryinvites', 'csipstatsretrybyes', 'csipstatsretrycancels', 'csipstatsretryregisters', 'csipstatsretryresponses', 'csipstatsretrypracks', 'csipstatsretrycomets', 'csipstatsretryreliable1xxrsps', 'csipstatsretrynotifys', 'csipstatsretryrefers', 'csipstatsretryinfo', 'csipstatsretrysubscribe'], name, value)
+            self._perform_setattr(CISCOSIPUAMIB.CSipStatsRetry, ['csipstatsretryinvites', 'csipstatsretrybyes', 'csipstatsretrycancels', 'csipstatsretryregisters', 'csipstatsretryresponses', 'csipstatsretrypracks', 'csipstatsretrycomets', 'csipstatsretryreliable1xxrsps', 'csipstatsretrynotifys', 'csipstatsretryrefers', 'csipstatsretryinfo', 'csipstatsretrysubscribe'], name, value)
 
 
-    class Csipstatsmisc(Entity):
+    class CSipStatsMisc(Entity):
         """
         
         
@@ -2725,15 +2691,14 @@ class CISCOSIPUAMIB(Entity):
         _revision = '2004-02-19'
 
         def __init__(self):
-            super(CISCOSIPUAMIB.Csipstatsmisc, self).__init__()
+            super(CISCOSIPUAMIB.CSipStatsMisc, self).__init__()
 
             self.yang_name = "cSipStatsMisc"
             self.yang_parent_name = "CISCO-SIP-UA-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('csipstatsmisc3xxmappedto4xxrsps', YLeaf(YType.uint32, 'cSipStatsMisc3xxMappedTo4xxRsps')),
             ])
@@ -2742,10 +2707,10 @@ class CISCOSIPUAMIB(Entity):
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSIPUAMIB.Csipstatsmisc, ['csipstatsmisc3xxmappedto4xxrsps'], name, value)
+            self._perform_setattr(CISCOSIPUAMIB.CSipStatsMisc, ['csipstatsmisc3xxmappedto4xxrsps'], name, value)
 
 
-    class Csipstatsconnection(Entity):
+    class CSipStatsConnection(Entity):
         """
         
         
@@ -2820,15 +2785,14 @@ class CISCOSIPUAMIB(Entity):
         _revision = '2004-02-19'
 
         def __init__(self):
-            super(CISCOSIPUAMIB.Csipstatsconnection, self).__init__()
+            super(CISCOSIPUAMIB.CSipStatsConnection, self).__init__()
 
             self.yang_name = "cSipStatsConnection"
             self.yang_parent_name = "CISCO-SIP-UA-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('csipstatsconntcpsendfailures', YLeaf(YType.uint32, 'cSipStatsConnTCPSendFailures')),
                 ('csipstatsconnudpsendfailures', YLeaf(YType.uint32, 'cSipStatsConnUDPSendFailures')),
@@ -2853,10 +2817,10 @@ class CISCOSIPUAMIB(Entity):
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSIPUAMIB.Csipstatsconnection, ['csipstatsconntcpsendfailures', 'csipstatsconnudpsendfailures', 'csipstatsconntcpremoteclosures', 'csipstatsconnudpcreatefailures', 'csipstatsconntcpcreatefailures', 'csipstatsconnudpinactivetimeouts', 'csipstatsconntcpinactivetimeouts', 'csipstatsactiveudpconnections', 'csipstatsactivetcpconnections'], name, value)
+            self._perform_setattr(CISCOSIPUAMIB.CSipStatsConnection, ['csipstatsconntcpsendfailures', 'csipstatsconnudpsendfailures', 'csipstatsconntcpremoteclosures', 'csipstatsconnudpcreatefailures', 'csipstatsconntcpcreatefailures', 'csipstatsconnudpinactivetimeouts', 'csipstatsconntcpinactivetimeouts', 'csipstatsactiveudpconnections', 'csipstatsactivetcpconnections'], name, value)
 
 
-    class Csipcfgearlymediatable(Entity):
+    class CSipCfgEarlyMediaTable(Entity):
         """
         This table contains configuration for Early
         Media Cut Through.  The configuration controls
@@ -2867,7 +2831,7 @@ class CISCOSIPUAMIB(Entity):
         .. attribute:: csipcfgearlymediaentry
         
         	A row in the cSipCfgEarlyMediaTable. A row is accessible with a Provisional (1xx) status code value (eg, 180) and provides an object for the enabling or disabling of the Early Media Cut Through functionality
-        	**type**\: list of  		 :py:class:`Csipcfgearlymediaentry <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgearlymediatable.Csipcfgearlymediaentry>`
+        	**type**\: list of  		 :py:class:`CSipCfgEarlyMediaEntry <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgEarlyMediaTable.CSipCfgEarlyMediaEntry>`
         
         
 
@@ -2877,15 +2841,14 @@ class CISCOSIPUAMIB(Entity):
         _revision = '2004-02-19'
 
         def __init__(self):
-            super(CISCOSIPUAMIB.Csipcfgearlymediatable, self).__init__()
+            super(CISCOSIPUAMIB.CSipCfgEarlyMediaTable, self).__init__()
 
             self.yang_name = "cSipCfgEarlyMediaTable"
             self.yang_parent_name = "CISCO-SIP-UA-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cSipCfgEarlyMediaEntry", ("csipcfgearlymediaentry", CISCOSIPUAMIB.Csipcfgearlymediatable.Csipcfgearlymediaentry))])
+            self._child_classes = OrderedDict([("cSipCfgEarlyMediaEntry", ("csipcfgearlymediaentry", CISCOSIPUAMIB.CSipCfgEarlyMediaTable.CSipCfgEarlyMediaEntry))])
             self._leafs = OrderedDict()
 
             self.csipcfgearlymediaentry = YList(self)
@@ -2893,10 +2856,10 @@ class CISCOSIPUAMIB(Entity):
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSIPUAMIB.Csipcfgearlymediatable, [], name, value)
+            self._perform_setattr(CISCOSIPUAMIB.CSipCfgEarlyMediaTable, [], name, value)
 
 
-        class Csipcfgearlymediaentry(Entity):
+        class CSipCfgEarlyMediaEntry(Entity):
             """
             A row in the cSipCfgEarlyMediaTable.
             A row is accessible with a Provisional (1xx)
@@ -2924,15 +2887,14 @@ class CISCOSIPUAMIB(Entity):
             _revision = '2004-02-19'
 
             def __init__(self):
-                super(CISCOSIPUAMIB.Csipcfgearlymediatable.Csipcfgearlymediaentry, self).__init__()
+                super(CISCOSIPUAMIB.CSipCfgEarlyMediaTable.CSipCfgEarlyMediaEntry, self).__init__()
 
                 self.yang_name = "cSipCfgEarlyMediaEntry"
                 self.yang_parent_name = "cSipCfgEarlyMediaTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['csipcfgearlymediastatuscodeindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('csipcfgearlymediastatuscodeindex', YLeaf(YType.int32, 'cSipCfgEarlyMediaStatusCodeIndex')),
                     ('csipcfgearlymediacutthrudisabled', YLeaf(YType.boolean, 'cSipCfgEarlyMediaCutThruDisabled')),
@@ -2943,10 +2905,10 @@ class CISCOSIPUAMIB(Entity):
                 self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/cSipCfgEarlyMediaTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSIPUAMIB.Csipcfgearlymediatable.Csipcfgearlymediaentry, ['csipcfgearlymediastatuscodeindex', 'csipcfgearlymediacutthrudisabled'], name, value)
+                self._perform_setattr(CISCOSIPUAMIB.CSipCfgEarlyMediaTable.CSipCfgEarlyMediaEntry, ['csipcfgearlymediastatuscodeindex', 'csipcfgearlymediacutthrudisabled'], name, value)
 
 
-    class Csipcfgbindsourceaddrtable(Entity):
+    class CSipCfgBindSourceAddrTable(Entity):
         """
         This table contains configuration for binding
         the scope of packets to the particular ethernet
@@ -2959,7 +2921,7 @@ class CISCOSIPUAMIB(Entity):
         .. attribute:: csipcfgbindsourceaddrentry
         
         	A row in the cSipCfgBindSourceAddrTable. A row is accessible with the scope of packets to which the source IP address of the interface designated by cSipCfgBindSourceAddrInterface will be bound
-        	**type**\: list of  		 :py:class:`Csipcfgbindsourceaddrentry <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgbindsourceaddrtable.Csipcfgbindsourceaddrentry>`
+        	**type**\: list of  		 :py:class:`CSipCfgBindSourceAddrEntry <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgBindSourceAddrTable.CSipCfgBindSourceAddrEntry>`
         
         
 
@@ -2969,15 +2931,14 @@ class CISCOSIPUAMIB(Entity):
         _revision = '2004-02-19'
 
         def __init__(self):
-            super(CISCOSIPUAMIB.Csipcfgbindsourceaddrtable, self).__init__()
+            super(CISCOSIPUAMIB.CSipCfgBindSourceAddrTable, self).__init__()
 
             self.yang_name = "cSipCfgBindSourceAddrTable"
             self.yang_parent_name = "CISCO-SIP-UA-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cSipCfgBindSourceAddrEntry", ("csipcfgbindsourceaddrentry", CISCOSIPUAMIB.Csipcfgbindsourceaddrtable.Csipcfgbindsourceaddrentry))])
+            self._child_classes = OrderedDict([("cSipCfgBindSourceAddrEntry", ("csipcfgbindsourceaddrentry", CISCOSIPUAMIB.CSipCfgBindSourceAddrTable.CSipCfgBindSourceAddrEntry))])
             self._leafs = OrderedDict()
 
             self.csipcfgbindsourceaddrentry = YList(self)
@@ -2985,10 +2946,10 @@ class CISCOSIPUAMIB(Entity):
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSIPUAMIB.Csipcfgbindsourceaddrtable, [], name, value)
+            self._perform_setattr(CISCOSIPUAMIB.CSipCfgBindSourceAddrTable, [], name, value)
 
 
-        class Csipcfgbindsourceaddrentry(Entity):
+        class CSipCfgBindSourceAddrEntry(Entity):
             """
             A row in the cSipCfgBindSourceAddrTable.
             A row is accessible with the scope of packets
@@ -2999,7 +2960,7 @@ class CISCOSIPUAMIB(Entity):
             .. attribute:: csipcfgbindsourceaddrscope  (key)
             
             	A unique identifier of a row in this table and specifies the scope of packets to which the source IP address of the interface designated by cSipCfgBindSourceAddrInterface will be bound
-            	**type**\:  :py:class:`Csipcfgbindsourceaddrscope <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgbindsourceaddrtable.Csipcfgbindsourceaddrentry.Csipcfgbindsourceaddrscope>`
+            	**type**\:  :py:class:`CSipCfgBindSourceAddrScope <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgBindSourceAddrTable.CSipCfgBindSourceAddrEntry.CSipCfgBindSourceAddrScope>`
             
             .. attribute:: csipcfgbindsourceaddrinterface
             
@@ -3016,15 +2977,14 @@ class CISCOSIPUAMIB(Entity):
             _revision = '2004-02-19'
 
             def __init__(self):
-                super(CISCOSIPUAMIB.Csipcfgbindsourceaddrtable.Csipcfgbindsourceaddrentry, self).__init__()
+                super(CISCOSIPUAMIB.CSipCfgBindSourceAddrTable.CSipCfgBindSourceAddrEntry, self).__init__()
 
                 self.yang_name = "cSipCfgBindSourceAddrEntry"
                 self.yang_parent_name = "cSipCfgBindSourceAddrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['csipcfgbindsourceaddrscope']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('csipcfgbindsourceaddrscope', YLeaf(YType.enumeration, 'cSipCfgBindSourceAddrScope')),
                     ('csipcfgbindsourceaddrinterface', YLeaf(YType.int32, 'cSipCfgBindSourceAddrInterface')),
@@ -3035,11 +2995,11 @@ class CISCOSIPUAMIB(Entity):
                 self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/cSipCfgBindSourceAddrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSIPUAMIB.Csipcfgbindsourceaddrtable.Csipcfgbindsourceaddrentry, ['csipcfgbindsourceaddrscope', 'csipcfgbindsourceaddrinterface'], name, value)
+                self._perform_setattr(CISCOSIPUAMIB.CSipCfgBindSourceAddrTable.CSipCfgBindSourceAddrEntry, ['csipcfgbindsourceaddrscope', 'csipcfgbindsourceaddrinterface'], name, value)
 
-            class Csipcfgbindsourceaddrscope(Enum):
+            class CSipCfgBindSourceAddrScope(Enum):
                 """
-                Csipcfgbindsourceaddrscope (Enum Class)
+                CSipCfgBindSourceAddrScope (Enum Class)
 
                 A unique identifier of a row in this table and
 
@@ -3063,7 +3023,7 @@ class CISCOSIPUAMIB(Entity):
 
 
 
-    class Csipcfgpeertable(Entity):
+    class CSipCfgPeerTable(Entity):
         """
         This table contains per dial\-peer SIP related 
         configuration.   
@@ -3082,7 +3042,7 @@ class CISCOSIPUAMIB(Entity):
         .. attribute:: csipcfgpeerentry
         
         	A row in the cSipCfgPeerTable
-        	**type**\: list of  		 :py:class:`Csipcfgpeerentry <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgpeertable.Csipcfgpeerentry>`
+        	**type**\: list of  		 :py:class:`CSipCfgPeerEntry <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgPeerTable.CSipCfgPeerEntry>`
         
         
 
@@ -3092,15 +3052,14 @@ class CISCOSIPUAMIB(Entity):
         _revision = '2004-02-19'
 
         def __init__(self):
-            super(CISCOSIPUAMIB.Csipcfgpeertable, self).__init__()
+            super(CISCOSIPUAMIB.CSipCfgPeerTable, self).__init__()
 
             self.yang_name = "cSipCfgPeerTable"
             self.yang_parent_name = "CISCO-SIP-UA-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cSipCfgPeerEntry", ("csipcfgpeerentry", CISCOSIPUAMIB.Csipcfgpeertable.Csipcfgpeerentry))])
+            self._child_classes = OrderedDict([("cSipCfgPeerEntry", ("csipcfgpeerentry", CISCOSIPUAMIB.CSipCfgPeerTable.CSipCfgPeerEntry))])
             self._leafs = OrderedDict()
 
             self.csipcfgpeerentry = YList(self)
@@ -3108,10 +3067,10 @@ class CISCOSIPUAMIB(Entity):
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSIPUAMIB.Csipcfgpeertable, [], name, value)
+            self._perform_setattr(CISCOSIPUAMIB.CSipCfgPeerTable, [], name, value)
 
 
-        class Csipcfgpeerentry(Entity):
+        class CSipCfgPeerEntry(Entity):
             """
             A row in the cSipCfgPeerTable.
             
@@ -3125,7 +3084,7 @@ class CISCOSIPUAMIB(Entity):
             .. attribute:: csipcfgpeeroutsessiontransport
             
             	This object specifies the session transport  protocol that will be used by this dial\-peer for outbound SIP messages.    The value 'system' is the default and indicates  that this dial\-peer should use the value set by  cSipCfgOutSessionTransport instead
-            	**type**\:  :py:class:`Csipcfgpeeroutsessiontransport <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgpeertable.Csipcfgpeerentry.Csipcfgpeeroutsessiontransport>`
+            	**type**\:  :py:class:`CSipCfgPeerOutSessionTransport <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgPeerTable.CSipCfgPeerEntry.CSipCfgPeerOutSessionTransport>`
             
             .. attribute:: csipcfgpeerreliable1xxrspstr
             
@@ -3135,12 +3094,12 @@ class CISCOSIPUAMIB(Entity):
             .. attribute:: csipcfgpeerreliable1xxrsphdr
             
             	This object specifies behavior with respect to Support or Require headers in SIP messages sent and received via this dial\-peer.  If the originating gateway is configured for 'require', the Require header is added to the outgoing INVITEs with the value of cSipCfgPeerReliable1xxStr.  This requires the use of reliable provisional responses by the terminating gateway.  Sessions will be torn down if this use cannot be supported by that gateway.  If the originating gateway is configured for 'supported', the Supported header is added to the outgoing INVITEs with the value of cSipCfgPeerReliable1xxStr.  This  requires that an attempt to use reliable provisional responses be made, but sessions can continue without them.  If the originating gateway is configured for 'disabled', the value of cSipCfgReliable1xxStr will NOT be added to either the Require or Supported headers of outgoing INVITEs.  The value 'system' is the default and indicates that this  dial\-peer should use the value of  cSipCfgReliable1xxRspHdr instead
-            	**type**\:  :py:class:`Csipcfgpeerreliable1Xxrsphdr <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgpeertable.Csipcfgpeerentry.Csipcfgpeerreliable1Xxrsphdr>`
+            	**type**\:  :py:class:`CSipCfgPeerReliable1xxRspHdr <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgPeerTable.CSipCfgPeerEntry.CSipCfgPeerReliable1xxRspHdr>`
             
             .. attribute:: csipcfgpeerurltype
             
             	This object specifies the URL type sent in outbound INVITES generated by this device.  The value 'system' is the default and indicates that this  dial\-peer should use the value of cSipCfgUrlType instead
-            	**type**\:  :py:class:`Csipcfgpeerurltype <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgpeertable.Csipcfgpeerentry.Csipcfgpeerurltype>`
+            	**type**\:  :py:class:`CSipCfgPeerUrlType <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgPeerTable.CSipCfgPeerEntry.CSipCfgPeerUrlType>`
             
             .. attribute:: csipcfgpeerswitchtransenabled
             
@@ -3155,15 +3114,14 @@ class CISCOSIPUAMIB(Entity):
             _revision = '2004-02-19'
 
             def __init__(self):
-                super(CISCOSIPUAMIB.Csipcfgpeertable.Csipcfgpeerentry, self).__init__()
+                super(CISCOSIPUAMIB.CSipCfgPeerTable.CSipCfgPeerEntry, self).__init__()
 
                 self.yang_name = "cSipCfgPeerEntry"
                 self.yang_parent_name = "cSipCfgPeerTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['csipcfgpeerindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('csipcfgpeerindex', YLeaf(YType.int32, 'cSipCfgPeerIndex')),
                     ('csipcfgpeeroutsessiontransport', YLeaf(YType.enumeration, 'cSipCfgPeerOutSessionTransport')),
@@ -3182,11 +3140,11 @@ class CISCOSIPUAMIB(Entity):
                 self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/cSipCfgPeerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSIPUAMIB.Csipcfgpeertable.Csipcfgpeerentry, ['csipcfgpeerindex', 'csipcfgpeeroutsessiontransport', 'csipcfgpeerreliable1xxrspstr', 'csipcfgpeerreliable1xxrsphdr', 'csipcfgpeerurltype', 'csipcfgpeerswitchtransenabled'], name, value)
+                self._perform_setattr(CISCOSIPUAMIB.CSipCfgPeerTable.CSipCfgPeerEntry, ['csipcfgpeerindex', 'csipcfgpeeroutsessiontransport', 'csipcfgpeerreliable1xxrspstr', 'csipcfgpeerreliable1xxrsphdr', 'csipcfgpeerurltype', 'csipcfgpeerswitchtransenabled'], name, value)
 
-            class Csipcfgpeeroutsessiontransport(Enum):
+            class CSipCfgPeerOutSessionTransport(Enum):
                 """
-                Csipcfgpeeroutsessiontransport (Enum Class)
+                CSipCfgPeerOutSessionTransport (Enum Class)
 
                 This object specifies the session transport 
 
@@ -3215,9 +3173,9 @@ class CISCOSIPUAMIB(Entity):
                 tcp = Enum.YLeaf(3, "tcp")
 
 
-            class Csipcfgpeerreliable1Xxrsphdr(Enum):
+            class CSipCfgPeerReliable1xxRspHdr(Enum):
                 """
-                Csipcfgpeerreliable1Xxrsphdr (Enum Class)
+                CSipCfgPeerReliable1xxRspHdr (Enum Class)
 
                 This object specifies behavior with respect to
 
@@ -3278,9 +3236,9 @@ class CISCOSIPUAMIB(Entity):
                 disabled = Enum.YLeaf(4, "disabled")
 
 
-            class Csipcfgpeerurltype(Enum):
+            class CSipCfgPeerUrlType(Enum):
                 """
-                Csipcfgpeerurltype (Enum Class)
+                CSipCfgPeerUrlType (Enum Class)
 
                 This object specifies the URL type sent in outbound
 
@@ -3306,7 +3264,7 @@ class CISCOSIPUAMIB(Entity):
 
 
 
-    class Csipcfgstatuscausetable(Entity):
+    class CSipCfgStatusCauseTable(Entity):
         """
         This table contains SIP status code to PSTN cause code
         mapping configuration.  Inbound SIP response messages 
@@ -3318,7 +3276,7 @@ class CISCOSIPUAMIB(Entity):
         .. attribute:: csipcfgstatuscauseentry
         
         	A row in the cSipCfgStatusCauseTable.  Entries cannot be created or destroyed by the actions of any NMS
-        	**type**\: list of  		 :py:class:`Csipcfgstatuscauseentry <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgstatuscausetable.Csipcfgstatuscauseentry>`
+        	**type**\: list of  		 :py:class:`CSipCfgStatusCauseEntry <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgStatusCauseTable.CSipCfgStatusCauseEntry>`
         
         
 
@@ -3328,15 +3286,14 @@ class CISCOSIPUAMIB(Entity):
         _revision = '2004-02-19'
 
         def __init__(self):
-            super(CISCOSIPUAMIB.Csipcfgstatuscausetable, self).__init__()
+            super(CISCOSIPUAMIB.CSipCfgStatusCauseTable, self).__init__()
 
             self.yang_name = "cSipCfgStatusCauseTable"
             self.yang_parent_name = "CISCO-SIP-UA-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cSipCfgStatusCauseEntry", ("csipcfgstatuscauseentry", CISCOSIPUAMIB.Csipcfgstatuscausetable.Csipcfgstatuscauseentry))])
+            self._child_classes = OrderedDict([("cSipCfgStatusCauseEntry", ("csipcfgstatuscauseentry", CISCOSIPUAMIB.CSipCfgStatusCauseTable.CSipCfgStatusCauseEntry))])
             self._leafs = OrderedDict()
 
             self.csipcfgstatuscauseentry = YList(self)
@@ -3344,10 +3301,10 @@ class CISCOSIPUAMIB(Entity):
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSIPUAMIB.Csipcfgstatuscausetable, [], name, value)
+            self._perform_setattr(CISCOSIPUAMIB.CSipCfgStatusCauseTable, [], name, value)
 
 
-        class Csipcfgstatuscauseentry(Entity):
+        class CSipCfgStatusCauseEntry(Entity):
             """
             A row in the cSipCfgStatusCauseTable.  Entries cannot be
             created or destroyed by the actions of any NMS.
@@ -3379,15 +3336,14 @@ class CISCOSIPUAMIB(Entity):
             _revision = '2004-02-19'
 
             def __init__(self):
-                super(CISCOSIPUAMIB.Csipcfgstatuscausetable.Csipcfgstatuscauseentry, self).__init__()
+                super(CISCOSIPUAMIB.CSipCfgStatusCauseTable.CSipCfgStatusCauseEntry, self).__init__()
 
                 self.yang_name = "cSipCfgStatusCauseEntry"
                 self.yang_parent_name = "cSipCfgStatusCauseTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['csipcfgstatuscodeindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('csipcfgstatuscodeindex', YLeaf(YType.int32, 'cSipCfgStatusCodeIndex')),
                     ('csipcfgpstncause', YLeaf(YType.int32, 'cSipCfgPstnCause')),
@@ -3400,10 +3356,10 @@ class CISCOSIPUAMIB(Entity):
                 self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/cSipCfgStatusCauseTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSIPUAMIB.Csipcfgstatuscausetable.Csipcfgstatuscauseentry, ['csipcfgstatuscodeindex', 'csipcfgpstncause', 'csipcfgstatuscausestorestatus'], name, value)
+                self._perform_setattr(CISCOSIPUAMIB.CSipCfgStatusCauseTable.CSipCfgStatusCauseEntry, ['csipcfgstatuscodeindex', 'csipcfgpstncause', 'csipcfgstatuscausestorestatus'], name, value)
 
 
-    class Csipcfgcausestatustable(Entity):
+    class CSipCfgCauseStatusTable(Entity):
         """
         This table contains PSTN cause code to SIP status code
         mapping configuration.   Inbound PSTN signalling messages
@@ -3415,7 +3371,7 @@ class CISCOSIPUAMIB(Entity):
         .. attribute:: csipcfgcausestatusentry
         
         	A row in the cSipCfgCauseStatusTable. Entries cannot be created or destroyed by the actions of any NMS
-        	**type**\: list of  		 :py:class:`Csipcfgcausestatusentry <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipcfgcausestatustable.Csipcfgcausestatusentry>`
+        	**type**\: list of  		 :py:class:`CSipCfgCauseStatusEntry <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgCauseStatusTable.CSipCfgCauseStatusEntry>`
         
         
 
@@ -3425,15 +3381,14 @@ class CISCOSIPUAMIB(Entity):
         _revision = '2004-02-19'
 
         def __init__(self):
-            super(CISCOSIPUAMIB.Csipcfgcausestatustable, self).__init__()
+            super(CISCOSIPUAMIB.CSipCfgCauseStatusTable, self).__init__()
 
             self.yang_name = "cSipCfgCauseStatusTable"
             self.yang_parent_name = "CISCO-SIP-UA-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cSipCfgCauseStatusEntry", ("csipcfgcausestatusentry", CISCOSIPUAMIB.Csipcfgcausestatustable.Csipcfgcausestatusentry))])
+            self._child_classes = OrderedDict([("cSipCfgCauseStatusEntry", ("csipcfgcausestatusentry", CISCOSIPUAMIB.CSipCfgCauseStatusTable.CSipCfgCauseStatusEntry))])
             self._leafs = OrderedDict()
 
             self.csipcfgcausestatusentry = YList(self)
@@ -3441,10 +3396,10 @@ class CISCOSIPUAMIB(Entity):
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSIPUAMIB.Csipcfgcausestatustable, [], name, value)
+            self._perform_setattr(CISCOSIPUAMIB.CSipCfgCauseStatusTable, [], name, value)
 
 
-        class Csipcfgcausestatusentry(Entity):
+        class CSipCfgCauseStatusEntry(Entity):
             """
             A row in the cSipCfgCauseStatusTable. Entries cannot be
             created or destroyed by the actions of any NMS.
@@ -3476,15 +3431,14 @@ class CISCOSIPUAMIB(Entity):
             _revision = '2004-02-19'
 
             def __init__(self):
-                super(CISCOSIPUAMIB.Csipcfgcausestatustable.Csipcfgcausestatusentry, self).__init__()
+                super(CISCOSIPUAMIB.CSipCfgCauseStatusTable.CSipCfgCauseStatusEntry, self).__init__()
 
                 self.yang_name = "cSipCfgCauseStatusEntry"
                 self.yang_parent_name = "cSipCfgCauseStatusTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['csipcfgpstncauseindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('csipcfgpstncauseindex', YLeaf(YType.int32, 'cSipCfgPstnCauseIndex')),
                     ('csipcfgstatuscode', YLeaf(YType.int32, 'cSipCfgStatusCode')),
@@ -3497,10 +3451,10 @@ class CISCOSIPUAMIB(Entity):
                 self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/cSipCfgCauseStatusTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSIPUAMIB.Csipcfgcausestatustable.Csipcfgcausestatusentry, ['csipcfgpstncauseindex', 'csipcfgstatuscode', 'csipcfgcausestatusstorestatus'], name, value)
+                self._perform_setattr(CISCOSIPUAMIB.CSipCfgCauseStatusTable.CSipCfgCauseStatusEntry, ['csipcfgpstncauseindex', 'csipcfgstatuscode', 'csipcfgcausestatusstorestatus'], name, value)
 
 
-    class Csipstatssuccessoktable(Entity):
+    class CSipStatsSuccessOkTable(Entity):
         """
         This table contains statistics for sent and
         received 200 Ok response messages.  The 
@@ -3509,7 +3463,7 @@ class CISCOSIPUAMIB(Entity):
         .. attribute:: csipstatssuccessokentry
         
         	A row in the cSipStatsSuccessOkTable.  There is  an entry for each SIP method for which 200 Ok  inbound and/or outbound statistics are kept
-        	**type**\: list of  		 :py:class:`Csipstatssuccessokentry <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.Csipstatssuccessoktable.Csipstatssuccessokentry>`
+        	**type**\: list of  		 :py:class:`CSipStatsSuccessOkEntry <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipStatsSuccessOkTable.CSipStatsSuccessOkEntry>`
         
         
 
@@ -3519,15 +3473,14 @@ class CISCOSIPUAMIB(Entity):
         _revision = '2004-02-19'
 
         def __init__(self):
-            super(CISCOSIPUAMIB.Csipstatssuccessoktable, self).__init__()
+            super(CISCOSIPUAMIB.CSipStatsSuccessOkTable, self).__init__()
 
             self.yang_name = "cSipStatsSuccessOkTable"
             self.yang_parent_name = "CISCO-SIP-UA-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("cSipStatsSuccessOkEntry", ("csipstatssuccessokentry", CISCOSIPUAMIB.Csipstatssuccessoktable.Csipstatssuccessokentry))])
+            self._child_classes = OrderedDict([("cSipStatsSuccessOkEntry", ("csipstatssuccessokentry", CISCOSIPUAMIB.CSipStatsSuccessOkTable.CSipStatsSuccessOkEntry))])
             self._leafs = OrderedDict()
 
             self.csipstatssuccessokentry = YList(self)
@@ -3535,10 +3488,10 @@ class CISCOSIPUAMIB(Entity):
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOSIPUAMIB.Csipstatssuccessoktable, [], name, value)
+            self._perform_setattr(CISCOSIPUAMIB.CSipStatsSuccessOkTable, [], name, value)
 
 
-        class Csipstatssuccessokentry(Entity):
+        class CSipStatsSuccessOkEntry(Entity):
             """
             A row in the cSipStatsSuccessOkTable.  There is 
             an entry for each SIP method for which 200 Ok 
@@ -3573,15 +3526,14 @@ class CISCOSIPUAMIB(Entity):
             _revision = '2004-02-19'
 
             def __init__(self):
-                super(CISCOSIPUAMIB.Csipstatssuccessoktable.Csipstatssuccessokentry, self).__init__()
+                super(CISCOSIPUAMIB.CSipStatsSuccessOkTable.CSipStatsSuccessOkEntry, self).__init__()
 
                 self.yang_name = "cSipStatsSuccessOkEntry"
                 self.yang_parent_name = "cSipStatsSuccessOkTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['csipstatssuccessokmethod']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('csipstatssuccessokmethod', YLeaf(YType.str, 'cSipStatsSuccessOkMethod')),
                     ('csipstatssuccessokinbounds', YLeaf(YType.uint32, 'cSipStatsSuccessOkInbounds')),
@@ -3594,7 +3546,7 @@ class CISCOSIPUAMIB(Entity):
                 self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/cSipStatsSuccessOkTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSIPUAMIB.Csipstatssuccessoktable.Csipstatssuccessokentry, ['csipstatssuccessokmethod', 'csipstatssuccessokinbounds', 'csipstatssuccessokoutbounds'], name, value)
+                self._perform_setattr(CISCOSIPUAMIB.CSipStatsSuccessOkTable.CSipStatsSuccessOkEntry, ['csipstatssuccessokmethod', 'csipstatssuccessokinbounds', 'csipstatssuccessokoutbounds'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOSIPUAMIB()

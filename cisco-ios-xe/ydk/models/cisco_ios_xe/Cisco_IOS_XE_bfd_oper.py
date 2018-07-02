@@ -156,15 +156,16 @@ class BfdState(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("sessions", ("sessions", BfdState.Sessions))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("sessions", ("sessions", BfdState.Sessions))])
         self._leafs = OrderedDict()
 
         self.sessions = BfdState.Sessions()
         self.sessions.parent = self
         self._children_name_map["sessions"] = "sessions"
-        self._children_yang_names.add("sessions")
         self._segment_path = lambda: "Cisco-IOS-XE-bfd-oper:bfd-state"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(BfdState, [], name, value)
 
 
     class Sessions(Entity):
@@ -191,8 +192,7 @@ class BfdState(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("session", ("session", BfdState.Sessions.Session))])
+            self._child_classes = OrderedDict([("session", ("session", BfdState.Sessions.Session))])
             self._leafs = OrderedDict()
 
             self.session = YList(self)
@@ -252,8 +252,7 @@ class BfdState(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['type']
-                self._child_container_classes = OrderedDict([("bfd-tunnel-paths", ("bfd_tunnel_paths", BfdState.Sessions.Session.BfdTunnelPaths)), ("bfd-circuits", ("bfd_circuits", BfdState.Sessions.Session.BfdCircuits)), ("bfd-nbrs", ("bfd_nbrs", BfdState.Sessions.Session.BfdNbrs)), ("bfd-mhop-nbrs", ("bfd_mhop_nbrs", BfdState.Sessions.Session.BfdMhopNbrs)), ("bfd-mhop-vrf-nbrs", ("bfd_mhop_vrf_nbrs", BfdState.Sessions.Session.BfdMhopVrfNbrs))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("bfd-tunnel-paths", ("bfd_tunnel_paths", BfdState.Sessions.Session.BfdTunnelPaths)), ("bfd-circuits", ("bfd_circuits", BfdState.Sessions.Session.BfdCircuits)), ("bfd-nbrs", ("bfd_nbrs", BfdState.Sessions.Session.BfdNbrs)), ("bfd-mhop-nbrs", ("bfd_mhop_nbrs", BfdState.Sessions.Session.BfdMhopNbrs)), ("bfd-mhop-vrf-nbrs", ("bfd_mhop_vrf_nbrs", BfdState.Sessions.Session.BfdMhopVrfNbrs))])
                 self._leafs = OrderedDict([
                     ('type', YLeaf(YType.enumeration, 'type')),
                 ])
@@ -262,27 +261,22 @@ class BfdState(Entity):
                 self.bfd_tunnel_paths = BfdState.Sessions.Session.BfdTunnelPaths()
                 self.bfd_tunnel_paths.parent = self
                 self._children_name_map["bfd_tunnel_paths"] = "bfd-tunnel-paths"
-                self._children_yang_names.add("bfd-tunnel-paths")
 
                 self.bfd_circuits = BfdState.Sessions.Session.BfdCircuits()
                 self.bfd_circuits.parent = self
                 self._children_name_map["bfd_circuits"] = "bfd-circuits"
-                self._children_yang_names.add("bfd-circuits")
 
                 self.bfd_nbrs = BfdState.Sessions.Session.BfdNbrs()
                 self.bfd_nbrs.parent = self
                 self._children_name_map["bfd_nbrs"] = "bfd-nbrs"
-                self._children_yang_names.add("bfd-nbrs")
 
                 self.bfd_mhop_nbrs = BfdState.Sessions.Session.BfdMhopNbrs()
                 self.bfd_mhop_nbrs.parent = self
                 self._children_name_map["bfd_mhop_nbrs"] = "bfd-mhop-nbrs"
-                self._children_yang_names.add("bfd-mhop-nbrs")
 
                 self.bfd_mhop_vrf_nbrs = BfdState.Sessions.Session.BfdMhopVrfNbrs()
                 self.bfd_mhop_vrf_nbrs.parent = self
                 self._children_name_map["bfd_mhop_vrf_nbrs"] = "bfd-mhop-vrf-nbrs"
-                self._children_yang_names.add("bfd-mhop-vrf-nbrs")
                 self._segment_path = lambda: "session" + "[type='" + str(self.type) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-bfd-oper:bfd-state/sessions/%s" % self._segment_path()
 
@@ -314,8 +308,7 @@ class BfdState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("bfd-tunnel-path", ("bfd_tunnel_path", BfdState.Sessions.Session.BfdTunnelPaths.BfdTunnelPath))])
+                    self._child_classes = OrderedDict([("bfd-tunnel-path", ("bfd_tunnel_path", BfdState.Sessions.Session.BfdTunnelPaths.BfdTunnelPath))])
                     self._leafs = OrderedDict()
 
                     self.bfd_tunnel_path = YList(self)
@@ -378,8 +371,7 @@ class BfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface','lsp_type']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface', YLeaf(YType.str, 'interface')),
                             ('lsp_type', YLeaf(YType.enumeration, 'lsp-type')),
@@ -424,8 +416,7 @@ class BfdState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("bfd-circuit", ("bfd_circuit", BfdState.Sessions.Session.BfdCircuits.BfdCircuit))])
+                    self._child_classes = OrderedDict([("bfd-circuit", ("bfd_circuit", BfdState.Sessions.Session.BfdCircuits.BfdCircuit))])
                     self._leafs = OrderedDict()
 
                     self.bfd_circuit = YList(self)
@@ -490,8 +481,7 @@ class BfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface','vcid']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('interface', YLeaf(YType.str, 'interface')),
                             ('vcid', YLeaf(YType.uint32, 'vcid')),
@@ -536,8 +526,7 @@ class BfdState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("bfd-nbr", ("bfd_nbr", BfdState.Sessions.Session.BfdNbrs.BfdNbr))])
+                    self._child_classes = OrderedDict([("bfd-nbr", ("bfd_nbr", BfdState.Sessions.Session.BfdNbrs.BfdNbr))])
                     self._leafs = OrderedDict()
 
                     self.bfd_nbr = YList(self)
@@ -608,8 +597,7 @@ class BfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['ip','interface']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('ip', YLeaf(YType.str, 'ip')),
                             ('interface', YLeaf(YType.str, 'interface')),
@@ -655,8 +643,7 @@ class BfdState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("bfd-mhop-nbr", ("bfd_mhop_nbr", BfdState.Sessions.Session.BfdMhopNbrs.BfdMhopNbr))])
+                    self._child_classes = OrderedDict([("bfd-mhop-nbr", ("bfd_mhop_nbr", BfdState.Sessions.Session.BfdMhopNbrs.BfdMhopNbr))])
                     self._leafs = OrderedDict()
 
                     self.bfd_mhop_nbr = YList(self)
@@ -735,8 +722,7 @@ class BfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['ip','src_ip']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('ip', YLeaf(YType.str, 'ip')),
                             ('src_ip', YLeaf(YType.str, 'src-ip')),
@@ -782,8 +768,7 @@ class BfdState(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([("bfd-mhop-vrf-nbr", ("bfd_mhop_vrf_nbr", BfdState.Sessions.Session.BfdMhopVrfNbrs.BfdMhopVrfNbr))])
+                    self._child_classes = OrderedDict([("bfd-mhop-vrf-nbr", ("bfd_mhop_vrf_nbr", BfdState.Sessions.Session.BfdMhopVrfNbrs.BfdMhopVrfNbr))])
                     self._leafs = OrderedDict()
 
                     self.bfd_mhop_vrf_nbr = YList(self)
@@ -867,8 +852,7 @@ class BfdState(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['ip','vrf','src_ip']
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
                             ('ip', YLeaf(YType.str, 'ip')),
                             ('vrf', YLeaf(YType.str, 'vrf')),

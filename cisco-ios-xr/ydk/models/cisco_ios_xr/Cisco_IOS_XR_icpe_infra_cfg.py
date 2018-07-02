@@ -40,7 +40,7 @@ class NvSatelliteGlobal(Entity):
     """
 
     _prefix = 'icpe-infra-cfg'
-    _revision = '2015-11-09'
+    _revision = '2017-09-30'
 
     def __init__(self):
         super(NvSatelliteGlobal, self).__init__()
@@ -51,15 +51,16 @@ class NvSatelliteGlobal(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("chassis-mac", ("chassis_mac", NvSatelliteGlobal.ChassisMac))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("chassis-mac", ("chassis_mac", NvSatelliteGlobal.ChassisMac))])
         self._leafs = OrderedDict()
 
         self.chassis_mac = NvSatelliteGlobal.ChassisMac()
         self.chassis_mac.parent = self
         self._children_name_map["chassis_mac"] = "chassis-mac"
-        self._children_yang_names.add("chassis-mac")
         self._segment_path = lambda: "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-global"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(NvSatelliteGlobal, [], name, value)
 
 
     class ChassisMac(Entity):
@@ -98,7 +99,7 @@ class NvSatelliteGlobal(Entity):
         """
 
         _prefix = 'icpe-infra-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-30'
 
         def __init__(self):
             super(NvSatelliteGlobal.ChassisMac, self).__init__()
@@ -108,8 +109,7 @@ class NvSatelliteGlobal(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('mac1', YLeaf(YType.uint32, 'mac1')),
                 ('mac2', YLeaf(YType.uint32, 'mac2')),
@@ -142,7 +142,7 @@ class NvSatellites(Entity):
     """
 
     _prefix = 'icpe-infra-cfg'
-    _revision = '2015-11-09'
+    _revision = '2017-09-30'
 
     def __init__(self):
         super(NvSatellites, self).__init__()
@@ -153,8 +153,7 @@ class NvSatellites(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("nv-satellite", ("nv_satellite", NvSatellites.NvSatellite))])
+        self._child_classes = OrderedDict([("nv-satellite", ("nv_satellite", NvSatellites.NvSatellite))])
         self._leafs = OrderedDict()
 
         self.nv_satellite = YList(self)
@@ -222,10 +221,14 @@ class NvSatellites(Entity):
         	Satellite Type
         	**type**\: str
         
+        	**mandatory**\: True
+        
         .. attribute:: enable
         
         	Enable
         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+        
+        	**mandatory**\: True
         
         .. attribute:: disc_timeout
         
@@ -273,7 +276,7 @@ class NvSatellites(Entity):
         """
 
         _prefix = 'icpe-infra-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-30'
 
         def __init__(self):
             super(NvSatellites.NvSatellite, self).__init__()
@@ -283,8 +286,7 @@ class NvSatellites(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['satellite_id']
-            self._child_container_classes = OrderedDict([("upgrade-on-connect", ("upgrade_on_connect", NvSatellites.NvSatellite.UpgradeOnConnect)), ("candidate-fabric-ports", ("candidate_fabric_ports", NvSatellites.NvSatellite.CandidateFabricPorts)), ("connection-info", ("connection_info", NvSatellites.NvSatellite.ConnectionInfo)), ("redundancy", ("redundancy", NvSatellites.NvSatellite.Redundancy))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("upgrade-on-connect", ("upgrade_on_connect", NvSatellites.NvSatellite.UpgradeOnConnect)), ("candidate-fabric-ports", ("candidate_fabric_ports", NvSatellites.NvSatellite.CandidateFabricPorts)), ("connection-info", ("connection_info", NvSatellites.NvSatellite.ConnectionInfo)), ("redundancy", ("redundancy", NvSatellites.NvSatellite.Redundancy))])
             self._leafs = OrderedDict([
                 ('satellite_id', YLeaf(YType.uint32, 'satellite-id')),
                 ('vrf', YLeaf(YType.str, 'vrf')),
@@ -315,22 +317,18 @@ class NvSatellites(Entity):
             self.upgrade_on_connect = NvSatellites.NvSatellite.UpgradeOnConnect()
             self.upgrade_on_connect.parent = self
             self._children_name_map["upgrade_on_connect"] = "upgrade-on-connect"
-            self._children_yang_names.add("upgrade-on-connect")
 
             self.candidate_fabric_ports = NvSatellites.NvSatellite.CandidateFabricPorts()
             self.candidate_fabric_ports.parent = self
             self._children_name_map["candidate_fabric_ports"] = "candidate-fabric-ports"
-            self._children_yang_names.add("candidate-fabric-ports")
 
             self.connection_info = NvSatellites.NvSatellite.ConnectionInfo()
             self.connection_info.parent = self
             self._children_name_map["connection_info"] = "connection-info"
-            self._children_yang_names.add("connection-info")
 
             self.redundancy = NvSatellites.NvSatellite.Redundancy()
             self.redundancy.parent = self
             self._children_name_map["redundancy"] = "redundancy"
-            self._children_yang_names.add("redundancy")
             self._segment_path = lambda: "nv-satellite" + "[satellite-id='" + str(self.satellite_id) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-cfg:nv-satellites/%s" % self._segment_path()
 
@@ -357,7 +355,7 @@ class NvSatellites(Entity):
             """
 
             _prefix = 'icpe-infra-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-30'
 
             def __init__(self):
                 super(NvSatellites.NvSatellite.UpgradeOnConnect, self).__init__()
@@ -367,8 +365,7 @@ class NvSatellites(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('connect_type', YLeaf(YType.enumeration, 'connect-type')),
                     ('reference', YLeaf(YType.str, 'reference')),
@@ -419,7 +416,7 @@ class NvSatellites(Entity):
             """
 
             _prefix = 'icpe-infra-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-30'
 
             def __init__(self):
                 super(NvSatellites.NvSatellite.CandidateFabricPorts, self).__init__()
@@ -429,8 +426,7 @@ class NvSatellites(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("candidate-fabric-port", ("candidate_fabric_port", NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort))])
+                self._child_classes = OrderedDict([("candidate-fabric-port", ("candidate_fabric_port", NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort))])
                 self._leafs = OrderedDict()
 
                 self.candidate_fabric_port = YList(self)
@@ -478,7 +474,7 @@ class NvSatellites(Entity):
                 """
 
                 _prefix = 'icpe-infra-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-30'
 
                 def __init__(self):
                     super(NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort, self).__init__()
@@ -488,8 +484,7 @@ class NvSatellites(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['port_type','slot','sub_slot']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('port_type', YLeaf(YType.str, 'port-type')),
                         ('slot', YLeaf(YType.uint32, 'slot')),
@@ -527,7 +522,7 @@ class NvSatellites(Entity):
             """
 
             _prefix = 'icpe-infra-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-30'
 
             def __init__(self):
                 super(NvSatellites.NvSatellite.ConnectionInfo, self).__init__()
@@ -537,8 +532,7 @@ class NvSatellites(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('username', YLeaf(YType.str, 'username')),
                     ('password', YLeaf(YType.str, 'password')),
@@ -567,7 +561,7 @@ class NvSatellites(Entity):
             """
 
             _prefix = 'icpe-infra-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-30'
 
             def __init__(self):
                 super(NvSatellites.NvSatellite.Redundancy, self).__init__()
@@ -577,8 +571,7 @@ class NvSatellites(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('host_priority', YLeaf(YType.uint32, 'host-priority')),
                 ])

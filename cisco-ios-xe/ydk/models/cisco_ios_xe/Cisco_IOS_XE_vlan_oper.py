@@ -57,8 +57,7 @@ class Vlans(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("vlan", ("vlan", Vlans.Vlan))])
+        self._child_classes = OrderedDict([("vlan", ("vlan", Vlans.Vlan))])
         self._leafs = OrderedDict()
 
         self.vlan = YList(self)
@@ -109,8 +108,7 @@ class Vlans(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['id']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("ports", ("ports", Vlans.Vlan.Ports))])
+            self._child_classes = OrderedDict([("ports", ("ports", Vlans.Vlan.Ports))])
             self._leafs = OrderedDict([
                 ('id', YLeaf(YType.uint16, 'id')),
                 ('name', YLeaf(YType.str, 'name')),
@@ -159,8 +157,7 @@ class Vlans(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('interface', YLeaf(YType.str, 'interface')),
                     ('subinterface', YLeaf(YType.uint32, 'subinterface')),

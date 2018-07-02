@@ -37,15 +37,16 @@ class NetconfYang(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("cisco-ia:cisco-ia", ("cisco_ia", NetconfYang.CiscoIa))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("cisco-ia:cisco-ia", ("cisco_ia", NetconfYang.CiscoIa))])
         self._leafs = OrderedDict()
 
         self.cisco_ia = NetconfYang.CiscoIa()
         self.cisco_ia.parent = self
         self._children_name_map["cisco_ia"] = "cisco-ia:cisco-ia"
-        self._children_yang_names.add("cisco-ia:cisco-ia")
         self._segment_path = lambda: "cisco-self-mgmt:netconf-yang"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(NetconfYang, [], name, value)
 
 
     class CiscoIa(Entity):
@@ -197,8 +198,7 @@ class NetconfYang(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("snmp-trap-control", ("snmp_trap_control", NetconfYang.CiscoIa.SnmpTrapControl)), ("logging", ("logging", NetconfYang.CiscoIa.Logging)), ("blocking", ("blocking", NetconfYang.CiscoIa.Blocking))])
-            self._child_list_classes = OrderedDict([("preserve-ned-path", ("preserve_ned_path", NetconfYang.CiscoIa.PreserveNedPath)), ("parser-msg-ignore", ("parser_msg_ignore", NetconfYang.CiscoIa.ParserMsgIgnore)), ("conf-parser-msg-ignore", ("conf_parser_msg_ignore", NetconfYang.CiscoIa.ConfParserMsgIgnore)), ("full-sync-cli", ("full_sync_cli", NetconfYang.CiscoIa.FullSyncCli)), ("conf-full-sync-cli", ("conf_full_sync_cli", NetconfYang.CiscoIa.ConfFullSyncCli))])
+            self._child_classes = OrderedDict([("snmp-trap-control", ("snmp_trap_control", NetconfYang.CiscoIa.SnmpTrapControl)), ("preserve-ned-path", ("preserve_ned_path", NetconfYang.CiscoIa.PreserveNedPath)), ("parser-msg-ignore", ("parser_msg_ignore", NetconfYang.CiscoIa.ParserMsgIgnore)), ("conf-parser-msg-ignore", ("conf_parser_msg_ignore", NetconfYang.CiscoIa.ConfParserMsgIgnore)), ("full-sync-cli", ("full_sync_cli", NetconfYang.CiscoIa.FullSyncCli)), ("conf-full-sync-cli", ("conf_full_sync_cli", NetconfYang.CiscoIa.ConfFullSyncCli)), ("logging", ("logging", NetconfYang.CiscoIa.Logging)), ("blocking", ("blocking", NetconfYang.CiscoIa.Blocking))])
             self._leafs = OrderedDict([
                 ('auto_sync', YLeaf(YType.enumeration, 'auto-sync')),
                 ('init_sync', YLeaf(YType.enumeration, 'init-sync')),
@@ -229,17 +229,14 @@ class NetconfYang(Entity):
             self.snmp_trap_control = NetconfYang.CiscoIa.SnmpTrapControl()
             self.snmp_trap_control.parent = self
             self._children_name_map["snmp_trap_control"] = "snmp-trap-control"
-            self._children_yang_names.add("snmp-trap-control")
 
             self.logging = NetconfYang.CiscoIa.Logging()
             self.logging.parent = self
             self._children_name_map["logging"] = "logging"
-            self._children_yang_names.add("logging")
 
             self.blocking = NetconfYang.CiscoIa.Blocking()
             self.blocking.parent = self
             self._children_name_map["blocking"] = "blocking"
-            self._children_yang_names.add("blocking")
 
             self.preserve_ned_path = YList(self)
             self.parser_msg_ignore = YList(self)
@@ -285,8 +282,7 @@ class NetconfYang(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("trap-list", ("trap_list", NetconfYang.CiscoIa.SnmpTrapControl.TrapList))])
+                self._child_classes = OrderedDict([("trap-list", ("trap_list", NetconfYang.CiscoIa.SnmpTrapControl.TrapList))])
                 self._leafs = OrderedDict([
                     ('global_forwarding', YLeaf(YType.boolean, 'global-forwarding')),
                 ])
@@ -340,8 +336,7 @@ class NetconfYang(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['trap_oid']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('trap_oid', YLeaf(YType.str, 'trap-oid')),
                         ('description', YLeaf(YType.str, 'description')),
@@ -388,8 +383,7 @@ class NetconfYang(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['xpath']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('xpath', YLeaf(YType.str, 'xpath')),
                 ])
@@ -431,8 +425,7 @@ class NetconfYang(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['message']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('message', YLeaf(YType.str, 'message')),
                 ])
@@ -472,8 +465,7 @@ class NetconfYang(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['message']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('message', YLeaf(YType.str, 'message')),
                 ])
@@ -513,8 +505,7 @@ class NetconfYang(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['command']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('command', YLeaf(YType.str, 'command')),
                 ])
@@ -555,8 +546,7 @@ class NetconfYang(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['command']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('command', YLeaf(YType.str, 'command')),
                 ])
@@ -631,8 +621,7 @@ class NetconfYang(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('confd_log_level', YLeaf(YType.enumeration, 'confd-log-level')),
                     ('ciaauthd_log_level', YLeaf(YType.enumeration, 'ciaauthd-log-level')),
@@ -699,8 +688,7 @@ class NetconfYang(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("network-element-command", ("network_element_command", NetconfYang.CiscoIa.Blocking.NetworkElementCommand)), ("confd-cfg-command", ("confd_cfg_command", NetconfYang.CiscoIa.Blocking.ConfdCfgCommand))])
+                self._child_classes = OrderedDict([("network-element-command", ("network_element_command", NetconfYang.CiscoIa.Blocking.NetworkElementCommand)), ("confd-cfg-command", ("confd_cfg_command", NetconfYang.CiscoIa.Blocking.ConfdCfgCommand))])
                 self._leafs = OrderedDict([
                     ('cli_blocking_enabled', YLeaf(YType.boolean, 'cli-blocking-enabled')),
                     ('confd_cfg_blocking_enabled', YLeaf(YType.boolean, 'confd-cfg-blocking-enabled')),
@@ -744,8 +732,7 @@ class NetconfYang(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['command']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('command', YLeaf(YType.str, 'command')),
                     ])
@@ -781,8 +768,7 @@ class NetconfYang(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['command']
-                    self._child_container_classes = OrderedDict([])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
                         ('command', YLeaf(YType.str, 'command')),
                     ])

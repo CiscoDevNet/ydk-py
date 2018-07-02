@@ -1,15 +1,15 @@
 module openconfig-mpls-rsvp {
   yang-version 1;
   namespace "http://openconfig.net/yang/rsvp";
-  prefix rsvp;
+  prefix oc-rsvp;
 
-  import ietf-inet-types {
+  import openconfig-inet-types {
     prefix inet;
   }
   import openconfig-mpls-types {
-    prefix mplst;
+    prefix oc-mplst;
   }
-  import ietf-yang-types {
+  import openconfig-yang-types {
     prefix yang;
   }
   import openconfig-types {
@@ -18,8 +18,8 @@ module openconfig-mpls-rsvp {
   import openconfig-extensions {
     prefix oc-ext;
   }
-  import cisco-xr-openconfig-interfaces-types {
-    prefix ocif;
+  import openconfig-interfaces {
+    prefix oc-if;
   }
 
   organization
@@ -32,15 +32,30 @@ module openconfig-mpls-rsvp {
      parameters and LSP-specific configuration for constrained-path
      LSPs";
 
-  revision 2015-11-05 {
+  revision 2017-03-22 {
     description
-      "Initial public release of MPLS models";
-    reference "0.2.1";
+      "Add RSVP calculated-absolute-subscription-bw";
+    reference "2.3.0";
   }
-  revision 2015-10-14 {
+  revision 2017-01-26 {
     description
-      "Work in progress";
-    reference "0.2.0";
+      "Add RSVP Tspec, clarify units for RSVP, remove unused LDP";
+    reference "2.2.0";
+  }
+  revision 2016-12-15 {
+    description
+      "Add additional MPLS parameters";
+    reference "2.1.0";
+  }
+  revision 2016-09-01 {
+    description
+      "Revisions based on implementation feedback";
+    reference "2.0.0";
+  }
+  revision 2016-08-08 {
+    description
+      "Public release of MPLS models";
+    reference "1.0.1";
   }
 
   grouping mpls-rsvp-soft-preemption_config {
@@ -56,10 +71,12 @@ module openconfig-mpls-rsvp {
       type uint16 {
         range "0..max";
       }
-      default "0";
+      default "30";
       description
         "Timeout value for soft preemption to revert
-         to hard preemption";
+         to hard preemption. The default timeout for
+         soft-preemption is 30 seconds - after which
+         the local system reverts to hard pre-emption.";
       reference "RFC5712 MPLS-TE soft preemption";
     }
   }
@@ -151,6 +168,21 @@ module openconfig-mpls-rsvp {
     }
   }
 
+  grouping mpls-rsvp-subscription_state {
+    description
+      "Operational state parameters relating to the
+       bandwidth subscription on an interface";
+    leaf calculated-absolute-subscription-bw {
+      type uint64;
+      units "kbps";
+      description
+        "The calculated absolute value of the bandwidth
+         which is reservable to RSVP-TE on the interface
+         prior to any adjustments that may be made from
+         external sources.";
+    }
+  }
+
   grouping mpls-rsvp-subscription {
     description
       "Top level group for RSVP subscription options";
@@ -170,6 +202,7 @@ module openconfig-mpls-rsvp {
           "State parameters relating to RSVP
            subscription options";
         uses mpls-rsvp-subscription_config;
+        uses mpls-rsvp-subscription_state;
       }
     }
   }
@@ -272,9 +305,9 @@ module openconfig-mpls-rsvp {
       "RSVP facility (link/node) protection configuration";
     leaf link-protection-style-requested {
       type identityref {
-        base mplst:protection-type;
+        base oc-mplst:PROTECTION_TYPE;
       }
-      default "mplst:link-node-protection-requested";
+      default "oc-mplst:LINK_NODE_PROTECTION_REQUESTED";
       description
         "Style of mpls frr protection desired:
          link, link-node, or unprotected";
@@ -308,74 +341,6 @@ module openconfig-mpls-rsvp {
     }
   }
 
-  grouping mpls-rsvp-error-statistics {
-    description
-      "RSVP-TE packet statistics";
-    container error {
-      description
-        "RSVP-TE error statistics";
-      leaf authentication-failure {
-        type yang:counter32;
-        description
-          "Authentication failure count";
-      }
-      leaf path-error {
-        type yang:counter32;
-        description
-          "Path error to client count";
-      }
-      leaf resv-error {
-        type yang:counter32;
-        description
-          "Resv error to client count";
-      }
-      leaf path-timeout {
-        type yang:counter32;
-        description
-          "Path timeout count";
-      }
-      leaf resv-timeout {
-        type yang:counter32;
-        description
-          "Resv timeout count";
-      }
-      leaf rate-limit {
-        type yang:counter32;
-        description
-          "Count of packets that were rate limited";
-      }
-    }
-  }
-
-  grouping mpls-rsvp-protocol-statistics {
-    description
-      "RSVP protocol statistics";
-    container protocol {
-      description
-        "RSVP-TE protocol statistics";
-      leaf hello-sent {
-        type yang:counter32;
-        description
-          "Hello sent count";
-      }
-      leaf hello-rcvd {
-        type yang:counter32;
-        description
-          "Hello received count";
-      }
-      leaf path-sent {
-        type yang:counter32;
-        description
-          "Path sent count";
-      }
-      leaf path-rcvd {
-        type yang:counter32;
-        description
-          "Path received count";
-      }
-    }
-  }
-
   grouping mpls-rsvp-statistics {
     description
       "Top level grouping for RSVP protocol state";
@@ -388,34 +353,30 @@ module openconfig-mpls-rsvp {
     container rsvp-te {
       description
         "RSVP-TE global signaling protocol configuration";
-      container sessions {
-        description
-          "Configuration and state of RSVP sessions";
-        container config {
-          description
-            "Configuration of RSVP sessions on the device";
-        }
-        container state {
-          config false;
-          description
-            "State information relating to RSVP sessions
-             on the device";
-          uses mpls-rsvp-session-state;
-        }
-      }
+      uses mpls-rsvp-session-state;
       container neighbors {
         description
           "Configuration and state for RSVP neighbors connecting
            to the device";
-        container config {
-          description
-            "Configuration of RSVP neighbor information";
-        }
-        container state {
+        list neighbor {
+          key "address";
           config false;
           description
-            "State information relating to RSVP neighbors";
-          uses mpls-rsvp-neighbor-state;
+            "List of RSVP neighbors of the local system";
+          leaf address {
+            type leafref {
+              path "../state/address";
+            }
+            description
+              "Reference to the address of the RSVP neighbor";
+          }
+          container state {
+            config false;
+            description
+              "Operational state parameters relating to the
+               RSVP neighbor";
+            uses mpls-rsvp-neighbor-state;
+          }
         }
       }
       container global {
@@ -441,30 +402,27 @@ module openconfig-mpls-rsvp {
         description
           "Attributes relating to RSVP-TE enabled interfaces";
         list interface {
-          key "interface-name";
+          key "interface-id";
           description
             "list of per-interface RSVP configurations";
-          leaf interface-name {
+          leaf interface-id {
             type leafref {
-              path "../config/interface-name";
+              path "../config/interface-id";
             }
             description
-              "references a configured IP interface";
+              "reference to the interface-id data";
           }
           container config {
             description
               "Configuration of per-interface RSVP parameters";
-            leaf interface-name {
-              type ocif:interface-ref;
-              description
-                "Name of configured IP interface";
-            }
+            uses mpls-rsvp-interfaces-config;
           }
           container state {
             config false;
             description
               "Per-interface RSVP protocol and state information";
             uses mpls-rsvp-interfaces-state;
+            uses mpls-rsvp-interfaces-config;
             container counters {
               config false;
               description
@@ -472,6 +430,8 @@ module openconfig-mpls-rsvp {
               uses mpls-rsvp-protocol-state;
             }
           }
+          uses oc-if:interface-ref;
+          uses mpls-rsvp-interface-reservations;
           uses mpls-rsvp-hellos;
           uses mpls-rsvp-authentication;
           uses mpls-rsvp-subscription;
@@ -485,7 +445,7 @@ module openconfig-mpls-rsvp {
     description
       "properties of RSPP point-to-point paths";
     leaf source {
-      when "/mpls/lsps/constrained-path/tunnel/config/signaling-protocol = 'RSVP'" {
+      when "/mpls/lsps/constrained-path/tunnel/config/signaling-protocol = 'PATH_SETUP_RSVP'" {
         description
           "When the signaling protocol is RSVP-TE ";
       }
@@ -494,7 +454,7 @@ module openconfig-mpls-rsvp {
         "RSVP-TE tunnel source address";
     }
     leaf soft-preemption {
-      when "/mpls/lsps/constrained-path/tunnel/config/signaling-protocol = 'RSVP'" {
+      when "/mpls/lsps/constrained-path/tunnel/config/signaling-protocol = 'PATH_SETUP_RSVP'" {
         description
           "When the signaling protocol is RSVP-TE ";
       }
@@ -510,7 +470,7 @@ module openconfig-mpls-rsvp {
     description
       "Configuration paramters related to RSVP-TE priorities";
     leaf setup-priority {
-      when "/mpls/lsps/constrained-path/tunnel/config/signaling-protocol = 'RSVP'" {
+      when "/mpls/lsps/constrained-path/tunnel/config/signaling-protocol = 'PATH_SETUP_RSVP'" {
         description
           "When the signaling protocol is RSVP-TE ";
       }
@@ -527,7 +487,7 @@ module openconfig-mpls-rsvp {
          LSP Tunnels";
     }
     leaf hold-priority {
-      when "/mpls/lsps/constrained-path/tunnel/config/signaling-protocol = 'RSVP'" {
+      when "/mpls/lsps/constrained-path/tunnel/config/signaling-protocol = 'PATH_SETUP_RSVP'" {
         description
           "When the signaling protocol is RSVP-TE ";
       }
@@ -550,7 +510,7 @@ module openconfig-mpls-rsvp {
       "properties of RSPP point-to-point paths";
     uses rsvp-priorities_config;
     leaf retry-timer {
-      when "/mpls/lsps/constrained-path/tunnel/config/signaling-protocol = 'RSVP'" {
+      when "/mpls/lsps/constrained-path/tunnel/config/signaling-protocol = 'PATH_SETUP_RSVP'" {
         description
           "When the signaling protocol is RSVP-TE ";
       }
@@ -567,172 +527,275 @@ module openconfig-mpls-rsvp {
   grouping mpls-rsvp-neighbor-state {
     description
       "State information for RSVP neighbors";
-    list neighbor {
-      key "address";
+    leaf address {
+      type inet:ip-address;
       description
-        "List of RSVP neighbors connecting to the device,
-         keyed by neighbor address";
-      leaf address {
-        type inet:ip-address;
-        description
-          "Address of RSVP neighbor";
-      }
-      leaf detected-interface {
-        type string;
-        description
-          "Interface where RSVP neighbor was detected";
-      }
-      leaf neighbor-status {
-        type enumeration {
-          enum "UP" {
-            description
-              "RSVP hello messages are detected from the neighbor";
-          }
-          enum "DOWN" {
-            description
-              "RSVP neighbor not detected as up, due to a
-               communication failure or IGP notification
-               the neighbor is unavailable";
-          }
+        "Address of RSVP neighbor";
+    }
+    leaf detected-interface {
+      type string;
+      description
+        "Interface where RSVP neighbor was detected";
+    }
+    leaf neighbor-status {
+      type enumeration {
+        enum "UP" {
+          description
+            "RSVP hello messages are detected from the neighbor";
         }
-        description
-          "Enumuration of possible RSVP neighbor states";
+        enum "DOWN" {
+          description
+            "RSVP neighbor not detected as up, due to a
+             communication failure or IGP notification
+             the neighbor is unavailable";
+        }
       }
-      leaf refresh-reduction {
-        type boolean;
-        description
-          "Suppport of neighbor for RSVP refresh reduction";
-        reference
-          "RFC 2961 RSVP Refresh Overhead Reduction
-           Extensions";
-      }
+      description
+        "Enumuration of possible RSVP neighbor states";
+    }
+    leaf refresh-reduction {
+      type boolean;
+      description
+        "Suppport of neighbor for RSVP refresh reduction";
+      reference
+        "RFC 2961 RSVP Refresh Overhead Reduction
+         Extensions";
     }
   }
 
   grouping mpls-rsvp-session-state {
     description
       "State information for RSVP TE sessions";
-    list session {
-      key
-        "source-port destination-port
-         source-address destination-address";
+    container sessions {
       description
-        "List of RSVP sessions";
-      leaf source-address {
-        type inet:ip-address;
+        "Enclosing container for sessions";
+      list session {
+        key "local-index";
+        config false;
         description
-          "Origin address of RSVP session";
-      }
-      leaf destination-address {
-        type inet:ip-address;
-        description
-          "Destination address of RSVP session";
-      }
-      leaf source-port {
-        type uint16;
-        description
-          "RSVP source port";
-        reference "RFC 2205";
-      }
-      leaf destination-port {
-        type uint16;
-        description
-          "RSVP source port";
-        reference "RFC 2205";
-      }
-      leaf status {
-        type enumeration {
-          enum "UP" {
-            description
-              "RSVP session is up";
+          "List of RSVP sessions";
+        leaf local-index {
+          type leafref {
+            path "../state/local-index";
           }
-          enum "DOWN" {
+          description
+            "Reference to the local index for the RSVP
+             session";
+        }
+        uses mpls-rsvp-record-route-object-top;
+        container state {
+          description
+            "Operational state parameters relating to the
+             RSVP session";
+          leaf local-index {
+            type uint64;
             description
-              "RSVP session is down";
+              "The index used to identify the RSVP session
+               on the local network element. This index is
+               generated by the device and is unique only
+               to the local network element.";
+          }
+          leaf source-address {
+            type inet:ip-address;
+            description
+              "Origin address of RSVP session";
+          }
+          leaf destination-address {
+            type inet:ip-address;
+            description
+              "Destination address of RSVP session";
+          }
+          leaf tunnel-id {
+            type uint16;
+            description
+              "The tunnel ID is an identifier used in the
+               RSVP session, which remains constant over
+               the life of the tunnel.";
+            reference "RFC 3209";
+          }
+          leaf lsp-id {
+            type uint16;
+            description
+              "The LSP ID distinguishes between two LSPs
+               originated from the same headend, and is
+               commonly used to distinguish RSVP sessions
+               during make before break operations.";
+            reference "RFC 3209";
+          }
+          leaf session-name {
+            type string;
+            description
+              "The signaled name of this RSVP session.";
+          }
+          leaf status {
+            type enumeration {
+              enum "UP" {
+                description
+                  "RSVP session is up";
+              }
+              enum "DOWN" {
+                description
+                  "RSVP session is down";
+              }
+            }
+            description
+              "Enumeration of RSVP session states";
+          }
+          leaf type {
+            type identityref {
+              base oc-mplst:LSP_ROLE;
+            }
+            description
+              "The type/role of the RSVP session, signifing
+               the session's role on the current device, such as
+               a transit session vs. an ingress session.";
+          }
+          leaf protection-requested {
+            type identityref {
+              base oc-mplst:PROTECTION_TYPE;
+            }
+            description
+              "The type of protection requested for the RSVP session";
+          }
+          leaf label-in {
+            type oc-mplst:mpls-label;
+            description
+              "Incoming MPLS label associated with this RSVP session";
+          }
+          leaf label-out {
+            type oc-mplst:mpls-label;
+            description
+              "Outgoing MPLS label associated with this RSVP session";
+          }
+          container sender-tspec {
+            description
+              "Operational state statistics relating to the SENDER_TSPEC
+               received for the RSVP session";
+            leaf rate {
+              type oc-types:ieeefloat32;
+              units "Bps";
+              description
+                "The rate at which the head-end device generates traffic,
+                 expressed in bytes per second.";
+              reference "RFC2210: RSVP with INTSERV";
+            }
+            leaf size {
+              type oc-types:ieeefloat32;
+              units "bytes per second";
+              description
+                "The size of the token bucket that is used to determine
+                 the rate at which the head-end device generates traffic,
+                 expressed in bytes per second.";
+              reference "RFC2210: RSVP with INTSERV";
+            }
+            leaf peak-data-rate {
+              type union {
+                type oc-types:ieeefloat32;
+                type enumeration {
+                  enum "INFINITY" {
+                    description
+                      "The head-end device has no maximum data rate.";
+                  }
+                }
+              }
+              units "bytes per second";
+              description
+                "The maximum traffic generation rate that the head-end
+                 device sends traffic at.";
+              reference "RFC2210: RSVP with INTSERV";
+            }
           }
         }
-        description
-          "Enumeration of RSVP session states";
       }
-      leaf type {
-        type enumeration {
-          enum "SOURCE" {
-            description
-              "RSVP session originates on this device";
-          }
-          enum "TRANSIT" {
-            description
-              "RSVP session transits this device only";
-          }
-          enum "DESTINATION" {
-            description
-              "RSVP session terminates on this device";
-          }
-        }
-        description
-          "Enumeration of possible RSVP session types";
-      }
-      leaf tunnel-id {
-        type uint16;
-        description
-          "Unique identifier of RSVP session";
-      }
-      leaf label-in {
-        type mplst:mpls-label;
-        description
-          "Incoming MPLS label associated with this RSVP session";
-      }
-      leaf label-out {
-        type mplst:mpls-label;
-        description
-          "Outgoing MPLS label associated with this RSVP session";
-      }
-      leaf-list associated-lsps {
-        type leafref {
-          path "../../../../../../lsps/constrained-path/tunnel/config/name";
-        }
-        description
-          "List of label switched paths associated with this RSVP
-           session";
-      }
+    }
+  }
+
+  grouping mpls-rsvp-interfaces-config {
+    description
+      "RSVP configuration information relevant to an interface";
+    leaf interface-id {
+      type oc-if:interface-id;
+      description
+        "Identifier for the interface";
     }
   }
 
   grouping mpls-rsvp-interfaces-state {
     description
       "RSVP state information relevant to an interface";
-    list bandwidth {
-      key "priority";
+  }
+
+  grouping mpls-rsvp-interface-reservations {
+    description
+      "Operational state related to interface bandwidth
+       reservations";
+    container bandwidth-reservations {
       description
-        "Available and reserved bandwidth by priority on
-         the interface.";
-      leaf priority {
-        type uint8 {
-          range "0..7";
+        "Enclosing container for bandwidth reservation";
+      list bandwidth-reservation {
+        key "priority";
+        config false;
+        description
+          "Available and reserved bandwidth by priority on
+           the interface.";
+        leaf priority {
+          type leafref {
+            path "../state/priority";
+          }
+          description
+            "Reference to the RSVP priority level";
         }
-        description
-          "RSVP priority level for LSPs traversing the interface";
+        container state {
+          description
+            "Operational state parameters relating to a
+             bandwidth reservation at a certain priority";
+          leaf priority {
+            type union {
+              type uint8 {
+                range "0..7";
+              }
+              type enumeration {
+                enum "ALL" {
+                  description
+                    "The ALL keyword represents the overall
+                     state of the interface - i.e., the union
+                     of all of the priority levels";
+                }
+              }
+            }
+            description
+              "RSVP priority level for LSPs traversing the interface";
+          }
+          leaf available-bandwidth {
+            type oc-mplst:bandwidth-mbps;
+            description
+              "Bandwidth currently available with the priority level,
+               or for the entire interface when the priority is set to
+               ALL";
+          }
+          leaf reserved-bandwidth {
+            type oc-mplst:bandwidth-mbps;
+            description
+              "Bandwidth currently reserved within the priority level,
+               or the sum of all priority levels when the keyword is set
+               to ALL";
+          }
+          leaf active-reservations-count {
+            type yang:gauge64;
+            description
+              "Number of active RSVP reservations in the associated
+               priority, or the sum of all reservations when the priority
+               level is set to ALL";
+          }
+          leaf highwater-mark {
+            type oc-mplst:bandwidth-mbps;
+            description
+              "Maximum bandwidth reserved on the interface within the
+               priority, or across all priorities in the case that the
+               priority level is set to ALL";
+          }
+        }
       }
-      leaf available-bandwidth {
-        type mplst:bandwidth-mbps;
-        description
-          "Bandwidth currently available";
-      }
-      leaf reserved-bandwidth {
-        type mplst:bandwidth-mbps;
-        description
-          "Bandwidth currently reserved";
-      }
-    }
-    leaf highwater-mark {
-      type mplst:bandwidth-mbps;
-      description
-        "Maximum bandwidth ever reserved";
-    }
-    leaf active-reservation-count {
-      type yang:gauge64;
-      description
-        "Number of active RSVP reservations";
     }
   }
 
@@ -852,5 +915,67 @@ module openconfig-mpls-rsvp {
         "Number of sent RSVP refresh reduction ack messages";
     }
   }
-  oc-ext:openconfig-version "0.2.1";
+
+  grouping mpls-rsvp-record-route-object-top {
+    description
+      "Top-level structure grouping for list of record route
+       objects.";
+    container record-route-objects {
+      description
+        "Enclosing container for MPLS RRO objects associated with the
+         traffic engineered tunnel.";
+      list record-route-object {
+        key "index";
+        config false;
+        description
+          "Read-only list of record route objects associated with the
+           traffic engineered tunnel. Each entry in the list
+           may contain a hop IP address, MPLS label allocated
+           at the hop, and the flags associated with the entry.";
+        leaf index {
+          type leafref {
+            path "../state/index";
+          }
+          description
+            "Reference to the index of the record route object.
+             The index is used to indicate the ordering of hops in
+             the path.";
+        }
+        container state {
+          config false;
+          description
+            "Information related to RRO objects. The hop, label, and
+             optional flags are present for each entry in the list.";
+          uses mpls-rsvp-record-route-object-state;
+        }
+      }
+    }
+  }
+
+  grouping mpls-rsvp-record-route-object-state {
+    description
+      "Grouping to hold information relating to record route
+       objects relevant to a traffic engineering LSP.";
+    leaf index {
+      type uint8;
+      description
+        "Index of object in the list. Used for ordering.";
+    }
+    leaf address {
+      type inet:ip-address;
+      description
+        "IP router hop for RRO entry";
+    }
+    leaf reported-label {
+      type oc-mplst:mpls-label;
+      description
+        "Label reported for RRO hop";
+    }
+    leaf reported-flags {
+      type uint8;
+      description
+        "Subobject flags for MPLS label";
+    }
+  }
+  oc-ext:openconfig-version "2.3.0";
 }

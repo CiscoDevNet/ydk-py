@@ -141,8 +141,7 @@ class Macsec(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("policy", ("policy", Macsec.Policy))])
+        self._child_classes = OrderedDict([("policy", ("policy", Macsec.Policy))])
         self._leafs = OrderedDict()
 
         self.policy = YList(self)
@@ -238,8 +237,7 @@ class Macsec(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['name']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('name', YLeaf(YType.str, 'name')),
                 ('delay_protection', YLeaf(YType.boolean, 'delay-protection')),

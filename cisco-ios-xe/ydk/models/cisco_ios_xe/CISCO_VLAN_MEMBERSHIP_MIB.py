@@ -24,47 +24,47 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
     .. attribute:: vmvmps
     
     	
-    	**type**\:  :py:class:`Vmvmps <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmvmps>`
+    	**type**\:  :py:class:`VmVmps <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.VmVmps>`
     
     .. attribute:: vmmembership
     
     	
-    	**type**\:  :py:class:`Vmmembership <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembership>`
+    	**type**\:  :py:class:`VmMembership <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.VmMembership>`
     
     .. attribute:: vmstatistics
     
     	
-    	**type**\:  :py:class:`Vmstatistics <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmstatistics>`
+    	**type**\:  :py:class:`VmStatistics <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.VmStatistics>`
     
     .. attribute:: vmstatus
     
     	
-    	**type**\:  :py:class:`Vmstatus <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmstatus>`
+    	**type**\:  :py:class:`VmStatus <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.VmStatus>`
     
     .. attribute:: vmvmpstable
     
     	A table of VMPS to use. The device will use the the primary VMPS by default. If the device is unable to reach the primary server after vmVmpsRetries retries, it uses the first secondary server in the table until it runs out of secondary servers, in which case it will return to using the primary server. Entries in this table may be created and deleted via this MIB or the management console on a device
-    	**type**\:  :py:class:`Vmvmpstable <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmvmpstable>`
+    	**type**\:  :py:class:`VmVmpsTable <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.VmVmpsTable>`
     
     .. attribute:: vmmembershipsummarytable
     
     	A summary of VLAN membership of non\-trunk bridge ports. This is a convenience table for retrieving VLAN membership information.  A row is created for a VLAN if\: a) the VLAN exists, or b) a port is assigned to a non\-existent VLAN.  VLAN membership can only be modified via the vmMembershipTable
-    	**type**\:  :py:class:`Vmmembershipsummarytable <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershipsummarytable>`
+    	**type**\:  :py:class:`VmMembershipSummaryTable <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.VmMembershipSummaryTable>`
     
     .. attribute:: vmmembershiptable
     
     	A table for configuring VLAN port membership. There is one row for each bridge port that is assigned to a static or dynamic access port. Trunk ports are not  represented in this table.  An entry may be created and deleted when ports are created or deleted via SNMP or the management console on a  device
-    	**type**\:  :py:class:`Vmmembershiptable <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershiptable>`
+    	**type**\:  :py:class:`VmMembershipTable <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.VmMembershipTable>`
     
     .. attribute:: vmmembershipsummaryexttable
     
     	A summary of VLAN membership of non\-trunk bridge ports. This table is used for  retrieving VLAN membership information for the device which supports dot1dBasePort  with value greater than 2048.  A row is created for a VLAN and a particular bridge port range, where at least one port  in the range is assigned to this VLAN.  VLAN membership can only be modified via the vmMembershipTable
-    	**type**\:  :py:class:`Vmmembershipsummaryexttable <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershipsummaryexttable>`
+    	**type**\:  :py:class:`VmMembershipSummaryExtTable <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.VmMembershipSummaryExtTable>`
     
     .. attribute:: vmvoicevlantable
     
     	A table for configuring the Voice VLAN\-ID for the ports. An entry will exist for each interface which supports Voice Vlan feature
-    	**type**\:  :py:class:`Vmvoicevlantable <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmvoicevlantable>`
+    	**type**\:  :py:class:`VmVoiceVlanTable <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.VmVoiceVlanTable>`
     
     
 
@@ -82,58 +82,51 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("vmVmps", ("vmvmps", CISCOVLANMEMBERSHIPMIB.Vmvmps)), ("vmMembership", ("vmmembership", CISCOVLANMEMBERSHIPMIB.Vmmembership)), ("vmStatistics", ("vmstatistics", CISCOVLANMEMBERSHIPMIB.Vmstatistics)), ("vmStatus", ("vmstatus", CISCOVLANMEMBERSHIPMIB.Vmstatus)), ("vmVmpsTable", ("vmvmpstable", CISCOVLANMEMBERSHIPMIB.Vmvmpstable)), ("vmMembershipSummaryTable", ("vmmembershipsummarytable", CISCOVLANMEMBERSHIPMIB.Vmmembershipsummarytable)), ("vmMembershipTable", ("vmmembershiptable", CISCOVLANMEMBERSHIPMIB.Vmmembershiptable)), ("vmMembershipSummaryExtTable", ("vmmembershipsummaryexttable", CISCOVLANMEMBERSHIPMIB.Vmmembershipsummaryexttable)), ("vmVoiceVlanTable", ("vmvoicevlantable", CISCOVLANMEMBERSHIPMIB.Vmvoicevlantable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("vmVmps", ("vmvmps", CISCOVLANMEMBERSHIPMIB.VmVmps)), ("vmMembership", ("vmmembership", CISCOVLANMEMBERSHIPMIB.VmMembership)), ("vmStatistics", ("vmstatistics", CISCOVLANMEMBERSHIPMIB.VmStatistics)), ("vmStatus", ("vmstatus", CISCOVLANMEMBERSHIPMIB.VmStatus)), ("vmVmpsTable", ("vmvmpstable", CISCOVLANMEMBERSHIPMIB.VmVmpsTable)), ("vmMembershipSummaryTable", ("vmmembershipsummarytable", CISCOVLANMEMBERSHIPMIB.VmMembershipSummaryTable)), ("vmMembershipTable", ("vmmembershiptable", CISCOVLANMEMBERSHIPMIB.VmMembershipTable)), ("vmMembershipSummaryExtTable", ("vmmembershipsummaryexttable", CISCOVLANMEMBERSHIPMIB.VmMembershipSummaryExtTable)), ("vmVoiceVlanTable", ("vmvoicevlantable", CISCOVLANMEMBERSHIPMIB.VmVoiceVlanTable))])
         self._leafs = OrderedDict()
 
-        self.vmvmps = CISCOVLANMEMBERSHIPMIB.Vmvmps()
+        self.vmvmps = CISCOVLANMEMBERSHIPMIB.VmVmps()
         self.vmvmps.parent = self
         self._children_name_map["vmvmps"] = "vmVmps"
-        self._children_yang_names.add("vmVmps")
 
-        self.vmmembership = CISCOVLANMEMBERSHIPMIB.Vmmembership()
+        self.vmmembership = CISCOVLANMEMBERSHIPMIB.VmMembership()
         self.vmmembership.parent = self
         self._children_name_map["vmmembership"] = "vmMembership"
-        self._children_yang_names.add("vmMembership")
 
-        self.vmstatistics = CISCOVLANMEMBERSHIPMIB.Vmstatistics()
+        self.vmstatistics = CISCOVLANMEMBERSHIPMIB.VmStatistics()
         self.vmstatistics.parent = self
         self._children_name_map["vmstatistics"] = "vmStatistics"
-        self._children_yang_names.add("vmStatistics")
 
-        self.vmstatus = CISCOVLANMEMBERSHIPMIB.Vmstatus()
+        self.vmstatus = CISCOVLANMEMBERSHIPMIB.VmStatus()
         self.vmstatus.parent = self
         self._children_name_map["vmstatus"] = "vmStatus"
-        self._children_yang_names.add("vmStatus")
 
-        self.vmvmpstable = CISCOVLANMEMBERSHIPMIB.Vmvmpstable()
+        self.vmvmpstable = CISCOVLANMEMBERSHIPMIB.VmVmpsTable()
         self.vmvmpstable.parent = self
         self._children_name_map["vmvmpstable"] = "vmVmpsTable"
-        self._children_yang_names.add("vmVmpsTable")
 
-        self.vmmembershipsummarytable = CISCOVLANMEMBERSHIPMIB.Vmmembershipsummarytable()
+        self.vmmembershipsummarytable = CISCOVLANMEMBERSHIPMIB.VmMembershipSummaryTable()
         self.vmmembershipsummarytable.parent = self
         self._children_name_map["vmmembershipsummarytable"] = "vmMembershipSummaryTable"
-        self._children_yang_names.add("vmMembershipSummaryTable")
 
-        self.vmmembershiptable = CISCOVLANMEMBERSHIPMIB.Vmmembershiptable()
+        self.vmmembershiptable = CISCOVLANMEMBERSHIPMIB.VmMembershipTable()
         self.vmmembershiptable.parent = self
         self._children_name_map["vmmembershiptable"] = "vmMembershipTable"
-        self._children_yang_names.add("vmMembershipTable")
 
-        self.vmmembershipsummaryexttable = CISCOVLANMEMBERSHIPMIB.Vmmembershipsummaryexttable()
+        self.vmmembershipsummaryexttable = CISCOVLANMEMBERSHIPMIB.VmMembershipSummaryExtTable()
         self.vmmembershipsummaryexttable.parent = self
         self._children_name_map["vmmembershipsummaryexttable"] = "vmMembershipSummaryExtTable"
-        self._children_yang_names.add("vmMembershipSummaryExtTable")
 
-        self.vmvoicevlantable = CISCOVLANMEMBERSHIPMIB.Vmvoicevlantable()
+        self.vmvoicevlantable = CISCOVLANMEMBERSHIPMIB.VmVoiceVlanTable()
         self.vmvoicevlantable.parent = self
         self._children_name_map["vmvoicevlantable"] = "vmVoiceVlanTable"
-        self._children_yang_names.add("vmVoiceVlanTable")
         self._segment_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(CISCOVLANMEMBERSHIPMIB, [], name, value)
 
-    class Vmvmps(Entity):
+
+    class VmVmps(Entity):
         """
         
         
@@ -163,12 +156,12 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         .. attribute:: vmvmpsreconfirm
         
         	Setting this object to execute(2) causes the switch to reconfirm membership of every dynamic port. Reading this object always return ready(1)
-        	**type**\:  :py:class:`Vmvmpsreconfirm <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmvmps.Vmvmpsreconfirm>`
+        	**type**\:  :py:class:`VmVmpsReconfirm <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.VmVmps.VmVmpsReconfirm>`
         
         .. attribute:: vmvmpsreconfirmresult
         
         	This object returns the result of the last request that sets vmVmpsReconfirm to execute(2). The semantics of the possible results are as follows\:       other(1)           \- none of following      inProgress(2)      \- reconfirm in progress      success(3)         \- reconfirm completed successfully      noResponse(4)      \- reconfirm failed because no                           VMPS responded      noVmps(5)          \- No VMPS configured      noDynamicPort(6)   \- No dynamic ports configured      noHostConnected(7) \- No hosts on dynamic ports
-        	**type**\:  :py:class:`Vmvmpsreconfirmresult <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmvmps.Vmvmpsreconfirmresult>`
+        	**type**\:  :py:class:`VmVmpsReconfirmResult <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.VmVmps.VmVmpsReconfirmResult>`
         
         .. attribute:: vmvmpscurrent
         
@@ -185,15 +178,14 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         _revision = '2007-12-14'
 
         def __init__(self):
-            super(CISCOVLANMEMBERSHIPMIB.Vmvmps, self).__init__()
+            super(CISCOVLANMEMBERSHIPMIB.VmVmps, self).__init__()
 
             self.yang_name = "vmVmps"
             self.yang_parent_name = "CISCO-VLAN-MEMBERSHIP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('vmvmpsvqpversion', YLeaf(YType.int32, 'vmVmpsVQPVersion')),
                 ('vmvmpsretries', YLeaf(YType.int32, 'vmVmpsRetries')),
@@ -212,11 +204,11 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVLANMEMBERSHIPMIB.Vmvmps, ['vmvmpsvqpversion', 'vmvmpsretries', 'vmvmpsreconfirminterval', 'vmvmpsreconfirm', 'vmvmpsreconfirmresult', 'vmvmpscurrent'], name, value)
+            self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmVmps, ['vmvmpsvqpversion', 'vmvmpsretries', 'vmvmpsreconfirminterval', 'vmvmpsreconfirm', 'vmvmpsreconfirmresult', 'vmvmpscurrent'], name, value)
 
-        class Vmvmpsreconfirm(Enum):
+        class VmVmpsReconfirm(Enum):
             """
-            Vmvmpsreconfirm (Enum Class)
+            VmVmpsReconfirm (Enum Class)
 
             Setting this object to execute(2) causes the switch
 
@@ -235,9 +227,9 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             execute = Enum.YLeaf(2, "execute")
 
 
-        class Vmvmpsreconfirmresult(Enum):
+        class VmVmpsReconfirmResult(Enum):
             """
-            Vmvmpsreconfirmresult (Enum Class)
+            VmVmpsReconfirmResult (Enum Class)
 
             This object returns the result of the last request
 
@@ -293,14 +285,14 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
 
 
 
-    class Vmmembership(Entity):
+    class VmMembership(Entity):
         """
         
         
         .. attribute:: vmvlancreationmode
         
         	This object is used to determine whether or not a non\-existing VLAN will be created automatically by the system after assigned to a port.  automatic(1)\:  a non\-existing VLAN will be created                automatically by the system after                assigned to a port.  manual(2)\:     a non\-existing VLAN will not be created                automatically by the system and need to be                manually created by the users after assigned                to a port
-        	**type**\:  :py:class:`Vmvlancreationmode <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembership.Vmvlancreationmode>`
+        	**type**\:  :py:class:`VmVlanCreationMode <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.VmMembership.VmVlanCreationMode>`
         
         
 
@@ -310,15 +302,14 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         _revision = '2007-12-14'
 
         def __init__(self):
-            super(CISCOVLANMEMBERSHIPMIB.Vmmembership, self).__init__()
+            super(CISCOVLANMEMBERSHIPMIB.VmMembership, self).__init__()
 
             self.yang_name = "vmMembership"
             self.yang_parent_name = "CISCO-VLAN-MEMBERSHIP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('vmvlancreationmode', YLeaf(YType.enumeration, 'vmVlanCreationMode')),
             ])
@@ -327,11 +318,11 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVLANMEMBERSHIPMIB.Vmmembership, ['vmvlancreationmode'], name, value)
+            self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmMembership, ['vmvlancreationmode'], name, value)
 
-        class Vmvlancreationmode(Enum):
+        class VmVlanCreationMode(Enum):
             """
-            Vmvlancreationmode (Enum Class)
+            VmVlanCreationMode (Enum Class)
 
             This object is used to determine whether or not
 
@@ -365,7 +356,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
 
 
 
-    class Vmstatistics(Entity):
+    class VmStatistics(Entity):
         """
         
         
@@ -433,15 +424,14 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         _revision = '2007-12-14'
 
         def __init__(self):
-            super(CISCOVLANMEMBERSHIPMIB.Vmstatistics, self).__init__()
+            super(CISCOVLANMEMBERSHIPMIB.VmStatistics, self).__init__()
 
             self.yang_name = "vmStatistics"
             self.yang_parent_name = "CISCO-VLAN-MEMBERSHIP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('vmvqpqueries', YLeaf(YType.uint32, 'vmVQPQueries')),
                 ('vmvqpresponses', YLeaf(YType.uint32, 'vmVQPResponses')),
@@ -464,10 +454,10 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVLANMEMBERSHIPMIB.Vmstatistics, ['vmvqpqueries', 'vmvqpresponses', 'vmvmpschanges', 'vmvqpshutdown', 'vmvqpdenied', 'vmvqpwrongdomain', 'vmvqpwrongversion', 'vminsufficientresources'], name, value)
+            self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmStatistics, ['vmvqpqueries', 'vmvqpresponses', 'vmvmpschanges', 'vmvqpshutdown', 'vmvqpdenied', 'vmvqpwrongdomain', 'vmvqpwrongversion', 'vminsufficientresources'], name, value)
 
 
-    class Vmstatus(Entity):
+    class VmStatus(Entity):
         """
         
         
@@ -484,15 +474,14 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         _revision = '2007-12-14'
 
         def __init__(self):
-            super(CISCOVLANMEMBERSHIPMIB.Vmstatus, self).__init__()
+            super(CISCOVLANMEMBERSHIPMIB.VmStatus, self).__init__()
 
             self.yang_name = "vmStatus"
             self.yang_parent_name = "CISCO-VLAN-MEMBERSHIP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('vmnotificationsenabled', YLeaf(YType.boolean, 'vmNotificationsEnabled')),
             ])
@@ -501,10 +490,10 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVLANMEMBERSHIPMIB.Vmstatus, ['vmnotificationsenabled'], name, value)
+            self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmStatus, ['vmnotificationsenabled'], name, value)
 
 
-    class Vmvmpstable(Entity):
+    class VmVmpsTable(Entity):
         """
         A table of VMPS to use. The device will use
         the the primary VMPS by default. If the
@@ -519,7 +508,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         .. attribute:: vmvmpsentry
         
         	An entry (conceptual row) in the vmVmpsTable
-        	**type**\: list of  		 :py:class:`Vmvmpsentry <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmvmpstable.Vmvmpsentry>`
+        	**type**\: list of  		 :py:class:`VmVmpsEntry <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.VmVmpsTable.VmVmpsEntry>`
         
         
 
@@ -529,15 +518,14 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         _revision = '2007-12-14'
 
         def __init__(self):
-            super(CISCOVLANMEMBERSHIPMIB.Vmvmpstable, self).__init__()
+            super(CISCOVLANMEMBERSHIPMIB.VmVmpsTable, self).__init__()
 
             self.yang_name = "vmVmpsTable"
             self.yang_parent_name = "CISCO-VLAN-MEMBERSHIP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vmVmpsEntry", ("vmvmpsentry", CISCOVLANMEMBERSHIPMIB.Vmvmpstable.Vmvmpsentry))])
+            self._child_classes = OrderedDict([("vmVmpsEntry", ("vmvmpsentry", CISCOVLANMEMBERSHIPMIB.VmVmpsTable.VmVmpsEntry))])
             self._leafs = OrderedDict()
 
             self.vmvmpsentry = YList(self)
@@ -545,10 +533,10 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVLANMEMBERSHIPMIB.Vmvmpstable, [], name, value)
+            self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmVmpsTable, [], name, value)
 
 
-        class Vmvmpsentry(Entity):
+        class VmVmpsEntry(Entity):
             """
             An entry (conceptual row) in the vmVmpsTable.
             
@@ -577,15 +565,14 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             _revision = '2007-12-14'
 
             def __init__(self):
-                super(CISCOVLANMEMBERSHIPMIB.Vmvmpstable.Vmvmpsentry, self).__init__()
+                super(CISCOVLANMEMBERSHIPMIB.VmVmpsTable.VmVmpsEntry, self).__init__()
 
                 self.yang_name = "vmVmpsEntry"
                 self.yang_parent_name = "vmVmpsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['vmvmpsipaddress']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('vmvmpsipaddress', YLeaf(YType.str, 'vmVmpsIpAddress')),
                     ('vmvmpsprimary', YLeaf(YType.boolean, 'vmVmpsPrimary')),
@@ -598,10 +585,10 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/vmVmpsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVLANMEMBERSHIPMIB.Vmvmpstable.Vmvmpsentry, ['vmvmpsipaddress', 'vmvmpsprimary', 'vmvmpsrowstatus'], name, value)
+                self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmVmpsTable.VmVmpsEntry, ['vmvmpsipaddress', 'vmvmpsprimary', 'vmvmpsrowstatus'], name, value)
 
 
-    class Vmmembershipsummarytable(Entity):
+    class VmMembershipSummaryTable(Entity):
         """
         A summary of VLAN membership of non\-trunk
         bridge ports. This is a convenience table
@@ -617,7 +604,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         .. attribute:: vmmembershipsummaryentry
         
         	An entry (conceptual row) in the vmMembershipSummaryTable
-        	**type**\: list of  		 :py:class:`Vmmembershipsummaryentry <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershipsummarytable.Vmmembershipsummaryentry>`
+        	**type**\: list of  		 :py:class:`VmMembershipSummaryEntry <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.VmMembershipSummaryTable.VmMembershipSummaryEntry>`
         
         
 
@@ -627,15 +614,14 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         _revision = '2007-12-14'
 
         def __init__(self):
-            super(CISCOVLANMEMBERSHIPMIB.Vmmembershipsummarytable, self).__init__()
+            super(CISCOVLANMEMBERSHIPMIB.VmMembershipSummaryTable, self).__init__()
 
             self.yang_name = "vmMembershipSummaryTable"
             self.yang_parent_name = "CISCO-VLAN-MEMBERSHIP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vmMembershipSummaryEntry", ("vmmembershipsummaryentry", CISCOVLANMEMBERSHIPMIB.Vmmembershipsummarytable.Vmmembershipsummaryentry))])
+            self._child_classes = OrderedDict([("vmMembershipSummaryEntry", ("vmmembershipsummaryentry", CISCOVLANMEMBERSHIPMIB.VmMembershipSummaryTable.VmMembershipSummaryEntry))])
             self._leafs = OrderedDict()
 
             self.vmmembershipsummaryentry = YList(self)
@@ -643,10 +629,10 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVLANMEMBERSHIPMIB.Vmmembershipsummarytable, [], name, value)
+            self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmMembershipSummaryTable, [], name, value)
 
 
-        class Vmmembershipsummaryentry(Entity):
+        class VmMembershipSummaryEntry(Entity):
             """
             An entry (conceptual row) in the
             vmMembershipSummaryTable.
@@ -682,15 +668,14 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             _revision = '2007-12-14'
 
             def __init__(self):
-                super(CISCOVLANMEMBERSHIPMIB.Vmmembershipsummarytable.Vmmembershipsummaryentry, self).__init__()
+                super(CISCOVLANMEMBERSHIPMIB.VmMembershipSummaryTable.VmMembershipSummaryEntry, self).__init__()
 
                 self.yang_name = "vmMembershipSummaryEntry"
                 self.yang_parent_name = "vmMembershipSummaryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['vmmembershipsummaryvlanindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('vmmembershipsummaryvlanindex', YLeaf(YType.int32, 'vmMembershipSummaryVlanIndex')),
                     ('vmmembershipsummarymemberports', YLeaf(YType.str, 'vmMembershipSummaryMemberPorts')),
@@ -703,10 +688,10 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/vmMembershipSummaryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVLANMEMBERSHIPMIB.Vmmembershipsummarytable.Vmmembershipsummaryentry, ['vmmembershipsummaryvlanindex', 'vmmembershipsummarymemberports', 'vmmembershipsummarymember2kports'], name, value)
+                self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmMembershipSummaryTable.VmMembershipSummaryEntry, ['vmmembershipsummaryvlanindex', 'vmmembershipsummarymemberports', 'vmmembershipsummarymember2kports'], name, value)
 
 
-    class Vmmembershiptable(Entity):
+    class VmMembershipTable(Entity):
         """
         A table for configuring VLAN port membership.
         There is one row for each bridge port that is
@@ -719,7 +704,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         .. attribute:: vmmembershipentry
         
         	An entry (conceptual row) in the vmMembershipTable
-        	**type**\: list of  		 :py:class:`Vmmembershipentry <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershiptable.Vmmembershipentry>`
+        	**type**\: list of  		 :py:class:`VmMembershipEntry <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.VmMembershipTable.VmMembershipEntry>`
         
         
 
@@ -729,15 +714,14 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         _revision = '2007-12-14'
 
         def __init__(self):
-            super(CISCOVLANMEMBERSHIPMIB.Vmmembershiptable, self).__init__()
+            super(CISCOVLANMEMBERSHIPMIB.VmMembershipTable, self).__init__()
 
             self.yang_name = "vmMembershipTable"
             self.yang_parent_name = "CISCO-VLAN-MEMBERSHIP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vmMembershipEntry", ("vmmembershipentry", CISCOVLANMEMBERSHIPMIB.Vmmembershiptable.Vmmembershipentry))])
+            self._child_classes = OrderedDict([("vmMembershipEntry", ("vmmembershipentry", CISCOVLANMEMBERSHIPMIB.VmMembershipTable.VmMembershipEntry))])
             self._leafs = OrderedDict()
 
             self.vmmembershipentry = YList(self)
@@ -745,10 +729,10 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVLANMEMBERSHIPMIB.Vmmembershiptable, [], name, value)
+            self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmMembershipTable, [], name, value)
 
 
-        class Vmmembershipentry(Entity):
+        class VmMembershipEntry(Entity):
             """
             An entry (conceptual row) in the vmMembershipTable.
             
@@ -759,12 +743,12 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: vmvlantype
             
             	The type of VLAN membership assigned to this port. A port with static vlan membership is assigned to a single VLAN directly. A port with dynamic membership is assigned a single VLAN based on content of packets received on the port and via VQP queries to VMPS. A port with multiVlan membership may be assigned to one or more VLANs directly.  A static or dynamic port membership is specified by the value of vmVlan. A multiVlan port membership is specified by the value of vmVlans
-            	**type**\:  :py:class:`Vmvlantype <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershiptable.Vmmembershipentry.Vmvlantype>`
+            	**type**\:  :py:class:`VmVlanType <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.VmMembershipTable.VmMembershipEntry.VmVlanType>`
             
             .. attribute:: vmvlan
             
@@ -776,7 +760,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             .. attribute:: vmportstatus
             
             	An indication of the current VLAN status of the port. A status of inactive(1) indicates that a dynamic port does not yet have a VLAN assigned, or a port is  assigned to a VLAN that is currently not active. A  status of active(2) indicates that the currently  assigned VLAN is active. A status of shutdown(3)  indicates that the port has been disabled as a result of VQP shutdown response
-            	**type**\:  :py:class:`Vmportstatus <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershiptable.Vmmembershipentry.Vmportstatus>`
+            	**type**\:  :py:class:`VmPortStatus <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.VmMembershipTable.VmMembershipEntry.VmPortStatus>`
             
             .. attribute:: vmvlans
             
@@ -814,15 +798,14 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             _revision = '2007-12-14'
 
             def __init__(self):
-                super(CISCOVLANMEMBERSHIPMIB.Vmmembershiptable.Vmmembershipentry, self).__init__()
+                super(CISCOVLANMEMBERSHIPMIB.VmMembershipTable.VmMembershipEntry, self).__init__()
 
                 self.yang_name = "vmMembershipEntry"
                 self.yang_parent_name = "vmMembershipTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('vmvlantype', YLeaf(YType.enumeration, 'vmVlanType')),
@@ -845,11 +828,11 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/vmMembershipTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVLANMEMBERSHIPMIB.Vmmembershiptable.Vmmembershipentry, ['ifindex', 'vmvlantype', 'vmvlan', 'vmportstatus', 'vmvlans', 'vmvlans2k', 'vmvlans3k', 'vmvlans4k'], name, value)
+                self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmMembershipTable.VmMembershipEntry, ['ifindex', 'vmvlantype', 'vmvlan', 'vmportstatus', 'vmvlans', 'vmvlans2k', 'vmvlans3k', 'vmvlans4k'], name, value)
 
-            class Vmportstatus(Enum):
+            class VmPortStatus(Enum):
                 """
-                Vmportstatus (Enum Class)
+                VmPortStatus (Enum Class)
 
                 An indication of the current VLAN status of the port.
 
@@ -882,9 +865,9 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
                 shutdown = Enum.YLeaf(3, "shutdown")
 
 
-            class Vmvlantype(Enum):
+            class VmVlanType(Enum):
                 """
-                Vmvlantype (Enum Class)
+                VmVlanType (Enum Class)
 
                 The type of VLAN membership assigned to this port.
 
@@ -922,7 +905,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
 
 
 
-    class Vmmembershipsummaryexttable(Entity):
+    class VmMembershipSummaryExtTable(Entity):
         """
         A summary of VLAN membership of non\-trunk
         bridge ports. This table is used for 
@@ -940,7 +923,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         .. attribute:: vmmembershipsummaryextentry
         
         	An entry (conceptual row) in the vmMembershipSummaryExtTable
-        	**type**\: list of  		 :py:class:`Vmmembershipsummaryextentry <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershipsummaryexttable.Vmmembershipsummaryextentry>`
+        	**type**\: list of  		 :py:class:`VmMembershipSummaryExtEntry <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.VmMembershipSummaryExtTable.VmMembershipSummaryExtEntry>`
         
         
 
@@ -950,15 +933,14 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         _revision = '2007-12-14'
 
         def __init__(self):
-            super(CISCOVLANMEMBERSHIPMIB.Vmmembershipsummaryexttable, self).__init__()
+            super(CISCOVLANMEMBERSHIPMIB.VmMembershipSummaryExtTable, self).__init__()
 
             self.yang_name = "vmMembershipSummaryExtTable"
             self.yang_parent_name = "CISCO-VLAN-MEMBERSHIP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vmMembershipSummaryExtEntry", ("vmmembershipsummaryextentry", CISCOVLANMEMBERSHIPMIB.Vmmembershipsummaryexttable.Vmmembershipsummaryextentry))])
+            self._child_classes = OrderedDict([("vmMembershipSummaryExtEntry", ("vmmembershipsummaryextentry", CISCOVLANMEMBERSHIPMIB.VmMembershipSummaryExtTable.VmMembershipSummaryExtEntry))])
             self._leafs = OrderedDict()
 
             self.vmmembershipsummaryextentry = YList(self)
@@ -966,10 +948,10 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVLANMEMBERSHIPMIB.Vmmembershipsummaryexttable, [], name, value)
+            self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmMembershipSummaryExtTable, [], name, value)
 
 
-        class Vmmembershipsummaryextentry(Entity):
+        class VmMembershipSummaryExtEntry(Entity):
             """
             An entry (conceptual row) in the
             vmMembershipSummaryExtTable.
@@ -981,7 +963,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             
             	**range:** 0..4095
             
-            	**refers to**\:  :py:class:`vmmembershipsummaryvlanindex <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershipsummarytable.Vmmembershipsummaryentry>`
+            	**refers to**\:  :py:class:`vmmembershipsummaryvlanindex <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.VmMembershipSummaryTable.VmMembershipSummaryEntry>`
             
             .. attribute:: vmmembershipportrangeindex  (key)
             
@@ -1003,15 +985,14 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             _revision = '2007-12-14'
 
             def __init__(self):
-                super(CISCOVLANMEMBERSHIPMIB.Vmmembershipsummaryexttable.Vmmembershipsummaryextentry, self).__init__()
+                super(CISCOVLANMEMBERSHIPMIB.VmMembershipSummaryExtTable.VmMembershipSummaryExtEntry, self).__init__()
 
                 self.yang_name = "vmMembershipSummaryExtEntry"
                 self.yang_parent_name = "vmMembershipSummaryExtTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['vmmembershipsummaryvlanindex','vmmembershipportrangeindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('vmmembershipsummaryvlanindex', YLeaf(YType.str, 'vmMembershipSummaryVlanIndex')),
                     ('vmmembershipportrangeindex', YLeaf(YType.enumeration, 'vmMembershipPortRangeIndex')),
@@ -1024,10 +1005,10 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/vmMembershipSummaryExtTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVLANMEMBERSHIPMIB.Vmmembershipsummaryexttable.Vmmembershipsummaryextentry, ['vmmembershipsummaryvlanindex', 'vmmembershipportrangeindex', 'vmmembershipsummaryextports'], name, value)
+                self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmMembershipSummaryExtTable.VmMembershipSummaryExtEntry, ['vmmembershipsummaryvlanindex', 'vmmembershipportrangeindex', 'vmmembershipsummaryextports'], name, value)
 
 
-    class Vmvoicevlantable(Entity):
+    class VmVoiceVlanTable(Entity):
         """
         A table for configuring the Voice VLAN\-ID
         for the ports. An entry will exist for each
@@ -1036,7 +1017,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         .. attribute:: vmvoicevlanentry
         
         	An entry (conceptual row) in the vmVoiceVlanTable. Only interfaces which support Voice Vlan feature are shown
-        	**type**\: list of  		 :py:class:`Vmvoicevlanentry <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmvoicevlantable.Vmvoicevlanentry>`
+        	**type**\: list of  		 :py:class:`VmVoiceVlanEntry <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.VmVoiceVlanTable.VmVoiceVlanEntry>`
         
         
 
@@ -1046,15 +1027,14 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         _revision = '2007-12-14'
 
         def __init__(self):
-            super(CISCOVLANMEMBERSHIPMIB.Vmvoicevlantable, self).__init__()
+            super(CISCOVLANMEMBERSHIPMIB.VmVoiceVlanTable, self).__init__()
 
             self.yang_name = "vmVoiceVlanTable"
             self.yang_parent_name = "CISCO-VLAN-MEMBERSHIP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("vmVoiceVlanEntry", ("vmvoicevlanentry", CISCOVLANMEMBERSHIPMIB.Vmvoicevlantable.Vmvoicevlanentry))])
+            self._child_classes = OrderedDict([("vmVoiceVlanEntry", ("vmvoicevlanentry", CISCOVLANMEMBERSHIPMIB.VmVoiceVlanTable.VmVoiceVlanEntry))])
             self._leafs = OrderedDict()
 
             self.vmvoicevlanentry = YList(self)
@@ -1062,10 +1042,10 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOVLANMEMBERSHIPMIB.Vmvoicevlantable, [], name, value)
+            self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmVoiceVlanTable, [], name, value)
 
 
-        class Vmvoicevlanentry(Entity):
+        class VmVoiceVlanEntry(Entity):
             """
             An entry (conceptual row) in the vmVoiceVlanTable.
             Only interfaces which support Voice Vlan feature
@@ -1078,7 +1058,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: vmvoicevlanid
             
@@ -1100,15 +1080,14 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             _revision = '2007-12-14'
 
             def __init__(self):
-                super(CISCOVLANMEMBERSHIPMIB.Vmvoicevlantable.Vmvoicevlanentry, self).__init__()
+                super(CISCOVLANMEMBERSHIPMIB.VmVoiceVlanTable.VmVoiceVlanEntry, self).__init__()
 
                 self.yang_name = "vmVoiceVlanEntry"
                 self.yang_parent_name = "vmVoiceVlanTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('vmvoicevlanid', YLeaf(YType.int32, 'vmVoiceVlanId')),
@@ -1121,7 +1100,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
                 self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/vmVoiceVlanTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVLANMEMBERSHIPMIB.Vmvoicevlantable.Vmvoicevlanentry, ['ifindex', 'vmvoicevlanid', 'vmvoicevlancdpverifyenable'], name, value)
+                self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmVoiceVlanTable.VmVoiceVlanEntry, ['ifindex', 'vmvoicevlanid', 'vmvoicevlancdpverifyenable'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOVLANMEMBERSHIPMIB()

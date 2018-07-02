@@ -115,7 +115,7 @@ class IpExplicitPaths(Entity):
     """
 
     _prefix = 'ip-iep-cfg'
-    _revision = '2015-11-09'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(IpExplicitPaths, self).__init__()
@@ -126,15 +126,16 @@ class IpExplicitPaths(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("paths", ("paths", IpExplicitPaths.Paths))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("paths", ("paths", IpExplicitPaths.Paths))])
         self._leafs = OrderedDict()
 
         self.paths = IpExplicitPaths.Paths()
         self.paths.parent = self
         self._children_name_map["paths"] = "paths"
-        self._children_yang_names.add("paths")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(IpExplicitPaths, [], name, value)
 
 
     class Paths(Entity):
@@ -151,7 +152,7 @@ class IpExplicitPaths(Entity):
         """
 
         _prefix = 'ip-iep-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(IpExplicitPaths.Paths, self).__init__()
@@ -161,8 +162,7 @@ class IpExplicitPaths(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("path", ("path", IpExplicitPaths.Paths.Path))])
+            self._child_classes = OrderedDict([("path", ("path", IpExplicitPaths.Paths.Path))])
             self._leafs = OrderedDict()
 
             self.path = YList(self)
@@ -197,7 +197,7 @@ class IpExplicitPaths(Entity):
             """
 
             _prefix = 'ip-iep-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(IpExplicitPaths.Paths.Path, self).__init__()
@@ -207,8 +207,7 @@ class IpExplicitPaths(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['type']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("name", ("name", IpExplicitPaths.Paths.Path.Name)), ("identifier", ("identifier", IpExplicitPaths.Paths.Path.Identifier))])
+                self._child_classes = OrderedDict([("name", ("name", IpExplicitPaths.Paths.Path.Name)), ("identifier", ("identifier", IpExplicitPaths.Paths.Path.Identifier))])
                 self._leafs = OrderedDict([
                     ('type', YLeaf(YType.enumeration, 'type')),
                 ])
@@ -249,7 +248,7 @@ class IpExplicitPaths(Entity):
                 """
 
                 _prefix = 'ip-iep-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(IpExplicitPaths.Paths.Path.Name, self).__init__()
@@ -259,8 +258,7 @@ class IpExplicitPaths(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([("hops", ("hops", IpExplicitPaths.Paths.Path.Name.Hops))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("hops", ("hops", IpExplicitPaths.Paths.Path.Name.Hops))])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                         ('disable', YLeaf(YType.empty, 'disable')),
@@ -271,7 +269,6 @@ class IpExplicitPaths(Entity):
                     self.hops = IpExplicitPaths.Paths.Path.Name.Hops()
                     self.hops.parent = self
                     self._children_name_map["hops"] = "hops"
-                    self._children_yang_names.add("hops")
                     self._segment_path = lambda: "name" + "[name='" + str(self.name) + "']"
 
                 def __setattr__(self, name, value):
@@ -292,7 +289,7 @@ class IpExplicitPaths(Entity):
                     """
 
                     _prefix = 'ip-iep-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(IpExplicitPaths.Paths.Path.Name.Hops, self).__init__()
@@ -302,8 +299,7 @@ class IpExplicitPaths(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("hop", ("hop", IpExplicitPaths.Paths.Path.Name.Hops.Hop))])
+                        self._child_classes = OrderedDict([("hop", ("hop", IpExplicitPaths.Paths.Path.Name.Hops.Hop))])
                         self._leafs = OrderedDict()
 
                         self.hop = YList(self)
@@ -345,7 +341,7 @@ class IpExplicitPaths(Entity):
                         	Ifindex value
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         	**default value**\: 0
                         
@@ -368,7 +364,7 @@ class IpExplicitPaths(Entity):
                         """
 
                         _prefix = 'ip-iep-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(IpExplicitPaths.Paths.Path.Name.Hops.Hop, self).__init__()
@@ -378,13 +374,12 @@ class IpExplicitPaths(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['index_number']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('index_number', YLeaf(YType.uint32, 'index-number')),
                                 ('ip_address', YLeaf(YType.str, 'ip-address')),
                                 ('hop_type', YLeaf(YType.enumeration, 'hop-type')),
-                                ('if_index', YLeaf(YType.int32, 'if-index')),
+                                ('if_index', YLeaf(YType.uint32, 'if-index')),
                                 ('num_type', YLeaf(YType.enumeration, 'num-type')),
                                 ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
                             ])
@@ -426,7 +421,7 @@ class IpExplicitPaths(Entity):
                 """
 
                 _prefix = 'ip-iep-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(IpExplicitPaths.Paths.Path.Identifier, self).__init__()
@@ -436,8 +431,7 @@ class IpExplicitPaths(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['id']
-                    self._child_container_classes = OrderedDict([("hops", ("hops", IpExplicitPaths.Paths.Path.Identifier.Hops))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("hops", ("hops", IpExplicitPaths.Paths.Path.Identifier.Hops))])
                     self._leafs = OrderedDict([
                         ('id', YLeaf(YType.uint32, 'id')),
                         ('disable', YLeaf(YType.empty, 'disable')),
@@ -448,7 +442,6 @@ class IpExplicitPaths(Entity):
                     self.hops = IpExplicitPaths.Paths.Path.Identifier.Hops()
                     self.hops.parent = self
                     self._children_name_map["hops"] = "hops"
-                    self._children_yang_names.add("hops")
                     self._segment_path = lambda: "identifier" + "[id='" + str(self.id) + "']"
 
                 def __setattr__(self, name, value):
@@ -469,7 +462,7 @@ class IpExplicitPaths(Entity):
                     """
 
                     _prefix = 'ip-iep-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(IpExplicitPaths.Paths.Path.Identifier.Hops, self).__init__()
@@ -479,8 +472,7 @@ class IpExplicitPaths(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("hop", ("hop", IpExplicitPaths.Paths.Path.Identifier.Hops.Hop))])
+                        self._child_classes = OrderedDict([("hop", ("hop", IpExplicitPaths.Paths.Path.Identifier.Hops.Hop))])
                         self._leafs = OrderedDict()
 
                         self.hop = YList(self)
@@ -522,7 +514,7 @@ class IpExplicitPaths(Entity):
                         	Ifindex value
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         	**default value**\: 0
                         
@@ -545,7 +537,7 @@ class IpExplicitPaths(Entity):
                         """
 
                         _prefix = 'ip-iep-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(IpExplicitPaths.Paths.Path.Identifier.Hops.Hop, self).__init__()
@@ -555,13 +547,12 @@ class IpExplicitPaths(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['index_number']
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('index_number', YLeaf(YType.uint32, 'index-number')),
                                 ('ip_address', YLeaf(YType.str, 'ip-address')),
                                 ('hop_type', YLeaf(YType.enumeration, 'hop-type')),
-                                ('if_index', YLeaf(YType.int32, 'if-index')),
+                                ('if_index', YLeaf(YType.uint32, 'if-index')),
                                 ('num_type', YLeaf(YType.enumeration, 'num-type')),
                                 ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
                             ])

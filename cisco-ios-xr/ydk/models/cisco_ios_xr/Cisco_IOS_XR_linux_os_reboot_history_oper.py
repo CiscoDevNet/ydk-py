@@ -45,8 +45,7 @@ class RebootHistory(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("node", ("node", RebootHistory.Node))])
+        self._child_classes = OrderedDict([("node", ("node", RebootHistory.Node))])
         self._leafs = OrderedDict()
 
         self.node = YList(self)
@@ -87,8 +86,7 @@ class RebootHistory(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['node_name']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("reboot-history", ("reboot_history", RebootHistory.Node.RebootHistory_))])
+            self._child_classes = OrderedDict([("reboot-history", ("reboot_history", RebootHistory.Node.RebootHistory_))])
             self._leafs = OrderedDict([
                 ('node_name', YLeaf(YType.str, 'node-name')),
             ])
@@ -145,8 +143,7 @@ class RebootHistory(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('no', YLeaf(YType.uint32, 'no')),
                     ('time', YLeaf(YType.str, 'time')),
@@ -160,7 +157,7 @@ class RebootHistory(Entity):
                 self._segment_path = lambda: "reboot-history"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RebootHistory.Node.RebootHistory_, ['no', 'time', 'cause_code', 'reason'], name, value)
+                self._perform_setattr(RebootHistory.Node.RebootHistory_, [u'no', u'time', u'cause_code', u'reason'], name, value)
 
     def clone_ptr(self):
         self._top_entity = RebootHistory()

@@ -34,7 +34,7 @@ class Password(Entity):
     """
 
     _prefix = 'lib-keychain-masterkey-aes-cfg'
-    _revision = '2015-11-09'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(Password, self).__init__()
@@ -45,15 +45,16 @@ class Password(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("encryption", ("encryption", Password.Encryption))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("encryption", ("encryption", Password.Encryption))])
         self._leafs = OrderedDict()
 
         self.encryption = Password.Encryption()
         self.encryption.parent = self
         self._children_name_map["encryption"] = "encryption"
-        self._children_yang_names.add("encryption")
         self._segment_path = lambda: "Cisco-IOS-XR-lib-keychain-masterkey-aes-cfg:password"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(Password, [], name, value)
 
 
     class Encryption(Entity):
@@ -65,7 +66,7 @@ class Password(Entity):
         	encryption type used to store key
         	**type**\: int
         
-        	**range:** \-2147483648..2147483647
+        	**range:** 0..4294967295
         
         	**default value**\: 0
         
@@ -74,7 +75,7 @@ class Password(Entity):
         """
 
         _prefix = 'lib-keychain-masterkey-aes-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Password.Encryption, self).__init__()
@@ -84,10 +85,9 @@ class Password(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('aes', YLeaf(YType.int32, 'aes')),
+                ('aes', YLeaf(YType.uint32, 'aes')),
             ])
             self.aes = None
             self._segment_path = lambda: "encryption"

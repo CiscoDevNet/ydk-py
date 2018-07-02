@@ -114,25 +114,24 @@ class GlobalServiceFunctionChaining(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("service-function-path", ("service_function_path", GlobalServiceFunctionChaining.ServiceFunctionPath)), ("service-function", ("service_function", GlobalServiceFunctionChaining.ServiceFunction)), ("service-function-forwarder", ("service_function_forwarder", GlobalServiceFunctionChaining.ServiceFunctionForwarder))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("service-function-path", ("service_function_path", GlobalServiceFunctionChaining.ServiceFunctionPath)), ("service-function", ("service_function", GlobalServiceFunctionChaining.ServiceFunction)), ("service-function-forwarder", ("service_function_forwarder", GlobalServiceFunctionChaining.ServiceFunctionForwarder))])
         self._leafs = OrderedDict()
 
         self.service_function_path = GlobalServiceFunctionChaining.ServiceFunctionPath()
         self.service_function_path.parent = self
         self._children_name_map["service_function_path"] = "service-function-path"
-        self._children_yang_names.add("service-function-path")
 
         self.service_function = GlobalServiceFunctionChaining.ServiceFunction()
         self.service_function.parent = self
         self._children_name_map["service_function"] = "service-function"
-        self._children_yang_names.add("service-function")
 
         self.service_function_forwarder = GlobalServiceFunctionChaining.ServiceFunctionForwarder()
         self.service_function_forwarder.parent = self
         self._children_name_map["service_function_forwarder"] = "service-function-forwarder"
-        self._children_yang_names.add("service-function-forwarder")
         self._segment_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining"
+
+    def __setattr__(self, name, value):
+        self._perform_setattr(GlobalServiceFunctionChaining, [], name, value)
 
 
     class ServiceFunctionPath(Entity):
@@ -159,16 +158,17 @@ class GlobalServiceFunctionChaining(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("path-ids", ("path_ids", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("path-ids", ("path_ids", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds))])
             self._leafs = OrderedDict()
 
             self.path_ids = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds()
             self.path_ids.parent = self
             self._children_name_map["path_ids"] = "path-ids"
-            self._children_yang_names.add("path-ids")
             self._segment_path = lambda: "service-function-path"
             self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath, [], name, value)
 
 
         class PathIds(Entity):
@@ -195,8 +195,7 @@ class GlobalServiceFunctionChaining(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("path-id", ("path_id", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId))])
+                self._child_classes = OrderedDict([("path-id", ("path_id", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId))])
                 self._leafs = OrderedDict()
 
                 self.path_id = YList(self)
@@ -243,8 +242,7 @@ class GlobalServiceFunctionChaining(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['id']
-                    self._child_container_classes = OrderedDict([("stats", ("stats", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats)), ("service-indexes", ("service_indexes", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes))])
-                    self._child_list_classes = OrderedDict([])
+                    self._child_classes = OrderedDict([("stats", ("stats", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats)), ("service-indexes", ("service_indexes", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes))])
                     self._leafs = OrderedDict([
                         ('id', YLeaf(YType.uint32, 'id')),
                     ])
@@ -253,12 +251,10 @@ class GlobalServiceFunctionChaining(Entity):
                     self.stats = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats()
                     self.stats.parent = self
                     self._children_name_map["stats"] = "stats"
-                    self._children_yang_names.add("stats")
 
                     self.service_indexes = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes()
                     self.service_indexes.parent = self
                     self._children_name_map["service_indexes"] = "service-indexes"
-                    self._children_yang_names.add("service-indexes")
                     self._segment_path = lambda: "path-id" + "[id='" + str(self.id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-path/path-ids/%s" % self._segment_path()
 
@@ -295,20 +291,20 @@ class GlobalServiceFunctionChaining(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("detail", ("detail", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail)), ("summarized", ("summarized", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("detail", ("detail", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail)), ("summarized", ("summarized", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized))])
                         self._leafs = OrderedDict()
 
                         self.detail = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail()
                         self.detail.parent = self
                         self._children_name_map["detail"] = "detail"
-                        self._children_yang_names.add("detail")
 
                         self.summarized = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized()
                         self.summarized.parent = self
                         self._children_name_map["summarized"] = "summarized"
-                        self._children_yang_names.add("summarized")
                         self._segment_path = lambda: "stats"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats, [], name, value)
 
 
                     class Detail(Entity):
@@ -340,14 +336,12 @@ class GlobalServiceFunctionChaining(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("data", ("data", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data))])
-                            self._child_list_classes = OrderedDict([("si-arr", ("si_arr", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr))])
+                            self._child_classes = OrderedDict([("data", ("data", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data)), ("si-arr", ("si_arr", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr))])
                             self._leafs = OrderedDict()
 
                             self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data()
                             self.data.parent = self
                             self._children_name_map["data"] = "data"
-                            self._children_yang_names.add("data")
 
                             self.si_arr = YList(self)
                             self._segment_path = lambda: "detail"
@@ -410,8 +404,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("sfp", ("sfp", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp)), ("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term)), ("sf", ("sf", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf)), ("sff", ("sff", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff)), ("sff-local", ("sff_local", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("sfp", ("sfp", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp)), ("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term)), ("sf", ("sf", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf)), ("sff", ("sff", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff)), ("sff-local", ("sff_local", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal))])
                                 self._leafs = OrderedDict([
                                     ('type', YLeaf(YType.enumeration, 'type')),
                                 ])
@@ -420,32 +413,26 @@ class GlobalServiceFunctionChaining(Entity):
                                 self.sfp = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp()
                                 self.sfp.parent = self
                                 self._children_name_map["sfp"] = "sfp"
-                                self._children_yang_names.add("sfp")
 
                                 self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi()
                                 self.spi_si.parent = self
                                 self._children_name_map["spi_si"] = "spi-si"
-                                self._children_yang_names.add("spi-si")
 
                                 self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term()
                                 self.term.parent = self
                                 self._children_name_map["term"] = "term"
-                                self._children_yang_names.add("term")
 
                                 self.sf = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf()
                                 self.sf.parent = self
                                 self._children_name_map["sf"] = "sf"
-                                self._children_yang_names.add("sf")
 
                                 self.sff = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff()
                                 self.sff.parent = self
                                 self._children_name_map["sff"] = "sff"
-                                self._children_yang_names.add("sff")
 
                                 self.sff_local = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal()
                                 self.sff_local.parent = self
                                 self._children_name_map["sff_local"] = "sff-local"
-                                self._children_yang_names.add("sff-local")
                                 self._segment_path = lambda: "data"
 
                             def __setattr__(self, name, value):
@@ -481,20 +468,20 @@ class GlobalServiceFunctionChaining(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term))])
                                     self._leafs = OrderedDict()
 
                                     self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi()
                                     self.spi_si.parent = self
                                     self._children_name_map["spi_si"] = "spi-si"
-                                    self._children_yang_names.add("spi-si")
 
                                     self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term()
                                     self.term.parent = self
                                     self._children_name_map["term"] = "term"
-                                    self._children_yang_names.add("term")
                                     self._segment_path = lambda: "sfp"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp, [], name, value)
 
 
                                 class SpiSi(Entity):
@@ -532,8 +519,7 @@ class GlobalServiceFunctionChaining(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                             ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -581,8 +567,7 @@ class GlobalServiceFunctionChaining(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
                                             ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
@@ -630,8 +615,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                         ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -679,8 +663,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
                                         ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
@@ -728,8 +711,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                         ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -777,8 +759,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                         ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -842,8 +823,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('malformed_err_pkts', YLeaf(YType.uint64, 'malformed-err-pkts')),
                                         ('lookup_err_pkts', YLeaf(YType.uint64, 'lookup-err-pkts')),
@@ -891,8 +871,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("data", ("data", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("data", ("data", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data))])
                                 self._leafs = OrderedDict([
                                     ('si', YLeaf(YType.uint8, 'si')),
                                 ])
@@ -901,7 +880,6 @@ class GlobalServiceFunctionChaining(Entity):
                                 self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data()
                                 self.data.parent = self
                                 self._children_name_map["data"] = "data"
-                                self._children_yang_names.add("data")
                                 self._segment_path = lambda: "si-arr"
 
                             def __setattr__(self, name, value):
@@ -942,8 +920,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term))])
                                     self._leafs = OrderedDict([
                                         ('type', YLeaf(YType.enumeration, 'type')),
                                     ])
@@ -952,12 +929,10 @@ class GlobalServiceFunctionChaining(Entity):
                                     self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi()
                                     self.spi_si.parent = self
                                     self._children_name_map["spi_si"] = "spi-si"
-                                    self._children_yang_names.add("spi-si")
 
                                     self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term()
                                     self.term.parent = self
                                     self._children_name_map["term"] = "term"
-                                    self._children_yang_names.add("term")
                                     self._segment_path = lambda: "data"
 
                                 def __setattr__(self, name, value):
@@ -999,8 +974,7 @@ class GlobalServiceFunctionChaining(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                             ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -1048,8 +1022,7 @@ class GlobalServiceFunctionChaining(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
                                             ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
@@ -1092,14 +1065,12 @@ class GlobalServiceFunctionChaining(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("data", ("data", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data))])
-                            self._child_list_classes = OrderedDict([("si-arr", ("si_arr", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr))])
+                            self._child_classes = OrderedDict([("data", ("data", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data)), ("si-arr", ("si_arr", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr))])
                             self._leafs = OrderedDict()
 
                             self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data()
                             self.data.parent = self
                             self._children_name_map["data"] = "data"
-                            self._children_yang_names.add("data")
 
                             self.si_arr = YList(self)
                             self._segment_path = lambda: "summarized"
@@ -1162,8 +1133,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("sfp", ("sfp", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp)), ("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term)), ("sf", ("sf", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf)), ("sff", ("sff", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff)), ("sff-local", ("sff_local", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("sfp", ("sfp", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp)), ("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term)), ("sf", ("sf", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf)), ("sff", ("sff", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff)), ("sff-local", ("sff_local", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal))])
                                 self._leafs = OrderedDict([
                                     ('type', YLeaf(YType.enumeration, 'type')),
                                 ])
@@ -1172,32 +1142,26 @@ class GlobalServiceFunctionChaining(Entity):
                                 self.sfp = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp()
                                 self.sfp.parent = self
                                 self._children_name_map["sfp"] = "sfp"
-                                self._children_yang_names.add("sfp")
 
                                 self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi()
                                 self.spi_si.parent = self
                                 self._children_name_map["spi_si"] = "spi-si"
-                                self._children_yang_names.add("spi-si")
 
                                 self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term()
                                 self.term.parent = self
                                 self._children_name_map["term"] = "term"
-                                self._children_yang_names.add("term")
 
                                 self.sf = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf()
                                 self.sf.parent = self
                                 self._children_name_map["sf"] = "sf"
-                                self._children_yang_names.add("sf")
 
                                 self.sff = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff()
                                 self.sff.parent = self
                                 self._children_name_map["sff"] = "sff"
-                                self._children_yang_names.add("sff")
 
                                 self.sff_local = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal()
                                 self.sff_local.parent = self
                                 self._children_name_map["sff_local"] = "sff-local"
-                                self._children_yang_names.add("sff-local")
                                 self._segment_path = lambda: "data"
 
                             def __setattr__(self, name, value):
@@ -1233,20 +1197,20 @@ class GlobalServiceFunctionChaining(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term))])
                                     self._leafs = OrderedDict()
 
                                     self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi()
                                     self.spi_si.parent = self
                                     self._children_name_map["spi_si"] = "spi-si"
-                                    self._children_yang_names.add("spi-si")
 
                                     self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term()
                                     self.term.parent = self
                                     self._children_name_map["term"] = "term"
-                                    self._children_yang_names.add("term")
                                     self._segment_path = lambda: "sfp"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp, [], name, value)
 
 
                                 class SpiSi(Entity):
@@ -1284,8 +1248,7 @@ class GlobalServiceFunctionChaining(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                             ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -1333,8 +1296,7 @@ class GlobalServiceFunctionChaining(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
                                             ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
@@ -1382,8 +1344,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                         ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -1431,8 +1392,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
                                         ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
@@ -1480,8 +1440,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                         ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -1529,8 +1488,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                         ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -1594,8 +1552,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('malformed_err_pkts', YLeaf(YType.uint64, 'malformed-err-pkts')),
                                         ('lookup_err_pkts', YLeaf(YType.uint64, 'lookup-err-pkts')),
@@ -1643,8 +1600,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("data", ("data", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("data", ("data", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data))])
                                 self._leafs = OrderedDict([
                                     ('si', YLeaf(YType.uint8, 'si')),
                                 ])
@@ -1653,7 +1609,6 @@ class GlobalServiceFunctionChaining(Entity):
                                 self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data()
                                 self.data.parent = self
                                 self._children_name_map["data"] = "data"
-                                self._children_yang_names.add("data")
                                 self._segment_path = lambda: "si-arr"
 
                             def __setattr__(self, name, value):
@@ -1694,8 +1649,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term))])
                                     self._leafs = OrderedDict([
                                         ('type', YLeaf(YType.enumeration, 'type')),
                                     ])
@@ -1704,12 +1658,10 @@ class GlobalServiceFunctionChaining(Entity):
                                     self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi()
                                     self.spi_si.parent = self
                                     self._children_name_map["spi_si"] = "spi-si"
-                                    self._children_yang_names.add("spi-si")
 
                                     self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term()
                                     self.term.parent = self
                                     self._children_name_map["term"] = "term"
-                                    self._children_yang_names.add("term")
                                     self._segment_path = lambda: "data"
 
                                 def __setattr__(self, name, value):
@@ -1751,8 +1703,7 @@ class GlobalServiceFunctionChaining(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                             ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -1800,8 +1751,7 @@ class GlobalServiceFunctionChaining(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
                                             ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
@@ -1838,8 +1788,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([])
-                        self._child_list_classes = OrderedDict([("service-index", ("service_index", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex))])
+                        self._child_classes = OrderedDict([("service-index", ("service_index", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex))])
                         self._leafs = OrderedDict()
 
                         self.service_index = YList(self)
@@ -1886,8 +1835,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['index']
-                            self._child_container_classes = OrderedDict([("data", ("data", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data))])
-                            self._child_list_classes = OrderedDict([("si-arr", ("si_arr", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr))])
+                            self._child_classes = OrderedDict([("data", ("data", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data)), ("si-arr", ("si_arr", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr))])
                             self._leafs = OrderedDict([
                                 ('index', YLeaf(YType.uint32, 'index')),
                             ])
@@ -1896,7 +1844,6 @@ class GlobalServiceFunctionChaining(Entity):
                             self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data()
                             self.data.parent = self
                             self._children_name_map["data"] = "data"
-                            self._children_yang_names.add("data")
 
                             self.si_arr = YList(self)
                             self._segment_path = lambda: "service-index" + "[index='" + str(self.index) + "']"
@@ -1959,8 +1906,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("sfp", ("sfp", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp)), ("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term)), ("sf", ("sf", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf)), ("sff", ("sff", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff)), ("sff-local", ("sff_local", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("sfp", ("sfp", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp)), ("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term)), ("sf", ("sf", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf)), ("sff", ("sff", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff)), ("sff-local", ("sff_local", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal))])
                                 self._leafs = OrderedDict([
                                     ('type', YLeaf(YType.enumeration, 'type')),
                                 ])
@@ -1969,32 +1915,26 @@ class GlobalServiceFunctionChaining(Entity):
                                 self.sfp = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp()
                                 self.sfp.parent = self
                                 self._children_name_map["sfp"] = "sfp"
-                                self._children_yang_names.add("sfp")
 
                                 self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi()
                                 self.spi_si.parent = self
                                 self._children_name_map["spi_si"] = "spi-si"
-                                self._children_yang_names.add("spi-si")
 
                                 self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term()
                                 self.term.parent = self
                                 self._children_name_map["term"] = "term"
-                                self._children_yang_names.add("term")
 
                                 self.sf = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf()
                                 self.sf.parent = self
                                 self._children_name_map["sf"] = "sf"
-                                self._children_yang_names.add("sf")
 
                                 self.sff = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff()
                                 self.sff.parent = self
                                 self._children_name_map["sff"] = "sff"
-                                self._children_yang_names.add("sff")
 
                                 self.sff_local = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal()
                                 self.sff_local.parent = self
                                 self._children_name_map["sff_local"] = "sff-local"
-                                self._children_yang_names.add("sff-local")
                                 self._segment_path = lambda: "data"
 
                             def __setattr__(self, name, value):
@@ -2030,20 +1970,20 @@ class GlobalServiceFunctionChaining(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term))])
                                     self._leafs = OrderedDict()
 
                                     self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi()
                                     self.spi_si.parent = self
                                     self._children_name_map["spi_si"] = "spi-si"
-                                    self._children_yang_names.add("spi-si")
 
                                     self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term()
                                     self.term.parent = self
                                     self._children_name_map["term"] = "term"
-                                    self._children_yang_names.add("term")
                                     self._segment_path = lambda: "sfp"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp, [], name, value)
 
 
                                 class SpiSi(Entity):
@@ -2081,8 +2021,7 @@ class GlobalServiceFunctionChaining(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                             ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -2130,8 +2069,7 @@ class GlobalServiceFunctionChaining(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
                                             ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
@@ -2179,8 +2117,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                         ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -2228,8 +2165,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
                                         ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
@@ -2277,8 +2213,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                         ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -2326,8 +2261,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                         ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -2391,8 +2325,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
                                         ('malformed_err_pkts', YLeaf(YType.uint64, 'malformed-err-pkts')),
                                         ('lookup_err_pkts', YLeaf(YType.uint64, 'lookup-err-pkts')),
@@ -2440,8 +2373,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([("data", ("data", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data))])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("data", ("data", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data))])
                                 self._leafs = OrderedDict([
                                     ('si', YLeaf(YType.uint8, 'si')),
                                 ])
@@ -2450,7 +2382,6 @@ class GlobalServiceFunctionChaining(Entity):
                                 self.data = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data()
                                 self.data.parent = self
                                 self._children_name_map["data"] = "data"
-                                self._children_yang_names.add("data")
                                 self._segment_path = lambda: "si-arr"
 
                             def __setattr__(self, name, value):
@@ -2491,8 +2422,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_container_classes = OrderedDict([("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term))])
-                                    self._child_list_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term))])
                                     self._leafs = OrderedDict([
                                         ('type', YLeaf(YType.enumeration, 'type')),
                                     ])
@@ -2501,12 +2431,10 @@ class GlobalServiceFunctionChaining(Entity):
                                     self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi()
                                     self.spi_si.parent = self
                                     self._children_name_map["spi_si"] = "spi-si"
-                                    self._children_yang_names.add("spi-si")
 
                                     self.term = GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term()
                                     self.term.parent = self
                                     self._children_name_map["term"] = "term"
-                                    self._children_yang_names.add("term")
                                     self._segment_path = lambda: "data"
 
                                 def __setattr__(self, name, value):
@@ -2548,8 +2476,7 @@ class GlobalServiceFunctionChaining(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                             ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -2597,8 +2524,7 @@ class GlobalServiceFunctionChaining(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_container_classes = OrderedDict([])
-                                        self._child_list_classes = OrderedDict([])
+                                        self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
                                             ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
@@ -2635,16 +2561,17 @@ class GlobalServiceFunctionChaining(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("sf-names", ("sf_names", GlobalServiceFunctionChaining.ServiceFunction.SfNames))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("sf-names", ("sf_names", GlobalServiceFunctionChaining.ServiceFunction.SfNames))])
             self._leafs = OrderedDict()
 
             self.sf_names = GlobalServiceFunctionChaining.ServiceFunction.SfNames()
             self.sf_names.parent = self
             self._children_name_map["sf_names"] = "sf-names"
-            self._children_yang_names.add("sf-names")
             self._segment_path = lambda: "service-function"
             self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction, [], name, value)
 
 
         class SfNames(Entity):
@@ -2671,8 +2598,7 @@ class GlobalServiceFunctionChaining(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("sf-name", ("sf_name", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName))])
+                self._child_classes = OrderedDict([("sf-name", ("sf_name", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName))])
                 self._leafs = OrderedDict()
 
                 self.sf_name = YList(self)
@@ -2719,8 +2645,7 @@ class GlobalServiceFunctionChaining(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([("data", ("data", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data))])
-                    self._child_list_classes = OrderedDict([("si-arr", ("si_arr", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr))])
+                    self._child_classes = OrderedDict([("data", ("data", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data)), ("si-arr", ("si_arr", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr))])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                     ])
@@ -2729,7 +2654,6 @@ class GlobalServiceFunctionChaining(Entity):
                     self.data = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data()
                     self.data.parent = self
                     self._children_name_map["data"] = "data"
-                    self._children_yang_names.add("data")
 
                     self.si_arr = YList(self)
                     self._segment_path = lambda: "sf-name" + "[name='" + str(self.name) + "']"
@@ -2793,8 +2717,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("sfp", ("sfp", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp)), ("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Term)), ("sf", ("sf", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf)), ("sff", ("sff", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff)), ("sff-local", ("sff_local", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("sfp", ("sfp", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp)), ("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Term)), ("sf", ("sf", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf)), ("sff", ("sff", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff)), ("sff-local", ("sff_local", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal))])
                         self._leafs = OrderedDict([
                             ('type', YLeaf(YType.enumeration, 'type')),
                         ])
@@ -2803,32 +2726,26 @@ class GlobalServiceFunctionChaining(Entity):
                         self.sfp = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp()
                         self.sfp.parent = self
                         self._children_name_map["sfp"] = "sfp"
-                        self._children_yang_names.add("sfp")
 
                         self.spi_si = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SpiSi()
                         self.spi_si.parent = self
                         self._children_name_map["spi_si"] = "spi-si"
-                        self._children_yang_names.add("spi-si")
 
                         self.term = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Term()
                         self.term.parent = self
                         self._children_name_map["term"] = "term"
-                        self._children_yang_names.add("term")
 
                         self.sf = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf()
                         self.sf.parent = self
                         self._children_name_map["sf"] = "sf"
-                        self._children_yang_names.add("sf")
 
                         self.sff = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff()
                         self.sff.parent = self
                         self._children_name_map["sff"] = "sff"
-                        self._children_yang_names.add("sff")
 
                         self.sff_local = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal()
                         self.sff_local.parent = self
                         self._children_name_map["sff_local"] = "sff-local"
-                        self._children_yang_names.add("sff-local")
                         self._segment_path = lambda: "data"
 
                     def __setattr__(self, name, value):
@@ -2864,20 +2781,20 @@ class GlobalServiceFunctionChaining(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.Term))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.Term))])
                             self._leafs = OrderedDict()
 
                             self.spi_si = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi()
                             self.spi_si.parent = self
                             self._children_name_map["spi_si"] = "spi-si"
-                            self._children_yang_names.add("spi-si")
 
                             self.term = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.Term()
                             self.term.parent = self
                             self._children_name_map["term"] = "term"
-                            self._children_yang_names.add("term")
                             self._segment_path = lambda: "sfp"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp, [], name, value)
 
 
                         class SpiSi(Entity):
@@ -2915,8 +2832,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                     ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -2964,8 +2880,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
                                     ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
@@ -3013,8 +2928,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                 ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -3062,8 +2976,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
                                 ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
@@ -3111,8 +3024,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                 ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -3160,8 +3072,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                 ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -3225,8 +3136,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('malformed_err_pkts', YLeaf(YType.uint64, 'malformed-err-pkts')),
                                 ('lookup_err_pkts', YLeaf(YType.uint64, 'lookup-err-pkts')),
@@ -3274,8 +3184,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("data", ("data", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("data", ("data", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data))])
                         self._leafs = OrderedDict([
                             ('si', YLeaf(YType.uint8, 'si')),
                         ])
@@ -3284,7 +3193,6 @@ class GlobalServiceFunctionChaining(Entity):
                         self.data = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data()
                         self.data.parent = self
                         self._children_name_map["data"] = "data"
-                        self._children_yang_names.add("data")
                         self._segment_path = lambda: "si-arr"
 
                     def __setattr__(self, name, value):
@@ -3325,8 +3233,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.Term))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.Term))])
                             self._leafs = OrderedDict([
                                 ('type', YLeaf(YType.enumeration, 'type')),
                             ])
@@ -3335,12 +3242,10 @@ class GlobalServiceFunctionChaining(Entity):
                             self.spi_si = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi()
                             self.spi_si.parent = self
                             self._children_name_map["spi_si"] = "spi-si"
-                            self._children_yang_names.add("spi-si")
 
                             self.term = GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.Term()
                             self.term.parent = self
                             self._children_name_map["term"] = "term"
-                            self._children_yang_names.add("term")
                             self._segment_path = lambda: "data"
 
                         def __setattr__(self, name, value):
@@ -3382,8 +3287,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                     ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -3431,8 +3335,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
                                     ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
@@ -3474,21 +3377,21 @@ class GlobalServiceFunctionChaining(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([("sff-names", ("sff_names", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames)), ("local", ("local", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local))])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("sff-names", ("sff_names", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames)), ("local", ("local", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local))])
             self._leafs = OrderedDict()
 
             self.sff_names = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames()
             self.sff_names.parent = self
             self._children_name_map["sff_names"] = "sff-names"
-            self._children_yang_names.add("sff-names")
 
             self.local = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local()
             self.local.parent = self
             self._children_name_map["local"] = "local"
-            self._children_yang_names.add("local")
             self._segment_path = lambda: "service-function-forwarder"
             self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder, [], name, value)
 
 
         class SffNames(Entity):
@@ -3515,8 +3418,7 @@ class GlobalServiceFunctionChaining(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([("sff-name", ("sff_name", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName))])
+                self._child_classes = OrderedDict([("sff-name", ("sff_name", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName))])
                 self._leafs = OrderedDict()
 
                 self.sff_name = YList(self)
@@ -3563,8 +3465,7 @@ class GlobalServiceFunctionChaining(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['name']
-                    self._child_container_classes = OrderedDict([("data", ("data", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data))])
-                    self._child_list_classes = OrderedDict([("si-arr", ("si_arr", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr))])
+                    self._child_classes = OrderedDict([("data", ("data", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data)), ("si-arr", ("si_arr", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr))])
                     self._leafs = OrderedDict([
                         ('name', YLeaf(YType.str, 'name')),
                     ])
@@ -3573,7 +3474,6 @@ class GlobalServiceFunctionChaining(Entity):
                     self.data = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data()
                     self.data.parent = self
                     self._children_name_map["data"] = "data"
-                    self._children_yang_names.add("data")
 
                     self.si_arr = YList(self)
                     self._segment_path = lambda: "sff-name" + "[name='" + str(self.name) + "']"
@@ -3637,8 +3537,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("sfp", ("sfp", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp)), ("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term)), ("sf", ("sf", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf)), ("sff", ("sff", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff)), ("sff-local", ("sff_local", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("sfp", ("sfp", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp)), ("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term)), ("sf", ("sf", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf)), ("sff", ("sff", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff)), ("sff-local", ("sff_local", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal))])
                         self._leafs = OrderedDict([
                             ('type', YLeaf(YType.enumeration, 'type')),
                         ])
@@ -3647,32 +3546,26 @@ class GlobalServiceFunctionChaining(Entity):
                         self.sfp = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp()
                         self.sfp.parent = self
                         self._children_name_map["sfp"] = "sfp"
-                        self._children_yang_names.add("sfp")
 
                         self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi()
                         self.spi_si.parent = self
                         self._children_name_map["spi_si"] = "spi-si"
-                        self._children_yang_names.add("spi-si")
 
                         self.term = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term()
                         self.term.parent = self
                         self._children_name_map["term"] = "term"
-                        self._children_yang_names.add("term")
 
                         self.sf = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf()
                         self.sf.parent = self
                         self._children_name_map["sf"] = "sf"
-                        self._children_yang_names.add("sf")
 
                         self.sff = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff()
                         self.sff.parent = self
                         self._children_name_map["sff"] = "sff"
-                        self._children_yang_names.add("sff")
 
                         self.sff_local = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal()
                         self.sff_local.parent = self
                         self._children_name_map["sff_local"] = "sff-local"
-                        self._children_yang_names.add("sff-local")
                         self._segment_path = lambda: "data"
 
                     def __setattr__(self, name, value):
@@ -3708,20 +3601,20 @@ class GlobalServiceFunctionChaining(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term))])
                             self._leafs = OrderedDict()
 
                             self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi()
                             self.spi_si.parent = self
                             self._children_name_map["spi_si"] = "spi-si"
-                            self._children_yang_names.add("spi-si")
 
                             self.term = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term()
                             self.term.parent = self
                             self._children_name_map["term"] = "term"
-                            self._children_yang_names.add("term")
                             self._segment_path = lambda: "sfp"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp, [], name, value)
 
 
                         class SpiSi(Entity):
@@ -3759,8 +3652,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                     ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -3808,8 +3700,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
                                     ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
@@ -3857,8 +3748,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                 ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -3906,8 +3796,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
                                 ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
@@ -3955,8 +3844,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                 ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -4004,8 +3892,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                 ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -4069,8 +3956,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('malformed_err_pkts', YLeaf(YType.uint64, 'malformed-err-pkts')),
                                 ('lookup_err_pkts', YLeaf(YType.uint64, 'lookup-err-pkts')),
@@ -4118,8 +4004,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("data", ("data", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("data", ("data", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data))])
                         self._leafs = OrderedDict([
                             ('si', YLeaf(YType.uint8, 'si')),
                         ])
@@ -4128,7 +4013,6 @@ class GlobalServiceFunctionChaining(Entity):
                         self.data = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data()
                         self.data.parent = self
                         self._children_name_map["data"] = "data"
-                        self._children_yang_names.add("data")
                         self._segment_path = lambda: "si-arr"
 
                     def __setattr__(self, name, value):
@@ -4169,8 +4053,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term))])
                             self._leafs = OrderedDict([
                                 ('type', YLeaf(YType.enumeration, 'type')),
                             ])
@@ -4179,12 +4062,10 @@ class GlobalServiceFunctionChaining(Entity):
                             self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi()
                             self.spi_si.parent = self
                             self._children_name_map["spi_si"] = "spi-si"
-                            self._children_yang_names.add("spi-si")
 
                             self.term = GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term()
                             self.term.parent = self
                             self._children_name_map["term"] = "term"
-                            self._children_yang_names.add("term")
                             self._segment_path = lambda: "data"
 
                         def __setattr__(self, name, value):
@@ -4226,8 +4107,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                     ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -4275,8 +4155,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
                                     ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
@@ -4314,16 +4193,17 @@ class GlobalServiceFunctionChaining(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_container_classes = OrderedDict([("error", ("error", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error))])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("error", ("error", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error))])
                 self._leafs = OrderedDict()
 
                 self.error = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error()
                 self.error.parent = self
                 self._children_name_map["error"] = "error"
-                self._children_yang_names.add("error")
                 self._segment_path = lambda: "local"
                 self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local, [], name, value)
 
 
             class Error(Entity):
@@ -4356,14 +4236,12 @@ class GlobalServiceFunctionChaining(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = []
-                    self._child_container_classes = OrderedDict([("data", ("data", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data))])
-                    self._child_list_classes = OrderedDict([("si-arr", ("si_arr", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr))])
+                    self._child_classes = OrderedDict([("data", ("data", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data)), ("si-arr", ("si_arr", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr))])
                     self._leafs = OrderedDict()
 
                     self.data = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data()
                     self.data.parent = self
                     self._children_name_map["data"] = "data"
-                    self._children_yang_names.add("data")
 
                     self.si_arr = YList(self)
                     self._segment_path = lambda: "error"
@@ -4427,8 +4305,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("sfp", ("sfp", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp)), ("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Term)), ("sf", ("sf", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf)), ("sff", ("sff", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff)), ("sff-local", ("sff_local", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("sfp", ("sfp", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp)), ("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Term)), ("sf", ("sf", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf)), ("sff", ("sff", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff)), ("sff-local", ("sff_local", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal))])
                         self._leafs = OrderedDict([
                             ('type', YLeaf(YType.enumeration, 'type')),
                         ])
@@ -4437,32 +4314,26 @@ class GlobalServiceFunctionChaining(Entity):
                         self.sfp = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp()
                         self.sfp.parent = self
                         self._children_name_map["sfp"] = "sfp"
-                        self._children_yang_names.add("sfp")
 
                         self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SpiSi()
                         self.spi_si.parent = self
                         self._children_name_map["spi_si"] = "spi-si"
-                        self._children_yang_names.add("spi-si")
 
                         self.term = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Term()
                         self.term.parent = self
                         self._children_name_map["term"] = "term"
-                        self._children_yang_names.add("term")
 
                         self.sf = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf()
                         self.sf.parent = self
                         self._children_name_map["sf"] = "sf"
-                        self._children_yang_names.add("sf")
 
                         self.sff = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff()
                         self.sff.parent = self
                         self._children_name_map["sff"] = "sff"
-                        self._children_yang_names.add("sff")
 
                         self.sff_local = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal()
                         self.sff_local.parent = self
                         self._children_name_map["sff_local"] = "sff-local"
-                        self._children_yang_names.add("sff-local")
                         self._segment_path = lambda: "data"
                         self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/%s" % self._segment_path()
 
@@ -4499,21 +4370,21 @@ class GlobalServiceFunctionChaining(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term))])
                             self._leafs = OrderedDict()
 
                             self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi()
                             self.spi_si.parent = self
                             self._children_name_map["spi_si"] = "spi-si"
-                            self._children_yang_names.add("spi-si")
 
                             self.term = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term()
                             self.term.parent = self
                             self._children_name_map["term"] = "term"
-                            self._children_yang_names.add("term")
                             self._segment_path = lambda: "sfp"
                             self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/data/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp, [], name, value)
 
 
                         class SpiSi(Entity):
@@ -4551,8 +4422,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                     ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -4601,8 +4471,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
                                     ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
@@ -4651,8 +4520,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                 ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -4701,8 +4569,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
                                 ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
@@ -4751,8 +4618,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                 ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -4801,8 +4667,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                 ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -4867,8 +4732,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
                                 ('malformed_err_pkts', YLeaf(YType.uint64, 'malformed-err-pkts')),
                                 ('lookup_err_pkts', YLeaf(YType.uint64, 'lookup-err-pkts')),
@@ -4917,8 +4781,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self.ylist_key_names = []
-                        self._child_container_classes = OrderedDict([("data", ("data", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data))])
-                        self._child_list_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("data", ("data", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data))])
                         self._leafs = OrderedDict([
                             ('si', YLeaf(YType.uint8, 'si')),
                         ])
@@ -4927,7 +4790,6 @@ class GlobalServiceFunctionChaining(Entity):
                         self.data = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data()
                         self.data.parent = self
                         self._children_name_map["data"] = "data"
-                        self._children_yang_names.add("data")
                         self._segment_path = lambda: "si-arr"
                         self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/%s" % self._segment_path()
 
@@ -4969,8 +4831,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
                             self.ylist_key_names = []
-                            self._child_container_classes = OrderedDict([("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term))])
-                            self._child_list_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("spi-si", ("spi_si", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi)), ("term", ("term", GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term))])
                             self._leafs = OrderedDict([
                                 ('type', YLeaf(YType.enumeration, 'type')),
                             ])
@@ -4979,12 +4840,10 @@ class GlobalServiceFunctionChaining(Entity):
                             self.spi_si = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi()
                             self.spi_si.parent = self
                             self._children_name_map["spi_si"] = "spi-si"
-                            self._children_yang_names.add("spi-si")
 
                             self.term = GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term()
                             self.term.parent = self
                             self._children_name_map["term"] = "term"
-                            self._children_yang_names.add("term")
                             self._segment_path = lambda: "data"
                             self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-mgr-oper:global-service-function-chaining/service-function-forwarder/local/error/si-arr/%s" % self._segment_path()
 
@@ -5027,8 +4886,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
                                     ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
@@ -5077,8 +4935,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
                                 self.ylist_key_names = []
-                                self._child_container_classes = OrderedDict([])
-                                self._child_list_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
                                     ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
                                     ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),

@@ -25,32 +25,32 @@ class EXPRESSIONMIB(Entity):
     .. attribute:: expresource
     
     	
-    	**type**\:  :py:class:`Expresource <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.Expresource>`
+    	**type**\:  :py:class:`ExpResource <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.ExpResource>`
     
     .. attribute:: expnames
     
     	
-    	**type**\:  :py:class:`Expnames <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.Expnames>`
+    	**type**\:  :py:class:`ExpNames <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.ExpNames>`
     
     .. attribute:: expnametable
     
     	A table of expression names, for creating and deleting expressions
-    	**type**\:  :py:class:`Expnametable <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.Expnametable>`
+    	**type**\:  :py:class:`ExpNameTable <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.ExpNameTable>`
     
     .. attribute:: expexpressiontable
     
     	A table of expression definitions
-    	**type**\:  :py:class:`Expexpressiontable <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.Expexpressiontable>`
+    	**type**\:  :py:class:`ExpExpressionTable <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.ExpExpressionTable>`
     
     .. attribute:: expobjecttable
     
     	A table of object definitions for each expExpression.  Wildcarding instance IDs\:  It is legal to omit all or part of the instance portion for some or all of the objects in an expression. (See the DESCRIPTION of expObjectID for details.  However, note that if more than one object in the same expression is wildcarded in this way, they all must be objects where that portion of the instance is the same.  In other words, all objects may be in the same SEQUENCE or in different SEQUENCEs but with the same semantic index value (e.g., a value of ifIndex) for the wildcarded portion
-    	**type**\:  :py:class:`Expobjecttable <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.Expobjecttable>`
+    	**type**\:  :py:class:`ExpObjectTable <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.ExpObjectTable>`
     
     .. attribute:: expvaluetable
     
     	A table of values from evaluated expressions
-    	**type**\:  :py:class:`Expvaluetable <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.Expvaluetable>`
+    	**type**\:  :py:class:`ExpValueTable <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.ExpValueTable>`
     
     
 
@@ -68,43 +68,39 @@ class EXPRESSIONMIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("expResource", ("expresource", EXPRESSIONMIB.Expresource)), ("expNames", ("expnames", EXPRESSIONMIB.Expnames)), ("expNameTable", ("expnametable", EXPRESSIONMIB.Expnametable)), ("expExpressionTable", ("expexpressiontable", EXPRESSIONMIB.Expexpressiontable)), ("expObjectTable", ("expobjecttable", EXPRESSIONMIB.Expobjecttable)), ("expValueTable", ("expvaluetable", EXPRESSIONMIB.Expvaluetable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("expResource", ("expresource", EXPRESSIONMIB.ExpResource)), ("expNames", ("expnames", EXPRESSIONMIB.ExpNames)), ("expNameTable", ("expnametable", EXPRESSIONMIB.ExpNameTable)), ("expExpressionTable", ("expexpressiontable", EXPRESSIONMIB.ExpExpressionTable)), ("expObjectTable", ("expobjecttable", EXPRESSIONMIB.ExpObjectTable)), ("expValueTable", ("expvaluetable", EXPRESSIONMIB.ExpValueTable))])
         self._leafs = OrderedDict()
 
-        self.expresource = EXPRESSIONMIB.Expresource()
+        self.expresource = EXPRESSIONMIB.ExpResource()
         self.expresource.parent = self
         self._children_name_map["expresource"] = "expResource"
-        self._children_yang_names.add("expResource")
 
-        self.expnames = EXPRESSIONMIB.Expnames()
+        self.expnames = EXPRESSIONMIB.ExpNames()
         self.expnames.parent = self
         self._children_name_map["expnames"] = "expNames"
-        self._children_yang_names.add("expNames")
 
-        self.expnametable = EXPRESSIONMIB.Expnametable()
+        self.expnametable = EXPRESSIONMIB.ExpNameTable()
         self.expnametable.parent = self
         self._children_name_map["expnametable"] = "expNameTable"
-        self._children_yang_names.add("expNameTable")
 
-        self.expexpressiontable = EXPRESSIONMIB.Expexpressiontable()
+        self.expexpressiontable = EXPRESSIONMIB.ExpExpressionTable()
         self.expexpressiontable.parent = self
         self._children_name_map["expexpressiontable"] = "expExpressionTable"
-        self._children_yang_names.add("expExpressionTable")
 
-        self.expobjecttable = EXPRESSIONMIB.Expobjecttable()
+        self.expobjecttable = EXPRESSIONMIB.ExpObjectTable()
         self.expobjecttable.parent = self
         self._children_name_map["expobjecttable"] = "expObjectTable"
-        self._children_yang_names.add("expObjectTable")
 
-        self.expvaluetable = EXPRESSIONMIB.Expvaluetable()
+        self.expvaluetable = EXPRESSIONMIB.ExpValueTable()
         self.expvaluetable.parent = self
         self._children_name_map["expvaluetable"] = "expValueTable"
-        self._children_yang_names.add("expValueTable")
         self._segment_path = lambda: "EXPRESSION-MIB:EXPRESSION-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(EXPRESSIONMIB, [], name, value)
 
-    class Expresource(Entity):
+
+    class ExpResource(Entity):
         """
         
         
@@ -161,15 +157,14 @@ class EXPRESSIONMIB(Entity):
         _revision = '2005-11-24'
 
         def __init__(self):
-            super(EXPRESSIONMIB.Expresource, self).__init__()
+            super(EXPRESSIONMIB.ExpResource, self).__init__()
 
             self.yang_name = "expResource"
             self.yang_parent_name = "EXPRESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('expresourcedeltaminimum', YLeaf(YType.int32, 'expResourceDeltaMinimum')),
                 ('expresourcedeltawildcardinstancemaximum', YLeaf(YType.uint32, 'expResourceDeltaWildcardInstanceMaximum')),
@@ -186,10 +181,10 @@ class EXPRESSIONMIB(Entity):
             self._absolute_path = lambda: "EXPRESSION-MIB:EXPRESSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EXPRESSIONMIB.Expresource, ['expresourcedeltaminimum', 'expresourcedeltawildcardinstancemaximum', 'expresourcedeltawildcardinstances', 'expresourcedeltawildcardinstanceshigh', 'expresourcedeltawildcardinstanceresourcelacks'], name, value)
+            self._perform_setattr(EXPRESSIONMIB.ExpResource, ['expresourcedeltaminimum', 'expresourcedeltawildcardinstancemaximum', 'expresourcedeltawildcardinstances', 'expresourcedeltawildcardinstanceshigh', 'expresourcedeltawildcardinstanceresourcelacks'], name, value)
 
 
-    class Expnames(Entity):
+    class ExpNames(Entity):
         """
         
         
@@ -215,15 +210,14 @@ class EXPRESSIONMIB(Entity):
         _revision = '2005-11-24'
 
         def __init__(self):
-            super(EXPRESSIONMIB.Expnames, self).__init__()
+            super(EXPRESSIONMIB.ExpNames, self).__init__()
 
             self.yang_name = "expNames"
             self.yang_parent_name = "EXPRESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('expnamelastchange', YLeaf(YType.uint32, 'expNameLastChange')),
                 ('expnamehighestindex', YLeaf(YType.uint32, 'expNameHighestIndex')),
@@ -234,10 +228,10 @@ class EXPRESSIONMIB(Entity):
             self._absolute_path = lambda: "EXPRESSION-MIB:EXPRESSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EXPRESSIONMIB.Expnames, ['expnamelastchange', 'expnamehighestindex'], name, value)
+            self._perform_setattr(EXPRESSIONMIB.ExpNames, ['expnamelastchange', 'expnamehighestindex'], name, value)
 
 
-    class Expnametable(Entity):
+    class ExpNameTable(Entity):
         """
         A table of expression names, for creating and deleting
         expressions.
@@ -245,7 +239,7 @@ class EXPRESSIONMIB(Entity):
         .. attribute:: expnameentry
         
         	Information about a single expression.  New expressions can be created using expNameStatus.  To create an expression first create the named entry in this table.  Then use expExpressionIndex to populate expExpressionTable and expObjectTable.  For expression evaluation to succeed all related entries in expNameTable, expExpressionTable, and expObjectTable must be 'active'.  If these conditions are not met the corresponding values in expValue simply are not instantiated.  Deleting an entry deletes all related entries in expExpressionTable and expObjectTable.  Because of the relationships among the multiple tables for an expression (expNameTable, expExpressionTable, expObjectTable, and expValueTable) and the SNMP rules for independence in setting object values, it is necessary to do final error checking when an expression is evaluated, that is, when one of its instances in expValueTable is read.  Earlier checking need not be done and an implementation may not impose any ordering on the creation of objects related to an expression other than to require values for expName and expExpressionIndex before any other related objects can be created.  To maintain security of MIB information, when creating a new row in this table, the managed system must record the security credentials of the requester.  If the subsequent expression includes objects with expObjectSampleType 'deltaValue' the evaluation of that expression takes place under the security credentials of the creator of its expNameEntry
-        	**type**\: list of  		 :py:class:`Expnameentry <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.Expnametable.Expnameentry>`
+        	**type**\: list of  		 :py:class:`ExpNameEntry <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.ExpNameTable.ExpNameEntry>`
         
         
 
@@ -255,15 +249,14 @@ class EXPRESSIONMIB(Entity):
         _revision = '2005-11-24'
 
         def __init__(self):
-            super(EXPRESSIONMIB.Expnametable, self).__init__()
+            super(EXPRESSIONMIB.ExpNameTable, self).__init__()
 
             self.yang_name = "expNameTable"
             self.yang_parent_name = "EXPRESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("expNameEntry", ("expnameentry", EXPRESSIONMIB.Expnametable.Expnameentry))])
+            self._child_classes = OrderedDict([("expNameEntry", ("expnameentry", EXPRESSIONMIB.ExpNameTable.ExpNameEntry))])
             self._leafs = OrderedDict()
 
             self.expnameentry = YList(self)
@@ -271,10 +264,10 @@ class EXPRESSIONMIB(Entity):
             self._absolute_path = lambda: "EXPRESSION-MIB:EXPRESSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EXPRESSIONMIB.Expnametable, [], name, value)
+            self._perform_setattr(EXPRESSIONMIB.ExpNameTable, [], name, value)
 
 
-        class Expnameentry(Entity):
+        class ExpNameEntry(Entity):
             """
             Information about a single expression.  New expressions
             can be created using expNameStatus.
@@ -337,15 +330,14 @@ class EXPRESSIONMIB(Entity):
             _revision = '2005-11-24'
 
             def __init__(self):
-                super(EXPRESSIONMIB.Expnametable.Expnameentry, self).__init__()
+                super(EXPRESSIONMIB.ExpNameTable.ExpNameEntry, self).__init__()
 
                 self.yang_name = "expNameEntry"
                 self.yang_parent_name = "expNameTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['expname']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('expname', YLeaf(YType.str, 'expName')),
                     ('expexpressionindex', YLeaf(YType.uint32, 'expExpressionIndex')),
@@ -358,17 +350,17 @@ class EXPRESSIONMIB(Entity):
                 self._absolute_path = lambda: "EXPRESSION-MIB:EXPRESSION-MIB/expNameTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EXPRESSIONMIB.Expnametable.Expnameentry, ['expname', 'expexpressionindex', 'expnamestatus'], name, value)
+                self._perform_setattr(EXPRESSIONMIB.ExpNameTable.ExpNameEntry, ['expname', 'expexpressionindex', 'expnamestatus'], name, value)
 
 
-    class Expexpressiontable(Entity):
+    class ExpExpressionTable(Entity):
         """
         A table of expression definitions.
         
         .. attribute:: expexpressionentry
         
         	Information about a single expression.  An entry appears in this table when an entry is created in expNameTable. Deleting that expNameTable entry automatically deletes this entry and its associated expObjectTable entries.  Values of read\-write objects in this table may be changed at any time
-        	**type**\: list of  		 :py:class:`Expexpressionentry <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.Expexpressiontable.Expexpressionentry>`
+        	**type**\: list of  		 :py:class:`ExpExpressionEntry <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.ExpExpressionTable.ExpExpressionEntry>`
         
         
 
@@ -378,15 +370,14 @@ class EXPRESSIONMIB(Entity):
         _revision = '2005-11-24'
 
         def __init__(self):
-            super(EXPRESSIONMIB.Expexpressiontable, self).__init__()
+            super(EXPRESSIONMIB.ExpExpressionTable, self).__init__()
 
             self.yang_name = "expExpressionTable"
             self.yang_parent_name = "EXPRESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("expExpressionEntry", ("expexpressionentry", EXPRESSIONMIB.Expexpressiontable.Expexpressionentry))])
+            self._child_classes = OrderedDict([("expExpressionEntry", ("expexpressionentry", EXPRESSIONMIB.ExpExpressionTable.ExpExpressionEntry))])
             self._leafs = OrderedDict()
 
             self.expexpressionentry = YList(self)
@@ -394,10 +385,10 @@ class EXPRESSIONMIB(Entity):
             self._absolute_path = lambda: "EXPRESSION-MIB:EXPRESSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EXPRESSIONMIB.Expexpressiontable, [], name, value)
+            self._perform_setattr(EXPRESSIONMIB.ExpExpressionTable, [], name, value)
 
 
-        class Expexpressionentry(Entity):
+        class ExpExpressionEntry(Entity):
             """
             Information about a single expression.  An entry appears
             in this table when an entry is created in expNameTable.
@@ -414,7 +405,7 @@ class EXPRESSIONMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`expexpressionindex <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.Expnametable.Expnameentry>`
+            	**refers to**\:  :py:class:`expexpressionindex <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.ExpNameTable.ExpNameEntry>`
             
             .. attribute:: expexpressionname
             
@@ -433,7 +424,7 @@ class EXPRESSIONMIB(Entity):
             .. attribute:: expexpressionvaluetype
             
             	The type of the expression value.  One and only one of the value objects in expValueTable will be instantiated to match this type.  If the result of the expression can not be made into this type, an invalidOperandType error will occur
-            	**type**\:  :py:class:`Expexpressionvaluetype <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.Expexpressiontable.Expexpressionentry.Expexpressionvaluetype>`
+            	**type**\:  :py:class:`ExpExpressionValueType <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.ExpExpressionTable.ExpExpressionEntry.ExpExpressionValueType>`
             
             .. attribute:: expexpressioncomment
             
@@ -480,7 +471,7 @@ class EXPRESSIONMIB(Entity):
             .. attribute:: expexpressionerror
             
             	The error that occurred.  In the following explanations the expected timing of the error is in parentheses.  'S' means the error occurs on a Set request.  'E' means the error occurs on the attempt to evaluate the expression either due to Get from expValueTable or in ongoing delta processing.  invalidSyntax           the value sent for expExpression                         is not valid Expression MIB                         expression syntax (S) undefinedObjectIndex    an object reference ($n) in                         expExpression does not have a                         matching instance in                         expObjectTable (E) unrecognizedOperator    the value sent for expExpression                         held an unrecognized operator (S) unrecognizedFunction    the value sent for expExpression                         held an unrecognized function                         name (S) invalidOperandType      an operand in expExpression is not                         the right type for the associated                         operator or result (SE) unmatchedParenthesis    the value sent for expExpression                         is not correctly parenthesized (S) tooManyWildcardValues   evaluating the expression exceeded                         the limit set by expResourceDelta                         WildcardInstanceMaximum (E) recursion               through some chain of embedded                         expressions the expression invokes                         itself (E) deltaTooShort           the delta for the next evaluation                         passed before the system could                         evaluate the present sample (E) resourceUnavailable     some resource, typically dynamic                         memory, was unavailable (SE) divideByZero            an attempt to divide by zero                         occurred (E)  For the errors that occur when the attempt is made to set expExpression Set request fails with the SNMP error code 'wrongValue'. Such failures refer to the most recent failure to Set expExpression, not to the present value of expExpression which must be either unset or syntactically correct.  Errors that occur during evalutaion for a Get\* operation return the SNMP error code 'genErr' except for 'tooManyWildcardValues' and 'resourceUnavailable' which return the SNMP error code 'resourceUnavailable'.  This object is not instantiated if there have been no errors
-            	**type**\:  :py:class:`Expexpressionerror <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.Expexpressiontable.Expexpressionentry.Expexpressionerror>`
+            	**type**\:  :py:class:`ExpExpressionError <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.ExpExpressionTable.ExpExpressionEntry.ExpExpressionError>`
             
             .. attribute:: expexpressioninstance
             
@@ -504,15 +495,14 @@ class EXPRESSIONMIB(Entity):
             _revision = '2005-11-24'
 
             def __init__(self):
-                super(EXPRESSIONMIB.Expexpressiontable.Expexpressionentry, self).__init__()
+                super(EXPRESSIONMIB.ExpExpressionTable.ExpExpressionEntry, self).__init__()
 
                 self.yang_name = "expExpressionEntry"
                 self.yang_parent_name = "expExpressionTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['expexpressionindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('expexpressionindex', YLeaf(YType.str, 'expExpressionIndex')),
                     ('expexpressionname', YLeaf(YType.str, 'expExpressionName')),
@@ -545,11 +535,11 @@ class EXPRESSIONMIB(Entity):
                 self._absolute_path = lambda: "EXPRESSION-MIB:EXPRESSION-MIB/expExpressionTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EXPRESSIONMIB.Expexpressiontable.Expexpressionentry, ['expexpressionindex', 'expexpressionname', 'expexpression', 'expexpressionvaluetype', 'expexpressioncomment', 'expexpressiondeltainterval', 'expexpressionprefix', 'expexpressionerrors', 'expexpressionerrortime', 'expexpressionerrorindex', 'expexpressionerror', 'expexpressioninstance', 'expexpressionowner'], name, value)
+                self._perform_setattr(EXPRESSIONMIB.ExpExpressionTable.ExpExpressionEntry, ['expexpressionindex', 'expexpressionname', 'expexpression', 'expexpressionvaluetype', 'expexpressioncomment', 'expexpressiondeltainterval', 'expexpressionprefix', 'expexpressionerrors', 'expexpressionerrortime', 'expexpressionerrorindex', 'expexpressionerror', 'expexpressioninstance', 'expexpressionowner'], name, value)
 
-            class Expexpressionerror(Enum):
+            class ExpExpressionError(Enum):
                 """
-                Expexpressionerror (Enum Class)
+                ExpExpressionError (Enum Class)
 
                 The error that occurred.  In the following explanations the
 
@@ -694,9 +684,9 @@ class EXPRESSIONMIB(Entity):
                 divideByZero = Enum.YLeaf(11, "divideByZero")
 
 
-            class Expexpressionvaluetype(Enum):
+            class ExpExpressionValueType(Enum):
                 """
-                Expexpressionvaluetype (Enum Class)
+                ExpExpressionValueType (Enum Class)
 
                 The type of the expression value.  One and only one of
 
@@ -744,7 +734,7 @@ class EXPRESSIONMIB(Entity):
 
 
 
-    class Expobjecttable(Entity):
+    class ExpObjectTable(Entity):
         """
         A table of object definitions for each expExpression.
         
@@ -763,7 +753,7 @@ class EXPRESSIONMIB(Entity):
         .. attribute:: expobjectentry
         
         	Information about an object.  An application uses expObjectStatus to create entries in this table while in the process of defining an expression.  Values of read\-create objects in this table may be changed at any time
-        	**type**\: list of  		 :py:class:`Expobjectentry <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.Expobjecttable.Expobjectentry>`
+        	**type**\: list of  		 :py:class:`ExpObjectEntry <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.ExpObjectTable.ExpObjectEntry>`
         
         
 
@@ -773,15 +763,14 @@ class EXPRESSIONMIB(Entity):
         _revision = '2005-11-24'
 
         def __init__(self):
-            super(EXPRESSIONMIB.Expobjecttable, self).__init__()
+            super(EXPRESSIONMIB.ExpObjectTable, self).__init__()
 
             self.yang_name = "expObjectTable"
             self.yang_parent_name = "EXPRESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("expObjectEntry", ("expobjectentry", EXPRESSIONMIB.Expobjecttable.Expobjectentry))])
+            self._child_classes = OrderedDict([("expObjectEntry", ("expobjectentry", EXPRESSIONMIB.ExpObjectTable.ExpObjectEntry))])
             self._leafs = OrderedDict()
 
             self.expobjectentry = YList(self)
@@ -789,10 +778,10 @@ class EXPRESSIONMIB(Entity):
             self._absolute_path = lambda: "EXPRESSION-MIB:EXPRESSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EXPRESSIONMIB.Expobjecttable, [], name, value)
+            self._perform_setattr(EXPRESSIONMIB.ExpObjectTable, [], name, value)
 
 
-        class Expobjectentry(Entity):
+        class ExpObjectEntry(Entity):
             """
             Information about an object.  An application uses
             expObjectStatus to create entries in this table while
@@ -808,7 +797,7 @@ class EXPRESSIONMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`expexpressionindex <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.Expnametable.Expnameentry>`
+            	**refers to**\:  :py:class:`expexpressionindex <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.ExpNameTable.ExpNameEntry>`
             
             .. attribute:: expobjectindex  (key)
             
@@ -832,7 +821,7 @@ class EXPRESSIONMIB(Entity):
             .. attribute:: expobjectsampletype
             
             	The method of sampling the selected variable.  An 'absoluteValue' is simply the present value of the object. A 'deltaValue' is the present value minus the previous value, which was sampled expExpressionDeltaInterval seconds ago.  This is intended primarily for use with SNMP counters, which are meaningless as an 'absoluteValue', but may be used with any integer\-based value.  When an expression contains both delta and absolute values the absolute values are obtained at the end of the delta period
-            	**type**\:  :py:class:`Expobjectsampletype <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.Expobjecttable.Expobjectentry.Expobjectsampletype>`
+            	**type**\:  :py:class:`ExpObjectSampleType <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.ExpObjectTable.ExpObjectEntry.ExpObjectSampleType>`
             
             .. attribute:: expobjectdeltadiscontinuityid
             
@@ -849,7 +838,7 @@ class EXPRESSIONMIB(Entity):
             .. attribute:: expobjectdiscontinuityidtype
             
             	The value 'timeTicks' indicates the expObjectDeltaDiscontinuityID of this row is of syntax TimeTicks.  The value 'timeStamp' indicates that expObjectDeltaDiscontinuityID is of syntax TimeStamp.  This object is not instantiated if expObject is not 'deltaValue'
-            	**type**\:  :py:class:`Expobjectdiscontinuityidtype <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.Expobjecttable.Expobjectentry.Expobjectdiscontinuityidtype>`
+            	**type**\:  :py:class:`ExpObjectDiscontinuityIDType <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.ExpObjectTable.ExpObjectEntry.ExpObjectDiscontinuityIDType>`
             
             .. attribute:: expobjectconditional
             
@@ -876,15 +865,14 @@ class EXPRESSIONMIB(Entity):
             _revision = '2005-11-24'
 
             def __init__(self):
-                super(EXPRESSIONMIB.Expobjecttable.Expobjectentry, self).__init__()
+                super(EXPRESSIONMIB.ExpObjectTable.ExpObjectEntry, self).__init__()
 
                 self.yang_name = "expObjectEntry"
                 self.yang_parent_name = "expObjectTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['expexpressionindex','expobjectindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('expexpressionindex', YLeaf(YType.str, 'expExpressionIndex')),
                     ('expobjectindex', YLeaf(YType.uint32, 'expObjectIndex')),
@@ -913,11 +901,11 @@ class EXPRESSIONMIB(Entity):
                 self._absolute_path = lambda: "EXPRESSION-MIB:EXPRESSION-MIB/expObjectTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EXPRESSIONMIB.Expobjecttable.Expobjectentry, ['expexpressionindex', 'expobjectindex', 'expobjectid', 'expobjectidwildcard', 'expobjectsampletype', 'expobjectdeltadiscontinuityid', 'expobjectdiscontinuityidwildcard', 'expobjectdiscontinuityidtype', 'expobjectconditional', 'expobjectconditionalwildcard', 'expobjectstatus'], name, value)
+                self._perform_setattr(EXPRESSIONMIB.ExpObjectTable.ExpObjectEntry, ['expexpressionindex', 'expobjectindex', 'expobjectid', 'expobjectidwildcard', 'expobjectsampletype', 'expobjectdeltadiscontinuityid', 'expobjectdiscontinuityidwildcard', 'expobjectdiscontinuityidtype', 'expobjectconditional', 'expobjectconditionalwildcard', 'expobjectstatus'], name, value)
 
-            class Expobjectdiscontinuityidtype(Enum):
+            class ExpObjectDiscontinuityIDType(Enum):
                 """
-                Expobjectdiscontinuityidtype (Enum Class)
+                ExpObjectDiscontinuityIDType (Enum Class)
 
                 The value 'timeTicks' indicates the
 
@@ -942,9 +930,9 @@ class EXPRESSIONMIB(Entity):
                 timeStamp = Enum.YLeaf(2, "timeStamp")
 
 
-            class Expobjectsampletype(Enum):
+            class ExpObjectSampleType(Enum):
                 """
-                Expobjectsampletype (Enum Class)
+                ExpObjectSampleType (Enum Class)
 
                 The method of sampling the selected variable.
 
@@ -980,14 +968,14 @@ class EXPRESSIONMIB(Entity):
 
 
 
-    class Expvaluetable(Entity):
+    class ExpValueTable(Entity):
         """
         A table of values from evaluated expressions.
         
         .. attribute:: expvalueentry
         
         	A single value from an evaluated expression.  For a given instance, only one 'Val' object in the conceptual row will be instantiated, that is, the one with the appropriate type for the value.  For values that contain no objects of  expObjectSampleType 'deltaValue', reading a value from the table causes the evaluation of the expression for that value.  For those that contain a 'deltaValue' the value read is as of the last delta interval.  If in the attempt to evaluate the expression one or more of the necessary objects is not available, the corresponding entry in this table is effectively not instantiated.  To maintain security of MIB information, expression evaluation must take place using security credentials for the implied Gets of the objects in the expression.  For expressions with no deltaValue those security credentials are the ones that came with the Get\* for the value.  For expressions with a deltaValue the ongoing expression evaluation is under the security credentials of the creator of the corresponding expNameEntry
-        	**type**\: list of  		 :py:class:`Expvalueentry <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.Expvaluetable.Expvalueentry>`
+        	**type**\: list of  		 :py:class:`ExpValueEntry <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.ExpValueTable.ExpValueEntry>`
         
         
 
@@ -997,15 +985,14 @@ class EXPRESSIONMIB(Entity):
         _revision = '2005-11-24'
 
         def __init__(self):
-            super(EXPRESSIONMIB.Expvaluetable, self).__init__()
+            super(EXPRESSIONMIB.ExpValueTable, self).__init__()
 
             self.yang_name = "expValueTable"
             self.yang_parent_name = "EXPRESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("expValueEntry", ("expvalueentry", EXPRESSIONMIB.Expvaluetable.Expvalueentry))])
+            self._child_classes = OrderedDict([("expValueEntry", ("expvalueentry", EXPRESSIONMIB.ExpValueTable.ExpValueEntry))])
             self._leafs = OrderedDict()
 
             self.expvalueentry = YList(self)
@@ -1013,10 +1000,10 @@ class EXPRESSIONMIB(Entity):
             self._absolute_path = lambda: "EXPRESSION-MIB:EXPRESSION-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EXPRESSIONMIB.Expvaluetable, [], name, value)
+            self._perform_setattr(EXPRESSIONMIB.ExpValueTable, [], name, value)
 
 
-        class Expvalueentry(Entity):
+        class ExpValueEntry(Entity):
             """
             A single value from an evaluated expression.  For a given
             instance, only one 'Val' object in the conceptual row will
@@ -1047,7 +1034,7 @@ class EXPRESSIONMIB(Entity):
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`expexpressionindex <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.Expnametable.Expnameentry>`
+            	**refers to**\:  :py:class:`expexpressionindex <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.ExpNameTable.ExpNameEntry>`
             
             .. attribute:: expvalueinstance  (key)
             
@@ -1113,15 +1100,14 @@ class EXPRESSIONMIB(Entity):
             _revision = '2005-11-24'
 
             def __init__(self):
-                super(EXPRESSIONMIB.Expvaluetable.Expvalueentry, self).__init__()
+                super(EXPRESSIONMIB.ExpValueTable.ExpValueEntry, self).__init__()
 
                 self.yang_name = "expValueEntry"
                 self.yang_parent_name = "expValueTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['expexpressionindex','expvalueinstance']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('expexpressionindex', YLeaf(YType.str, 'expExpressionIndex')),
                     ('expvalueinstance', YLeaf(YType.str, 'expValueInstance')),
@@ -1146,7 +1132,7 @@ class EXPRESSIONMIB(Entity):
                 self._absolute_path = lambda: "EXPRESSION-MIB:EXPRESSION-MIB/expValueTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EXPRESSIONMIB.Expvaluetable.Expvalueentry, ['expexpressionindex', 'expvalueinstance', 'expvaluecounter32val', 'expvalueunsigned32val', 'expvalueinteger32val', 'expvalueipaddressval', 'expvalueoctetstringval', 'expvalueoidval', 'expvaluecounter64val'], name, value)
+                self._perform_setattr(EXPRESSIONMIB.ExpValueTable.ExpValueEntry, ['expexpressionindex', 'expvalueinstance', 'expvaluecounter32val', 'expvalueunsigned32val', 'expvalueinteger32val', 'expvalueipaddressval', 'expvalueoctetstringval', 'expvalueoidval', 'expvaluecounter64val'], name, value)
 
     def clone_ptr(self):
         self._top_entity = EXPRESSIONMIB()

@@ -20,49 +20,49 @@ class DS1MIB(Entity):
     .. attribute:: dsx1configtable
     
     	The DS1 Configuration table
-    	**type**\:  :py:class:`Dsx1Configtable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Configtable>`
+    	**type**\:  :py:class:`Dsx1ConfigTable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1ConfigTable>`
     
     .. attribute:: dsx1currenttable
     
     	The DS1 current table contains various statistics being collected for the current 15 minute interval
-    	**type**\:  :py:class:`Dsx1Currenttable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Currenttable>`
+    	**type**\:  :py:class:`Dsx1CurrentTable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1CurrentTable>`
     
     .. attribute:: dsx1intervaltable
     
     	The DS1 Interval Table contains various statistics collected by each DS1 Interface over the previous 24 hours of operation.  The past 24 hours are broken into 96 completed 15 minute intervals.  Each row in this table represents one such interval (identified by dsx1IntervalNumber) for one specific instance (identified by dsx1IntervalIndex)
-    	**type**\:  :py:class:`Dsx1Intervaltable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Intervaltable>`
+    	**type**\:  :py:class:`Dsx1IntervalTable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1IntervalTable>`
     
     .. attribute:: dsx1totaltable
     
     	The DS1 Total Table contains the cumulative sum of the various statistics for the 24 hour period preceding the current interval
-    	**type**\:  :py:class:`Dsx1Totaltable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Totaltable>`
+    	**type**\:  :py:class:`Dsx1TotalTable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1TotalTable>`
     
     .. attribute:: dsx1farendcurrenttable
     
     	The DS1 Far End Current table contains various statistics being collected for the current 15 minute interval.  The statistics are collected from the far end messages on the Facilities Data Link.  The definitions are the same as described for the near\-end information
-    	**type**\:  :py:class:`Dsx1Farendcurrenttable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Farendcurrenttable>`
+    	**type**\:  :py:class:`Dsx1FarEndCurrentTable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1FarEndCurrentTable>`
     
     .. attribute:: dsx1farendintervaltable
     
     	The DS1 Far End Interval Table contains various statistics collected by each DS1 interface over the previous 24 hours of operation.  The past 24 hours are broken into 96 completed 15 minute intervals. Each row in this table represents one such interval (identified by dsx1FarEndIntervalNumber) for one specific instance (identified by dsx1FarEndIntervalIndex)
-    	**type**\:  :py:class:`Dsx1Farendintervaltable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Farendintervaltable>`
+    	**type**\:  :py:class:`Dsx1FarEndIntervalTable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1FarEndIntervalTable>`
     
     .. attribute:: dsx1farendtotaltable
     
     	The DS1 Far End Total Table contains the cumulative sum of the various statistics for the 24 hour period preceding the current interval
-    	**type**\:  :py:class:`Dsx1Farendtotaltable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Farendtotaltable>`
+    	**type**\:  :py:class:`Dsx1FarEndTotalTable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1FarEndTotalTable>`
     
     .. attribute:: dsx1fractable
     
     	This table is deprecated in favour of using ifStackTable.  The table was mandatory for systems dividing a DS1 into channels containing different data streams that are of local interest.  Systems which are indifferent to data content, such as CSUs, need not implement it.  The DS1 fractional table identifies which DS1 channels associated with a CSU are being used to support a logical interface, i.e., an entry in the interfaces table from the Internet\-standard MIB.  For example, consider an application managing a North American ISDN Primary Rate link whose division is a 384 kbit/s H1 \_B\_ Channel for Video, a second H1 for data to a primary routing peer, and 12 64 kbit/s H0 \_B\_ Channels. Consider that some subset of the H0 channels are used for voice and the remainder are available for dynamic data calls.  We count a total of 14 interfaces multiplexed onto the DS1 interface. Six DS1 channels (for the sake of the example, channels 1..6) are used for Video, six more (7..11 and 13) are used for data, and the remaining 12 are are in channels 12 and 14..24.  Let us further imagine that ifIndex 2 is of type DS1 and refers to the DS1 interface, and that the interfaces layered onto it are numbered 3..16.  We might describe the allocation of channels, in the dsx1FracTable, as follows\: dsx1FracIfIndex.2. 1 = 3  dsx1FracIfIndex.2.13 = 4 dsx1FracIfIndex.2. 2 = 3  dsx1FracIfIndex.2.14 = 6 dsx1FracIfIndex.2. 3 = 3  dsx1FracIfIndex.2.15 = 7 dsx1FracIfIndex.2. 4 = 3  dsx1FracIfIndex.2.16 = 8 dsx1FracIfIndex.2. 5 = 3  dsx1FracIfIndex.2.17 = 9 dsx1FracIfIndex.2. 6 = 3  dsx1FracIfIndex.2.18 = 10 dsx1FracIfIndex.2. 7 = 4  dsx1FracIfIndex.2.19 = 11 dsx1FracIfIndex.2. 8 = 4  dsx1FracIfIndex.2.20 = 12 dsx1FracIfIndex.2. 9 = 4  dsx1FracIfIndex.2.21 = 13 dsx1FracIfIndex.2.10 = 4  dsx1FracIfIndex.2.22 = 14 dsx1FracIfIndex.2.11 = 4  dsx1FracIfIndex.2.23 = 15 dsx1FracIfIndex.2.12 = 5  dsx1FracIfIndex.2.24 = 16  For North American (DS1) interfaces, there are 24 legal channels, numbered 1 through 24.  For G.704 interfaces, there are 31 legal channels, numbered 1 through 31.  The channels (1..31) correspond directly to the equivalently numbered time\-slots
-    	**type**\:  :py:class:`Dsx1Fractable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Fractable>`
+    	**type**\:  :py:class:`Dsx1FracTable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1FracTable>`
     
     	**status**\: deprecated
     
     .. attribute:: dsx1chanmappingtable
     
     	The DS1 Channel Mapping table.  This table maps a DS1 channel number on a particular DS3 into an ifIndex.  In the presence of DS2s, this table can be used to map a DS2 channel number on a DS3 into an ifIndex, or used to map a DS1 channel number on a DS2 onto an ifIndex
-    	**type**\:  :py:class:`Dsx1Chanmappingtable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Chanmappingtable>`
+    	**type**\:  :py:class:`Dsx1ChanMappingTable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1ChanMappingTable>`
     
     
 
@@ -80,65 +80,58 @@ class DS1MIB(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([("dsx1ConfigTable", ("dsx1configtable", DS1MIB.Dsx1Configtable)), ("dsx1CurrentTable", ("dsx1currenttable", DS1MIB.Dsx1Currenttable)), ("dsx1IntervalTable", ("dsx1intervaltable", DS1MIB.Dsx1Intervaltable)), ("dsx1TotalTable", ("dsx1totaltable", DS1MIB.Dsx1Totaltable)), ("dsx1FarEndCurrentTable", ("dsx1farendcurrenttable", DS1MIB.Dsx1Farendcurrenttable)), ("dsx1FarEndIntervalTable", ("dsx1farendintervaltable", DS1MIB.Dsx1Farendintervaltable)), ("dsx1FarEndTotalTable", ("dsx1farendtotaltable", DS1MIB.Dsx1Farendtotaltable)), ("dsx1FracTable", ("dsx1fractable", DS1MIB.Dsx1Fractable)), ("dsx1ChanMappingTable", ("dsx1chanmappingtable", DS1MIB.Dsx1Chanmappingtable))])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([("dsx1ConfigTable", ("dsx1configtable", DS1MIB.Dsx1ConfigTable)), ("dsx1CurrentTable", ("dsx1currenttable", DS1MIB.Dsx1CurrentTable)), ("dsx1IntervalTable", ("dsx1intervaltable", DS1MIB.Dsx1IntervalTable)), ("dsx1TotalTable", ("dsx1totaltable", DS1MIB.Dsx1TotalTable)), ("dsx1FarEndCurrentTable", ("dsx1farendcurrenttable", DS1MIB.Dsx1FarEndCurrentTable)), ("dsx1FarEndIntervalTable", ("dsx1farendintervaltable", DS1MIB.Dsx1FarEndIntervalTable)), ("dsx1FarEndTotalTable", ("dsx1farendtotaltable", DS1MIB.Dsx1FarEndTotalTable)), ("dsx1FracTable", ("dsx1fractable", DS1MIB.Dsx1FracTable)), ("dsx1ChanMappingTable", ("dsx1chanmappingtable", DS1MIB.Dsx1ChanMappingTable))])
         self._leafs = OrderedDict()
 
-        self.dsx1configtable = DS1MIB.Dsx1Configtable()
+        self.dsx1configtable = DS1MIB.Dsx1ConfigTable()
         self.dsx1configtable.parent = self
         self._children_name_map["dsx1configtable"] = "dsx1ConfigTable"
-        self._children_yang_names.add("dsx1ConfigTable")
 
-        self.dsx1currenttable = DS1MIB.Dsx1Currenttable()
+        self.dsx1currenttable = DS1MIB.Dsx1CurrentTable()
         self.dsx1currenttable.parent = self
         self._children_name_map["dsx1currenttable"] = "dsx1CurrentTable"
-        self._children_yang_names.add("dsx1CurrentTable")
 
-        self.dsx1intervaltable = DS1MIB.Dsx1Intervaltable()
+        self.dsx1intervaltable = DS1MIB.Dsx1IntervalTable()
         self.dsx1intervaltable.parent = self
         self._children_name_map["dsx1intervaltable"] = "dsx1IntervalTable"
-        self._children_yang_names.add("dsx1IntervalTable")
 
-        self.dsx1totaltable = DS1MIB.Dsx1Totaltable()
+        self.dsx1totaltable = DS1MIB.Dsx1TotalTable()
         self.dsx1totaltable.parent = self
         self._children_name_map["dsx1totaltable"] = "dsx1TotalTable"
-        self._children_yang_names.add("dsx1TotalTable")
 
-        self.dsx1farendcurrenttable = DS1MIB.Dsx1Farendcurrenttable()
+        self.dsx1farendcurrenttable = DS1MIB.Dsx1FarEndCurrentTable()
         self.dsx1farendcurrenttable.parent = self
         self._children_name_map["dsx1farendcurrenttable"] = "dsx1FarEndCurrentTable"
-        self._children_yang_names.add("dsx1FarEndCurrentTable")
 
-        self.dsx1farendintervaltable = DS1MIB.Dsx1Farendintervaltable()
+        self.dsx1farendintervaltable = DS1MIB.Dsx1FarEndIntervalTable()
         self.dsx1farendintervaltable.parent = self
         self._children_name_map["dsx1farendintervaltable"] = "dsx1FarEndIntervalTable"
-        self._children_yang_names.add("dsx1FarEndIntervalTable")
 
-        self.dsx1farendtotaltable = DS1MIB.Dsx1Farendtotaltable()
+        self.dsx1farendtotaltable = DS1MIB.Dsx1FarEndTotalTable()
         self.dsx1farendtotaltable.parent = self
         self._children_name_map["dsx1farendtotaltable"] = "dsx1FarEndTotalTable"
-        self._children_yang_names.add("dsx1FarEndTotalTable")
 
-        self.dsx1fractable = DS1MIB.Dsx1Fractable()
+        self.dsx1fractable = DS1MIB.Dsx1FracTable()
         self.dsx1fractable.parent = self
         self._children_name_map["dsx1fractable"] = "dsx1FracTable"
-        self._children_yang_names.add("dsx1FracTable")
 
-        self.dsx1chanmappingtable = DS1MIB.Dsx1Chanmappingtable()
+        self.dsx1chanmappingtable = DS1MIB.Dsx1ChanMappingTable()
         self.dsx1chanmappingtable.parent = self
         self._children_name_map["dsx1chanmappingtable"] = "dsx1ChanMappingTable"
-        self._children_yang_names.add("dsx1ChanMappingTable")
         self._segment_path = lambda: "DS1-MIB:DS1-MIB"
 
+    def __setattr__(self, name, value):
+        self._perform_setattr(DS1MIB, [], name, value)
 
-    class Dsx1Configtable(Entity):
+
+    class Dsx1ConfigTable(Entity):
         """
         The DS1 Configuration table.
         
         .. attribute:: dsx1configentry
         
         	An entry in the DS1 Configuration table
-        	**type**\: list of  		 :py:class:`Dsx1Configentry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Configtable.Dsx1Configentry>`
+        	**type**\: list of  		 :py:class:`Dsx1ConfigEntry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1ConfigTable.Dsx1ConfigEntry>`
         
         
 
@@ -148,15 +141,14 @@ class DS1MIB(Entity):
         _revision = '1998-08-01'
 
         def __init__(self):
-            super(DS1MIB.Dsx1Configtable, self).__init__()
+            super(DS1MIB.Dsx1ConfigTable, self).__init__()
 
             self.yang_name = "dsx1ConfigTable"
             self.yang_parent_name = "DS1-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dsx1ConfigEntry", ("dsx1configentry", DS1MIB.Dsx1Configtable.Dsx1Configentry))])
+            self._child_classes = OrderedDict([("dsx1ConfigEntry", ("dsx1configentry", DS1MIB.Dsx1ConfigTable.Dsx1ConfigEntry))])
             self._leafs = OrderedDict()
 
             self.dsx1configentry = YList(self)
@@ -164,10 +156,10 @@ class DS1MIB(Entity):
             self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DS1MIB.Dsx1Configtable, [], name, value)
+            self._perform_setattr(DS1MIB.Dsx1ConfigTable, [], name, value)
 
 
-        class Dsx1Configentry(Entity):
+        class Dsx1ConfigEntry(Entity):
             """
             An entry in the DS1 Configuration table.
             
@@ -204,17 +196,17 @@ class DS1MIB(Entity):
             .. attribute:: dsx1linetype
             
             	This variable indicates  the  variety  of  DS1 Line  implementing  this  circuit.  The type of circuit affects the number of bits  per  second that  the circuit can reasonably carry, as well as the interpretation of the  usage  and  error statistics.  The values, in sequence, describe\:  TITLE\:         SPECIFICATION\: dsx1ESF         Extended SuperFrame DS1 (T1.107) dsx1D4          AT&T D4 format DS1 (T1.107) dsx1E1          ITU\-T Recommendation G.704                  (Table 4a) dsx1E1\-CRC      ITU\-T Recommendation G.704                  (Table 4b) dsxE1\-MF        G.704 (Table 4a) with TS16                  multiframing enabled dsx1E1\-CRC\-MF   G.704 (Table 4b) with TS16                  multiframing enabled dsx1Unframed    DS1 with No Framing dsx1E1Unframed  E1 with No Framing (G.703) dsx1DS2M12      DS2 frame format (T1.107) dsx1E2          E2 frame format (G.704)  For clarification, the capacity for each E1 type is as listed below\: dsx1E1Unframed \- E1, no framing = 32 x 64k = 2048k dsx1E1 or dsx1E1CRC \- E1, with framing,    no signalling = 31 x 64k = 1984k dsx1E1MF or dsx1E1CRCMF \- E1, with framing,    signalling = 30 x 64k = 1920k  For further information See ITU\-T Recomm G.704
-            	**type**\:  :py:class:`Dsx1Linetype <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Configtable.Dsx1Configentry.Dsx1Linetype>`
+            	**type**\:  :py:class:`Dsx1LineType <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1ConfigTable.Dsx1ConfigEntry.Dsx1LineType>`
             
             .. attribute:: dsx1linecoding
             
             	This variable describes the variety of Zero Code Suppression used on this interface, which in turn affects a number of its characteristics.  dsx1JBZS refers the Jammed Bit Zero Suppression, in which the AT&T specification of at least one pulse every 8 bit periods is literally implemented by forcing a pulse in bit 8 of each channel. Thus, only seven bits per channel, or 1.344 Mbps, is available for data.  dsx1B8ZS refers to the use of a specified pattern of normal bits and bipolar violations which are used to replace a sequence of eight zero bits.  ANSI Clear Channels may use dsx1ZBTSI, or Zero Byte Time Slot Interchange.  E1 links, with or without CRC, use dsx1HDB3 or dsx1AMI.  dsx1AMI refers to a mode wherein no zero code suppression is present and the line encoding does not solve the problem directly.  In this application, the higher layer must provide data which meets or exceeds the pulse density requirements, such as inverting HDLC data.  dsx1B6ZS refers to the user of a specifed pattern of normal bits and bipolar violations which are used to replace a sequence of six zero bits.  Used for DS2
-            	**type**\:  :py:class:`Dsx1Linecoding <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Configtable.Dsx1Configentry.Dsx1Linecoding>`
+            	**type**\:  :py:class:`Dsx1LineCoding <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1ConfigTable.Dsx1ConfigEntry.Dsx1LineCoding>`
             
             .. attribute:: dsx1sendcode
             
             	This variable indicates what type of code is being sent across the DS1 interface by the device. Setting this variable causes the interface to send the code requested.  The values mean\: dsx1SendNoCode sending looped or normal data  dsx1SendLineCode sending a request for a line loopback  dsx1SendPayloadCode sending a request for a payload loopback  dsx1SendResetCode sending a loopback termination request  dsx1SendQRS sending a Quasi\-Random Signal  (QRS)  test pattern  dsx1Send511Pattern sending a 511 bit fixed test pattern  dsx1Send3in24Pattern sending a fixed test pattern of 3 bits set in 24  dsx1SendOtherTestPattern sending a test pattern  other  than  those described by this object
-            	**type**\:  :py:class:`Dsx1Sendcode <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Configtable.Dsx1Configentry.Dsx1Sendcode>`
+            	**type**\:  :py:class:`Dsx1SendCode <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1ConfigTable.Dsx1ConfigEntry.Dsx1SendCode>`
             
             .. attribute:: dsx1circuitidentifier
             
@@ -226,7 +218,7 @@ class DS1MIB(Entity):
             .. attribute:: dsx1loopbackconfig
             
             	This variable represents the desired loopback configuration of the DS1 interface.  Agents supporting read/write access should return inconsistentValue in response to a requested loopback state that the interface does not support.  The values mean\:  dsx1NoLoop  Not in the loopback state.  A device that is not capable of performing a loopback on the interface shall always return this as its value.  dsx1PayloadLoop  The received signal at this interface is looped through the device.  Typically the received signal is looped back for retransmission after it has passed through the device's framing function.  dsx1LineLoop  The received signal at this interface does not go through the device (minimum penetration) but is looped back out.  dsx1OtherLoop  Loopbacks that are not defined here.  dsx1InwardLoop  The transmitted signal at this interface is looped back and received by the same interface. What is transmitted onto the line is product dependent.  dsx1DualLoop  Both dsx1LineLoop and dsx1InwardLoop will be active simultaneously
-            	**type**\:  :py:class:`Dsx1Loopbackconfig <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Configtable.Dsx1Configentry.Dsx1Loopbackconfig>`
+            	**type**\:  :py:class:`Dsx1LoopbackConfig <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1ConfigTable.Dsx1ConfigEntry.Dsx1LoopbackConfig>`
             
             .. attribute:: dsx1linestatus
             
@@ -238,12 +230,12 @@ class DS1MIB(Entity):
             .. attribute:: dsx1signalmode
             
             	'none' indicates that no bits are reserved for signaling on this channel.  'robbedBit' indicates that DS1 Robbed Bit  Sig\- naling is in use.  'bitOriented' indicates that E1 Channel  Asso\- ciated Signaling is in use.  'messageOriented' indicates that Common  Chan\- nel Signaling is in use either on channel 16 of an E1 link or channel 24 of a DS1
-            	**type**\:  :py:class:`Dsx1Signalmode <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Configtable.Dsx1Configentry.Dsx1Signalmode>`
+            	**type**\:  :py:class:`Dsx1SignalMode <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1ConfigTable.Dsx1ConfigEntry.Dsx1SignalMode>`
             
             .. attribute:: dsx1transmitclocksource
             
             	The source of Transmit Clock. 'loopTiming' indicates that the recovered re\- ceive clock is used as the transmit clock.  'localTiming' indicates that a local clock source is used or when an external clock is attached to the box containing the interface.  'throughTiming' indicates that recovered re\- ceive clock from another interface is used as the transmit clock
-            	**type**\:  :py:class:`Dsx1Transmitclocksource <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Configtable.Dsx1Configentry.Dsx1Transmitclocksource>`
+            	**type**\:  :py:class:`Dsx1TransmitClockSource <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1ConfigTable.Dsx1ConfigEntry.Dsx1TransmitClockSource>`
             
             .. attribute:: dsx1fdl
             
@@ -278,7 +270,7 @@ class DS1MIB(Entity):
             .. attribute:: dsx1linestatuschangetrapenable
             
             	Indicates whether dsx1LineStatusChange traps should be generated for this interface
-            	**type**\:  :py:class:`Dsx1Linestatuschangetrapenable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Configtable.Dsx1Configentry.Dsx1Linestatuschangetrapenable>`
+            	**type**\:  :py:class:`Dsx1LineStatusChangeTrapEnable <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1ConfigTable.Dsx1ConfigEntry.Dsx1LineStatusChangeTrapEnable>`
             
             .. attribute:: dsx1loopbackstatus
             
@@ -297,7 +289,7 @@ class DS1MIB(Entity):
             .. attribute:: dsx1channelization
             
             	Indicates whether this ds1/e1 is channelized or unchannelized.  The value of enabledDs0 indicates that this is a DS1 channelized into DS0s.  The value of enabledDs1 indicated that this is a DS2 channelized into DS1s.  Setting this value will cause the creation or deletion of entries in the ifTable for the DS0s that are within the DS1
-            	**type**\:  :py:class:`Dsx1Channelization <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Configtable.Dsx1Configentry.Dsx1Channelization>`
+            	**type**\:  :py:class:`Dsx1Channelization <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1ConfigTable.Dsx1ConfigEntry.Dsx1Channelization>`
             
             
 
@@ -307,15 +299,14 @@ class DS1MIB(Entity):
             _revision = '1998-08-01'
 
             def __init__(self):
-                super(DS1MIB.Dsx1Configtable.Dsx1Configentry, self).__init__()
+                super(DS1MIB.Dsx1ConfigTable.Dsx1ConfigEntry, self).__init__()
 
                 self.yang_name = "dsx1ConfigEntry"
                 self.yang_parent_name = "dsx1ConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dsx1lineindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dsx1lineindex', YLeaf(YType.int32, 'dsx1LineIndex')),
                     ('dsx1ifindex', YLeaf(YType.int32, 'dsx1IfIndex')),
@@ -362,7 +353,7 @@ class DS1MIB(Entity):
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1ConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DS1MIB.Dsx1Configtable.Dsx1Configentry, ['dsx1lineindex', 'dsx1ifindex', 'dsx1timeelapsed', 'dsx1validintervals', 'dsx1linetype', 'dsx1linecoding', 'dsx1sendcode', 'dsx1circuitidentifier', 'dsx1loopbackconfig', 'dsx1linestatus', 'dsx1signalmode', 'dsx1transmitclocksource', 'dsx1fdl', 'dsx1invalidintervals', 'dsx1linelength', 'dsx1linestatuslastchange', 'dsx1linestatuschangetrapenable', 'dsx1loopbackstatus', 'dsx1ds1channelnumber', 'dsx1channelization'], name, value)
+                self._perform_setattr(DS1MIB.Dsx1ConfigTable.Dsx1ConfigEntry, ['dsx1lineindex', 'dsx1ifindex', 'dsx1timeelapsed', 'dsx1validintervals', 'dsx1linetype', 'dsx1linecoding', 'dsx1sendcode', 'dsx1circuitidentifier', 'dsx1loopbackconfig', 'dsx1linestatus', 'dsx1signalmode', 'dsx1transmitclocksource', 'dsx1fdl', 'dsx1invalidintervals', 'dsx1linelength', 'dsx1linestatuslastchange', 'dsx1linestatuschangetrapenable', 'dsx1loopbackstatus', 'dsx1ds1channelnumber', 'dsx1channelization'], name, value)
 
             class Dsx1Channelization(Enum):
                 """
@@ -397,9 +388,9 @@ class DS1MIB(Entity):
                 enabledDs1 = Enum.YLeaf(3, "enabledDs1")
 
 
-            class Dsx1Linecoding(Enum):
+            class Dsx1LineCoding(Enum):
                 """
-                Dsx1Linecoding (Enum Class)
+                Dsx1LineCoding (Enum Class)
 
                 This variable describes the variety of Zero Code
 
@@ -484,9 +475,9 @@ class DS1MIB(Entity):
                 dsx1B6ZS = Enum.YLeaf(7, "dsx1B6ZS")
 
 
-            class Dsx1Linestatuschangetrapenable(Enum):
+            class Dsx1LineStatusChangeTrapEnable(Enum):
                 """
-                Dsx1Linestatuschangetrapenable (Enum Class)
+                Dsx1LineStatusChangeTrapEnable (Enum Class)
 
                 Indicates whether dsx1LineStatusChange traps
 
@@ -503,9 +494,9 @@ class DS1MIB(Entity):
                 disabled = Enum.YLeaf(2, "disabled")
 
 
-            class Dsx1Linetype(Enum):
+            class Dsx1LineType(Enum):
                 """
-                Dsx1Linetype (Enum Class)
+                Dsx1LineType (Enum Class)
 
                 This variable indicates  the  variety  of  DS1
 
@@ -612,9 +603,9 @@ class DS1MIB(Entity):
                 dsx2E2 = Enum.YLeaf(11, "dsx2E2")
 
 
-            class Dsx1Loopbackconfig(Enum):
+            class Dsx1LoopbackConfig(Enum):
                 """
-                Dsx1Loopbackconfig (Enum Class)
+                Dsx1LoopbackConfig (Enum Class)
 
                 This variable represents the desired loopback
 
@@ -701,9 +692,9 @@ class DS1MIB(Entity):
                 dsx1DualLoop = Enum.YLeaf(6, "dsx1DualLoop")
 
 
-            class Dsx1Sendcode(Enum):
+            class Dsx1SendCode(Enum):
                 """
-                Dsx1Sendcode (Enum Class)
+                Dsx1SendCode (Enum Class)
 
                 This variable indicates what type of code is
 
@@ -786,9 +777,9 @@ class DS1MIB(Entity):
                 dsx1SendOtherTestPattern = Enum.YLeaf(8, "dsx1SendOtherTestPattern")
 
 
-            class Dsx1Signalmode(Enum):
+            class Dsx1SignalMode(Enum):
                 """
-                Dsx1Signalmode (Enum Class)
+                Dsx1SignalMode (Enum Class)
 
                 'none' indicates that no bits are reserved for
 
@@ -831,9 +822,9 @@ class DS1MIB(Entity):
                 other = Enum.YLeaf(5, "other")
 
 
-            class Dsx1Transmitclocksource(Enum):
+            class Dsx1TransmitClockSource(Enum):
                 """
-                Dsx1Transmitclocksource (Enum Class)
+                Dsx1TransmitClockSource (Enum Class)
 
                 The source of Transmit Clock.
 
@@ -869,7 +860,7 @@ class DS1MIB(Entity):
 
 
 
-    class Dsx1Currenttable(Entity):
+    class Dsx1CurrentTable(Entity):
         """
         The DS1 current table contains various statistics
         being collected for the current 15 minute
@@ -878,7 +869,7 @@ class DS1MIB(Entity):
         .. attribute:: dsx1currententry
         
         	An entry in the DS1 Current table
-        	**type**\: list of  		 :py:class:`Dsx1Currententry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Currenttable.Dsx1Currententry>`
+        	**type**\: list of  		 :py:class:`Dsx1CurrentEntry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1CurrentTable.Dsx1CurrentEntry>`
         
         
 
@@ -888,15 +879,14 @@ class DS1MIB(Entity):
         _revision = '1998-08-01'
 
         def __init__(self):
-            super(DS1MIB.Dsx1Currenttable, self).__init__()
+            super(DS1MIB.Dsx1CurrentTable, self).__init__()
 
             self.yang_name = "dsx1CurrentTable"
             self.yang_parent_name = "DS1-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dsx1CurrentEntry", ("dsx1currententry", DS1MIB.Dsx1Currenttable.Dsx1Currententry))])
+            self._child_classes = OrderedDict([("dsx1CurrentEntry", ("dsx1currententry", DS1MIB.Dsx1CurrentTable.Dsx1CurrentEntry))])
             self._leafs = OrderedDict()
 
             self.dsx1currententry = YList(self)
@@ -904,10 +894,10 @@ class DS1MIB(Entity):
             self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DS1MIB.Dsx1Currenttable, [], name, value)
+            self._perform_setattr(DS1MIB.Dsx1CurrentTable, [], name, value)
 
 
-        class Dsx1Currententry(Entity):
+        class Dsx1CurrentEntry(Entity):
             """
             An entry in the DS1 Current table.
             
@@ -996,15 +986,14 @@ class DS1MIB(Entity):
             _revision = '1998-08-01'
 
             def __init__(self):
-                super(DS1MIB.Dsx1Currenttable.Dsx1Currententry, self).__init__()
+                super(DS1MIB.Dsx1CurrentTable.Dsx1CurrentEntry, self).__init__()
 
                 self.yang_name = "dsx1CurrentEntry"
                 self.yang_parent_name = "dsx1CurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dsx1currentindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dsx1currentindex', YLeaf(YType.int32, 'dsx1CurrentIndex')),
                     ('dsx1currentess', YLeaf(YType.uint32, 'dsx1CurrentESs')),
@@ -1033,10 +1022,10 @@ class DS1MIB(Entity):
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1CurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DS1MIB.Dsx1Currenttable.Dsx1Currententry, ['dsx1currentindex', 'dsx1currentess', 'dsx1currentsess', 'dsx1currentsefss', 'dsx1currentuass', 'dsx1currentcsss', 'dsx1currentpcvs', 'dsx1currentless', 'dsx1currentbess', 'dsx1currentdms', 'dsx1currentlcvs'], name, value)
+                self._perform_setattr(DS1MIB.Dsx1CurrentTable.Dsx1CurrentEntry, ['dsx1currentindex', 'dsx1currentess', 'dsx1currentsess', 'dsx1currentsefss', 'dsx1currentuass', 'dsx1currentcsss', 'dsx1currentpcvs', 'dsx1currentless', 'dsx1currentbess', 'dsx1currentdms', 'dsx1currentlcvs'], name, value)
 
 
-    class Dsx1Intervaltable(Entity):
+    class Dsx1IntervalTable(Entity):
         """
         The DS1 Interval Table contains various
         statistics collected by each DS1 Interface over
@@ -1050,7 +1039,7 @@ class DS1MIB(Entity):
         .. attribute:: dsx1intervalentry
         
         	An entry in the DS1 Interval table
-        	**type**\: list of  		 :py:class:`Dsx1Intervalentry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Intervaltable.Dsx1Intervalentry>`
+        	**type**\: list of  		 :py:class:`Dsx1IntervalEntry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1IntervalTable.Dsx1IntervalEntry>`
         
         
 
@@ -1060,15 +1049,14 @@ class DS1MIB(Entity):
         _revision = '1998-08-01'
 
         def __init__(self):
-            super(DS1MIB.Dsx1Intervaltable, self).__init__()
+            super(DS1MIB.Dsx1IntervalTable, self).__init__()
 
             self.yang_name = "dsx1IntervalTable"
             self.yang_parent_name = "DS1-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dsx1IntervalEntry", ("dsx1intervalentry", DS1MIB.Dsx1Intervaltable.Dsx1Intervalentry))])
+            self._child_classes = OrderedDict([("dsx1IntervalEntry", ("dsx1intervalentry", DS1MIB.Dsx1IntervalTable.Dsx1IntervalEntry))])
             self._leafs = OrderedDict()
 
             self.dsx1intervalentry = YList(self)
@@ -1076,10 +1064,10 @@ class DS1MIB(Entity):
             self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DS1MIB.Dsx1Intervaltable, [], name, value)
+            self._perform_setattr(DS1MIB.Dsx1IntervalTable, [], name, value)
 
 
-        class Dsx1Intervalentry(Entity):
+        class Dsx1IntervalEntry(Entity):
             """
             An entry in the DS1 Interval table.
             
@@ -1180,15 +1168,14 @@ class DS1MIB(Entity):
             _revision = '1998-08-01'
 
             def __init__(self):
-                super(DS1MIB.Dsx1Intervaltable.Dsx1Intervalentry, self).__init__()
+                super(DS1MIB.Dsx1IntervalTable.Dsx1IntervalEntry, self).__init__()
 
                 self.yang_name = "dsx1IntervalEntry"
                 self.yang_parent_name = "dsx1IntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dsx1intervalindex','dsx1intervalnumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dsx1intervalindex', YLeaf(YType.int32, 'dsx1IntervalIndex')),
                     ('dsx1intervalnumber', YLeaf(YType.int32, 'dsx1IntervalNumber')),
@@ -1221,10 +1208,10 @@ class DS1MIB(Entity):
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1IntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DS1MIB.Dsx1Intervaltable.Dsx1Intervalentry, ['dsx1intervalindex', 'dsx1intervalnumber', 'dsx1intervaless', 'dsx1intervalsess', 'dsx1intervalsefss', 'dsx1intervaluass', 'dsx1intervalcsss', 'dsx1intervalpcvs', 'dsx1intervalless', 'dsx1intervalbess', 'dsx1intervaldms', 'dsx1intervallcvs', 'dsx1intervalvaliddata'], name, value)
+                self._perform_setattr(DS1MIB.Dsx1IntervalTable.Dsx1IntervalEntry, ['dsx1intervalindex', 'dsx1intervalnumber', 'dsx1intervaless', 'dsx1intervalsess', 'dsx1intervalsefss', 'dsx1intervaluass', 'dsx1intervalcsss', 'dsx1intervalpcvs', 'dsx1intervalless', 'dsx1intervalbess', 'dsx1intervaldms', 'dsx1intervallcvs', 'dsx1intervalvaliddata'], name, value)
 
 
-    class Dsx1Totaltable(Entity):
+    class Dsx1TotalTable(Entity):
         """
         The DS1 Total Table contains the cumulative sum
         of the various statistics for the 24 hour period
@@ -1233,7 +1220,7 @@ class DS1MIB(Entity):
         .. attribute:: dsx1totalentry
         
         	An entry in the DS1 Total table
-        	**type**\: list of  		 :py:class:`Dsx1Totalentry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Totaltable.Dsx1Totalentry>`
+        	**type**\: list of  		 :py:class:`Dsx1TotalEntry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1TotalTable.Dsx1TotalEntry>`
         
         
 
@@ -1243,15 +1230,14 @@ class DS1MIB(Entity):
         _revision = '1998-08-01'
 
         def __init__(self):
-            super(DS1MIB.Dsx1Totaltable, self).__init__()
+            super(DS1MIB.Dsx1TotalTable, self).__init__()
 
             self.yang_name = "dsx1TotalTable"
             self.yang_parent_name = "DS1-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dsx1TotalEntry", ("dsx1totalentry", DS1MIB.Dsx1Totaltable.Dsx1Totalentry))])
+            self._child_classes = OrderedDict([("dsx1TotalEntry", ("dsx1totalentry", DS1MIB.Dsx1TotalTable.Dsx1TotalEntry))])
             self._leafs = OrderedDict()
 
             self.dsx1totalentry = YList(self)
@@ -1259,10 +1245,10 @@ class DS1MIB(Entity):
             self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DS1MIB.Dsx1Totaltable, [], name, value)
+            self._perform_setattr(DS1MIB.Dsx1TotalTable, [], name, value)
 
 
-        class Dsx1Totalentry(Entity):
+        class Dsx1TotalEntry(Entity):
             """
             An entry in the DS1 Total table.
             
@@ -1351,15 +1337,14 @@ class DS1MIB(Entity):
             _revision = '1998-08-01'
 
             def __init__(self):
-                super(DS1MIB.Dsx1Totaltable.Dsx1Totalentry, self).__init__()
+                super(DS1MIB.Dsx1TotalTable.Dsx1TotalEntry, self).__init__()
 
                 self.yang_name = "dsx1TotalEntry"
                 self.yang_parent_name = "dsx1TotalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dsx1totalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dsx1totalindex', YLeaf(YType.int32, 'dsx1TotalIndex')),
                     ('dsx1totaless', YLeaf(YType.uint32, 'dsx1TotalESs')),
@@ -1388,10 +1373,10 @@ class DS1MIB(Entity):
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1TotalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DS1MIB.Dsx1Totaltable.Dsx1Totalentry, ['dsx1totalindex', 'dsx1totaless', 'dsx1totalsess', 'dsx1totalsefss', 'dsx1totaluass', 'dsx1totalcsss', 'dsx1totalpcvs', 'dsx1totalless', 'dsx1totalbess', 'dsx1totaldms', 'dsx1totallcvs'], name, value)
+                self._perform_setattr(DS1MIB.Dsx1TotalTable.Dsx1TotalEntry, ['dsx1totalindex', 'dsx1totaless', 'dsx1totalsess', 'dsx1totalsefss', 'dsx1totaluass', 'dsx1totalcsss', 'dsx1totalpcvs', 'dsx1totalless', 'dsx1totalbess', 'dsx1totaldms', 'dsx1totallcvs'], name, value)
 
 
-    class Dsx1Farendcurrenttable(Entity):
+    class Dsx1FarEndCurrentTable(Entity):
         """
         The DS1 Far End Current table contains various
         statistics being collected for the current 15
@@ -1403,7 +1388,7 @@ class DS1MIB(Entity):
         .. attribute:: dsx1farendcurrententry
         
         	An entry in the DS1 Far End Current table
-        	**type**\: list of  		 :py:class:`Dsx1Farendcurrententry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Farendcurrenttable.Dsx1Farendcurrententry>`
+        	**type**\: list of  		 :py:class:`Dsx1FarEndCurrentEntry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1FarEndCurrentTable.Dsx1FarEndCurrentEntry>`
         
         
 
@@ -1413,15 +1398,14 @@ class DS1MIB(Entity):
         _revision = '1998-08-01'
 
         def __init__(self):
-            super(DS1MIB.Dsx1Farendcurrenttable, self).__init__()
+            super(DS1MIB.Dsx1FarEndCurrentTable, self).__init__()
 
             self.yang_name = "dsx1FarEndCurrentTable"
             self.yang_parent_name = "DS1-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dsx1FarEndCurrentEntry", ("dsx1farendcurrententry", DS1MIB.Dsx1Farendcurrenttable.Dsx1Farendcurrententry))])
+            self._child_classes = OrderedDict([("dsx1FarEndCurrentEntry", ("dsx1farendcurrententry", DS1MIB.Dsx1FarEndCurrentTable.Dsx1FarEndCurrentEntry))])
             self._leafs = OrderedDict()
 
             self.dsx1farendcurrententry = YList(self)
@@ -1429,10 +1413,10 @@ class DS1MIB(Entity):
             self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DS1MIB.Dsx1Farendcurrenttable, [], name, value)
+            self._perform_setattr(DS1MIB.Dsx1FarEndCurrentTable, [], name, value)
 
 
-        class Dsx1Farendcurrententry(Entity):
+        class Dsx1FarEndCurrentEntry(Entity):
             """
             An entry in the DS1 Far End Current table.
             
@@ -1535,15 +1519,14 @@ class DS1MIB(Entity):
             _revision = '1998-08-01'
 
             def __init__(self):
-                super(DS1MIB.Dsx1Farendcurrenttable.Dsx1Farendcurrententry, self).__init__()
+                super(DS1MIB.Dsx1FarEndCurrentTable.Dsx1FarEndCurrentEntry, self).__init__()
 
                 self.yang_name = "dsx1FarEndCurrentEntry"
                 self.yang_parent_name = "dsx1FarEndCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dsx1farendcurrentindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dsx1farendcurrentindex', YLeaf(YType.int32, 'dsx1FarEndCurrentIndex')),
                     ('dsx1farendtimeelapsed', YLeaf(YType.int32, 'dsx1FarEndTimeElapsed')),
@@ -1576,10 +1559,10 @@ class DS1MIB(Entity):
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1FarEndCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DS1MIB.Dsx1Farendcurrenttable.Dsx1Farendcurrententry, ['dsx1farendcurrentindex', 'dsx1farendtimeelapsed', 'dsx1farendvalidintervals', 'dsx1farendcurrentess', 'dsx1farendcurrentsess', 'dsx1farendcurrentsefss', 'dsx1farendcurrentuass', 'dsx1farendcurrentcsss', 'dsx1farendcurrentless', 'dsx1farendcurrentpcvs', 'dsx1farendcurrentbess', 'dsx1farendcurrentdms', 'dsx1farendinvalidintervals'], name, value)
+                self._perform_setattr(DS1MIB.Dsx1FarEndCurrentTable.Dsx1FarEndCurrentEntry, ['dsx1farendcurrentindex', 'dsx1farendtimeelapsed', 'dsx1farendvalidintervals', 'dsx1farendcurrentess', 'dsx1farendcurrentsess', 'dsx1farendcurrentsefss', 'dsx1farendcurrentuass', 'dsx1farendcurrentcsss', 'dsx1farendcurrentless', 'dsx1farendcurrentpcvs', 'dsx1farendcurrentbess', 'dsx1farendcurrentdms', 'dsx1farendinvalidintervals'], name, value)
 
 
-    class Dsx1Farendintervaltable(Entity):
+    class Dsx1FarEndIntervalTable(Entity):
         """
         The DS1 Far End Interval Table contains various
         statistics collected by each DS1 interface over
@@ -1593,7 +1576,7 @@ class DS1MIB(Entity):
         .. attribute:: dsx1farendintervalentry
         
         	An entry in the DS1 Far End Interval table
-        	**type**\: list of  		 :py:class:`Dsx1Farendintervalentry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Farendintervaltable.Dsx1Farendintervalentry>`
+        	**type**\: list of  		 :py:class:`Dsx1FarEndIntervalEntry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1FarEndIntervalTable.Dsx1FarEndIntervalEntry>`
         
         
 
@@ -1603,15 +1586,14 @@ class DS1MIB(Entity):
         _revision = '1998-08-01'
 
         def __init__(self):
-            super(DS1MIB.Dsx1Farendintervaltable, self).__init__()
+            super(DS1MIB.Dsx1FarEndIntervalTable, self).__init__()
 
             self.yang_name = "dsx1FarEndIntervalTable"
             self.yang_parent_name = "DS1-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dsx1FarEndIntervalEntry", ("dsx1farendintervalentry", DS1MIB.Dsx1Farendintervaltable.Dsx1Farendintervalentry))])
+            self._child_classes = OrderedDict([("dsx1FarEndIntervalEntry", ("dsx1farendintervalentry", DS1MIB.Dsx1FarEndIntervalTable.Dsx1FarEndIntervalEntry))])
             self._leafs = OrderedDict()
 
             self.dsx1farendintervalentry = YList(self)
@@ -1619,10 +1601,10 @@ class DS1MIB(Entity):
             self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DS1MIB.Dsx1Farendintervaltable, [], name, value)
+            self._perform_setattr(DS1MIB.Dsx1FarEndIntervalTable, [], name, value)
 
 
-        class Dsx1Farendintervalentry(Entity):
+        class Dsx1FarEndIntervalEntry(Entity):
             """
             An entry in the DS1 Far End Interval table.
             
@@ -1716,15 +1698,14 @@ class DS1MIB(Entity):
             _revision = '1998-08-01'
 
             def __init__(self):
-                super(DS1MIB.Dsx1Farendintervaltable.Dsx1Farendintervalentry, self).__init__()
+                super(DS1MIB.Dsx1FarEndIntervalTable.Dsx1FarEndIntervalEntry, self).__init__()
 
                 self.yang_name = "dsx1FarEndIntervalEntry"
                 self.yang_parent_name = "dsx1FarEndIntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dsx1farendintervalindex','dsx1farendintervalnumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dsx1farendintervalindex', YLeaf(YType.int32, 'dsx1FarEndIntervalIndex')),
                     ('dsx1farendintervalnumber', YLeaf(YType.int32, 'dsx1FarEndIntervalNumber')),
@@ -1755,10 +1736,10 @@ class DS1MIB(Entity):
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1FarEndIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DS1MIB.Dsx1Farendintervaltable.Dsx1Farendintervalentry, ['dsx1farendintervalindex', 'dsx1farendintervalnumber', 'dsx1farendintervaless', 'dsx1farendintervalsess', 'dsx1farendintervalsefss', 'dsx1farendintervaluass', 'dsx1farendintervalcsss', 'dsx1farendintervalless', 'dsx1farendintervalpcvs', 'dsx1farendintervalbess', 'dsx1farendintervaldms', 'dsx1farendintervalvaliddata'], name, value)
+                self._perform_setattr(DS1MIB.Dsx1FarEndIntervalTable.Dsx1FarEndIntervalEntry, ['dsx1farendintervalindex', 'dsx1farendintervalnumber', 'dsx1farendintervaless', 'dsx1farendintervalsess', 'dsx1farendintervalsefss', 'dsx1farendintervaluass', 'dsx1farendintervalcsss', 'dsx1farendintervalless', 'dsx1farendintervalpcvs', 'dsx1farendintervalbess', 'dsx1farendintervaldms', 'dsx1farendintervalvaliddata'], name, value)
 
 
-    class Dsx1Farendtotaltable(Entity):
+    class Dsx1FarEndTotalTable(Entity):
         """
         The DS1 Far End Total Table contains the
         cumulative sum of the various statistics for the
@@ -1767,7 +1748,7 @@ class DS1MIB(Entity):
         .. attribute:: dsx1farendtotalentry
         
         	An entry in the DS1 Far End Total table
-        	**type**\: list of  		 :py:class:`Dsx1Farendtotalentry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Farendtotaltable.Dsx1Farendtotalentry>`
+        	**type**\: list of  		 :py:class:`Dsx1FarEndTotalEntry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1FarEndTotalTable.Dsx1FarEndTotalEntry>`
         
         
 
@@ -1777,15 +1758,14 @@ class DS1MIB(Entity):
         _revision = '1998-08-01'
 
         def __init__(self):
-            super(DS1MIB.Dsx1Farendtotaltable, self).__init__()
+            super(DS1MIB.Dsx1FarEndTotalTable, self).__init__()
 
             self.yang_name = "dsx1FarEndTotalTable"
             self.yang_parent_name = "DS1-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dsx1FarEndTotalEntry", ("dsx1farendtotalentry", DS1MIB.Dsx1Farendtotaltable.Dsx1Farendtotalentry))])
+            self._child_classes = OrderedDict([("dsx1FarEndTotalEntry", ("dsx1farendtotalentry", DS1MIB.Dsx1FarEndTotalTable.Dsx1FarEndTotalEntry))])
             self._leafs = OrderedDict()
 
             self.dsx1farendtotalentry = YList(self)
@@ -1793,10 +1773,10 @@ class DS1MIB(Entity):
             self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DS1MIB.Dsx1Farendtotaltable, [], name, value)
+            self._perform_setattr(DS1MIB.Dsx1FarEndTotalTable, [], name, value)
 
 
-        class Dsx1Farendtotalentry(Entity):
+        class Dsx1FarEndTotalEntry(Entity):
             """
             An entry in the DS1 Far End Total table.
             
@@ -1878,15 +1858,14 @@ class DS1MIB(Entity):
             _revision = '1998-08-01'
 
             def __init__(self):
-                super(DS1MIB.Dsx1Farendtotaltable.Dsx1Farendtotalentry, self).__init__()
+                super(DS1MIB.Dsx1FarEndTotalTable.Dsx1FarEndTotalEntry, self).__init__()
 
                 self.yang_name = "dsx1FarEndTotalEntry"
                 self.yang_parent_name = "dsx1FarEndTotalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dsx1farendtotalindex']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dsx1farendtotalindex', YLeaf(YType.int32, 'dsx1FarEndTotalIndex')),
                     ('dsx1farendtotaless', YLeaf(YType.uint32, 'dsx1FarEndTotalESs')),
@@ -1913,10 +1892,10 @@ class DS1MIB(Entity):
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1FarEndTotalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DS1MIB.Dsx1Farendtotaltable.Dsx1Farendtotalentry, ['dsx1farendtotalindex', 'dsx1farendtotaless', 'dsx1farendtotalsess', 'dsx1farendtotalsefss', 'dsx1farendtotaluass', 'dsx1farendtotalcsss', 'dsx1farendtotalless', 'dsx1farendtotalpcvs', 'dsx1farendtotalbess', 'dsx1farendtotaldms'], name, value)
+                self._perform_setattr(DS1MIB.Dsx1FarEndTotalTable.Dsx1FarEndTotalEntry, ['dsx1farendtotalindex', 'dsx1farendtotaless', 'dsx1farendtotalsess', 'dsx1farendtotalsefss', 'dsx1farendtotaluass', 'dsx1farendtotalcsss', 'dsx1farendtotalless', 'dsx1farendtotalpcvs', 'dsx1farendtotalbess', 'dsx1farendtotaldms'], name, value)
 
 
-    class Dsx1Fractable(Entity):
+    class Dsx1FracTable(Entity):
         """
         This table is deprecated in favour of using
         ifStackTable.
@@ -1977,7 +1956,7 @@ class DS1MIB(Entity):
         .. attribute:: dsx1fracentry
         
         	An entry in the DS1 Fractional table
-        	**type**\: list of  		 :py:class:`Dsx1Fracentry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Fractable.Dsx1Fracentry>`
+        	**type**\: list of  		 :py:class:`Dsx1FracEntry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1FracTable.Dsx1FracEntry>`
         
         	**status**\: deprecated
         
@@ -1989,15 +1968,14 @@ class DS1MIB(Entity):
         _revision = '1998-08-01'
 
         def __init__(self):
-            super(DS1MIB.Dsx1Fractable, self).__init__()
+            super(DS1MIB.Dsx1FracTable, self).__init__()
 
             self.yang_name = "dsx1FracTable"
             self.yang_parent_name = "DS1-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dsx1FracEntry", ("dsx1fracentry", DS1MIB.Dsx1Fractable.Dsx1Fracentry))])
+            self._child_classes = OrderedDict([("dsx1FracEntry", ("dsx1fracentry", DS1MIB.Dsx1FracTable.Dsx1FracEntry))])
             self._leafs = OrderedDict()
 
             self.dsx1fracentry = YList(self)
@@ -2005,10 +1983,10 @@ class DS1MIB(Entity):
             self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DS1MIB.Dsx1Fractable, [], name, value)
+            self._perform_setattr(DS1MIB.Dsx1FracTable, [], name, value)
 
 
-        class Dsx1Fracentry(Entity):
+        class Dsx1FracEntry(Entity):
             """
             An entry in the DS1 Fractional table.
             
@@ -2047,15 +2025,14 @@ class DS1MIB(Entity):
             _revision = '1998-08-01'
 
             def __init__(self):
-                super(DS1MIB.Dsx1Fractable.Dsx1Fracentry, self).__init__()
+                super(DS1MIB.Dsx1FracTable.Dsx1FracEntry, self).__init__()
 
                 self.yang_name = "dsx1FracEntry"
                 self.yang_parent_name = "dsx1FracTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['dsx1fracindex','dsx1fracnumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('dsx1fracindex', YLeaf(YType.int32, 'dsx1FracIndex')),
                     ('dsx1fracnumber', YLeaf(YType.int32, 'dsx1FracNumber')),
@@ -2068,10 +2045,10 @@ class DS1MIB(Entity):
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1FracTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DS1MIB.Dsx1Fractable.Dsx1Fracentry, ['dsx1fracindex', 'dsx1fracnumber', 'dsx1fracifindex'], name, value)
+                self._perform_setattr(DS1MIB.Dsx1FracTable.Dsx1FracEntry, ['dsx1fracindex', 'dsx1fracnumber', 'dsx1fracifindex'], name, value)
 
 
-    class Dsx1Chanmappingtable(Entity):
+    class Dsx1ChanMappingTable(Entity):
         """
         The DS1 Channel Mapping table.  This table maps a
         DS1 channel number on a particular DS3 into an
@@ -2083,7 +2060,7 @@ class DS1MIB(Entity):
         .. attribute:: dsx1chanmappingentry
         
         	An entry in the DS1 Channel Mapping table.  There is an entry in this table corresponding to each ds1 ifEntry within any interface that is channelized to the individual ds1 ifEntry level.  This table is intended to facilitate mapping from channelized interface / channel number to DS1 ifEntry.  (e.g. mapping (DS3 ifIndex, DS1 Channel Number) \-> ifIndex)  While this table provides information that can also be found in the ifStackTable and dsx1ConfigTable, it provides this same information with a single table lookup, rather than by walking the ifStackTable to find the various constituent ds1 ifTable entries, and testing various dsx1ConfigTable entries to check for the entry with the applicable DS1 channel number
-        	**type**\: list of  		 :py:class:`Dsx1Chanmappingentry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Chanmappingtable.Dsx1Chanmappingentry>`
+        	**type**\: list of  		 :py:class:`Dsx1ChanMappingEntry <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1ChanMappingTable.Dsx1ChanMappingEntry>`
         
         
 
@@ -2093,15 +2070,14 @@ class DS1MIB(Entity):
         _revision = '1998-08-01'
 
         def __init__(self):
-            super(DS1MIB.Dsx1Chanmappingtable, self).__init__()
+            super(DS1MIB.Dsx1ChanMappingTable, self).__init__()
 
             self.yang_name = "dsx1ChanMappingTable"
             self.yang_parent_name = "DS1-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([("dsx1ChanMappingEntry", ("dsx1chanmappingentry", DS1MIB.Dsx1Chanmappingtable.Dsx1Chanmappingentry))])
+            self._child_classes = OrderedDict([("dsx1ChanMappingEntry", ("dsx1chanmappingentry", DS1MIB.Dsx1ChanMappingTable.Dsx1ChanMappingEntry))])
             self._leafs = OrderedDict()
 
             self.dsx1chanmappingentry = YList(self)
@@ -2109,10 +2085,10 @@ class DS1MIB(Entity):
             self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DS1MIB.Dsx1Chanmappingtable, [], name, value)
+            self._perform_setattr(DS1MIB.Dsx1ChanMappingTable, [], name, value)
 
 
-        class Dsx1Chanmappingentry(Entity):
+        class Dsx1ChanMappingEntry(Entity):
             """
             An entry in the DS1 Channel Mapping table.  There
             is an entry in this table corresponding to each
@@ -2140,7 +2116,7 @@ class DS1MIB(Entity):
             
             	**range:** 1..2147483647
             
-            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
+            	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
             .. attribute:: dsx1ds1channelnumber  (key)
             
@@ -2149,7 +2125,7 @@ class DS1MIB(Entity):
             
             	**range:** 0..28
             
-            	**refers to**\:  :py:class:`dsx1ds1channelnumber <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1Configtable.Dsx1Configentry>`
+            	**refers to**\:  :py:class:`dsx1ds1channelnumber <ydk.models.cisco_ios_xe.DS1_MIB.DS1MIB.Dsx1ConfigTable.Dsx1ConfigEntry>`
             
             .. attribute:: dsx1chanmappedifindex
             
@@ -2166,15 +2142,14 @@ class DS1MIB(Entity):
             _revision = '1998-08-01'
 
             def __init__(self):
-                super(DS1MIB.Dsx1Chanmappingtable.Dsx1Chanmappingentry, self).__init__()
+                super(DS1MIB.Dsx1ChanMappingTable.Dsx1ChanMappingEntry, self).__init__()
 
                 self.yang_name = "dsx1ChanMappingEntry"
                 self.yang_parent_name = "dsx1ChanMappingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['ifindex','dsx1ds1channelnumber']
-                self._child_container_classes = OrderedDict([])
-                self._child_list_classes = OrderedDict([])
+                self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('ifindex', YLeaf(YType.str, 'ifIndex')),
                     ('dsx1ds1channelnumber', YLeaf(YType.str, 'dsx1Ds1ChannelNumber')),
@@ -2187,7 +2162,7 @@ class DS1MIB(Entity):
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1ChanMappingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DS1MIB.Dsx1Chanmappingtable.Dsx1Chanmappingentry, ['ifindex', 'dsx1ds1channelnumber', 'dsx1chanmappedifindex'], name, value)
+                self._perform_setattr(DS1MIB.Dsx1ChanMappingTable.Dsx1ChanMappingEntry, ['ifindex', 'dsx1ds1channelnumber', 'dsx1chanmappedifindex'], name, value)
 
     def clone_ptr(self):
         self._top_entity = DS1MIB()

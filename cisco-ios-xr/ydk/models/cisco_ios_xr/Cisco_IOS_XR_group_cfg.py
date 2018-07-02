@@ -41,8 +41,7 @@ class Groups(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([("group", ("group", Groups.Group))])
+        self._child_classes = OrderedDict([("group", ("group", Groups.Group))])
         self._leafs = OrderedDict()
 
         self.group = YList(self)
@@ -78,8 +77,7 @@ class Groups(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['group_name']
-            self._child_container_classes = OrderedDict([])
-            self._child_list_classes = OrderedDict([])
+            self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
                 ('group_name', YLeaf(YType.str, 'group-name')),
             ])
@@ -121,8 +119,7 @@ class ApplyGroups(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_container_classes = OrderedDict([])
-        self._child_list_classes = OrderedDict([])
+        self._child_classes = OrderedDict([])
         self._leafs = OrderedDict([
             ('apply_group', YLeaf(YType.str, 'apply-group')),
         ])
